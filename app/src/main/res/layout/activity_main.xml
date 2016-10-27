@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainRelativeLayoutGame"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/linearLayout">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/mainTextViewTime"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="5dp"
+            android:maxLines="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/mainTextViewScore"
+
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp"
+            android:maxLines="1" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000000"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+        </FrameLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonMainAutoComplete"
+            android:layout_above="@+id/mainTextViewTime"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button"
+            android:onClick="menuClick"
+            android:text="@string/autoComplete_text"
+            android:visibility="gone"
+            android:layout_marginBottom="15dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#e7e7e7"
+    android:gravity="center"
+    android:baselineAligned="false"
+    android:visibility="visible"
+    android:padding="5dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:id="@+id/linearLayout">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/mainButtonScores"
+            android:src="@drawable/highscores"
+            android:onClick="menuClick"
+            android:layout_weight="1"
+            android:background="@drawable/button_menu"
+            android:contentDescription="@string/menu_scores"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/mainButtonHint"
+            android:src="@drawable/hint"
+            android:onClick="menuClick"
+            android:background="@drawable/button_menu"
+            android:layout_weight="1"
+            android:contentDescription="@string/menu_hint"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/mainButtonRestart"
+            android:src="@drawable/restart"
+            android:onClick="menuClick"
+            android:background="@drawable/button_menu"
+            android:layout_weight="1"
+            android:contentDescription="@string/menu_restart"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/mainButtonUndo"
+            android:src="@drawable/undo"
+            android:onClick="menuClick"
+            android:background="@drawable/button_menu"
+            android:layout_weight="1"
+            android:contentDescription="@string/menu_undo"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/mainButtonSettings"
+            android:src="@drawable/settings"
+            android:onClick="menuClick"
+            android:background="@drawable/button_menu"
+            android:layout_weight="1"
+            android:contentDescription="@string/menu_settings"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/menu_scores"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            style="@android:style/TextAppearance.Small"
+            android:layout_weight="1"
+            android:maxLines="1" />
+
+        <TextView
+            style="@android:style/TextAppearance.Small"
+            android:text="@string/menu_hint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:maxLines="1" />
+
+        <TextView
+            android:text="@string/menu_restart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            style="@android:style/TextAppearance.Small"
+            android:layout_weight="1"
+            android:maxLines="1" />
+
+        <TextView
+            android:text="@string/menu_undo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            style="@android:style/TextAppearance.Small"
+            android:layout_weight="1"
+            android:maxLines="1" />
+
+        <TextView
+            android:text="@string/menu_settings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            style="@android:style/TextAppearance.Small"
+            android:layout_weight="1"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</RelativeLayout>

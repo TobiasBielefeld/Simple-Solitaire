@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_Text1">entwickelt von Tobias Bielefeld</string>
+    <string name="about_Text2">Danke fürs Spielen :)</string>
+    <string name="about_Text3">Bilder ursprünglich veröffentlicht auf:</string>
+    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">unter der CC0 Lizens</a></string>
+    <string name="about_programm_code_text">SourceCode erhältlich auf:</string>
+
+    <string name="about_name">Über das Spiel</string>
+    <string name="scores_name">High Scores</string>
+    <string name="scores_score">Score</string>
+    <string name="scores_time">Zeit</string>
+    <string name="settings_background_clour">Hintergrundfarbe</string>
+    <string name="settings_hide_status_bar">Statusleiste verbergen</string>
+    <string name="settings_left_handed_mode">Linkshändler Modus</string>
+    <string name="settings_cards">Karten</string>
+    <string name="settings_cards_back">Kartenhintergrund</string>
+    <string name="settings_classic">Klassisch</string>
+    <string name="settings_modern">Modern</string>
+    <string name="settings_simple">Einfach</string>
+    <string name="settings_abstract">Abstrakt</string>
+    <string name="highScoresButtonDelete">Alle Einträge löschen!</string>
+    <string name="high_scores_games_won">Spiele gewonnen</string>
+    <string name="game_press_again">Zum Beenden erneut drücken</string>
+    <string name="settings_back_press">Beenden des Spiels bestätigen</string>
+    <string name="highScoresButtonDelete_text">Alle Einträge löschen! Bist du dir sicher?</string>
+    <string name="highScoresButtonDeleted_all_entries">Alle Einträge gelöscht</string>
+    <string name="autoComplete_text">Autovervollständigen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="confirm">Bestätigen</string>
+    <string name="settings_dark">Dunkel</string>
+    <string name="about_tab_1">Informationen</string>
+    <string name="about_tab_3">Änderungen</string>
+    <string name="about_tab_2">Lizenz</string>
+    <string name="game_load_error">Laden der Daten ist fehlgeschlagen, starte neues Spiel…</string>
+    <string name="settings_customization">Individualisieren</string>
+    <string name="settings_other">Andere Einstellungen</string>
+    <string name="settings_back_press_description">Zum Beenden Zurück Taste zwei mal drücken</string>
+    <string name="settings_left_handed_mode_description">Spiegelt die Karten und Stapel Positionen zur linken Seite</string>
+    <string name="settings_background">Hintergrund Nummer</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="about_license_top_text">Dieses Spiel wurde unter der GPL 3.0 Lizenz veröffentlicht:</string>
+    <string name="about_description">Zeige Informationen über das Spiel wie Lizenzen und Änderungen</string>
+
+</resources>

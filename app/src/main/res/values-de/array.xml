@@ -1,0 +1,17 @@
+<resources>
+
+    <string-array name="restart_menu">
+        <item>Neues Spiel starten</item>
+        <item>Karten erneut geben</item>
+    </string-array>
+
+    <string-array name="pref_background_colors_titles">
+        <item>Blau</item>
+        <item>Grün</item>
+        <item>Rot</item>
+        <item>Gelb</item>
+        <item>Orange</item>
+        <item>Violett</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name" translatable="false">Simple Solitaire</string>
+    <string name="app_version" translatable="false">Version</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="autoComplete_text">Autocomplete</string>
+    <string name="game_press_again">Press again to exit</string>
+    <string name="game_load_error">Loading data failed, starting new game…</string>
+
+    <!-- Scores -->
+    <string name="scores_name">High Scores</string>
+    <string name="scores_score">Score</string>
+    <string name="scores_time">Time</string>
+
+    <!-- About -->
+    <string name="about_name">About Game</string>
+    <string name="about_Text1">developed by Tobias Bielefeld</string>
+    <string name="about_Text2">thanks for playing my game :)</string>
+    <string name="about_Text3">pictures originally published on:</string>
+    <string name="about_Text4" translatable="false">www.pixabay.com</string>
+    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">under the CC0 license</a></string>
+    <string name="about_tab_1">Information</string>
+    <string name="about_tab_2">License</string>
+    <string name="about_tab_3">Changelog</string>
+    <string name="about_build_date" translatable="false">Build date</string>
+    <string name="about_license_top_text">This game is published under the GPL 3.0 license:</string>
+    <string name="about_programm_code_text">Source code available on:</string>
+    <string name="about_programm_code_text2" translatable="false"><a href="https://github.com/TobiasBielefeld/Simple-Solitaire">GitHub</a></string>
+
+    <!-- Menu -->
+    <string name="menu_scores" translatable="false">Scores</string>
+    <string name="menu_undo" translatable="false">Undo</string>
+    <string name="menu_hint" translatable="false">Hint</string>
+    <string name="menu_restart" translatable="false">Restart</string>
+    <string name="menu_settings" translatable="false">Settings</string>
+    <string name="menu_about" translatable="false">About</string>
+
+    <!-- highscores -->
+    <string name="high_scores_games_won">Games won</string>
+    <string name="highScoresButtonDelete">Delete all entries!</string>
+    <string name="highScoresButtonDelete_text">Delete all entries! Are you sure?</string>
+    <string name="highScoresButtonDeleted_all_entries">Deleted all entries</string>
+
+    <!-- Settings -->
+    <string name="settings_background_clour">Background colour</string>
+    <string name="settings_hide_status_bar">Hide status bar</string>
+    <string name="settings_left_handed_mode">Left handed mode</string>
+    <string name="settings_left_handed_mode_description">Mirrors the card and stack positions to the left side</string>
+    <string name="settings_back_press">Confirm closing game</string>
+    <string name="settings_back_press_description">Press back button twice to close game</string>
+    <string name="settings_cards">Cards</string>
+    <string name="settings_classic">Classic</string>
+    <string name="settings_simple">Simple</string>
+    <string name="settings_cards_back">Card backgrounds</string>
+    <string name="settings_modern">Modern</string>
+    <string name="settings_abstract">Abstract</string>
+    <string name="settings_dark">Dark</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="settings_customization">Customization</string>
+    <string name="settings_other">Other settings</string>
+
+    <string name="pref_key_customization" translatable="false">pref_key_customization</string>
+    <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
+    <string name="pref_key_cards" translatable="false">pref_key_cards</string>
+    <string name="pref_key_cards_background" translatable="false">pref_key_cards_background</string>
+    <string name="pref_key_other" translatable="false">pref_key_other</string>
+    <string name="pref_key_hide_status_bar" translatable="false">pref_key_hide_status_bar</string>
+    <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
+    <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
+
+
+    <string name="settings_background">Background number</string>
+    <string name="about_description">Show information about the game like licenses and changelog</string>
+    <string name="pref_key_about" translatable="false">pref_key_about</string>
+
+
+</resources>

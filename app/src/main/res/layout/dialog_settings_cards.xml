@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="20dp"
+    android:padding="10dp"
+    android:measureWithLargestChild="false"
+    android:gravity="center"
+    android:baselineAligned="false" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:baselineAligned="false"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#d2d2d2"
+                android:layout_marginRight="2dp"
+                android:padding="5dp"
+                android:id="@+id/settingsLinearLayoutCardsClassic">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/classic_diamonds_10"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_classic"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/classic_diamonds_13"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_classic"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/settings_classic"
+                    android:gravity="center"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#d2d2d2"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:padding="5dp"
+                android:id="@+id/settingsLinearLayoutCardsAbstract">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/abstract_diamonds_10"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_abstract"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/abstract_diamonds_13"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_abstract"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/settings_abstract"
+                    android:gravity="center"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#d2d2d2"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:padding="5dp"
+                android:id="@+id/settingsLinearLayoutCardsSimple">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/simple_diamonds_10"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_simple"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/simple_diamonds_13"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_simple"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/settings_simple"
+                    android:gravity="center"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:baselineAligned="false"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#d2d2d2"
+                android:layout_marginRight="2dp"
+                android:padding="5dp"
+                android:id="@+id/settingsLinearLayoutCardsModern" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/modern_diamonds_1"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_modern"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/modern_diamonds_10"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_modern"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/modern_diamonds_13"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_modern"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/settings_modern"
+                    android:gravity="center"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#d2d2d2"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:padding="5dp"
+                android:id="@+id/settingsLinearLayoutCardsDark" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/dark_diamonds_1"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_dark"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/dark_diamonds_10"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_dark"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/dark_diamonds_13"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_dark"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/settings_dark"
+                    android:gravity="center"
+                    android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

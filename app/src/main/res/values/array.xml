@@ -1,0 +1,26 @@
+<resources>
+
+    <string-array name="restart_menu">
+        <item>Start new game</item>
+        <item>Re-deal cards</item>
+    </string-array>
+
+    <string-array name="pref_background_colors_titles">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Yellow</item>
+        <item>Orange</item>
+        <item>Purple</item>
+    </string-array>
+
+    <string-array name="pref_background_colors_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+</resources>
