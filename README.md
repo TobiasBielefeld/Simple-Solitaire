@@ -2,6 +2,7 @@
 ![license](http://img.shields.io/badge/license-GPLv3-brightgreen.svg)
 ![platform](http://img.shields.io/badge/platform-Android-blue.svg)
 #Simple Solitaire
+You can find screenshots for phones and tablets [here](./Pictures/Screenshots)
 
 I learned Android and Java by myself using e-books and browsing Stack Overflow for solutions, so please don't expect too much from my source code :D
 
@@ -47,4 +48,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
 ```
-The pictures used in this project were originally published on https://pixabay.com/ under the CC0 license!
+The pictures used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
+
+You can download the used pictures in the original solution from my [pictures directory](./Pictures)
