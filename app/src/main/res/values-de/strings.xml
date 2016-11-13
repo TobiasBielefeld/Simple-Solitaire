@@ -41,5 +41,6 @@
     <string name="title_activity_settings">Einstellungen</string>
     <string name="about_license_top_text">Dieses Spiel wurde unter der GPL 3.0 Lizenz veröffentlicht:</string>
     <string name="about_description">Zeige Informationen über das Spiel wie Lizenzen und Änderungen</string>
+    <string name="settings_orientation">Bildschirmausrichtung</string>
 
 </resources>

@@ -53,7 +53,7 @@ public class AutoComplete {
         mCurrentTime = START_TIME;                                                                  //reset the velocity
         mRunning = true;                                                                            //set it to mRunning
         editor.putInt(AUTO_COMPLETE_SHOWN,2).apply();
-        main_activity.buttonAutoComplete.setVisibility(View.GONE);
+        mainActivity.buttonAutoComplete.setVisibility(View.GONE);
         mAutoCompleteHandler.sendEmptyMessage(0);                                                   //and start it
     }
 

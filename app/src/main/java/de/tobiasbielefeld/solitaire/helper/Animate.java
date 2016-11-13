@@ -38,7 +38,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Animate {
 
-    private int mCardIsAnimating=0;                                                                   //if greater than zero, some card is animating
+    private int mCardIsAnimating=0;                                                                 //if greater than zero, some card is animating
 
     void wonAnimation() {                                                                           //animation played when game is won. it flies cards out the screen
         int direction = 0;                                                                          //direction is the side of the screen (right, left or bottom)
@@ -47,20 +47,20 @@ public class Animate {
         for (Card card : cards) {                                                                   //use every card
             switch (direction) {
                 case 0: default:                                                                    //right side
-                    card.setLocation(main_activity.layoutGame.getWidth(), counter);
+                    card.setLocation(mainActivity.layoutGame.getWidth(), counter);
                     counter += Card.sHeight;
 
-                    if (counter >= main_activity.layoutGame.getHeight()) {                          //if the counter reached the maximum height, switch to the next side
+                    if (counter >= mainActivity.layoutGame.getHeight()) {                          //if the counter reached the maximum height, switch to the next side
                         direction = 1;
                         counter = 0;
                     }
 
                     break;
                 case 1:                                                                             //bottom side
-                    card.setLocation(counter, main_activity.layoutGame.getHeight() + Card.sHeight);
+                    card.setLocation(counter, mainActivity.layoutGame.getHeight() + Card.sHeight);
                     counter += Card.sWidth;
 
-                    if (counter >= main_activity.layoutGame.getWidth()) {                           //if the counter reached the maximum width, switch to the next side
+                    if (counter >= mainActivity.layoutGame.getWidth()) {                            //if the counter reached the maximum width, switch to the next side
                         direction = 2;
                         counter = 0;
                     }
@@ -70,7 +70,7 @@ public class Animate {
                     card.setLocation(-Card.sWidth, counter);
                     counter += Card.sHeight;
 
-                    if (counter >= main_activity.layoutGame.getHeight()) {                          //if the counter reached the maximum height, switch to the next side
+                    if (counter >= mainActivity.layoutGame.getHeight()) {                           //if the counter reached the maximum height, switch to the next side
                         direction = 0;
                         counter = 0;
                     }
@@ -80,7 +80,7 @@ public class Animate {
         }
     }
 
-    void cardHint(final Card card, final int offset, final Stack stack) {                    //animation for card hints, they are moved to the destination stack, faded out and faded in on the origin stack
+    void cardHint(final Card card, final int offset, final Stack stack) {                           //animation for card hints, they are moved to the destination stack, faded out and faded in on the origin stack
         card.mView.bringToFront();                                                                  //first bring the card to front
         card.saveOldLocation();                                                                     //save the old location
         float dist_x = stack.mView.getX() - card.mView.getX();                                      //get the distance in x and y...
@@ -114,7 +114,7 @@ public class Animate {
 
     private void hideCard(final Card card) {                                                        //fade a card out, and start the show animation afterwards
         Animation card_fade_out = AnimationUtils.loadAnimation(                                     //make new fade out animation
-                main_activity.getApplicationContext(), R.anim.card_fade_out);
+                mainActivity.getApplicationContext(), R.anim.card_fade_out);
 
         card_fade_out.setAnimationListener(new Animation.AnimationListener() {                      //add a animation listener which hides the card after the animation
             public void onAnimationStart(Animation animation) {
@@ -134,7 +134,7 @@ public class Animate {
 
     private void showCard(final Card card) {
         Animation card_fade_in = AnimationUtils.loadAnimation(                                      //new fade in animation
-                main_activity.getApplicationContext(), R.anim.card_fade_in);
+                mainActivity.getApplicationContext(), R.anim.card_fade_in);
 
         card_fade_in.setAnimationListener(new Animation.AnimationListener() {                       //add a listener
             public void onAnimationStart(Animation animation) {                                     //return to the old position and make the card visible
@@ -194,7 +194,7 @@ public class Animate {
 
     public void flipCard(final Card card, final boolean mode) {                                     //first part of the flip animation
         AnimatorSet shrinkSet = (AnimatorSet) AnimatorInflater.loadAnimator(
-                main_activity, R.animator.card_to_middle);
+                mainActivity, R.animator.card_to_middle);
         shrinkSet.addListener(new Animator.AnimatorListener() {
             public void onAnimationStart(Animator animation) {
             }
@@ -216,7 +216,7 @@ public class Animate {
 
     private void flipCard2(final Card card, final boolean mode) {                                   //second part of the flip animation
         AnimatorSet growSet = (AnimatorSet) AnimatorInflater.loadAnimator(
-                main_activity, R.animator.card_from_middle);
+                mainActivity, R.animator.card_from_middle);
         growSet.addListener(new Animator.AnimatorListener() {
             public void onAnimationStart(Animator animation) {
                 if (mode)   //flip up
@@ -241,12 +241,12 @@ public class Animate {
 
     void showAutoCompleteButton() {
         Animation fade_in = AnimationUtils.loadAnimation(                                           //new fade in animation
-                main_activity.getApplicationContext(), R.anim.button_fade_in);
+                mainActivity.getApplicationContext(), R.anim.button_fade_in);
 
         fade_in.setAnimationListener(new Animation.AnimationListener() {                            //add a listener
             public void onAnimationStart(Animation animation) {                                     //return to the old position and make the card visible
 
-                main_activity.buttonAutoComplete.setVisibility(View.VISIBLE);
+                mainActivity.buttonAutoComplete.setVisibility(View.VISIBLE);
             }
 
             public void onAnimationEnd(Animation animation) {}
@@ -254,6 +254,6 @@ public class Animate {
             public void onAnimationRepeat(Animation animation) {}
         });
 
-        main_activity.buttonAutoComplete.startAnimation(fade_in);                                   //start animation
+        mainActivity.buttonAutoComplete.startAnimation(fade_in);                                   //start animation
     }
 }

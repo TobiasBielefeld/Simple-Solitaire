@@ -36,7 +36,7 @@ import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Timer;
 
 /*
- * static data which is shared across the whole project
+ * static data which is shared across the whole project, i like this more than passing stuff around
  */
 
 public class SharedData {
@@ -57,7 +57,7 @@ public class SharedData {
     public static SharedPreferences savedData;                                                      //sharedPref to load and save SharedData
     public static SharedPreferences.Editor editor;                                                  //editor to get rid off some faulty behavior
     private static Toast toast;
-    public static Main main_activity;                                                               //used to call getString or something like that from the helper classes
+    public static Main mainActivity;                                                                //used to call getString or something like that from the helper classes
 
     public static void moveToStack(Card card, Stack destination) {                                  //single card movement without option
         moveToStack(card, destination, 0);                                                          //call moveToStack with option 0
@@ -95,7 +95,7 @@ public class SharedData {
 
     public static void showToast(String text) {                                                     //simple function to show a new toast text
         if (toast == null)
-            toast = Toast.makeText(main_activity, text, Toast.LENGTH_SHORT);                        //initialize toast
+            toast = Toast.makeText(mainActivity, text, Toast.LENGTH_SHORT);                         //initialize toast
         else
             toast.setText(text);
 

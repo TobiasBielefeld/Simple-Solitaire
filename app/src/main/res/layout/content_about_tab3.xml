@@ -9,7 +9,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:text="Ver. 1.4"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fixed an error when deleting high scores"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Added an option to set screen orientation"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Ver. 1.3"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="normal|bold" />
@@ -30,13 +49,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Game is now licensed under GPL 3.0!"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginBottom="20dp" />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="Ver. 1.2"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="normal|bold" />
@@ -58,12 +77,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Drawable updates for foundation and stock"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="Ver. 1.1"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="normal|bold" />
@@ -72,12 +91,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Improved settings"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="Ver. 1.0"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="normal|bold" />

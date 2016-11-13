@@ -205,7 +205,7 @@ public class Scores {
     }
 
     private void output() {                                                                         //updates the textView
-        main_activity.mainTextViewScore.setText(String.format("%s: %s",
-                    main_activity.getString(R.string.scores_score), mScore));
+        mainActivity.mainTextViewScore.setText(String.format("%s: %s",
+                    mainActivity.getString(R.string.scores_score), mScore));
     }
 }

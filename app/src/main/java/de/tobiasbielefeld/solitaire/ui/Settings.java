@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.support.v7.app.ActionBar;
@@ -37,7 +38,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 /*
  * Settings activity created from "New Settings Activity" Tool from Android Studio.
  * But i removed the multi pane fragment stuff because i had problems with it and i think it's
- * not necessary for my 6 settings. So i add the preferences in onCreate and use a
+ * not necessary for my 7 settings. So i add the preferences in onCreate and use a
  * onSharedPreferenceChanged Listener for updating the game.
  *
  * I use 2 custom dialogs for the card drawables and background drawables, therefore they have
@@ -49,7 +50,6 @@ public class Settings extends AppCompatPreferenceActivity
         implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener{
 
     private Preference preferenceCards, preferenceCardsBackground;                                  //my custom preferences
-    private Preference preferenceAbout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,7 @@ public class Settings extends AppCompatPreferenceActivity
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
         addPreferencesFromResource(R.xml.pref_settings);
         showOrHideStatusBar();
+        setOrientation();
 
          /* set a nice back arrow in the actionBar */
         ActionBar actionBar = getSupportActionBar();
@@ -66,12 +67,21 @@ public class Settings extends AppCompatPreferenceActivity
         /* initialize the custom preferences */
         preferenceCards = findPreference(getString(R.string.pref_key_cards));
         preferenceCardsBackground = findPreference(getString(R.string.pref_key_cards_background));
-        preferenceAbout = findPreference(getString(R.string.pref_key_about));
+        Preference preferenceAbout = findPreference(getString(R.string.pref_key_about));
         preferenceAbout.setOnPreferenceClickListener(this);
 
         /* set default values for summary of custom preferences*/
         setPreferenceCardsSummary();
         setPreferenceCardsBackgroundSummary();
+
+        //if user set another orientation, the orientation will change and the intent gets lost,
+        //so load the data from it through savedInstance
+        if(savedInstanceState!=null){
+            if (savedInstanceState.getInt(getString(R.string.pref_key_orientation))>0) {
+                getIntent().putExtra(getString(R.string.pref_key_orientation), 1);
+                setResult(RESULT_OK, getIntent());
+            }
+        }
     }
 
     @Override
@@ -94,6 +104,7 @@ public class Settings extends AppCompatPreferenceActivity
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
         switch (key) {
             case "pref_key_background_color":
                 getIntent().putExtra(getString(R.string.pref_key_background_color), 1);
@@ -112,14 +123,18 @@ public class Settings extends AppCompatPreferenceActivity
                 break;
             case "pref_key_left_handed_mode":
                 for (int i = 0; i <= 12; i++) {                                                     //update the card and stack positions
-                    stacks[i].mView.setX(main_activity.layoutGame.getWidth() - stacks[i].mView.getX() - Card.sWidth);
+                    stacks[i].mView.setX(mainActivity.layoutGame.getWidth() - stacks[i].mView.getX() - Card.sWidth);
 
                     for (int j = 0; j < stacks[i].getSize(); j++) {
                         Card card = stacks[i].getCard(j);
-                        card.setLocationWithoutMovement(main_activity.layoutGame.getWidth() -       //new position is layout width - current position - card width.
+                        card.setLocationWithoutMovement(mainActivity.layoutGame.getWidth() -       //new position is layout width - current position - card width.
                                 card.mView.getX() - Card.sWidth, card.mView.getY());
                     }
                 }
+                break;
+            case "pref_key_orientation":
+                setOrientation();
+                getIntent().putExtra(getString(R.string.pref_key_orientation),1);
                 break;
         }
 
@@ -167,5 +182,32 @@ public class Settings extends AppCompatPreferenceActivity
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
         else
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
+    private void setOrientation() {
+        switch (savedData.getString("pref_key_orientation","1")){
+            case "1": //follow system settings
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+                break;
+            case "2": //portrait
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                break;
+            case "3": //landscape
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                break;
+            case "4": //landscape upside down
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                break;
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        //With that the intent doesnt get lost on orientation change, put it in bundle and load it in onCreate
+        if (getIntent().getIntExtra(getString(R.string.pref_key_orientation), 0) > 0) {
+            outState.putInt(getString(R.string.pref_key_orientation),1);
+        }
     }
 }

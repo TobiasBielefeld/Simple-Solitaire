@@ -49,6 +49,7 @@
     <string name="settings_left_handed_mode_description">Mirrors the card and stack positions to the left side</string>
     <string name="settings_back_press">Confirm closing game</string>
     <string name="settings_back_press_description">Press back button twice to close game</string>
+    <string name="settings_orientation">Screen orientation</string>
     <string name="settings_cards">Cards</string>
     <string name="settings_classic">Classic</string>
     <string name="settings_simple">Simple</string>
@@ -68,6 +69,7 @@
     <string name="pref_key_hide_status_bar" translatable="false">pref_key_hide_status_bar</string>
     <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
     <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
+    <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
 
 
     <string name="settings_background">Background number</string>

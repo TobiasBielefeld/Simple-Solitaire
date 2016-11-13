@@ -19,6 +19,7 @@
 package de.tobiasbielefeld.solitaire.ui;
 
 import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -68,6 +69,8 @@ public class About extends AppCompatActivity {
         if (savedData.getBoolean(getString(R.string.pref_key_hide_status_bar), false))              //if fullscreen was saved, set it
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setOrientation();                                                                           //orientation according to preference
 
 
         if (host != null) {                                                                         //initialize the host tab views
@@ -134,5 +137,22 @@ public class About extends AppCompatActivity {
             }
         }
         return bReturn;
+    }
+
+    private void setOrientation() {
+        switch (savedData.getString("pref_key_orientation","1")){
+            case "1": //follow system settings
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+                break;
+            case "2": //portrait
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                break;
+            case "3": //landscape
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                break;
+            case "4": //landscape upside down
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                break;
+        }
     }
 }

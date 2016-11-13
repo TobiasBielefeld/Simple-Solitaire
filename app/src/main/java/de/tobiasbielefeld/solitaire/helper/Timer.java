@@ -43,8 +43,8 @@ public class Timer {
     private TimerHandler mTimerHandler = new TimerHandler();                                        //handler to show the current time
 
     private void output() {                                                                         //writes the time to the textView
-        main_activity.mainTextViewTime.setText(String.format(Locale.getDefault(),                   //write then current time to the textView
-                "%s: %02d:%02d:%02d",main_activity.getString(R.string.scores_time),                 //text with "Score:"
+        mainActivity.mainTextViewTime.setText(String.format(Locale.getDefault(),                   //write then current time to the textView
+                "%s: %02d:%02d:%02d",mainActivity.getString(R.string.scores_time),                 //text with "Score:"
                 mCurrentTime / 3600, (mCurrentTime % 3600) / 60, (mCurrentTime % 60)));             //in hours:minutes:seconds format
     }
 

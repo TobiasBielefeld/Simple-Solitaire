@@ -22,12 +22,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -62,7 +64,7 @@ public class Main extends AppCompatActivity implements View.OnTouchListener {
         super.onCreate(savedInstanceState);                                                         //initialize stuff
         setContentView(R.layout.activity_main);
 
-        main_activity = this;
+        mainActivity = this;
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);                    //set layout
         mainTextViewTime = (TextView) findViewById(R.id.mainTextViewTime);
         mainTextViewScore = (TextView) findViewById(R.id.mainTextViewScore);
@@ -111,6 +113,7 @@ public class Main extends AppCompatActivity implements View.OnTouchListener {
 
         loadBackgroundColor();
         showOrHideStatusBar();
+        setOrientation();
     }
 
     @Override
@@ -149,12 +152,19 @@ public class Main extends AppCompatActivity implements View.OnTouchListener {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (data.getIntExtra(getString(R.string.pref_key_background_color), 0) > 0)
-                loadBackgroundColor();
 
-            if (data.getIntExtra(getString(R.string.pref_key_hide_status_bar), 0) > 0)
+        if (resultCode == RESULT_OK) {
+            if (data.getIntExtra(getString(R.string.pref_key_background_color), 0) > 0) {
+                loadBackgroundColor();
+            }
+
+            if (data.getIntExtra(getString(R.string.pref_key_hide_status_bar), 0) > 0) {
                 showOrHideStatusBar();
+            }
+
+            if (data.getIntExtra(getString(R.string.pref_key_orientation), 0) > 0) {
+                setOrientation();
+            }
         }
     }
 
@@ -339,6 +349,23 @@ public class Main extends AppCompatActivity implements View.OnTouchListener {
                     });
 
             return builder.create();
+        }
+    }
+
+    private void setOrientation() {
+        switch (savedData.getString("pref_key_orientation","1")){
+            case "1": //follow system settings
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+                break;
+            case "2": //portrait
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                break;
+            case "3": //landscape
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                break;
+            case "4": //landscape upside down
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                break;
         }
     }
 }

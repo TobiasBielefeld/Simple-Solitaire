@@ -87,7 +87,7 @@ public class Game {
                 mRandomCards[i] = cards[savedData.getInt(GAME_RANDOM_CARDS_ + i, -1)];
 
             for (Card card : cards)
-                card.setLocationWithoutMovement(main_activity.layoutGame.getWidth(), 0);
+                card.setLocationWithoutMovement(mainActivity.layoutGame.getWidth(), 0);
         } else {                                                                                    //else load data
             try {
                 for (Card card : cards)                                                             //set all cards to the stock, so they are dealt from there, looks better :)
@@ -107,10 +107,10 @@ public class Game {
                     mRandomCards[i] = cards[savedData.getInt(GAME_RANDOM_CARDS_ + i, -1)];
 
                 if (savedData.getInt(AUTO_COMPLETE_SHOWN,0)>0)                                      //show autocomplete button if it was shown (occures when rotating screen while auto complete is running)
-                   main_activity.buttonAutoComplete.setVisibility(View.VISIBLE);
+                   mainActivity.buttonAutoComplete.setVisibility(View.VISIBLE);
             } catch (Exception e) {                                                                 //if something went wrong
                 Log.e("Loading data failed", "Some data wasn't saved properly");
-                showToast(main_activity.getString(R.string.game_load_error));
+                showToast(mainActivity.getString(R.string.game_load_error));
                 newGame();                                                                          //just start a new game
             }
         }
@@ -129,7 +129,7 @@ public class Game {
 
         if (savedData.getInt(AUTO_COMPLETE_SHOWN,0)>0) {
             editor.putInt(AUTO_COMPLETE_SHOWN, 0).apply();
-            main_activity.buttonAutoComplete.setVisibility(View.GONE);
+            mainActivity.buttonAutoComplete.setVisibility(View.GONE);
         }
 
         for (Card card : cards)                                                                     //set all cards to the stock, so they are dealt from there, looks better :)

@@ -33,6 +33,16 @@
     <PreferenceCategory
         android:title="@string/settings_other">
 
+        <ListPreference
+            android:key="@string/pref_key_orientation"
+            android:defaultValue="1"
+            android:entries="@array/pref_orientation_titles"
+            android:entryValues="@array/pref_orientation_values"
+            android:negativeButtonText="@string/cancel"
+            android:positiveButtonText="@null"
+            android:title="@string/settings_orientation"
+            android:summary="%s"/>
+
         <CheckBoxPreference
             android:key="@string/pref_key_hide_status_bar"
             android:defaultValue="false"
