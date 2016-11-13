@@ -16,6 +16,7 @@
  * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
  */
 
+
 package de.tobiasbielefeld.solitaire.ui;
 
 import android.app.AlertDialog;

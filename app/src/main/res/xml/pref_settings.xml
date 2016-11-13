@@ -67,4 +67,5 @@
             android:title="@string/about_name"
             android:summary="@string/about_description"/>
 
+
 </PreferenceScreen>
