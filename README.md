@@ -56,3 +56,10 @@ If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
 The pictures used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
 You can download the used pictures in the original solution from my [pictures directory](./Pictures)
+
+## To-Do List
+
+- [ ] Add more card drawables. Like the cards from KPatience, especially the Tux cards. But i don't find them anywhere...
+- [ ] Add more games (frecell, spider and yukon)
+- [ ] Improve the settings to use fragments
+
