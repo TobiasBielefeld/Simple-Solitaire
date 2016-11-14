@@ -52,5 +52,7 @@
 
     <string name="settings_background">背景の番号</string>
     <string name="about_description">ライセンスや変更履歴など、ゲームに関する情報を表示します</string>
+    <string name="japaneseTranslation1">の日本語訳：</string>
+    <string name="japaneseTranslation2">GitHub ユーザー naofum</string>
 
 </resources>

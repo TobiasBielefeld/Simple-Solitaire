@@ -27,6 +27,8 @@
     <string name="about_license_top_text">This game is published under the GPL 3.0 license:</string>
     <string name="about_programm_code_text">Source code available on:</string>
     <string name="about_programm_code_text2" translatable="false"><a href="https://github.com/TobiasBielefeld/Simple-Solitaire">GitHub</a></string>
+    <string name="japaneseTranslation1">Japanese translation by:</string>
+    <string name="japaneseTranslation2">GitHub User naofum</string>
 
     <!-- Menu -->
     <string name="menu_scores" translatable="false">Scores</string>
@@ -34,7 +36,6 @@
     <string name="menu_hint" translatable="false">Hint</string>
     <string name="menu_restart" translatable="false">Restart</string>
     <string name="menu_settings" translatable="false">Settings</string>
-    <string name="menu_about" translatable="false">About</string>
 
     <!-- highscores -->
     <string name="high_scores_games_won">Games won</string>
@@ -71,11 +72,8 @@
     <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
     <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
 
-
     <string name="settings_background">Background number</string>
     <string name="about_description">Show information about the game like licenses and changelog</string>
     <string name="pref_key_about" translatable="false">pref_key_about</string>
-
-
 
 </resources>

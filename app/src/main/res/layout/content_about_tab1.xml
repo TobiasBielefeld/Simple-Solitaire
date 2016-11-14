@@ -86,6 +86,27 @@
         android:id="@+id/aboutTextViewGitHubLink" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:focusable="false"
+        android:gravity="center"
+        android:text="@string/japaneseTranslation1"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:focusable="false"
+        android:gravity="center"
+        android:text="@string/japaneseTranslation2"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView3" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

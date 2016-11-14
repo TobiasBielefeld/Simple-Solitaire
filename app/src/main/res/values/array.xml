@@ -2,7 +2,7 @@
 
     <string-array name="restart_menu">
         <item>Start new game</item>
-        <item>Re-deal cards</item>
+        <item>Give cards again</item>
     </string-array>
 
     <string-array name="pref_background_colors_titles">

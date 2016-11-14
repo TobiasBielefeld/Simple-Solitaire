@@ -42,6 +42,8 @@
     <string name="about_license_top_text">Dieses Spiel wurde unter der GPL 3.0 Lizenz veröffentlicht:</string>
     <string name="about_description">Zeige Informationen über das Spiel wie Lizenzen und Änderungen</string>
     <string name="settings_orientation">Bildschirmausrichtung</string>
+    <string name="japaneseTranslation1">Japanische Übersetzung von:</string>
+    <string name="japaneseTranslation2">GitHub Nutzer naofum</string>
 
 
 </resources>
