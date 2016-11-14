@@ -62,4 +62,5 @@ You can download the used pictures in the original solution from my [pictures di
 - [ ] Add more card drawables. Like the cards from KPatience, especially the Tux cards. But i don't find them anywhere...
 - [ ] Add more games (frecell, spider and yukon)
 - [ ] Improve the settings to use fragments
+- [ ] Add a color chooser for background color
 
