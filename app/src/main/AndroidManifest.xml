@@ -10,13 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeMain">
         <activity
-            android:name=".ui.Main">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".ui.About"
             android:label="@string/about_name"
             android:theme="@style/AppThemeOther" />
@@ -26,8 +19,20 @@
             android:theme="@style/AppThemeOther" />
         <activity
             android:name=".ui.Settings"
-            android:theme="@style/AppThemeOther"
-            android:label="@string/title_activity_settings"/>
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppThemeOther" />
+        <activity
+            android:name=".ui.GameChooser"
+            android:theme="@style/AppThemeOther">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.GameManager">
+        </activity>
     </application>
 
 </manifest>

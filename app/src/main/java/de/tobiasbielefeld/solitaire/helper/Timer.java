@@ -24,6 +24,8 @@ import android.os.Message;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.handler.TimerHandler;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -33,55 +35,53 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Timer {
 
-    final static String TIMER_CURRENT_TIME = "savedCurrentTime";                                    //some final strings to use with saving data
-    final private static String TIMER_START_TIME = "savedStartTime";
-    final private static String TIMER_SHOWN_TIME = "savedShownTime";
+    public TimerHandler timerHandler;                                                               //handler to show the current time
 
-    long mCurrentTime;                                                                              //current system time
-    private long mStartTime;                                                                        //set start and saved time both to current time
-    private boolean mIsRunning;                                                                     //indicates if the timer is currently sRunning
-    private TimerHandler mTimerHandler = new TimerHandler();                                        //handler to show the current time
+    private long currentTime;                                                                       //current system time
+    private long startTime;                                                                         //set start and saved time both to current time
+    private boolean running;                                                                        //indicates if the timer is currently runns
 
-    private void output() {                                                                         //writes the time to the textView
-        mainActivity.mainTextViewTime.setText(String.format(Locale.getDefault(),                   //write then current time to the textView
-                "%s: %02d:%02d:%02d",mainActivity.getString(R.string.scores_time),                 //text with "Score:"
-                mCurrentTime / 3600, (mCurrentTime % 3600) / 60, (mCurrentTime % 60)));             //in hours:minutes:seconds format
+    public Timer(GameManager gm){
+
+        timerHandler = new TimerHandler(gm);
     }
 
-    public void save() {                                                                            //save the time variables
-        mIsRunning = false;
-        editor.putLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
-        editor.putLong(TIMER_START_TIME, mStartTime);
-        editor.putLong(TIMER_SHOWN_TIME, mCurrentTime);
+    public long getCurrentTime() {
+        return currentTime;
     }
 
-    public void load() {                                                                            //load the time variables
-        mIsRunning = true;
-        mStartTime = savedData.getLong(TIMER_START_TIME, System.currentTimeMillis())
+    public void setCurrentTime(long time) {
+        currentTime = time;
+    }
+
+    public void save() {
+        running = false;
+        putLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
+        putLong(TIMER_START_TIME, startTime);
+        putLong(TIMER_SHOWN_TIME, currentTime);
+    }
+
+    public void load() {
+       running = true;
+        startTime = getLong(TIMER_START_TIME, System.currentTimeMillis())
                 + System.currentTimeMillis()
-                - savedData.getLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
-        mTimerHandler.sendEmptyMessage(0);
+                - getLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
+        timerHandler.sendEmptyMessage(0);
     }
 
-    void reset() {                                                                                  //resets the current time
-        mIsRunning = true;
-        editor.putLong(TIMER_START_TIME, System.currentTimeMillis());
-        editor.putLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
-        editor.apply();
-        mStartTime = System.currentTimeMillis();
-        mTimerHandler.sendEmptyMessage(0);
+    public void reset() {
+        running = true;
+        putLong(TIMER_START_TIME, System.currentTimeMillis());
+        putLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
+        startTime = System.currentTimeMillis();
+        timerHandler.sendEmptyMessage(0);
     }
 
-    private static class TimerHandler extends Handler {                                             //handler to update the time
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
+    public boolean isRunning(){
+        return running;
+    }
 
-            if (timer.mIsRunning && !game.hasWon()) {                                               //if it should run (will be set to false in onPause()) and the player hasn't won
-                timer.mCurrentTime = ((System.currentTimeMillis() - timer.mStartTime) / 1000);      //get the current time
-                timer.mTimerHandler.sendEmptyMessageDelayed(0, 1000);                               //update every second
-            }
-
-            timer.output();                                                                         //and update the textView
-        }
+    public long getStartTime(){
+        return startTime;
     }
 }

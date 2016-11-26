@@ -19,16 +19,22 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.content.SharedPreferences;
-import android.widget.Toast;
+import android.content.pm.ActivityInfo;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.ui.Main;
+import de.tobiasbielefeld.solitaire.games.Game;
+import de.tobiasbielefeld.solitaire.handler.TestAfterMoveHandler;
+import de.tobiasbielefeld.solitaire.handler.TestIfWonHandler;
+import de.tobiasbielefeld.solitaire.helper.GameLogic;
+import de.tobiasbielefeld.solitaire.ui.AppCompatPreferenceActivity;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
-import de.tobiasbielefeld.solitaire.helper.Game;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
@@ -41,64 +47,250 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 
 public class SharedData {
 
-    public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2;
+    //Strings
+    public final static String MENU = "Menu";
+    public final static String KLONDIKE = "Klondike";
+    public final static String FREECELL = "Freecell";
+    public final static String YUKON = "Yukon";
+    public final static String SPIDER = "Spider";
 
-    public static Card[] cards = new Card[52];                                                      //array for all cards
-    public static Stack[] stacks = new Stack[13];                                                   //array for the stacks, where the cards are placed
-    public static MovingCards movingCards = new MovingCards();                                      //maintains the cards which the player moves
-    public static RecordList recordList = new RecordList();                                         //maintains the records which the player can undo
-    public static Scores scores = new Scores();                                                     //maintains all the stuff around scoring
-    public static Game game = new Game();                                                           //maintains game loading, saving and other stuff
-    public static Animate animate = new Animate();                                                  //all animations are found here
-    public static Hint hint = new Hint();                                                           //shows movable cards as a hint
-    public static AutoComplete autoComplete = new AutoComplete();                                   //automatically completes the game
-    public static Timer timer = new Timer();                                                        //maintains the current time of a game
+    public final static String SCORE = "Score";
+    public final static String SAVED_SCORES = "SavedScores";
 
-    public static SharedPreferences savedData;                                                      //sharedPref to load and save SharedData
-    public static SharedPreferences.Editor editor;                                                  //editor to get rid off some faulty behavior
-    private static Toast toast;
-    public static Main mainActivity;                                                                //used to call getString or something like that from the helper classes
+    public final static String GAME_WON = "GameWon";
+    public final static String GAME_NUMBER_OF_WON_GAMES = "GameNumberOfWonGames";
+    public final static String GAME_RANDOM_CARDS = "GameRandomCards";
+    public final static String GAME_FIRST_RUN = "GameFirstRun";
 
-    public static void moveToStack(Card card, Stack destination) {                                  //single card movement without option
-        moveToStack(card, destination, 0);                                                          //call moveToStack with option 0
+    public final static String RECORD_LIST_ENTRY = "RecordListEntry";
+    public final static String RECORD_LIST_ENTRIES_SIZE = "RecordListEntriesSize";
+    public final static String FLIP_CARD = "FlipCard";
+    public final static String SIZE = "Size";
+    public final static String ORIGIN = "Origin";
+    public final static String CARD = "Card";
+    public final static String STACK = "Stack";
+
+    public final static String TIMER_CURRENT_TIME = "SavedCurrentTime";
+    public final static String TIMER_START_TIME = "SavedStartTime";
+    public final static String TIMER_SHOWN_TIME = "SavedShownTime";
+
+    final public static String CARD_DRAWABLES = "CardDrawables";
+    final public static String CARD_BACKGROUND = "CardBackground";
+
+    public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2 , OPTION_REVERSED_RECORD=3;
+
+    public static Card[] cards;
+    public static Stack[] stacks;
+    public static RecordList recordList;
+    public static Scores scores;
+    public static MovingCards movingCards;
+    public static GameLogic gameLogic;
+    public static Animate animate;
+    public static Hint hint;
+    public static AutoComplete autoComplete;
+    public static Timer timer;
+
+    public static SharedPreferences savedData;
+    public static SharedPreferences savedGameData;
+    public static Game currentGame;
+
+    public static TestAfterMoveHandler testAfterMoveHandler = new TestAfterMoveHandler();
+    public static TestIfWonHandler testIfWonHandler = new TestIfWonHandler();
+
+    /*
+     * a lot of overloaded versions for moveToStack(), because it can be called with one card, card
+     * array, destination stack, destination stack array, option, no option and a combination
+     * of everything
+     *
+     * But everyone uses the "main" version of moveToStack(), the last method
+     */
+
+    public static void moveToStack(Card card, Stack destination) {
+        moveToStack(card, destination, 0);
     }
 
-    public static void moveToStack(Card card, Stack destination, int option) {                      //single card movement with option
-        ArrayList<Card> cards = new ArrayList<>();                                                  //creates a new array
-        cards.add(card);                                                                            //fill it with one card
-        moveToStack(cards, destination, option);                                                    //and call the Main move function
+    public static void moveToStack(Card card, Stack destination, int option) {
+        ArrayList<Card> cards = new ArrayList<>();
+        cards.add(card);
+
+        ArrayList<Stack> destinations = new ArrayList<>();
+        destinations.add(destination);
+
+        moveToStack(cards, destinations, option);
     }
 
-    public static void moveToStack(ArrayList<Card> cards, Stack destination) {                      //multiple card movement without option
-        moveToStack(cards, destination, 0);                                                         //call moveToStack with option 0
+    public static void moveToStack(ArrayList<Card> cards, Stack destination) {
+        moveToStack(cards, destination, 0);
     }
 
-    public static void moveToStack(ArrayList<Card> cards, Stack destination, int option) {          //multiple card movement
-        if (option == OPTION_UNDO)                                                                  //if the movement is a undo, use scores.undo() and no record
-            scores.undo(cards, destination);
-        else if (option != OPTION_NO_RECORD) {                                                      //if a record is wanted
-            scores.move(cards, destination);                                                        //update the scores
-            recordList.add(cards);                                                                  //and set a record
+    public static void moveToStack(ArrayList<Card> cards, Stack destination, int option) {
+        ArrayList<Stack> destinations = new ArrayList<>();
+
+        for (int i=0;i<cards.size();i++)
+            destinations.add(destination);
+
+        moveToStack(cards,destinations,option);
+    }
+
+    public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations) {
+        moveToStack(cards,destinations,0);
+    }
+
+    public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
+        /*
+         * moves a card to a stack by doing this:
+         * - change the score according to the cards
+         * - add the cards to the record list
+         * - move every card one by one
+         * - bring the moving cards to front
+         * - and start handlers to call some methods
+         */
+
+        if (option == OPTION_UNDO)
+            scores.undo(cards, destinations);
+        else if (option == 0) {
+            scores.move(cards, destinations);
+            recordList.add(cards);
+        } else if (option == OPTION_REVERSED_RECORD) {
+            //reverse the cards and add the reversed list to the record
+            ArrayList<Card> cardsReversed = new ArrayList<>();
+
+            for (int i = 0; i < cards.size(); i++)
+                cardsReversed.add(cards.get(cards.size() - 1 - i));
+
+            recordList.add(cardsReversed);
+            scores.move(cards, destinations);
         }
 
-        for (Card card : cards) {                                                                   //loop through every card
-            if (card.getStack() == destination)                                                     //if its already on the destination stack...
-                card.flip();                                                                        //...just flip it
-            else {                                                                                  //else move it
-                card.getStack().removeCard(card);                                                   //remove from old stack
-                destination.addCard(card);                                                          //and add to destination
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).getStack() == destinations.get(i))                                     //this means to flip a card
+                cards.get(i).flip();
+            else {
+                cards.get(i).getStack().removeCard(cards.get(i));
+                destinations.get(i).addCard(cards.get(i));
             }
         }
 
-        game.testIfWon();                                                                           //also test if the player has won
+        for (Card card : cards){
+            card.view.bringToFront();
+        }
+
+        /*
+         * following stuff in handlers, because they should wait until possible card
+         * movements are over.
+         */
+        if (option == 0) {
+            testAfterMoveHandler.sendEmptyMessageDelayed(0, 100);
+            testIfWonHandler.sendEmptyMessageDelayed(0,200);
+        }
     }
 
-    public static void showToast(String text) {                                                     //simple function to show a new toast text
-        if (toast == null)
-            toast = Toast.makeText(mainActivity, text, Toast.LENGTH_SHORT);                         //initialize toast
-        else
-            toast.setText(text);
+    /*
+     * some getters and setters for saving and loading stuff in the games.
+     * "savedGameData" is a different sharedPreference for every game
+     */
 
-        toast.show();
+    public static Long getLong(String name, long defaultValue){
+        return savedGameData.getLong(name,defaultValue);
+    }
+
+    public static int getInt(String name, int defaultValue){
+        return savedGameData.getInt(name,defaultValue);
+    }
+
+    public static boolean getBoolean(String name, boolean defaultValue){
+        return savedGameData.getBoolean(name,defaultValue);
+    }
+
+    public static String getString(String name, String defaultValue){
+        return savedGameData.getString(name,defaultValue);
+    }
+
+    public static void putLong(String name, long value){
+        savedGameData.edit().putLong(name, value).apply();
+    }
+
+    public static void putInt(String name, int value){
+        savedGameData.edit().putInt(name, value).apply();
+    }
+
+    public static void putBoolean(String name, boolean value){
+        savedGameData.edit().putBoolean(name, value).apply();
+    }
+
+    public static void putString(String name,String value){
+        savedGameData.edit().putString(name, value).apply();
+    }
+
+    /*
+     * getters and setters for shared settings, which are used in every game
+     * like the orientation setting
+     */
+
+    public static int getSharedInt(String name, int defaultValue){
+        return savedData.getInt(name,defaultValue);
+    }
+
+    public static String getSharedString(String name, String defaultValue){
+        return savedData.getString(name,defaultValue);
+    }
+
+    public static boolean getSharedBoolean(String name, boolean defaultValue){
+        return savedData.getBoolean(name,defaultValue);
+    }
+
+    public static void putSharedInt(String name, int value){
+        savedData.edit().putInt(name, value).apply();
+    }
+
+    public static void putSharedString(String name, String value){
+        savedData.edit().putString(name,value).apply();
+    }
+
+    /*
+     *
+     */
+
+    public static void logText(String text){
+        Log.e("hey",text);
+    }
+
+    public static int min(int value1, int value2){
+        if (value1 < value2)
+            return value1;
+        else
+            return value2;
+    }
+
+    public static int max(int value1, int value2){
+        if (value1 > value2)
+            return value1;
+        else
+            return value2;
+    }
+
+    public static void showOrHideStatusBar(AppCompatActivity activity) {
+        if (getSharedBoolean(activity.getString(R.string.pref_key_hide_status_bar), false))
+            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        else
+            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
+    public static void setOrientation(AppCompatActivity activity) {
+        switch (getSharedString("pref_key_orientation","1")){
+            case "1": //follow system settings
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+                break;
+            case "2": //portrait
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                break;
+            case "3": //landscape
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                break;
+            case "4": //landscape upside down
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                break;
+        }
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/games_klondike" >
+        <ListPreference
+            android:key="@string/pref_key_klondike_draw"
+            android:defaultValue="1"
+            android:entries="@array/pref_klondike_draw_titles"
+            android:entryValues="@array/pref_klondike_draw_values"
+            android:negativeButtonText="@string/cancel"
+            android:positiveButtonText="@null"
+            android:title="@string/settings_klondike_draw"
+            android:summary="%s"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_freecell" >
+        <CheckBoxPreference
+            android:key="@string/pref_key_freecell_multiple_cards"
+            android:defaultValue="true"
+            android:title="@string/settings_freecell_multiple_cards"
+            android:summary="@string/settings_freecell_multiple_cards_description" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_spider" >
+        <ListPreference
+            android:key="@string/pref_key_spider_difficulty"
+            android:defaultValue="1"
+            android:entries="@array/pref_spider_difficulty_titles"
+            android:entryValues="@array/pref_spider_difficulty_values"
+            android:negativeButtonText="@string/cancel"
+            android:positiveButtonText="@null"
+            android:title="@string/settings_spider_difficulty"
+            android:summary="%s"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -33,179 +34,149 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Scores {
 
-    private final static String SCORE = "score";                                                    //used for saving / loading data
-    private final static String SAVED_SCORES_ = "savedScores_";
-
     public final static int MAX_SAVED_SCORES = 10;                                                  //set how many scores will be saved and shown
 
-    static final int UNDO = 11, BONUS = 12, HINT = 13;                                              //theses are accessed from other classes
-    private static final int TURN_OVER = 1, STOCK_TO_TABLEAU = 2, TRANSFER_TO_FOUNDATIONS = 3,      //some names for the actions
-            FOUNDATIONS_TO_TABLEAU = 4, RE_DEAL = 5,
-            RE_TURN_OVER = 6, RE_STOCK_TO_TABLEAU = 7, RE_TRANSFER_TO_FOUNDATIONS = 8,
-            RE_FOUNDATIONS_TO_TABLEAU = 9, RE_RE_DEAL = 10;
+    private long score;                                                                             //the current score
+    private long savedScores[][] = new long[MAX_SAVED_SCORES][2];                                   //array to hold the saved scores with score and time
+    private GameManager gm;
 
-    private long mScore;                                                                            //the current score
-    private long mSavedScores[][] = new long[MAX_SAVED_SCORES][2];                                  //array to hold the saved scores with score and time
-
-    public void move(Card card, Stack stack) {
-        ArrayList<Card> card_array = new ArrayList<>();
-        card_array.add(card);
-        move(card_array, stack);
+    public Scores(GameManager gm){
+        this.gm = gm;
     }
 
-    public void move(ArrayList<Card> cards, Stack stack) {                                          //scores of a movement
-        if (cards.size() == 1) {
-            if ((cards.get(0).getStack().getID() < 7 || cards.get(0).getStack().getID() == 11)
-                    && stack.getID() >= 7 && stack.getID() <= 10)
-                update(TRANSFER_TO_FOUNDATIONS);
-            else if (cards.get(0).getStack().getID() == 11 && stack.getID() < 7)
-                update(STOCK_TO_TABLEAU);
-            else if (stack.getID() < 7 && cards.get(0).getStack().getID() >= 7
-                    && cards.get(0).getStack().getID() <= 10)
-                update(FOUNDATIONS_TO_TABLEAU);
-            else if (cards.get(0).getStack() == stack)
-                update(TURN_OVER);
-        } else if (cards.get(0).getStack().getID() == 11 && stack.getID() == 12)
-            scores.update(Scores.RE_DEAL);
+    public void move(Card card, Stack stack) {
+        ArrayList<Card> cardArray = new ArrayList<>();
+        cardArray.add(card);
+        ArrayList<Stack> stackArray = new ArrayList<>();
+        stackArray.add(stack);
+
+        move(cardArray, stackArray);
+    }
+
+    public void move(ArrayList<Card> cards, ArrayList<Stack> stacks) {
+        int[] originIDs = new int[cards.size()];
+        int[] destinationIDs = new int[stacks.size()];
+
+        for (int i=0;i<originIDs.length;i++){
+            originIDs[i] = cards.get(i).getStack().getID();
+            destinationIDs[i] = stacks.get(i).getID();
+        }
+
+        int points = currentGame.addPointsToScore(cards, originIDs, destinationIDs);
+
+        update(points);
     }
 
     public void undo(Card card, Stack stack) {
-        ArrayList<Card> card_array = new ArrayList<>();
-        card_array.add(card);
-        undo(card_array, stack);
+        ArrayList<Card> cardArray = new ArrayList<>();
+        cardArray.add(card);
+        ArrayList<Stack> stackArray = new ArrayList<>();
+        stackArray.add(stack);
+
+        undo(cardArray, stackArray);
     }
 
-    public void undo(ArrayList<Card> cards, Stack stack) {                                          //scores of a undo
-        if (cards.size() == 1) {
-            if ((stack.getID() < 7 || stack.getID() == 11) && cards.get(0).getStack().getID() >= 7
-                    && cards.get(0).getStack().getID() <= 10)
-                update(RE_TRANSFER_TO_FOUNDATIONS);
-            else if (stack.getID() == 11 && cards.get(0).getStack().getID() < 7)
-                update(RE_STOCK_TO_TABLEAU);
-            else if (cards.get(0).getStack().getID() < 7 && stack.getID() >= 7
-                    && stack.getID() <= 10)
-                update(RE_FOUNDATIONS_TO_TABLEAU);
-            else if (cards.get(0).getStack() == stack)
-                update(RE_TURN_OVER);
-        } else if (cards.get(0).getStack().getID() == 12 && stack.getID() == 11)
-            scores.update(Scores.RE_RE_DEAL);
-    }
+    public void undo(ArrayList<Card> cards, ArrayList<Stack> stacks) {
+        /*
+         *  undo is the same as move, but the destinationIDs and originIDs are reversed and the
+         *  result is negated
+         */
 
-    void update(int what) {                                                                         //updates the score
-        if (game.hasWon())
-            return;                                                                                 //do not update when won
+        int[] originIDs = new int[cards.size()];
+        int[] destinationIDs = new int[stacks.size()];
 
-        int add = 0;                                                                                //initialize the number
-
-        switch (what) {                                                                             //then look whats the action is and set the number
-            case TURN_OVER:
-                add = 25;
-                break;
-            case STOCK_TO_TABLEAU:
-                add = 45;
-                break;
-            case TRANSFER_TO_FOUNDATIONS:
-                add = 60;
-                break;
-            case FOUNDATIONS_TO_TABLEAU:
-                add = -75;
-                break;
-            case RE_DEAL:
-                add = -200;
-                break;
-            case UNDO:
-                add = -25;
-                break;
-            case RE_TURN_OVER:
-                add = -25;
-                break;
-            case RE_STOCK_TO_TABLEAU:
-                add = -45;
-                break;
-            case RE_TRANSFER_TO_FOUNDATIONS:
-                add = -60;
-                break;
-            case RE_FOUNDATIONS_TO_TABLEAU:
-                add = 75;
-                break;
-            case RE_RE_DEAL:
-                add = 200;
-                break;
-            case HINT:
-                add = -25;
-                break;
-            case BONUS:
-                add = (int) (2 * mScore - (10 * timer.mCurrentTime / 1000));                        //bonus points calculated like this
-                if (add < 0)
-                    add = 0;                                                                        //no negative bonus, so set it to 0 if so
-                break;
+        for (int i=0;i<originIDs.length;i++){
+            originIDs[i] = cards.get(i).getStack().getID();
+            destinationIDs[i] = stacks.get(i).getID();
         }
 
-        mScore += add;                                                                              //add it to the score
-        output();                                                                                   //and show it on the textView
+        int points = - currentGame.addPointsToScore(cards, destinationIDs, originIDs);
+
+        update(points);
     }
 
-    void save() {                                                                                   //save the actual score
-        editor.putLong(SCORE, mScore);
+    public void update(int points){
+        if (gameLogic.hasWon())
+            return;
+
+        score += points;
+        output();
     }
 
-    void save_high_score() {                                                                        //tries to save a new high score
-        /* new score will be inserted at the last positon
-        and moved left until it is in the right position*/
+    public void updateBonus() {
+        int bonus = max((int)(2 * score - (10 * timer.getCurrentTime() / 1000)), 0);
 
-        int index = MAX_SAVED_SCORES - 1;                                                           //get the index of the last score
+        update(bonus);
+    }
 
-        if (mScore > mSavedScores[index][0] || mSavedScores[index][0] == 0) {                       //if the new score is greater than the last saved one or the last one is empty
-            mSavedScores[index] = new long[]{mScore, timer.mCurrentTime};                           //override it
+    public void save() {                                                                                   //save the actual score
+        putLong(SCORE, score);
+    }
 
-            while (index > 0 && (mSavedScores[index - 1][0] == 0                                    //while the index is greater than 0 and the score before the index is empty
-                    || mSavedScores[index - 1][0] < mSavedScores[index][0]                          //or the score at index is less than the score before it
-                    || (mSavedScores[index - 1][0] == mSavedScores[index][0]                        //or the scores the scores are the same...
-                    && mSavedScores[index - 1][1] > mSavedScores[index][1]))) {                     //but the time is less
-                long dummy[] = mSavedScores[index];                                                 //swap them
-                mSavedScores[index] = mSavedScores[index - 1];
-                mSavedScores[index - 1] = dummy;
+    public void saveHighScore() {
+        /*
+         * new score will be inserted at the last position
+         * and moved left until it is in the right position
+         */
 
-                index--;                                                                            //and moves one position to left
+        int index = MAX_SAVED_SCORES - 1;
+
+        //if the new score is greater than the last saved one or the last one is empty, override it
+        if (score > savedScores[index][0] || savedScores[index][0] == 0) {
+            savedScores[index] = new long[]{score, timer.getCurrentTime()};
+
+            while (index > 0 && (savedScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
+                    || savedScores[index - 1][0] < savedScores[index][0]                            //or the score at index is less than the score before it
+                    || (savedScores[index - 1][0] == savedScores[index][0]                          //or the scores are the same...
+                    && savedScores[index - 1][1] > savedScores[index][1]))) {                       //but the time is less
+                long dummy[] = savedScores[index];
+                savedScores[index] = savedScores[index - 1];
+                savedScores[index - 1] = dummy;
+
+                index--;
             }
 
-            for (int i = 0; i < MAX_SAVED_SCORES; i++) {                                            //then save the scores permanently
-                editor.putLong(SAVED_SCORES_ + i + 0, mSavedScores[i][0]);
-                editor.putLong(SAVED_SCORES_ + i + 1, mSavedScores[i][1]);
+            for (int i = 0; i < MAX_SAVED_SCORES; i++) {
+                putLong(SAVED_SCORES + i + 0, savedScores[i][0]);
+                putLong(SAVED_SCORES + i + 1, savedScores[i][1]);
             }
         }
     }
 
-    void load() {                                                                                   //load current score and high scors at game start
-        mScore = savedData.getLong(SCORE, 0);                                                       //get the current score
-        output();                                                                                   //and show it
+    public void load() {
+        score = getLong(SCORE, 0);
+        output();
 
-        for (int i = 0; i < MAX_SAVED_SCORES; i++) {                                                //and load the high scores
-            mSavedScores[i][0] = savedData.getLong(SAVED_SCORES_ + i + 0, 0);
-            mSavedScores[i][1] = savedData.getLong(SAVED_SCORES_ + i + 1, 0);
+        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
+            savedScores[i][0] = getLong(SAVED_SCORES + i + 0, (long) 0);
+            savedScores[i][1] = getLong(SAVED_SCORES + i + 1, (long) 0);
         }
     }
 
-    void reset() {                                                                                  //resets the score
-        mScore = 0;                                                                                 //set score to zero
-        output();                                                                                   //and show it
+    public void reset() {
+        score = 0;
+        output();
     }
 
-    public void delete_high_scores() {                                                              //delete high scores. (there is a button in the high score activity for that)
-        mSavedScores = new long[MAX_SAVED_SCORES][2];                                               //just create a new area for the saved_scores
+    public void delete_high_scores() {
+        /*
+         * delete the high scores by just creating a new empty array and save it
+         */
+        savedScores = new long[MAX_SAVED_SCORES][2];
 
-        for (int i = 0; i < MAX_SAVED_SCORES; i++) {                                                //and save the new empty scores
-            editor.putLong(SAVED_SCORES_ + i + 0, mSavedScores[i][0]);
-            editor.putLong(SAVED_SCORES_ + i + 1, mSavedScores[i][1]);
+        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
+            putLong(SAVED_SCORES + i + 0, savedScores[i][0]);
+            putLong(SAVED_SCORES + i + 1, savedScores[i][1]);
         }
     }
 
-    public long get(int i, int j) {                                                                 //get the score/time from the array
-        return mSavedScores[i][j];
+    public long get(int i, int j) {
+        //get the score/time from the array
+        return savedScores[i][j];
     }
 
-    private void output() {                                                                         //updates the textView
-        mainActivity.mainTextViewScore.setText(String.format("%s: %s",
-                    mainActivity.getString(R.string.scores_score), mScore));
+    private void output() {
+        gm.mainTextViewScore.setText(String.format("%s: %s",
+                    gm.getString(R.string.scores_score), score));
     }
 }

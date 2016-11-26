@@ -3,6 +3,7 @@
     <string-array name="restart_menu">
         <item>Neues Spiel starten</item>
         <item>Karten erneut geben</item>
+        <item>Zurück zum Hauptmenu</item>
     </string-array>
 
     <string-array name="pref_background_colors_titles">
@@ -19,6 +20,17 @@
         <item>Portrait</item>
         <item>Landscape</item>
         <item>Landscape umgekehrt</item>
+    </string-array>
+
+    <string-array name="pref_spider_difficulty_titles">
+        <item>1 (Einfach)</item>
+        <item>2 (Mittel)</item>
+        <item>4 (Schwer)</item>
+    </string-array>
+
+    <string-array name="pref_klondike_draw_titles">
+        <item>Draw 1</item>
+        <item>Draw 3</item>
     </string-array>
 
 

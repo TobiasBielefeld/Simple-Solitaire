@@ -26,16 +26,16 @@ import android.view.View;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 
-import static de.tobiasbielefeld.solitaire.SharedData.editor;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * dialog for picking the card front drawable. Clicks on it are handled here and the
  * sharedPrefChanged listener in Settings will update the cards.
  */
 
-public class CardPicker extends DialogPreference implements View.OnClickListener{
+public class CardDialogPreference extends DialogPreference implements View.OnClickListener{
 
-    public CardPicker(Context context, AttributeSet attrs) {
+    public CardDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards);
         setDialogIcon(null);
@@ -73,7 +73,7 @@ public class CardPicker extends DialogPreference implements View.OnClickListener
                 break;
         }
 
-        editor.putInt(Card.CARD_DRAWABLES, choice).apply();                                         //save it
+        putSharedInt(CARD_DRAWABLES, choice);
         getDialog().dismiss();
     }
 }

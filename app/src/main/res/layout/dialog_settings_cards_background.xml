@@ -20,7 +20,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="2dp"
             android:baselineAligned="false"
             android:layout_weight="1">
 
@@ -30,8 +29,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginRight="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground1">
 
@@ -57,9 +55,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground2">
 
@@ -85,9 +81,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground3">
 
@@ -113,9 +107,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground4">
 
@@ -141,9 +133,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground5">
 
@@ -169,8 +159,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginLeft="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground6">
 
@@ -196,8 +185,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:baselineAligned="false"
-            android:layout_weight="1"
-            android:layout_marginTop="2dp">
+            android:layout_weight="1">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -205,8 +193,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginRight="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground7">
 
@@ -232,9 +219,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground8">
 
@@ -260,9 +245,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground9">
 
@@ -288,9 +271,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground10">
 
@@ -316,9 +297,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground11">
 
@@ -344,8 +323,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="#d2d2d2"
-                android:layout_marginLeft="2dp"
+                android:background="@android:drawable/btn_default_small"
                 android:padding="5dp"
                 android:id="@+id/settingsCardBackground12">
 

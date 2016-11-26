@@ -18,15 +18,14 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
-import android.os.Handler;
-import android.os.Message;
-
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.handler.HintHandler;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 /*
  *  Shows hints. It has a handler which shows up to MAX_NUMBER_OF_HINTS hints.
@@ -37,119 +36,61 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Hint {
 
-    private static final int MAX_NUMBER_OF_HINTS = 3;                                               //max number of hints which are shown when pressing the button
+    public static final int MAX_NUMBER_OF_HINTS = 3;                                                //max number of hints which are shown when pressing the button
+    public HintHandler hintHandler = new HintHandler();                                             //handler to show the hinzd
 
-    private int mCounter = 0;                                                                       //counter to know how many hints were shown
-    private Card[] mVisited = new Card[MAX_NUMBER_OF_HINTS];                                        //array for already shown cards in hint
-    private ArrayList<Card> mCurrentCards = new ArrayList<>();                                      //array for cards to move as hint
-    private HintHandler mHintHandler = new HintHandler();                                           //handler to show the hints
+    private int counter = 0;                                                                        //counter to know how many hints were shown
+    private Card[] visited = new Card[MAX_NUMBER_OF_HINTS];                                         //array for already shown cards in hint
 
-    public void show_hint() {                                                                       //starts the hints
-        mHintHandler.sendEmptyMessage(0);                                                           //simply start the handler
+    public void showHint() {
+        hintHandler.sendEmptyMessage(0);
     }
 
-    private void hint() {                                                                           //shows a single hint then returns
-        Card card;                                                                                  //card to test
+    public void move(Card card, Stack destination) {
+        /*
+         * moves a card with the hint animation. It will also be marked as visited, so the card
+         * won't be used in the next step. It gets one card and the stack destination, but it
+         * also adds all cards above.
+         */
 
-        for (int i = 0; i <= 6; i++) {                                                              //loop through every stack on the tableau as origin
+        Stack origin = card.getStack();
+        int index = origin.getIndexOfCard(card);
+        ArrayList<Card> currentCards = new ArrayList<>();
 
-            Stack origin = stacks[i];                                                               //set the stack as origin
+        if (counter == 0)
+            scores.update(-25);
 
-            if (origin.getSize() == 0 || !origin.getTopCard().isUp())                               //continue if it's empty or no card is flipped up
-                continue;
+        visited[counter] = card;
 
-            /* complete visible part of a stack to move on the tableau*/
-            card = origin.getFirstUpCard();                                                         //get the first flipped up card from the stack
 
-            if (!hasVisited(card) && !(card == origin.getCard(0) && card.getValue() == 13)          //it needs to be NOT already visited and NOT to be a king on the first position of the stack (this movement would be pretty pointless)
-                    && card.getValue() != 1) {                                                      //also it shouldn't be an ace, because an ace will be placed on the foundations in the next part of this function
-                for (int j = 0; j <= 6; j++) {                                                      //then loop through every other tableau stack as destination
-                    if (j == i)
-                        continue;                                                                   //if the destination and origin are the same, continue
+        for (int i = index; i < origin.getSize(); i++)
+            currentCards.add(origin.getCard(i));
 
-                    if (card.test(stacks[j])) {                                                     //then test the card with the destination, if it can be placed there...
-                        move(card, stacks[j]);                                                      //move the card
-                        return;                                                                     //and return
-                    }
-                }
-            }
-
-            /* last card of a stack to move to the foundation */
-            card = origin.getTopCard();                                                             //in this part, get the top card of a stack
-
-            if (!hasVisited(card)) {                                                                //if this card hasn't been visited
-                for (int j = 7; j <= 10; j++) {                                                     //loop through every foundation stack as destination
-                    if (card.test(stacks[j])) {                                                     //then test
-
-                        move(card, stacks[j]);                                                      //move
-                        return;                                                                     //and return
-                    }
-                }
-            }
-
-        }
-
-        /* card from trash of stock to every other stack*/
-        if (stacks[11].getSize() > 0 && !hasVisited(stacks[11].getTopCard())) {                     //if the trash isn't empty and hasn't been visited
-            for (int j = 10; j >=0; j--) {                                                          //loop through every other stack (expect stock ofc)
-                if (stacks[11].getTopCard().test(stacks[j])) {                                      //test the top card
-                    move(stacks[11].getTopCard(), stacks[j]);                                       //move
-                    return;                                                                         //and return
-                }
-            }
-        }
-
-        mCounter = MAX_NUMBER_OF_HINTS;                                                             //if this part has been reached, no cards can be shown as a hit, so set the counter to the max value so the handler stops
+        for (int i = 0; i < currentCards.size(); i++)
+            animate.cardHint(currentCards.get(i), i, destination);
     }
 
-    private void move(Card card, Stack destination) {                                               //move cards as a hint
-        if (mCounter == 0)
-            scores.update(Scores.HINT);
+    public boolean hasVisited(Card test_card) {
+        for (int i = 0; i < counter; i++)
+            if (test_card == visited[i])
+                return true;
 
-        mVisited[mCounter] = card;                                                                  //add the card to visited
-
-        Stack origin = card.getStack();                                                             //get the origin stack
-        int index = origin.getIndexOfCard(card);                                                    //and the index on the stack
-
-        reset();                                                                                    //reset the current cards array
-
-        for (int i = index; i < origin.getSize(); i++)                                              //and get every card on the stack from the index to the top card
-            mCurrentCards.add(origin.getCard(i));                                                   //add them to the current cards
-
-        for (int i = 0; i < mCurrentCards.size(); i++)                                              //then for every card on current cards
-            animate.cardHint(mCurrentCards.get(i), i, destination);                                 //start the hint animation
+        return false;
     }
 
-    private boolean hasVisited(Card test_card) {                                                    //tests if a card has been already visited
-        for (int i = 0; i < mCounter; i++)                                                          //loop through the current size
-            if (test_card == mVisited[i])                                                           //and test if visited
-                return true;                                                                        //then return true
-
-        return false;                                                                               //otherwise not found, so not visited, return false
+    public boolean isWorking() {
+        return counter != 0;
     }
 
-    private void reset() {                                                                   //resets the current cards
-        mCurrentCards.clear();
+    public void stop() {
+        counter = MAX_NUMBER_OF_HINTS;
     }
 
-    public boolean isWorking() {                                                             //returns if its working, so no input should be possible while working
-        return mCounter != 0;
+    public int getCounter() {
+        return counter;
     }
 
-    private static class HintHandler extends Handler {                                              //shows hints, waits until a movement is done and then starts the next hint
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
-            if (hint.mCounter < MAX_NUMBER_OF_HINTS) {                                              //it hasn't reached the max number of hints
-                if (!animate.cardIsAnimating()) {                                                   //look if a previous card is still animating, if not...
-                    hint.hint();                                                                    //...show another hint
-                    hint.mCounter++;                                                                //and increment the counter
-                }
-
-                hint.mHintHandler.sendEmptyMessageDelayed(0, 100);                                  //look in 100 ms again
-            } else                                                                                  //else the max number has been reached
-                hint.mCounter = 0;                                                                  //so set the counter to zero, no new handler start
-        }
+    public void setCounter(int value) {
+        counter = value;
     }
-
 }

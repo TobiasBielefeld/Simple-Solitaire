@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/pref_key_orientation"
+        android:defaultValue="1"
+        android:entries="@array/pref_orientation_titles"
+        android:entryValues="@array/pref_orientation_values"
+        android:negativeButtonText="@string/cancel"
+        android:positiveButtonText="@null"
+        android:title="@string/settings_orientation"
+        android:summary="%s"/>
+
+    <CheckBoxPreference
+        android:key="@string/pref_key_hide_status_bar"
+        android:defaultValue="false"
+        android:title="@string/settings_hide_status_bar" />
+
+    <CheckBoxPreference
+        android:key="@string/pref_key_left_handed_mode"
+        android:defaultValue="false"
+        android:summary="@string/settings_left_handed_mode_description"
+        android:title="@string/settings_left_handed_mode" />
+
+    <CheckBoxPreference
+        android:key="@string/pref_key_start_menu"
+        android:defaultValue="false"
+        android:summary="@string/settings_show_main_menu_description"
+        android:title="@string/settings_show_main_menu" />
+
+    <CheckBoxPreference
+        android:key="@string/pref_key_confirm_closing_game"
+        android:defaultValue="true"
+        android:summary="@string/settings_back_press_description"
+        android:title="@string/settings_back_press" />
+
+</PreferenceScreen>

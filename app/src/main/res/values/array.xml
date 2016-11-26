@@ -3,6 +3,7 @@
     <string-array name="restart_menu">
         <item>Start new game</item>
         <item>Give cards again</item>
+        <item>Return to main menu</item>
     </string-array>
 
     <string-array name="pref_background_colors_titles">
@@ -38,5 +39,26 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="pref_spider_difficulty_titles">
+        <item>1 (Easy)</item>
+        <item>2 (Medium)</item>
+        <item>4 (Hard)</item>
+    </string-array>
+
+    <string-array name="pref_spider_difficulty_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="pref_klondike_draw_titles">
+        <item>Draw 1</item>
+        <item>Draw 3</item>
+    </string-array>
+
+    <string-array name="pref_klondike_draw_values" translatable="false">
+        <item>1</item>
+        <item>3</item>
+    </string-array>
 
 </resources>

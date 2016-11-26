@@ -22,7 +22,6 @@ package de.tobiasbielefeld.solitaire.ui;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -31,19 +30,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.dialogs.HighScoreDeleteDialog;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 
-import static de.tobiasbielefeld.solitaire.SharedData.game;
-import static de.tobiasbielefeld.solitaire.SharedData.savedData;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.showToast;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * this activity shows the high scores. The entries are generated in onCreate and shown
@@ -54,6 +51,7 @@ public class HighScores extends AppCompatActivity {
 
     private TextView text1;
     private LinearLayout layoutScores;
+    private Toast toast;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,14 +65,11 @@ public class HighScores extends AppCompatActivity {
         if (actionBar != null)                                                                      //set a nice back arrow in the actionBar
             actionBar.setDisplayHomeAsUpEnabled(true);
 
-        if (savedData.getBoolean(getString(R.string.pref_key_hide_status_bar), false))              //if fullscreen was saved, set it
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        setOrientation();                                                                           //orientation according to preference
+        showOrHideStatusBar(this);
+        setOrientation(this);                                                                       //orientation according to preference
 
         text1.setText(String.format(Locale.getDefault(), "%s: %s", getString(                       //show the number of won games
-                R.string.high_scores_games_won), game.getNumberWonGames()));
+                R.string.high_scores_games_won), gameLogic.getNumberWonGames()));
 
         for (int i = 0; i < Scores.MAX_SAVED_SCORES; i++) {                                         //for each entry in highScores, add a new view with it
             if (scores.get(i, 0) == 0)                                                              //if the score is zero, don't show it
@@ -110,66 +105,33 @@ public class HighScores extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {                                           //only menu item is the back button in the action bar
-        finish();                                                                                   //so finish this activity
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //only menu item is the back button in the action bar, so just finnish
+        finish();
         return true;
     }
 
-    public void onClick(View view) {                                                                //handles clicks for deleting the scores
-        DialogFragment newFragment = new myDialog();
-        newFragment.show(getSupportFragmentManager(), "high_score_delete");
+    public void onClick(View view) {
+        DialogFragment deleteDialog = new HighScoreDeleteDialog();
+        deleteDialog.show(getSupportFragmentManager(), "high_score_delete");
     }
 
-    public static class myDialog extends DialogFragment {                                           //dialog for deleting the entries
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-
-
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(R.string.highScoresButtonDelete_text)
-                    .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            HighScores highScores = (HighScores) getActivity();
-                            highScores.deleteHighScores();
-                        }
-                    })
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User cancelled the dialog
-                        }
-                    });
-
-            return builder.create();
-        }
-    }
-
-    private void deleteHighScores() {
-        scores.delete_high_scores();                                            //so delete the high scores
-        game.deleteNumberWonGames();                                            //also delete the number of won games
+    public void deleteHighScores() {
+        scores.delete_high_scores();
+        gameLogic.deleteNumberWonGames();
         text1.setText(String.format(Locale.getDefault(),
                 "%s: %s", getString(   //refresh the textView
-                        R.string.high_scores_games_won), game.getNumberWonGames()));
-        layoutScores.setVisibility(View.GONE);                                  //hide the scores, because they were deleted
+                        R.string.high_scores_games_won), gameLogic.getNumberWonGames()));
+        layoutScores.setVisibility(View.GONE);
         showToast(getString(R.string.highScoresButtonDeleted_all_entries));
     }
 
+    public void showToast(String text) {
+        if (toast == null)
+            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        else
+            toast.setText(text);
 
-    private void setOrientation() {
-        switch (savedData.getString("pref_key_orientation","1")){
-            case "1": //follow system settings
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-                break;
-            case "2": //portrait
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                break;
-            case "3": //landscape
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-            case "4": //landscape upside down
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                break;
-        }
+        toast.show();
     }
 }

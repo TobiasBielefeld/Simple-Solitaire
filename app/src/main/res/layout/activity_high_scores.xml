@@ -53,10 +53,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:singleLine="true"
         android:onClick="onClick"
         android:id="@+id/highScoresButtonDelete"
         android:background="@android:drawable/btn_default_small"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:maxLines="1" />
 
 </RelativeLayout>

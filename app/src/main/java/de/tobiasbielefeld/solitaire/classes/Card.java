@@ -33,200 +33,220 @@ import static de.tobiasbielefeld.solitaire.helper.CardDrawables.*;
 
 public class Card {
 
-    final public static String CARD_DRAWABLES = "cardDrawables";                                    //some strings for saving and loading data
-    final public static String CARD_BACKGROUND = "cardBackground";
-    final private static String CARD_ = "card_";
+    public static int width, height;                                                                //width and height calculated in relation of the screen dimensions in Main activity
+    public static int[] drawables;                                                                  //array with the drawables of the cards
+    public static int background;                                                                   //background drawable of the cards
+    public ImageView view;                                                                          //the image view of the card, for easier code not private
+    private int color;                                                                              //1=clubs 2=hearts 3=Spades 4=diamonds
+    private int value;                                                                              //1=ace 2,3,4,5,6,7,8,9,10, 11=joker 12=queen 13=king
+    private Stack stack;                                                                            //saves the stack where the card is placed
+    private int ID;                                                                                 //internal id
+    private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
+    private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
 
-    public static int sWidth, sHeight;                                                              //sWidth and sHeight calculated in relation of the screen dimensions in Main activity
-    public static int[] sDrawables;                                                                 //array with the drawables of the cards
-    public static int sBackground;                                                                  //background drawable of the cards
-    public ImageView mView;                                                                         //the image view of the card, for easier code not private
-    private int mColor;                                                                             //1=clubs 2=hearts 3=Spades 4=diamonds
-    private int mValue;                                                                             //1=ace 2,3,4,5,6,7,8,9,10, 11=joker 12=queen 13=king
-    private Stack mStack;                                                                           //saves the stack where the card is placed
-    private int mID;                                                                                //internal id
-    private boolean mIsUp;                                                                          //indicates if the card is placed upwards or backwards
-    private PointF mOldLocation = new PointF();                                                     //old location so cards can be moved back if they can't placed on a new stack
-
-    public Card(int ID) {                                                                           //Constructor: sets the mID and mValues
-        mID = ID;
-        mColor = (ID / 13) + 1;                                                                     //mColors are from 1 to 4
-        mValue = (ID % 13) + 1;                                                                     //mValues are from 1 to 13
+    public Card(int ID) {
+        /*
+         *  set ID color and value. color depends on the cardDrawableOrder. But by default the
+         *  order is 1,2,3,4. Value is calculated like that because the IDs are in the right order:
+         *  from ace to king, then again with the next color
+         */
+        this.ID = ID;
+        color = currentGame.cardDrawablesOrder[(ID%52) / 13];
+        value = (ID%13) +1;
     }
 
-    public static void updateCardDrawableChoice()     {                                             //set the drawables for the cards
-        switch (savedData.getInt(CARD_DRAWABLES, 1)) {
+    public void setColor(){
+        //update the color, used in Spider after loading the preference
+        color = currentGame.cardDrawablesOrder[(ID%52) / 13];
+    }
+
+    public static void updateCardDrawableChoice(){
+        //get
+        switch (getSharedInt(CARD_DRAWABLES, 1)) {
             case 1:
-                sDrawables = sDrawablesClassic;
+                drawables = sDrawablesClassic;
                 break;
             case 2:
-                sDrawables = sDrawablesAbstract;
+                drawables = sDrawablesAbstract;
                 break;
             case 3:
-                sDrawables = sDrawablesSimple;
+                drawables = sDrawablesSimple;
                 break;
             case 4:
-                sDrawables = sDrawablesModern;
+                drawables = sDrawablesModern;
                 break;
             case 5:
-                sDrawables = sDrawablesDark;
+                drawables = sDrawablesDark;
                 break;
         }
-
-        for (int i = 0; i < cards.length; i++)                                                      //and update all cards which are flipped up
-            if (cards[i].isUp())
-                cards[i].mView.setImageResource(sDrawables[i]);
+        //apply
+        if (cards!=null) {
+            for (Card card : cards)
+                if (card.isUp())
+                    card.view.setImageResource(drawables[(card.getColor() - 1) *13 + card.getValue() - 1]);
+        }
     }
 
-    public static void updateCardBackgroundChoice() {                                               //set the drawable for the card background
-        switch (savedData.getInt(CARD_BACKGROUND, 1))
-        {
+    public static void updateCardBackgroundChoice() {
+        //get
+        switch (getSharedInt(CARD_BACKGROUND, 1)) {
             case 1:
-                sBackground = R.drawable.background_1;
+                background = R.drawable.background_1;
                 break;
             case 2:
-                sBackground = R.drawable.background_2;
+                background = R.drawable.background_2;
                 break;
             case 3:
-                sBackground = R.drawable.background_3;
+                background = R.drawable.background_3;
                 break;
             case 4:
-                sBackground = R.drawable.background_4;
+                background = R.drawable.background_4;
                 break;
             case 5:
-                sBackground = R.drawable.background_5;
+                background = R.drawable.background_5;
                 break;
             case 6:
-                sBackground = R.drawable.background_6;
+                background = R.drawable.background_6;
                 break;
             case 7:
-                sBackground = R.drawable.background_7;
+                background = R.drawable.background_7;
                 break;
             case 8:
-                sBackground = R.drawable.background_8;
+                background = R.drawable.background_8;
                 break;
             case 9:
-                sBackground = R.drawable.background_9;
+                background = R.drawable.background_9;
                 break;
             case 10:
-                sBackground = R.drawable.background_10;
+                background = R.drawable.background_10;
                 break;
             case 11:
-                sBackground = R.drawable.background_11;
+                background = R.drawable.background_11;
                 break;
             case 12:
-                sBackground = R.drawable.background_12;
+                background = R.drawable.background_12;
                 break;
         }
-
-        for (Card card : cards)                                                                     //and update all cards which are flipped down
-            if (!card.isUp())
-                card.mView.setImageResource(sBackground);
+        //apply
+        if (cards!=null) {
+            for (Card card : cards)
+                if (!card.isUp()) card.view.setImageResource(background);
+        }
     }
 
-    public int getID() {                                                                            //gets the mID
-        return mID;
+    public int getID() {
+        return ID;
     }
 
-    public int getValue() {                                                                         //get the mValue (1 to 13)
-        return mValue;
+    public int getValue() {
+        return value;
     }
 
-    public Stack getStack() {                                                                       //gets the stack
-        return mStack;
+    public Stack getStack() {
+        return stack;
     }
 
-    public void setStack(Stack stack) {                                                             //sets the stack
-        mStack = stack;
+    public void setStack(Stack stack) {
+        this.stack = stack;
     }
 
-    public void setLocation(float pX, float pY) {                                                   //sets a location with movement
-        mView.bringToFront();                                                                       //bring to front
+    public void setLocation(float pX, float pY) {
+        view.bringToFront();
 
-        if (mView.getX() != pX || mView.getY() != pY)                                               //only start animation when not already on destination
+        //if not already there, animate the moving
+        if (view.getX() != pX || view.getY() != pY)
             animate.moveCard(this, pX, pY);
     }
 
-    public void setLocationWithoutMovement(float pX,float pY) {                                     //sets a location without moving
-        mView.bringToFront();                                                                       //bring to front
-        mView.setX(pX);                                                                             //and set the coordinates
-        mView.setY(pY);
+    public void setLocationWithoutMovement(float pX,float pY) {
+        view.bringToFront();
+        view.setX(pX);
+        view.setY(pY);
     }
 
-    public void saveOldLocation() {                                                                 //sets current location as old location
-        mOldLocation.x = mView.getX();
-        mOldLocation.y = mView.getY();
+    public void saveOldLocation() {
+        oldLocation.x = view.getX();
+        oldLocation.y = view.getY();
     }
 
-    public void returnToOldLocation() {                                                             //return to old location
-        mView.setX(mOldLocation.x);
-        mView.setY(mOldLocation.y);
+    public void returnToOldLocation() {
+        view.setX(oldLocation.x);
+        view.setY(oldLocation.y);
     }
 
-    public void flipUp() {                                                                          //flip a card up
-        mIsUp = true;
-        mView.setImageResource(sDrawables[mID]);                                                    //set image to the front of a card
+    public void flipUp() {
+        isUp = true;
+        //set the coresponding drawable as image
+        view.setImageResource(drawables[(getColor() - 1) *13 + getValue() - 1]);
     }
 
-    void flipDown() {                                                                               //flip a card down
-        mIsUp = false;
-        mView.setImageResource(sBackground);                                                        //set image to the background
+    public void flipDown() {
+        isUp = false;
+        view.setImageResource(background);
     }
 
-    public void flip() {                                                                            //flips a card to the other direction
+    public void flip() {
         if (isUp())
             flipDown();
         else
             flipUp();
     }
 
-    public void flipWithAnim() {                                                                    //when moving a card on the tableau, flip the card under it up, or from undo flip down
-        if (!isUp()) {
+    public void flipWithAnim() {
+        if (isUp()) {
+            isUp = false;
+            scores.undo(this, getStack());
+            animate.flipCard(this, false);
+        } else {
+            isUp = true;
             scores.move(this, getStack());
             recordList.addFlip(this);
-            mIsUp = true;
             animate.flipCard(this, true);
-        } else {
-            scores.undo(this, getStack());
-            mIsUp = false;
-            animate.flipCard(this, false);
         }
     }
 
     public boolean isUp() {                                                                         //returns if the card is up
-        return mIsUp;
+        return isUp;
     }
 
-    public boolean test(Stack stack) {                                                              // tests if card can be placed on new stack
+    public boolean test(Stack stack) {
+        /*
+         *  test if this card can be placed on a stack:
+         *  Not possible when:
+         *  the card is not faced up OR the top card on the stack is not faced up OR Autocomplete is running
+         *  Possible when:
+         *  cardTest() from the current game returns true
+         */
+        return !((!isUp() || (stack.getSize() != 0 && !stack.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(stack, this);
 
-        if ((!isUp() || (stack.getSize() != 0 && !stack.getTopCard().isUp())) && !autoComplete.isRunning())
-            return false;
-
-        if (stack.getID() < 7) {                                                                    //tableau stacks
-            if (stack.getSize() == 0)                                                               //if there is no card
-                return this.mValue == 13;                                                           //you can place a king
-            else
-                return (stack.getTopCard().mColor % 2 != this.mColor % 2)                           //else different mColor. black is uneven and red even
-                        && (stack.getTopCard().mValue == this.mValue + 1);                          //and the mValue must match
-
-        } else if (stack.getID() < 11 && movingCards.getSize() < 2) {                               //if its an foundation stack and only one card is moving (<2 because for eg undo, movingCards size is zero)
-            if (stack.getSize() == 0)                                                               //if there is no card, you can place an ace
-                return this.mValue == 1;
-            else
-                return (stack.getTopCard().mColor == this.mColor)                                   //else has to be the same colour
-                        && (stack.getTopCard().mValue == this.mValue - 1);                          // and mValue has to match
-        } else                                                                                      //else not place-able
-            return false;//*/
     }
 
-    public void save() {                                                                            //saves the direction of a card
-        editor.putBoolean(CARD_ + mID, mIsUp);
+    public void save() {
+        //save the direction of a card
+        putBoolean(CARD + ID, isUp);
     }
 
-    public void load() {                                                                            //loads the  direction of a card
-        if (savedData.getBoolean(CARD_ + mID, false))
+    public void load() {
+        //load the direction
+        if (getBoolean(CARD + ID, false))
             flipUp();
         else
             flipDown();
+    }
+
+    public int getColor(){
+        return color;
+    }
+
+    public boolean isTopCard(){
+        return getStack().getTopCard()==this;
+    }
+
+    public boolean isFirstCard(){
+        return getStack().getCard(0)==this;
+    }
+
+    public int getIndexOnStack() {
+        return getStack().getIndexOfCard(this);
     }
 }

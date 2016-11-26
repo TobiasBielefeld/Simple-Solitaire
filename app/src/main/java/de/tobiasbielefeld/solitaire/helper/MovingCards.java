@@ -23,8 +23,11 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
 
 /*
  *  Handles the input of cards to move around. When a card was touched, it adds all cards
@@ -34,69 +37,68 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class MovingCards {
 
-    final static String AUTO_COMPLETE_SHOWN = "autoCompleteShown";
+    private ArrayList<Card> currentCards = new ArrayList<>();                                       //array list containing the current cards to move
 
-    private ArrayList<Card> mCurrentCards = new ArrayList<>();                                      //array list containing the current cards to move
 
-    void reset() {                                                                                  //resets the moving cards
-        mCurrentCards.clear();                                                                      //clear the array
+    public void reset() {
+        currentCards.clear();
     }
 
-    public void add(Card card) {                                                                    //add cards to the movement
-        Stack stack = card.getStack();                                                              //get the stack
+    public void add(Card card) {
+        /*
+         *  add the card and every card above it
+         */
+        Stack stack = card.getStack();
 
-        for (int i = stack.getIndexOfCard(card); i < stack.getSize(); i++) {                        //then add every card from index to end
-            stack.getCard(i).saveOldLocation();                                                     //save the current location as old location, so they can be moved back if needed
-            mCurrentCards.add(stack.getCard(i));                                                    //and add the card
+        for (int i = stack.getIndexOfCard(card); i < stack.getSize(); i++) {
+            stack.getCard(i).saveOldLocation();
+            currentCards.add(stack.getCard(i));
         }
     }
 
-    public void move(float X, float Y) {                                                            //move cards to the touch point
-        for (Card card : mCurrentCards)                                                             //loop through every card...
-            card.setLocationWithoutMovement(X - Card.sWidth / 2, (Y - Card.sHeight / 2)             //...and set the location
-                    + mCurrentCards.indexOf(card) * Stack.sDefaultSpacing);
+    public void move(float X, float Y) {
+        for (Card card : currentCards)
+            card.setLocationWithoutMovement(X - Card.width / 2, (Y - Card.height / 2)
+                    + currentCards.indexOf(card) * Stack.defaultSpacing);
     }
 
-    public void moveToDestination(Stack destination) {                                              //move cards to another stack
-        Stack origin = mCurrentCards.get(0).getStack();
+    public void moveToDestination(Stack destination) {
+        Stack origin = currentCards.get(0).getStack();
 
-        moveToStack(mCurrentCards, destination);                                                    //move
+        moveToStack(currentCards, destination);
 
-        if (origin.getSize() > 0 && origin.getID() < 7 && !origin.getTopCard().isUp())              //flip the card under the first movement card, if there is any
+        if (origin.getSize() > 0 && origin.getID() <= currentGame.getLastTableauID() && !origin.getTopCard().isUp())
             origin.getTopCard().flipWithAnim();
 
-        mCurrentCards.clear();                                                                      //delete the array
-        autoCompleteTest();
-        game.testIfWon();                                                                           //and test if the player has won
+        currentCards.clear();
+
+        if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
+            autoComplete.showButton();
+        }
     }
 
-    public void returnToPos() {                                                                     //return cards if the movement wasn't successful
-        for (Card card : mCurrentCards)                                                             //return every card
+    public void returnToPos() {
+        for (Card card : currentCards)
             card.returnToOldLocation();
 
-        mCurrentCards.clear();                                                                      //and delete the array
+        currentCards.clear();
     }
 
-    public Card first() {                                                                           //get the first moving card
-        return mCurrentCards.get(0);
+    public Card first() {
+        return currentCards.get(0);
     }
 
-    public int getSize() {                                                                          //get the size
-        return mCurrentCards.size();
+    public int getSize() {
+        return currentCards.size();
     }
 
-    public boolean hasCards() {                                                                     //tests if it has cards
-        return !mCurrentCards.isEmpty();
+    public boolean hasCards() {
+        return !currentCards.isEmpty();
     }
 
-    private void autoCompleteTest() {
-        if (savedData.getInt(AUTO_COMPLETE_SHOWN,0)==0) {                                           //test if the autocomplete button can be set visible
-            for (int i = 0; i < 7; i++)                                                             //loop through every card on the tableau
-                if (stacks[i].getSize() > 0 && !stacks[i].getCard(0).isUp())                        //if one card of the tableau is faced down
-                    return;    //*/                                                                 //not won, so return
-
-            animate.showAutoCompleteButton();
-            editor.putInt(AUTO_COMPLETE_SHOWN,1).apply();
-        }
+    public boolean hasSingleCard() {
+        //size can be 1 or zero, because it should return true when using hint tests.
+        // In that case  the size is zero
+        return movingCards.getSize() < 2;
     }
 }

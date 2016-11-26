@@ -31,11 +31,11 @@
     <string name="japaneseTranslation2">GitHub User naofum</string>
 
     <!-- Menu -->
-    <string name="menu_scores" translatable="false">Scores</string>
-    <string name="menu_undo" translatable="false">Undo</string>
-    <string name="menu_hint" translatable="false">Hint</string>
-    <string name="menu_restart" translatable="false">Restart</string>
-    <string name="menu_settings" translatable="false">Settings</string>
+    <string name="menu_scores">Scores</string>
+    <string name="menu_undo">Undo</string>
+    <string name="menu_hint">Hint</string>
+    <string name="menu_main_menu">Menu</string>
+    <string name="menu_settings">Settings</string>
 
     <!-- highscores -->
     <string name="high_scores_games_won">Games won</string>
@@ -59,9 +59,20 @@
     <string name="settings_abstract">Abstract</string>
     <string name="settings_dark">Dark</string>
     <string name="title_activity_settings">Settings</string>
-    <string name="settings_customization">Customization</string>
-    <string name="settings_other">Other settings</string>
+    <string name="settings_customization">Appearance</string>
+    <string name="settings_customization_description">Customize cards and background</string>
+    <string name="settings_other">General</string>
+    <string name="settings_other_description">Set all other settings</string>
+    <string name="settings_games">Games</string>
+    <string name="settings_games_description">Set preferences for the game variants</string>
+    <string name="settings_freecell_multiple_cards">Allow movement of multiple cards</string>
+    <string name="settings_freecell_multiple_cards_description">Move as many cards at once as the number of free cells</string>
+    <string name="settings_spider_difficulty">Number of different card families</string>
+    <string name="settings_klondike_draw">Number of cards to draw</string>
+    <string name="settings_show_main_menu">Start to main menu</string>
+    <string name="settings_show_main_menu_description">Do not enter the last played game on start</string>
 
+    <!-- Preference Keys -->
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>
     <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
     <string name="pref_key_cards" translatable="false">pref_key_cards</string>
@@ -71,9 +82,21 @@
     <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
     <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
     <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
+    <string name="pref_key_freecell_multiple_cards" translatable="false">pref_key_freecell_multiple_cards</string>
+    <string name="pref_key_spider_difficulty" translatable="false">pref_key_spider_difficulty</string>
+    <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
+    <string name="pref_key_current_game" translatable="false">pref_key_current_game</string>
+    <string name="pref_key_start_menu" translatable="false">pref_key_start_menu</string>
 
     <string name="settings_background">Background number</string>
     <string name="about_description">Show information about the game like licenses and changelog</string>
     <string name="pref_key_about" translatable="false">pref_key_about</string>
+
+    <!-- game names -->
+    <string name="games_menu" translatable="false">Menu</string>
+    <string name="games_klondike">Klondike</string>
+    <string name="games_freecell">Freecell</string>
+    <string name="games_yukon">Yukon</string>
+    <string name="games_spider">Spider</string>
 
 </resources>

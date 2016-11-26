@@ -47,12 +47,31 @@
     <string name="settings_abstract">無地</string>
     <string name="settings_dark">ダーク</string>
     <string name="title_activity_settings">設定</string>
-    <string name="settings_customization">カスタマイズ</string>
-    <string name="settings_other">その他の設定</string>
 
     <string name="settings_background">背景の番号</string>
     <string name="about_description">ライセンスや変更履歴など、ゲームに関する情報を表示します</string>
     <string name="japaneseTranslation1">の日本語訳：</string>
     <string name="japaneseTranslation2">GitHub ユーザー naofum</string>
+    <string name="settings_customization">外観</string>
+    <string name="settings_customization_description">カードと背景をカスタマイズする</string>
+    <string name="settings_freecell_multiple_cards">複数のカードの移動を許可する</string>
+    <string name="settings_freecell_multiple_cards_description">フリーセルの数として一度に多くのカードを移動する</string>
+    <string name="settings_games">ゲーム</string>
+    <string name="settings_games_description">" ゲームのバリアントの設定を行う"</string>
+    <string name="settings_klondike_draw">描画するカードの数</string>
+    <string name="settings_other">一般に</string>
+    <string name="settings_show_main_menu">メインメニューで開始</string>
+    <string name="settings_other_description">他のすべての設定を設定する</string>
+    <string name="settings_show_main_menu_description">開始時に最後にプレイしたゲームに参加しない</string>
+    <string name="settings_spider_difficulty">異なるカードファミリーの数</string>
+    <string name="games_klondike">クロンダイク</string>
+    <string name="games_freecell">フリーセル</string>
+    <string name="menu_main_menu" translatable="false">メニュー</string>
+    <string name="games_spider">スパイダ</string>
+    <string name="games_yukon">Yukon</string>
+    <string name="menu_hint" translatable="false">ヒント</string>
+    <string name="menu_scores" translatable="false">高得点</string>
+    <string name="menu_settings">設定</string>
+    <string name="menu_undo">アンドゥ</string>
 
 </resources>

@@ -19,174 +19,192 @@
 
 package de.tobiasbielefeld.solitaire.ui;
 
-import android.content.Intent;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import java.util.List;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.savedData;
 
 /*
- * Settings activity created from "New Settings Activity" Tool from Android Studio.
- * But i removed the multi pane fragment stuff because i had problems with it and i think it's
- * not necessary for my 7 settings. So i add the preferences in onCreate and use a
- * onSharedPreferenceChanged Listener for updating the game.
  *
- * I use 2 custom dialogs for the card drawables and background drawables, therefore they have
- * custom preference dialog classes with onClicks and the Summary is updated here
  */
 
-@SuppressWarnings("deprecation")
-public class Settings extends AppCompatPreferenceActivity
-        implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener{
+public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private Preference preferenceCards, preferenceCardsBackground;                                  //my custom preferences
+    private Preference preferenceCards, preferenceCardsBackground;
+
+    private static boolean isXLargeTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
-        addPreferencesFromResource(R.xml.pref_settings);
-        showOrHideStatusBar();
-        setOrientation();
+
 
          /* set a nice back arrow in the actionBar */
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null)                                                                      //set a nice back arrow in the actionBar
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-
-        /* initialize the custom preferences */
-        preferenceCards = findPreference(getString(R.string.pref_key_cards));
-        preferenceCardsBackground = findPreference(getString(R.string.pref_key_cards_background));
-        Preference preferenceAbout = findPreference(getString(R.string.pref_key_about));
-        preferenceAbout.setOnPreferenceClickListener(this);
-
-        /* set default values for summary of custom preferences*/
-        setPreferenceCardsSummary();
-        setPreferenceCardsBackgroundSummary();
-
-        //if user set another orientation, the orientation will change and the intent gets lost,
-        //so load the data from it through savedInstance
-        if(savedInstanceState!=null){
-            if (savedInstanceState.getInt(getString(R.string.pref_key_orientation))>0) {
-                getIntent().putExtra(getString(R.string.pref_key_orientation), 1);
-                setResult(RESULT_OK, getIntent());
-            }
         }
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {                                           //only menu item is the back button in the action bar
-        finish();                                                                                   //so finish this activity
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //only item is the back arrow
+        finish();
         return true;
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);// Set up a listener whenever a key changes
+    public boolean onIsMultiPane() {
+        return isXLargeTablet(this);
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);//unregister the listener
+    public void onBuildHeaders(List<Header> target) {
+        loadHeadersFromResource(R.xml.pref_headers, target);
     }
 
-    @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-
         switch (key) {
-            case "pref_key_background_color":
-                getIntent().putExtra(getString(R.string.pref_key_background_color), 1);
-                break;
-            case Card.CARD_DRAWABLES:
+            case CARD_DRAWABLES:
                 Card.updateCardDrawableChoice();
                 setPreferenceCardsSummary();
                 break;
-            case Card.CARD_BACKGROUND:
+            case CARD_BACKGROUND:
                 Card.updateCardBackgroundChoice();
                 setPreferenceCardsBackgroundSummary();
                 break;
             case "pref_key_hide_status_bar":
                 showOrHideStatusBar();
-                getIntent().putExtra(getString(R.string.pref_key_hide_status_bar), 1);
-                break;
-            case "pref_key_left_handed_mode":
-                for (int i = 0; i <= 12; i++) {                                                     //update the card and stack positions
-                    stacks[i].mView.setX(mainActivity.layoutGame.getWidth() - stacks[i].mView.getX() - Card.sWidth);
-
-                    for (int j = 0; j < stacks[i].getSize(); j++) {
-                        Card card = stacks[i].getCard(j);
-                        card.setLocationWithoutMovement(mainActivity.layoutGame.getWidth() -       //new position is layout width - current position - card width.
-                                card.mView.getX() - Card.sWidth, card.mView.getY());
-                    }
-                }
                 break;
             case "pref_key_orientation":
                 setOrientation();
-                getIntent().putExtra(getString(R.string.pref_key_orientation),1);
+                break;
+            case "pref_key_left_handed_mode":
+                gameLogic.mirrorStacks();
                 break;
         }
-
-        setResult(RESULT_OK, getIntent());
     }
 
-    @Override
-    public boolean onPreferenceClick(Preference preference) {
-        startActivity(new Intent(getApplicationContext(), About.class));
-        return false;
+    public void onResume() {
+        super.onResume();
+
+        savedData.registerOnSharedPreferenceChangeListener(this);
+        showOrHideStatusBar();
+        setOrientation();
+    }
+
+    public void onPause() {
+        super.onPause();
+        savedData.unregisterOnSharedPreferenceChangeListener(this);
     }
 
     private void setPreferenceCardsBackgroundSummary() {
         preferenceCardsBackground.setSummary(String.format(Locale.getDefault(), "%s %s",
-                getString(R.string.settings_background), savedData.getInt(Card.CARD_BACKGROUND, 1)));
+                getString(R.string.settings_background), getSharedInt(CARD_BACKGROUND, 1)));
+
+        switch (getSharedInt(CARD_BACKGROUND, 1)) {
+            case 1:
+                preferenceCardsBackground.setIcon(R.drawable.background_1);
+                break;
+            case 2:
+                preferenceCardsBackground.setIcon(R.drawable.background_2);
+                break;
+            case 3:
+                preferenceCardsBackground.setIcon(R.drawable.background_3);
+                break;
+            case 4:
+                preferenceCardsBackground.setIcon(R.drawable.background_4);
+                break;
+            case 5:
+                preferenceCardsBackground.setIcon(R.drawable.background_5);
+                break;
+            case 6:
+                preferenceCardsBackground.setIcon(R.drawable.background_6);
+                break;
+            case 7:
+                preferenceCardsBackground.setIcon(R.drawable.background_7);
+                break;
+            case 8:
+                preferenceCardsBackground.setIcon(R.drawable.background_8);
+                break;
+            case 9:
+                preferenceCardsBackground.setIcon(R.drawable.background_9);
+                break;
+            case 10:
+                preferenceCardsBackground.setIcon(R.drawable.background_10);
+                break;
+            case 11:
+                preferenceCardsBackground.setIcon(R.drawable.background_11);
+                break;
+            case 12:
+                preferenceCardsBackground.setIcon(R.drawable.background_12);
+                break;
+        }
     }
 
     private void setPreferenceCardsSummary() {
         String text = "";
 
-        switch (savedData.getInt(Card.CARD_DRAWABLES, 1)) {
+        switch (getSharedInt(CARD_DRAWABLES, 1)) {
             case 1:
                 text = getString(R.string.settings_classic);
+                preferenceCards.setIcon(R.drawable.classic_diamonds_13);
                 break;
             case 2:
                 text = getString(R.string.settings_abstract);
+                preferenceCards.setIcon(R.drawable.abstract_diamonds_13);
                 break;
             case 3:
                 text = getString(R.string.settings_simple);
+                preferenceCards.setIcon(R.drawable.simple_diamonds_13);
                 break;
             case 4:
                 text = getString(R.string.settings_modern);
+                preferenceCards.setIcon(R.drawable.modern_diamonds_13);
                 break;
             case 5:
                 text = getString(R.string.settings_dark);
+                preferenceCards.setIcon(R.drawable.dark_diamonds_13);
                 break;
         }
 
         preferenceCards.setSummary(text);
     }
 
-    private void showOrHideStatusBar() {
-        if (savedData.getBoolean(getString(R.string.pref_key_hide_status_bar), false))
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        else
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    protected boolean isValidFragment(String fragmentName) {
+        return PreferenceFragment.class.getName().equals(fragmentName)
+                || CustomizationPreferenceFragment.class.getName().equals(fragmentName)
+                || OtherPreferenceFragment.class.getName().equals(fragmentName)
+                || GamesPreferenceFragment.class.getName().equals(fragmentName);
     }
 
     private void setOrientation() {
-        switch (savedData.getString("pref_key_orientation","1")){
+        switch (getSharedString("pref_key_orientation", "1")) {
             case "1": //follow system settings
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;
@@ -202,13 +220,49 @@ public class Settings extends AppCompatPreferenceActivity
         }
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+    private void showOrHideStatusBar() {
+        if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        else
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
 
-        //With that the intent doesnt get lost on orientation change, put it in bundle and load it in onCreate
-        if (getIntent().getIntExtra(getString(R.string.pref_key_orientation), 0) > 0) {
-            outState.putInt(getString(R.string.pref_key_orientation),1);
+    public static class CustomizationPreferenceFragment extends PreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_customize);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceCards = findPreference(getString(R.string.pref_key_cards));
+            settings.preferenceCardsBackground = findPreference(getString(R.string.pref_key_cards_background));
+
+            settings.setPreferenceCardsSummary();
+            settings.setPreferenceCardsBackgroundSummary();
+        }
+    }
+
+    public static class OtherPreferenceFragment extends PreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_other);
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public static class GamesPreferenceFragment extends PreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_games);
+            setHasOptionsMenu(true);
         }
     }
 }

@@ -19,14 +19,12 @@
 package de.tobiasbielefeld.solitaire.ui;
 
 import android.annotation.SuppressLint;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
-import android.view.WindowManager;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -40,7 +38,7 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.savedData;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * About activity, shows my information in a tab view with a changelog
@@ -51,42 +49,42 @@ public class About extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);                                                         //initialize stuff
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         ActionBar actionBar = getSupportActionBar();
         TabHost host = (TabHost) findViewById(R.id.aboutTabHost);
-        TextView aboutTextViewBuild = (TextView) findViewById(R.id.aboutTextViewBuild);
-        TextView aboutTextViewVersion = (TextView) findViewById(R.id.aboutTextViewVersion);
+
+        TextView textViewBuildDate = (TextView) findViewById(R.id.aboutTextViewBuild);              //build date
+        TextView textViewAppVersion = (TextView) findViewById(R.id.aboutTextViewVersion);           //app version
+        TextView textViewCC0License = (TextView) findViewById(R.id.aboutTextViewLicense);           //cc0 license from the pictures
+        TextView textViewGPLLicense = (TextView) findViewById(R.id.aboutLicenseText);               //my app license
+        TextView textViewGitHubLink = (TextView) findViewById(R.id.aboutTextViewGitHubLink);        //link for the gitHub repo
+
         SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");                           //generate a new date for build date
         String strDt = simpleDate.format(BuildConfig.TIMESTAMP);                                    //get the build date as a string
-        TextView aboutTextViewLicense = (TextView) findViewById(R.id.aboutTextViewLicense);         //cc0 license of pictures text
-        TextView aboutLicenseText = (TextView) findViewById(R.id.aboutLicenseText);
-        TextView aboutTextViewGitHubLink = (TextView) findViewById(R.id.aboutTextViewGitHubLink);
 
-        if (actionBar != null)                                                                      //set a nice back arrow in the actionBar
+
+        //set a nice back arrow in the actionBar
+        if (actionBar != null)
             actionBar.setDisplayHomeAsUpEnabled(true);
 
-        if (savedData.getBoolean(getString(R.string.pref_key_hide_status_bar), false))              //if fullscreen was saved, set it
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //load preferences
+        showOrHideStatusBar(this);
+        setOrientation(this);
 
-        setOrientation();                                                                           //orientation according to preference
-
-
-        if (host != null) {                                                                         //initialize the host tab views
+        //initialize the host tab views
+        if (host != null) {
             host.setup();
             //Tab 1 is the About info
             TabHost.TabSpec spec = host.newTabSpec("Tab One");
             spec.setContent(R.id.tab1);
             spec.setIndicator(getString(R.string.about_tab_1));
             host.addTab(spec);
-
             //Tab 2 is the changelog info
             spec = host.newTabSpec("Tab Two");
             spec.setContent(R.id.tab2);
             spec.setIndicator(getString(R.string.about_tab_2));
             host.addTab(spec);
-
             //Tab 3 is the changelog info
             spec = host.newTabSpec("Tab Three");
             spec.setContent(R.id.tab3);
@@ -94,25 +92,32 @@ public class About extends AppCompatActivity {
             host.addTab(spec);
         }
 
-        aboutTextViewVersion.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.app_version), BuildConfig.VERSION_NAME));
-        aboutTextViewBuild.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.about_build_date), strDt));
-        aboutTextViewLicense.setMovementMethod(LinkMovementMethod.getInstance());                   //make links clickable
-        aboutTextViewGitHubLink.setMovementMethod(LinkMovementMethod.getInstance());
+        //update the textViews
+        textViewAppVersion.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.app_version), BuildConfig.VERSION_NAME));
+        textViewBuildDate.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.about_build_date), strDt));
+        textViewCC0License.setMovementMethod(LinkMovementMethod.getInstance());
+        textViewGitHubLink.setMovementMethod(LinkMovementMethod.getInstance());
 
-        try {                                                                                       //show the gpl license from the license.html in the assets folder
+        //show the beautiful gpl license from the license.html in the assets folder
+        try {
             InputStream is = getAssets().open("license.html");
-            aboutLicenseText.setText(Html.fromHtml(new String(getStringFromInputStream(is))));
+            textViewGPLLicense.setText(Html.fromHtml(new String(getStringFromInputStream(is))));
         } catch (IOException ignored) {}
 
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {                                           //only menu item is the back button in the action bar
-        finish();                                                                                   //so finish this activity
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //only menu item is the back button in the action bar so finish this activity
+        finish();
         return true;
     }
 
-    private byte[] getStringFromInputStream(InputStream is) {                                       //Solution from StackOverflow, found here: https://stackoverflow.com/questions/2436385/android-getting-from-a-uri-to-an-inputstream-to-a-byte-array
+    private byte[] getStringFromInputStream(InputStream is) {
+        /*
+         * Solution from StackOverflow, found here:
+         * https://stackoverflow.com/questions/2436385/android-getting-from-a-uri-to-an-inputstream-to-a-byte-array
+         */
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();
         byte[] bReturn = new byte[0];
@@ -137,22 +142,5 @@ public class About extends AppCompatActivity {
             }
         }
         return bReturn;
-    }
-
-    private void setOrientation() {
-        switch (savedData.getString("pref_key_orientation","1")){
-            case "1": //follow system settings
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-                break;
-            case "2": //portrait
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                break;
-            case "3": //landscape
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-            case "4": //landscape upside down
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                break;
-        }
     }
 }
