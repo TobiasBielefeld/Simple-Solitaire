@@ -4,6 +4,18 @@
 
 [<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire)
 
+## To-Do List
+
+- [X] Add more games (frecell, spider and yukon)
+- [X] Improve the settings to use fragments
+- [ ] Add more card drawables. Like the cards from KPatience, especially the Tux cards. But i don't find them anywhere...
+- [ ] Add a color chooser for background color
+- [ ] Add even more games (Simple Simon, Golf, etc)
+
+####Now contains 4 different Solitaire games!
+Klondike, Freecell, Yukon and Spider!
+I test my changes and improve the UI before making a new release!
+Then i will update the screenshots, too.
 
 
 #Simple Solitaire
@@ -56,11 +68,3 @@ If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
 The pictures used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
 You can download the used pictures in the original solution from my [pictures directory](./Pictures)
-
-## To-Do List
-
-- [ ] Add more card drawables. Like the cards from KPatience, especially the Tux cards. But i don't find them anywhere...
-- [ ] Add more games (frecell, spider and yukon)
-- [ ] Improve the settings to use fragments
-- [ ] Add a color chooser for background color
-
