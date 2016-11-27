@@ -21,6 +21,8 @@ package de.tobiasbielefeld.solitaire.classes;
 import android.graphics.PointF;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -221,17 +223,26 @@ public class Card {
 
     }
 
-    public void save() {
-        //save the direction of a card
-        putBoolean(CARD + ID, isUp);
+    public static void save() {
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (Card card: cards)
+            list.add(card.isUp ? 1 : 0);
+
+        putIntList(CARDS,list);
     }
 
-    public void load() {
-        //load the direction
-        if (getBoolean(CARD + ID, false))
-            flipUp();
-        else
-            flipDown();
+    public static void load() {
+
+        ArrayList<Integer> list = getIntList(CARDS);
+
+        for (int i=0;i<cards.length;i++) {
+
+            if (list.get(i)==1)
+                cards[i].flipUp();
+            else
+                cards[i].flipDown();
+        }
     }
 
     public int getColor(){

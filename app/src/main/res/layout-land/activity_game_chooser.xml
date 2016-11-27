@@ -44,6 +44,15 @@
                     android:gravity="center"
                     android:textStyle="normal|bold"
                     android:textSize="18sp" />
+
+                <TextView
+                    android:text="@string/games_yukon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textStyle="normal|bold"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -73,37 +82,6 @@
                     android:onClick="onClick"
                     android:background="@android:drawable/btn_default_small" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:text="@string/games_yukon"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="normal|bold"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:text="@string/games_spider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="normal|bold"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,23 +93,21 @@
                     android:onClick="onClick"
                     android:background="@android:drawable/btn_default_small" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/menu_spider"
-                    android:id="@+id/buttonStartSpider"
-                    android:layout_weight="1"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:background="@android:drawable/btn_default_small" />
-
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <TextView
+                    android:text="@string/games_spider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textStyle="normal|bold"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:text="@string/games_simple_simon"
@@ -156,6 +132,17 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/menu_spider"
+                    android:id="@+id/buttonStartSpider"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:onClick="onClick"
+                    android:background="@android:drawable/btn_default_small" />
 
                 <ImageButton
                     android:layout_width="wrap_content"

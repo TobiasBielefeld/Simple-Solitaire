@@ -20,6 +20,8 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,9 +39,12 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.RestartDialog;
 import de.tobiasbielefeld.solitaire.games.Freecell;
+import de.tobiasbielefeld.solitaire.games.Golf;
 import de.tobiasbielefeld.solitaire.games.Klondike;
+import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
 import de.tobiasbielefeld.solitaire.games.Yukon;
+import de.tobiasbielefeld.solitaire.handler.LoadGameHandler;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
@@ -57,11 +62,11 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class GameManager extends AppCompatActivity implements View.OnTouchListener {
 
-    private boolean hasLoaded = false;                                                              //used to call save() in onPause() only if load() has been called before
+    public boolean hasLoaded = false;                                                              //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore;                                            //textViews for time and scores
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
-    private Toast toast;                                                                            //a delicious toast!
+    public Toast toast;                                                                            //a delicious toast!
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,14 +80,15 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
         buttonAutoComplete = (Button) findViewById(R.id.buttonMainAutoComplete);
 
         //initialize my static helper stuff
+        final GameManager gm = this;
         recordList = new RecordList();
         movingCards = new MovingCards();
         hint = new Hint();
-        scores = new Scores(this);
-        gameLogic = new GameLogic(this);
-        animate = new Animate(this);
-        autoComplete = new AutoComplete(this);
-        timer = new Timer(this);
+        scores = new Scores(gm);
+        gameLogic = new GameLogic(gm);
+        animate = new Animate(gm);
+        autoComplete = new AutoComplete(gm);
+        timer = new Timer(gm);
 
         //load the game
         switch (getIntent().getStringExtra("game")){
@@ -97,6 +103,12 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
                 break;
             case SPIDER:
                 currentGame = new Spider();
+                break;
+            case SIMPLESIMON:
+                currentGame = new SimpleSimon();
+                break;
+            case GOLF:
+                currentGame = new Golf();
                 break;
         }
 
@@ -120,6 +132,8 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
             currentGame.getMainStack().view.setOnTouchListener(this);
         }
 
+        scores.output();
+
         //post, because i need the dimensions of layoutGame to set the cards and stacks
         layoutGame.post(new Runnable() {                                                           //post a runnable to set the dimensions of cards and stacks when the layout has loaded
             @Override
@@ -138,13 +152,30 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
 
                 //calculate the spacing for cards on a stack
                 Stack.defaultSpacing = Card.width / 2;
-                Stack.spacingMaxHeight = (int) ((layoutGame.getHeight() - stacks[0].view.getY()));
+                Stack.spacingMaxHeight = layoutGame.getHeight() - Card.height;
+                Stack.spacingMaxWidth = layoutGame.getWidth() - Card.width;
+                //setup how the cards on the stacks will be stacked (offset to the previous card)
+                //there are 4 possible directions. By default, the tableau stacks are stacked down
+                //all other stacks don't have a visible offset
+                //use setDirections() in a game to change that
+                if (currentGame.directions==null) {
+                    for (int i = 0; i <= currentGame.getLastTableauID(); i++)
+                        stacks[i].setSpacingDirection(1);
+                }
+                else {
+                    for (int i=0;i<currentGame.directions.length;i++)
+                        stacks[i].setSpacingDirection(currentGame.directions[i]);
+                }
 
-                gameLogic.load();
-                hasLoaded = true;
+                LoadGameHandler loadGameHandler = new LoadGameHandler(gm);
+                loadGameHandler.sendEmptyMessageDelayed(0,50);
+                //gameLogic.load();
+                //hasLoaded = true;
             }
         });
     }
+
+
 
     @Override
     public void onPause() {
@@ -168,8 +199,8 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            DialogFragment newFragment = new RestartDialog();
-            newFragment.show(getSupportFragmentManager(), "restart_dialog");
+            DialogFragment restartDialog = new RestartDialog();
+            restartDialog.show(getSupportFragmentManager(), "restartDialog");
 
             return true;
         }
@@ -243,7 +274,7 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
                 break;
             case R.id.mainButtonRestart:                                                            //show restart dialog
                 DialogFragment restartDialog = new RestartDialog();
-                restartDialog.show(getSupportFragmentManager(), "restart_dialog");
+                restartDialog.show(getSupportFragmentManager(), "restartDialog");
                 break;
             case R.id.mainButtonSettings:                                                           //open Settings activity
                 startActivity(new Intent(getApplicationContext(), Settings.class));
@@ -286,14 +317,5 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
          *  returns if the player should't be able to do actions (while animating for example)
          */
         return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking());
-    }
-
-    public void showToast(String text) {
-        if (toast == null)
-            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        else
-            toast.setText(text);
-
-        toast.show();
     }
 }

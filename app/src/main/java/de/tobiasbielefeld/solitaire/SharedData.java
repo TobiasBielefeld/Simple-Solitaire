@@ -18,13 +18,17 @@
 
 package de.tobiasbielefeld.solitaire;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.handler.TestAfterMoveHandler;
@@ -53,6 +57,8 @@ public class SharedData {
     public final static String FREECELL = "Freecell";
     public final static String YUKON = "Yukon";
     public final static String SPIDER = "Spider";
+    public final static String SIMPLESIMON = "SimpleSimon";
+    public final static String GOLF = "Golf";
 
     public final static String SCORE = "Score";
     public final static String SAVED_SCORES = "SavedScores";
@@ -65,9 +71,9 @@ public class SharedData {
     public final static String RECORD_LIST_ENTRY = "RecordListEntry";
     public final static String RECORD_LIST_ENTRIES_SIZE = "RecordListEntriesSize";
     public final static String FLIP_CARD = "FlipCard";
-    public final static String SIZE = "Size";
     public final static String ORIGIN = "Origin";
     public final static String CARD = "Card";
+    public final static String CARDS = "Cards";
     public final static String STACK = "Stack";
 
     public final static String TIMER_CURRENT_TIME = "SavedCurrentTime";
@@ -90,7 +96,7 @@ public class SharedData {
     public static AutoComplete autoComplete;
     public static Timer timer;
 
-    public static SharedPreferences savedData;
+    public static SharedPreferences savedSharedData;
     public static SharedPreferences savedGameData;
     public static Game currentGame;
 
@@ -190,6 +196,50 @@ public class SharedData {
      * "savedGameData" is a different sharedPreference for every game
      */
 
+    public static void putIntList(String name, List<Integer> list) {
+        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+        String s = "";
+        for (int i : list) {
+            s += i + ",";
+        }
+        savedGameData.edit().putString(name, s).apply();
+    }
+
+    public static ArrayList<Integer> getIntList(String name) {
+        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+        String s = savedGameData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Integer> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        return result;
+    }
+
+    public static void putLongList(String name, List<Long> list) {
+        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+        String s = "";
+        for (long i : list) {
+            s += i + ",";
+        }
+        savedGameData.edit().putString(name, s).apply();
+    }
+
+    public static ArrayList<Long> getLongList(String name) {
+        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+        String s = savedGameData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Long> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(Long.parseLong(st.nextToken()));
+        }
+
+        return result;
+    }
+
     public static Long getLong(String name, long defaultValue){
         return savedGameData.getLong(name,defaultValue);
     }
@@ -228,23 +278,23 @@ public class SharedData {
      */
 
     public static int getSharedInt(String name, int defaultValue){
-        return savedData.getInt(name,defaultValue);
+        return savedSharedData.getInt(name,defaultValue);
     }
 
     public static String getSharedString(String name, String defaultValue){
-        return savedData.getString(name,defaultValue);
+        return savedSharedData.getString(name,defaultValue);
     }
 
     public static boolean getSharedBoolean(String name, boolean defaultValue){
-        return savedData.getBoolean(name,defaultValue);
+        return savedSharedData.getBoolean(name,defaultValue);
     }
 
     public static void putSharedInt(String name, int value){
-        savedData.edit().putInt(name, value).apply();
+        savedSharedData.edit().putInt(name, value).apply();
     }
 
     public static void putSharedString(String name, String value){
-        savedData.edit().putString(name,value).apply();
+        savedSharedData.edit().putString(name,value).apply();
     }
 
     /*
@@ -292,5 +342,14 @@ public class SharedData {
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
+    }
+
+    public static void showToast(Toast toast, Context context, String text) {
+        if (toast == null)
+            toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+        else
+            toast.setText(text);
+
+        toast.show();
     }
 }

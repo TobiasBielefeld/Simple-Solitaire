@@ -18,10 +18,12 @@
 
 package de.tobiasbielefeld.solitaire.classes;
 
+import android.graphics.PointF;
 import android.util.Log;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -33,10 +35,12 @@ public class Stack {
 
     public static int defaultSpacing;                                                               //The default space between cards, will be calculated in onCreate of the Main activity
     public static int spacingMaxHeight;                                                             //max height of the stapled cards on a stack
+    public static int spacingMaxWidth;                                                             //max height of the stapled cards on a stack
 
     public ImageView view;                                                                          //Background of the stack
     private int ID;                                                                                 //ID: 0 to 6 tableau. 7 to 10 foundations. 11 and 12 discard and Main stack
     private int spacing;                                                                            //current spacing value
+    private int spacingDirection;
     public ArrayList<Card> currentCards = new ArrayList<>();                                        //the array of cards on the stack
 
     public Stack(int ID) {                                                                          //Constructor: set ID
@@ -51,12 +55,7 @@ public class Stack {
         card.setStack(this);
         currentCards.add(card);
 
-        if (ID <= currentGame.getLastTableauID() ) {
-            updateSpacing();
-        }
-        else {
-            card.setLocation(view.getX(), view.getY());
-        }
+        updateSpacing();
 
         if (currentGame.hasMainStack() && ID >= currentGame.getMainStack().getID()) {
             card.flipDown();
@@ -69,8 +68,8 @@ public class Stack {
     public void removeCard(Card card) {
         currentCards.remove(currentCards.indexOf(card));
 
-        if (ID <= currentGame.getLastTableauID())
-            updateSpacing();
+        //if (ID <= currentGame.getLastTableauID() || spacingDirection!=0)
+        updateSpacing();
     }
 
     public Card getCard(int index) {                                                                //get card from index
@@ -109,37 +108,96 @@ public class Stack {
     }
 
     public boolean isOnLocation(float pX, float pY) {
-        //returns if a position matches the stack cooridinates
-        return pX >= view.getX() && pX <= view.getX() + view.getLayoutParams().width
-                && pY >= view.getY() && pY <= view.getY() + view.getLayoutParams().height
-                + (ID <= currentGame.getLastTableauID() ? spacing * currentCards.size() : 0);
+        /*
+         * returns if a position matches the stack coordinates
+         * Use the actual stack coordinates and the position of the top card for it
+         */
+        PointF topPoint = getPosition(0);
+
+        switch (spacingDirection){
+            default://no spacing
+                return pX >= view.getX() && pX <= view.getX() + Card.width
+                        && pY >= view.getY() && pY <= view.getY() + Card.height;
+            case 1: //down
+                topPoint.y += Card.height;
+                return pX >= view.getX() && pX <= view.getX() + Card.width
+                        && pY >= view.getY() && pY <= topPoint.y;
+            case 2: //up
+                return pX >= view.getX() && pX <= view.getX() + Card.width
+                        && pY >= topPoint.y && pY <= view.getY() + Card.height;
+            case 3: //left
+                return pX >= topPoint.x && pX <= view.getX() + Card.width
+                        && pY >= view.getY() && pY <= view.getY() + Card.height;
+            case 4: //right
+                topPoint.x += Card.width;
+                return pX >= view.getX() && pX <= topPoint.x
+                        && pY >= view.getY() && pY <= view.getY() + Card.height;
+        }
     }
 
     public void save() {
-        putInt(STACK + ID + SIZE, currentCards.size());
+        ArrayList<Integer> list = new ArrayList<>();
 
-        for (int j = 0; j < currentCards.size(); j++)
-            putInt(STACK + ID + "_" + j, currentCards.get(j).getID());
+        for (Card card: currentCards)
+            list.add(card.getID());
+
+        putIntList(STACK + ID,list);
     }
 
     public void load() {
         reset();
 
-        int size = getInt(STACK + ID + SIZE, -1);
+        ArrayList<Integer> list = getIntList(STACK + ID);
 
-        for (int j = 0; j < size; j++)
-        {
-            int cardID = getInt(STACK + ID + "_" + j, -1);
-            addCard(cards[cardID]);
-        }
+        for (Integer i : list)
+            addCard(cards[i]);
     }
 
     private void updateSpacing() {
-        //calculate new spacing
-        spacing = min((spacingMaxHeight - Card.height) / (currentCards.size() + 1), defaultSpacing);
-        //and update the card position
-        for (int i = 0; i < currentCards.size(); i++)
-            currentCards.get(i).setLocation(view.getX(), view.getY() + spacing * i);
+        /*
+         * update spacing according to the direction. Left and right are reversed for left handed mode
+         */
+
+        switch (spacingDirection){
+            default: //no spacing
+                for (int i = 0; i < currentCards.size(); i++)
+                    currentCards.get(i).setLocation(view.getX(), view.getY());
+                break;
+            case 1: //down
+                spacing = min((int)(spacingMaxHeight - view.getY()) / (currentCards.size()+1), defaultSpacing);
+                for (int i = 0; i < currentCards.size(); i++)
+                    currentCards.get(i).setLocation(view.getX(), view.getY() + spacing * i);
+                break;
+            case 2: //up
+                spacing = min((int)(view.getY()) / (currentCards.size()+1), defaultSpacing);
+                for (int i = 0; i < currentCards.size(); i++)
+                    currentCards.get(i).setLocation(view.getX(), view.getY() - spacing * i);
+                break;
+            case 3: //left
+                if (getSharedBoolean("pref_key_left_handed_mode", false)) {
+                    spacing = min((int) (spacingMaxWidth - view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    for (int i = 0; i < currentCards.size(); i++)
+                        currentCards.get(i).setLocation(view.getX() + spacing * i, view.getY());
+                }
+                else {
+                    spacing = min((int) (view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    for (int i = 0; i < currentCards.size(); i++)
+                        currentCards.get(i).setLocation(view.getX() - spacing * i, view.getY());
+                }
+                break;
+            case 4: //right
+                if (getSharedBoolean("pref_key_left_handed_mode", false)) {
+                    spacing = min((int) (view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    for (int i = 0; i < currentCards.size(); i++)
+                        currentCards.get(i).setLocation(view.getX() - spacing * i, view.getY());
+                }
+                else {
+                    spacing = min((int) (spacingMaxWidth - view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    for (int i = 0; i < currentCards.size(); i++)
+                        currentCards.get(i).setLocation(view.getX() + spacing * i, view.getY());
+                }
+                break;
+        }
     }
 
     public Card getFirstUpCard() {
@@ -159,13 +217,27 @@ public class Stack {
         return -1;
     }
 
-    public float getYPosition(int offset) {
-        //y position of a card on the stack
-        return view.getY() + spacing * (currentCards.size() + offset);
+    public PointF getPosition(int offset) {
+        //get the position of the stack according to the spacing and offset
+        switch (spacingDirection){
+            default://no spacing
+                return new PointF(view.getX(),view.getY());
+            case 1: //down
+                return new PointF(view.getX(),view.getY() + spacing * (currentCards.size() + offset));
+            case 2: //up
+                return new PointF(view.getX(),view.getY() - spacing * (currentCards.size() + offset));
+            case 3: //left
+                return new PointF(view.getX() - spacing * (currentCards.size() + offset),view.getY());
+            case 4: //right
+                return new PointF(view.getX() + spacing * (currentCards.size() + offset),view.getY());
+        }
     }
 
     public boolean isEmpty() {
         return getSize()==0;
     }
 
+    public void setSpacingDirection(int value){
+        spacingDirection = value;
+    }
 }

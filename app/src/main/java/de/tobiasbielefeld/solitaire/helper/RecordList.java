@@ -154,28 +154,32 @@ public class RecordList {
         }
 
         void save(String pos){
-            putInt(RECORD_LIST_ENTRY + pos + SIZE,currentCards.size());
+            ArrayList<Integer> listCards = new ArrayList<>();
+            ArrayList<Integer> listOrigins = new ArrayList<>();
 
-            for (int i=0;i< currentCards.size();i++){
-                putInt(RECORD_LIST_ENTRY + pos + CARD + i,currentCards.get(i).getID());
-                putInt(RECORD_LIST_ENTRY + pos + ORIGIN + i,currentOrigins.get(i).getID());
+            for (int i=0;i<currentCards.size();i++) {
+                listCards.add(currentCards.get(i).getID());
+                listOrigins.add(currentOrigins.get(i).getID());
+
             }
+
+            putIntList(RECORD_LIST_ENTRY + pos + CARD,listCards);
+            putIntList(RECORD_LIST_ENTRY + pos + ORIGIN,listOrigins);
 
             putInt(RECORD_LIST_ENTRY + pos + FLIP_CARD, hasFlipCard()? flipCard.getID() : -1);
 
         }
 
         void load(String pos){
-            int size = getInt(RECORD_LIST_ENTRY + pos + SIZE,-1);
-            int flipCardID = getInt(RECORD_LIST_ENTRY + pos + FLIP_CARD,-1);
+            ArrayList<Integer> cardList = getIntList(RECORD_LIST_ENTRY + pos + CARD);
+            ArrayList<Integer> originList = getIntList(RECORD_LIST_ENTRY + pos + ORIGIN);
 
-            for (int i=0;i<size;i++){
-                int cardID = getInt(RECORD_LIST_ENTRY + pos + CARD + i, -1);
-                int stackID = getInt(RECORD_LIST_ENTRY + pos + ORIGIN + i, -1);
-
-                currentCards.add(cards[cardID]);
-                currentOrigins.add(stacks[stackID]);
+            for (int i=0;i<cardList.size();i++){
+                currentCards.add(cards[cardList.get(i)]);
+                currentOrigins.add(stacks[originList.get(i)]);
             }
+
+            int flipCardID = getInt(RECORD_LIST_ENTRY + pos + FLIP_CARD,-1);
 
             if (flipCardID>0)
                 addFlip(cards[flipCardID]);

@@ -39,8 +39,8 @@ public class Klondike extends Game {
     public Klondike() {
         setNumberOfDecks(1);
         setNumberOfStacks(15);
-        setMainStackID(14);
-        setDiscardStackID(11);
+        setFirstMainStackID(14);
+        setFirstDiscardStackID(11);
         setLastTableauID(6);
     }
 
@@ -188,6 +188,13 @@ public class Klondike extends Game {
                         origin.add(stacks[11]);
                     }
                 }
+
+                //now bring the cards to front
+                if (!stacks[12].isEmpty())
+                    stacks[12].getTopCard().view.bringToFront();
+
+                if (!stacks[13].isEmpty())
+                    stacks[13].getTopCard().view.bringToFront();
 
                 //reverse everything so the cards on the stack will be in the right order when using an undo
                 //the cards from 2. and 3 trash stack are in the right order again

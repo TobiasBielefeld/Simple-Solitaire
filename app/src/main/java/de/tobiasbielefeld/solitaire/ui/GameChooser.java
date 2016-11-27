@@ -42,30 +42,15 @@ public class GameChooser extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_chooser);
-        savedData = PreferenceManager.getDefaultSharedPreferences(this);
-
-        String game = MENU;
+        savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (!getSharedBoolean(getString(R.string.pref_key_start_menu),false)) {
-            switch (getSharedString("pref_key_current_game", MENU)) {
-                case KLONDIKE:
-                    game = KLONDIKE;
-                    break;
-                case FREECELL:
-                    game = FREECELL;
-                    break;
-                case YUKON:
-                    game = YUKON;
-                    break;
-                case SPIDER:
-                    game = SPIDER;
-                    break;
-            }
 
-            if (!game.equals(MENU)) {
-                savedGameData = getSharedPreferences(game, MODE_PRIVATE);
+            String savedGame = getSharedString("pref_key_current_game", MENU);
+            if (!savedGame.equals(MENU)) {
+                savedGameData = getSharedPreferences(savedGame, MODE_PRIVATE);
                 Intent intent = new Intent(getApplicationContext(), GameManager.class);
-                intent.putExtra("game", game);
+                intent.putExtra("game", savedGame);
                 startActivity(intent);
             }
         }
@@ -96,6 +81,12 @@ public class GameChooser extends AppCompatActivity {
                 break;
             case R.id.buttonStartSpider:
                 game = SPIDER;
+                break;
+            case R.id.buttonStartSimpleSimon:
+                game = SIMPLESIMON;
+                break;
+            case R.id.buttonStartGolf:
+                game = GOLF;
                 break;
         }
 

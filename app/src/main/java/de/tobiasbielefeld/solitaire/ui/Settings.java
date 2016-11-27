@@ -43,7 +43,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.savedData;
+import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
 
 /*
  *
@@ -113,14 +113,14 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     public void onResume() {
         super.onResume();
 
-        savedData.registerOnSharedPreferenceChangeListener(this);
+        savedSharedData.registerOnSharedPreferenceChangeListener(this);
         showOrHideStatusBar();
         setOrientation();
     }
 
     public void onPause() {
         super.onPause();
-        savedData.unregisterOnSharedPreferenceChangeListener(this);
+        savedSharedData.unregisterOnSharedPreferenceChangeListener(this);
     }
 
     private void setPreferenceCardsBackgroundSummary() {

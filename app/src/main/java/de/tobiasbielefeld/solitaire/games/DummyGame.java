@@ -35,9 +35,19 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * don't use stack.getTopCard() on empty stacks! check with isEmpty() to avoid it
  *
  * To add a new game, also include it (create a string in SharedData with the game name)
- *  - in GameChooser onCreate() and onClick() switch statements
+ *  - in GameChooser onClick() switch statements
  *  - in GameManager onCreate() switch statement
  *  - and of course, include a button in the activity_game_chooser.xml
+ *
+ *  The stacks array should be in this order:
+ *  - first the tableau stacks
+ *  - then the foundation stacks (if any)
+ *  - then the discard stacks (if any)
+ *  - at last the main stacks (if any)
+ *
+ *  because i use the ids to determinate if cards should flip
+ *  for example: Because the main stacks are always the last ones,
+ *  every card added to a stack with an ID greater than the FirstMainStack ID will be flipped down
  */
 
 @SuppressWarnings("all")
@@ -54,7 +64,11 @@ public class DummyGame extends Game {
         setNumberOfStacks(13);
 
         //if you game has a main stack, set its ID here. Cards will be automatically dealt from there.
-        setMainStackID(12);
+        setFirstMainStackID(12);
+
+        //if there is a discard stack, set it's ID, because i need the ID for the undo movement
+        //(cards should be faced up when returning to discard)
+        setFirstDiscardStackID(11);
 
         //if your game has NO main stack, set where the cards are dealt from
         setDealFromID(1);
@@ -72,6 +86,20 @@ public class DummyGame extends Game {
         //for example: in Spider i want to set the difficulty: Easy would mean
         //every family is the same color, so i use this:
         setCardDrawables(1,1,1,1);
+
+        //you can set up how the cards on a stack are stacked. which an offset to right, down and so on
+        //So use this method, put an int array with values for each stack that should get a direction
+        //int value at array pos 0 will be assigned to stack[0] and so on
+        //tableau stacks are set to "down" by default, so you don't need to call this method for them
+        //but if you want to change anything, don't forget to set the tableau stacks to "1" again
+        //
+        //the directions are:
+        // 0 no visible offset (like the main stacks)
+        // 1 down (like every tableau stack)
+        // 2 up
+        // 3 left (like the discard stack on Golf
+        // 4 right (like the stack on golf in left handed mode
+        setDirections(new int[]{1,1,1,0,0,1,1,3});
     }
 
     /*
@@ -336,26 +364,6 @@ public class DummyGame extends Game {
             return -200;
 
         return 0;
-    }
-
-    /*
-     * The position of cards on Stacks, and the direction of cards are loaded automatically. If you
-     * have custom variables for the game (like the one int value in Spider) use save() and load() to
-     * store and load the to the game SharedPref:
-     * save() is called in the GameManager Activity onPause()
-     * load() is called after starting this game
-     */
-    @Override
-    public void save(){
-        int intValue=1;
-        putInt("stringKey",intValue);
-        //there's also putBoolean() putLong() and putString()
-    }
-
-    @Override
-    public void load(){
-        int intValue  = getInt("stringKey",0);
-        //there's also getBoolean(), getLong() and getString()
     }
 
     /*

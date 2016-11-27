@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeMain">
         <activity
-            android:name=".ui.About"
+            android:name=".ui.about.AboutActivity"
             android:label="@string/about_name"
             android:theme="@style/AppThemeOther" />
         <activity

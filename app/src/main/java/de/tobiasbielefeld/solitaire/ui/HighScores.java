@@ -19,11 +19,7 @@
 
 package de.tobiasbielefeld.solitaire.ui;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -117,21 +113,12 @@ public class HighScores extends AppCompatActivity {
     }
 
     public void deleteHighScores() {
-        scores.delete_high_scores();
+        scores.deleteHighScores();
         gameLogic.deleteNumberWonGames();
         text1.setText(String.format(Locale.getDefault(),
                 "%s: %s", getString(   //refresh the textView
                         R.string.high_scores_games_won), gameLogic.getNumberWonGames()));
         layoutScores.setVisibility(View.GONE);
-        showToast(getString(R.string.highScoresButtonDeleted_all_entries));
-    }
-
-    public void showToast(String text) {
-        if (toast == null)
-            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        else
-            toast.setText(text);
-
-        toast.show();
+        showToast(toast,this,getString(R.string.highScoresButtonDeleted_all_entries));
     }
 }

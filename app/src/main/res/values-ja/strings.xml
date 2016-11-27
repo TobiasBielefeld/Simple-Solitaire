@@ -66,12 +66,16 @@
     <string name="settings_spider_difficulty">異なるカードファミリーの数</string>
     <string name="games_klondike">クロンダイク</string>
     <string name="games_freecell">フリーセル</string>
-    <string name="menu_main_menu" translatable="false">メニュー</string>
+    <string name="menu_main_menu">メニュー</string>
     <string name="games_spider">スパイダ</string>
-    <string name="games_yukon">Yukon</string>
-    <string name="menu_hint" translatable="false">ヒント</string>
-    <string name="menu_scores" translatable="false">高得点</string>
+    <string name="games_yukon">ユーコン</string>
+    <string name="menu_hint">ヒント</string>
+    <string name="menu_scores">高得点</string>
     <string name="menu_settings">設定</string>
     <string name="menu_undo">アンドゥ</string>
+    <string name="games_golf">ゴルフ</string>
+    <string name="games_simple_simon">シンプルシモン</string>
+    <string name="settings_golf_easy_description">エースを王に置くことを許可する、またはその逆</string>
+    <string name="settings_golf_easy">循環的な動き （より簡単に）</string>
 
 </resources>

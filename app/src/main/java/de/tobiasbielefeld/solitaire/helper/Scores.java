@@ -109,11 +109,24 @@ public class Scores {
         update(bonus);
     }
 
-    public void save() {                                                                                   //save the actual score
+    public void save() {
         putLong(SCORE, score);
     }
 
-    public void saveHighScore() {
+    private void saveHighScore() {
+        ArrayList<Long> listScores = new ArrayList<>();
+        ArrayList<Long> listTimes = new ArrayList<>();
+
+        for (int i=0;i<MAX_SAVED_SCORES;i++){
+            listScores.add(savedScores[i][0]);
+            listTimes.add(savedScores[i][0]);
+        }
+
+        putLongList(SAVED_SCORES + 0,listScores);
+        putLongList(SAVED_SCORES + 1,listTimes);
+    }
+
+    public void addNewHighScore() {
         /*
          * new score will be inserted at the last position
          * and moved left until it is in the right position
@@ -136,10 +149,7 @@ public class Scores {
                 index--;
             }
 
-            for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-                putLong(SAVED_SCORES + i + 0, savedScores[i][0]);
-                putLong(SAVED_SCORES + i + 1, savedScores[i][1]);
-            }
+            saveHighScore();
         }
     }
 
@@ -147,9 +157,24 @@ public class Scores {
         score = getLong(SCORE, 0);
         output();
 
-        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-            savedScores[i][0] = getLong(SAVED_SCORES + i + 0, (long) 0);
-            savedScores[i][1] = getLong(SAVED_SCORES + i + 1, (long) 0);
+
+        ArrayList<Long> listScores = getLongList(SAVED_SCORES + 0);
+        ArrayList<Long> listTimes = getLongList(SAVED_SCORES + 1);
+
+        if (listScores.size()==0 && listTimes.size()==0){
+            //in case there isn't a score list saved yet
+            for (int i = 0; i < MAX_SAVED_SCORES; i++) {
+                savedScores[i][0] = 0;
+                savedScores[i][1] = 0;
+            }
+
+            saveHighScore();
+        }
+        else {
+            for (int i = 0; i < MAX_SAVED_SCORES; i++) {
+                savedScores[i][0] = listScores.get(i);
+                savedScores[i][1] = listTimes.get(i);
+            }
         }
     }
 
@@ -158,16 +183,13 @@ public class Scores {
         output();
     }
 
-    public void delete_high_scores() {
+    public void deleteHighScores() {
         /*
          * delete the high scores by just creating a new empty array and save it
          */
         savedScores = new long[MAX_SAVED_SCORES][2];
 
-        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-            putLong(SAVED_SCORES + i + 0, savedScores[i][0]);
-            putLong(SAVED_SCORES + i + 1, savedScores[i][1]);
-        }
+        saveHighScore();
     }
 
     public long get(int i, int j) {
@@ -175,7 +197,7 @@ public class Scores {
         return savedScores[i][j];
     }
 
-    private void output() {
+    public void output() {
         gm.mainTextViewScore.setText(String.format("%s: %s",
                     gm.getString(R.string.scores_score), score));
     }

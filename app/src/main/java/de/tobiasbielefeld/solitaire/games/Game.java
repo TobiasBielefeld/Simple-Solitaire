@@ -41,6 +41,7 @@ public abstract class Game {
     private boolean hasDiscardStack = false;
     private int discardStackID;
     private int lastTableauID;
+    public int[] directions;
 
     /*
      *  stuff that a game MUST implement
@@ -74,14 +75,6 @@ public abstract class Game {
         return currentGame.getMainStack().isOnLocation(X,Y);
     }
 
-    public void save(){
-
-    }
-
-    public void load(){
-
-    }
-
     protected void setCardDrawables(int p1, int p2, int p3, int p4){
         cardDrawablesOrder = new int[]{p1,p2,p3,p4};
     }
@@ -101,19 +94,23 @@ public abstract class Game {
         stacks = new Stack[number];
     }
 
-    protected void setMainStackID(int ID){
+    protected void setFirstMainStackID(int ID){
         hasMainStack=true;
         mainStackID = ID;
         dealFromID = ID;
     }
 
-    protected void setDiscardStackID(int ID){
+    protected void setFirstDiscardStackID(int ID){
         hasDiscardStack = true;
         discardStackID = ID;
     }
 
     protected void setDealFromID(int ID) {
         dealFromID = ID;
+    }
+
+    protected void setDirections(int[] directions){
+        this.directions = directions;
     }
 
     /*

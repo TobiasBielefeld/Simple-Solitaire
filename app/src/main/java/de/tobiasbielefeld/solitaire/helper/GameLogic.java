@@ -2,6 +2,7 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -38,13 +39,9 @@ public class GameLogic{
         /* Timer will be saved in onPause() */
         for (Stack stack : stacks)
             stack.save();
-        for (Card card : cards)
-            card.save();
 
-        currentGame.save();
-
-        for (int i = 0; i < randomCards.length; i++)
-            putInt(GAME_RANDOM_CARDS + i, randomCards[i].getID());
+        Card.save();
+        saveRandomCards();
     }
 
     public void load() {
@@ -89,20 +86,16 @@ public class GameLogic{
                 //timer will be loaded in onResume()
                 for (Stack stack : stacks)
                     stack.load();
-                for (Card card : cards)
-                    card.load();
 
-                currentGame.load();
-
-                for (int i = 0; i < randomCards.length; i++)
-                    randomCards[i] = cards[getInt(GAME_RANDOM_CARDS + i, -1)];
+                Card.load();
+                loadRandomCards();
 
                 if (! autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
                     autoComplete.showButton();
                 }
             } catch (Exception e) {
                 Log.e("Loading data failed", e.toString());
-                gm.showToast(gm.getString(R.string.game_load_error));
+                showToast(gm.toast, gm, gm.getString(R.string.game_load_error));
                 newGame();
             }
         }
@@ -145,7 +138,7 @@ public class GameLogic{
             won = true;
             numberWonGames++;
 
-            scores.saveHighScore();
+            scores.addNewHighScore();
             recordList.reset();
             animate.wonAnimation();
         }
@@ -196,6 +189,22 @@ public class GameLogic{
 
     public void deleteNumberWonGames() {
         numberWonGames = 0;
+    }
+
+    private void saveRandomCards(){
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (Card card: randomCards)
+            list.add(card.getID());
+
+        putIntList(GAME_RANDOM_CARDS,list);
+    }
+
+    private void loadRandomCards(){
+        ArrayList<Integer> list = getIntList(GAME_RANDOM_CARDS);
+
+        for (int i=0;i<randomCards.length;i++)
+            randomCards[i] = cards[list.get(i)];
     }
 
 

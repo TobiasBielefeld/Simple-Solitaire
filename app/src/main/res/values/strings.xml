@@ -71,6 +71,8 @@
     <string name="settings_klondike_draw">Number of cards to draw</string>
     <string name="settings_show_main_menu">Start to main menu</string>
     <string name="settings_show_main_menu_description">Do not enter the last played game on start</string>
+    <string name="settings_golf_easy">Cyclic moves (Easier)</string>
+    <string name="settings_golf_easy_description">Allow placing aces on kings and vice versa</string>
 
     <!-- Preference Keys -->
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>
@@ -87,6 +89,7 @@
     <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
     <string name="pref_key_current_game" translatable="false">pref_key_current_game</string>
     <string name="pref_key_start_menu" translatable="false">pref_key_start_menu</string>
+    <string name="pref_key_golf_cyclic" translatable="false">pref_key_golf_cyclic</string>
 
     <string name="settings_background">Background number</string>
     <string name="about_description">Show information about the game like licenses and changelog</string>
@@ -98,5 +101,7 @@
     <string name="games_freecell">Freecell</string>
     <string name="games_yukon">Yukon</string>
     <string name="games_spider">Spider</string>
+    <string name="games_simple_simon">Simple Simon</string>
+    <string name="games_golf">Golf</string>
 
 </resources>

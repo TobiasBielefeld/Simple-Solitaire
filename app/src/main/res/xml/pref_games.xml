@@ -13,14 +13,6 @@
             android:summary="%s"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_freecell" >
-        <CheckBoxPreference
-            android:key="@string/pref_key_freecell_multiple_cards"
-            android:defaultValue="true"
-            android:title="@string/settings_freecell_multiple_cards"
-            android:summary="@string/settings_freecell_multiple_cards_description" />
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/games_spider" >
         <ListPreference
             android:key="@string/pref_key_spider_difficulty"
@@ -31,6 +23,22 @@
             android:positiveButtonText="@null"
             android:title="@string/settings_spider_difficulty"
             android:summary="%s"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_freecell" >
+        <CheckBoxPreference
+            android:key="@string/pref_key_freecell_multiple_cards"
+            android:defaultValue="true"
+            android:title="@string/settings_freecell_multiple_cards"
+            android:summary="@string/settings_freecell_multiple_cards_description" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_golf" >
+        <CheckBoxPreference
+            android:key="@string/pref_key_golf_cyclic"
+            android:defaultValue="true"
+            android:title="@string/settings_golf_easy"
+            android:summary="@string/settings_golf_easy_description" />
     </PreferenceCategory>
 
 </PreferenceScreen>

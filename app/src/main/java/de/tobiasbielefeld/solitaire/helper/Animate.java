@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.helper;
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.graphics.PointF;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -89,15 +90,16 @@ public class Animate{
     public void cardHint(final Card card, final int offset, final Stack stack) {
         card.view.bringToFront();
         card.saveOldLocation();
-        float dist_x = stack.view.getX() - card.view.getX();
-        float dist_y = stack.getYPosition(offset) - card.view.getY();
+        PointF pointAtStack = stack.getPosition(offset);
+        float dist_x = pointAtStack.x - card.view.getX();
+        float dist_y = pointAtStack.y - card.view.getY();
         int distance = (int) Math.sqrt((double) ((dist_x * dist_x) + (dist_y * dist_y)));
 
         TranslateAnimation animation = new TranslateAnimation(
                 0,
-                stack.view.getX() - card.view.getX(),
+                dist_x,
                 0,
-                stack.getYPosition(offset) - card.view.getY());
+                dist_y);
 
         animation.setDuration((distance * 100) / Card.width);
         animation.setAnimationListener(new Animation.AnimationListener() {
@@ -106,8 +108,9 @@ public class Animate{
             }
 
             public void onAnimationEnd(Animation animation) {
-                card.view.setX(stack.view.getX());
-                card.view.setY(stack.getYPosition(offset));
+                PointF pointAtStack = stack.getPosition(offset);
+                card.view.setX(pointAtStack.x);
+                card.view.setY(pointAtStack.y);
                 hideCard(card);
             }
 

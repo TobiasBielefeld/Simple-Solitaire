@@ -1,0 +1,44 @@
+/*
+ * Copyright (C) 2016  Tobias Bielefeld
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
+ */
+
+package de.tobiasbielefeld.solitaire.ui.about;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import de.tobiasbielefeld.solitaire.R;
+
+/**
+ * Shows the changelog
+ */
+
+public class ChangeLogFragment extends Fragment implements View.OnClickListener {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.content_about_tab3, container, false);
+    }
+
+    @Override
+    public void onClick(View view) {
+        //nothing!!
+    }
+}

@@ -21,7 +21,7 @@
         android:title="@string/about_name"
         android:summary="@string/about_description">
         <intent android:targetPackage="de.tobiasbielefeld.solitaire"
-            android:targetClass="de.tobiasbielefeld.solitaire.ui.About" />
+            android:targetClass="de.tobiasbielefeld.solitaire.ui.about.AboutActivity" />
     </header>
 
 </preference-headers>

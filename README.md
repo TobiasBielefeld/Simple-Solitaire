@@ -10,10 +10,10 @@
 - [X] Improve the settings to use fragments
 - [ ] Add more card drawables. Like the cards from KPatience, especially the Tux cards. But i don't find them anywhere...
 - [ ] Add a color chooser for background color
-- [ ] Add even more games (Simple Simon, Golf, etc)
+- [X] Add even more games (Simple Simon, Golf, etc)
 
-####Now contains 4 different Solitaire games!
-Klondike, Freecell, Yukon and Spider!
+####Now contains 6 different Solitaire games!
+Klondike, Freecell, Yukon, Spider, Simple Simon and Golf!
 I test my changes and improve the UI before making a new release!
 Then i will update the screenshots, too.
 
