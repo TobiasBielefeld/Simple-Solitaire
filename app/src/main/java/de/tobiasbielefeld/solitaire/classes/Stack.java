@@ -23,7 +23,6 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 

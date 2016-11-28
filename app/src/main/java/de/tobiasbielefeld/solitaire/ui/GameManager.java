@@ -20,8 +20,6 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -317,5 +315,14 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
          *  returns if the player should't be able to do actions (while animating for example)
          */
         return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking());
+    }
+
+    public void showToast(String text) {
+        if (toast == null)
+            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        else
+            toast.setText(text);
+
+        toast.show();
     }
 }

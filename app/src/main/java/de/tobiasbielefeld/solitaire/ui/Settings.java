@@ -30,6 +30,7 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Locale;
@@ -37,13 +38,7 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *
@@ -52,6 +47,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
 public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private Preference preferenceCards, preferenceCardsBackground;
+    Toast toast;
 
     private static boolean isXLargeTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
@@ -62,7 +58,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
-
 
          /* set a nice back arrow in the actionBar */
         ActionBar actionBar = getSupportActionBar();
@@ -106,6 +101,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 break;
             case "pref_key_left_handed_mode":
                 gameLogic.mirrorStacks();
+                break;
+            case "pref_key_klondike_draw":
+                showToast(getString(R.string.settings_restart_klondike));
+                break;
+            case "pref_key_spider_difficulty":
+                showToast(getString(R.string.settings_restart_spider));
                 break;
         }
     }
@@ -268,5 +269,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             addPreferencesFromResource(R.xml.pref_games);
             setHasOptionsMenu(true);
         }
+    }
+
+    private void showToast( String text) {
+        if (toast == null) {
+            logText("test");
+            toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
+        }
+        else
+            toast.setText(text);
+
+        toast.show();
     }
 }

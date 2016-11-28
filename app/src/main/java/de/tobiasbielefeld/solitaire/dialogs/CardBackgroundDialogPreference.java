@@ -24,7 +24,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.classes.Card;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 

@@ -78,5 +78,7 @@
     <string name="settings_golf_easy_description">エースを王に置くことを許可する、またはその逆</string>
     <string name="settings_golf_easy">循環的な動き （より簡単に）</string>
     <string name="settings_basic">基本的な</string>
+    <string name="settings_restart_klondike">変更を適用するために新しいクロンダイクゲームを開始する</string>
+    <string name="settings_restart_spider">変更を適用するために新しいスパイダーゲームを開始してください</string>
 
 </resources>

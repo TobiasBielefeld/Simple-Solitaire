@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="de.tobiasbielefeld.solitaire.ui.GameChooser"
-    android:background="@drawable/background_color_green">
+    android:background="#5d80f0">
 
 
     <ScrollView

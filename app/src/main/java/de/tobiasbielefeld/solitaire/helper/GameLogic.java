@@ -94,7 +94,7 @@ public class GameLogic{
                 }
             } catch (Exception e) {
                 Log.e("Loading data failed", e.toString());
-                showToast(gm.toast, gm, gm.getString(R.string.game_load_error));
+                gm.showToast(gm.getString(R.string.game_load_error));
                 newGame();
             }
         }

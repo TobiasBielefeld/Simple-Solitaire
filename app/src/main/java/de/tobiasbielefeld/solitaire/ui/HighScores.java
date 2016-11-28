@@ -119,6 +119,15 @@ public class HighScores extends AppCompatActivity {
                 "%s: %s", getString(   //refresh the textView
                         R.string.high_scores_games_won), gameLogic.getNumberWonGames()));
         layoutScores.setVisibility(View.GONE);
-        showToast(toast,this,getString(R.string.highScoresButtonDeleted_all_entries));
+        showToast(getString(R.string.highScoresButtonDeleted_all_entries));
+    }
+
+    private void showToast(String text) {
+        if (toast == null)
+            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        else
+            toast.setText(text);
+
+        toast.show();
     }
 }

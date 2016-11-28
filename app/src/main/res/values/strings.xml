@@ -74,6 +74,8 @@
     <string name="settings_show_main_menu_description">Do not enter the last played game on start</string>
     <string name="settings_golf_easy">Cyclic moves (Easier)</string>
     <string name="settings_golf_easy_description">Allow placing aces on kings and vice versa</string>
+    <string name="settings_restart_klondike">Start a new Klondike game to apply the change</string>
+    <string name="settings_restart_spider">Start a new Spider game to apply the change</string>
 
     <!-- Preference Keys -->
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>

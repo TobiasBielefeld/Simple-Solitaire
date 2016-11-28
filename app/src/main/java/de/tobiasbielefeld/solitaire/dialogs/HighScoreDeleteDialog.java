@@ -29,7 +29,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.HighScores;
 
 /**
- * Created by tobias on 26.11.16.
+ * Dialog for deleting all high scores
  */
 
 public class HighScoreDeleteDialog extends DialogFragment {

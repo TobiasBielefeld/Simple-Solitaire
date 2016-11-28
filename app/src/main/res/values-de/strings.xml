@@ -71,6 +71,8 @@
     <string name="settings_golf_easy">Zyklische Bewegungen (Einfacher)</string>
     <string name="settings_golf_easy_description">Erlaube das Setzen von Assen auf Könige und umgekehrt</string>
     <string name="settings_basic">Basic</string>
+    <string name="settings_restart_klondike">Starte ein neues Klondike Spiel um die Änderung anzuwenden</string>
+    <string name="settings_restart_spider">Starte ein neues Spider Spiel um die Änderung anzuwenden</string>
 
 
 </resources>

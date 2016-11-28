@@ -27,6 +27,8 @@ import android.view.MenuItem;
 
 import de.tobiasbielefeld.solitaire.R;
 
+import static de.tobiasbielefeld.solitaire.SharedData.*;
+
 /**
  * This is created with help of this article: http://simpledeveloper.com/how-to-create-android-swipe-views-tabs/
  * The About activity contains 3 tabs. The content of the tabs is in the fragments
@@ -43,6 +45,8 @@ public class AboutActivity extends AppCompatActivity implements ActionBar.TabLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activty_about);
+        showOrHideStatusBar(this);
+        setOrientation(this);
 
         actionBar = getSupportActionBar();
         viewPager = (ViewPager) findViewById(R.id.pager);

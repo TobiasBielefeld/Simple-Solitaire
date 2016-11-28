@@ -18,12 +18,6 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
-import android.os.Handler;
-import android.os.Message;
-
-import java.util.Locale;
-
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.handler.TimerHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 

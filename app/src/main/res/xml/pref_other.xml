@@ -28,10 +28,12 @@
         android:summary="@string/settings_show_main_menu_description"
         android:title="@string/settings_show_main_menu" />
 
+    <!--
     <CheckBoxPreference
         android:key="@string/pref_key_confirm_closing_game"
         android:defaultValue="true"
         android:summary="@string/settings_back_press_description"
         android:title="@string/settings_back_press" />
+        -->
 
 </PreferenceScreen>

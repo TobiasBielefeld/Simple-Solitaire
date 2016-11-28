@@ -18,13 +18,11 @@
 
 package de.tobiasbielefeld.solitaire;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +32,6 @@ import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.handler.TestAfterMoveHandler;
 import de.tobiasbielefeld.solitaire.handler.TestIfWonHandler;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
-import de.tobiasbielefeld.solitaire.ui.AppCompatPreferenceActivity;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.Animate;
@@ -342,14 +339,5 @@ public class SharedData {
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
-    }
-
-    public static void showToast(Toast toast, Context context, String text) {
-        if (toast == null)
-            toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-        else
-            toast.setText(text);
-
-        toast.show();
     }
 }

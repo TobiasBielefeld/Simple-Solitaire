@@ -416,6 +416,12 @@ public class Klondike extends Game {
                 originReversed.add(origin.get(cards.size() - 1 - i));
             }
 
+            if (!stacks[12].isEmpty())
+                stacks[12].getTopCard().view.bringToFront();
+
+            if (!stacks[13].isEmpty())
+                stacks[13].getTopCard().view.bringToFront();
+
             //and add it IN FRONT of the last entry
             recordList.addInFrontOfLastEntry(cardsReversed, originReversed);
         }
