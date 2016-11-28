@@ -54,6 +54,9 @@ public class GameChooser extends AppCompatActivity {
                 startActivityForResult(intent,0);
             }
         }
+        else {
+            putSharedString("pref_key_current_game",MENU);
+        }
     }
 
     @Override
