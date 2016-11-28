@@ -15,11 +15,10 @@
 ####Now contains 6 different Solitaire games!
 Klondike, Freecell, Yukon, Spider, Simple Simon and Golf!
 I test my changes and improve the UI before making a new release!
-Then i will update the screenshots, too.
 
 
 #Simple Solitaire
-You can find screenshots for phones and tablets [here](./Pictures/Screenshots)
+You can find screenshots for phones and tablets [here](./Pictures/screenshots)
 
 I learned Android and Java by myself using e-books and browsing Stack Overflow for solutions, so please don't expect too much from my source code :D
 
