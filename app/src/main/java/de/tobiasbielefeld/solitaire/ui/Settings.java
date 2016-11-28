@@ -172,22 +172,26 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
         switch (getSharedInt(CARD_DRAWABLES, 1)) {
             case 1:
+                text = getString(R.string.settings_basic);
+                preferenceCards.setIcon(R.drawable.basic_diamonds_13);
+                break;
+            case 2:
                 text = getString(R.string.settings_classic);
                 preferenceCards.setIcon(R.drawable.classic_diamonds_13);
                 break;
-            case 2:
+            case 3:
                 text = getString(R.string.settings_abstract);
                 preferenceCards.setIcon(R.drawable.abstract_diamonds_13);
                 break;
-            case 3:
+            case 4:
                 text = getString(R.string.settings_simple);
                 preferenceCards.setIcon(R.drawable.simple_diamonds_13);
                 break;
-            case 4:
+            case 5:
                 text = getString(R.string.settings_modern);
                 preferenceCards.setIcon(R.drawable.modern_diamonds_13);
                 break;
-            case 5:
+            case 6:
                 text = getString(R.string.settings_dark);
                 preferenceCards.setIcon(R.drawable.dark_diamonds_13);
                 break;

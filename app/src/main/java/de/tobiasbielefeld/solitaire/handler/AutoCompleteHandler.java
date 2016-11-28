@@ -34,15 +34,16 @@ public class AutoCompleteHandler extends Handler {
     private final static int DELTA_TIME = 5;                                                        //will be decreased on every call by this number
     private final static int MIN_TIME = 50;                                                         //minimum to avoid errors
     private int currentTime;                                                                        //current velocity of the handler calling
-    private boolean isfinished = false;                                                             //needed to know when to call the win animation
+    private boolean isFinished = false;                                                             //needed to know when to call the win animation
 
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
         //if the auto complete is finished, wait until the movement of the cards stop and then show the win animation
-        if (isfinished) {
+        if (isFinished) {
             if (animate.cardIsAnimating()) {
                 autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, currentTime);
+                //animate.reset();
             }
             else {
                 autoComplete.reset();
@@ -53,7 +54,7 @@ public class AutoCompleteHandler extends Handler {
             int IDs[] = currentGame.autoCompleteMoveTest();
 
             if (IDs==null) {
-                isfinished = true;
+                isFinished = true;
                 autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,currentTime);
             }
             else {
@@ -66,7 +67,7 @@ public class AutoCompleteHandler extends Handler {
     }
 
     public void reset(){
-        isfinished=false;
+        isFinished=false;
         currentTime = START_TIME;
     }
 }

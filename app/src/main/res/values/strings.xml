@@ -58,6 +58,7 @@
     <string name="settings_modern">Modern</string>
     <string name="settings_abstract">Abstract</string>
     <string name="settings_dark">Dark</string>
+    <string name="settings_basic">Basic</string>
     <string name="title_activity_settings">Settings</string>
     <string name="settings_customization">Appearance</string>
     <string name="settings_customization_description">Customize cards and background</string>

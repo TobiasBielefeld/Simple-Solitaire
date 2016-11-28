@@ -193,11 +193,11 @@ public class Animate{
         view.startAnimation(animation);
     }
 
-    public boolean cardIsAnimating() {                                                              //return if something is animating
+    public boolean cardIsAnimating() {
         return cardIsAnimating != 0;
     }
 
-    public void reset() {                                                                           //reset the animation status
+    public void reset() {
         cardIsAnimating = 0;
     }
 

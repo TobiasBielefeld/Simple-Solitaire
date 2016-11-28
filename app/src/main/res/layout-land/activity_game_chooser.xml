@@ -116,7 +116,9 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textStyle="normal|bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
 
                 <TextView
                     android:text="@string/games_golf"

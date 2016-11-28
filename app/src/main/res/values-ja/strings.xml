@@ -77,5 +77,6 @@
     <string name="games_simple_simon">シンプルシモン</string>
     <string name="settings_golf_easy_description">エースを王に置くことを許可する、またはその逆</string>
     <string name="settings_golf_easy">循環的な動き （より簡単に）</string>
+    <string name="settings_basic">基本的な</string>
 
 </resources>

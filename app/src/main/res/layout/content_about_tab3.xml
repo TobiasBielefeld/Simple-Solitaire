@@ -26,6 +26,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Added a new basic card set with larger icons"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Changed the settings and added more options"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 

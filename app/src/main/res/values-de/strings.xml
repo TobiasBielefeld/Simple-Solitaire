@@ -61,7 +61,7 @@
     <string name="games_klondike">Klondike</string>
     <string name="games_spider">Spider</string>
     <string name="games_yukon">Yukon</string>
-    <string name="menu_main_menu">Menü</string>
+    <string name="menu_main_menu">Menu</string>
     <string name="menu_hint">Hint</string>
     <string name="menu_scores">Scores</string>
     <string name="menu_settings">Settings</string>
@@ -70,6 +70,7 @@
     <string name="games_simple_simon">Simple Simon</string>
     <string name="settings_golf_easy">Zyklische Bewegungen (Einfacher)</string>
     <string name="settings_golf_easy_description">Erlaube das Setzen von Assen auf Könige und umgekehrt</string>
+    <string name="settings_basic">Basic</string>
 
 
 </resources>

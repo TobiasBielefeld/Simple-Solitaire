@@ -67,8 +67,7 @@ public class GameLogic{
         else if (won) {
             scores.load();
 
-            for (int i = 0; i < randomCards.length; i++)
-                randomCards[i] = cards[getInt(GAME_RANDOM_CARDS + i, -1)];
+            loadRandomCards();
 
             for (Card card : cards)
                 card.setLocationWithoutMovement(gm.layoutGame.getWidth(), 0);

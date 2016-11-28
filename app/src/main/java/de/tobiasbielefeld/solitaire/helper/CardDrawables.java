@@ -95,4 +95,19 @@ public class CardDrawables
             R.drawable.dark_diamonds_1, R.drawable.dark_diamonds_2, R.drawable.dark_diamonds_3, R.drawable.dark_diamonds_4, R.drawable.dark_diamonds_5, R.drawable.dark_diamonds_6,
             R.drawable.dark_diamonds_7, R.drawable.dark_diamonds_8, R.drawable.dark_diamonds_9, R.drawable.dark_diamonds_10, R.drawable.dark_diamonds_11, R.drawable.dark_diamonds_12, R.drawable.dark_diamonds_13
     };
+
+
+    public final static int[] sDrawablesBasic = {
+            R.drawable.basic_clubs_1, R.drawable.basic_clubs_2, R.drawable.basic_clubs_3, R.drawable.basic_clubs_4, R.drawable.basic_clubs_5, R.drawable.basic_clubs_6,
+            R.drawable.basic_clubs_7, R.drawable.basic_clubs_8, R.drawable.basic_clubs_9, R.drawable.basic_clubs_10, R.drawable.basic_clubs_11, R.drawable.basic_clubs_12, R.drawable.basic_clubs_13,
+
+            R.drawable.basic_hearts_1, R.drawable.basic_hearts_2, R.drawable.basic_hearts_3, R.drawable.basic_hearts_4, R.drawable.basic_hearts_5, R.drawable.basic_hearts_6,
+            R.drawable.basic_hearts_7, R.drawable.basic_hearts_8, R.drawable.basic_hearts_9, R.drawable.basic_hearts_10, R.drawable.basic_hearts_11, R.drawable.basic_hearts_12, R.drawable.basic_hearts_13,
+
+            R.drawable.basic_spades_1, R.drawable.basic_spades_2, R.drawable.basic_spades_3, R.drawable.basic_spades_4, R.drawable.basic_spades_5, R.drawable.basic_spades_6,
+            R.drawable.basic_spades_7, R.drawable.basic_spades_8, R.drawable.basic_spades_9, R.drawable.basic_spades_10, R.drawable.basic_spades_11, R.drawable.basic_spades_12, R.drawable.basic_spades_13,
+
+            R.drawable.basic_diamonds_1, R.drawable.basic_diamonds_2, R.drawable.basic_diamonds_3, R.drawable.basic_diamonds_4, R.drawable.basic_diamonds_5, R.drawable.basic_diamonds_6,
+            R.drawable.basic_diamonds_7, R.drawable.basic_diamonds_8, R.drawable.basic_diamonds_9, R.drawable.basic_diamonds_10, R.drawable.basic_diamonds_11, R.drawable.basic_diamonds_12, R.drawable.basic_diamonds_13
+    };
 }

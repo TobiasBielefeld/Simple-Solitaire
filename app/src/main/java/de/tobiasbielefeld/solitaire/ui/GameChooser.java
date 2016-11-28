@@ -51,11 +51,17 @@ public class GameChooser extends AppCompatActivity {
                 savedGameData = getSharedPreferences(savedGame, MODE_PRIVATE);
                 Intent intent = new Intent(getApplicationContext(), GameManager.class);
                 intent.putExtra("game", savedGame);
-                startActivity(intent);
+                startActivityForResult(intent,0);
             }
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //if the player returns from a game to the main menu, save it.
+        putSharedString("pref_key_current_game",MENU);
+    }
 
     public void onClick(View view) {
         /*
@@ -95,7 +101,7 @@ public class GameChooser extends AppCompatActivity {
         putSharedString("pref_key_current_game",game);
         Intent intent = new Intent(getApplicationContext(), GameManager.class);
         intent.putExtra("game", game);
-        startActivity(intent);
+        startActivityForResult(intent,0);
     }
 
     public void onClick2(View view) {
@@ -106,7 +112,6 @@ public class GameChooser extends AppCompatActivity {
     public void onResume(){
         super.onResume();
 
-        putSharedString("pref_key_current_game",MENU);
         showOrHideStatusBar(this);
         setOrientation(this);
     }

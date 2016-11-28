@@ -26,6 +26,48 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@android:drawable/btn_default_small"
+                android:padding="5dp"
+                android:id="@+id/settingsLinearLayoutCardsBasic" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/basic_diamonds_10"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_basic"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/basic_diamonds_13"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/settings_basic"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/settings_basic"
+                    android:gravity="center"
+                    android:maxLines="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -107,10 +149,20 @@
                     android:maxLines="1" />
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:baselineAligned="false"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal">
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@android:drawable/btn_default_small"
@@ -149,16 +201,6 @@
                     android:maxLines="1" />
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:baselineAligned="false"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal">
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
@@ -174,14 +216,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1" >
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/modern_diamonds_1"
-                        android:adjustViewBounds="true"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/settings_modern"/>
 
                     <ImageView
                         android:layout_width="0dp"
@@ -228,14 +262,6 @@
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dark_diamonds_1"
-                        android:adjustViewBounds="true"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/settings_dark"/>
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
                         android:src="@drawable/dark_diamonds_10"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
@@ -258,7 +284,9 @@
                     android:gravity="center"
                     android:maxLines="1" />
             </LinearLayout>
+
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

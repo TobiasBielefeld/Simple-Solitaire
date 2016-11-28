@@ -66,18 +66,21 @@ public class Card {
         //get
         switch (getSharedInt(CARD_DRAWABLES, 1)) {
             case 1:
-                drawables = sDrawablesClassic;
+                drawables = sDrawablesBasic;
                 break;
             case 2:
-                drawables = sDrawablesAbstract;
+                drawables = sDrawablesClassic;
                 break;
             case 3:
-                drawables = sDrawablesSimple;
+                drawables = sDrawablesAbstract;
                 break;
             case 4:
-                drawables = sDrawablesModern;
+                drawables = sDrawablesSimple;
                 break;
             case 5:
+                drawables = sDrawablesModern;
+                break;
+            case 6:
                 drawables = sDrawablesDark;
                 break;
         }
