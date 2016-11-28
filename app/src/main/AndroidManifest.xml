@@ -8,22 +8,22 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeMain">
+        android:theme="@style/AppThemeNoActionBar">
         <activity
             android:name=".ui.about.AboutActivity"
             android:label="@string/about_name"
-            android:theme="@style/AppThemeOther" />
+            android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ui.HighScores"
             android:label="@string/scores_name"
-            android:theme="@style/AppThemeOther" />
+            android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ui.Settings"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppThemeOther" />
+            android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ui.GameChooser"
-            android:theme="@style/AppThemeOther">
+            android:theme="@style/AppThemeActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

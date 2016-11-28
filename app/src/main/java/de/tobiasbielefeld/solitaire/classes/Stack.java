@@ -160,8 +160,10 @@ public class Stack {
 
         switch (spacingDirection){
             default: //no spacing
-                for (int i = 0; i < currentCards.size(); i++)
-                    currentCards.get(i).setLocation(view.getX(), view.getY());
+                //for (int i = 0; i < currentCards.size(); i++)
+                //    currentCards.get(i).setLocation(view.getX(), view.getY());
+                if (!isEmpty())
+                    getTopCard().setLocation(view.getX(), view.getY());
                 break;
             case 1: //down
                 spacing = min((int)(spacingMaxHeight - view.getY()) / (currentCards.size()+1), defaultSpacing);
@@ -218,7 +220,7 @@ public class Stack {
     }
 
     public PointF getPosition(int offset) {
-        //get the position of the stack according to the spacing and offset
+        //get the position a new top card would have according to the spacing and offset (used for hints)
         switch (spacingDirection){
             default://no spacing
                 return new PointF(view.getX(),view.getY());

@@ -116,10 +116,21 @@ public class Golf extends Game {
     }
 
     public boolean autoCompleteStartTest() {
+        /*for (int i=0;i<7;i++){
+            if (!stacks[i].isEmpty())
+                return false;
+        }
+
+        return true;*/
         return false;
     }
 
     public int[] autoCompleteMoveTest() {
+        /*if (!getMainStack().isEmpty()){
+            getMainStack().getTopCard().flipUp();
+            return new int[]{getMainStack().getTopCard().getID(),getMainStack().getID()};
+        }*/
+
         return null;
     }
 
