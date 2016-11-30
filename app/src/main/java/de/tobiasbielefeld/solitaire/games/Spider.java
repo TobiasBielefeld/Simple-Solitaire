@@ -144,7 +144,7 @@ public class Spider extends Game {
     public boolean cardTest(Stack stack, Card card) {
         //can always place a card on an empty field, or the value of the card on the other stack is +1
         if (stack.getID()<10) {
-            if (stack.isEmpty() || stack.getTopCard().getValue() == card.getValue()+1)
+            if (stack.isEmpty() || (stack.getSize()>0 && stack.getTopCard().getValue() == card.getValue()+1))
                 return true;
         }
 

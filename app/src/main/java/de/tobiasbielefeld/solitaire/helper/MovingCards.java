@@ -55,7 +55,7 @@ public class MovingCards {
     public void move(float X, float Y) {
         for (Card card : currentCards)
             card.setLocationWithoutMovement(X - Card.width / 2, (Y - Card.height / 2)
-                    + currentCards.indexOf(card) * Stack.defaultSpacing);
+                    + currentCards.indexOf(card) * Stack.defaultSpacing/2);
     }
 
     public void moveToDestination(Stack destination) {

@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@android:drawable/btn_default_small"
+                android:background="@drawable/button_menu"
                 android:padding="5dp"
                 android:id="@+id/settingsLinearLayoutCardsBasic" >
 
@@ -45,7 +45,8 @@
                         android:src="@drawable/basic_diamonds_10"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_basic"/>
+                        android:contentDescription="@string/settings_basic"
+                        android:layout_marginRight="1dp" />
 
                     <ImageView
                         android:layout_width="0dp"
@@ -53,7 +54,8 @@
                         android:src="@drawable/basic_diamonds_13"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_basic"/>
+                        android:contentDescription="@string/settings_basic"
+                        android:layout_marginLeft="1dp" />
                 </LinearLayout>
 
                 <TextView
@@ -71,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@android:drawable/btn_default_small"
+                android:background="@drawable/button_menu"
                 android:padding="5dp"
                 android:id="@+id/settingsLinearLayoutCardsClassic">
 
@@ -87,7 +89,8 @@
                         android:src="@drawable/classic_diamonds_10"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_classic"/>
+                        android:contentDescription="@string/settings_classic"
+                        android:layout_marginRight="1dp" />
 
                     <ImageView
                         android:layout_width="0dp"
@@ -95,7 +98,8 @@
                         android:src="@drawable/classic_diamonds_13"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_classic"/>
+                        android:contentDescription="@string/settings_classic"
+                        android:layout_marginLeft="1dp" />
                 </LinearLayout>
 
                 <TextView
@@ -113,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@android:drawable/btn_default_small"
+                android:background="@drawable/button_menu"
                 android:padding="5dp"
                 android:id="@+id/settingsLinearLayoutCardsAbstract">
 
@@ -129,7 +133,8 @@
                         android:src="@drawable/abstract_diamonds_10"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_abstract"/>
+                        android:contentDescription="@string/settings_abstract"
+                        android:layout_marginRight="1dp" />
 
                     <ImageView
                         android:layout_width="0dp"
@@ -137,7 +142,8 @@
                         android:src="@drawable/abstract_diamonds_13"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_abstract"/>
+                        android:contentDescription="@string/settings_abstract"
+                        android:layout_marginLeft="1dp" />
                 </LinearLayout>
 
                 <TextView
@@ -165,7 +171,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@android:drawable/btn_default_small"
+                android:background="@drawable/button_menu"
                 android:padding="5dp"
                 android:id="@+id/settingsLinearLayoutCardsSimple">
 
@@ -181,7 +187,8 @@
                         android:src="@drawable/simple_diamonds_10"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_simple"/>
+                        android:contentDescription="@string/settings_simple"
+                        android:layout_marginRight="1dp" />
 
                     <ImageView
                         android:layout_width="0dp"
@@ -189,7 +196,8 @@
                         android:src="@drawable/simple_diamonds_13"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_simple"/>
+                        android:contentDescription="@string/settings_simple"
+                        android:layout_marginLeft="1dp" />
                 </LinearLayout>
 
                 <TextView
@@ -207,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@android:drawable/btn_default_small"
+                android:background="@drawable/button_menu"
                 android:padding="5dp"
                 android:id="@+id/settingsLinearLayoutCardsModern" >
 
@@ -223,7 +231,8 @@
                         android:src="@drawable/modern_diamonds_10"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_modern"/>
+                        android:contentDescription="@string/settings_modern"
+                        android:layout_marginRight="1dp" />
 
                     <ImageView
                         android:layout_width="0dp"
@@ -231,7 +240,8 @@
                         android:src="@drawable/modern_diamonds_13"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_modern"/>
+                        android:contentDescription="@string/settings_modern"
+                        android:layout_marginLeft="1dp" />
                 </LinearLayout>
 
                 <TextView
@@ -249,7 +259,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@android:drawable/btn_default_small"
+                android:background="@drawable/button_menu"
                 android:padding="5dp"
                 android:id="@+id/settingsLinearLayoutCardsDark" >
 
@@ -265,7 +275,8 @@
                         android:src="@drawable/dark_diamonds_10"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_dark"/>
+                        android:contentDescription="@string/settings_dark"
+                        android:layout_marginRight="1dp" />
 
                     <ImageView
                         android:layout_width="0dp"
@@ -273,7 +284,8 @@
                         android:src="@drawable/dark_diamonds_13"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
-                        android:contentDescription="@string/settings_dark"/>
+                        android:contentDescription="@string/settings_dark"
+                        android:layout_marginLeft="1dp" />
                 </LinearLayout>
 
                 <TextView

@@ -30,6 +30,7 @@ import android.view.animation.TranslateAnimation;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.handler.AfterWonHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -40,11 +41,13 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Animate{
 
+    public AfterWonHandler afterWonHandler;
     private int cardIsAnimating=0;                                                                  //if greater than zero, some card is animating
     private GameManager gm;
 
     public Animate(GameManager gm){
         this.gm = gm;
+        afterWonHandler = new AfterWonHandler(gm);
     }
 
     public void wonAnimation() {
@@ -55,7 +58,7 @@ public class Animate{
             switch (direction) {
                 case 0: default://right side
                     card.setLocation(gm.layoutGame.getWidth(), counter);
-                    counter += Card.height;
+                    counter += 2*Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
                         direction = 1;
@@ -65,7 +68,7 @@ public class Animate{
                     break;
                 case 1://bottom side
                     card.setLocation(counter, gm.layoutGame.getHeight() + Card.height);
-                    counter += Card.width;
+                    counter += 2*Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {
                         direction = 2;
@@ -75,7 +78,7 @@ public class Animate{
                     break;
                 case 2://left side
                     card.setLocation(-Card.width, counter);
-                    counter += Card.height;
+                    counter += 2*Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
                         direction = 0;
@@ -85,6 +88,8 @@ public class Animate{
                     break;
             }
         }
+
+        afterWonHandler.sendEmptyMessageDelayed(0,1000);
     }
 
     public void cardHint(final Card card, final int offset, final Stack stack) {
