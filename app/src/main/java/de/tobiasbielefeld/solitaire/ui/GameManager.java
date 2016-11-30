@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -70,6 +71,16 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
+
+        //set shared preferences if not loaded to avoid force closes
+        if (savedSharedData==null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+
+            if (savedGameData==null) {
+                String savedGame = getSharedString("pref_key_current_game", MENU);
+                savedGameData = getSharedPreferences(savedGame, MODE_PRIVATE);
+            }
+        }
 
         // load stuff
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);

@@ -26,6 +26,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -58,6 +59,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
+
+        if (savedSharedData==null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+        }
 
          /* set a nice back arrow in the actionBar */
         ActionBar actionBar = getSupportActionBar();

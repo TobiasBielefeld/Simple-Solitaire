@@ -19,6 +19,7 @@
 package de.tobiasbielefeld.solitaire.ui.about;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -45,6 +46,11 @@ public class AboutActivity extends AppCompatActivity implements ActionBar.TabLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activty_about);
+
+        if (savedSharedData==null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+        }
+
         showOrHideStatusBar(this);
         setOrientation(this);
 
