@@ -14,8 +14,6 @@
 
 ####Now contains 6 different Solitaire games!
 Klondike, Freecell, Yukon, Spider, Simple Simon and Golf!
-I test my changes and improve the UI before making a new release!
-
 
 #Simple Solitaire
 You can find screenshots for phones and tablets [here](./Pictures/screenshots)
@@ -24,8 +22,15 @@ I learned Android and Java by myself using e-books and browsing Stack Overflow f
 
 It is a very simple game, but customizable and with some neat functions like hints. Here is my Google Play description:
 
+Play Solitaire with this simple game!
+
+Currently you can play Klondike, Freecell, Yukon, Spider, Simple Simon and Golf! If you want me to add more games, please tell me.
+
 Highly customizable:
-There are 5 different looking card sets in this game, 12 different card backgrounds and 6 different background colours. So you have a large choice to customize your experience!
+There are 6 different looking card sets in this game, 12 different card backgrounds and 6 different background colours. So you have a large choice to customize your experience!
+
+Set up difficulty:
+You can set up the difficulty for Klondike, Spider and Golf in the settings!
 
 Automatic saving:
 The current game will be saved every time you pause or close the app. So you can continue your game where you left it!
@@ -43,7 +48,7 @@ No ads:
 This game is completely free without ads, tracking or something else. Just have fun :)
 
 Landscape and tablet support: 
-You can switch to landscape mode, this is better for larger screens.
+You can switch to landscape mode, this is better for larger screens. It is also possible to lock the orientation in the settings
 
 ##License
 Full license text can be found [here](./LICENSE.txt)
