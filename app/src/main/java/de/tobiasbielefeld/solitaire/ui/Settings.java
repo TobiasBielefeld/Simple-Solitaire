@@ -105,7 +105,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 setOrientation();
                 break;
             case "pref_key_left_handed_mode":
-                gameLogic.mirrorStacks();
+                if (gameLogic!=null)
+                    gameLogic.mirrorStacks();
                 break;
             case "pref_key_klondike_draw":
                 showToast(getString(R.string.settings_restart_klondike));
