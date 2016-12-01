@@ -8,7 +8,7 @@ android {
         applicationId "de.tobiasbielefeld.solitaire"
         minSdkVersion 11
         targetSdkVersion 25
-        versionCode 13
+        versionCode 14
         versionName "2.0"
     }
     buildTypes {

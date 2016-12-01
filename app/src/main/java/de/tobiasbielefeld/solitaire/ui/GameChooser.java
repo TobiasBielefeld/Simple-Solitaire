@@ -115,6 +115,9 @@ public class GameChooser extends AppCompatActivity {
     public void onResume(){
         super.onResume();
 
+        if (savedSharedData==null)
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+
         showOrHideStatusBar(this);
         setOrientation(this);
     }

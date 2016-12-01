@@ -60,9 +60,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         super.onCreate(savedInstanceState);
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
 
-        if (savedSharedData==null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }
 
          /* set a nice back arrow in the actionBar */
         ActionBar actionBar = getSupportActionBar();
@@ -119,6 +116,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     public void onResume() {
         super.onResume();
+
+        if (savedSharedData==null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+        }
 
         savedSharedData.registerOnSharedPreferenceChangeListener(this);
         showOrHideStatusBar();

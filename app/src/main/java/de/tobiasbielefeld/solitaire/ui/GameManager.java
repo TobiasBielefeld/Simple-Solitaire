@@ -72,7 +72,6 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
 
-        //set shared preferences if not loaded to avoid force closes
         if (savedSharedData==null) {
             savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -199,6 +198,17 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
     @Override
     public void onResume() {
         super.onResume();
+
+        //set shared preferences if not loaded to avoid force closes
+        if (savedSharedData==null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+
+            if (savedGameData==null) {
+                String savedGame = getSharedString("pref_key_current_game", MENU);
+                savedGameData = getSharedPreferences(savedGame, MODE_PRIVATE);
+            }
+        }
+
         timer.load();
         loadBackgroundColor();
         setOrientation(this);
