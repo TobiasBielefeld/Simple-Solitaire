@@ -180,6 +180,9 @@ public class Yukon extends Game {
                 Card cardBottom = stacks[i].getCard(j);
                 Card cardTop = stacks[i].getCard(j+1);
 
+                if (!cardBottom.isUp() || !cardTop.isUp())
+                    return false;
+
                 if ((cardBottom.getColor()%2 == cardTop.getColor()%2) || (cardBottom.getValue() != cardTop.getValue() + 1))
                     return false;
             }

@@ -126,8 +126,10 @@ public class SimpleSimon extends Game {
                         continue;
 
                     if (cardToMove.test(destStack)) {
-                        //if the card above the cardToMove is already the same family and has the corret value, don't move it
-                        if (j>0 && sourceStack.getCard(j-1).isUp()  && sourceStack.getCard(j-1).getValue()==cardToMove.getValue()+1 && sourceStack.getCard(j-1).getColor()==cardToMove.getColor())
+                        //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
+                        if (destStack.getSize()>0 && j>0 &&
+                                sourceStack.getCard(j-1).isUp()  && sourceStack.getCard(j-1).getValue()==cardToMove.getValue()+1
+                                && destStack.getTopCard().getColor()!=cardToMove.getColor())
                             continue;
                         //if the card is already on the same card as on the other stack, don't return it
                         if (destStack.getSize()>0 && j>0 && sourceStack.getCard(j-1).isUp()
