@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -92,7 +93,6 @@ public class Golf extends Game {
          * then check the settings: if cyclic moves are set to true, check if the cards are an ace and a king, if so return true
          * or the cards values difference is 1 or -1
          */
-
         return stack == getDiscardStack()
                 && ((getSharedBoolean("pref_key_golf_cyclic", true)
                     && (card.getValue() == 13 && stack.getTopCard().getValue() == 1 || card.getValue() == 1 && stack.getTopCard().getValue() == 13))
@@ -103,33 +103,32 @@ public class Golf extends Game {
         return card.getStack().getID()<7 && card.isTopCard();
     }
 
-    public int[] hintTest(){
+    public CardAndStack hintTest(){
         for (int i=0;i<7;i++){
             if (stacks[i].isEmpty())
                 continue;
 
             if (!hint.hasVisited(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack()))
-                return new int[]{stacks[i].getTopCard().getID(),getDiscardStack().getID()};
+                return new CardAndStack(stacks[i].getTopCard(),getDiscardStack());
         }
 
         return null;
     }
 
     public boolean autoCompleteStartTest() {
-        /*for (int i=0;i<7;i++){
+        for (int i=0;i<7;i++){
             if (!stacks[i].isEmpty())
                 return false;
         }
 
-        return true;*/
-        return false;
+        return true;
     }
 
-    public int[] autoCompleteMoveTest() {
-        /*if (!getMainStack().isEmpty()){
+    public CardAndStack autoCompletePhaseOne() {
+        if (!getMainStack().isEmpty()){
             getMainStack().getTopCard().flipUp();
-            return new int[]{getMainStack().getTopCard().getID(),getMainStack().getID()};
-        }*/
+            return new CardAndStack(getMainStack().getTopCard(),getDiscardStack());
+        }
 
         return null;
     }

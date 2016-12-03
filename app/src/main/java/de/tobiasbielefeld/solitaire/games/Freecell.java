@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -144,7 +145,7 @@ public class Freecell extends Game {
         }
     }
 
-    public int[] hintTest(){
+    public CardAndStack hintTest(){
         /*
          * showing hints also depends on the settings. It can also show multiple cards at once
          */
@@ -180,7 +181,7 @@ public class Freecell extends Game {
                 if (cardToMove.getValue()==1 && cardToMove.isTopCard()) {
                     for (int k=12;k<16;k++){
                         if (cardToMove.test(stacks[k]))
-                            return new int[]{cardToMove.getID(), stacks[k].getID()};
+                            return new CardAndStack(cardToMove,stacks[k]);
                     }
                 }
 
@@ -198,7 +199,7 @@ public class Freecell extends Game {
                                 && sourceStack.getCard(j-1).getValue()==destStack.getCard(destStack.getSize()-1).getValue())
                             continue;
 
-                        return new int[]{cardToMove.getID(), destStack.getID()};
+                        return new CardAndStack(cardToMove,destStack);
                     }
 
                 }
@@ -234,7 +235,7 @@ public class Freecell extends Game {
         return true;
     }
 
-    public int[] autoCompleteMoveTest() {
+    public CardAndStack autoCompletePhaseTwo() {
         for (int i=0; i<12; i++) {
             Stack origin = stacks[i];
 
@@ -245,7 +246,7 @@ public class Freecell extends Game {
                 Stack destination = stacks[j];
 
                 if (origin.getTopCard().test(destination))
-                    return new int[]{origin.getTopCard().getID(),destination.getID()};
+                    return new CardAndStack(origin.getTopCard(),destination);
             }
         }
 

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -270,7 +271,7 @@ public class Klondike extends Game {
                 || (card.getStack().getID() == 11 && !stacks[12].isEmpty()));
     }
 
-    public int[] hintTest() {
+    public CardAndStack hintTest() {
         Card card;
 
         for (int i = 0; i <= 6; i++) {
@@ -290,7 +291,7 @@ public class Klondike extends Game {
                         continue;
 
                     if (card.test(stacks[j])) {
-                        return new int[]{card.getID(), j};
+                        return new CardAndStack(card,stacks[j]);
                     }
                 }
             }
@@ -301,7 +302,7 @@ public class Klondike extends Game {
             if (!hint.hasVisited(card)) {
                 for (int j = 7; j <= 10; j++) {
                     if (card.test(stacks[j]))
-                        return new int[]{card.getID(), j};
+                        return new CardAndStack(card,stacks[j]);
                 }
             }
 
@@ -316,7 +317,7 @@ public class Klondike extends Game {
             if (stacks[11 + i].getSize() > 0 && !hint.hasVisited(stacks[11 + i].getTopCard())) {
                 for (int j = 10; j >= 0; j--) {
                     if (stacks[11 + i].getTopCard().test(stacks[j])) {
-                        return new int[]{stacks[11 + i].getTopCard().getID(), j};
+                        return new CardAndStack(stacks[11 + i].getTopCard(),stacks[j]);
                     }
                 }
             }
@@ -325,7 +326,11 @@ public class Klondike extends Game {
         return null;
     }
 
-    public int[] autoCompleteMoveTest() {
+    public CardAndStack autoCompletePhaseOne(){
+        return null;
+    }
+
+    public CardAndStack autoCompletePhaseTwo() {
         //just go through every stack
         for (int i = 7; i <= 10; i++) {
             Stack destination = stacks[i];
@@ -334,7 +339,7 @@ public class Klondike extends Game {
                 Stack origin = stacks[j];
 
                 if (origin.getSize() > 0 && origin.getTopCard().test(destination)) {
-                    return new int[]{origin.getTopCard().getID(), destination.getID()};
+                    return new CardAndStack(origin.getTopCard(),destination);
                 }
             }
 
@@ -344,7 +349,7 @@ public class Klondike extends Game {
                 for (int k = 0; k < origin.getSize(); k++) {
                     if (origin.getCard(k).test(destination)) {
                         origin.getCard(k).flipUp();
-                        return new int[]{origin.getCard(k).getID(), destination.getID()};
+                        return new CardAndStack(origin.getCard(k),destination);
                     }
                 }
             }

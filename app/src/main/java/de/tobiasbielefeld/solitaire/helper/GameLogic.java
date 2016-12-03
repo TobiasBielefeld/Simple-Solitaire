@@ -139,6 +139,7 @@ public class GameLogic{
 
             scores.addNewHighScore();
             recordList.reset();
+            autoComplete.hideButton();
             animate.wonAnimation();
         }
     }

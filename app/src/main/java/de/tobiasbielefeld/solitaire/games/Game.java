@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -53,19 +54,33 @@ public abstract class Game {
 
     abstract public void dealCards();
 
-    abstract public boolean autoCompleteStartTest();
 
     abstract public boolean cardTest(Stack stack, Card card);
 
     abstract public boolean addCardToMovementTest(Card card);
 
-    abstract public int[] hintTest();
-
-    abstract public int[] autoCompleteMoveTest();
+    abstract public CardAndStack hintTest();
 
     abstract public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs);
 
     abstract public void onMainStackTouch();
+
+    /*
+     * auto complete stuff, can be used or not
+     */
+
+    public boolean autoCompleteStartTest(){
+        return false;
+    }
+
+    public CardAndStack autoCompletePhaseOne(){
+        return null;
+    }
+
+    public CardAndStack autoCompletePhaseTwo(){
+        return null;
+    }
+
 
     /*
      *  stuff that the games can override if necessary

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -256,13 +257,13 @@ public class DummyGame extends Game {
     /*
      * Called up to three times when pressing the hint button.
      * Test the cards if there can be shown something as a hint.
-     * If so, return the ID of the card and then the ID of the destination stack in a int array
-     * (In this order!!). If no card can be found, return null at the end of the method, so
+     * If so, return the card and then the destination stack (or the ID's of them, works also).
+     * If no card can be found, return null at the end of the method, so
      * the hint will stop.
      *
      * Use hint.hasVisited(card) to get if the card has been visited, so it won't result in an endless loop
      */
-    public int[] hintTest(){
+    public CardAndStack hintTest(){
         //Short example from Klonsike
         Card card;                                                                                  //card to test
 
@@ -280,7 +281,7 @@ public class DummyGame extends Game {
                 for (int j = 7; j <= 10; j++) {                                                     //loop through every foundation stack as destination
                     if (card.test(stacks[j])) {                                                     //then test
 
-                        return new int[]{card.getID(),j};
+                        return new CardAndStack(card,stacks[j]);
                     }
                 }
             }
@@ -295,7 +296,7 @@ public class DummyGame extends Game {
     * return true if it can be shown, false otherwise.
     * It's called on every card movement
     *
-    * Or just always return false if you don't the button in the game
+    * don't override it, if there is no auto complete
     */
     public boolean autoCompleteStartTest() {
         //Example from Klondike: If every card is faced up, return true. Return false otherwiese
@@ -307,14 +308,38 @@ public class DummyGame extends Game {
     }
 
     /*
-     *  Put what in autoComplete have to be tested here.
-     *  Return the card ID and the destination stack ID, so the card can be moved there
-     *  Return null at then end. Then the auto complete stops if no new card is found.
-     *  It will call the testIfWon() method then
+     *  AutoComplete Phase One: Move cards around on the tableau. To the foundations is phase two.
+     *  Because I need to wait until a card reaches the destination if the cards moves to a foundation field
+     *  (or any field with visible spacing). Else the counter in animation isn't set right and the
+     *  game does'nt respond anymore.
+     *
+     *  Return the card and the stack (or the ID's of them) as a new 'CardAndStack'.
+     *  This will move every card from the returned card up to the origin stack top
+     *
+     *  If you have a phase one movement, override it. else it returns null by default
      */
-    public int[] autoCompleteMoveTest() {
-        //Klondike test: Test every top card of a stack with the foundation cards and return the
-        //stack and card IDs if the card test is sucessfull.
+    public CardAndStack autoCompletePhaseOne() {
+        //Example Code: Only game using this is Golf, because the discard stack is no foundation field,
+        // the calculation has to be in pahse one
+
+        if (!getMainStack().isEmpty()){
+            getMainStack().getTopCard().flipUp();
+            return new CardAndStack(getMainStack().getTopCard(),getDiscardStack());
+        }
+
+        return null;    //don't forget to return null at the end! so phase two can start
+    }
+
+    /*
+     * AutoComplete Phase Two: Move cards to the foundation field (or stacks with no visible spacing)
+     * The speed will increase with each movement (as a nice effect). So this is incompatible with tableau stacks
+     *
+     *  Return the card and the stack (or the ID's of them) as a new 'CardAndStack'.
+     *  This will only move the returned card to the destination
+     *
+     *  If you have a phase two movement, override it. else it returns null by default
+     */
+    public CardAndStack autoCompletePhaseTwo() {
         for (int i = 7; i <= 10; i++) {                                                             //foundation fields
             Stack destination = stacks[i];                                                          //get the destination for more visibility
 
@@ -322,7 +347,7 @@ public class DummyGame extends Game {
                 Stack origin = stacks[j];                                                           //get the origin for more visibility
 
                 if (origin.getSize() > 0 && origin.getTopCard().test(destination)) {                //test if there are still cards on it and if the card test is successful
-                    return new int[]{origin.getTopCard().getID(), destination.getID()};             //and return
+                    return new CardAndStack(origin.getTopCard(), destination);                      //and return
                 }
             }
 
@@ -332,13 +357,13 @@ public class DummyGame extends Game {
                 for (int k = 0; k < origin.getSize(); k++) {                                        //loop through every card
                     if (origin.getCard(k).test(destination)) {                                      //then test every card
                         origin.getCard(k).flipUp();                                                 //because cards are from stock, flip up
-                        return new int[]{origin.getCard(k).getID(), destination.getID()};
+                        return new CardAndStack(origin.getCard(k), destination);
                     }
                 }
             }
         }
 
-        return null;
+        return null;  //don't forget to return null at the end! so the win animation can start
     }
 
     /*
@@ -370,7 +395,6 @@ public class DummyGame extends Game {
      * Use this if you want to run something custom after every movement (right after the end
      * of the animation. For example in Spider, i have to test if a card family is complete
      */
-    @Override
     public void testAfterMove(){
     }
 }

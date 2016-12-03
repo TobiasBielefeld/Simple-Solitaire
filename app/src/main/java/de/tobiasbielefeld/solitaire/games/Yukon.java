@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -133,7 +134,7 @@ public class Yukon extends Game {
         return true;
     }
 
-    public int[] hintTest() {
+    public CardAndStack hintTest() {
         for (int i=0;i<7;i++){
             for (int j=0;j<11;j++) {
                 if (stacks[i].isEmpty() || i==j)
@@ -159,7 +160,7 @@ public class Yukon extends Game {
                         if (stacks[j].getSize()>0 && k>0 && stacks[i].getCard(k-1).isUp() && stacks[i].getCard(k-1).getValue()==stacks[j].getCard(stacks[j].getSize()-1).getValue())
                             continue;
 
-                        return new int[]{cardToMove.getID(), j};
+                        return new CardAndStack(cardToMove,stacks[j]);
                     }
                 }
             }
@@ -191,7 +192,7 @@ public class Yukon extends Game {
         return true;
     }
 
-    public int[] autoCompleteMoveTest() {
+    public CardAndStack autoCompletePhaseTwo(){
         for (int i=0; i<7; i++) {
             Stack origin = stacks[i];
 
@@ -202,7 +203,7 @@ public class Yukon extends Game {
                 Stack destination = stacks[j];
 
                 if (origin.getTopCard().test(destination))
-                    return new int[]{origin.getTopCard().getID(),destination.getID()};
+                    return new CardAndStack(origin.getTopCard(),destination);
             }
         }
 

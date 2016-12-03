@@ -27,6 +27,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 
+import java.util.Random;
+
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -53,36 +55,37 @@ public class Animate{
     public void wonAnimation() {
         int direction = 0;
         int counter = 0;                                                                            //counter contains the x or y coordinate, so the cards are flying out the screen
+        Random rand = new Random();
 
         for (Card card : cards) {
             switch (direction) {
                 case 0: default://right side
                     card.setLocation(gm.layoutGame.getWidth(), counter);
-                    counter += 2*Card.height;
+                    counter += 3*Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
                         direction = 1;
-                        counter = 0;
+                        counter = rand.nextInt(Card.height);
                     }
 
                     break;
                 case 1://bottom side
                     card.setLocation(counter, gm.layoutGame.getHeight() + Card.height);
-                    counter += 2*Card.width;
+                    counter += 3*Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {
                         direction = 2;
-                        counter = 0;
+                        counter = rand.nextInt(Card.width);
                     }
 
                     break;
                 case 2://left side
                     card.setLocation(-Card.width, counter);
-                    counter += 2*Card.height;
+                    counter += 3*Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
                         direction = 0;
-                        counter = 0;
+                        counter = rand.nextInt(Card.height);
                     }
 
                     break;

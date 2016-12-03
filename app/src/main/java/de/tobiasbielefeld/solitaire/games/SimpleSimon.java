@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -104,7 +105,7 @@ public class SimpleSimon extends Game {
         return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack());
     }
 
-    public int[] hintTest(){
+    public CardAndStack hintTest(){
         for (int i=0;i<10;i++){
             Stack sourceStack = stacks[i];
 
@@ -127,8 +128,7 @@ public class SimpleSimon extends Game {
 
                     if (cardToMove.test(destStack)) {
                         //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
-                        if (destStack.getSize()>0 && j>0 &&
-                                sourceStack.getCard(j-1).isUp()  && sourceStack.getCard(j-1).getValue()==cardToMove.getValue()+1
+                        if (j>0 && sourceStack.getCard(j-1).isUp()  && sourceStack.getCard(j-1).getValue()==cardToMove.getValue()+1
                                 && destStack.getTopCard().getColor()!=cardToMove.getColor())
                             continue;
                         //if the card is already on the same card as on the other stack, don't return it
@@ -137,20 +137,12 @@ public class SimpleSimon extends Game {
                                 && sourceStack.getCard(j-1).getColor()==destStack.getTopCard().getColor())
                             continue;
 
-                        return new int[]{cardToMove.getID(), destStack.getID()};
+                        return new CardAndStack(cardToMove,destStack);
                     }
                 }
             }
         }
 
-        return null;
-    }
-
-    public boolean autoCompleteStartTest() {
-        return false;
-    }
-
-    public int[] autoCompleteMoveTest() {
         return null;
     }
 

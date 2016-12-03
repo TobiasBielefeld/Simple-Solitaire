@@ -21,6 +21,12 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
+import java.util.ArrayList;
+
+import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
+import de.tobiasbielefeld.solitaire.classes.Stack;
+
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
@@ -35,30 +41,58 @@ public class AutoCompleteHandler extends Handler {
     private final static int MIN_TIME = 50;                                                         //minimum to avoid errors
     private int currentTime;                                                                        //current velocity of the handler calling
     private boolean isFinished = false;                                                             //needed to know when to call the win animation
+    private int phase = 1;
 
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
+        //if the phase is 1 (moving on the tableau) wait until the moving animation is over
+        if (animate.cardIsAnimating() && phase==1) {
+            autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,currentTime);
+        }
         //if the auto complete is finished, wait until the movement of the cards stop and then show the win animation
-        if (isFinished) {
+        else if (isFinished) {
             if (animate.cardIsAnimating()) {
                 autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, currentTime);
-                //animate.reset();
             }
             else {
                 autoComplete.reset();
                 gameLogic.testIfWon();
             }
         }
+        // else do the movement
         else if (autoComplete.isRunning()) {
-            int IDs[] = currentGame.autoCompleteMoveTest();
+            CardAndStack cardAndStack;
 
-            if (IDs==null) {
-                isFinished = true;
+            if (phase==1)
+                cardAndStack = currentGame.autoCompletePhaseOne();
+            else
+                cardAndStack = currentGame.autoCompletePhaseTwo();
+
+            if (cardAndStack==null) {
+                if (phase==1)
+                    phase = 2;
+                else
+                    isFinished = true;
+
                 autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,currentTime);
             }
             else {
-                moveToStack(cards[IDs[0]], stacks[IDs[1]]);
+                //if phase 1, move the card and every card above it
+                if (phase==1){
+                    ArrayList<Card> cards = new ArrayList<>();
+                    Stack origin = cardAndStack.getCard().getStack();
+
+                    for (int i=origin.getIndexOfCard(cardAndStack.getCard());i<origin.getSize();i++)
+                        cards.add(cardAndStack.getCard().getStack().getCard(i));
+
+                    moveToStack(cards, cardAndStack.getStack());
+                }
+                //else phase 2, move only one card
+                else {
+                    moveToStack(cardAndStack.getCard(), cardAndStack.getStack());
+                }
+
                 currentTime = max(currentTime-DELTA_TIME,MIN_TIME);
                 //start the next handler in some milliseconds
                 autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,currentTime);
@@ -67,6 +101,7 @@ public class AutoCompleteHandler extends Handler {
     }
 
     public void reset(){
+        phase = 1;
         isFinished=false;
         currentTime = START_TIME;
     }

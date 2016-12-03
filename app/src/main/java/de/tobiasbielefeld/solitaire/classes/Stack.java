@@ -159,8 +159,6 @@ public class Stack {
 
         switch (spacingDirection){
             default: //no spacing
-                //for (int i = 0; i < currentCards.size(); i++)
-                //    currentCards.get(i).setLocation(view.getX(), view.getY());
                 if (!isEmpty())
                     getTopCard().setLocation(view.getX(), view.getY());
                 break;

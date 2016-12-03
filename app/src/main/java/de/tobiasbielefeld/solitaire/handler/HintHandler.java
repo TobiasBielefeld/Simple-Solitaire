@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -35,13 +36,15 @@ public class HintHandler extends Handler {
         super.handleMessage(msg);
 
         if (hint.getCounter() < Hint.MAX_NUMBER_OF_HINTS) {
-            if (!animate.cardIsAnimating()) {
-                int IDs[] = currentGame.hintTest();
+            CardAndStack cardAndStack;
 
-                if (IDs==null)
+            if (!animate.cardIsAnimating()) {
+                cardAndStack = currentGame.hintTest();
+
+                if (cardAndStack==null)
                     hint.stop();
                 else
-                    hint.move(cards[IDs[0]], stacks[IDs[1]]);
+                    hint.move(cardAndStack.getCard(), cardAndStack.getStack());
 
                 hint.setCounter(hint.getCounter()+1);
             }
