@@ -206,6 +206,10 @@ public class Animate{
     }
 
     public void reset() {
+        for (Card card : cards){
+            card.view.clearAnimation();
+        }
+
         cardIsAnimating = 0;
     }
 
