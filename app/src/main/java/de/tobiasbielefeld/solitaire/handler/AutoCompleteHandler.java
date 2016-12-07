@@ -70,12 +70,14 @@ public class AutoCompleteHandler extends Handler {
                 cardAndStack = currentGame.autoCompletePhaseTwo();
 
             if (cardAndStack==null) {
-                if (phase==1)
+                if (phase==1) {
                     phase = 2;
-                else
+                    autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,0);
+                }
+                else {
                     isFinished = true;
-
-                autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,currentTime);
+                    autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,START_TIME);
+                }
             }
             else {
                 //if phase 1, move the card and every card above it

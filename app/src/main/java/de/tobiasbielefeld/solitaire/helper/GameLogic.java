@@ -122,6 +122,7 @@ public class GameLogic{
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
+            card.view.clearAnimation();
             card.setLocationWithoutMovement(currentGame.dealFromStack().view.getX(), currentGame.dealFromStack().view.getY());
             currentGame.dealFromStack().addCard(card);
             card.flipDown();
@@ -206,7 +207,4 @@ public class GameLogic{
         for (int i=0;i<randomCards.length;i++)
             randomCards[i] = cards[list.get(i)];
     }
-
-
-
 }

@@ -247,9 +247,10 @@ public class Spider extends Game {
                     moveToStack(cards,stacks[foundationStack.getID()]);
 
                     //turn the card below up, if there is one
-                    if (j-1>0 && !currentStack.getCard(j-1).isUp()){
-                        currentStack.getCard(j-1).flipWithAnim();
+                    if (!currentStack.isEmpty() && !currentStack.getTopCard().isUp()){
+                        currentStack.getTopCard().flipWithAnim();
                     }
+
                     break;
                 }
             }
