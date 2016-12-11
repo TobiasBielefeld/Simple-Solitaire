@@ -24,6 +24,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -39,19 +40,44 @@ import de.tobiasbielefeld.solitaire.R;
 
 public class LicenseFragment extends Fragment implements View.OnClickListener {
 
+    ScrollView scrollView;
+    TextView licenseText;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_about_tab2, container, false);
 
-        TextView textViewGPLLicense = (TextView) view.findViewById(R.id.aboutLicenseText);          //my app license
+        licenseText = (TextView) view.findViewById(R.id.aboutTab2LicenseText);          //my app license
+        scrollView = (ScrollView) view.findViewById(R.id.aboutTab2Scrollview);
 
         //show the beautiful gpl license from the license.html in the assets folder
         try {
             InputStream is = getActivity().getAssets().open("license.html");
-            textViewGPLLicense.setText(Html.fromHtml(new String(getStringFromInputStream(is))));
+            licenseText.setText(Html.fromHtml(new String(getStringFromInputStream(is))));
         } catch (IOException ignored) {}
 
+        //this answer helped me to retain the scroll position on orientation change: http://stackoverflow.com/a/15686638/7016229
+        if (savedInstanceState!=null) {
+            final int firstVisibleCharacterOffset = savedInstanceState.getInt("SCROLL_POSITION", 0);
+
+            scrollView.post(new Runnable() {
+                public void run() {
+                    int firstVisibleLineOffset = licenseText.getLayout().getLineForOffset(firstVisibleCharacterOffset);
+                    int pixelOffset = licenseText.getLayout().getLineTop(firstVisibleLineOffset);
+                    scrollView.scrollTo(0, pixelOffset);
+                }
+            });
+        }
+
         return view;
+    }
+
+    //this answer helped me to retain the scroll position on orientation change: http://stackoverflow.com/a/15686638/7016229
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        int firstVisibleLineOffset = licenseText.getLayout().getLineForVertical(scrollView.getScrollY());
+        int firstVisibleCharacterOffset = licenseText.getLayout().getLineStart(firstVisibleLineOffset);
+        outState.putInt("SCROLL_POSITION", firstVisibleCharacterOffset);
     }
 
     @Override
