@@ -26,7 +26,7 @@ It is a very simple game, but customizable and with some neat functions like hin
 
 Play Solitaire with this simple game!
 
-Currently you can play Klondike, Freecell, Yukon, Spider, Simple Simon and Golf! If you want me to add more games, please tell me.
+Currently you can play AcesUp, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks und Yukon! If you want me to add more games, please tell me.
 
 Highly customizable:
 There are 6 different looking card sets in this game, 12 different card backgrounds and 6 different background colours. So you have a large choice to customize your experience!
