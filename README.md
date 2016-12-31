@@ -12,11 +12,13 @@
 - [ ] Add a color chooser for background color
 - [X] Add even more games (Simple Simon, Golf, etc)
 
-####Now contains 6 different Solitaire games!
-Klondike, Freecell, Yukon, Spider, Simple Simon and Golf!
+####Now contains 12 different Solitaire games!
+AcesUp, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks und Yukon!
 
 #Simple Solitaire
 You can find screenshots for phones and tablets [here](./Pictures/screenshots)
+
+There is a DummyGame class with a lot of comments, if you want to add a new game. I hope it's good enough for that!
 
 I learned Android and Java by myself using e-books and browsing Stack Overflow for solutions, so please don't expect too much from my source code :D
 
