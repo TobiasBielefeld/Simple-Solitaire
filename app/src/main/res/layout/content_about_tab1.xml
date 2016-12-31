@@ -27,7 +27,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center" />
         </LinearLayout>
 
         <TextView
@@ -76,7 +77,7 @@
             android:layout_marginTop="10dp"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_programm_code_text"
+            android:text="@string/about_program_code_text"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -86,28 +87,26 @@
             android:layout_gravity="center_horizontal"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_programm_code_text2"
+            android:text="@string/about_program_code_text2"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/japaneseTranslation1"
+            android:text="@string/about_japanese_translation_1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/japaneseTranslation2"
+            android:text="@string/about_japanese_translation_2"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView

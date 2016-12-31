@@ -1,34 +1,23 @@
 <resources>
-    <string name="app_name" translatable="false">Simple Solitaire</string>
+    <string name="app_name" translatable="false">Simple Solitaire Collection</string>
     <string name="app_version" translatable="false">Version</string>
 
-    <string name="cancel">Cancel</string>
-    <string name="confirm">Confirm</string>
-    <string name="autoComplete_text">Autocomplete</string>
+
+    <string name="portrait" translatable="false">Portrait</string>
+    <string name="landscape" translatable="false">Landscape</string>
+    <string name="settings">Settings</string>
+
+    <string name="game_manual">Manual</string>
+    <string name="game_score">Score</string>
+    <string name="game_time">Time</string>
+    <string name="game_cancel">Cancel</string>
+    <string name="game_confirm">Confirm</string>
+    <string name="game_auto_complete_text">Autocomplete</string>
     <string name="game_press_again">Press again to exit</string>
     <string name="game_load_error">Loading data failed, starting new game…</string>
 
-    <!-- Scores -->
-    <string name="scores_name">High Scores</string>
-    <string name="scores_score">Score</string>
-    <string name="scores_time">Time</string>
-
-    <!-- About -->
-    <string name="about_name">About Game</string>
-    <string name="about_Text1">developed by Tobias Bielefeld</string>
-    <string name="about_Text2">thanks for playing my game :)</string>
-    <string name="about_Text3">pictures originally published on:</string>
-    <string name="about_Text4" translatable="false">www.pixabay.com</string>
-    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">under the CC0 license</a></string>
-    <string name="about_tab_1">Information</string>
-    <string name="about_tab_2">License</string>
-    <string name="about_tab_3">Changelog</string>
-    <string name="about_build_date" translatable="false">Build date</string>
-    <string name="about_license_top_text">This game is published under the GPL 3.0 license:</string>
-    <string name="about_programm_code_text">Source code available on:</string>
-    <string name="about_programm_code_text2" translatable="false"><a href="https://github.com/TobiasBielefeld/Simple-Solitaire">GitHub</a></string>
-    <string name="japaneseTranslation1">Japanese translation by:</string>
-    <string name="japaneseTranslation2">GitHub User naofum</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <!-- Menu -->
     <string name="menu_scores">Scores</string>
@@ -37,74 +26,19 @@
     <string name="menu_main_menu">Menu</string>
     <string name="menu_settings">Settings</string>
 
-    <!-- highscores -->
-    <string name="high_scores_games_won">Games won</string>
-    <string name="highScoresButtonDelete">Delete all entries!</string>
-    <string name="highScoresButtonDelete_text">Delete all entries! Are you sure?</string>
-    <string name="highScoresButtonDeleted_all_entries">Deleted all entries</string>
-
-    <!-- Settings -->
-    <string name="settings_background_clour">Background colour</string>
-    <string name="settings_hide_status_bar">Hide status bar</string>
-    <string name="settings_left_handed_mode">Left handed mode</string>
-    <string name="settings_left_handed_mode_description">Mirrors the card and stack positions to the left side</string>
-    <string name="settings_back_press">Confirm closing game</string>
-    <string name="settings_back_press_description">Press back button twice to close game</string>
-    <string name="settings_orientation">Screen orientation</string>
-    <string name="settings_cards">Cards</string>
-    <string name="settings_classic">Classic</string>
-    <string name="settings_simple">Simple</string>
-    <string name="settings_cards_back">Card backgrounds</string>
-    <string name="settings_modern">Modern</string>
-    <string name="settings_abstract">Abstract</string>
-    <string name="settings_dark">Dark</string>
-    <string name="settings_basic">Basic</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="settings_customization">Appearance</string>
-    <string name="settings_customization_description">Customize cards and background</string>
-    <string name="settings_other">General</string>
-    <string name="settings_other_description">Set all other settings</string>
-    <string name="settings_games">Games</string>
-    <string name="settings_games_description">Set preferences for the game variants</string>
-    <string name="settings_freecell_multiple_cards">Allow movement of multiple cards</string>
-    <string name="settings_freecell_multiple_cards_description">Move as many cards at once as the number of free cells</string>
-    <string name="settings_spider_difficulty">Number of different card families</string>
-    <string name="settings_klondike_draw">Number of cards to draw</string>
-    <string name="settings_show_main_menu">Start to main menu</string>
-    <string name="settings_show_main_menu_description">Do not enter the last played game on start</string>
-    <string name="settings_golf_easy">Cyclic moves (Easier)</string>
-    <string name="settings_golf_easy_description">Allow placing aces on kings and vice versa</string>
-    <string name="settings_restart_klondike">Start a new Klondike game to apply the change</string>
-    <string name="settings_restart_spider">Start a new Spider game to apply the change</string>
-
-    <!-- Preference Keys -->
-    <string name="pref_key_customization" translatable="false">pref_key_customization</string>
-    <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
-    <string name="pref_key_cards" translatable="false">pref_key_cards</string>
-    <string name="pref_key_cards_background" translatable="false">pref_key_cards_background</string>
-    <string name="pref_key_other" translatable="false">pref_key_other</string>
-    <string name="pref_key_hide_status_bar" translatable="false">pref_key_hide_status_bar</string>
-    <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
-    <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
-    <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
-    <string name="pref_key_freecell_multiple_cards" translatable="false">pref_key_freecell_multiple_cards</string>
-    <string name="pref_key_spider_difficulty" translatable="false">pref_key_spider_difficulty</string>
-    <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
-    <string name="pref_key_current_game" translatable="false">pref_key_current_game</string>
-    <string name="pref_key_start_menu" translatable="false">pref_key_start_menu</string>
-    <string name="pref_key_golf_cyclic" translatable="false">pref_key_golf_cyclic</string>
-
-    <string name="settings_background">Background number</string>
-    <string name="about_description">Show information about the game like licenses and changelog</string>
-    <string name="pref_key_about" translatable="false">pref_key_about</string>
-
     <!-- game names -->
     <string name="games_menu" translatable="false">Menu</string>
     <string name="games_klondike">Klondike</string>
-    <string name="games_freecell">Freecell</string>
+    <string name="games_freecell">FreeCell</string>
     <string name="games_yukon">Yukon</string>
     <string name="games_spider">Spider</string>
-    <string name="games_simple_simon">Simple Simon</string>
+    <string name="games_simplesimon">SimpleSimon</string>
     <string name="games_golf">Golf</string>
+    <string name="games_pyramid">Pyramid</string>
+    <string name="games_tripeaks">TriPeaks</string>
+    <string name="games_fortyeight">Forty&amp;Eight</string>
+    <string name="games_acesup">AcesUp</string>
+    <string name="games_gypsy">Gypsy</string>
+    <string name="games_mod3">Mod3</string>
 
 </resources>

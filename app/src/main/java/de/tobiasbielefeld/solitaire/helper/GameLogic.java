@@ -1,6 +1,7 @@
 package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -42,6 +43,7 @@ public class GameLogic{
 
         Card.save();
         saveRandomCards();
+        currentGame.saveRedealCount();
     }
 
     public void load() {
@@ -59,13 +61,14 @@ public class GameLogic{
         Card.updateCardBackgroundChoice();
         animate.reset();
         autoComplete.reset();
+        currentGame.loadRedealCount(gm);
 
         if (first_run) {
             newGame();
             putBoolean(GAME_FIRST_RUN, false);
         }
         else if (won) {
-            scores.load();
+            //scores.load();
 
             loadRandomCards();
 
@@ -88,6 +91,7 @@ public class GameLogic{
 
                 Card.load();
                 loadRandomCards();
+               // currentGame.loadRedealCount(gm);
 
                 if (! autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
                     autoComplete.showButton();
@@ -111,6 +115,8 @@ public class GameLogic{
     public void redeal(){
         //reset EVERYTHING
         won = false;
+        currentGame.reset(gm);
+
         animate.reset();
         scores.reset();
         movingCards.reset();
@@ -169,12 +175,29 @@ public class GameLogic{
          */
         if (stacks!=null) {
             for (Stack stack : stacks) {
-                stack.view.setX(gm.layoutGame.getWidth() - stack.view.getX() - Card.width);
+                stack.mirrorStack(gm.layoutGame);
+            }
+        }
 
-                for (int j = 0; j < stack.getSize(); j++) {
-                    Card card = stack.getCard(j);
-                    card.setLocationWithoutMovement(gm.layoutGame.getWidth() -
-                            card.view.getX() - Card.width, card.view.getY());
+        if (currentGame.hasLimitedRedeals()){
+            gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
+            gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
+        }
+
+        if (currentGame.hasArrow()){
+            for (Stack stack : stacks){
+                if (stack.hasArrow()>0) {
+                    if (stack.hasArrow() == 1) {
+                        if (getSharedBoolean(gm.getString(R.string.pref_key_left_handed_mode), false))
+                            stack.view.setBackgroundResource(R.drawable.arrow_right);
+                        else
+                            stack.view.setBackgroundResource(R.drawable.arrow_left);
+                    } else {
+                        if (getSharedBoolean(gm.getString(R.string.pref_key_left_handed_mode), false))
+                            stack.view.setBackgroundResource(R.drawable.arrow_left);
+                        else
+                            stack.view.setBackgroundResource(R.drawable.arrow_right);
+                    }
                 }
             }
         }

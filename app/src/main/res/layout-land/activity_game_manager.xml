@@ -24,6 +24,21 @@
         android:layout_toLeftOf="@+id/linearLayout"
         android:layout_toStartOf="@+id/linearLayout">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/shadow"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/shadow_right_to_left"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,7 +74,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/autoComplete_text"
+            android:text="@string/game_auto_complete_text"
             android:id="@+id/buttonMainAutoComplete"
             android:layout_above="@+id/mainTextViewTime"
             android:layout_centerHorizontal="true"
@@ -67,6 +82,15 @@
             android:onClick="menuClick"
             android:visibility="gone"
             android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewRedeals"
+            android:visibility="gone"
+            android:background="@drawable/circle"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp" />
 
     </RelativeLayout>
 

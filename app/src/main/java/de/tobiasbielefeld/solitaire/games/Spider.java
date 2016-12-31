@@ -26,6 +26,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.helper.RecordList.Entry;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -45,15 +46,8 @@ public class Spider extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        Card.width = isLandscape? layoutGame.getWidth() / 12 : layoutGame.getWidth() / 11;
-        Card.height = (int) (Card.width * 1.5);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
-
-        //apply dimensions to cards and stacks
-        for (Card card : cards) card.view.setLayoutParams(params);
-        for (Stack stack : stacks) stack.view.setLayoutParams(params);
-        //order stacks on the screen
-        int spacing = min((layoutGame.getWidth() - 10*Card.width)/11, Card.width/2);
+        setUpCardWidth(layoutGame,isLandscape,11,12);
+        int spacing = setUpSpacing(layoutGame,10,11);
         int startPos = layoutGame.getWidth()-Card.width - 5*Card.width/2;
         //main stacks
         for (int i=0;i<5;i++) {
@@ -156,7 +150,7 @@ public class Spider extends Game {
 
     public boolean addCardToMovementTest(Card card) {
         //do not accept cards from foundation and test if the cards are in the right order.
-        return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack());
+        return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(),SAME_COLOR);
     }
 
     public CardAndStack hintTest(){
@@ -169,7 +163,7 @@ public class Spider extends Game {
             for (int j=sourceStack.getFirstUpCardPos();j<sourceStack.getSize();j++){
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j,SAME_COLOR))
                     continue;
 
                 //if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
@@ -201,12 +195,20 @@ public class Spider extends Game {
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
-            if (originIDs[0] == destinationIDs[0])                                                  //card turn over
-                return 50;
-            else if (destinationIDs[0] >= 10 && destinationIDs[0]<18)
-                return 200;
-            else
-                return 0;
+        int points = 0;
+        boolean foundation = false;
+
+        for (int i=0;i<originIDs.length;i++){
+            if (originIDs[i] == destinationIDs[i])
+                points+=25;
+
+            if (!foundation && destinationIDs[i] >= 10 && destinationIDs[i]<18) {
+                points += 200;
+                foundation = true;
+            }
+        }
+
+        return points;
     }
 
     @Override
@@ -226,25 +228,32 @@ public class Spider extends Game {
         for (int i=0;i<10;i++){
             Stack currentStack = stacks[i];
 
-            if (currentStack.isEmpty())
+            if (currentStack.isEmpty() || currentStack.getTopCard().getValue()!=1)
                 continue;
 
             for (int j=currentStack.getFirstUpCardPos();j<currentStack.getSize();j++){
+                if (j==-1)
+                    break;
+
                 Card cardToTest = currentStack.getCard(j);
 
-                if (cardToTest.getValue()==13 && currentStack.getTopCard().getValue()==1 && testCardsUpToTop(currentStack,j)){
+                if (cardToTest.getValue()==13 && testCardsUpToTop(currentStack,j,SAME_COLOR)){
                     Stack foundationStack = stacks[10];
 
                     while (!foundationStack.isEmpty())
                         foundationStack = stacks[foundationStack.getID()+1];
 
                     ArrayList<Card> cards = new ArrayList<>();
+                    ArrayList<Stack> origins = new ArrayList<>();
 
                     for (int k=j;k<currentStack.getSize();k++){
                         cards.add(currentStack.getCard(k));
+                        origins.add(currentStack);
                     }
 
-                    moveToStack(cards,stacks[foundationStack.getID()]);
+                    recordList.addAtEndOfLastEntry(cards,origins);
+                    moveToStack(cards,foundationStack,OPTION_NO_RECORD);
+                    scores.update(200);
 
                     //turn the card below up, if there is one
                     if (!currentStack.isEmpty() && !currentStack.getTopCard().isUp()){
@@ -255,21 +264,6 @@ public class Spider extends Game {
                 }
             }
         }
-    }
-
-    private boolean testCardsUpToTop(Stack stack, int startPos) {
-        /*
-         * tests card from startPos to stack top if the cards are in the right order
-         */
-        for (int i=startPos;i<stack.getSize()-1;i++){
-            Card bottomCard = stack.getCard(i);
-            Card upperCard = stack.getCard(i+1);
-
-            if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue()+1))
-                return false;
-        }
-
-        return true;
     }
 
     private void loadCards(){
@@ -292,6 +286,44 @@ public class Spider extends Game {
         for (Card card : cards) {
             card.setColor();
         }
+
         Card.updateCardDrawableChoice();
+    }
+
+    public boolean autoCompleteStartTest() {
+
+        for (int i=0;i<4;i++)
+            if (!stacks[18+i].isEmpty())
+                return false;
+
+        for (int i = 0; i < 10; i++)
+            if (stacks[i].getFirstUpCardPos()!=0 || !testCardsUpToTop(stacks[i],0,SAME_COLOR))
+                return false;
+
+        return true;
+    }
+
+    public CardAndStack autoCompletePhaseOne() {
+
+        for (int i = 0; i < 10; i++) {
+            Stack sourceStack = stacks[i];
+
+            if (sourceStack.isEmpty())
+                continue;
+
+            Card cardToMove = sourceStack.getCard(0);
+
+            for (int k = 0; k < 10; k++) {
+                Stack destStack = stacks[k];
+                if (i == k || destStack.isEmpty() || destStack.getTopCard().getColor()!=cardToMove.getColor())
+                    continue;
+
+                if (cardToMove.test(destStack)) {
+                    return new CardAndStack(cardToMove, destStack);
+                }
+            }
+        }
+
+        return null;
     }
 }

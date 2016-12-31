@@ -20,6 +20,7 @@
 package de.tobiasbielefeld.solitaire.ui;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +55,10 @@ public class HighScores extends AppCompatActivity {
         super.onCreate(savedInstanceState);                                                         //initialize stuff
         setContentView(R.layout.activity_high_scores);
 
+        if (savedSharedData==null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+        }
+
         ActionBar actionBar = getSupportActionBar();
         layoutScores = (LinearLayout) findViewById(R.id.highScoresLinearLayout1);                   //load the layouts and textView
         text1 = (TextView) findViewById(R.id.highScoresTextViewGamesWon);
@@ -65,7 +70,7 @@ public class HighScores extends AppCompatActivity {
         setOrientation(this);                                                                       //orientation according to preference
 
         text1.setText(String.format(Locale.getDefault(), "%s: %s", getString(                       //show the number of won games
-                R.string.high_scores_games_won), gameLogic.getNumberWonGames()));
+                R.string.statistics_games_won), gameLogic.getNumberWonGames()));
 
         for (int i = 0; i < Scores.MAX_SAVED_SCORES; i++) {                                         //for each entry in highScores, add a new view with it
             if (scores.get(i, 0) == 0)                                                              //if the score is zero, don't show it
@@ -83,12 +88,12 @@ public class HighScores extends AppCompatActivity {
             TextView textView = new TextView(this);                                                 //new textView for the score of the entry
             textView.setText(String.format(Locale.getDefault(),
                     "%s. %s %s ", i + 1, getString(         //add the score
-                    R.string.scores_score), scores.get(i, 0)));
+                    R.string.game_score), scores.get(i, 0)));
             textView.setTextSize(20);                                                               //and set text size
 
             TextView textView2 = new TextView(this);                                                //new textView for the time of the entry
             textView2.setText(String.format(Locale.getDefault(), "%s %02d:%02d:%02d",               //add it to the view
-                    getString(R.string.scores_time),
+                    getString(R.string.game_time),
                     scores.get(i, 1) / 3600,
                     (scores.get(i, 1) % 3600) / 60,
                     (scores.get(i, 1) % 60)));
@@ -117,9 +122,9 @@ public class HighScores extends AppCompatActivity {
         gameLogic.deleteNumberWonGames();
         text1.setText(String.format(Locale.getDefault(),
                 "%s: %s", getString(   //refresh the textView
-                        R.string.high_scores_games_won), gameLogic.getNumberWonGames()));
+                        R.string.statistics_games_won), gameLogic.getNumberWonGames()));
         layoutScores.setVisibility(View.GONE);
-        showToast(getString(R.string.highScoresButtonDeleted_all_entries));
+        showToast(getString(R.string.statistics_button_deleted_all_entries));
     }
 
     private void showToast(String text) {

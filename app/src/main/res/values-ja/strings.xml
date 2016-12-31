@@ -1,69 +1,13 @@
 <resources>
 
-    <string name="cancel">キャンセル</string>
-    <string name="confirm">確認</string>
-    <string name="autoComplete_text">オートコンプリート</string>
+    <string name="game_cancel">キャンセル</string>
+    <string name="game_confirm">確認</string>
+    <string name="game_auto_complete_text">オートコンプリート</string>
     <string name="game_press_again">もう一度押すと終了します</string>
     <string name="game_load_error">データの読み込みに失敗しました。新しいゲームを開始しています…</string>
+    <string name="game_score">スコア</string>
+    <string name="game_time">時間</string>
 
-    <!-- Scores -->
-    <string name="scores_name">ハイスコア</string>
-    <string name="scores_score">スコア</string>
-    <string name="scores_time">時間</string>
-
-    <!-- About -->
-    <string name="about_name">ゲームについて</string>
-    <string name="about_Text1">developed by Tobias Bielefeld</string>
-    <string name="about_Text2">私のゲームをプレイしていただきありがとうございます :)</string>
-    <string name="about_Text3">画像のオリジナルの公開場所:</string>
-    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 ライセンスの下</a></string>
-    <string name="about_tab_1">情報</string>
-    <string name="about_tab_2">ライセンス</string>
-    <string name="about_tab_3">変更履歴</string>
-    <string name="about_license_top_text">このゲームは GPL 3.0 ライセンスの下に公開されています:</string>
-    <string name="about_programm_code_text">ソースコードはこちらで利用可能です:</string>
-
-    <!-- Menu -->
-
-    <!-- highscores -->
-    <string name="high_scores_games_won">ゲームに勝ちました</string>
-    <string name="highScoresButtonDelete">すべてのエントリーを削除!</string>
-    <string name="highScoresButtonDelete_text">すべてのエントリーを削除します! よろしいですか?</string>
-    <string name="highScoresButtonDeleted_all_entries">すべてのエントリーを削除しました</string>
-
-    <!-- Settings -->
-    <string name="settings_background_clour">背景の色</string>
-    <string name="settings_hide_status_bar">ステータスバーを隠す</string>
-    <string name="settings_left_handed_mode">左ききモード</string>
-    <string name="settings_left_handed_mode_description">カードと置き場の位置を左側に反転します</string>
-    <string name="settings_back_press">ゲームの終了を確認</string>
-    <string name="settings_back_press_description">戻るボタンを２回押すとゲームを終了します</string>
-    <string name="settings_orientation">画面の向き</string>
-    <string name="settings_cards">カード</string>
-    <string name="settings_classic">クラシック</string>
-    <string name="settings_simple">シンプル</string>
-    <string name="settings_cards_back">カードの背景</string>
-    <string name="settings_modern">モダン</string>
-    <string name="settings_abstract">無地</string>
-    <string name="settings_dark">ダーク</string>
-    <string name="title_activity_settings">設定</string>
-
-    <string name="settings_background">背景の番号</string>
-    <string name="about_description">ライセンスや変更履歴など、ゲームに関する情報を表示します</string>
-    <string name="japaneseTranslation1">の日本語訳：</string>
-    <string name="japaneseTranslation2">GitHub ユーザー naofum</string>
-    <string name="settings_customization">外観</string>
-    <string name="settings_customization_description">カードと背景をカスタマイズする</string>
-    <string name="settings_freecell_multiple_cards">複数のカードの移動を許可する</string>
-    <string name="settings_freecell_multiple_cards_description">フリーセルの数として一度に多くのカードを移動する</string>
-    <string name="settings_games">ゲーム</string>
-    <string name="settings_games_description">" ゲームのバリアントの設定を行う"</string>
-    <string name="settings_klondike_draw">描画するカードの数</string>
-    <string name="settings_other">一般に</string>
-    <string name="settings_show_main_menu">メインメニューで開始</string>
-    <string name="settings_other_description">他のすべての設定を設定する</string>
-    <string name="settings_show_main_menu_description">開始時に最後にプレイしたゲームに参加しない</string>
-    <string name="settings_spider_difficulty">異なるカードファミリーの数</string>
     <string name="games_klondike">クロンダイク</string>
     <string name="games_freecell">フリーセル</string>
     <string name="menu_main_menu">メニュー</string>
@@ -71,14 +15,20 @@
     <string name="games_yukon">ユーコン</string>
     <string name="menu_hint">ヒント</string>
     <string name="menu_scores">高得点</string>
-    <string name="menu_settings">設定</string>
     <string name="menu_undo">アンドゥ</string>
     <string name="games_golf">ゴルフ</string>
-    <string name="games_simple_simon">シンプルシモン</string>
-    <string name="settings_golf_easy_description">エースを王に置くことを許可する、またはその逆</string>
-    <string name="settings_golf_easy">循環的な動き （より簡単に）</string>
-    <string name="settings_basic">基本的な</string>
-    <string name="settings_restart_klondike">変更を適用するために新しいクロンダイクゲームを開始する</string>
-    <string name="settings_restart_spider">変更を適用するために新しいスパイダーゲームを開始してください</string>
+    <string name="games_simplesimon">シンプルシモン</string>
+    <string name="games_mod3">Mod3</string>
+    <string name="games_gypsy">Gypsy</string>
+    <string name="games_acesup">エースアップ</string>
+    <string name="games_fortyeight">フォーティ&amp;エイト</string>
+    <string name="games_pyramid">ピラミッド</string>
+    <string name="games_tripeaks">トリピーク</string>
+
+    <string name="title_activity_manual">マニュアル</string>
+    <string name="menu_settings">設定</string>
+    <string name="game_manual">マニュアル</string>
+    <string name="about_loading">レイド</string>
+
 
 </resources>

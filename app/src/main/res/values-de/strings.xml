@@ -1,63 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_Text1">entwickelt von Tobias Bielefeld</string>
-    <string name="about_Text2">Danke fürs Spielen :)</string>
-    <string name="about_Text3">Bilder ursprünglich veröffentlicht auf:</string>
-    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">unter der CC0 Lizens</a></string>
-    <string name="about_programm_code_text">SourceCode erhältlich auf:</string>
 
-    <string name="about_name">Über das Spiel</string>
-    <string name="scores_name">High Scores</string>
-    <string name="scores_score">Score</string>
-    <string name="scores_time">Zeit</string>
-    <string name="settings_background_clour">Hintergrundfarbe</string>
-    <string name="settings_hide_status_bar">Statusleiste verbergen</string>
-    <string name="settings_left_handed_mode">Linkshändler Modus</string>
-    <string name="settings_cards">Karten</string>
-    <string name="settings_cards_back">Kartenhintergrund</string>
-    <string name="settings_classic">Klassisch</string>
-    <string name="settings_modern">Modern</string>
-    <string name="settings_simple">Einfach</string>
-    <string name="settings_abstract">Abstrakt</string>
-    <string name="highScoresButtonDelete">Alle Einträge löschen!</string>
-    <string name="high_scores_games_won">Spiele gewonnen</string>
+    <string name="game_score">Score</string>
+    <string name="game_time">Zeit</string>
     <string name="game_press_again">Zum Beenden erneut drücken</string>
-    <string name="settings_back_press">Beenden des Spiels bestätigen</string>
-    <string name="highScoresButtonDelete_text">Alle Einträge löschen! Bist du dir sicher?</string>
-    <string name="highScoresButtonDeleted_all_entries">Alle Einträge gelöscht</string>
-    <string name="autoComplete_text">Autovervollständigen</string>
-    <string name="cancel">Abbrechen</string>
-    <string name="confirm">Bestätigen</string>
-    <string name="settings_dark">Dunkel</string>
-    <string name="about_tab_1">Informationen</string>
-    <string name="about_tab_3">Änderungen</string>
-    <string name="about_tab_2">Lizenz</string>
+    <string name="game_auto_complete_text">Autovervollständigen</string>
+    <string name="game_cancel">Abbrechen</string>
+    <string name="game_confirm">Bestätigen</string>
     <string name="game_load_error">Laden der Daten ist fehlgeschlagen, starte neues Spiel…</string>
-    <string name="settings_customization">Aussehen</string>
-    <string name="settings_other">Allgemein</string>
-    <string name="settings_back_press_description">Zum Beenden Zurück Taste zwei mal drücken</string>
-    <string name="settings_left_handed_mode_description">Spiegelt die Karten und Stapel Positionen zur linken Seite</string>
-    <string name="settings_background">Hintergrund Nummer</string>
-    <string name="title_activity_settings">Einstellungen</string>
-    <string name="about_license_top_text">Dieses Spiel wurde unter der GPL 3.0 Lizenz veröffentlicht:</string>
-    <string name="about_description">Zeige Informationen über das Spiel wie Lizenzen und Änderungen</string>
-    <string name="settings_orientation">Bildschirmausrichtung</string>
-    <string name="japaneseTranslation1">Japanische Übersetzung von:</string>
-    <string name="japaneseTranslation2">GitHub Nutzer naofum</string>
-    <string name="settings_customization_description">Passe Karten und Hintergrund an</string>
-    <string name="settings_other_description">Nehme alle anderen Einstellungen vor</string>
-    <string name="settings_games">Spiele</string>
-    <string name="settings_games_description">Nehme Einstellungen der Spielvarianten vor</string>
 
-    <string name="settings_show_main_menu">Mit Hauptmenü starten</string>
-    <string name="settings_show_main_menu_description">Beim Starten nicht das zuletzt gespielte Spiel öffnen</string>
-
-    <string name="settings_freecell_multiple_cards">Erlaube Bewegung mehrerer Karten</string>
-    <string name="settings_freecell_multiple_cards_description">Bewege so viele Karten auf einmal wie es freie Zellen gibt</string>
-
-    <string name="settings_spider_difficulty">Anzahl verschiedener Karten Familien</string>
-    <string name="settings_klondike_draw">Anzahl Karten zum Ziehen</string>
-    <string name="games_freecell">Freecell</string>
+    <string name="games_freecell">FreeCell</string>
     <string name="games_klondike">Klondike</string>
     <string name="games_spider">Spider</string>
     <string name="games_yukon">Yukon</string>
@@ -67,12 +19,14 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_undo">Undo</string>
     <string name="games_golf">Golf</string>
-    <string name="games_simple_simon">Simple Simon</string>
-    <string name="settings_golf_easy">Zyklische Bewegungen (Einfacher)</string>
-    <string name="settings_golf_easy_description">Erlaube das Setzen von Assen auf Könige und umgekehrt</string>
-    <string name="settings_basic">Basic</string>
-    <string name="settings_restart_klondike">Starte ein neues Klondike Spiel um die Änderung anzuwenden</string>
-    <string name="settings_restart_spider">Starte ein neues Spider Spiel um die Änderung anzuwenden</string>
-
+    <string name="games_simplesimon">SimpleSimon</string>
+    <string name="games_tripeaks">TriPeaks</string>
+    <string name="games_pyramid">Pyramid</string>
+    <string name="games_fortyeight">Forty&amp;Eight</string>
+    <string name="games_acesup">AcesUp</string>
+    <string name="games_mod3">Mod3</string>
+    <string name="games_gypsy">Gypsy</string>
+    <string name="game_manual">Handbuch</string>
+    <string name="about_loading">Lade…</string>
 
 </resources>

@@ -156,7 +156,7 @@ public class Card {
     }
 
     public void setLocation(float pX, float pY) {
-        view.bringToFront();
+        //view.bringToFront();
 
         //if not already there, animate the moving
         if (view.getX() != pX || view.getY() != pY)

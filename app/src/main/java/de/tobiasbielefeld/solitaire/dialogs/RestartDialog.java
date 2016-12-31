@@ -26,6 +26,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -39,11 +40,12 @@ public class RestartDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setTitle(R.string.app_name)
+        builder.setTitle(lg.getGameName())
                 .setItems(R.array.restart_menu, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // "which" argument contains index of selected item
                         switch (which){
+
                             case 0:
                                 gameLogic.newGame();
                                 break;
@@ -53,10 +55,20 @@ public class RestartDialog extends DialogFragment {
                             case 2:
                                 getActivity().finish();
                                 break;
+                            case 3:
+                                if (((GameManager)getActivity()).hasLoaded) {
+                                    timer.save();
+                                    gameLogic.save();
+                                }
+
+                                getActivity().moveTaskToBack(true);
+                                //android.os.Process.killProcess(android.os.Process.myPid());
+                                //System.exit(1);
+                                break;
                         }
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //just cancel
                     }

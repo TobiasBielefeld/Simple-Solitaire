@@ -49,17 +49,10 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 public class SharedData {
 
     //Strings
-    public final static String MENU = "Menu";
-    public final static String KLONDIKE = "Klondike";
-    public final static String FREECELL = "Freecell";
-    public final static String YUKON = "Yukon";
-    public final static String SPIDER = "Spider";
-    public final static String SIMPLESIMON = "SimpleSimon";
-    public final static String GOLF = "Golf";
-
     public final static String SCORE = "Score";
     public final static String SAVED_SCORES = "SavedScores";
 
+    public final static String GAME_REDEAL_COUNT = "GameRedealCount";
     public final static String GAME_WON = "GameWon";
     public final static String GAME_NUMBER_OF_WON_GAMES = "GameNumberOfWonGames";
     public final static String GAME_RANDOM_CARDS = "GameRandomCards";
@@ -79,6 +72,8 @@ public class SharedData {
 
     final public static String CARD_DRAWABLES = "CardDrawables";
     final public static String CARD_BACKGROUND = "CardBackground";
+    final public static String MENU_COLUMNS_PORTRAIT = "MenuColumnsPortrait";
+    final public static String MENU_COLUMNS_LANDSCAPE = "MenuColumnsLandscape";
 
     public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2 , OPTION_REVERSED_RECORD=3;
 
@@ -92,6 +87,7 @@ public class SharedData {
     public static Hint hint;
     public static AutoComplete autoComplete;
     public static Timer timer;
+    public static LoadGame lg = new LoadGame();
 
     public static SharedPreferences savedSharedData;
     public static SharedPreferences savedGameData;
@@ -294,6 +290,29 @@ public class SharedData {
         savedSharedData.edit().putString(name,value).apply();
     }
 
+
+    public static void putSharedIntList(String name, List<Integer> list) {
+        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+        String s = "";
+        for (int i : list) {
+            s += i + ",";
+        }
+        savedSharedData.edit().putString(name, s).apply();
+    }
+
+    public static ArrayList<Integer> getSharedIntList(String name) {
+        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+        String s = savedSharedData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Integer> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        return result;
+    }
+
     /*
      *
      */
@@ -303,6 +322,13 @@ public class SharedData {
     }
 
     public static int min(int value1, int value2){
+        if (value1 < value2)
+            return value1;
+        else
+            return value2;
+    }
+
+    public static float min(float value1, float value2){
         if (value1 < value2)
             return value1;
         else

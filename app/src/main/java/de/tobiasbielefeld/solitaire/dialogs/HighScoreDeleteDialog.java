@@ -38,14 +38,14 @@ public class HighScoreDeleteDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(R.string.highScoresButtonDelete_text)
-                .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+        builder.setMessage(R.string.statistics_button_delete_text)
+                .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         HighScores highScores = (HighScores) getActivity();
                         highScores.deleteHighScores();
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User cancelled the dialog
                     }

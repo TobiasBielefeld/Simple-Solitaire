@@ -1,25 +1,27 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- These settings headers are only used on tablets. -->
-
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.Settings$CustomizationPreferenceFragment"
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$CustomizationPreferenceFragment"
         android:title="@string/settings_customization"
         android:summary="@string/settings_customization_description"/>
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.Settings$GamesPreferenceFragment"
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$MenuPreferenceFragment"
+        android:title="@string/settings_menu"
+        android:summary="@string/settings_menu_description"/>
+
+    <header
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$GamesPreferenceFragment"
         android:title="@string/settings_games"
         android:summary="@string/settings_games_description"/>
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.Settings$OtherPreferenceFragment"
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$OtherPreferenceFragment"
         android:title="@string/settings_other"
         android:summary="@string/settings_other_description"/>
 
     <header
         android:title="@string/about_name"
-        android:summary="@string/about_description">
+        android:summary="@string/settings_about_description">
         <intent android:targetPackage="de.tobiasbielefeld.solitaire"
             android:targetClass="de.tobiasbielefeld.solitaire.ui.about.AboutActivity" />
     </header>

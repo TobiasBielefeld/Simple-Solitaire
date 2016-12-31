@@ -51,7 +51,7 @@ public class TimerHandler extends Handler {
         Long time = timer.getCurrentTime();
 
         gm.mainTextViewTime.setText(String.format(Locale.getDefault(),
-                "%s: %02d:%02d:%02d",gm.getString(R.string.scores_time),
+                "%s: %02d:%02d:%02d",gm.getString(R.string.game_time),
                 time / 3600, (time % 3600) / 60, (time % 60)));                                     //in hours:minutes:seconds format
     }
 }

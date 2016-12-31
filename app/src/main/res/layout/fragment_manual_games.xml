@@ -1,0 +1,285 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="de.tobiasbielefeld.solitaire.ui.manual.ManualGames"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/manual_games_layout_selection">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/layout_padding">
+
+            <TextView
+                android:text="@string/manual_games"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:textStyle="normal|bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:text="@string/manual_games_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textAlignment="viewStart"
+                android:textSize="14sp"
+                android:layout_marginBottom="15dp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:text="@string/games_acesup"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_acesup"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_fortyeight"
+                        android:layout_weight="1"
+                        android:text="@string/games_fortyeight"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:text="@string/games_freecell"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_freecell"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:text="@string/games_golf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_golf"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:text="@string/games_gypsy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_gypsy"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:text="@string/games_klondike"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_klondike"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:text="@string/games_mod3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_mod3"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:text="@string/games_pyramid"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_pyramid"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:text="@string/games_simplesimon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_simplesimon"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:text="@string/games_spider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_spider"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:text="@string/games_tripeaks"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_tripeaks"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <Button
+                        android:text="@string/games_yukon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_menu"
+                        android:id="@+id/manual_games_button_yukon"
+                        android:layout_weight="1"
+                        android:textAllCaps="false"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/manual_games_scrollView">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/layout_padding">
+
+            <TextView
+                android:text="@string/games_spider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/manual_games_name"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:layout_marginBottom="15dp" />
+
+            <TextView
+                android:text="@string/manual_structure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                android:layout_marginBottom="15dp" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/manual_games_structure" />
+
+            <TextView
+                android:text="@string/manual_objective"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/manual_games_objective" />
+
+            <TextView
+                android:text="@string/manual_rules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/manual_games_rules" />
+
+            <TextView
+                android:text="@string/manual_scoring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/manual_games_scoring" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

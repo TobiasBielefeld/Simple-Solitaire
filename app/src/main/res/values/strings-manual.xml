@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_activity_manual">Manual</string>
+
+    <string name="manual_games">Games</string>
+    <string name="manual_feedback">Feedback</string>
+    <string name="manual_startpage">Start page</string>
+    <string name="manual_back_to_game">Back to game</string>
+
+    <!-- Feedback -->
+    <string name="manual_open_google_play">Open Google Play</string>
+    <string name="manual_open_github">Open GitHub Repo</string>
+    <!-- Games -->
+    <string name="manual_games_text1">Choose a game to show it\'s structure, objective, rules and scoring.</string>
+    <string name="manual_startpage_text">Welcome to the manual of this game collection! I hope it will explain everything.
+        \n\nUse the menu on the left side to access the other manual pages.</string>
+    <string name="manual_general_main_menu_header">Main menu</string>
+    <string name="manual_general_main_menu">The usage of the main menu is relatively simple. Just tap on a game to start it.
+        \n\nThe app will automatically load the last played game on a restart, if the app was paused in it. This behavior can
+        be disabled in the settings under \"General\".\n\nThere you can also find the section \"Main menu\", where it\'s possible to hide games
+        from the menu and change the number of columns, so more games fit on the screen at once.</string>
+    <string name="manual_ui_header">User interface</string>
+    <string name="manual_ui">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the
+        right side (Landscape mode).It will also show the current score and current played time of the game. If possible, these two values
+        will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons
+        from left to right):\n\nThe \"Scores\" button will show a new window with the high scores and the count of won games of
+        the current game.\n\nThe \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease
+        the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main
+        stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.\n\nThe \"Menu\" button shows three different
+        actions: Start a new game by mixing the cards and drawing a new deal. Give cards again will do the same but without the
+        mixing. So it\'s like a restart of the current game. The last option will end the current game and return the app to the
+        main menu.\n\nThe \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to
+        20 last movements.\n\nThe \"Settings\" button simply opens the settings menu.</string>
+    <string name="manual_feedback_text">Found a bug or an error? Something I should improve? Should I add another game to the
+        collection? Maybe you want to help with some translations? Or have another idea?\n\nI am happy to receive any kind of
+        feedback. If you feel the need to contact me, you should consider the following two options:\n\nUse the Issue Tracker
+        on GitHub: The project of this app on GitHub has a neat function to report issues. Just click on the button on the left
+        side of the screen to open the Issue Tracker with the Internet browser.\n\nUse a rating in Google Play: Just leave a
+        rating on the page from this app and write anything you want in it. Click on the button to the right side to open the
+        Google Play Store (if installed).\n\nThank you in advance for your feedback :)</string>
+
+    <string name="manual_structure">Structure</string>
+    <string name="manual_objective">Objective</string>
+    <string name="manual_rules">Rules</string>
+    <string name="manual_scoring">Scoring</string>
+
+
+    <!-- Klondike -->
+    <string name="manual_klondike_structure">1 deck of 52 cards.\n\n7 tableau stacks, 4 foundation
+        stacks, 1 main and 1 discard stack.</string>
+    <string name="manual_klondike_objective">Order every card in real families in ascending order on
+        the foundation.</string>
+    <string name="manual_klondike_rules">Cards can be placed on the tableau in descending order and
+        in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards
+        can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed
+        on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing
+        on the main stack, cards will be moved to the discard stack from where you can use them.
+        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected,only one card
+        will be moved (This is the default setting, for easier game play). With \"Draw 3\" enabled, 3 cards
+        will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every
+        card from the discard stack to the main stack and use them again.</string>
+    <string name="manual_klondike_scoring">From tableau to foundation: +60\n\nFrom discard stack to
+        foundation: +45\n\nFrom foundation to tableau: -75\n\nTurn a card over: +25\n\nReturn all cards
+        from discard stack to main stack: -200</string>
+
+    <!-- FreeCell -->
+    <string name="manual_freecell_structure">1 deck of 52 cards.\n\n8 tableau stacks, 4 foundation
+        stacks and 4 free cells.</string>
+    <string name="manual_freecell_objective">Order every card in real families in ascending order on
+        the foundation.</string>
+    <string name="manual_freecell_rules">Cards can be placed on the tableau in descending order and
+        in alternating colors. On the foundation, cards can be placed only in ascending order on the
+        corresponding family. The 4 cells on the top can only contain one card at a time.\n\nYou can
+        move as many cards (which are in a correct sequence) at once, as there are free stacks (tableau
+        and the cells) available. This corresponds to the rule, that only one card can be moved at once,
+        but when there are free stacks available, the cards can be moved on the free stacks first and then
+        to the destination stack.\n\nEvery card can be placed on empty tableau fields and cells. aces can
+        be placed on empty foundation fields.</string>
+    <string name="manual_freecell_scoring">Move a card to foundation: +60\n\nMove a card from foundation:
+        -75\n\nMove a king to an empty field: +20</string>
+
+    <!-- Yukon -->
+    <string name="manual_yukon_structure">1 deck of 52 cards.\n\n7 tableau stacks and 4 foundation stacks.</string>
+    <string name="manual_yukon_objective">Order every card in real families in ascending order on the foundation.</string>
+    <string name="manual_yukon_rules">Cards can be placed on the tableau in descending order and in
+        alternating colors. On the foundation, cards can be placed only in ascending order on the
+        corresponding family.\n\nYou can move every faced up card, no matter how many cards and
+        which sequence the cards are on top of it.\n\nOnly kings can be placed on empty tableau
+        fields and only aces can be placed on empty foundation fields.</string>
+    <string name="manual_yukon_scoring">From tableau to foundation: +60\n\nFrom foundation to tableau:
+        -75\n\nMove a king to an empty field: +20\n\nFlip a card up: +25</string>
+
+    <!-- Spider -->
+    <string name="manual_spider_structure">2 decks of 52 cards.\n\n10 tableau stacks and 8 foundation
+        stacks.\n\n1 main stack, separated in 5 different piles.\n\nDepending on settings: 1, 2 or 4
+        different card families.</string>
+    <string name="manual_spider_objective">Place every card in true descending card families anywhere on the
+        tableau. The built card families will be automatically moved to the foundation.</string>
+    <string name="manual_spider_rules">Cards can be placed on any card in descending order. But only
+        real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau
+        stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
+    <string name="manual_spider_scoring">Move a card family to foundation: +200
+        Flip a card up: +25</string>
+
+    <!-- SimpleSimon -->
+    <string name="manual_simplesimon_structure">1 deck of 52 cards.\n\n10 tableau stacks and 4
+        foundation stacks.</string>
+    <string name="manual_simplesimon_objective">Place every card in true descending card families anywhere
+        on the tableau. The built card families will be automatically moved to the foundation.</string>
+    <string name="manual_simplesimon_rules">Cards can be placed on any card in descending order.
+        But only real card family sequences can be moved at once.\n\nEvery card can be placed on
+        empty tableau stacks.</string>
+    <string name="manual_simplesimon_scoring">Move a card family to foundation: +200</string>
+
+    <!-- Golf -->
+    <string name="manual_golf_structure">1 deck of 52 cards.\n\n7 tableau stacks, 1 main and 1
+        discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
+    <string name="manual_golf_objective">Move every card from the tableau to the discard stack.</string>
+    <string name="manual_golf_rules">Every top card of a stack can be used to play. Cards can only be
+        placed on the discard stack in ascending and descending order regardless of color.\n\nDepending
+        on settings, you can also place a king on an ace and vice versa (easier game play).\n\nIf no
+        card can be moved, press on the main stack to deal one card from it to the discard stack.</string>
+    <string name="manual_golf_scoring">Move a card to the discard stack: +50</string>
+
+    <!-- Pyramid -->
+    <string name="manual_pyramid_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main, 1 discard and 1
+        waste stack.\n\nCards from the discard stack can be moved back to then main stack only two times in a game.</string>
+    <string name="manual_pyramid_objective">Move every card from the tableau to the waste. Depending
+        on settings, also every card from
+        main and discard stacks has to be moved to the waste.</string>
+    <string name="manual_pyramid_rules">This game has slightly different rules. Every card, which isn\'t
+        covered by another card can be played. Two cards, whose values add up to 13 can be moved to the
+        waste. To do so, move a card on another free card. If both values are correct, they will be
+        automatically moved to the waste.\n\nIt is also possible to use the cards from main and discard stack.
+        If no card movement is possible, press on the arrow between these stacks to
+        move one card from then main stack to then discard stack. If the main stack is empty, press again on it or
+        on the arrow to return the cards from the discard stack to the main stack. This movement can
+        only be used two times in a game. The remaining amount will be shown as the little number above
+        the arrow.</string>
+    <string name="manual_pyramid_scoring">Move a card to the waste: +50\n\nReturn all cards from
+        discard stack to main stack: -200</string>
+
+    <!-- TriPekas -->
+    <string name="manual_tripeaks_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main and 1
+        discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
+    <string name="manual_tripeaks_objective">Move every card from the tableau to the discard stack.</string>
+    <string name="manual_tripeaks_rules">The rules of this game are similar to \"Golf\". Every card
+        which isn\'t covered by another card can be used to play. Cards can only be placed on the
+        discard stack in ascending and descending order regardless of color.\n\nIt is also possible
+        to play kings on aces and vice versa.\n\nIf no card can be moved, press on the main stack to
+        deal one card from it to the discard stack.</string>
+    <string name="manual_tripeaks_scoring">Move a card to the waste: +50\n\nReturn cards from discard
+        stack to main stack: -200</string>
+
+    <!-- Forty&Eight -->
+    <string name="manual_fortyeight_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation
+        stacks, 1 main and 1 discard stack.\n\nCards from the discard stack can be moved back to the
+        main stack only once in a game.\n\n</string>
+    <string name="manual_fortyeight_objective">Order every card as real families in ascending order
+        on the foundation.</string>
+    <string name="manual_fortyeight_rules">Cards can be placed on the tableau in descending order of
+        the same family. You can move only one card from the top of a stack at once. On the foundation,
+        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
+        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
+        pressing on the main stack, one card will be moved to the discard stack from where you can play
+        it.\n\nIf the main stack is empty, you can still press on it to move every card from the
+        discard stack back to the main stack and use them again. But this is only once a game possible.
+        The remaining amount is shown a the little number above the main stack.</string>
+    <string name="manual_fortyeight_scoring">Move a card to foundation: +45\n\nMove a card back to
+        tableau: -60\n\nMove a card from the discard stack to tableau: +60\n\nReturn cards from discard to main stack: -200</string>
+
+    <!-- Mod3 -->
+    <string name="manual_mod3_structure">2 deck of 52 cards.\n\n32 tableau stacks, 1 main and 1 aces
+        stack.\n\n</string>
+    <string name="manual_mod3_objective">Order every card on the top 3 rows of the tableau as sequences
+        of the same color in the following way:\n\nFirst row: Sequences of 2–5–8–J\nSecond row: Sequences
+        of 3–6–9–Q\nThird row: Sequences of 4–7–10–K\n\nAces will be put away.</string>
+    <string name="manual_mod3_rules">You can move only one card from the top of a stack at once. Cards can only
+        be placed if the sequence shown under \"Objectives\" is correct. So you can place for example a
+        Hearts 5 on a Hearts 2, but only if the Hearts 2 is in the first row of the tableau. Different
+        families aren\'t allowed either.\n\nGain free stacks to place cards by moving aces to the aces
+        stack above the main stack.\n\nThe fourth row is also the discard row for the cards from the main
+        stack. Any card can be placed on a free stack of the forth row.\n\nPress on the main stack to deal
+        one card to each stack of the forth row.\n\n</string>
+    <string name="manual_mod3_scoring">Move a card on a correct field of the tableau: +50\n\nMove a card back to the fourth row of the tableau: -75</string>
+
+    <!-- Gypsy -->
+    <string name="manual_gypsy_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation stacks,
+        and 1 main stack.</string>
+    <string name="manual_gypsy_objective">Order every card in real families in ascending order on the
+        foundation.</string>
+    <string name="manual_gypsy_rules">Cards can be placed on the tableau in descending order and in
+        alternating colors. You can move a whole correct sequence of cards at once. On the foundation,
+        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
+        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
+        pressing on the main stack, one card will be moved to each tableau stack.</string>
+    <string name="manual_gypsy_scoring">Move a card to foundation: +75\n\nMove a card from foundation to tableau: -100\n\n
+        Flip a card over: +50</string>
+
+    <!-- acesUp -->
+    <string name="manual_acesup_structure">1 deck of 52 cards.\n\n4 tableau stacks, 1 main and 1
+        foundation stack.\n\nAces have the value 14, so they have a higher value than kings.</string>
+    <string name="manual_acesup_objective">Put all cards except the aces on the foundation stack,
+        so there is one ace on every tableau stack left.</string>
+    <string name="manual_acesup_rules">You can move only the top card of a stack. Move cards which
+        have a lower value than another top card of the same family to the foundation. For example:
+        There are a Hearts 5 and a Hearts 10 on top of two tableau stacks. Then you can move the Hearts
+        5 to the foundation. aces have a higher value than every other card.\n\nEvery movable card can
+        be placed on empty tableau stacks.\n\nPress the main stack to deal one card to each tableau
+        stack.</string>
+    <string name="manual_acesup_scoring">Move a card to the foundation stack: +50</string>
+</resources>

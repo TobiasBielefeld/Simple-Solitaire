@@ -44,15 +44,8 @@ public class SimpleSimon extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        Card.width = isLandscape? layoutGame.getWidth() / 12 : layoutGame.getWidth() / 11;
-        Card.height = (int) (Card.width * 1.5);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
-
-        //apply dimensions to cards and stacks
-        for (Card card : cards) card.view.setLayoutParams(params);
-        for (Stack stack : stacks) stack.view.setLayoutParams(params);
-        //order stacks on the screen
-        int spacing = min((layoutGame.getWidth() - 10*Card.width)/11, Card.width/2);
+        setUpCardWidth(layoutGame,isLandscape,11,12);
+        int spacing = setUpSpacing(layoutGame,10,11);
         int startPos = layoutGame.getWidth()/2 - 2*Card.width - (int)(1.5*spacing);
         //foundation stacks
         for (int i=0;i<4;i++) {
@@ -102,7 +95,7 @@ public class SimpleSimon extends Game {
     }
 
     public boolean addCardToMovementTest(Card card){
-        return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack());
+        return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(),SAME_COLOR);
     }
 
     public CardAndStack hintTest(){
@@ -115,7 +108,7 @@ public class SimpleSimon extends Game {
             for (int j=sourceStack.getFirstUpCardPos();j<sourceStack.getSize();j++){
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j,SAME_COLOR))
                     continue;
 
                 //if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
@@ -157,21 +150,6 @@ public class SimpleSimon extends Game {
         //no main stack so empty
     }
 
-    private boolean testCardsUpToTop(Stack stack, int startPos) {
-        /*
-         * tests card from startPos to stack top if the cards are in the right order
-         */
-        for (int i=startPos;i<stack.getSize()-1;i++){
-            Card bottomCard = stack.getCard(i);
-            Card upperCard = stack.getCard(i+1);
-
-            if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue()+1))
-                return false;
-        }
-
-        return true;
-    }
-
     @Override
     public void testAfterMove(){
         /*
@@ -186,7 +164,7 @@ public class SimpleSimon extends Game {
             for (int j=currentStack.getFirstUpCardPos();j<currentStack.getSize();j++){
                 Card cardToTest = currentStack.getCard(j);
 
-                if (cardToTest.getValue()==13 && currentStack.getTopCard().getValue()==1 && testCardsUpToTop(currentStack,j)){
+                if (cardToTest.getValue()==13 && currentStack.getTopCard().getValue()==1 && testCardsUpToTop(currentStack,j,SAME_COLOR)){
                     Stack foundationStack = stacks[10];
 
                     while (!foundationStack.isEmpty())

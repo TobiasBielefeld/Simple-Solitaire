@@ -53,15 +53,23 @@ public class Animate{
     }
 
     public void wonAnimation() {
+        for (Card card : cards) {
+            card.setLocation(gm.layoutGame.getWidth()/2-Card.width/2,gm.layoutGame.getHeight()/2-Card.height/2);
+        }
+
+        afterWonHandler.sendEmptyMessageDelayed(0,100);
+    }
+
+    public void wonAnimationPhase1(){
         int direction = 0;
-        int counter = 0;                                                                            //counter contains the x or y coordinate, so the cards are flying out the screen
+        int counter = 0;
         Random rand = new Random();
 
         for (Card card : cards) {
             switch (direction) {
                 case 0: default://right side
                     card.setLocation(gm.layoutGame.getWidth(), counter);
-                    counter += 3*Card.height;
+                    counter += Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
                         direction = 1;
@@ -71,7 +79,7 @@ public class Animate{
                     break;
                 case 1://bottom side
                     card.setLocation(counter, gm.layoutGame.getHeight() + Card.height);
-                    counter += 3*Card.width;
+                    counter += Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {
                         direction = 2;
@@ -81,18 +89,24 @@ public class Animate{
                     break;
                 case 2://left side
                     card.setLocation(-Card.width, counter);
-                    counter += 3*Card.height;
+                    counter += Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
-                        direction = 0;
+                        direction = 3;
                         counter = rand.nextInt(Card.height);
                     }
+                    break;
+                case 3://top side
+                    card.setLocation(counter, -Card.height);
+                    counter += Card.width;
 
+                    if (counter >= gm.layoutGame.getWidth()) {
+                        direction = 0;
+                        counter = rand.nextInt(Card.width);
+                    }
                     break;
             }
         }
-
-        afterWonHandler.sendEmptyMessageDelayed(0,1000);
     }
 
     public void cardHint(final Card card, final int offset, final Stack stack) {
@@ -103,11 +117,7 @@ public class Animate{
         float dist_y = pointAtStack.y - card.view.getY();
         int distance = (int) Math.sqrt((double) ((dist_x * dist_x) + (dist_y * dist_y)));
 
-        TranslateAnimation animation = new TranslateAnimation(
-                0,
-                dist_x,
-                0,
-                dist_y);
+        TranslateAnimation animation = new TranslateAnimation(0, dist_x, 0, dist_y);
 
         animation.setDuration((distance * 100) / Card.width);
         animation.setAnimationListener(new Animation.AnimationListener() {
@@ -173,11 +183,7 @@ public class Animate{
     public void moveCard(final Card card, final float pX, final float pY) {
         final View view = card.view;
 
-        TranslateAnimation animation = new TranslateAnimation(
-                0,
-                pX - view.getX(),
-                0,
-                pY - view.getY());
+        TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
         int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
         animation.setDuration(distance * 100 / Card.width);

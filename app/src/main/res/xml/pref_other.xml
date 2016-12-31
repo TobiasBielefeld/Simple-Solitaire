@@ -6,7 +6,7 @@
         android:defaultValue="1"
         android:entries="@array/pref_orientation_titles"
         android:entryValues="@array/pref_orientation_values"
-        android:negativeButtonText="@string/cancel"
+        android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@null"
         android:title="@string/settings_orientation"
         android:summary="%s"/>
@@ -27,13 +27,5 @@
         android:defaultValue="false"
         android:summary="@string/settings_show_main_menu_description"
         android:title="@string/settings_show_main_menu" />
-
-    <!--
-    <CheckBoxPreference
-        android:key="@string/pref_key_confirm_closing_game"
-        android:defaultValue="true"
-        android:summary="@string/settings_back_press_description"
-        android:title="@string/settings_back_press" />
-        -->
 
 </PreferenceScreen>

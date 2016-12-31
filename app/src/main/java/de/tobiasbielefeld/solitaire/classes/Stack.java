@@ -21,8 +21,11 @@ package de.tobiasbielefeld.solitaire.classes;
 import android.graphics.PointF;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+
+import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -32,14 +35,14 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Stack {
 
-    public static int defaultSpacing;                                                               //The default space between cards, will be calculated in onCreate of the Main activity
-    public static int spacingMaxHeight;                                                             //max height of the stapled cards on a stack
-    public static int spacingMaxWidth;                                                             //max height of the stapled cards on a stack
+    public static float defaultSpacing;                                                               //The default space between cards, will be calculated in onCreate of the Main activity
 
     public ImageView view;                                                                          //Background of the stack
     private int ID;                                                                                 //ID: 0 to 6 tableau. 7 to 10 foundations. 11 and 12 discard and Main stack
-    private int spacing;                                                                            //current spacing value
+    private float spacing;                                                                            //current spacing value
     private int spacingDirection;
+    private int hasArrow;
+    private float spacingMax;
     public ArrayList<Card> currentCards = new ArrayList<>();                                        //the array of cards on the stack
 
     public Stack(int ID) {                                                                          //Constructor: set ID
@@ -148,8 +151,10 @@ public class Stack {
 
         ArrayList<Integer> list = getIntList(STACK + ID);
 
-        for (Integer i : list)
+        for (Integer i : list) {
             addCard(cards[i]);
+            cards[i].view.bringToFront();
+        }
     }
 
     private void updateSpacing() {
@@ -163,35 +168,35 @@ public class Stack {
                     getTopCard().setLocation(view.getX(), view.getY());
                 break;
             case 1: //down
-                spacing = min((int)(spacingMaxHeight - view.getY()) / (currentCards.size()+1), defaultSpacing);
+                spacing = min((spacingMax - view.getY()) / (currentCards.size()+1), defaultSpacing);
                 for (int i = 0; i < currentCards.size(); i++)
                     currentCards.get(i).setLocation(view.getX(), view.getY() + spacing * i);
                 break;
             case 2: //up
-                spacing = min((int)(view.getY()) / (currentCards.size()+1), defaultSpacing);
+                spacing = min((view.getY() -spacingMax) / (currentCards.size()+1), defaultSpacing);
                 for (int i = 0; i < currentCards.size(); i++)
                     currentCards.get(i).setLocation(view.getX(), view.getY() - spacing * i);
                 break;
             case 3: //left
                 if (getSharedBoolean("pref_key_left_handed_mode", false)) {
-                    spacing = min((int) (spacingMaxWidth - view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    spacing = min((spacingMax - view.getX()) / (currentCards.size() + 1), defaultSpacing);
                     for (int i = 0; i < currentCards.size(); i++)
                         currentCards.get(i).setLocation(view.getX() + spacing * i, view.getY());
                 }
                 else {
-                    spacing = min((int) (view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    spacing = min((view.getX() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
                     for (int i = 0; i < currentCards.size(); i++)
                         currentCards.get(i).setLocation(view.getX() - spacing * i, view.getY());
                 }
                 break;
             case 4: //right
                 if (getSharedBoolean("pref_key_left_handed_mode", false)) {
-                    spacing = min((int) (view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    spacing = min((view.getX() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
                     for (int i = 0; i < currentCards.size(); i++)
                         currentCards.get(i).setLocation(view.getX() - spacing * i, view.getY());
                 }
                 else {
-                    spacing = min((int) (spacingMaxWidth - view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    spacing = min((spacingMax - view.getX())  / (currentCards.size() + 1), defaultSpacing);
                     for (int i = 0; i < currentCards.size(); i++)
                         currentCards.get(i).setLocation(view.getX() + spacing * i, view.getY());
                 }
@@ -238,5 +243,92 @@ public class Stack {
 
     public void setSpacingDirection(int value){
         spacingDirection = value;
+    }
+
+    public void setArrow(int direction){
+        hasArrow = direction;
+    }
+
+    public int hasArrow(){
+        return hasArrow;
+    }
+
+    public void setSpacingMax(int index){
+        Stack stack = stacks[index];
+
+        switch (spacingDirection){
+            default: //no spacing
+                break;
+            case 1: //down
+                spacingMax = stack.view.getY() - Card.height;
+                break;
+            case 2: //up
+                spacingMax = stack.view.getY() + Card.height;
+                break;
+            case 3: //left
+                if (getSharedBoolean("pref_key_left_handed_mode", false)) {
+                    spacingMax = stack.view.getX() - Card.width;
+                }
+                else {
+                    spacingMax = stack.view.getX() + Card.width;
+                }
+                break;
+            case 4: //right
+                if (getSharedBoolean("pref_key_left_handed_mode", false)) {
+                    spacingMax = stack.view.getX() + Card.width;
+                }
+                else {
+                    spacingMax = stack.view.getX() - Card.width;
+                }
+                break;
+        }
+    }
+
+    public void setSpacingMax(RelativeLayout layoutGame){
+
+        switch (spacingDirection){
+            default: //no spacing
+                break;
+            case 1: //down
+                spacingMax = (float) (layoutGame.getHeight() - Card.height) ;
+                break;
+            case 2: //up
+                spacingMax = 0;
+                break;
+            case 3: //left
+                if (getSharedBoolean("pref_key_left_handed_mode", false)) {
+                    spacingMax =  layoutGame.getWidth() - Card.width;
+                }
+                else {
+                    spacingMax = 0;
+                }
+                break;
+            case 4: //right
+                if (getSharedBoolean("pref_key_left_handed_mode", false)) {
+                    spacingMax = 0;
+                }
+                else {
+                    spacingMax =  layoutGame.getWidth() - Card.width;
+                }
+                break;
+        }
+    }
+
+    public void mirrorStack(RelativeLayout layoutGame){
+
+        view.setX(layoutGame.getWidth() - view.getX() - Card.width);
+
+        for (int j = 0; j < getSize(); j++) {
+            Card card = getCard(j);
+            card.setLocationWithoutMovement(layoutGame.getWidth() -
+                    card.view.getX() - Card.width, card.view.getY());
+        }
+
+        if (spacingDirection==3 || spacingDirection==4){
+            if (currentGame.directionBorders!=null && currentGame.directionBorders[getID()]!=-1)    //-1 means no border
+                setSpacingMax(currentGame.directionBorders[getID()]);
+            else
+                setSpacingMax(layoutGame);
+        }
     }
 }

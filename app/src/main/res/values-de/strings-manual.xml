@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_activity_manual">Handbuch</string>
+
+    <string name="manual_games">Spiele</string>
+    <string name="manual_feedback">Feedback</string>
+    <string name="manual_startpage">Startseite</string>
+    <string name="manual_back_to_game">Zurück zum Spiel</string>
+    <string name="manual_open_google_play">Öffne Google Play</string>
+    <string name="manual_open_github">Öffne GitHub Repo</string>
+    <string name="manual_games_text1">Wähle ein Spiel aus um Aufbau, Ziel, Regeln und Punktzahlen anzuzeigen.</string>
+    <string name="manual_startpage_text">Willkommen zum Handbuch von dieser Spiele-Sammlung! Ich hoffe
+        es wird alles wichtige erklären.\n\nBenutze das Menü auf der linken Seite um die anderen
+        Handbuchseiten zu öffnen.</string>
+    <string name="manual_general_main_menu_header">Hauptmenü</string>
+    <string name="manual_general_main_menu">Die Benutzung des Hauptmenüs ist recht einfach. Tippe auf
+        ein Spiel um es zu starten.\n\nDie App wird bei einem Neustart automatisch das zuletzt gespielte
+        Spiel öffnen, falls die App innerhalb eines Spiels pausiert wird. Dieses Verhalten kann in den
+        Einstellungen unter \"Allgemein\" deaktivert werden.\n\nDort befindet sich auch unter \"Hauptmenü\"
+        die Möglichkeit alle Spiele im Menü zu verstecken und die Anzahl der Spalten zu verändern, sodass
+        mehr Spiele auf einmal auf dem Bildschirm passen.</string>
+    <string name="manual_ui_header">Benutzeroberfläche</string>
+    <string name="manual_ui">Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms
+        (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand
+        und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert.
+        Das Menü enthält 5 Punkte, die die folgendenen Zwecke erfüllen (Punkte von links
+        nach rechts):\n\nDer \"Scores\" Punkt zeigt ein neues Fenster mit den High-Scores und der Anzahl
+        der gewonnen Spiele an.\n\nDer \"Hint\" Punkt hilft dir im Spiel, indem es bis zu 3 mögliche Karten
+        Bewegungen anzeigt. Aber diese Aktion wird die aktuelle Punktzahl um 25 reduzieren. Bemerke,
+        dass triviale Bewegungen wie das Bewegen von einer beliebigen Karte auf einen leeren Platz
+        oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis
+        angezeigt wird, wird auch die Punktzahl nicht reduziert.\n\nDer \"Menu\" Punkt zeigt drei mögliche
+        Aktionen an: Starte ein neues Spiel, indem die Karten gemischt werden und neu ausgegeben werden.
+        Karten erneut geben hat denselben Effekt, aber die Karten werden nicht gemischt. Das entspricht
+        einem Neustart des aktuellen Spiels. Der letzte Punkt wird das aktuelle Spiel beenden und zurück
+        zum Hauptmenü versetzen.\n\nDer \"Undo\" Punkt wird die letzte Kartenbewegung rückgängig machen,
+        aber dies wird 25 Punkte kosten. Diese Aktion kann für die letzten 20 Kartenbewegungen genutzt
+        werden.\n\nDer \"Settings\" Punkt öffnet einfach nur das Einstellungsmenü.</string>
+    <string name="manual_feedback_text">Hast du einen Fehler gefunden? Etwas was ich verbessern sollte?
+        Soll ich noch ein weiteres Spiel zur Sammlung hinzufügen? Vielleicht möchtest du mit Übersetzungen
+        helfen? Oder hast du ein anderes Anliegen?\n\nIch freue mich über jede Art von Feedback. Falls
+        du mich kontaktieren willst, solltest du diese zwei Optionen in Erwägung ziehen:\n\nBenutze den
+        Issue Tracker von GitHub: Das Projekt auf GitHub hat eine nette Funktion zum Berichten von Fehlern.
+        Drücke auf den Button in der linken unteren Ecke des Bildschirms um den Issue Tracker mit dem
+        Internet Browser zu öffnen.\n\nBenutze eine Bewertung im Google Play Store: Hinterlasse eine
+        Bewertung zu dieser App und schreibe rein was du möchtest. Drücke auf den Button in der rechten
+        Ecke um den Google Play Store zu öffnen (falls installiert).\n\nVielen Dank im Vorraus für dein
+        Feedback :)</string>
+    <string name="manual_structure">Aufbau</string>
+    <string name="manual_objective">Ziel</string>
+    <string name="manual_rules">Regeln</string>
+    <string name="manual_scoring">Punkte</string>
+
+
+    <!-- Klondike -->
+    <string name="manual_klondike_structure">1 Deck aus 52 Karten.\n\n7 Tableau-Stapel, 4
+        Foundation-Stapel, 1 Haupt- und 1 Ablage-Stapel.</string>
+    <string name="manual_klondike_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
+    <string name="manual_klondike_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        und alternierenden Farben gespielt werden. Man kann eine ganze Kartensequenz auf einmal bewegen.
+        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.\n\nNur
+        Könige können auf leeren Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
+        werden.\n\nTippe den Haupt-Stapel an um Karten auf den Ablage-Stapel zu bewegen. Die Anzahl der Karten
+        hängt dabei von den gewählten Einstellungen ab. Falls \"Draw 1\" aktiviert ist, wird nur eine Karte
+        bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.\n\nFalls der Haupt-Stapel leer ist, tippe
+        drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten
+        erneut verwendet werden.</string>
+    <string name="manual_klondike_scoring">Vom Tableau zur Foundation: +60\n\nVom Ablage-Stapel zur
+        Foundation: +45\n\nVon der Foundation zum Tableau: -75\n\nEine Karte umdrehen: +25\n\nBewege alle Karten
+        vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
+
+    <!-- FreeCell -->
+    <string name="manual_freecell_structure">1 Deck aus 52 Karten.\n\n8 Tableau Stapel, 4 Foundation-Stapel und 4 freie Zellen.</string>
+    <string name="manual_freecell_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
+    <string name="manual_freecell_rules">Karten können auf dem Tableau in absteigender Reihenfolge  und
+        alternierenden Farben gespielt werden. Auf der Foundation können Karten hingegen nur in aufsteigender
+        Reihenfolge derselben Kartenfamilie gespielt werden. Die 4 Zellen auf der oberen linken Seite
+        können jeweils nur eine Karte auf einmal enthalten.\n\nMan kann so viele Karten einer korrekten
+        Sequenz auf einmal bewegen, wie es freie Spielfelder gibt. Dies entspricht der Regel, dass nur eine
+        Karte auf einmal bewegt werden darf, aber Karten einer Sequenz können zuerst auf die freien Felder
+        aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden.\n\nAuf einen
+        leeren Tableau-Stapel kann jede Karte gespielt werden, auf leere Foundation-Stapel hingegen nur
+        Asse.</string>
+    <string name="manual_freecell_scoring">Bewege eine Karte zur Foundation: +60\n\nBewege eine Karte von der
+        Foundation weg: -75\n\nBewege ein König auf ein leeres Feld: +20</string>
+
+    <!-- Yukon -->
+    <string name="manual_yukon_structure">1 Deck aus 52 Karten.\n\n7 Tableau-Stapel und 4 Foundation-Stapel.</string>
+    <string name="manual_yukon_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
+    <string name="manual_yukon_rules">Karten können auf dem Tableau in absteigender Reihenfolge  und
+        alternierenden Farben gespielt werden. Auf der Foundation können Karten hingegen nur in aufsteigender
+        Reihenfolge derselben Kartenfamilie gespielt werden.\n\nMan kann jede aufgedeckte Karte bewegen, egal
+        wie viele und welche Karten auf ihr liegen.\n\nNur Könige können auf leeren Tableau-Stapel
+        und nur Asse können auf leere Foundation-Stapel gespielt
+        werden.</string>
+    <string name="manual_yukon_scoring">Bewege eine Karte zur Foundation: +60\n\nBewege eine Karte von der
+        Foundation weg: -75\n\nBewege ein König auf ein leeres Feld: +20\n\nDrehe eine Karte um: +25</string>
+
+    <!-- Spider -->
+    <string name="manual_spider_structure">2 Decks aus 52 Karten.\n\n10 Tableau-Stapel und 8 Foundation-Stapel.\n\n1
+        Haupt-Stapel, der in 5 verschiedenen Stapel aufgeteilt ist.\n\nAbhängig von den Einstellungen: Nur 1, 2
+        oder 4 verschiedene Kartenfamilien.</string>
+    <string name="manual_spider_objective">Platziere jede Karte in einer echten absteigenden Kartenfamilie
+        irgendwo auf dem Tableau. Die gebildeten Kartenfamilien werden automatisch zur Foundation bewegt.</string>
+    <string name="manual_spider_rules">Karten können auf jede andere Karte in absteigende Reihenfolge gelegt werden,
+        jedoch können nur echte Kartenfamilien-Sequenzen auf einmal bewegt werden.\n\nJede Karte kann auf einen
+        leeren Tableau-Stapel gelegt werden. Tippe auf den Haupt-Stapel um eine Karte auf jeden Tableau-Stapel zu spielen.</string>
+    <string name="manual_spider_scoring">Bewege eine Kartenfamilie zur Foundation: +200\n\nDrehe eine Karte um: +25</string>
+
+    <!-- SimpleSimon -->
+    <string name="manual_simplesimon_structure">1 Deck aus 52 Karten\n\n10 Tableau-Stapel, 4 Foundation-Stapel</string>
+    <string name="manual_simplesimon_objective">Platziere jede Karte in einer echten absteigenden Kartenfamilie
+        irgendwo auf dem Tableau. Die gebildeten Kartenfamilien werden automatisch zur Foundation bewegt.</string>
+    <string name="manual_simplesimon_rules">Karten können auf jede andere Karte in absteigende Reihenfolge gelegt werden,
+        jedoch können nur echte Kartenfamilien-Sequenzen auf einmal bewegt werden.\n\nJede Karte kann auf einen
+        leeren Tableau-Stapel gelegt werden.</string>
+    <string name="manual_simplesimon_scoring">Bewege eine Kartenfamilie zur Foundation: +200</string>
+
+    <!-- Golf -->
+    <string name="manual_golf_structure">1 Deck aus 52 Karten.\n\n7 Tableau-Stapel, 1 Haupt- und 1 Ablage-Stapel\n\nBewegen
+        von Karten des Ablage-Stapels zurück zum Haupt-Stapel ist nicht möglich (Außer über die \"Undo\"
+        Funktion).</string>
+    <string name="manual_golf_objective">Bewege alle Karten vom Tableau auf den Ablage-Stapel.</string>
+    <string name="manual_golf_rules">Jede Karte an der Spitze eines Stapels kann gespielt werden.
+        Karten können nur auf den Ablage-Stapel in absteigender oder fallender Reihenfolge egal welcher
+        Farbe gespielt werden.\n\nAbhängig von den Einstellungen: Könige können auf Asse gespielt
+        und Asse auf Könige (Spiel ist so einfacher).\n\nFalls keine Karte bewegt werden kann, tippe auf
+        den Haupt-Stapel um eine Karte von dort auf den Ablage-Stapel zu bewegen.</string>
+    <string name="manual_golf_scoring">Bewege eine Karte auf den Ablage-Stapel: +50</string>
+
+    <!-- Pyramid -->
+    <string name="manual_pyramid_structure">1 Deck aus 52 Karten.\n\n28 Tableau-Stapel, 1 Haupt- 1 Ablage und
+        1 Foundation-Stapel. Karten vom Ablage-Stapel können nur 2 mal pro Spiel zum Haupt-Stapel
+        zurückgeleget werden.</string>
+    <string name="manual_pyramid_objective">Bewege alle Karten vom Tableau auf den Foundation-Stapel.
+        Abhänging von den Einstellungen müssen auch Haupt- und Ablage-Stapel leer sein.</string>
+    <string name="manual_pyramid_rules">Dieses Spiel hat leicht andere Regeln als die anderen Spiele.
+        Jede Karten, die nicht von einer anderen verdeckt ist, kann zum Spielen verwendet werden. Zwei
+        Karten, dessen Werte addiert 13 ergeben, können zur Foundation bewegt werden. Um dies zu
+        erreichen bewege eine Karte auf die andere, falls die Werte stimmen werden beide Karten automatisch
+        zum Foundation-Stapel bewegt.\n\nEs ist auch möglich die Karten von Haupt- und Ablage-Stapel zu verwenden.
+        Falls keine Bewegung mehr möglich ist, drücke auf den Pfeil neben dem Haupt-Stapel um eine Karte
+        vom Haupt-Stapel zum Ablage-Stapel zu bewegen.\n\nFalls der Haupt-Stapel leer ist, tippe drauf oder
+        auf dem Pfeil um jede Karte vom Ablage-Stapel zurück zu bewegen. Diese Aktion ist nur zwei mal
+        pro Spiel möglich, die verbleibenden Aktionen werden über den Pfeil angezeigt.</string>
+    <string name="manual_pyramid_scoring">Bewege eine Karte zum Foundation-Stapel: +50\n\nBewege alle Karten
+        vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
+
+    <!-- TriPekas -->
+    <string name="manual_tripeaks_structure">1 Deck aus 52 Karten.\n\n28 Tableau-Stapel, 1 Haupt- und 1
+        Ablage-Stapel\n\nBewegen von Karten des Ablage-Stapels zurück zum Haupt-Stapel ist nicht möglich
+        (Außer über die \"Undo\"Funktion)</string>
+    <string name="manual_tripeaks_objective">Bewege alle Karten vom Tableau auf den Ablage-Stapel</string>
+    <string name="manual_tripeaks_rules">Die Regeln sind ähnlich zu den Regeln von \"Golf\".
+        Jede nicht verdeckte Karte kann gespielt werden.
+        Karten können auf den Ablage-Stapel in absteigender oder fallender Reihenfolge egal welcher
+        Farbe gespielt werden.\n\nKönige können auf Asse gespielt und Asse auf Könige.\n\nFalls keine
+        Karte bewegt werden kann, tippe auf
+        den Haupt-Stapel und eine Karte von dort zum Ablage-Stapel zu bewegen.</string>
+    <string name="manual_tripeaks_scoring">Bewege eine Karte auf den Ablage-Stapel: +50\n\nBewege alle Karten
+        vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
+
+    <!-- Forty&Eight -->
+    <string name="manual_fortyeight_structure">2 Decks aus 52 Karten.\n\n8 Tableau-Stapel, 8 Foundation-Stapel,
+        1 Haupt- und ein Ablage-Stapel\n\nKarten vom Ablage-Stapel können nur 1 mal pro Spiel zum Haupt-Stapel
+        zurückgeleget werden.</string>
+    <string name="manual_fortyeight_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
+    <string name="manual_fortyeight_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        derselben Kartenfamilie gespielt werden. Man kann immer nur die oberste Karte eines Stapels auf einmal
+        bewegen.Auf der Foundation müssen Karten in steigender Reihenfolge derselben Familie gespielt werden.\n\nJede
+        Karte kann auf leere Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
+        werden.\n\nTippe den Haupt-Stapel an um eine Karte zum Ablage-Stapel zu bewegen.\n\nFalls der Haupt-Stapel leer ist, tippe
+        drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten
+        erneut verwendet werden, aber dies ist nur einmal pro Spiel möglich.</string>
+    <string name="manual_fortyeight_scoring">Vom Tableau zur Foundation: +45\n\nVom Ablage-Stapel zur
+        Foundation: +60\n\nVon der Foundation zum Tableau: -60\n\nBewege alle Karten
+        vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
+
+    <!-- Mod3 -->
+    <string name="manual_mod3_structure">2 Decks aus 52 Karten.\n\n32 Tableau-Stapel, 1 Haupt-Stapel und ein Asse-Stapel</string>
+    <string name="manual_mod3_objective">Ordne alle Karten in den oberen 3 Reihen des Tableaus als Sequenzen derselben Farbe und in
+        dieser Reihenfolge an:\n\nErste Reihe: Sequenzen aus 2–5–8–J\nZweite Reihe: Sequenzen aus 3–6–9–Q\nDritte Reihe:
+        Sequenzen aus 4–7–10–K\n\nAsse werden vorher entfernt.</string>
+    <string name="manual_mod3_rules">Man kann nur die oberste Karte eines Stapels bewegen, zudem können Karten nur
+        in den unter \"Ziel\" gezeigten Sequenzen gelegt werden. So kann zum Beispiel eine Karo 5 auf eine Karo 2 gelegt werden,
+        aber nur wenn die Karo 2 in der ersten Reihe des Tableaus ist. Verschiedene Karten Familien sind auch nicht
+        erlaubt.\n\nErlange freie Plätze zum Spielen durch das Entfernen von Assen auf den Asse-Stapel
+        über den Haupt-Stapel.\n\nDie vierte Reihe des Tableaus dient auch als Ablagereihe des Haupt-Stapels.
+        Falls keine Bewegung mehr möglich ist, tippe auf den Haupt-Stapel um jeweils eine Karte auf die
+        Stapel der vierten Reihe zu bewegen.\n\nJede Karte kann auf einen freien Platz der vierten Reihe gelegt werden.</string>
+    <string name="manual_mod3_scoring">Bewege eine Karte auf ein korrektes Feld des Tableaus: +50\n\nBewege
+        eine Karte zurück zur vierten Reihe des Tableaus: -75</string>
+
+    <!-- Gypsy -->
+    <string name="manual_gypsy_structure">2 Decks aus 52 Karten.\n\n8 Tableau-Stapel, 8 Foundation-Stapel und 1 Haupt-Stapel.</string>
+    <string name="manual_gypsy_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
+    <string name="manual_gypsy_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        und alternierenden Farben gespielt werden. Man kann eine ganze korrekte Kartensequenz auf einmal bewegen.
+        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.\n\nJede
+        Karte kann auf leere Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
+        werden.\n\nTippe den Haupt-Stapel an um jeweils eine Karte auf die Tableau-Stapel zu spielen.</string>
+    <string name="manual_gypsy_scoring">Bewege eine Karte zur Foundation: +75\n\nBewege eine Karte von der
+        Foundation zum Tableau: -100\n\nDrehe eine Karte um: +50</string>
+
+    <!-- AcesUp -->
+    <string name="manual_acesup_structure">1 Deck aus 52 Karten.\n\n4 Tableau-Stapel, 1 Haupt- und 1
+        Foundation-Stapel.\n\nAsse haben den Wert 14, sind also höher als Könige</string>
+    <string name="manual_acesup_objective">Bewege alle Karten außer den Assen zur Foundation, sodass
+        auf dem Tableau-Stapeln jeweils ein Ass übrig bleibt.</string>
+    <string name="manual_acesup_rules">Man kann nur die oberste Karte eines Stapels bewegen. Bewege
+        Karten zur Foundation, die einen niedrigeren Wert als eine andere oberste Karte eines Stapels haben.
+        Zum Beispiel sind ein Kreuz 3 und ein Kreuz 10 oberste Karten eines Stapels,
+        dDann kann die Kreuz 3 auf den Foundation-Stapel bewegt werden. Asse haben höhere Werte als
+        jede andere Karte.</string>
+    <string name="manual_acesup_scoring">Bewege eine Karte zur Foundation: +50</string>
+</resources>

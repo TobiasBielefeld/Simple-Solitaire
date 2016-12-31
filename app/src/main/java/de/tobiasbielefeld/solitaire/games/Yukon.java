@@ -44,24 +44,10 @@ public class Yukon extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        if (isLandscape) {
-            Card.height = layoutGame.getHeight() / 5;
-            Card.width = (int) (Card.height / 1.5);
-        }
-        else {
-            Card.width = layoutGame.getWidth() / 9;
-            Card.height = (int) (Card.width * 1.5);
-        }
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
-
-        //apply dimensions to cards and stacks
-        for (Card card : cards)
-            card.view.setLayoutParams(params);
-        for (Stack stack : stacks)
-            stack.view.setLayoutParams(params);
+        setUpCardDimensions(layoutGame,9,5);
 
         //order the stacks on the screen
-        int spacingHorizontal = min((layoutGame.getWidth() - 8 * Card.width) / 9, Card.width / 2);
+        int spacingHorizontal = setUpSpacing(layoutGame,8,9);
         int spacingVertical = min((layoutGame.getHeight() - 4 * Card.height) / 5, Card.width / 4);
         int startPos = (int) (layoutGame.getWidth() / 2 - 4 * Card.width - 3.5 * spacingHorizontal);
         //tableau stacks

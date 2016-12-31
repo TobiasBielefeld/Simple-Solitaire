@@ -5,22 +5,22 @@
         android:defaultValue="2"
         android:entries="@array/pref_background_colors_titles"
         android:entryValues="@array/pref_background_colors_values"
-        android:negativeButtonText="@string/cancel"
+        android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@null"
-        android:title="@string/settings_background_clour"
+        android:title="@string/settings_background_color"
         android:summary="%s"/>
 
     <de.tobiasbielefeld.solitaire.dialogs.CardDialogPreference
         android:key="@string/pref_key_cards"
         android:title="@string/settings_cards"
-        android:negativeButtonText="@string/cancel"
+        android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@null"
         android:summary=""/>
 
     <de.tobiasbielefeld.solitaire.dialogs.CardBackgroundDialogPreference
         android:key="@string/pref_key_cards_background"
         android:title="@string/settings_cards_back"
-        android:negativeButtonText="@string/cancel"
+        android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@null"
         android:summary=""/>
 

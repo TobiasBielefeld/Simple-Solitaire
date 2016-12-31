@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="settings_background_color">Background colour</string>
+    <string name="settings_hide_status_bar">Hide status bar</string>
+    <string name="settings_left_handed_mode">Left handed mode</string>
+    <string name="settings_left_handed_mode_description">Mirrors the card and stack positions to the left side</string>
+    <string name="settings_back_press">Confirm closing game</string>
+    <string name="settings_back_press_description">Press back button twice to close game</string>
+    <string name="settings_orientation">Screen orientation</string>
+    <string name="settings_cards">Cards</string>
+    <string name="settings_classic">Classic</string>
+    <string name="settings_simple">Simple</string>
+    <string name="settings_cards_back">Card backgrounds</string>
+    <string name="settings_modern">Modern</string>
+    <string name="settings_abstract">Abstract</string>
+    <string name="settings_dark">Dark</string>
+    <string name="settings_basic">Basic</string>
+    <string name="settings_background">Background number</string>
+    <string name="settings_customization">Appearance</string>
+    <string name="settings_customization_description">Customize cards and background</string>
+    <string name="settings_other">General</string>
+    <string name="settings_other_description">Set all other settings</string>
+    <string name="settings_games">Games</string>
+    <string name="settings_games_description">Set preferences for the game variants</string>
+    <string name="settings_freecell_multiple_cards">Allow movement of multiple cards</string>
+    <string name="settings_freecell_multiple_cards_description">Move as many cards at once as the number of free cells</string>
+    <string name="settings_spider_difficulty">Number of different card families</string>
+    <string name="settings_klondike_draw">Number of cards to draw</string>
+    <string name="settings_show_main_menu">Start to main menu</string>
+    <string name="settings_show_main_menu_description">Do not enter the last played game on start</string>
+    <string name="settings_golf_easy">Cyclic moves (Easier)</string>
+    <string name="settings_golf_easy_description">Allow placing aces on kings and vice versa</string>
+    <string name="settings_restart_klondike">Start a new Klondike game to apply the change</string>
+    <string name="settings_restart_spider">Start a new Spider game to apply the change</string>
+    <string name="settings_restart_fortyeight">Start a new Forty&amp;Eight game to apply the change</string>
+    <string name="settings_menu">Main menu</string>
+    <string name="settings_menu_description">Change number of columns, show and hide games</string>
+    <string name="settings_pyramid_difficulty">Difficulty</string>
+    <string name="settings_menu_columns">Number of columns</string>
+    <string name="settings_menu_games">Show and hide games</string>
+    <string name="settings_menu_games_description">Select which games are shown in the menu</string>
+    <string name="settings_about_description">Show information about the game like licenses and changelog</string>
+
+    <string name="settings_show_manual_in_menu">Manual page in game menu</string>
+    <string name="settings_show_manual_in_menu_description">Show an item to open the current game in the manual</string>
+
+    <!-- Preference Keys -->
+    <string name="pref_key_customization" translatable="false">pref_key_customization</string>
+    <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
+    <string name="pref_key_cards" translatable="false">pref_key_cards</string>
+    <string name="pref_key_cards_background" translatable="false">pref_key_cards_background</string>
+    <string name="pref_key_other" translatable="false">pref_key_other</string>
+    <string name="pref_key_hide_status_bar" translatable="false">pref_key_hide_status_bar</string>
+    <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
+    <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
+    <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
+    <string name="pref_key_freecell_multiple_cards" translatable="false">pref_key_freecell_multiple_cards</string>
+    <string name="pref_key_spider_difficulty" translatable="false">pref_key_spider_difficulty</string>
+    <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
+    <string name="pref_key_current_game" translatable="false">pref_key_current_game</string>
+    <string name="pref_key_start_menu" translatable="false">pref_key_start_menu</string>
+    <string name="pref_key_golf_cyclic" translatable="false">pref_key_golf_cyclic</string>
+    <string name="pref_key_fortyeight_redeals" translatable="false">pref_key_fortyeight_redeals</string>
+    <string name="pref_key_pyramid_difficulty" translatable="false">pref_key_pyramid_difficult</string>
+    <string name="pref_key_menu_columns" translatable="false">pref_key_menu_columns</string>
+    <string name="pref_key_menu_games" translatable="false">pref_key_menu_games</string>
+    <string name="pref_key_about" translatable="false">pref_key_about</string>
+    <string name="pref_key_show_manual_in_menu" translatable="false">pref_key_show_manual_in_menu</string>
+
+</resources>

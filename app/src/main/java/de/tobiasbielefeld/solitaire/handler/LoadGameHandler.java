@@ -2,9 +2,11 @@ package de.tobiasbielefeld.solitaire.handler;
 
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 
 /**
@@ -22,6 +24,14 @@ public class LoadGameHandler extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
         gameLogic.load();
+
+        if (currentGame.hasLimitedRedeals()){
+            gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
+            gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
+            gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
+            //mainTextViewRedeals.setText(String.format(Locale.getDefault(),"%d",currentGame.getRemainingNumberOfRedeals()));
+        }
+
         gm.hasLoaded = true;
     }
 }

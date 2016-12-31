@@ -6,6 +6,13 @@
         <item>Return to main menu</item>
     </string-array>
 
+    <string-array name="restart_menu_with_manual">
+        <item>Start new game</item>
+        <item>Give cards again</item>
+        <item>Open game in manual</item>
+        <item>Return to main menu</item>
+    </string-array>
+
     <string-array name="pref_background_colors_titles">
         <item>Blue</item>
         <item>Green</item>
@@ -60,5 +67,38 @@
         <item>1</item>
         <item>3</item>
     </string-array>
+
+    <string-array name="pref_menu_columns_list" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="pref_pyramid_difficulty_titles">
+        <item>Easy: Game is won when tableau is empty</item>
+        <item>Hard: Game is won when tableau and stock are empty</item>
+    </string-array>
+
+    <string-array name="pref_pyramid_difficulty_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="manual_side_menu_tablet" translatable="false">
+        <item>@string/manual_startpage</item>
+        <item>@string/manual_general_main_menu_header</item>
+        <item>@string/manual_ui_header</item>
+        <item>@string/manual_games</item>
+        <item>@string/manual_feedback</item>
+        <item>@string/manual_back_to_game</item>
+    </string-array>
+
 
 </resources>

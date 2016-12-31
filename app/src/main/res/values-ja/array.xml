@@ -6,6 +6,13 @@
         <item>メインメニューに戻る</item>
     </string-array>
 
+    <string-array name="restart_menu_with_manual">
+        <item>新しいゲームを開始する</item>
+        <item>カードをもう一度与える</item>
+        <item>手動で開くゲーム</item>
+        <item>メインメニューに戻る</item>
+    </string-array>
+
     <string-array name="pref_background_colors_titles">
         <item>青</item>
         <item>緑色</item>
@@ -32,6 +39,11 @@
     <string-array name="pref_klondike_draw_titles">
         <item>難い 1</item>
         <item>難い 3</item>
+    </string-array>
+
+    <string-array name="pref_pyramid_difficulty_titles">
+        <item>簡単：テーブルが空のときにゲームが勝つ</item>
+        <item>ハード：テーブルとストックが空のときに勝ちます</item>
     </string-array>
 
 </resources>

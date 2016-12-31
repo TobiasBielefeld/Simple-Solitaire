@@ -44,16 +44,10 @@ public class Freecell extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        Card.width = isLandscape ? layoutGame.getWidth() / 10 : layoutGame.getWidth() / 9;
-        Card.height = (int) (Card.width * 1.5);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
-
-        //apply dimensions to cards and stacks
-        for (Card card : cards) card.view.setLayoutParams(params);
-        for (Stack stack : stacks) stack.view.setLayoutParams(params);
+        setUpCardWidth(layoutGame,isLandscape,9,10);
 
         //order the stacks on the screen
-        int spacing = min((layoutGame.getWidth() - 8 * Card.width) / 9,Card.width / 2);
+        int spacing = setUpSpacing(layoutGame,8,9);
         int startPos = layoutGame.getWidth() / 2 - 4 * Card.width - 3 * spacing - spacing/2;
         //free cells and foundation stacks
         for (int i = 0; i < 8; i++) {
@@ -138,7 +132,7 @@ public class Freecell extends Game {
 
             startPos = max(sourceStack.getSize() - numberOfFreeCells-1, card.getStack().getIndexOfCard(card));
 
-            return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos);
+            return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos,ALTERNATING_COLOR);
         }
         else {
             return card.isTopCard();
@@ -175,7 +169,7 @@ public class Freecell extends Game {
             for (int j=startPos;j<sourceStack.getSize();j++){
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove)|| !testCardsUpToTop(sourceStack,j))
+                if (hint.hasVisited(cardToMove)|| !testCardsUpToTop(sourceStack,j,ALTERNATING_COLOR))
                     continue;
 
                 if (cardToMove.getValue()==1 && cardToMove.isTopCard()) {
@@ -209,26 +203,13 @@ public class Freecell extends Game {
         return null;
     }
 
-    private boolean testCardsUpToTop(Stack stack, int startPos) {
-        //test if the cards from the startPos to top of the stack are in the right order
-        for (int i=startPos;i<stack.getSize()-1;i++){
-            Card bottomCard = stack.getCard(i);
-            Card upperCard = stack.getCard(i+1);
-
-            if ((bottomCard.getColor()%2==upperCard.getColor()%2) || (bottomCard.getValue() != upperCard.getValue()+1))
-               return false;
-        }
-
-        return true;
-    }
-
     public boolean autoCompleteStartTest() {
         //autocomplete can start if stack has cards in the right order
         for (int i=0;i<8;i++){
             if (stacks[i].isEmpty())
                 continue;
 
-            if (!testCardsUpToTop(stacks[i],0))
+            if (!testCardsUpToTop(stacks[i],0,ALTERNATING_COLOR))
                 return false;
         }
 

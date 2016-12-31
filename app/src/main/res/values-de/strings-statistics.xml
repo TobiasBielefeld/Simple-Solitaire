@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_activity_statistics">High Scores</string>
+
+    <string name="statistics_button_delete">Alle Einträge löschen!</string>
+    <string name="statistics_games_won">Spiele gewonnen</string>
+    <string name="statistics_button_delete_text">Alle Einträge für dieses Spiel löschen! Bist du dir sicher?</string>
+    <string name="statistics_button_deleted_all_entries">Alle Einträge gelöscht</string>
+
+</resources>

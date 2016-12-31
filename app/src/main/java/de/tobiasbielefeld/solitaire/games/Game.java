@@ -18,14 +18,18 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.util.Log;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -35,14 +39,26 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public abstract class Game {
 
+    final static protected boolean SAME_COLOR = false;
+    final static protected boolean ALTERNATING_COLOR = true;
+
+    final static protected int LEFT = 1;
+    final static protected int RIGHT = 2;
+
     public int[] cardDrawablesOrder = new int[]{1,2,3,4};
     private boolean hasMainStack = false;
     private int dealFromID;
     private int mainStackID;
     private boolean hasDiscardStack = false;
+    private boolean hasLimitedRedeals = false;
     private int discardStackID;
     private int lastTableauID;
     public int[] directions;
+
+    private int redealCounter=0;
+    private int totalRedeals=0;
+    private boolean hasArrow=false;
+    public int[] directionBorders;
 
     /*
      *  stuff that a game MUST implement
@@ -53,7 +69,6 @@ public abstract class Game {
     abstract public boolean winTest();
 
     abstract public void dealCards();
-
 
     abstract public boolean cardTest(Stack stack, Card card);
 
@@ -81,13 +96,20 @@ public abstract class Game {
         return null;
     }
 
-
     /*
      *  stuff that the games can override if necessary
      */
 
+    public void reset(GameManager gm){
+        if (hasLimitedRedeals) {
+            redealCounter = 0;
+
+            gm.updateNumberOfRedeals();
+        }
+    }
+
     public boolean testIfMainStackTouched(float X, float Y){
-        return currentGame.getMainStack().isOnLocation(X,Y);
+        return getMainStack().isOnLocation(X,Y);
     }
 
     protected void setCardDrawables(int p1, int p2, int p3, int p4){
@@ -96,9 +118,86 @@ public abstract class Game {
 
     public void testAfterMove(){}
 
+    public void addOnTouchListener(View.OnTouchListener listener){
+        if (hasMainStack()) {
+            getMainStack().view.setOnTouchListener(listener);
+        }
+    }
+
+
+
     /*
      *  stuff that the games should use to set up other stuff
      */
+
+    protected boolean testCardsUpToTop(Stack stack, int startPos, boolean mode) {
+        /*
+         * tests card from startPos to stack top if the cards are in the right order, returns true if so
+         * set mode to true if the card color has to alternate, false otherwise
+         */
+
+        for (int i=startPos;i<stack.getSize()-1;i++){
+            Card bottomCard = stack.getCard(i);
+            Card upperCard = stack.getCard(i+1);
+
+            if (mode == ALTERNATING_COLOR){  //alternating color
+                if ((bottomCard.getColor()%2 == upperCard.getColor()%2) || (bottomCard.getValue() != upperCard.getValue()+1))
+                    return false;
+            } else {    //same color
+                if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue()+1))
+                    return false;
+            }
+
+        }
+
+        return true;
+    }
+
+    protected void setLimitedRedeals(int number){
+        hasLimitedRedeals=true;
+        totalRedeals=number;
+    }
+
+    protected void setUpCardWidth(RelativeLayout layoutGame, boolean isLandscape, int portraitValue, int landscapeValue){
+        //use this to set the cards with according to last two values.
+        //second last is for portrait mode, last one for landscape.
+        //the game width will be divided by these values according to orientation to use as card widths.
+        //Card height is 1.5*widht and the dimensions are applied to every card and stack
+
+        Card.width = isLandscape ? layoutGame.getWidth() / (landscapeValue) : layoutGame.getWidth() / (portraitValue);
+        Card.height = (int) (Card.width * 1.5);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
+        for (Card card : cards) card.view.setLayoutParams(params);
+        for (Stack stack : stacks) stack.view.setLayoutParams(params);
+    }
+
+    protected int setUpSpacing(RelativeLayout layoutGame, int cardWidth, int divider){
+        return min(Card.width / 2,(layoutGame.getWidth() - cardWidth * Card.width) / (divider));
+    }
+
+    protected void setUpCardDimensions(RelativeLayout layoutGame, int portraitValue, int landscapeValue){
+
+        int testWidth1, testHeight1, testWidth2, testHeight2;
+
+        testWidth1 = layoutGame.getWidth() / portraitValue;
+        testHeight1 = (int) (testWidth1 * 1.5);
+
+        testHeight2 = layoutGame.getHeight() / landscapeValue;
+        testWidth2 = (int) (testHeight2 / 1.5);
+
+        if (testHeight1  < testHeight2) {
+            Card.width = testWidth1;
+            Card.height = testHeight1;
+        } else {
+            Card.width = testWidth2;
+            Card.height = testHeight2;
+        }
+
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
+        for (Card card : cards) card.view.setLayoutParams(params);
+        for (Stack stack : stacks) stack.view.setLayoutParams(params);
+    }
 
     protected void setNumberOfDecks(int number){
         cards = new Card[52*number];
@@ -128,15 +227,37 @@ public abstract class Game {
         this.directions = directions;
     }
 
+    protected void setDirectionBorders(int[] stackIDs) {
+        directionBorders = stackIDs;
+    }
+
+    protected void setArrow(Stack stack, int direction){
+        hasArrow=true;
+
+        stack.setArrow(direction);
+
+        if (direction == LEFT) {
+            stack.view.setBackgroundResource(R.drawable.arrow_left);
+        } else if (direction == RIGHT){
+            stack.view.setBackgroundResource(R.drawable.arrow_right);
+        }
+    }
+
     /*
      * some getters, games should'nt override these
      */
 
     public Stack getMainStack(){
+        if (mainStackID==0)
+            Log.e("Game.getMainStack()","No main stack specified");
+
         return stacks[mainStackID];
     }
 
     public int getLastTableauID(){
+        if (lastTableauID==0)
+            Log.e("Game.getLastTableauID()","No last tableau stack specified");
+
         return lastTableauID;
     }
 
@@ -157,6 +278,48 @@ public abstract class Game {
     }
 
     public Stack getDiscardStack(){
+        if (discardStackID==0)
+            Log.e("Game.getdiscardStack()","No discard stack specified");
+
         return stacks[discardStackID];
     }
+
+    public boolean hasLimitedRedeals(){
+        return hasLimitedRedeals;
+    }
+
+    public int getRemainingNumberOfRedeals(){
+        return totalRedeals - redealCounter;
+    }
+
+    public void incrementRedealCounter(GameManager gm){
+        redealCounter++;
+        gm.updateNumberOfRedeals();
+    }
+
+    public void decrementRedealCounter(GameManager gm){
+        redealCounter--;
+        gm.updateNumberOfRedeals();
+    }
+
+    public void saveRedealCount(){
+        putInt(GAME_REDEAL_COUNT,redealCounter);
+    }
+
+    public void loadRedealCount(GameManager gm){
+        redealCounter = getInt(GAME_REDEAL_COUNT,totalRedeals);
+        gm.updateNumberOfRedeals();
+    }
+
+    public boolean hasArrow(){
+        return hasArrow;
+    }
+
+
+
+
+
+
+
+
 }

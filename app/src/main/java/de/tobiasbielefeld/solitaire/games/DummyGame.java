@@ -26,6 +26,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -35,9 +36,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * Notice:
  * don't use stack.getTopCard() on empty stacks! check with isEmpty() to avoid it
  *
- * To add a new game, also include it (create a string in SharedData with the game name)
- *  - in GameChooser onClick() switch statements
- *  - in GameManager onCreate() switch statement
+ * To add a new game, also include it here:
+ *  - in LoadGame class, it handles all the loading of a game
+ *  - in strings.xml as the shown name (use games_) as a prefix, like the other games
+ *  - add a new button to fragment_manual_games.xml
+ *  - in strings-manual.xml add a new manual entry for the game
+ *  - add entry to the dialog_menu_show_games.xml
  *  - and of course, include a button in the activity_game_chooser.xml
  *
  *  The stacks array should be in this order:
@@ -46,13 +50,25 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  *  - then the discard stacks (if any)
  *  - at last the main stacks (if any)
  *
- *  because i use the ids to determinate if cards should flip
+ *  because I use the ids to determinate if cards should flip
  *  for example: Because the main stacks are always the last ones,
  *  every card added to a stack with an ID greater than the FirstMainStack ID will be flipped down
  */
 
 @SuppressWarnings("all")
 public class DummyGame extends Game {
+
+    /*
+     * METHODS YOU CAN USE: (put in this method, to not cause an compiler error
+     */
+    private void methodsYouCanUse(){
+
+        /*
+         * test the cards of a given stack from the gives index up to top if the cards are in the
+         * right order. Use fort the card order the constants SAME_COLOR or ALTERNATING_COLOR
+         */
+        testCardsUpToTop(stacks[5], 5, SAME_COLOR);
+    }
 
     /*
      *  Initialise stuff in the constructor!
@@ -101,6 +117,20 @@ public class DummyGame extends Game {
         // 3 left (like the discard stack on Golf
         // 4 right (like the stack on golf in left handed mode
         setDirections(new int[]{1,1,1,0,0,1,1,3});
+
+        //use this if the cards on a stack should'nt overlap another stack. pass the id of the other stack
+        //in the array. A 1 on index 0 means, that stacks[0] should'nt overlap stacks[1]. A -1 stands for no
+        //border, so the border will be the screen width/height
+        setDirectionBorders(new int[]{1,1,1,-1,-1});
+
+        //sets an arrow as the background of a stack, use the constants LEFT and RIGHT for the direction.
+        //it will automatically flip the direction, if left handed mode is enabled
+        setArrow(stacks[1],LEFT);
+
+        //if your game needs to have limited redeals, so after a few tries of moving the cards from
+        //the discard stack back to the main stack, use this method. It will automatically show the
+        //remaining redeals on the main stack.
+        setLimitedRedeals(5);
     }
 
     /*
@@ -112,29 +142,28 @@ public class DummyGame extends Game {
      */
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
-        //set your card width first, because the height is just 1.5 times the width.
-        //take the layout width and divide it width the number of stacks in a row + 1,
-        //so there is enough place for the spacings. You can make the spacings bigger, for example
-        //in landscape mode, so the cards don't seem to big
-        Card.width = isLandscape ? layoutGame.getWidth() / (7+2) : layoutGame.getWidth() / (7+1);
-        //don't forget to set the height!!
-        Card.height = (int) (Card.width * 1.5);
+        //use this to set the cards with according to last two values.
+        //second last is for portrait mode, last one for landscape.
+        //the game width will be divided by these values according to orientation to use as card widths.
+        //Card height is 1.5*widht and the dimensions are applied to every card and stack
+        //
+        //use as values +1, +2 or another value on top of the number of stacks in a row, so there is
+        //enough space left to use as spacing between the stacs.
+        setUpCardWidth(layoutGame,isLandscape,7+1,7+2);
 
-        //now apply these dimensions to the cards and stacks, i used an extra params variable
-        //so its more clean. you can copy this part
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
-        for (Card card : cards) card.view.setLayoutParams(params);
-        for (Stack stack : stacks) stack.view.setLayoutParams(params);
+        //use this to automatically set up the dimensions (then the call above isn't nessessary).
+        //It will take the layout and a value for width and one value for height. The values
+        //represent the limiting values for the orientation. For example here: There are 7 rows, so 7
+        //stacks have to fit on the horizontal axis, but also 4 cards in the height. The method uses
+        //these values to calculate the right dimensions for the cards, so everything fits fine on the screen
+        setUpCardDimensions(layoutGame,7,4);
 
         //no we order the stacks on the field. First calculate a spacing variable, to know how much
-        //space will be between the stacks. Just use the layout width minus the number of stacks
+        //space will be between the stacks. It just uses the layout width minus the number of stacks
         //in a row, divided with the number of spaces between the stacks (which should be the number
-        //of stacks +1)
-        int spacing = (layoutGame.getWidth() - 7 * Card.width) / (7+1);
-        //after that, we check if the spacing is bigger than a fixed value and set it to it if so.
-        //So the spacing between the stacks won't be to much
-        if (spacing > Card.width / 2)
-            spacing = Card.width / 2;
+        //of stacks +1) It also uses a maximum value of Card.widht/2, so the cards won't be too far apart
+        int spacing = setUpSpacing(layoutGame,7,8);
+
         //no get the start position to place the stacks, so they are centered around the middle of
         //the screen. I use this way: Get the half of the layout width, minus how many stacks are
         //left to it times the card width, minus how many spacings are left to it times the spacing
@@ -205,8 +234,8 @@ public class DummyGame extends Game {
         //(I put this test here because in Spider Solitaire, the cards from "main" are placed on
         // multiple stacks).
         if (getMainStack().getSize() > 0) {                                                         //if it has cards
-            moveToStack(getMainStack().getTopCard(), stacks[11]);                                   //move the card to the other stock stack
-            stacks[11].getTopCard().flipUp();
+            moveToStack(getMainStack().getTopCard(), getDiscardStack());                            //move the card to the discard stack
+
         }
         //if it empty, do something like move all cards from the discard pile to the main
         // Stack again. In this example from Klondike, the cards are moved in reversed order than
@@ -302,9 +331,9 @@ public class DummyGame extends Game {
         //Example from Klondike: If every card is faced up, return true. Return false otherwiese
         for (int i = 0; i < 7; i++)
             if (stacks[i].getSize() > 0 && !stacks[i].getCard(0).isUp())
-                return true;
+                return false;
 
-        return false;
+        return true;
     }
 
     /*
@@ -396,5 +425,13 @@ public class DummyGame extends Game {
      * of the animation. For example in Spider, i have to test if a card family is complete
      */
     public void testAfterMove(){
+    }
+
+    /*
+     *  use this if you need to reset something on a game start. Call super if your games
+     *  has limited redeals to reset them automatically
+     */
+    public void reset(GameManager gm){
+        super.reset(gm);
     }
 }

@@ -7,7 +7,7 @@
             android:defaultValue="1"
             android:entries="@array/pref_klondike_draw_titles"
             android:entryValues="@array/pref_klondike_draw_values"
-            android:negativeButtonText="@string/cancel"
+            android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@null"
             android:title="@string/settings_klondike_draw"
             android:summary="%s"/>
@@ -19,11 +19,35 @@
             android:defaultValue="1"
             android:entries="@array/pref_spider_difficulty_titles"
             android:entryValues="@array/pref_spider_difficulty_values"
-            android:negativeButtonText="@string/cancel"
+            android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@null"
             android:title="@string/settings_spider_difficulty"
             android:summary="%s"/>
     </PreferenceCategory>
+
+    <!-- <PreferenceCategory android:title="@string/games_fortyeight" >
+        <ListPreference
+            android:key="@string/pref_key_fortyeight_redeals"
+            android:defaultValue="5"
+            android:title="@string/settings_fortyeight_redeals"
+            android:entries="@array/pref_fortyeight_redeals_titles"
+            android:entryValues="@array/pref_fortyeight_redeals_values"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s" />
+    </PreferenceCategory> -->
+
+    <PreferenceCategory android:title="@string/games_pyramid" >
+      <ListPreference
+          android:key="@string/pref_key_pyramid_difficulty"
+          android:defaultValue="1"
+          android:title="@string/settings_pyramid_difficulty"
+          android:entries="@array/pref_pyramid_difficulty_titles"
+          android:entryValues="@array/pref_pyramid_difficulty_values"
+          android:negativeButtonText="@string/game_cancel"
+          android:positiveButtonText="@null"
+          android:summary="%s" />
+  </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/games_freecell" >
         <CheckBoxPreference
@@ -40,5 +64,8 @@
             android:title="@string/settings_golf_easy"
             android:summary="@string/settings_golf_easy_description" />
     </PreferenceCategory>
+
+
+
 
 </PreferenceScreen>

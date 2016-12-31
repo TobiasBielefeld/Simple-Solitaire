@@ -33,16 +33,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.RestartDialog;
-import de.tobiasbielefeld.solitaire.games.Freecell;
-import de.tobiasbielefeld.solitaire.games.Golf;
-import de.tobiasbielefeld.solitaire.games.Klondike;
-import de.tobiasbielefeld.solitaire.games.SimpleSimon;
-import de.tobiasbielefeld.solitaire.games.Spider;
-import de.tobiasbielefeld.solitaire.games.Yukon;
 import de.tobiasbielefeld.solitaire.handler.LoadGameHandler;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
@@ -52,6 +48,7 @@ import de.tobiasbielefeld.solitaire.helper.MovingCards;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Timer;
+import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -65,31 +62,26 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore;                                            //textViews for time and scores
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
-    public Toast toast;                                                                            //a delicious toast!
+    public Toast toast;                                                                             //a delicious toast!
+    public TextView mainTextViewRedeals;
+
+    private DialogFragment restartDialog = new RestartDialog();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
 
-        if (savedSharedData==null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-
-            if (savedGameData==null) {
-                String savedGame = getSharedString("pref_key_current_game", MENU);
-                savedGameData = getSharedPreferences(savedGame, MODE_PRIVATE);
-            }
-        }
-
         // load stuff
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
         mainTextViewTime = (TextView) findViewById(R.id.mainTextViewTime);
         mainTextViewScore = (TextView) findViewById(R.id.mainTextViewScore);
+        mainTextViewRedeals = (TextView) findViewById(R.id.textViewRedeals);
         buttonAutoComplete = (Button) findViewById(R.id.buttonMainAutoComplete);
 
         //initialize my static helper stuff
         final GameManager gm = this;
-        recordList = new RecordList();
+        recordList = new RecordList(gm);
         movingCards = new MovingCards();
         hint = new Hint();
         scores = new Scores(gm);
@@ -97,30 +89,23 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
         animate = new Animate(gm);
         autoComplete = new AutoComplete(gm);
         timer = new Timer(gm);
+        currentGame = lg.loadClass(this,getIntent().getIntExtra("game",1));
+        savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
 
-        //load the game
-        switch (getIntent().getStringExtra("game")){
-            case KLONDIKE: default:
-                currentGame = new Klondike();
-                break;
-            case FREECELL:
-                currentGame = new Freecell();
-                break;
-            case YUKON:
-                currentGame = new Yukon();
-                break;
-            case SPIDER:
-                currentGame = new Spider();
-                break;
-            case SIMPLESIMON:
-                currentGame = new SimpleSimon();
-                break;
-            case GOLF:
-                currentGame = new Golf();
-                break;
+
+        if (savedSharedData==null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
         }
 
         //initialize cards and stacks
+        for (int i = 0; i < stacks.length; i++) {
+            stacks[i] = new Stack(i);
+            stacks[i].view = new ImageView(this);
+            stacks[i].view.setBackgroundResource(R.drawable.background_stack);
+            layoutGame.addView(stacks[i].view);
+        }
+        //mainTextViewRedeals.bringToFront();
+
         for (int i = 0; i < cards.length; i++) {
             cards[i] = new Card(i);
             cards[i].view = new ImageView(this);
@@ -128,17 +113,10 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
             cards[i].view.setOnTouchListener(this);
             layoutGame.addView(cards[i].view);
         }
-        for (int i = 0; i < stacks.length; i++) {
-            stacks[i] = new Stack(i);
-            stacks[i].view = new ImageView(this);
-            stacks[i].view.setBackgroundResource(R.drawable.background_stack);
-            layoutGame.addView(stacks[i].view);
-        }
 
-        //only stack to need an onTouchListener is the main stack
-        if (currentGame.hasMainStack()) {
-            currentGame.getMainStack().view.setOnTouchListener(this);
-        }
+
+        currentGame.addOnTouchListener(this);
+
 
         scores.output();
 
@@ -156,29 +134,57 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
                 if (getSharedBoolean(getString(R.string.pref_key_left_handed_mode), false)) {
                     for (Stack stack : stacks)
                         stack.view.setX(layoutGame.getWidth() - stack.view.getX() - Card.width);
+
+                    if (currentGame.hasArrow()){
+                        for (Stack stack : stacks){
+                            if (stack.hasArrow()>0) {
+                                if (stack.hasArrow() == 1) {
+                                    stack.view.setBackgroundResource(R.drawable.arrow_right);
+                                } else {
+                                    stack.view.setBackgroundResource(R.drawable.arrow_left);
+                                }
+                            }
+                        }
+                    }
                 }
 
                 //calculate the spacing for cards on a stack
                 Stack.defaultSpacing = Card.width / 2;
-                Stack.spacingMaxHeight = layoutGame.getHeight() - Card.height;
-                Stack.spacingMaxWidth = layoutGame.getWidth() - Card.width;
+
                 //setup how the cards on the stacks will be stacked (offset to the previous card)
                 //there are 4 possible directions. By default, the tableau stacks are stacked down
                 //all other stacks don't have a visible offset
                 //use setDirections() in a game to change that
                 if (currentGame.directions==null) {
-                    for (int i = 0; i <= currentGame.getLastTableauID(); i++)
+                    for (int i = 0; i <= currentGame.getLastTableauID(); i++) {
                         stacks[i].setSpacingDirection(1);
+                    }
                 }
                 else {
-                    for (int i=0;i<currentGame.directions.length;i++)
+                    for (int i=0;i<currentGame.directions.length;i++) {
                         stacks[i].setSpacingDirection(currentGame.directions[i]);
+                    }
+                }
+                //if there are direction borders set (when cards should'nt overlap another stack)  use it.
+                //else set the layout height/widht as maximum
+                if (currentGame.directionBorders!=null){
+                    for (int i=0;i<currentGame.directionBorders.length;i++){
+                        if (currentGame.directionBorders[i]!=-1)    //-1 means no border
+                            stacks[i].setSpacingMax(currentGame.directionBorders[i]);
+                        else
+                            stacks[i].setSpacingMax(layoutGame);
+                    }
+                } else {
+                    for (Stack stack : stacks){
+                        stack.setSpacingMax(layoutGame);
+                    }
                 }
 
+                //load the game
+
+                scores.load();
                 LoadGameHandler loadGameHandler = new LoadGameHandler(gm);
-                loadGameHandler.sendEmptyMessageDelayed(0,50);
-                //gameLogic.load();
-                //hasLoaded = true;
+                loadGameHandler.sendEmptyMessageDelayed(0,200);
             }
         });
     }
@@ -204,8 +210,7 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
             savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
 
             if (savedGameData==null) {
-                String savedGame = getSharedString("pref_key_current_game", MENU);
-                savedGameData = getSharedPreferences(savedGame, MODE_PRIVATE);
+                savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
             }
         }
 
@@ -248,10 +253,18 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X,Y)) {
+
+                if (currentGame.hasLimitedRedeals() && currentGame.dealFromStack().isEmpty()){
+                    if (currentGame.getRemainingNumberOfRedeals()==0)
+                        return true;
+                    else
+                        currentGame.incrementRedealCounter(this);
+                }
+
                 currentGame.onMainStackTouch();
             }
             else if (cards[v.getId()].isUp() && currentGame.addCardToMovementTest(cards[v.getId()])) {
-                movingCards.add(cards[v.getId()]);
+                movingCards.add(cards[v.getId()],event.getX(),event.getY());
             }
         }
         else if (event.getAction() == MotionEvent.ACTION_MOVE && movingCards.hasCards()) {
@@ -292,8 +305,7 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
                 hint.showHint();                                                                    //show a hint
                 break;
             case R.id.mainButtonRestart:                                                            //show restart dialog
-                DialogFragment restartDialog = new RestartDialog();
-                restartDialog.show(getSupportFragmentManager(), "restartDialog");
+                showRestartDialog();
                 break;
             case R.id.mainButtonSettings:                                                           //open Settings activity
                 startActivity(new Intent(getApplicationContext(), Settings.class));
@@ -338,12 +350,26 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
         return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking());
     }
 
-    public void showToast(String text) {
-        if (toast == null)
-            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        else
-            toast.setText(text);
+    public void showToast(final String text) {
+        final GameManager gm = this;
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (toast == null)
+                    toast = Toast.makeText(gm, text, Toast.LENGTH_SHORT);
+                else
+                    toast.setText(text);
 
-        toast.show();
+                toast.show();
+            }
+        });
+
+    }
+
+    public void updateNumberOfRedeals(){
+        mainTextViewRedeals.setText(String.format(Locale.getDefault(),"%d",currentGame.getRemainingNumberOfRedeals()));
+    }
+
+    public void showRestartDialog(){
+        restartDialog.show(getSupportFragmentManager(), "restartDialog");
     }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_statistics">High Scores</string>
+
+    <string name="statistics_games_won">Games won</string>
+    <string name="statistics_button_delete">Delete all entries!</string>
+    <string name="statistics_button_delete_text">Delete all entries for this game! Are you sure?</string>
+    <string name="statistics_button_deleted_all_entries">Deleted all entries</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="about_name">About Game</string>
+    <string name="about_Text1">developed by Tobias Bielefeld</string>
+    <string name="about_Text2">thanks for playing my game :)</string>
+    <string name="about_Text3">pictures originally published on:</string>
+    <string name="about_Text4" translatable="false">www.pixabay.com</string>
+    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">under the CC0 license</a></string>
+    <string name="about_tab_1">Information</string>
+    <string name="about_tab_2">License</string>
+    <string name="about_tab_3">Changelog</string>
+    <string name="about_build_date" translatable="false">Build date</string>
+    <string name="about_license_top_text">This game is published under the GPL 3.0 license:</string>
+    <string name="about_program_code_text">Source code available on:</string>
+    <string name="about_program_code_text2" translatable="false"><a href="https://github.com/TobiasBielefeld/Simple-Solitaire">GitHub</a></string>
+    <string name="about_japanese_translation_1">Japanese translation by:</string>
+    <string name="about_japanese_translation_2">GitHub User naofum</string>
+    <string name="about_loading">Loading…</string>
+
+</resources>

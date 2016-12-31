@@ -46,17 +46,12 @@ public class Klondike extends Game {
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
-        // initialize the dimensions
-        Card.width = isLandscape ? layoutGame.getWidth() / 10 : layoutGame.getWidth() / 8;
-        Card.height = (int) (Card.width * 1.5);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
 
-        // apply dimensions to cards and stacks
-        for (Card card : cards) card.view.setLayoutParams(params);
-        for (Stack stack : stacks) stack.view.setLayoutParams(params);
+        // initialize the dimensions
+        setUpCardWidth(layoutGame,isLandscape,8,10);
 
         //calculate spacing and startposition of cards
-        int spacing = min((layoutGame.getWidth() - 7 * Card.width) / 8, (Card.width / 2));
+        int spacing = setUpSpacing(layoutGame,7,8);
         int startPos = layoutGame.getWidth() / 2 - Card.width / 2 - 3 * Card.width - 3 * spacing;
 
         //first order the foundation stacks
@@ -278,7 +273,7 @@ public class Klondike extends Game {
 
             Stack origin = stacks[i];
 
-            if (origin.isEmpty() || !origin.getTopCard().isUp())
+            if (origin.isEmpty())
                 continue;
 
             /* complete visible part of a stack to move on the tableau */

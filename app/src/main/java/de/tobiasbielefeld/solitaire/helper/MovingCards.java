@@ -34,16 +34,19 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class MovingCards {
 
     private ArrayList<Card> currentCards = new ArrayList<>();                                       //array list containing the current cards to move
-
+    private float offsetX, offsetY;
 
     public void reset() {
         currentCards.clear();
     }
 
-    public void add(Card card) {
+    public void add(Card card, float offsetX, float offsetY) {
         /*
-         *  add the card and every card above it
+         *  add the card and every card above it, also set up the little offset from the
+         *  touch position to the card coordinates
          */
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
         Stack stack = card.getStack();
 
         for (int i = stack.getIndexOfCard(card); i < stack.getSize(); i++) {
@@ -54,7 +57,7 @@ public class MovingCards {
 
     public void move(float X, float Y) {
         for (Card card : currentCards)
-            card.setLocationWithoutMovement(X - Card.width / 2, (Y - Card.height / 2)
+            card.setLocationWithoutMovement(X -offsetX, (Y - offsetY)
                     + currentCards.indexOf(card) * Stack.defaultSpacing/2);
     }
 

@@ -17,7 +17,7 @@
  */
 
 
-package de.tobiasbielefeld.solitaire.ui;
+package de.tobiasbielefeld.solitaire.ui.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -48,6 +48,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private Preference preferenceCards, preferenceCardsBackground;
+    private Preference preferenceMenuColumns;
     Toast toast;
 
     private static boolean isXLargeTablet(Context context) {
@@ -66,6 +67,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        if (savedSharedData==null)
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     @Override
@@ -111,15 +115,17 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             case "pref_key_spider_difficulty":
                 showToast(getString(R.string.settings_restart_spider));
                 break;
+            case "pref_key_fortyeight_redeals":
+                showToast(getString(R.string.settings_restart_fortyeight));
+                break;
+            case MENU_COLUMNS_PORTRAIT:case MENU_COLUMNS_LANDSCAPE:
+                setPreferenceMenuColumns();
+                break;
         }
     }
 
     public void onResume() {
         super.onResume();
-
-        if (savedSharedData==null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }
 
         savedSharedData.registerOnSharedPreferenceChangeListener(this);
         showOrHideStatusBar();
@@ -208,11 +214,22 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceCards.setSummary(text);
     }
 
+    private void setPreferenceMenuColumns(){
+        String portraitValue = getSharedString(MENU_COLUMNS_PORTRAIT,"3");
+        String landscapeValue = getSharedString(MENU_COLUMNS_LANDSCAPE,"5");
+
+        String text = String.format(Locale.getDefault(),"%s: %s\n%s: %s",
+                getString(R.string.portrait),portraitValue,getString(R.string.landscape),landscapeValue);
+
+        preferenceMenuColumns.setSummary(text);
+    }
+
     protected boolean isValidFragment(String fragmentName) {
         return PreferenceFragment.class.getName().equals(fragmentName)
                 || CustomizationPreferenceFragment.class.getName().equals(fragmentName)
                 || OtherPreferenceFragment.class.getName().equals(fragmentName)
-                || GamesPreferenceFragment.class.getName().equals(fragmentName);
+                || GamesPreferenceFragment.class.getName().equals(fragmentName)
+                || MenuPreferenceFragment.class.getName().equals(fragmentName);
     }
 
     private void setOrientation() {
@@ -278,9 +295,23 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
     }
 
+    public static class MenuPreferenceFragment extends PreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_menu);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceMenuColumns = findPreference(getString(R.string.pref_key_menu_columns));
+            settings.setPreferenceMenuColumns();
+        }
+    }
+
     private void showToast( String text) {
         if (toast == null) {
-            logText("test");
             toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
         }
         else

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -34,6 +35,11 @@ public class RecordList {
 
     private final static int MAX_RECORDS = 20;
     private ArrayList<Entry> entries = new ArrayList<>();
+    private GameManager gm;
+
+    public RecordList(GameManager gm){
+        this.gm = gm;
+    }
 
     public void reset() {                                                                                  //delete the content on reset
         entries.clear();
@@ -62,6 +68,25 @@ public class RecordList {
             entries.remove(0);
 
         entries.add(new Entry(cards,origins));
+    }
+
+    public void addAtEndOfLastEntry(Card card, Stack origin){
+        ArrayList<Card> cards = new ArrayList<>();
+        ArrayList<Stack> origins = new ArrayList<>();
+
+        cards.add(card);
+        origins.add(origin);
+
+        addAtEndOfLastEntry(cards,origins);
+    }
+
+    public void addAtEndOfLastEntry(ArrayList<Card> cards, Stack origin){
+        ArrayList<Stack> origins = new ArrayList<>();
+
+        for (int i=0;i<cards.size();i++)
+            origins.add(origin);
+
+        addAtEndOfLastEntry(cards,origins);
     }
 
     public void addAtEndOfLastEntry(ArrayList<Card> cards, ArrayList<Stack> origins){
@@ -115,11 +140,30 @@ public class RecordList {
         }
     }
 
+    public Entry getLastEntry(){
+        return entries.get(entries.size()-1);
+    }
 
-    private class Entry {
+    public void deleteLast(){
+        entries.remove(entries.size() - 1);
+    }
+
+    public class Entry {
         private ArrayList<Card> currentCards = new ArrayList<>();
         private ArrayList<Stack> currentOrigins = new ArrayList<>();
-        private Card flipCard;
+        private ArrayList<Card> flipCards = new ArrayList<>();
+
+        public ArrayList<Card> getCurrentCards(){
+            return currentCards;
+        }
+
+        public ArrayList<Stack> getCurrentOrigins(){
+            return currentOrigins;
+        }
+
+        public ArrayList<Card> getFlipCards(){
+            return flipCards;
+        }
 
         Entry(String pos) {
             /*
@@ -133,8 +177,6 @@ public class RecordList {
 
             for (Card card : cards)
                 currentOrigins.add(card.getStack());
-
-            flipCard = null;
         }
 
         Entry(ArrayList<Card> cards, Stack origin) {
@@ -142,19 +184,16 @@ public class RecordList {
 
             for (int i=0;i<currentCards.size();i++)
                 currentOrigins.add(origin);
-
-            flipCard = null;
         }
 
         Entry(ArrayList<Card> cards, ArrayList<Stack> origins) {
             currentCards.addAll(cards);
             currentOrigins.addAll(origins);
-
-            flipCard = null;
         }
 
         void save(String pos){
             ArrayList<Integer> listCards = new ArrayList<>();
+            ArrayList<Integer> listFlipCards = new ArrayList<>();
             ArrayList<Integer> listOrigins = new ArrayList<>();
 
             for (int i=0;i<currentCards.size();i++) {
@@ -166,11 +205,17 @@ public class RecordList {
             putIntList(RECORD_LIST_ENTRY + pos + CARD,listCards);
             putIntList(RECORD_LIST_ENTRY + pos + ORIGIN,listOrigins);
 
-            putInt(RECORD_LIST_ENTRY + pos + FLIP_CARD, hasFlipCard()? flipCard.getID() : -1);
+            for (Card card : flipCards){
+                listFlipCards.add(card.getID());
+            }
+
+            putIntList(RECORD_LIST_ENTRY + pos + FLIP_CARD, listFlipCards);
+            //putInt(RECORD_LIST_ENTRY + pos + FLIP_CARD, hasFlipCard()? flipCard.getID() : -1);
 
         }
 
         void load(String pos){
+
             ArrayList<Integer> cardList = getIntList(RECORD_LIST_ENTRY + pos + CARD);
             ArrayList<Integer> originList = getIntList(RECORD_LIST_ENTRY + pos + ORIGIN);
 
@@ -179,21 +224,35 @@ public class RecordList {
                 currentOrigins.add(stacks[originList.get(i)]);
             }
 
-            int flipCardID = getInt(RECORD_LIST_ENTRY + pos + FLIP_CARD,-1);
+            //compability to older way of saving: changed from one possible flip card to multiple
+            try {   //new way
+                ArrayList<Integer> flipCardList = getIntList(RECORD_LIST_ENTRY + pos + FLIP_CARD);
 
-            if (flipCardID>0)
-                addFlip(cards[flipCardID]);
+                for (Integer i : flipCardList){
+                    flipCards.add(cards[i]);
+                }
+            } catch (Exception e) { //old way
+                int flipCardID = getInt(RECORD_LIST_ENTRY + pos + FLIP_CARD,-1);
+
+                if (flipCardID>0)
+                    addFlip(cards[flipCardID]);
+            }
         }
 
         void addFlip(Card card) {                                                                   //add a card to flip
-            flipCard = card;
+            flipCards.add(card);
         }
 
         void undo() {
+
+            if (currentGame.hasLimitedRedeals() && currentOrigins.get(0)==currentGame.getDiscardStack() && currentCards.get(0).getStack()==currentGame.dealFromStack()) {
+                currentGame.decrementRedealCounter(gm);
+            }
+
             moveToStack(currentCards, currentOrigins, OPTION_UNDO);
 
-            if (flipCard != null)
-                flipCard.flipWithAnim();
+            for (Card card : flipCards)
+                card.flipWithAnim();
         }
 
         void addInFront(ArrayList<Card> cards, ArrayList<Stack> stacks){
@@ -203,16 +262,29 @@ public class RecordList {
             currentCards = cards;
             currentOrigins = stacks;
 
-            currentCards.addAll(tempCards);
-            currentOrigins.addAll(tempOrigins);
-        }
-        void addAtEnd(ArrayList<Card> cards, ArrayList<Stack> stacks){
-            currentCards.addAll(cards);
-            currentOrigins.addAll(stacks);
+            //if some cards which are added were already in currentCards, replace their origins with
+            //the original one
+            for (int i=0;i<tempCards.size();i++){
+                if (currentCards.contains(tempCards.get(i))){
+                    currentOrigins.add(currentCards.indexOf(tempCards.get(i)),tempOrigins.get(i));
+                } else {
+                    currentCards.add(tempCards.get(i));
+                    currentOrigins.add(tempOrigins.get(i));
+                }
+            }
         }
 
-        boolean hasFlipCard() {                                                                     //returns if the entry has a card to flip
-            return flipCard != null;
+        void addAtEnd(ArrayList<Card> cards, ArrayList<Stack> stacks){
+
+            for (int i=0;i<cards.size();i++){
+                if (!currentCards.contains(cards.get(i))){
+                    currentCards.add(cards.get(i));
+                    currentOrigins.add(stacks.get(i));
+                }
+            }
+
+            //currentCards.addAll(cards);
+            //currentOrigins.addAll(stacks);
         }
     }
 }

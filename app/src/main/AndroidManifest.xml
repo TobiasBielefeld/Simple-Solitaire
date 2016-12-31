@@ -7,22 +7,22 @@
         android:fullBackupContent="@xml/my_backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar">
         <activity
             android:name=".ui.about.AboutActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/about_name"
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ui.HighScores"
-            android:label="@string/scores_name"
+            android:label="@string/title_activity_statistics"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name=".ui.Settings"
+            android:name=".ui.settings.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name=".ui.GameChooser"
+            android:name=".ui.GameSelector"
             android:theme="@style/AppThemeActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,8 +31,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.GameManager">
-        </activity>
+            android:name=".ui.GameManager"/>
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".ui.manual.Manual"
+            android:label="@string/game_manual"
+            android:theme="@style/AppThemeNoActionBar"/>
     </application>
 
 </manifest>

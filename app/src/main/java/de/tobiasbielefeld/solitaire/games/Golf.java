@@ -44,18 +44,15 @@ public class Golf extends Game {
         setFirstDiscardStackID(7);
         setLastTableauID(6);
         setDirections(new int[]{1,1,1,1,1,1,1,3});
+        //setDirectionBorders(new int[]{-1,-1,-1,-1,-1,-1,-1,2,});
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        Card.width = isLandscape? layoutGame.getWidth() / 9 : layoutGame.getWidth() / 8;
-        Card.height = (int) (Card.width * 1.5);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
-        //apply dimensions to cards and stacks
-        for (Card card : cards) card.view.setLayoutParams(params);
-        for (Stack stack : stacks) stack.view.setLayoutParams(params);
+        setUpCardWidth(layoutGame,isLandscape,8,9);
+
         //order stacks on the screen
-        int spacing = min((layoutGame.getWidth() - 7*Card.width)/8, Card.width/2);
+        int spacing = setUpSpacing(layoutGame,7,8);
         int startPos = layoutGame.getWidth()/2 - 3*spacing - (int)(3.5*Card.width);
         //main stack
         stacks[8].view.setX(layoutGame.getWidth() - startPos - Card.width);
@@ -71,8 +68,12 @@ public class Golf extends Game {
     }
 
     public boolean winTest(){
-        //game is won if every card is on the discard stack
-        return getDiscardStack().getSize()==52;
+        //game is won if tableau is empty
+        for (int i=0;i<=getLastTableauID();i++)
+            if (!stacks[i].isEmpty())
+                return false;
+
+        return true;
     }
 
     public void dealCards(){
@@ -110,24 +111,6 @@ public class Golf extends Game {
 
             if (!hint.hasVisited(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack()))
                 return new CardAndStack(stacks[i].getTopCard(),getDiscardStack());
-        }
-
-        return null;
-    }
-
-    public boolean autoCompleteStartTest() {
-        for (int i=0;i<7;i++){
-            if (!stacks[i].isEmpty())
-                return false;
-        }
-
-        return true;
-    }
-
-    public CardAndStack autoCompletePhaseOne() {
-        if (!getMainStack().isEmpty()){
-            getMainStack().getTopCard().flipUp();
-            return new CardAndStack(getMainStack().getTopCard(),getDiscardStack());
         }
 
         return null;

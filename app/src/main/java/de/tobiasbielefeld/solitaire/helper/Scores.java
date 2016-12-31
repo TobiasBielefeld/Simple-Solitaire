@@ -199,6 +199,6 @@ public class Scores {
 
     public void output() {
         gm.mainTextViewScore.setText(String.format("%s: %s",
-                    gm.getString(R.string.scores_score), score));
+                    gm.getString(R.string.game_score), score));
     }
 }
