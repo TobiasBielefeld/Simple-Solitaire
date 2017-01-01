@@ -39,6 +39,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * class for all card animations. Like moving cards and fading them out and in for hints.
+ * The win animation is split up in two parts: First move every card to the middle of the screen,
+ * then move them out the screen borders
  */
 
 public class Animate{

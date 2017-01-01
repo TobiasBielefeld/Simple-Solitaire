@@ -1,14 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppThemeNoActionBar.AppBarOverlay"
-        android:id="@+id/appBarLayout">
+        android:theme="@style/AppThemeNoActionBar.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -21,45 +21,43 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="@dimen/drawer_size"
         android:layout_height="match_parent"
         android:layout_alignTop="@+id/flContent"
-        android:id="@+id/linearLayout">
+        android:orientation="vertical">
 
         <ListView
+            android:id="@+id/manual_listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@android:color/transparent"
             android:dividerHeight="0dp"
-            android:entries="@array/manual_side_menu_tablet"
-            android:id="@+id/manual_listView" />
-
+            android:entries="@array/manual_side_menu_tablet" />
 
     </LinearLayout>
 
-
     <View
+        android:id="@+id/shadow"
         android:layout_width="4dp"
         android:layout_height="match_parent"
-        android:background="@drawable/shadow_left_to_right"
-        android:id="@+id/shadow"
         android:layout_below="@+id/appBarLayout"
-        android:layout_toEndOf="@+id/linearLayout"/>
+        android:layout_toEndOf="@+id/linearLayout"
+        android:background="@drawable/shadow_left_to_right" />
 
     <View
+        android:id="@+id/shadow2"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:background="@drawable/shadow"
-        android:id="@+id/shadow2"
-        android:layout_below="@+id/appBarLayout" />
+        android:layout_below="@+id/appBarLayout"
+        android:background="@drawable/shadow" />
 
     <FrameLayout
         android:id="@+id/flContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/linearLayout"
         android:layout_below="@+id/appBarLayout"
+        android:layout_toEndOf="@+id/linearLayout"
         android:layout_toRightOf="@+id/linearLayout">
 
     </FrameLayout>

@@ -1,162 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.GameManager">
 
     <RelativeLayout
+        android:id="@+id/mainRelativeLayoutGame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/mainRelativeLayoutGame"
-        android:visibility="visible"
+        android:layout_toLeftOf="@+id/linearLayout"
         android:layout_toStartOf="@+id/linearLayout"
-        android:layout_toLeftOf="@+id/linearLayout">
+        android:visibility="visible">
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
         android:layout_toLeftOf="@+id/linearLayout"
-        android:layout_toStartOf="@+id/linearLayout">
+        android:layout_toStartOf="@+id/linearLayout"
+        android:visibility="visible">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:background="@drawable/shadow"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:background="@drawable/shadow" />
 
         <View
             android:layout_width="4dp"
             android:layout_height="match_parent"
-            android:background="@drawable/shadow_right_to_left"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:background="@drawable/shadow_right_to_left" />
 
         <TextView
+            android:id="@+id/mainTextViewScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/mainTextViewScore"
-            android:maxLines="1"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:maxLines="1"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
+            android:id="@+id/mainTextViewTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/mainTextViewTime"
-            android:maxLines="1"
             android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
             android:layout_toLeftOf="@+id/frameLayout"
             android:layout_toStartOf="@+id/frameLayout"
-            android:layout_margin="5dp" />
+            android:maxLines="1"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="#000000"
-            android:id="@+id/frameLayout"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true">
-        </FrameLayout>
+            android:layout_alignParentRight="true"
+            android:background="#000000"></FrameLayout>
 
         <Button
+            android:id="@+id/buttonMainAutoComplete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/game_auto_complete_text"
-            android:id="@+id/buttonMainAutoComplete"
             android:layout_above="@+id/mainTextViewTime"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/button"
             android:onClick="menuClick"
-            android:visibility="gone"
-            android:layout_marginBottom="10dp" />
+            android:text="@string/game_auto_complete_text"
+            android:visibility="gone" />
 
         <TextView
+            android:id="@+id/textViewRedeals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewRedeals"
-            android:visibility="gone"
             android:background="@drawable/circle"
             android:paddingLeft="4dp"
-            android:paddingRight="4dp" />
+            android:paddingRight="4dp"
+            android:visibility="gone" />
 
     </RelativeLayout>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="#e7e7e7"
-        android:gravity="center"
-        android:baselineAligned="false"
-        android:visibility="visible"
-        android:padding="5dp"
-        android:id="@+id/linearLayout"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentTop="true"
+        android:background="#e7e7e7"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:visibility="visible">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="0dp"
             android:id="@+id/mainButtonScores"
-            android:src="@drawable/highscores"
-            android:onClick="menuClick"
-            android:layout_weight="1"
-            android:background="@drawable/button_menu"
-            android:contentDescription="@string/menu_scores"/>
-
-        <ImageView
             android:layout_width="50dp"
             android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_menu"
+            android:contentDescription="@string/menu_scores"
+            android:onClick="menuClick"
+            android:src="@drawable/highscores" />
+
+        <ImageView
             android:id="@+id/mainButtonHint"
-            android:src="@drawable/hint"
-            android:onClick="menuClick"
-            android:background="@drawable/button_menu"
-            android:layout_weight="1"
-            android:contentDescription="@string/menu_hint"/>
-
-        <ImageView
             android:layout_width="50dp"
             android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_menu"
+            android:contentDescription="@string/menu_hint"
+            android:onClick="menuClick"
+            android:src="@drawable/hint" />
+
+        <ImageView
             android:id="@+id/mainButtonRestart"
-            android:src="@drawable/restart"
-            android:onClick="menuClick"
-            android:background="@drawable/button_menu"
-            android:layout_weight="1"
-            android:contentDescription="@string/menu_main_menu"/>
-
-        <ImageView
             android:layout_width="50dp"
             android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_menu"
+            android:contentDescription="@string/menu_main_menu"
+            android:onClick="menuClick"
+            android:src="@drawable/restart" />
+
+        <ImageView
             android:id="@+id/mainButtonUndo"
-            android:src="@drawable/undo"
-            android:onClick="menuClick"
-            android:background="@drawable/button_menu"
-            android:layout_weight="1"
-            android:contentDescription="@string/menu_undo"/>
-
-        <ImageView
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:id="@+id/mainButtonSettings"
-            android:src="@drawable/settings"
-            android:onClick="menuClick"
-            android:background="@drawable/button_menu"
             android:layout_weight="1"
-            android:contentDescription="@string/menu_settings"/>
+            android:background="@drawable/button_menu"
+            android:contentDescription="@string/menu_undo"
+            android:onClick="menuClick"
+            android:src="@drawable/undo" />
+
+        <ImageView
+            android:id="@+id/mainButtonSettings"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_menu"
+            android:contentDescription="@string/menu_settings"
+            android:onClick="menuClick"
+            android:src="@drawable/settings" />
 
     </LinearLayout>
 

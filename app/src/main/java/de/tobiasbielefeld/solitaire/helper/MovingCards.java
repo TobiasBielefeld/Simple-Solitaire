@@ -43,8 +43,9 @@ public class MovingCards {
     public void add(Card card, float offsetX, float offsetY) {
         /*
          *  add the card and every card above it, also set up the little offset from the
-         *  touch position to the card coordinates
+         *  touch position to the card coordinates, for smother movements
          */
+
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         Stack stack = card.getStack();

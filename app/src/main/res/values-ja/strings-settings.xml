@@ -31,13 +31,11 @@
     <string name="settings_show_main_menu_description">開始時に最後にプレイしたゲームに参加しない</string>
     <string name="settings_spider_difficulty">異なるカードファミリーの数</string>
     <string name="settings_golf_easy_description">エースを王に置くことを許可する、またはその逆</string>
-
     <string name="settings_golf_easy">循環的な動き （より簡単に）</string>
     <string name="settings_basic">基本的な</string>
     <string name="settings_restart_klondike">変更を適用するために新しいクロンダイクゲームを開始する</string>
     <string name="settings_restart_spider">変更を適用するために新しいスパイダーゲームを開始してください</string>
     <string name="settings_about_description">ライセンスや変更履歴など、ゲームに関する情報を表示します</string>
-
     <string name="settings">設定</string>
     <string name="settings_menu">メインメニュー</string>
     <string name="settings_menu_columns">列の数</string>
@@ -46,9 +44,6 @@
     <string name="settings_menu_games_description">メニューに表示されるゲームを選択する</string>
     <string name="settings_pyramid_difficulty">困難</string>
     <string name="settings_restart_fortyeight">変更を適用するための新しい40のゲームを始める</string>
-
     <string name="settings_show_manual_in_menu">ゲームメニューでマニュアルページ</string>
     <string name="settings_show_manual_in_menu_description">マニュアルに現在のゲームを開くためのアイテムを表示する</string>
-
-
 </resources>

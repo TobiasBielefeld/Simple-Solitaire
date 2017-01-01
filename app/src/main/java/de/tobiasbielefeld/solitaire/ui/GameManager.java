@@ -58,12 +58,11 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class GameManager extends AppCompatActivity implements View.OnTouchListener {
 
-    public boolean hasLoaded = false;                                                              //used to call save() in onPause() only if load() has been called before
+    public boolean hasLoaded = false;                                                               //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                                               //button for auto complete
-    public TextView mainTextViewTime, mainTextViewScore;                                            //textViews for time and scores
+    public TextView mainTextViewTime, mainTextViewScore, mainTextViewRedeals;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
     public Toast toast;                                                                             //a delicious toast!
-    public TextView mainTextViewRedeals;
 
     private DialogFragment restartDialog = new RestartDialog();
 
@@ -181,7 +180,6 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
                 }
 
                 //load the game
-
                 scores.load();
                 LoadGameHandler loadGameHandler = new LoadGameHandler(gm);
                 loadGameHandler.sendEmptyMessageDelayed(0,200);

@@ -1,5 +1,4 @@
 <resources>
-
     <string name="game_cancel">キャンセル</string>
     <string name="game_confirm">確認</string>
     <string name="game_auto_complete_text">オートコンプリート</string>
@@ -7,7 +6,6 @@
     <string name="game_load_error">データの読み込みに失敗しました。新しいゲームを開始しています…</string>
     <string name="game_score">スコア</string>
     <string name="game_time">時間</string>
-
     <string name="games_klondike">クロンダイク</string>
     <string name="games_freecell">フリーセル</string>
     <string name="menu_main_menu">メニュー</string>

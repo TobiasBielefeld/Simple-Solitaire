@@ -29,6 +29,10 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
+/*
+ * Gypsy Solitaire! (Maybe needs another name)
+ */
+
 public class Gypsy extends Game {
 
     public  Gypsy() {
@@ -38,11 +42,9 @@ public class Gypsy extends Game {
         setLastTableauID(7);
     }
 
-
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
         setUpCardWidth(layoutGame,isLandscape,9+1,9+3);
-
 
         int spacing = setUpSpacing(layoutGame,9,10);
         int verticalSpacing = (isLandscape ? Card.width / 4 : Card.width / 2) +1;
@@ -132,9 +134,6 @@ public class Gypsy extends Game {
 
                 if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j,ALTERNATING_COLOR))
                     continue;
-
-                //if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
-                //    continue;
 
                 if (cardToMove.getValue()!=1) {
                     for (int k = 0; k < 8; k++) {

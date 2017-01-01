@@ -10,12 +10,10 @@
     <string name="manual_startpage">開始ページ</string>
     <string name="manual_ui_header">ユーザーインターフェース</string>
 
-
     <string name="manual_structure">Structure</string>
     <string name="manual_objective">Objective</string>
     <string name="manual_rules">Rules</string>
     <string name="manual_scoring">Scoring</string>
-
 
     <string name="manual_startpage_text">Welcome to the manual of this game collection! I hope it will explain everything.
         \n\nUse the menu on the left side to access the other manual pages.\n\nI am sorry, that the
@@ -211,4 +209,4 @@
         be placed on empty tableau stacks.\n\nPress the main stack to deal one card to each tableau
         stack.</string>
     <string name="manual_acesup_scoring">Move a card to the foundation stack: +50</string>
-    </resources>
+</resources>

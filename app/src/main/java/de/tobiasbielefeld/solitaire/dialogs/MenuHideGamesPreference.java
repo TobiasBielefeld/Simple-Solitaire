@@ -32,15 +32,17 @@ import de.tobiasbielefeld.solitaire.R;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
- *
+ *  Dialog for hiding games in the main menu.
+ *  It is NOT a multiSelection list, because it was buggy on tested Android 6 phones. So I
+ *  just use a linearLayout with a button and a textView for each game
  */
 
-public class MenuShowGamesPreference extends DialogPreference implements View.OnClickListener{
+public class MenuHideGamesPreference extends DialogPreference implements View.OnClickListener{
 
     ArrayList<LinearLayout> linearLayouts;
     ArrayList<CheckBox> checkBoxes;
 
-    public MenuShowGamesPreference(Context context, AttributeSet attrs) {
+    public MenuHideGamesPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_menu_show_games);
         setDialogIcon(null);

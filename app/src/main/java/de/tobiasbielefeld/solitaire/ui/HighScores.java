@@ -107,7 +107,7 @@ public class HighScores extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //only menu item is the back button in the action bar, so just finnish
+        //only menu item is the back button in the action bar, so just finish
         finish();
         return true;
     }

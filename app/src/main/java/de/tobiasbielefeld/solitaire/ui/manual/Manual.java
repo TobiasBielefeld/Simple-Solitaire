@@ -50,6 +50,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.showOrHideStatusBar;
  *  Also i disabled recreation on orientation change, so i don't have to deal with scrolling back to old
  *  position, load old fragment and so on
  */
+
 public class Manual extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,AdapterView.OnItemClickListener{
 
@@ -93,7 +94,10 @@ public class Manual extends AppCompatActivity
             navigationView.setNavigationItemSelectedListener(this);
             navigationView.setCheckedItem(R.id.nav_startpage);
         } else if (listView!=null){
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            if (getSupportActionBar()!=null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
+
             listView.setOnItemClickListener(this);
 
             listView.post(new Runnable() {

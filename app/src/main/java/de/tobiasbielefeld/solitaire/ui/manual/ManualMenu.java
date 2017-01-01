@@ -26,6 +26,10 @@ import android.view.ViewGroup;
 
 import de.tobiasbielefeld.solitaire.R;
 
+/*
+ * Just show a textView for the menu page
+ */
+
 public class ManualMenu extends Fragment {
 
     @Override

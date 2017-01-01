@@ -1,346 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="20dp"
-        android:padding="10dp"
-        android:measureWithLargestChild="false"
-        android:gravity="center"
-        android:baselineAligned="false" >
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="20dp"
+    android:layout_marginTop="5dp"
+    android:baselineAligned="false"
+    android:gravity="center"
+    android:measureWithLargestChild="false"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:baselineAligned="false"
-            android:layout_weight="1">
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground1">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_1"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="1"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground2">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_2"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_2" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="2"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground3">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_3"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_3" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="3"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground4">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_4"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_4" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="4"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground5">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_5"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_5" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="5"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground6">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_6"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_6" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="6"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:baselineAligned="false"
-            android:layout_weight="1">
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground7">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_7"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_7" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="7"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground8">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_8"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_8" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="8"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground9"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground9">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_9"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_9" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="9"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground10"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground10">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_10"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_10" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="10"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground11"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground11">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_11"
-                    android:adjustViewBounds="true"
                     android:layout_weight="1"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_11" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="11"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/settingsCardBackground12"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/button_menu"
-                android:padding="5dp"
-                android:id="@+id/settingsCardBackground12">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:src="@drawable/background_12"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back"
+                    android:src="@drawable/background_12" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
                     android:text="12"
-                    android:gravity="center" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
         </LinearLayout>
 

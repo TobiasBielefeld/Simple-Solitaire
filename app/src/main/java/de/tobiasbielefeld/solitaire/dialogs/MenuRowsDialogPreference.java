@@ -31,7 +31,7 @@ import de.tobiasbielefeld.solitaire.R;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
- * dialog for changing the rows shown in the menu.
+ * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
 public class MenuRowsDialogPreference extends DialogPreference{

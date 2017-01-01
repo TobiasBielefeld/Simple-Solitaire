@@ -26,7 +26,6 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.helper.RecordList.Entry;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -72,7 +71,7 @@ public class Spider extends Game {
     }
 
     public boolean winTest(){
-        //if every tableau stacks is empty, game is won
+        //if every foundation stacks is full, game is won
         for (int i=0;i<8;i++)
             if (stacks[10+i].getSize()!=13)
                 return false;
@@ -165,9 +164,6 @@ public class Spider extends Game {
 
                 if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j,SAME_COLOR))
                     continue;
-
-                //if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
-                //    continue;
 
                 for (int k=0;k<10;k++){
                     Stack destStack = stacks[k];

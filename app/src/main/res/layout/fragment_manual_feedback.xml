@@ -5,31 +5,30 @@
     tools:context="de.tobiasbielefeld.solitaire.ui.manual.ManualFeedback">
 
     <ScrollView
+        android:id="@+id/manual_feedback_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/manual_feedback_scrollview"
         android:layout_above="@+id/linearLayout">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="@dimen/layout_padding">
 
-
             <TextView
-                android:text="@string/manual_feedback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="15dp"
-                android:textStyle="normal|bold"
-                android:textSize="20sp" />
+                android:text="@string/manual_feedback"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
 
 
             <TextView
-                android:text="@string/manual_feedback_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="@string/manual_feedback_text" />
 
         </LinearLayout>
 
@@ -37,30 +36,30 @@
     </ScrollView>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout">
+        android:orientation="horizontal">
 
         <Button
-            android:text="@string/manual_open_github"
+            android:id="@+id/manual_feedback_button_github"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/manual_feedback_button_github"
             android:layout_weight="1"
             android:background="@android:drawable/btn_default_small"
+            android:text="@string/manual_open_github"
             android:textAllCaps="false" />
 
         <Button
-            android:text="@string/manual_open_google_play"
+            android:id="@+id/manual_feedback_button_google_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/manual_feedback_button_google_play"
             android:layout_weight="1"
             android:background="@android:drawable/btn_default_small"
+            android:text="@string/manual_open_google_play"
             android:textAllCaps="false" />
 
     </LinearLayout>

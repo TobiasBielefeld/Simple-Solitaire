@@ -29,6 +29,10 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
+/*
+ *  Aces Up! Just 6 stacks and pretty easy rules
+ */
+
 public class AcesUp extends Game {
 
     public  AcesUp() {

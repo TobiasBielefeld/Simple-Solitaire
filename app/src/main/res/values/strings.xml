@@ -2,7 +2,6 @@
     <string name="app_name" translatable="false">Simple Solitaire Collection</string>
     <string name="app_version" translatable="false">Version</string>
 
-
     <string name="portrait" translatable="false">Portrait</string>
     <string name="landscape" translatable="false">Landscape</string>
     <string name="settings">Settings</string>

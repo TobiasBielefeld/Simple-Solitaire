@@ -30,10 +30,10 @@
     </FrameLayout>
 
     <View
+        android:id="@+id/shadow"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:background="@drawable/shadow"
         android:layout_marginTop="?attr/actionBarSize"
-        android:id="@+id/shadow" />
+        android:background="@drawable/shadow" />
 
 </android.support.design.widget.CoordinatorLayout>

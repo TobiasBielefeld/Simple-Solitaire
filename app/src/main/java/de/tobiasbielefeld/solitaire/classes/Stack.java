@@ -38,12 +38,12 @@ public class Stack {
     public static float defaultSpacing;                                                               //The default space between cards, will be calculated in onCreate of the Main activity
 
     public ImageView view;                                                                          //Background of the stack
+    public ArrayList<Card> currentCards = new ArrayList<>();                                        //the array of cards on the stack
     private int ID;                                                                                 //ID: 0 to 6 tableau. 7 to 10 foundations. 11 and 12 discard and Main stack
-    private float spacing;                                                                            //current spacing value
+    private float spacing;                                                                          //direction in which the cards on the stacks are ordered (top, down, left, right)
     private int spacingDirection;
     private int hasArrow;
     private float spacingMax;
-    public ArrayList<Card> currentCards = new ArrayList<>();                                        //the array of cards on the stack
 
     public Stack(int ID) {                                                                          //Constructor: set ID
         this.ID = ID;
@@ -69,8 +69,6 @@ public class Stack {
 
     public void removeCard(Card card) {
         currentCards.remove(currentCards.indexOf(card));
-
-        //if (ID <= currentGame.getLastTableauID() || spacingDirection!=0)
         updateSpacing();
     }
 
@@ -80,8 +78,7 @@ public class Stack {
 
     public Card getTopCard() {
         if (isEmpty()){
-            Log.e("Stack.getTopCard()",
-                    "Stack is empty so there is no card to return! Test with isEmpty()!");
+            Log.e("Stack.getTopCard()", "Stack is empty so there is no card to return! Test with isEmpty()!");
         }
 
         return currentCards.get(currentCards.size() - 1);
@@ -90,8 +87,7 @@ public class Stack {
     public Card getCardFromTop(int index) {
         //returns cards in reversed order
         if (isEmpty()){
-            Log.e("Stack.getCardFromTop()",
-                    "Stack is empty so there is no card to return! Testing with isEmpty()!");
+            Log.e("Stack.getCardFromTop()", "Stack is empty so there is no card to return! Testing with isEmpty()!");
         }
 
         return currentCards.get(currentCards.size() - 1 - index);
@@ -112,7 +108,7 @@ public class Stack {
     public boolean isOnLocation(float pX, float pY) {
         /*
          * returns if a position matches the stack coordinates
-         * Use the actual stack coordinates and the position of the top card for it
+         * Use the current stack coordinates and the position of the top card for it
          */
         PointF topPoint = getPosition(0);
 

@@ -5,40 +5,40 @@
     android:gravity="center_horizontal">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:orientation="vertical">
 
         <TextView
-            android:text="@string/portrait"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/portrait" />
+
+        <Spinner
             android:id="@+id/dialogSettingsMenuColumnsPortrait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:entries="@array/pref_menu_columns_list"
             android:minWidth="100dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:orientation="vertical">
 
         <TextView
-            android:text="@string/landscape"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/landscape" />
+
+        <Spinner
             android:id="@+id/dialogSettingsMenuColumnsLandscape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:entries="@array/pref_menu_columns_list"
             android:minWidth="100dp" />
 

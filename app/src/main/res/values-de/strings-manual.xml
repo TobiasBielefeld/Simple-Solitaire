@@ -3,12 +3,17 @@
 
     <string name="title_activity_manual">Handbuch</string>
 
+    <string name="manual_structure">Aufbau</string>
+    <string name="manual_objective">Ziel</string>
+    <string name="manual_rules">Regeln</string>
+    <string name="manual_scoring">Punkte</string>
     <string name="manual_games">Spiele</string>
     <string name="manual_feedback">Feedback</string>
     <string name="manual_startpage">Startseite</string>
     <string name="manual_back_to_game">Zurück zum Spiel</string>
     <string name="manual_open_google_play">Öffne Google Play</string>
     <string name="manual_open_github">Öffne GitHub Repo</string>
+
     <string name="manual_games_text1">Wähle ein Spiel aus um Aufbau, Ziel, Regeln und Punktzahlen anzuzeigen.</string>
     <string name="manual_startpage_text">Willkommen zum Handbuch von dieser Spiele-Sammlung! Ich hoffe
         es wird alles wichtige erklären.\n\nBenutze das Menü auf der linken Seite um die anderen
@@ -47,11 +52,6 @@
         Bewertung zu dieser App und schreibe rein was du möchtest. Drücke auf den Button in der rechten
         Ecke um den Google Play Store zu öffnen (falls installiert).\n\nVielen Dank im Vorraus für dein
         Feedback :)</string>
-    <string name="manual_structure">Aufbau</string>
-    <string name="manual_objective">Ziel</string>
-    <string name="manual_rules">Regeln</string>
-    <string name="manual_scoring">Punkte</string>
-
 
     <!-- Klondike -->
     <string name="manual_klondike_structure">1 Deck aus 52 Karten.\n\n7 Tableau-Stapel, 4

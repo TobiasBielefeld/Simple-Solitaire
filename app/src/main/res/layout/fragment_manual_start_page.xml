@@ -6,18 +6,18 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="@dimen/layout_padding">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/manual_startpage"
             android:layout_marginBottom="15dp"
-            android:textStyle="normal|bold"
-            android:textSize="20sp" />
+            android:text="@string/manual_startpage"
+            android:textSize="20sp"
+            android:textStyle="normal|bold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -25,7 +25,6 @@
             android:text="@string/manual_startpage_text"
             android:textSize="14sp" />
     </LinearLayout>
-
 
 
 </ScrollView>

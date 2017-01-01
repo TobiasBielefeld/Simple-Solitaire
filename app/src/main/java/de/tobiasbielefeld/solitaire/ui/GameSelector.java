@@ -148,7 +148,6 @@ public class GameSelector extends AppCompatActivity{
             return;
 
         //prepare the sharedPreferences and start the GameManager with the game name as a intent
-        //savedGameData = getSharedPreferences(game, MODE_PRIVATE);
         putSharedInt("pref_key_current_game",view.getId());
         Intent intent = new Intent(getApplicationContext(), GameManager.class);
         intent.putExtra("game", view.getId());

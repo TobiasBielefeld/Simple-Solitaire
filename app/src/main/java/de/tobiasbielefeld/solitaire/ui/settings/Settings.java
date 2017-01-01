@@ -42,14 +42,14 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
- *
+ *  Settings activity created with the "Create settings activity" tool from Android Studio.
  */
 
 public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
+    Toast toast;
     private Preference preferenceCards, preferenceCardsBackground;
     private Preference preferenceMenuColumns;
-    Toast toast;
 
     private static boolean isXLargeTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
@@ -257,6 +257,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
+    private void showToast( String text) {
+        if (toast == null) {
+            toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
+        }
+        else
+            toast.setText(text);
+
+        toast.show();
+    }
+
     public static class CustomizationPreferenceFragment extends PreferenceFragment {
 
         @Override
@@ -308,15 +318,5 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             settings.preferenceMenuColumns = findPreference(getString(R.string.pref_key_menu_columns));
             settings.setPreferenceMenuColumns();
         }
-    }
-
-    private void showToast( String text) {
-        if (toast == null) {
-            toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
-        }
-        else
-            toast.setText(text);
-
-        toast.show();
     }
 }

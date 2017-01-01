@@ -68,8 +68,6 @@ public class GameLogic{
             putBoolean(GAME_FIRST_RUN, false);
         }
         else if (won) {
-            //scores.load();
-
             loadRandomCards();
 
             for (Card card : cards)
@@ -91,7 +89,6 @@ public class GameLogic{
 
                 Card.load();
                 loadRandomCards();
-               // currentGame.loadRedealCount(gm);
 
                 if (! autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
                     autoComplete.showButton();
@@ -105,7 +102,7 @@ public class GameLogic{
     }
 
     public void newGame() {
-        //new game is like a redeal, but with new randomized cards
+        //new game is like a re-deal, but with new randomized cards
         randomCards = cards.clone();
         randomize(randomCards);
 
@@ -173,17 +170,20 @@ public class GameLogic{
          * for left handed mode: mirrors the stacks to the other side and then updates the card
          * positions.
          */
+
         if (stacks!=null) {
             for (Stack stack : stacks) {
                 stack.mirrorStack(gm.layoutGame);
             }
         }
 
+        //move the re-deal counter too
         if (currentGame.hasLimitedRedeals()){
             gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
             gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
         }
 
+        //change the arrow direction
         if (currentGame.hasArrow()){
             for (Stack stack : stacks){
                 if (stack.hasArrow()>0) {

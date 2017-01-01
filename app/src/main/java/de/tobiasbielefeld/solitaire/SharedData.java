@@ -75,7 +75,7 @@ public class SharedData {
     final public static String MENU_COLUMNS_PORTRAIT = "MenuColumnsPortrait";
     final public static String MENU_COLUMNS_LANDSCAPE = "MenuColumnsLandscape";
 
-    public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2 , OPTION_REVERSED_RECORD=3;
+    public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
 
     public static Card[] cards;
     public static Stack[] stacks;
@@ -125,14 +125,14 @@ public class SharedData {
     public static void moveToStack(ArrayList<Card> cards, Stack destination, int option) {
         ArrayList<Stack> destinations = new ArrayList<>();
 
-        for (int i=0;i<cards.size();i++)
+        for (int i = 0; i < cards.size(); i++)
             destinations.add(destination);
 
-        moveToStack(cards,destinations,option);
+        moveToStack(cards, destinations, option);
     }
 
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations) {
-        moveToStack(cards,destinations,0);
+        moveToStack(cards, destinations, 0);
     }
 
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
@@ -170,7 +170,7 @@ public class SharedData {
             }
         }
 
-        for (Card card : cards){
+        for (Card card : cards) {
             card.view.bringToFront();
         }
 
@@ -180,7 +180,7 @@ public class SharedData {
          */
         if (option == 0) {
             testAfterMoveHandler.sendEmptyMessageDelayed(0, 100);
-            testIfWonHandler.sendEmptyMessageDelayed(0,200);
+            testIfWonHandler.sendEmptyMessageDelayed(0, 200);
         }
     }
 
@@ -233,35 +233,35 @@ public class SharedData {
         return result;
     }
 
-    public static Long getLong(String name, long defaultValue){
-        return savedGameData.getLong(name,defaultValue);
+    public static Long getLong(String name, long defaultValue) {
+        return savedGameData.getLong(name, defaultValue);
     }
 
-    public static int getInt(String name, int defaultValue){
-        return savedGameData.getInt(name,defaultValue);
+    public static int getInt(String name, int defaultValue) {
+        return savedGameData.getInt(name, defaultValue);
     }
 
-    public static boolean getBoolean(String name, boolean defaultValue){
-        return savedGameData.getBoolean(name,defaultValue);
+    public static boolean getBoolean(String name, boolean defaultValue) {
+        return savedGameData.getBoolean(name, defaultValue);
     }
 
-    public static String getString(String name, String defaultValue){
-        return savedGameData.getString(name,defaultValue);
+    public static String getString(String name, String defaultValue) {
+        return savedGameData.getString(name, defaultValue);
     }
 
-    public static void putLong(String name, long value){
+    public static void putLong(String name, long value) {
         savedGameData.edit().putLong(name, value).apply();
     }
 
-    public static void putInt(String name, int value){
+    public static void putInt(String name, int value) {
         savedGameData.edit().putInt(name, value).apply();
     }
 
-    public static void putBoolean(String name, boolean value){
+    public static void putBoolean(String name, boolean value) {
         savedGameData.edit().putBoolean(name, value).apply();
     }
 
-    public static void putString(String name,String value){
+    public static void putString(String name, String value) {
         savedGameData.edit().putString(name, value).apply();
     }
 
@@ -270,24 +270,24 @@ public class SharedData {
      * like the orientation setting
      */
 
-    public static int getSharedInt(String name, int defaultValue){
-        return savedSharedData.getInt(name,defaultValue);
+    public static int getSharedInt(String name, int defaultValue) {
+        return savedSharedData.getInt(name, defaultValue);
     }
 
-    public static String getSharedString(String name, String defaultValue){
-        return savedSharedData.getString(name,defaultValue);
+    public static String getSharedString(String name, String defaultValue) {
+        return savedSharedData.getString(name, defaultValue);
     }
 
-    public static boolean getSharedBoolean(String name, boolean defaultValue){
-        return savedSharedData.getBoolean(name,defaultValue);
+    public static boolean getSharedBoolean(String name, boolean defaultValue) {
+        return savedSharedData.getBoolean(name, defaultValue);
     }
 
-    public static void putSharedInt(String name, int value){
+    public static void putSharedInt(String name, int value) {
         savedSharedData.edit().putInt(name, value).apply();
     }
 
-    public static void putSharedString(String name, String value){
-        savedSharedData.edit().putString(name,value).apply();
+    public static void putSharedString(String name, String value) {
+        savedSharedData.edit().putString(name, value).apply();
     }
 
 
@@ -314,28 +314,28 @@ public class SharedData {
     }
 
     /*
-     *
+     *  Some methods I use in a lot of different files
      */
 
-    public static void logText(String text){
-        Log.e("hey",text);
+    public static void logText(String text) {
+        Log.e("hey", text);
     }
 
-    public static int min(int value1, int value2){
+    public static int min(int value1, int value2) {
         if (value1 < value2)
             return value1;
         else
             return value2;
     }
 
-    public static float min(float value1, float value2){
+    public static float min(float value1, float value2) {
         if (value1 < value2)
             return value1;
         else
             return value2;
     }
 
-    public static int max(int value1, int value2){
+    public static int max(int value1, int value2) {
         if (value1 > value2)
             return value1;
         else
@@ -351,7 +351,7 @@ public class SharedData {
     }
 
     public static void setOrientation(AppCompatActivity activity) {
-        switch (getSharedString("pref_key_orientation","1")){
+        switch (getSharedString("pref_key_orientation", "1")) {
             case "1": //follow system settings
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;

@@ -39,7 +39,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * To add a new game, also include it here:
  *  - in LoadGame class, it handles all the loading of a game
  *  - in strings.xml as the shown name (use games_) as a prefix, like the other games
- *  - add a new button to fragment_manual_games.xml
+ *  - add new button to fragment_manual_games.xml
  *  - in strings-manual.xml add a new manual entry for the game
  *  - add entry to the dialog_menu_show_games.xml
  *  - and of course, include a button in the activity_game_chooser.xml
@@ -57,18 +57,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 @SuppressWarnings("all")
 public class DummyGame extends Game {
-
-    /*
-     * METHODS YOU CAN USE: (put in this method, to not cause an compiler error
-     */
-    private void methodsYouCanUse(){
-
-        /*
-         * test the cards of a given stack from the gives index up to top if the cards are in the
-         * right order. Use fort the card order the constants SAME_COLOR or ALTERNATING_COLOR
-         */
-        testCardsUpToTop(stacks[5], 5, SAME_COLOR);
-    }
 
     /*
      *  Initialise stuff in the constructor!
@@ -131,6 +119,18 @@ public class DummyGame extends Game {
         //the discard stack back to the main stack, use this method. It will automatically show the
         //remaining redeals on the main stack.
         setLimitedRedeals(5);
+    }
+
+    /*
+     * METHODS YOU CAN USE: (put in this method, to not cause an compiler error
+     */
+    private void methodsYouCanUse(){
+
+        /*
+         * test the cards of a given stack from the gives index up to top if the cards are in the
+         * right order. Use fort the card order the constants SAME_COLOR or ALTERNATING_COLOR
+         */
+        testCardsUpToTop(stacks[5], 5, SAME_COLOR);
     }
 
     /*

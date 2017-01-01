@@ -28,6 +28,10 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
+/*
+ * Mod3! Only for this game, i had to implement the ability to change the max height/width of a stack
+ */
+
 public class Mod3 extends Game {
 
     public  Mod3() {
@@ -101,8 +105,6 @@ public class Mod3 extends Game {
         if (card.getValue()==1 && stack == getDiscardStack())
             return true;
 
-        //|| (i<8 && j<8) || (i>=8 && j>=8 && i<16 && j<16) || (i>=16 && j>=16 && i<24 && j<24) || i<24)
-
         if (stack.isEmpty()) {
             if (stack.getID() < 8)
                 return card.getValue() == 2;
@@ -110,10 +112,7 @@ public class Mod3 extends Game {
                 return card.getValue() == 3;
             else if (stack.getID() < 24)
                 return card.getValue() == 4;
-            else if (stack.getID() <32)
-                return true;
-            else
-                return false;
+            else return stack.getID() < 32;
         }
         else {
             return stack.getID()<24 && validOrder(stack) && card.getValue()==stack.getTopCard().getValue()+3 && card.getColor()==stack.getTopCard().getColor();

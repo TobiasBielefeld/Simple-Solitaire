@@ -9,7 +9,7 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 
-/**
+/*
  * load the game data in a handler which waits a bit, so the initial card deal looks smoother
  */
 
@@ -29,7 +29,6 @@ public class LoadGameHandler extends Handler {
             gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
             gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
             gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
-            //mainTextViewRedeals.setText(String.format(Locale.getDefault(),"%d",currentGame.getRemainingNumberOfRedeals()));
         }
 
         gm.hasLoaded = true;

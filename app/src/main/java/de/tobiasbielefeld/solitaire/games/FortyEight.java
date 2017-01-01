@@ -29,6 +29,9 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
+/*
+ * Forty&Eight game! it's pretty hard to win
+ */
 public class FortyEight extends Game {
 
     public  FortyEight() {

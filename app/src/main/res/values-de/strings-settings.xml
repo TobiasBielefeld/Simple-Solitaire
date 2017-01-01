@@ -43,7 +43,6 @@
     <string name="settings_restart_fortyeight">Starte ein neues Forty&amp;Eight Spiel um die Änderung anzuwenden</string>
     <string name="settings_orientation">Bildschirmausrichtung</string>
     <string name="settings_about_description">Zeige Informationen über das Spiel wie Lizenzen und Änderungen</string>
-
     <string name="settings_show_manual_in_menu">Handbuchseite im Spielemenü</string>
     <string name="settings_show_manual_in_menu_description">Zeige einen Punkt im Menü, um das aktuelle Spiel im Handbuch zu öffnen</string>
 </resources>

@@ -43,7 +43,6 @@
     <string name="settings_menu_games">Show and hide games</string>
     <string name="settings_menu_games_description">Select which games are shown in the menu</string>
     <string name="settings_about_description">Show information about the game like licenses and changelog</string>
-
     <string name="settings_show_manual_in_menu">Manual page in game menu</string>
     <string name="settings_show_manual_in_menu_description">Show an item to open the current game in the manual</string>
 

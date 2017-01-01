@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="game_score">Score</string>
     <string name="game_time">Zeit</string>
     <string name="game_press_again">Zum Beenden erneut drücken</string>
@@ -8,7 +7,6 @@
     <string name="game_cancel">Abbrechen</string>
     <string name="game_confirm">Bestätigen</string>
     <string name="game_load_error">Laden der Daten ist fehlgeschlagen, starte neues Spiel…</string>
-
     <string name="games_freecell">FreeCell</string>
     <string name="games_klondike">Klondike</string>
     <string name="games_spider">Spider</string>

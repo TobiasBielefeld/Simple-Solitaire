@@ -29,8 +29,14 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
+/*
+ *  Tripeaks is nearly the same as Golf, but with a different field layout
+ */
+
 public class Tripeaks extends Game {
 
+    //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
+    //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3,5,7,9,10,12,13,15,16,18,19,20,21,22,23,24,25,26};//28
 
     public Tripeaks() {
@@ -150,7 +156,6 @@ public class Tripeaks extends Game {
         return null;
     }
 
-
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
         int points = 0;
 
@@ -173,7 +178,6 @@ public class Tripeaks extends Game {
             }
         }
     }
-
 
     private boolean stackIsFree(Stack stack){
         if (stack.getID()>17)

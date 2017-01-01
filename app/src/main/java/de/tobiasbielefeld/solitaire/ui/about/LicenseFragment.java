@@ -27,8 +27,9 @@ import android.webkit.WebView;
 
 import de.tobiasbielefeld.solitaire.R;
 
-/**
- * Just loads the GPL license from the html file
+/*
+ * Shows the GPL License, which is simply loaded from a webView. The About activity disables recreation
+ * after orientation change, so don't need to handle that.
  */
 
 public class LicenseFragment extends Fragment implements View.OnClickListener {

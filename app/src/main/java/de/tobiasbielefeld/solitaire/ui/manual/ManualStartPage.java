@@ -28,6 +28,10 @@ import android.widget.TextView;
 
 import de.tobiasbielefeld.solitaire.R;
 
+/*
+ * Just show a textView for the start page
+ */
+
 public class ManualStartPage extends Fragment {
 
     @Override

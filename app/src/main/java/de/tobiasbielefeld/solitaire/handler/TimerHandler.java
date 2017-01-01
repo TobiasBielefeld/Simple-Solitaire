@@ -28,7 +28,7 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/**
+/*
  * Handler to update the current time and show it
  */
 

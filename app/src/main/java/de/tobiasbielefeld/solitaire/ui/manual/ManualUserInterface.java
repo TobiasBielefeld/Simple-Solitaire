@@ -26,6 +26,10 @@ import android.view.ViewGroup;
 
 import de.tobiasbielefeld.solitaire.R;
 
+/*
+ * Just show a textView for the user interface page
+ */
+
 public class ManualUserInterface extends Fragment {
 
     @Override

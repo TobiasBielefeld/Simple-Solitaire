@@ -30,8 +30,8 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/**
- * dialog to handle new games or returning to main menu( in that case, cancel the current activty)
+/*
+ * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
  */
 
 public class RestartDialog extends DialogFragment {
@@ -61,9 +61,7 @@ public class RestartDialog extends DialogFragment {
                                     gameLogic.save();
                                 }
 
-                                getActivity().moveTaskToBack(true);
-                                //android.os.Process.killProcess(android.os.Process.myPid());
-                                //System.exit(1);
+                                getActivity().finish();
                                 break;
                         }
                     }

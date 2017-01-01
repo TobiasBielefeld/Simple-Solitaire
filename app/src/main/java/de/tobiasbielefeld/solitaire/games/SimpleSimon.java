@@ -28,7 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/**
+/*
  * Simple Simon Game! It's nearly like Spider, but with less cards and all cards are
  * already faced up at start
  */
@@ -111,9 +111,6 @@ public class SimpleSimon extends Game {
                 if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j,SAME_COLOR))
                     continue;
 
-                //if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
-                //    continue;
-
                 for (int k=0;k<10;k++){
                     Stack destStack = stacks[k];
                     if (i==k || destStack.isEmpty())
@@ -155,32 +152,40 @@ public class SimpleSimon extends Game {
         /*
          * after a move, test if somewhere is a complete card family, if so, move it to foundations
          */
+
         for (int i=0;i<10;i++){
             Stack currentStack = stacks[i];
 
-            if (currentStack.isEmpty())
+            if (currentStack.isEmpty() || currentStack.getTopCard().getValue()!=1)
                 continue;
 
             for (int j=currentStack.getFirstUpCardPos();j<currentStack.getSize();j++){
+                if (j==-1)
+                    break;
+
                 Card cardToTest = currentStack.getCard(j);
 
-                if (cardToTest.getValue()==13 && currentStack.getTopCard().getValue()==1 && testCardsUpToTop(currentStack,j,SAME_COLOR)){
+                if (cardToTest.getValue()==13 && testCardsUpToTop(currentStack,j,SAME_COLOR)){
                     Stack foundationStack = stacks[10];
 
                     while (!foundationStack.isEmpty())
                         foundationStack = stacks[foundationStack.getID()+1];
 
                     ArrayList<Card> cards = new ArrayList<>();
+                    ArrayList<Stack> origins = new ArrayList<>();
 
                     for (int k=j;k<currentStack.getSize();k++){
                         cards.add(currentStack.getCard(k));
+                        origins.add(currentStack);
                     }
 
-                    moveToStack(cards,stacks[foundationStack.getID()]);
+                    recordList.addAtEndOfLastEntry(cards,origins);
+                    moveToStack(cards,foundationStack,OPTION_NO_RECORD);
+                    scores.update(200);
+
                     break;
                 }
             }
         }
     }
-
 }

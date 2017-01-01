@@ -30,6 +30,10 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
+/*
+ * Pyramid Solitaire! It has a lot of stacks.
+ */
+
 public class Pyramid extends Game {
 
     int[] stackAboveID = new int[28];
@@ -102,7 +106,6 @@ public class Pyramid extends Game {
 
         for (int i = 0; i<28 ; i++) {
             moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-            //stacks[i].getTopCard().flipUp();
         }
 
         moveToStack(dealFromStack().getTopCard(),getDiscardStack(),OPTION_NO_RECORD);
@@ -122,7 +125,7 @@ public class Pyramid extends Game {
             while (getDiscardStack().getSize() > 0)
                 moveToStack(getDiscardStack().getTopCard(), dealFromStack(), OPTION_NO_RECORD);
 
-            scores.update(-200);    //because of no record, it isnt updated automatically
+            scores.update(-200);    //because of no record, it isn't updated automatically
         }
     }
 
@@ -142,10 +145,7 @@ public class Pyramid extends Game {
             return true;
         }
 
-        if (card.getStack()==dealFromStack() && stack == getDiscardStack())
-            return true;
-
-        return false;
+        return card.getStack() == dealFromStack() && stack == getDiscardStack();
     }
 
 
@@ -209,7 +209,6 @@ public class Pyramid extends Game {
 
     public void testAfterMove(){
         if (cardsToMove.size()>0){
-            //TODO Change this:
             recordList.deleteLast();
             moveToStack(cardsToMove,stacks[28],OPTION_NO_RECORD);
             recordList.add(cardsToMove,origins);

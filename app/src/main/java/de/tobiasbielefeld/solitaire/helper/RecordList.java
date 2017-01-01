@@ -140,30 +140,14 @@ public class RecordList {
         }
     }
 
-    public Entry getLastEntry(){
-        return entries.get(entries.size()-1);
-    }
-
     public void deleteLast(){
         entries.remove(entries.size() - 1);
     }
 
-    public class Entry {
+    private class Entry {
         private ArrayList<Card> currentCards = new ArrayList<>();
         private ArrayList<Stack> currentOrigins = new ArrayList<>();
         private ArrayList<Card> flipCards = new ArrayList<>();
-
-        public ArrayList<Card> getCurrentCards(){
-            return currentCards;
-        }
-
-        public ArrayList<Stack> getCurrentOrigins(){
-            return currentOrigins;
-        }
-
-        public ArrayList<Card> getFlipCards(){
-            return flipCards;
-        }
 
         Entry(String pos) {
             /*

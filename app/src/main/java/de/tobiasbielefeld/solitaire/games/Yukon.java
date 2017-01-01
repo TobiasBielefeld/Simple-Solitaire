@@ -29,7 +29,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/**
+/*
  * Yukon Game! 7 tableau stacks, 4 foundation stacks and no main stack
  */
 

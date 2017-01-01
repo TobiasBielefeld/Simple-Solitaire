@@ -30,7 +30,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Freecell Solitaire Game!!! 8 tableau, 4 free and 4 foundation stacks
+ * Freecell Solitaire Game! 8 tableau, 4 free and 4 foundation stacks
  */
 
 public class Freecell extends Game {

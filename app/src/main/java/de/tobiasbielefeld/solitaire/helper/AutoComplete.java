@@ -34,10 +34,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class AutoComplete {
 
+    public AutoCompleteHandler autoCompleteHandler = new AutoCompleteHandler();
     private boolean running=false;                                                                  //shows if the autocomplete is still running
     private boolean buttonShown = false;
-    public AutoCompleteHandler autoCompleteHandler = new AutoCompleteHandler();
-
     private GameManager gm;
 
     public AutoComplete(GameManager gm){

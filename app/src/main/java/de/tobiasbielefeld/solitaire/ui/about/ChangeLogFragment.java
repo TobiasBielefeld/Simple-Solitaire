@@ -27,8 +27,9 @@ import android.webkit.WebView;
 
 import de.tobiasbielefeld.solitaire.R;
 
-/**
- * Shows the changelog
+/*
+ * Shows the changelog, which is simply loaded from a webView. The About activity disables recreation
+ * after orientation change, so don't need to handle that.
  */
 
 public class ChangeLogFragment extends Fragment implements View.OnClickListener {

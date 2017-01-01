@@ -30,7 +30,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Everything about the Klondike game is here. This game has 7 tableau stacks, 4 foundation fields,
+ * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
  * 1 main stack and 3 discard stacks. The 3 discard stacks are for the "deal3" option. if it's
  * set to "deal1", the last discard stack will be used
  */

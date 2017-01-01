@@ -7,6 +7,10 @@
     <string name="manual_feedback">Feedback</string>
     <string name="manual_startpage">Start page</string>
     <string name="manual_back_to_game">Back to game</string>
+    <string name="manual_structure">Structure</string>
+    <string name="manual_objective">Objective</string>
+    <string name="manual_rules">Rules</string>
+    <string name="manual_scoring">Scoring</string>
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Open Google Play</string>
@@ -40,10 +44,7 @@
         rating on the page from this app and write anything you want in it. Click on the button to the right side to open the
         Google Play Store (if installed).\n\nThank you in advance for your feedback :)</string>
 
-    <string name="manual_structure">Structure</string>
-    <string name="manual_objective">Objective</string>
-    <string name="manual_rules">Rules</string>
-    <string name="manual_scoring">Scoring</string>
+
 
 
     <!-- Klondike -->

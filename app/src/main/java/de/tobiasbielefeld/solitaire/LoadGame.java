@@ -43,7 +43,8 @@ import de.tobiasbielefeld.solitaire.games.Yukon;
 
 /**
  * Everything about loading a game should be here. If you want to add a game, just expand the switch
- * statements with a new case.
+ * statements with a new case. But think of the order! Every game is alphabetically ordered.
+ * The order is important for the methods wich returns ArrayLists.
  */
 
 public class LoadGame {
@@ -51,7 +52,7 @@ public class LoadGame {
     private String gameName;
     private String sharedPrefName;
 
-    public Game loadClass(Activity activity, int buttonID){
+    public Game loadClass(Activity activity, int buttonID) {
         /*
          * load the game class and set the shown name and the name used for the sharedPref of the
          * current game. These names can be the same, but i used different ones and i don't want
@@ -62,7 +63,7 @@ public class LoadGame {
 
         switch (buttonID) {
             default:
-                Log.e("LoadGame.loadClass()","Your games seems not to be added here?");
+                Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");
             case R.id.buttonStartAcesUp:
                 sharedPrefName = "AcesUp";
                 gameName = activity.getString(R.string.games_acesup);
@@ -128,7 +129,7 @@ public class LoadGame {
         return game;
     }
 
-    public ArrayList<LinearLayout> loadLayouts(Activity activity){
+    public ArrayList<LinearLayout> loadLayouts(Activity activity) {
         ArrayList<LinearLayout> layouts = new ArrayList<>();
 
         //This is the exact same order like the games are shown in the main menu!
@@ -148,7 +149,7 @@ public class LoadGame {
         return layouts;
     }
 
-    public void loadManualButtons(View view, View.OnClickListener listener){
+    public void loadManualButtons(View view, View.OnClickListener listener) {
 
         /*
          *  Load Buttons for the manual and sets the click listener
@@ -169,12 +170,12 @@ public class LoadGame {
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_tripeaks));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_yukon));
 
-        for (Button button : gameButtons){
+        for (Button button : gameButtons) {
             button.setOnClickListener(listener);
         }
     }
 
-    public ArrayList<LinearLayout> loadMenuPreferenceViews(View view){
+    public ArrayList<LinearLayout> loadMenuPreferenceViews(View view) {
         ArrayList<LinearLayout> linearLayouts = new ArrayList<>();
 
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_1));
@@ -193,7 +194,7 @@ public class LoadGame {
         return linearLayouts;
     }
 
-    public ArrayList<CheckBox> loadMenuPreferenceCheckBoxes(View view){
+    public ArrayList<CheckBox> loadMenuPreferenceCheckBoxes(View view) {
         ArrayList<CheckBox> checkBoxes = new ArrayList<>();
 
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_1));
@@ -212,16 +213,16 @@ public class LoadGame {
         return checkBoxes;
     }
 
-    public String manualClick(int ID){
+    public String manualClick(int ID) {
 
         /*
          * returns the prefix of the manual entries for the games. The strings have the following structure:
          * manual_<game name>_rules , manual_<game name>_points and so on.
          */
 
-        switch (ID){
+        switch (ID) {
             default:
-                Log.e("LoadGame.manualClick()","Your games seems not to be added here?");
+                Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");
             case R.id.manual_games_button_acesup:
                 return "acesup";
             case R.id.manual_games_button_fortyeight:
@@ -249,11 +250,11 @@ public class LoadGame {
         }
     }
 
-    public String getGameName(){
+    public String getGameName() {
         return gameName;
     }
 
-    public String getSharedPrefName(){
+    public String getSharedPrefName() {
         return sharedPrefName;
     }
 }

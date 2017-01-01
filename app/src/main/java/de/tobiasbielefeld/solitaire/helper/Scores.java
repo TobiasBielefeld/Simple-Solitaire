@@ -187,6 +187,7 @@ public class Scores {
         /*
          * delete the high scores by just creating a new empty array and save it
          */
+
         savedScores = new long[MAX_SAVED_SCORES][2];
 
         saveHighScore();

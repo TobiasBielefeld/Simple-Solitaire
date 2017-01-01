@@ -20,4 +20,5 @@
             android:id="@+id/nav_back_to_game"
             android:title="@string/manual_back_to_game" />
     </group>
+
 </menu>

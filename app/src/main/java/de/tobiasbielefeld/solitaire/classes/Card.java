@@ -57,11 +57,6 @@ public class Card {
         value = (ID%13) +1;
     }
 
-    public void setColor(){
-        //update the color, used in Spider after loading the preference
-        color = currentGame.cardDrawablesOrder[(ID%52) / 13];
-    }
-
     public static void updateCardDrawableChoice(){
         //get
         switch (getSharedInt(CARD_DRAWABLES, 1)) {
@@ -139,6 +134,32 @@ public class Card {
         }
     }
 
+    public static void save() {
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (Card card: cards)
+            list.add(card.isUp ? 1 : 0);
+
+        putIntList(CARDS,list);
+    }
+
+    public static void load() {
+        ArrayList<Integer> list = getIntList(CARDS);
+
+        for (int i=0;i<cards.length;i++) {
+
+            if (list.get(i)==1)
+                cards[i].flipUp();
+            else
+                cards[i].flipDown();
+        }
+    }
+
+    public void setColor(){
+        //update the color, used in Spider after loading the preference
+        color = currentGame.cardDrawablesOrder[(ID%52) / 13];
+    }
+
     public int getID() {
         return ID;
     }
@@ -156,8 +177,6 @@ public class Card {
     }
 
     public void setLocation(float pX, float pY) {
-        //view.bringToFront();
-
         //if not already there, animate the moving
         if (view.getX() != pX || view.getY() != pY)
             animate.moveCard(this, pX, pY);
@@ -181,7 +200,7 @@ public class Card {
 
     public void flipUp() {
         isUp = true;
-        //set the coresponding drawable as image
+        //set the corresponding drawable as image
         view.setImageResource(drawables[(getColor() - 1) *13 + getValue() - 1]);
     }
 
@@ -224,28 +243,6 @@ public class Card {
          */
         return !((!isUp() || (stack.getSize() != 0 && !stack.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(stack, this);
 
-    }
-
-    public static void save() {
-        ArrayList<Integer> list = new ArrayList<>();
-
-        for (Card card: cards)
-            list.add(card.isUp ? 1 : 0);
-
-        putIntList(CARDS,list);
-    }
-
-    public static void load() {
-
-        ArrayList<Integer> list = getIntList(CARDS);
-
-        for (int i=0;i<cards.length;i++) {
-
-            if (list.get(i)==1)
-                cards[i].flipUp();
-            else
-                cards[i].flipDown();
-        }
     }
 
     public int getColor(){

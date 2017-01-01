@@ -1,29 +1,30 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
     <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$CustomizationPreferenceFragment"
-        android:title="@string/settings_customization"
-        android:summary="@string/settings_customization_description"/>
+        android:summary="@string/settings_customization_description"
+        android:title="@string/settings_customization" />
 
     <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$MenuPreferenceFragment"
-        android:title="@string/settings_menu"
-        android:summary="@string/settings_menu_description"/>
+        android:summary="@string/settings_menu_description"
+        android:title="@string/settings_menu" />
 
     <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$GamesPreferenceFragment"
-        android:title="@string/settings_games"
-        android:summary="@string/settings_games_description"/>
+        android:summary="@string/settings_games_description"
+        android:title="@string/settings_games" />
 
     <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$OtherPreferenceFragment"
-        android:title="@string/settings_other"
-        android:summary="@string/settings_other_description"/>
+        android:summary="@string/settings_other_description"
+        android:title="@string/settings_other" />
 
     <header
-        android:title="@string/about_name"
-        android:summary="@string/settings_about_description">
-        <intent android:targetPackage="de.tobiasbielefeld.solitaire"
-            android:targetClass="de.tobiasbielefeld.solitaire.ui.about.AboutActivity" />
+        android:summary="@string/settings_about_description"
+        android:title="@string/about_name">
+        <intent
+            android:targetClass="de.tobiasbielefeld.solitaire.ui.about.AboutActivity"
+            android:targetPackage="de.tobiasbielefeld.solitaire" />
     </header>
 
 </preference-headers>

@@ -46,6 +46,8 @@ public abstract class Game {
     final static protected int RIGHT = 2;
 
     public int[] cardDrawablesOrder = new int[]{1,2,3,4};
+    public int[] directions;
+    public int[] directionBorders;
     private boolean hasMainStack = false;
     private int dealFromID;
     private int mainStackID;
@@ -53,12 +55,9 @@ public abstract class Game {
     private boolean hasLimitedRedeals = false;
     private int discardStackID;
     private int lastTableauID;
-    public int[] directions;
-
     private int redealCounter=0;
     private int totalRedeals=0;
     private boolean hasArrow=false;
-    public int[] directionBorders;
 
     /*
      *  stuff that a game MUST implement
@@ -279,7 +278,7 @@ public abstract class Game {
 
     public Stack getDiscardStack(){
         if (discardStackID==0)
-            Log.e("Game.getdiscardStack()","No discard stack specified");
+            Log.e("Game.getDiscardStack()","No discard stack specified");
 
         return stacks[discardStackID];
     }

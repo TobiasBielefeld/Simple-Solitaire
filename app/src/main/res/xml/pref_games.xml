@@ -1,71 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/games_klondike" >
+    <PreferenceCategory android:title="@string/games_klondike">
         <ListPreference
-            android:key="@string/pref_key_klondike_draw"
             android:defaultValue="1"
             android:entries="@array/pref_klondike_draw_titles"
             android:entryValues="@array/pref_klondike_draw_values"
+            android:key="@string/pref_key_klondike_draw"
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@null"
-            android:title="@string/settings_klondike_draw"
-            android:summary="%s"/>
+            android:summary="%s"
+            android:title="@string/settings_klondike_draw" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_spider" >
+    <PreferenceCategory android:title="@string/games_spider">
         <ListPreference
-            android:key="@string/pref_key_spider_difficulty"
             android:defaultValue="1"
             android:entries="@array/pref_spider_difficulty_titles"
             android:entryValues="@array/pref_spider_difficulty_values"
+            android:key="@string/pref_key_spider_difficulty"
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@null"
-            android:title="@string/settings_spider_difficulty"
-            android:summary="%s"/>
+            android:summary="%s"
+            android:title="@string/settings_spider_difficulty" />
     </PreferenceCategory>
 
-    <!-- <PreferenceCategory android:title="@string/games_fortyeight" >
+    <PreferenceCategory android:title="@string/games_pyramid">
         <ListPreference
-            android:key="@string/pref_key_fortyeight_redeals"
-            android:defaultValue="5"
-            android:title="@string/settings_fortyeight_redeals"
-            android:entries="@array/pref_fortyeight_redeals_titles"
-            android:entryValues="@array/pref_fortyeight_redeals_values"
+            android:defaultValue="1"
+            android:entries="@array/pref_pyramid_difficulty_titles"
+            android:entryValues="@array/pref_pyramid_difficulty_values"
+            android:key="@string/pref_key_pyramid_difficulty"
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@null"
-            android:summary="%s" />
-    </PreferenceCategory> -->
+            android:summary="%s"
+            android:title="@string/settings_pyramid_difficulty" />
+    </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_pyramid" >
-      <ListPreference
-          android:key="@string/pref_key_pyramid_difficulty"
-          android:defaultValue="1"
-          android:title="@string/settings_pyramid_difficulty"
-          android:entries="@array/pref_pyramid_difficulty_titles"
-          android:entryValues="@array/pref_pyramid_difficulty_values"
-          android:negativeButtonText="@string/game_cancel"
-          android:positiveButtonText="@null"
-          android:summary="%s" />
-  </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/games_freecell" >
+    <PreferenceCategory android:title="@string/games_freecell">
         <CheckBoxPreference
+            android:defaultValue="true"
             android:key="@string/pref_key_freecell_multiple_cards"
-            android:defaultValue="true"
-            android:title="@string/settings_freecell_multiple_cards"
-            android:summary="@string/settings_freecell_multiple_cards_description" />
+            android:summary="@string/settings_freecell_multiple_cards_description"
+            android:title="@string/settings_freecell_multiple_cards" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_golf" >
+    <PreferenceCategory android:title="@string/games_golf">
         <CheckBoxPreference
-            android:key="@string/pref_key_golf_cyclic"
             android:defaultValue="true"
-            android:title="@string/settings_golf_easy"
-            android:summary="@string/settings_golf_easy_description" />
+            android:key="@string/pref_key_golf_cyclic"
+            android:summary="@string/settings_golf_easy_description"
+            android:title="@string/settings_golf_easy" />
     </PreferenceCategory>
-
-
 
 
 </PreferenceScreen>

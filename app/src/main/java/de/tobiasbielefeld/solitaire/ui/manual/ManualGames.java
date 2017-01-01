@@ -30,6 +30,11 @@ import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
+/*
+ *  Games Page contains a button for each game. If one button is pressed, the view with the buttons
+ *  will be hidden and a scroll view with the manual entry will be loaded. A button click gets a prefix
+ *  for the string resources
+ */
 public class ManualGames extends Fragment implements View.OnClickListener{
 
 
@@ -52,7 +57,6 @@ public class ManualGames extends Fragment implements View.OnClickListener{
         textRules = (TextView) view.findViewById(R.id.manual_games_rules);
         textScoring = (TextView) view.findViewById(R.id.manual_games_scoring);
 
-
         layout1.setVisibility(View.VISIBLE);
         scrollView.setVisibility(View.GONE);
 
@@ -66,16 +70,19 @@ public class ManualGames extends Fragment implements View.OnClickListener{
 
     private void loadGameText(int ID){
         currentGameButtonID= ID;
-        String gameName = lg.manualClick(ID);
+        String gameName = lg.manualClick(ID);   //get prefix
         layout1.setVisibility(View.GONE);
         scrollView.setVisibility(View.VISIBLE);
 
+        //and load everything
         textName.setText((getString(getResources().getIdentifier("games_"+ gameName + "", "string", getActivity().getPackageName()))));
         textStructure.setText(getString(getResources().getIdentifier("manual_"+ gameName + "_structure", "string", getActivity().getPackageName())));
         textObjective.setText(getString(getResources().getIdentifier("manual_"+ gameName + "_objective", "string", getActivity().getPackageName())));
         textRules.setText(getString(getResources().getIdentifier("manual_"+ gameName + "_rules", "string", getActivity().getPackageName())));
         textScoring.setText(getString(getResources().getIdentifier("manual_"+ gameName + "_scoring", "string", getActivity().getPackageName())));
 
+        //when the back button is pressed, it should return to the main page from the games, not to the start page.
+        //this way is easier than implementing an interface to control what happens in onBackPressed()
         ((Manual)getActivity()).setGamePageShown(true);
     }
 }

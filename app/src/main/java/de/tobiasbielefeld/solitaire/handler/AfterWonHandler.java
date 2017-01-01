@@ -39,7 +39,6 @@ public class AfterWonHandler extends Handler {
     GameManager gm;
     int phase = 1;
 
-
     public AfterWonHandler(GameManager gm){
         this.gm = gm;
     }

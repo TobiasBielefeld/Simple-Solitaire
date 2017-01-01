@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
 
-    <!-- highscores -->
+<resources>
     <string name="title_activity_statistics">ハイスコア</string>
 
     <string name="statistics_games_won">ゲームに勝ちました</string>
     <string name="statistics_button_delete">すべてのエントリーを削除!</string>
     <string name="statistics_button_delete_text">このゲームをクリアするためのすべてのエントリ！! よろしいですか?</string>
     <string name="statistics_button_deleted_all_entries">すべてのエントリーを削除しました</string>
-
 </resources>
