@@ -119,7 +119,7 @@ public class Scores {
 
         for (int i=0;i<MAX_SAVED_SCORES;i++){
             listScores.add(savedScores[i][0]);
-            listTimes.add(savedScores[i][0]);
+            listTimes.add(savedScores[i][1]);
         }
 
         putLongList(SAVED_SCORES + 0,listScores);
