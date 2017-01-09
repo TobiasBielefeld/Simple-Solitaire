@@ -83,8 +83,16 @@ public class Card {
         if (cards!=null) {
             for (Card card : cards)
                 if (card.isUp())
-                    card.view.setImageResource(drawables[(card.getColor() - 1) *13 + card.getValue() - 1]);
+                    card.setCardFront();
         }
+    }
+
+    public void setCardFront(){
+        view.setImageResource(drawables[(color - 1) *13 + value - 1]);
+    }
+
+    public void setCardBack(){
+        view.setImageResource(background);
     }
 
     public static void updateCardBackgroundChoice() {
@@ -130,7 +138,8 @@ public class Card {
         //apply
         if (cards!=null) {
             for (Card card : cards)
-                if (!card.isUp()) card.view.setImageResource(background);
+                if (!card.isUp())
+                    card.setCardBack();
         }
     }
 

@@ -45,4 +45,12 @@
         <item>Schwer: Spiel ist gewonnen, falls Tableau und Haupt-Stapel leer sind</item>
     </string-array>
 
+    <string-array name="pref_language_titles">
+        <item>Standard Sprache</item>
+        <item>Englisch</item>
+        <item>Deutsch</item>
+        <item>Japanisch</item>
+        <item>Esperanto</item>
+    </string-array>
+
 </resources>

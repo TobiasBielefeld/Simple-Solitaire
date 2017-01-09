@@ -46,4 +46,5 @@
     <string name="settings_restart_fortyeight">変更を適用するための新しい40のゲームを始める</string>
     <string name="settings_show_manual_in_menu">ゲームメニューでマニュアルページ</string>
     <string name="settings_show_manual_in_menu_description">マニュアルに現在のゲームを開くためのアイテムを表示する</string>
+    <string name="settings_change_language">言語を変えてください</string>
 </resources>

@@ -11,7 +11,10 @@
     <string name="about_tab_3">変更履歴</string>
     <string name="about_license_top_text">このゲームは GPL 3.0 ライセンスの下に公開されています:</string>
     <string name="about_program_code_text">ソースコードはこちらで利用可能です:</string>
-    <string name="about_japanese_translation_1">の日本語訳：</string>
-    <string name="about_japanese_translation_2">GitHub ユーザー naofum</string>
+    <string name="about_build_date">構築日</string>
+
+    <string name="about_translations">翻訳</string>
+    <string name="about_translations_japanese">日本語：GitHubのユーザーから naofum</string>
+    <string name="about_translations_esperanto">エスペラント：GitHubのユーザーによって verdulo</string>
 
 </resources>

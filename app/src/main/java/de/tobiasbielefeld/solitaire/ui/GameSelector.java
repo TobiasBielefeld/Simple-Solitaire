@@ -18,8 +18,10 @@
 
 package de.tobiasbielefeld.solitaire.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +33,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
@@ -54,11 +56,24 @@ public class GameSelector extends AppCompatActivity{
          * initialize stuff and if the corresponding setting is set to true, load the last played game
          */
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_chooser_main);
         savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+        defaultLocale = Locale.getDefault().toString();
+
+        String lang = getSharedString(getString(R.string.pref_key_language),"def");
+
+        if (lang.equals("def"))
+            lang = defaultLocale;
+
+        changeLocale(this);
+
+        setContentView(R.layout.activity_game_chooser_main);
 
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
         gameLayouts = lg.loadLayouts(this);
+
+        loadGameList();
+        showOrHideStatusBar(this);
+        setOrientation(this);
 
         if (!getSharedBoolean(getString(R.string.pref_key_start_menu),false)) {
             int savedGame;
@@ -131,6 +146,7 @@ public class GameSelector extends AppCompatActivity{
         }
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -142,7 +158,6 @@ public class GameSelector extends AppCompatActivity{
         /*
          *  load a game when clicking a button
          */
-
         //avoid loading two games at once when pressing two buttons at once
         if (getSharedInt("pref_key_current_game",0)!=0)
             return;
@@ -172,5 +187,22 @@ public class GameSelector extends AppCompatActivity{
         setOrientation(this);
     }
 
+    public void changeLocale(Context context) {
 
+        String lang = getSharedString(context.getString(R.string.pref_key_language),"default");
+
+        if (lang.equals("default"))
+            lang = defaultLocale;
+
+        Configuration conf = context.getResources().getConfiguration();
+        Locale locale = new Locale(lang);
+        conf.locale = locale;
+        Locale.setDefault(locale);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            conf.setLayoutDirection(conf.locale);
+        }
+
+        context.getResources().updateConfiguration(conf, context.getResources().getDisplayMetrics());
+    }
 }

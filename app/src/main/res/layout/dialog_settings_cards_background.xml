@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:layout_marginBottom="20dp"
-    android:layout_marginTop="5dp"
     android:baselineAligned="false"
     android:gravity="center"
     android:measureWithLargestChild="false"
     android:orientation="vertical"
     android:padding="10dp">
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/settingsCardBackground1"
@@ -178,14 +172,11 @@
                     android:text="6"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/settingsCardBackground7"
@@ -342,8 +333,8 @@
                     android:text="12"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
-        </LinearLayout>
+        </TableRow>
 
-    </LinearLayout>
+    </TableLayout>
 
-</RelativeLayout>
+</ScrollView>

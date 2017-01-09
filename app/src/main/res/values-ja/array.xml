@@ -22,7 +22,6 @@
         <item>紫色</item>
     </string-array>
 
-
     <string-array name="pref_orientation_titles">
         <item>システム設定に従う</item>
         <item>ポートレート</item>
@@ -44,6 +43,14 @@
     <string-array name="pref_pyramid_difficulty_titles">
         <item>簡単：テーブルが空のときにゲームが勝つ</item>
         <item>ハード：テーブルとストックが空のときに勝ちます</item>
+    </string-array>
+
+    <string-array name="pref_language_titles">
+        <item>標準語</item>
+        <item>英語</item>
+        <item>ドイツ人</item>
+        <item>日本語</item>
+        <item>エスペラント</item>
     </string-array>
 
 </resources>

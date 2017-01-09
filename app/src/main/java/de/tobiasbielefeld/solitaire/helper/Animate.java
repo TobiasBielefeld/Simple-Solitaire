@@ -249,9 +249,9 @@ public class Animate{
         growSet.addListener(new Animator.AnimatorListener() {
             public void onAnimationStart(Animator animation) {
                 if (mode)   //flip up
-                    card.view.setImageResource(Card.drawables[(card.getColor() - 1) *13 + card.getValue() - 1]);
+                    card.setCardFront();
                 else //flip down
-                    card.view.setImageResource(Card.background);
+                    card.setCardBack();
             }
 
             public void onAnimationEnd(Animator animation) {

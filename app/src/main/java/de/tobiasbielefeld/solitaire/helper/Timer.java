@@ -50,16 +50,20 @@ public class Timer {
 
     public void save() {
         running = false;
-        putLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
-        putLong(TIMER_START_TIME, startTime);
-        putLong(TIMER_SHOWN_TIME, currentTime);
+        if (!gameLogic.hasWon()) {
+            putLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
+            putLong(TIMER_START_TIME, startTime);
+            putLong(TIMER_SHOWN_TIME, currentTime);
+        }
     }
 
     public void load() {
-       running = true;
-        startTime = getLong(TIMER_START_TIME, System.currentTimeMillis())
-                + System.currentTimeMillis()
-                - getLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
+        running = true;
+
+            startTime = getLong(TIMER_START_TIME, System.currentTimeMillis())
+                    + System.currentTimeMillis()
+                    - getLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
+
         timerHandler.sendEmptyMessage(0);
     }
 

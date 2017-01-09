@@ -1,62 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    android:layout_marginBottom="20dp"
-    android:layout_marginTop="5dp"
     android:baselineAligned="false"
     android:gravity="center"
     android:measureWithLargestChild="false"
     android:orientation="vertical"
     android:padding="10dp">
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsBasic"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="@drawable/button_menu"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_weight="1">
 
-                <LinearLayout
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginLeft="1dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_basic"
-                        android:src="@drawable/basic_diamonds_10" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_basic"
-                        android:src="@drawable/basic_diamonds_13" />
-                </LinearLayout>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_basic"
+                    app:srcCompat="@drawable/preview_basic"
+                    android:padding="2dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -64,43 +44,30 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_basic"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:ellipsize="end" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsClassic"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="@drawable/button_menu"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_weight="1">
 
-                <LinearLayout
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginRight="1dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_classic"
-                        android:src="@drawable/classic_diamonds_10" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_classic"
-                        android:src="@drawable/classic_diamonds_13" />
-                </LinearLayout>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_classic"
+                    app:srcCompat="@drawable/preview_classic"
+                    android:padding="2dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,43 +75,30 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_classic"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:ellipsize="end" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsAbstract"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="@drawable/button_menu"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_weight="1">
 
-                <LinearLayout
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginLeft="1dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_abstract"
-                        android:src="@drawable/abstract_diamonds_10" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_abstract"
-                        android:src="@drawable/abstract_diamonds_13" />
-                </LinearLayout>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_abstract"
+                    app:srcCompat="@drawable/preview_abstract"
+                    android:padding="2dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -152,53 +106,36 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_abstract"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:ellipsize="end" />
+
             </LinearLayout>
 
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsSimple"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="@drawable/button_menu"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_weight="1">
 
-                <LinearLayout
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginLeft="1dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_simple"
-                        android:src="@drawable/simple_diamonds_10" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_simple"
-                        android:src="@drawable/simple_diamonds_13" />
-                </LinearLayout>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_simple"
+                    app:srcCompat="@drawable/preview_simple"
+                    android:padding="2dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -206,43 +143,30 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_simple"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:ellipsize="end" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsModern"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="@drawable/button_menu"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_weight="1">
 
-                <LinearLayout
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginLeft="1dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_modern"
-                        android:src="@drawable/modern_diamonds_10" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_modern"
-                        android:src="@drawable/modern_diamonds_13" />
-                </LinearLayout>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_modern"
+                    app:srcCompat="@drawable/preview_modern"
+                    android:padding="2dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -250,43 +174,30 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_modern"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:ellipsize="end" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsDark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="@drawable/button_menu"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_weight="1">
 
-                <LinearLayout
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginLeft="1dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_dark"
-                        android:src="@drawable/dark_diamonds_10" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="1dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/settings_dark"
-                        android:src="@drawable/dark_diamonds_13" />
-                </LinearLayout>
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_dark"
+                    app:srcCompat="@drawable/preview_dark"
+                    android:padding="2dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -294,11 +205,14 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_dark"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:ellipsize="end" />
+
             </LinearLayout>
 
-        </LinearLayout>
+        </TableRow>
 
-    </LinearLayout>
+    </TableLayout>
 
-</RelativeLayout>
+
+</ScrollView>

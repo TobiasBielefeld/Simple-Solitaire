@@ -18,14 +18,20 @@
 
 package de.tobiasbielefeld.solitaire;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.games.Game;
@@ -41,6 +47,7 @@ import de.tobiasbielefeld.solitaire.helper.MovingCards;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Timer;
+import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 /*
  * static data which is shared across the whole project, i like this more than passing stuff around
@@ -92,6 +99,7 @@ public class SharedData {
     public static SharedPreferences savedSharedData;
     public static SharedPreferences savedGameData;
     public static Game currentGame;
+    public static String defaultLocale;
 
     public static TestAfterMoveHandler testAfterMoveHandler = new TestAfterMoveHandler();
     public static TestIfWonHandler testIfWonHandler = new TestIfWonHandler();

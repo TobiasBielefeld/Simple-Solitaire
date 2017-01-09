@@ -18,6 +18,7 @@
     <string name="settings_abstract">Abstract</string>
     <string name="settings_dark">Dark</string>
     <string name="settings_basic">Basic</string>
+
     <string name="settings_background">Background number</string>
     <string name="settings_customization">Appearance</string>
     <string name="settings_customization_description">Customize cards and background</string>
@@ -45,6 +46,7 @@
     <string name="settings_about_description">Show information about the game like licenses and changelog</string>
     <string name="settings_show_manual_in_menu">Manual page in game menu</string>
     <string name="settings_show_manual_in_menu_description">Show an item to open the current game in the manual</string>
+    <string name="settings_change_language">Change language</string>
 
     <!-- Preference Keys -->
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>
@@ -68,5 +70,6 @@
     <string name="pref_key_menu_games" translatable="false">pref_key_menu_games</string>
     <string name="pref_key_about" translatable="false">pref_key_about</string>
     <string name="pref_key_show_manual_in_menu" translatable="false">pref_key_show_manual_in_menu</string>
+    <string name="pref_key_language" translatable="false">pref_key_language</string>
 
 </resources>

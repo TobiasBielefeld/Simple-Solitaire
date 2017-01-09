@@ -97,7 +97,17 @@
             android:layout_marginTop="10dp"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_japanese_translation_1"
+            android:text="@string/about_translations"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/about_translations_japanese"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -106,7 +116,7 @@
             android:layout_gravity="center_horizontal"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_japanese_translation_2"
+            android:text="@string/about_translations_esperanto"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView

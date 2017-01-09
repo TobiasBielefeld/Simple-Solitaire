@@ -62,7 +62,7 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
         int choice;
 
         switch (v.getId()) {
-            case R.id.settingsCardBackground1:
+            case R.id.settingsCardBackground1:default:
                 choice = 1;
                 break;
             case R.id.settingsCardBackground2:
@@ -97,9 +97,6 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
                 break;
             case R.id.settingsCardBackground12:
                 choice = 12;
-                break;
-            default:
-                choice = 1;
                 break;
         }
 

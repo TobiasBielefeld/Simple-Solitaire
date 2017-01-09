@@ -32,9 +32,10 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
+import java.util.Locale;
+import android.content.Intent;
 
 import java.util.List;
-import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -60,7 +61,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
-
 
          /* set a nice back arrow in the actionBar */
         ActionBar actionBar = getSupportActionBar();
@@ -121,7 +121,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             case MENU_COLUMNS_PORTRAIT:case MENU_COLUMNS_LANDSCAPE:
                 setPreferenceMenuColumns();
                 break;
+            case "pref_key_language":
+                setLocale();
+                break;
         }
+
     }
 
     public void onResume() {
@@ -318,5 +322,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             settings.preferenceMenuColumns = findPreference(getString(R.string.pref_key_menu_columns));
             settings.setPreferenceMenuColumns();
         }
+    }
+
+    private void setLocale() {
+
+        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
     }
 }

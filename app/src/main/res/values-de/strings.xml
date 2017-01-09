@@ -26,5 +26,8 @@
     <string name="games_gypsy">Gypsy</string>
     <string name="game_manual">Handbuch</string>
     <string name="about_loading">Lade…</string>
+    <string name="app_version">Version</string>
+    <string name="portrait">Portrait</string>
+    <string name="landscape">Landscape</string>
 
 </resources>
