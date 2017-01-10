@@ -1,2 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_version">Versio</string>
+
+    <!-- not sure if these should be translated-->
+    <string name="portrait">Vertikala</string>
+    <string name="landscape">Horizontala</string>
+
+    <string name="settings">Agordoj</string>
+    <string name="game_manual">Manlibro</string>
+    <string name="game_score">Poentaro</string>
+    <string name="game_time">Tempo</string>
+    <string name="game_cancel">Nuligi</string>
+    <string name="game_confirm">Konfirmi</string>
+    <string name="game_auto_complete_text">Mem-kompletiĝo</string>
+    <string name="game_press_again">Repremu por eliri</string>
+    <string name="game_load_error">Malsukcesis ŝargi lud-datumojn, ekigante novan ludon…</string>
+
+    <!-- Menu -->
+    <string name="menu_scores">Poentaro</string>
+    <string name="menu_undo">Malfari</string>
+    <string name="menu_hint">Konsilo</string>
+    <string name="menu_main_menu">Menuo</string>
+    <string name="menu_settings">Agordoj</string>
+
+    <!-- game names -->
+    <string name="games_klondike">Klondiko</string>
+    <string name="games_freecell">FreeCell</string>
+    <string name="games_yukon">Jukono</string>
+    <string name="games_spider">Araneo</string>
+    <string name="games_simplesimon">SimplaSimono</string>
+    <string name="games_golf">Golfo</string>
+    <string name="games_pyramid">Piramido</string>
+    <string name="games_tripeaks">TriPintoj</string>
+    <string name="games_fortyeight">Kvardek K Ok</string>
+    <string name="games_acesup">AsojSupren</string>
+    <string name="games_gypsy">Cigano</string>
+    <string name="games_mod3">Mod3</string>
+
+</resources>
