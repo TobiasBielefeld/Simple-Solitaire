@@ -60,6 +60,7 @@
         <item>de</item>
         <item>ja</item>
         <item>eo</item>
+        <item>pl</item>
     </string-array>
 
     <string-array name="restart_menu">
@@ -113,6 +114,7 @@
         <item>German</item>
         <item>Japanese</item>
         <item>Esperanto</item>
+        <item>Polish</item>
     </string-array>
 
 </resources>
