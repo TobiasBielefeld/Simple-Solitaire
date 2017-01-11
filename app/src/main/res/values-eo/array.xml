@@ -30,9 +30,9 @@
     </string-array>
 
     <string-array name="pref_spider_difficulty_titles">
-        <item>1 (Facila)</item>
-        <item>2 (Meza)</item>
-        <item>4 (Malfacila)</item>
+        <item>1 (facila)</item>
+        <item>2 (meza)</item>
+        <item>4 (malfacila)</item>
     </string-array>
 
     <string-array name="pref_klondike_draw_titles">

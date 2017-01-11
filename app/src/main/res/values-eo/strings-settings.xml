@@ -19,7 +19,7 @@
     <string name="settings_dark">Mallumaj</string>
     <string name="settings_basic">Normaj</string>
 
-    <string name="settings_background">Malantaŭo numero</string>
+    <string name="settings_background">Fono numero</string>
     <string name="settings_customization">Aspekto</string>
     <string name="settings_customization_description">Alĝustigu kartojn kaj fonojn</string>
     <string name="settings_other">Ĝeneralaj</string>
@@ -34,16 +34,16 @@
     <string name="settings_show_main_menu_description">Ne malfermas laste malfermitan ludon dum starto</string>
     <string name="settings_golf_easy">Ciklaj movoj (pli facile)</string>
     <string name="settings_golf_easy_description">Permesas meti asojn sur reĝojn kaj inverse</string>
-    <string name="settings_restart_klondike">Komencu novan ludon Klodniko por apliki ŝanĝojn</string>
-    <string name="settings_restart_spider">Komencu novan ludon Aranro por apliki ŝanĝojn</string>
-    <string name="settings_restart_fortyeight">Komencu novan ludon Kvardek K Ok por apliki ŝanĝojn</string>
+    <string name="settings_restart_klondike">Komencu novan ludon Klondiko por apliki ŝanĝojn</string>
+    <string name="settings_restart_spider">Komencu novan ludon Araneo por apliki ŝanĝojn</string>
+    <string name="settings_restart_fortyeight">Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn</string>
     <string name="settings_menu">Ĉefmenuo</string>
     <string name="settings_menu_description">Ŝanĝu nombro da kolumnoj, montru kaj kaŝu ludojn</string>
     <string name="settings_pyramid_difficulty">Facileco</string>
     <string name="settings_menu_columns">Nombro da kolumnoj</string>
     <string name="settings_menu_games">Montri kaj kaŝi ludojn</string>
     <string name="settings_menu_games_description">Elektu kiujn ludojn estas videblaj en menuo</string>
-    <string name="settings_about_description">Montras informojn pri la ludo kiel permesilojn kaj ŝanĝoprotokolo</string>
+    <string name="settings_about_description">Montras informojn pri la ludo kiel permesilojn kaj ŝanĝoprotokolon</string>
     <string name="settings_show_manual_in_menu">Manlibra paĝo en ĉefmenuo</string>
     <string name="settings_show_manual_in_menu_description">Montras butonon por malfermi paĝon en manlibro pri nuna ludo</string>
     <string name="settings_change_language">Ŝanĝi lingvon</string>

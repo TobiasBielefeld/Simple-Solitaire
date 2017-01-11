@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_version">Versio</string>
 
@@ -31,8 +32,8 @@
     <string name="games_golf">Golfo</string>
     <string name="games_pyramid">Piramido</string>
     <string name="games_tripeaks">TriPintoj</string>
-    <string name="games_fortyeight">Kvardek K Ok</string>
-    <string name="games_acesup">AsojSupren</string>
+    <string name="games_fortyeight">Kvardek&amp;Ok</string>
+    <string name="games_acesup">KvarAsoj</string>
     <string name="games_gypsy">Cigano</string>
     <string name="games_mod3">Mod3</string>
 
