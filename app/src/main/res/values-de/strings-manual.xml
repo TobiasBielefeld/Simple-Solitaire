@@ -18,15 +18,15 @@
     <string name="manual_startpage_text">Willkommen zum Handbuch von dieser Spiele-Sammlung! Ich hoffe
         es wird alles wichtige erklären.\n\nBenutze das Menü auf der linken Seite um die anderen
         Handbuchseiten zu öffnen.</string>
-    <string name="manual_general_main_menu_header">Hauptmenü</string>
+    <string name="manual_main_menu">Hauptmenü</string>
     <string name="manual_general_main_menu">Die Benutzung des Hauptmenüs ist recht einfach. Tippe auf
         ein Spiel um es zu starten.\n\nDie App wird bei einem Neustart automatisch das zuletzt gespielte
         Spiel öffnen, falls die App innerhalb eines Spiels pausiert wird. Dieses Verhalten kann in den
         Einstellungen unter \"Allgemein\" deaktivert werden.\n\nDort befindet sich auch unter \"Hauptmenü\"
         die Möglichkeit alle Spiele im Menü zu verstecken und die Anzahl der Spalten zu verändern, sodass
         mehr Spiele auf einmal auf dem Bildschirm passen.</string>
-    <string name="manual_ui_header">Benutzeroberfläche</string>
-    <string name="manual_ui">Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms
+    <string name="manual_ui">Benutzeroberfläche</string>
+    <string name="manual_ui_text">Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms
         (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand
         und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert.
         Das Menü enthält 5 Punkte, die die folgendenen Zwecke erfüllen (Punkte von links

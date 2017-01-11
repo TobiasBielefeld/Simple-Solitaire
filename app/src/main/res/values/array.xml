@@ -47,20 +47,11 @@
 
     <string-array name="manual_side_menu_tablet" translatable="false">
         <item>@string/manual_startpage</item>
-        <item>@string/manual_general_main_menu_header</item>
-        <item>@string/manual_ui_header</item>
+        <item>@string/manual_main_menu</item>
+        <item>@string/manual_ui</item>
         <item>@string/manual_games</item>
         <item>@string/manual_feedback</item>
         <item>@string/manual_back_to_game</item>
-    </string-array>
-
-    <string-array name="pref_language_values" translatable="false">
-        <item>default</item>
-        <item>en</item>
-        <item>de</item>
-        <item>ja</item>
-        <item>eo</item>
-        <item>pl</item>
     </string-array>
 
     <string-array name="restart_menu">
@@ -111,10 +102,19 @@
     <string-array name="pref_language_titles">
         <item>Default language</item>
         <item>English</item>
+        <item>Esperanto</item>
         <item>German</item>
         <item>Japanese</item>
-        <item>Esperanto</item>
         <item>Polish</item>
+    </string-array>
+
+    <string-array name="pref_language_values">
+        <item>default</item>
+        <item>en</item>
+        <item>eo</item>
+        <item>de</item>
+        <item>ja</item>
+        <item>pl</item>
     </string-array>
 
 </resources>

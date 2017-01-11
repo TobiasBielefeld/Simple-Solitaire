@@ -6,10 +6,10 @@
             android:title="@string/manual_startpage" />
         <item
             android:id="@+id/nav_menu"
-            android:title="@string/manual_general_main_menu_header" />
+            android:title="@string/manual_main_menu" />
         <item
             android:id="@+id/nav_user_interface"
-            android:title="@string/manual_ui_header" />
+            android:title="@string/manual_ui" />
         <item
             android:id="@+id/nav_games"
             android:title="@string/manual_games" />

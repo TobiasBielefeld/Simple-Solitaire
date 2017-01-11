@@ -116,7 +116,7 @@
             android:layout_gravity="center_horizontal"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_translations_esperanto"
+            android:text="@string/about_translations_esperanto_polish"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView

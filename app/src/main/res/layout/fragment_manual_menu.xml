@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:text="@string/manual_general_main_menu_header"
+            android:text="@string/manual_main_menu"
             android:textSize="20sp"
             android:textStyle="normal|bold" />
 

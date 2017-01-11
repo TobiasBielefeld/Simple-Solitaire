@@ -59,11 +59,6 @@ public class GameSelector extends AppCompatActivity{
         savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
         defaultLocale = Locale.getDefault().toString();
 
-        String lang = getSharedString(getString(R.string.pref_key_language),"def");
-
-        if (lang.equals("def"))
-            lang = defaultLocale;
-
         changeLocale(this);
 
         setContentView(R.layout.activity_game_chooser_main);

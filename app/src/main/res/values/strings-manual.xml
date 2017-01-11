@@ -11,6 +11,8 @@
     <string name="manual_objective">Objective</string>
     <string name="manual_rules">Rules</string>
     <string name="manual_scoring">Scoring</string>
+    <string name="manual_main_menu">Main menu</string>
+    <string name="manual_ui">User interface</string>
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Open Google Play</string>
@@ -19,13 +21,11 @@
     <string name="manual_games_text1">Choose a game to show it\'s structure, objective, rules and scoring.</string>
     <string name="manual_startpage_text">Welcome to the manual of this game collection! I hope it will explain everything.
         \n\nUse the menu on the left side to access the other manual pages.</string>
-    <string name="manual_general_main_menu_header">Main menu</string>
     <string name="manual_general_main_menu">The usage of the main menu is relatively simple. Just tap on a game to start it.
         \n\nThe app will automatically load the last played game on a restart, if the app was paused in it. This behavior can
         be disabled in the settings under \"General\".\n\nThere you can also find the section \"Main menu\", where it\'s possible to hide games
         from the menu and change the number of columns, so more games fit on the screen at once.</string>
-    <string name="manual_ui_header">User interface</string>
-    <string name="manual_ui">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the
+    <string name="manual_ui_text">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the
         right side (Landscape mode).It will also show the current score and current played time of the game. If possible, these two values
         will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons
         from left to right):\n\nThe \"Scores\" button will show a new window with the high scores and the count of won games of
@@ -43,9 +43,6 @@
         side of the screen to open the Issue Tracker with the Internet browser.\n\nUse a rating in Google Play: Just leave a
         rating on the page from this app and write anything you want in it. Click on the button to the right side to open the
         Google Play Store (if installed).\n\nThank you in advance for your feedback :)</string>
-
-
-
 
     <!-- Klondike -->
     <string name="manual_klondike_structure">1 deck of 52 cards.\n\n7 tableau stacks, 4 foundation

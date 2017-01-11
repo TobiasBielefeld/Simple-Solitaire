@@ -2,7 +2,7 @@
 
 <resources>
     <string name="about_name">ゲームについて</string>
-    <string name="about_Text1">developed by Tobias Bielefeld</string>
+    <string name="about_Text1">によって開発された Tobias Bielefeld</string>
     <string name="about_Text2">私のゲームをプレイしていただきありがとうございます :)</string>
     <string name="about_Text3">画像のオリジナルの公開場所:</string>
     <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 ライセンスの下</a></string>
@@ -15,6 +15,6 @@
 
     <string name="about_translations">翻訳</string>
     <string name="about_translations_japanese">日本語：GitHubのユーザーから naofum</string>
-    <string name="about_translations_esperanto">エスペラント：GitHubのユーザーによって verdulo</string>
+    <string name="about_translations_esperanto_polish">エスペラントとポリッシュ：GitHubのユーザーによって verdulo</string>
 
 </resources>

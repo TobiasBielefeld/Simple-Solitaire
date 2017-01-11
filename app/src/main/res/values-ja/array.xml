@@ -51,6 +51,16 @@
         <item>ドイツ人</item>
         <item>日本語</item>
         <item>エスペラント</item>
+        <item>ポーランド語</item>
+    </string-array>
+
+    <string-array name="pref_language_values">
+        <item>default</item>
+        <item>en</item>
+        <item>de</item>
+        <item>ja</item>
+        <item>eo</item>
+        <item>pl</item>
     </string-array>
 
 </resources>
