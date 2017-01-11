@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="title_activity_statistics">Najlepsze wyniki</string>
+
+    <string name="statistics_games_won">Gier wygranych</string>
+    <string name="statistics_button_delete">Usuń wszystkie wpisy!</string>
+    <string name="statistics_button_delete_text">Usunięte zostaną wszystkie wpisy dla tej gry! Czy na pewno?</string>
+    <string name="statistics_button_deleted_all_entries">Usunięto wszystkie wpisy</string>
+</resources>

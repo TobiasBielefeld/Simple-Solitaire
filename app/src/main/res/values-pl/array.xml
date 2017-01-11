@@ -1,0 +1,57 @@
+<resources>
+
+    <string-array name="restart_menu">
+        <item>Rozpocznij nową grę</item>
+        <item>Ponownie rozdaj karty</item>
+        <item>Powrót do menu głównego</item>
+    </string-array>
+
+    <string-array name="restart_menu_with_manual">
+        <item>Rozpocznij nową grę</item>
+        <item>Ponownie rozdaj karty</item>
+        <item>Otwórz stronę gry w podręczniku</item>
+        <item>Powrót do menu głównego</item>
+    </string-array>
+
+    <string-array name="pref_background_colors_titles">
+        <item>Niebieski</item>
+        <item>Zielony</item>
+        <item>Czerwony</item>
+        <item>Żółty</item>
+        <item>Pomarańczowy</item>
+        <item>Purpurowy</item>
+    </string-array>
+
+    <string-array name="pref_orientation_titles">
+        <item>Ustawienia systemu</item>
+        <item>Pionowa</item>
+        <item>Pozioma</item>
+        <item>Pozioma do góry nogami</item>
+    </string-array>
+
+    <string-array name="pref_spider_difficulty_titles">
+        <item>1 (łatwy)</item>
+        <item>2 (średni)</item>
+        <item>4 (trudny)</item>
+    </string-array>
+
+    <string-array name="pref_klondike_draw_titles">
+        <item>Rozdaj 1</item>
+        <item>Rozdaj 3</item>
+    </string-array>
+
+    <string-array name="pref_pyramid_difficulty_titles">
+        <item>Łatwy: gra jest wygrana gdy pole gry jest puste</item>
+        <item>Trudny: gra jest wygrana gdy pole gry i stos są pusty</item>
+    </string-array>
+
+    <string-array name="pref_language_titles">
+        <item>Domyślny</item>
+        <item>Angielski</item>
+        <item>Niemiecki</item>
+        <item>Japoński</item>
+        <item>Esperanto</item>
+		<item>Polski</item>
+    </string-array>
+
+</resources>

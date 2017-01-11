@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="about_name">O grze</string>
+    <string name="about_Text1">twórca: Tobias Bielefeld</string>
+    <string name="about_Text2">dziękuję za granie w moją grę :)</string>
+    <string name="about_Text3">obrazki oryginalnie opublikowane na:</string>
+    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.pl">na licencji CC0</a></string>
+    <string name="about_tab_1">Informacje</string>
+    <string name="about_tab_2">Licencja</string>
+    <string name="about_tab_3">Zmiany</string>
+    <string name="about_build_date">Data kompilacji</string>
+    <string name="about_license_top_text">Ta gra została wydana na licencji GPL 3.0:</string>
+    <string name="about_program_code_text">Kod źródłowy jest dostępny na:</string>
+    <string name="about_loading">Ładowanie…</string>
+
+    <string name="about_translations">Tłumaczenia</string>
+    <string name="about_translations_japanese">Japoński: użytkownik GitHuba naofum</string>
+    <string name="about_translations_esperanto">Esperanto: użytkownik GitHuba verdulo</string>
+    <string name="about_translations_polish">Polski: użytkownik GitHuba verdulo</string>
+</resources>
