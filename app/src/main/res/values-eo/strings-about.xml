@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="about_name">Pri ludo</string>
+    <string name="about_Text1">programita de Tobias BIELEFELD</string>
+    <string name="about_Text2">dankon por ludadi mian ludon :)</string>
+    <string name="about_Text3">bildoj origine publikitaj en:</string>
+    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">sub la permesilo CC0</a></string>
+    <string name="about_tab_1">Informoj</string>
+    <string name="about_tab_2">Permesilo</string>
+    <string name="about_tab_3">Ŝanĝoprotokolo</string>
+    <string name="about_build_date">Kompilita je</string>
+    <string name="about_license_top_text">Tiu ĉi ludo estas publikita sub la permesilo GPL 3.0:</string>
+    <string name="about_program_code_text">Fontkodo estas disponebla en:</string>
+    <string name="about_loading">Ŝargado…</string>
+
+    <string name="about_translations">Tradukoj</string>
+    <string name="about_translations_japanese">Japana: de GitHub-uzanto naofum</string>
+    <string name="about_translations_esperanto">Esperanto: de GitHub-uzanto verdulo</string>
+    <string name="about_translations_polish">Pola: de GitHub-uzanto verdulo</string>	
+
+</resources>

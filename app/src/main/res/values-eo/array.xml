@@ -1,0 +1,57 @@
+<resources>
+
+    <string-array name="restart_menu">
+        <item>Komenci novan ludon</item>
+        <item>Disdoni kartojn ree</item>
+        <item>Reveni al ĉefmenuo</item>
+    </string-array>
+
+    <string-array name="restart_menu_with_manual">
+        <item>Komenci novan ludon</item>
+        <item>Disdoni kartojn ree</item>
+        <item>Malfermi paĝon pri ludo en manlibro</item>
+        <item>Reveni al ĉefmenuo</item>
+    </string-array>
+
+    <string-array name="pref_background_colors_titles">
+        <item>Blua</item>
+        <item>Verda</item>
+        <item>Ruĝa</item>
+        <item>Flava</item>
+        <item>Oranĝkolora</item>
+        <item>Purpura</item>
+    </string-array>
+
+    <string-array name="pref_orientation_titles">
+        <item>Laŭ sistema agordo</item>
+        <item>Vertikala</item>
+        <item>Horizontala</item>
+        <item>Horizontala inversa</item>
+    </string-array>
+
+    <string-array name="pref_spider_difficulty_titles">
+        <item>1 (facila)</item>
+        <item>2 (meza)</item>
+        <item>4 (malfacila)</item>
+    </string-array>
+
+    <string-array name="pref_klondike_draw_titles">
+        <item>Elpreni 1</item>
+        <item>Elpreni 3</item>
+    </string-array>
+
+    <string-array name="pref_pyramid_difficulty_titles">
+        <item>Facila: ludo estas venkita kiam tablamaso estas malplena</item>
+        <item>Malfacila: ludo estas venkita kiam tablamaso kaj stako estas malplenaj</item>
+    </string-array>
+
+    <string-array name="pref_language_titles">
+        <item>Implicita</item>
+        <item>Angla</item>
+        <item>Germana</item>
+        <item>Japana</item>
+        <item>Esperanto</item>
+		<item>Pola</item>
+    </string-array>
+
+</resources>

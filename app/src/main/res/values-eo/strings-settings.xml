@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="title_activity_settings">Agordoj</string>
+
+    <string name="settings_background_color">Fona koloro</string>
+    <string name="settings_hide_status_bar">Kaŝi statan breton</string>
+    <string name="settings_left_handed_mode">Maldekstrmana reĝimo</string>
+    <string name="settings_left_handed_mode_description">Inversigas poziciojn de kartoj kaj stakoj al maldekstra flanko</string>
+    <string name="settings_back_press">Konfirmi fermado de ludo</string>
+    <string name="settings_back_press_description">Premu duoble reen-butonon por fermi ludon</string>
+    <string name="settings_orientation">Ekrana orientiĝo</string>
+    <string name="settings_cards">Kartoj</string>
+    <string name="settings_classic">Klasikaj</string>
+    <string name="settings_simple">Simplaj</string>
+    <string name="settings_cards_back">Kartaj malantaŭoj</string>
+    <string name="settings_modern">Modernaj</string>
+    <string name="settings_abstract">Abstraktaj</string>
+    <string name="settings_dark">Mallumaj</string>
+    <string name="settings_basic">Normaj</string>
+
+    <string name="settings_background">Fono numero</string>
+    <string name="settings_customization">Aspekto</string>
+    <string name="settings_customization_description">Alĝustigu kartojn kaj fonojn</string>
+    <string name="settings_other">Ĝeneralaj</string>
+    <string name="settings_other_description">Agordu ĉion alian</string>
+    <string name="settings_games">Ludoj</string>
+    <string name="settings_games_description">Alĝustigu agordojn de ludaj variaĵoj</string>
+    <string name="settings_freecell_multiple_cards">Permesi movi kelkajn kartojn</string>
+    <string name="settings_freecell_multiple_cards_description">Permesas movi tiom da kartoj unufoje, kiom da liberaj celoj estas</string>
+    <string name="settings_spider_difficulty">Kiom da diversaj emblemoj de kartoj</string>
+    <string name="settings_klondike_draw">Kiom da kartoj elpreni</string>
+    <string name="settings_show_main_menu">Eki en ĉefmenuo</string>
+    <string name="settings_show_main_menu_description">Ne malfermas laste malfermitan ludon dum starto</string>
+    <string name="settings_golf_easy">Ciklaj movoj (pli facile)</string>
+    <string name="settings_golf_easy_description">Permesas meti asojn sur reĝojn kaj inverse</string>
+    <string name="settings_restart_klondike">Komencu novan ludon Klondiko por apliki ŝanĝojn</string>
+    <string name="settings_restart_spider">Komencu novan ludon Araneo por apliki ŝanĝojn</string>
+    <string name="settings_restart_fortyeight">Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn</string>
+    <string name="settings_menu">Ĉefmenuo</string>
+    <string name="settings_menu_description">Ŝanĝu nombro da kolumnoj, montru kaj kaŝu ludojn</string>
+    <string name="settings_pyramid_difficulty">Facileco</string>
+    <string name="settings_menu_columns">Nombro da kolumnoj</string>
+    <string name="settings_menu_games">Montri kaj kaŝi ludojn</string>
+    <string name="settings_menu_games_description">Elektu kiujn ludojn estas videblaj en menuo</string>
+    <string name="settings_about_description">Montras informojn pri la ludo kiel permesilojn kaj ŝanĝoprotokolon</string>
+    <string name="settings_show_manual_in_menu">Manlibra paĝo en ĉefmenuo</string>
+    <string name="settings_show_manual_in_menu_description">Montras butonon por malfermi paĝon en manlibro pri nuna ludo</string>
+    <string name="settings_change_language">Ŝanĝi lingvon</string>
+
+</resources>
