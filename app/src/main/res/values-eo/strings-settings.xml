@@ -19,7 +19,7 @@
     <string name="settings_dark">Mallumaj</string>
     <string name="settings_basic">Normaj</string>
 
-    <string name="settings_background">Fono numero</string>
+    <string name="settings_background">Malantaŭo numero</string>
     <string name="settings_customization">Aspekto</string>
     <string name="settings_customization_description">Alĝustigu kartojn kaj fonojn</string>
     <string name="settings_other">Ĝeneralaj</string>
@@ -29,7 +29,7 @@
     <string name="settings_freecell_multiple_cards">Permesi movi kelkajn kartojn</string>
     <string name="settings_freecell_multiple_cards_description">Permesas movi tiom da kartoj unufoje, kiom da liberaj celoj estas</string>
     <string name="settings_spider_difficulty">Kiom da diversaj emblemoj de kartoj</string>
-    <string name="settings_klondike_draw">Kiom da kartoj elpreni</string>
+    <string name="settings_klondike_draw">Kiom da kartoj depreni</string>
     <string name="settings_show_main_menu">Eki en ĉefmenuo</string>
     <string name="settings_show_main_menu_description">Ne malfermas laste malfermitan ludon dum starto</string>
     <string name="settings_golf_easy">Ciklaj movoj (pli facile)</string>
