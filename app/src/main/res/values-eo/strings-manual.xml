@@ -111,7 +111,7 @@
 	\n\n28 tablamasoj, 1 ĉefa, 1 forĵeta kaj 1 ruba stakoj.
 	\n\nKartojn de forĵeta stako oni povas movi al ĉefa stako nur dufoje dum ludo.</string>
     <string name="manual_pyramid_objective">Movu ĉiujn kartojn de tablamasoj al ruba stako. Depende de agordoj, vi ankaŭ devas movi ĉiujn kartojn de ĉefa kaj forĵeta stakoj al ruba stako.</string>
-    <string name="manual_pyramid_rules">Tiu ĉi ludo havas ete malsamajn regulojn. Ĉiu karto, kiu ne estas kovrita per alia karto ludeblas. Du kartoj, kies valoroj sumiĝas al 13 povas esti movitaj al ruba stako. Por fari tion, movu karton sur alian liberan karton. Se ambaŭ valoroj estas ĝustaj, ili per si mem moviĝos al ruba stako.
+    <string name="manual_pyramid_rules">Tiu ĉi ludo tre similas al la ludo Golfo. Ĉiu karto, kiu ne estas kovrita per alia karto ludeblas. Du kartoj, kies valoroj sumiĝas al 13 povas esti movitaj al ruba stako. Por fari tion, movu karton sur alian liberan karton. Se ambaŭ valoroj estas ĝustaj, ili per si mem moviĝos al ruba stako.
 	\n\nEstas ankaŭ eble uzi kartojn de ĉefa kaj forĵeta stakoj. Se neniu kart-movo eblas, frapetu sageton inter tiuj stakoj por movi unu karton de ĉefa stako al forĵeta stako. Se ĉefa stako estas malplena, frapetu ĝin ree aŭ sageton por transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako. Tiu ĉi movo povas esti uzita nur dufoje dum ludo. Restanta nombro montriĝos kiel eta numero supre de sageto.</string>
     <string name="manual_pyramid_scoring">Movi karton al ruba stako: +50
 	\n\nTransmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
@@ -121,7 +121,7 @@
 	\n\n28 tablamasoj, 1 ĉefa kaj 1 forĵeta stakoj.
 	\n\nOni ne povas movi kartojn de forĵeta stako reen al ĉefa stako (escepte nur per uzo de reen-butono).</string>
     <string name="manual_tripeaks_objective">Movu ĉiujn kartojn de tablamasoj al forĵeta stako.</string>
-    <string name="manual_tripeaks_rules">Reguloj estas simliaj al \"Golfo\". Ĉiu karto, kiu ne estas kovrita per alia karto, povas esti uzita por ludi. Kartojn oni nur povas meti sur forĵetan stakon kreskante aŭ malkreskante sendepende de emblemo.
+    <string name="manual_tripeaks_rules">Reguloj de tiu ĉi ludo estas ete malsamaj ol aliaj paciencludoj. Ĉiu karto, kiu ne estas kovrita per alia karto, povas esti uzita por ludi. Kartojn oni nur povas meti sur forĵetan stakon kreskante aŭ malkreskante sendepende de emblemo.
 	\n\nEstas ankaŭ eble meti reĝojn sur asojn kaj inverse.
 	\n\nSe neniu karto povas esti movita, frapetu la ĉefan stakon por preni unu karton de ĝi al forĵeta stako.</string>
     <string name="manual_tripeaks_scoring">Movi karton al forĵeta stako: +50
