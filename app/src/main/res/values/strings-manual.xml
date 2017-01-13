@@ -26,7 +26,7 @@
         be disabled in the settings under \"General\".\n\nThere you can also find the section \"Main menu\", where it\'s possible to hide games
         from the menu and change the number of columns, so more games fit on the screen at once.</string>
     <string name="manual_ui_text">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the
-        right side (Landscape mode).It will also show the current score and current played time of the game. If possible, these two values
+        right side (Landscape mode). It will also show the current score and current played time of the game. If possible, these two values
         will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons
         from left to right):\n\nThe \"Scores\" button will show a new window with the high scores and the count of won games of
         the current game.\n\nThe \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease
@@ -54,7 +54,7 @@
         can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed
         on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing
         on the main stack, cards will be moved to the discard stack from where you can use them.
-        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected,only one card
+        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card
         will be moved (This is the default setting, for easier game play). With \"Draw 3\" enabled, 3 cards
         will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every
         card from the discard stack to the main stack and use them again.</string>
@@ -73,7 +73,7 @@
         move as many cards (which are in a correct sequence) at once, as there are free stacks (tableau
         and the cells) available. This corresponds to the rule, that only one card can be moved at once,
         but when there are free stacks available, the cards can be moved on the free stacks first and then
-        to the destination stack.\n\nEvery card can be placed on empty tableau fields and cells. aces can
+        to the destination stack.\n\nEvery card can be placed on empty tableau fields and cells. Aces can
         be placed on empty foundation fields.</string>
     <string name="manual_freecell_scoring">Move a card to foundation: +60\n\nMove a card from foundation:
         -75\n\nMove a king to an empty field: +20</string>
@@ -123,7 +123,7 @@
 
     <!-- Pyramid -->
     <string name="manual_pyramid_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main, 1 discard and 1
-        waste stack.\n\nCards from the discard stack can be moved back to then main stack only two times in a game.</string>
+        waste stack.\n\nCards from the discard stack can be moved back to the main stack only two times in a game.</string>
     <string name="manual_pyramid_objective">Move every card from the tableau to the waste. Depending
         on settings, also every card from
         main and discard stacks has to be moved to the waste.</string>
@@ -132,7 +132,7 @@
         waste. To do so, move a card on another free card. If both values are correct, they will be
         automatically moved to the waste.\n\nIt is also possible to use the cards from main and discard stack.
         If no card movement is possible, press on the arrow between these stacks to
-        move one card from then main stack to then discard stack. If the main stack is empty, press again on it or
+        move one card from the main stack to the discard stack. If the main stack is empty, press again on it or
         on the arrow to return the cards from the discard stack to the main stack. This movement can
         only be used two times in a game. The remaining amount will be shown as the little number above
         the arrow.</string>
@@ -204,7 +204,7 @@
     <string name="manual_acesup_rules">You can move only the top card of a stack. Move cards which
         have a lower value than another top card of the same family to the foundation. For example:
         There are a Hearts 5 and a Hearts 10 on top of two tableau stacks. Then you can move the Hearts
-        5 to the foundation. aces have a higher value than every other card.\n\nEvery movable card can
+        5 to the foundation. Aces have a higher value than every other card.\n\nEvery movable card can
         be placed on empty tableau stacks.\n\nPress the main stack to deal one card to each tableau
         stack.</string>
     <string name="manual_acesup_scoring">Move a card to the foundation stack: +50</string>

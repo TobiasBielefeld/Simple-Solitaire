@@ -42,7 +42,7 @@
 
     <string-array name="pref_pyramid_difficulty_titles">
         <item>Łatwy: gra jest wygrana gdy pole gry jest puste</item>
-        <item>Trudny: gra jest wygrana gdy pole gry i stos są pusty</item>
+        <item>Trudny: gra jest wygrana gdy pole gry i stos są puste</item>
     </string-array>
 
     <string-array name="pref_language_titles">

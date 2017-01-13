@@ -19,8 +19,7 @@
     <string name="manual_open_github">Malfermi paĝon je GitHub</string>
     <!-- Games -->
     <string name="manual_games_text1">Elektu ludon por montri ĝian strukturon, celon, regulojn kaj poentadon.</string>
-    <string name="manual_startpage_text">Mi tre bedaŭras sed ludo paĝoj ne tradukitaj. Se vi volas helpi per provizi tradukojn, vizitu la rimarkoj paĝo.
-        \n\nBonvenon al manlibro tiu ĉi kolekto de ludoj! Mi esperas, ke ĝi eksplikos ĉion.
+    <string name="manual_startpage_text">Bonvenon al manlibro de tiu ĉi kolekto de ludoj! Mi esperas, ke ĝi eksplikos ĉion.
 	\n\nUzu menuon ĉe maldekstre por atingi aliajn paĝojn de manlibro.</string>
     <string name="manual_general_main_menu">Uzado de la ĉefmenuo estas eĉ facila. Simple frapetu ludon por komenci ĝin.
 	\n\nLa aplikaĵo aŭtomate ŝargos laste luditan ludon post restarto, se la aplikaĵo estis paŭzigita kun ĝi. Tiu ĉi agmaniero povas esti malaktivigita per agordoj en \"Ĝeneralaj\".
@@ -38,163 +37,143 @@
 	\n\nAntaŭdankon al ci por cia opinio :)</string>
 
 
+
+
     <!-- Klondike -->
-    <string name="manual_klondike_structure">1 deck of 52 cards.\n\n7 tableau stacks, 4 foundation
-        stacks, 1 main and 1 discard stack.</string>
-    <string name="manual_klondike_objective">Order every card in real families in ascending order on
-        the foundation.</string>
-    <string name="manual_klondike_rules">Cards can be placed on the tableau in descending order and
-        in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards
-        can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed
-        on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing
-        on the main stack, cards will be moved to the discard stack from where you can use them.
-        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected,only one card
-        will be moved (This is the default setting, for easier game play). With \"Draw 3\" enabled, 3 cards
-        will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every
-        card from the discard stack to the main stack and use them again.</string>
-    <string name="manual_klondike_scoring">From tableau to foundation: +60\n\nFrom discard stack to
-        foundation: +45\n\nFrom foundation to tableau: -75\n\nTurn a card over: +25\n\nReturn all cards
-        from discard stack to main stack: -200</string>
+    <string name="manual_klondike_structure">1 kartaro po 52 kartoj.
+	\n\n7 tablamasoj, 4 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.</string>
+    <string name="manual_klondike_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_klondike_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nNur reĝojn oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
+	\n\nPer frapeto de ĉefa stako, kartoj estos movitaj al forĵeta stako, kie vi povas uzi ilin. Nombro da kartoj dependas de elektitaj agordoj. Se \"Depreni 1\" estas elektita, unu karto estos movita (tio ĉi estas implicita maniero, por pli facila ludado). Se \"Depreni 3\" estas elektita, 3 kartoj estos movitaj samtempe.
+	\n\nSe la ĉefa stako malpleniĝos, vi plue povos frapeti ĝin por movi ĉiujn kartojn de forĵeta stako al ĉefa stako kaj reuzi ilin.</string>
+    <string name="manual_klondike_scoring">De tablamaso al fundamenta stako: +60
+	\n\nDe forĵeta stako al fundamenta stako: +45
+	\n\nDe fundamenta stako al tablamaso: -75
+	\n\nMalkovri karton: +25
+	\n\nMovi ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
 
     <!-- FreeCell -->
-    <string name="manual_freecell_structure">1 kartaro da 52 kartoj.
+    <string name="manual_freecell_structure">1 kartaro po 52 kartoj.
 	\n\n8 tablamasoj, 4 fundamentaj stakoj kaj 4 ĉeloj.</string>
-    <string name="manual_freecell_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur stakojn.</string>
+    <string name="manual_freecell_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
     <string name="manual_freecell_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Sur alcelajn stakojn oni povas meti kartojn laŭ kreskanta ordo kaj sama emblemo. 4 kampoj ĉe supre povas enhavi nur po unu karto.
 	\n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj (ambaŭ tablamasoj kaj ĉeloj) estas disponeblaj. Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako.
 	\n\nĈiun karton oni povas meti sur malplenan tablamasan kampon kaj ĉelon. Asojn oni povas meti sur malplenajn fundamentajn kampojn.</string>
     <string name="manual_freecell_scoring">Movi karton al fundamenta stako: +60
-	\n\nMovi karton el fundamenta stako: -75
+	\n\nMovi karton de fundamenta stako: -75
 	\n\nMovi reĝon al malplena kampo: +20</string>
 
     <!-- Yukon -->
-    <string name="manual_yukon_structure">1 deck of 52 cards.\n\n7 tableau stacks and 4 foundation stacks.</string>
-    <string name="manual_yukon_objective">Order every card in real families in ascending order on the foundation.</string>
-    <string name="manual_yukon_rules">Cards can be placed on the tableau in descending order and in
-        alternating colors. On the foundation, cards can be placed only in ascending order on the
-        corresponding family.\n\nYou can move every faced up card, no matter how many cards and
-        which sequence the cards are on top of it.\n\nOnly kings can be placed on empty tableau
-        fields and only aces can be placed on empty foundation fields.</string>
-    <string name="manual_yukon_scoring">From tableau to foundation: +60\n\nFrom foundation to tableau:
-        -75\n\nMove a king to an empty field: +20\n\nFlip a card up: +25</string>
+    <string name="manual_yukon_structure">1 kartaro po 52 kartoj.
+	\n\n7 tablamasoj kaj 4 fundamentaj stakoj.</string>
+    <string name="manual_yukon_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_yukon_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nVi povas movi ĉiun malkovritan karton, ne gravas kiom da kartoj kaj kiel ordigitaj kartoj troviĝas sur ĝi.
+	\n\nNur reĝojn oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn kampojn.</string>
+    <string name="manual_yukon_scoring">De tablamaso al fundamenta stako: +60
+	\n\nDe fundamenta stako al tablamaso: -75
+	\n\nMovi reĝon sur malplena kampo: +20
+	\n\nMalkovri karton: +25</string>
 
     <!-- Spider -->
-    <string name="manual_spider_structure">2 decks of 52 cards.\n\n10 tableau stacks and 8 foundation
-        stacks.\n\n1 main stack, separated in 5 different piles.\n\nDepending on settings: 1, 2 or 4
-        different card families.</string>
-    <string name="manual_spider_objective">Place every card in true descending card families anywhere on the
-        tableau. The built card families will be automatically moved to the foundation.</string>
-    <string name="manual_spider_rules">Cards can be placed on any card in descending order. But only
-        real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau
-        stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
-    <string name="manual_spider_scoring">Move a card family to foundation: +200
-        Flip a card up: +25</string>
+    <string name="manual_spider_structure">2 kartaroj po 52 kartoj.
+	\n\n10 tablamasoj kaj 8 fundamentaj stakoj.
+	\n\n1 ĉefa stako, disdonata en 5 diversaj disdonoj.
+	\n\nDepende de agordoj: 1, 2 aŭ 4 diversaj kartaj emblemoj.</string>
+    <string name="manual_spider_objective">Ordigu ĉiujn kartojn de ĉiu emblemo malkreskante ie ajn. Kompletitaj familioj de kartoj estos aŭtomate movitaj al fundamentaj stakoj.</string>
+    <string name="manual_spider_rules">Kartojn oni povas meti sur iun ajn alian karton laŭ malkreskanta ordo. Tamen nur serioj de samaj kartaj emblemoj povas esti movitaj per unu fojo.
+	\n\nĈiun karton oni povas meti sur malplenan tablamasan kampon.
+	\n\nFrapetu la ĉefan stakon por disdoni po unu karto por ĉiu stako samtempe.</string>
+    <string name="manual_spider_scoring">Movi kartan familion al fundamenta stako: +200
+	\n\nMalkovri karton: +25</string>
 
     <!-- SimpleSimon -->
-    <string name="manual_simplesimon_structure">1 deck of 52 cards.\n\n10 tableau stacks and 4
-        foundation stacks.</string>
-    <string name="manual_simplesimon_objective">Place every card in true descending card families anywhere
-        on the tableau. The built card families will be automatically moved to the foundation.</string>
-    <string name="manual_simplesimon_rules">Cards can be placed on any card in descending order.
-        But only real card family sequences can be moved at once.\n\nEvery card can be placed on
-        empty tableau stacks.</string>
-    <string name="manual_simplesimon_scoring">Move a card family to foundation: +200</string>
+    <string name="manual_simplesimon_structure">1 kartaro po 52 kartoj.
+	\n\n10 tablamasojkaj 4 fundamentaj stakoj.</string>
+    <string name="manual_simplesimon_objective">Ordigu ĉiujn kartojn de ĉiu emblemo malkreskante ie ajn. Kompletitaj familioj de kartoj estos aŭtomate movitaj al fundamentaj stakoj.</string>
+    <string name="manual_simplesimon_rules">Kartojn oni povas meti sur iun ajn alian karton laŭ malkreskanta ordo. Tamen nur serioj de samaj kartaj emblemoj povas esti movitaj per unu fojo.
+	\n\nĈiun karton oni povas meti sur maplenan tablamasan kampon.</string>
+    <string name="manual_simplesimon_scoring">Movi kartan familion al fundamenta stako: +200</string>
 
     <!-- Golf -->
-    <string name="manual_golf_structure">1 deck of 52 cards.\n\n7 tableau stacks, 1 main and 1
-        discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
-    <string name="manual_golf_objective">Move every card from the tableau to the discard stack.</string>
-    <string name="manual_golf_rules">Every top card of a stack can be used to play. Cards can only be
-        placed on the discard stack in ascending and descending order regardless of color.\n\nDepending
-        on settings, you can also place a king on an ace and vice versa (easier game play).\n\nIf no
-        card can be moved, press on the main stack to deal one card from it to the discard stack.</string>
-    <string name="manual_golf_scoring">Move a card to the discard stack: +50</string>
+    <string name="manual_golf_structure">1 kartaro po 52 kartoj.
+	\n\n7 tablamasoj, 1 ĉefa kaj 1 forĵeta stakoj.
+	\n\nOni ne povas movi kartojn de forĵeta stako reen al ĉefa stako (escepte nur per uzo de reen-butono).</string>
+    <string name="manual_golf_objective">Movu ĉiujn kartojn de tablamaso al forĵeta stako.</string>
+    <string name="manual_golf_rules">Ĉiu supra karto de stako povas esti uzita por ludi. Kartojn oni nur povas meti sur forĵetan stakon kreskante aŭ malkreskante, sendepende de emblemo.
+	\n\nDepende de agordoj, vi ankaŭ povas meti reĝon sur ason kaj inverse (pli facila ludado).
+	\n\nSe neniu karto povas esti movita, frapetu la ĉefan stakon por preni unu karton de ĝi al forĵeta stako.</string>
+    <string name="manual_golf_scoring">Movi karton al forĵeta stako: +50</string>
 
     <!-- Pyramid -->
-    <string name="manual_pyramid_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main, 1 discard and 1
-        waste stack.\n\nCards from the discard stack can be moved back to then main stack only two times in a game.</string>
-    <string name="manual_pyramid_objective">Move every card from the tableau to the waste. Depending
-        on settings, also every card from
-        main and discard stacks has to be moved to the waste.</string>
-    <string name="manual_pyramid_rules">This game has slightly different rules. Every card, which isn\'t
-        covered by another card can be played. Two cards, whose values add up to 13 can be moved to the
-        waste. To do so, move a card on another free card. If both values are correct, they will be
-        automatically moved to the waste.\n\nIt is also possible to use the cards from main and discard stack.
-        If no card movement is possible, press on the arrow between these stacks to
-        move one card from then main stack to then discard stack. If the main stack is empty, press again on it or
-        on the arrow to return the cards from the discard stack to the main stack. This movement can
-        only be used two times in a game. The remaining amount will be shown as the little number above
-        the arrow.</string>
-    <string name="manual_pyramid_scoring">Move a card to the waste: +50\n\nReturn all cards from
-        discard stack to main stack: -200</string>
+    <string name="manual_pyramid_structure">1 kartaro po 52 kartoj.
+	\n\n28 tablamasoj, 1 ĉefa, 1 forĵeta kaj 1 ruba stakoj.
+	\n\nKartojn de forĵeta stako oni povas movi al ĉefa stako nur dufoje dum ludo.</string>
+    <string name="manual_pyramid_objective">Movu ĉiujn kartojn de tablamasoj al ruba stako. Depende de agordoj, vi ankaŭ devas movi ĉiujn kartojn de ĉefa kaj forĵeta stakoj al ruba stako.</string>
+    <string name="manual_pyramid_rules">Tiu ĉi ludo tre similas al la ludo Golfo. Ĉiu karto, kiu ne estas kovrita per alia karto ludeblas. Du kartoj, kies valoroj sumiĝas al 13 povas esti movitaj al ruba stako. Por fari tion, movu karton sur alian liberan karton. Se ambaŭ valoroj estas ĝustaj, ili per si mem moviĝos al ruba stako.
+	\n\nEstas ankaŭ eble uzi kartojn de ĉefa kaj forĵeta stakoj. Se neniu kart-movo eblas, frapetu sageton inter tiuj stakoj por movi unu karton de ĉefa stako al forĵeta stako. Se ĉefa stako estas malplena, frapetu ĝin ree aŭ sageton por transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako. Tiu ĉi movo povas esti uzita nur dufoje dum ludo. Restanta nombro montriĝos kiel eta numero supre de sageto.</string>
+    <string name="manual_pyramid_scoring">Movi karton al ruba stako: +50
+	\n\nTransmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
 
     <!-- TriPekas -->
-    <string name="manual_tripeaks_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main and 1
-        discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
-    <string name="manual_tripeaks_objective">Move every card from the tableau to the discard stack.</string>
-    <string name="manual_tripeaks_rules">The rules of this game are similar to \"Golf\". Every card
-        which isn\'t covered by another card can be used to play. Cards can only be placed on the
-        discard stack in ascending and descending order regardless of color.\n\nIt is also possible
-        to play kings on aces and vice versa.\n\nIf no card can be moved, press on the main stack to
-        deal one card from it to the discard stack.</string>
-    <string name="manual_tripeaks_scoring">Move a card to the waste: +50\n\nReturn cards from discard
-        stack to main stack: -200</string>
+    <string name="manual_tripeaks_structure">1 kartaro po 52 kartoj.
+	\n\n28 tablamasoj, 1 ĉefa kaj 1 forĵeta stakoj.
+	\n\nOni ne povas movi kartojn de forĵeta stako reen al ĉefa stako (escepte nur per uzo de reen-butono).</string>
+    <string name="manual_tripeaks_objective">Movu ĉiujn kartojn de tablamasoj al forĵeta stako.</string>
+    <string name="manual_tripeaks_rules">Reguloj de tiu ĉi ludo estas ete malsamaj ol aliaj paciencludoj. Ĉiu karto, kiu ne estas kovrita per alia karto, povas esti uzita por ludi. Kartojn oni nur povas meti sur forĵetan stakon kreskante aŭ malkreskante sendepende de emblemo.
+	\n\nEstas ankaŭ eble meti reĝojn sur asojn kaj inverse.
+	\n\nSe neniu karto povas esti movita, frapetu la ĉefan stakon por preni unu karton de ĝi al forĵeta stako.</string>
+    <string name="manual_tripeaks_scoring">Movi karton al forĵeta stako: +50
+	\n\nTransmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
 
     <!-- Forty&Eight -->
-    <string name="manual_fortyeight_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation
-        stacks, 1 main and 1 discard stack.\n\nCards from the discard stack can be moved back to the
-        main stack only once in a game.\n\n</string>
-    <string name="manual_fortyeight_objective">Order every card as real families in ascending order
-        on the foundation.</string>
-    <string name="manual_fortyeight_rules">Cards can be placed on the tableau in descending order of
-        the same family. You can move only one card from the top of a stack at once. On the foundation,
-        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
-        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
-        pressing on the main stack, one card will be moved to the discard stack from where you can play
-        it.\n\nIf the main stack is empty, you can still press on it to move every card from the
-        discard stack back to the main stack and use them again. But this is only once a game possible.
-        The remaining amount is shown a the little number above the main stack.</string>
-    <string name="manual_fortyeight_scoring">Move a card to foundation: +45\n\nMove a card back to
-        tableau: -60\n\nMove a card from the discard stack to tableau: +60\n\nReturn cards from discard to main stack: -200</string>
+    <string name="manual_fortyeight_structure">2 kartaroj po 52 kartoj.
+	\n\n8 tablamasoj, 8 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.
+	\n\nKartojn de forĵeta stako oni povas movi al ĉefa stako nur unufoje dum ludo.</string>
+    <string name="manual_fortyeight_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_fortyeight_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj sama emblemo. Vi povas movi nur unu karton de supro de stako samtempe. Sur fundamentajn stakojn kartojn oni povas meti nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nĈiun karton oni povas meti sur malplenajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
+	\n\nPer frapeto de ĉefa stako, unu karto estos movita al forĵeta stako, kie vi povas ludi per ĝi.
+	\n\nSe ĉefa stako estas malplena, vi plue povas frapeti ĝin por movi ĉiujn kartojn reen al forĵeta stako kaj reuzi ilin. Tamen tio ĉi eblas nur unufoje dum ludo. Restanta nombro montriĝos kiel eta numero supre de ĉefa stako.</string>
+    <string name="manual_fortyeight_scoring">Movi karton al fundamenta stako: +45
+	\n\nMovi karton reen al tablamaso: -60
+	\n\nMovi karton de forĵeta stako al tablamaso: +60
+	\n\nTransmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
 
     <!-- Mod3 -->
-    <string name="manual_mod3_structure">2 deck of 52 cards.\n\n32 tableau stacks, 1 main and 1 aces
-        stack.\n\n</string>
-    <string name="manual_mod3_objective">Order every card on the top 3 rows of the tableau as sequences
-        of the same color in the following way:\n\nFirst row: Sequences of 2–5–8–J\nSecond row: Sequences
-        of 3–6–9–Q\nThird row: Sequences of 4–7–10–K\n\nAces will be put away.</string>
-    <string name="manual_mod3_rules">You can move only one card from the top of a stack at once. Cards can only
-        be placed if the sequence shown under \"Objectives\" is correct. So you can place for example a
-        Hearts 5 on a Hearts 2, but only if the Hearts 2 is in the first row of the tableau. Different
-        families aren\'t allowed either.\n\nGain free stacks to place cards by moving aces to the aces
-        stack above the main stack.\n\nThe fourth row is also the discard row for the cards from the main
-        stack. Any card can be placed on a free stack of the forth row.\n\nPress on the main stack to deal
-        one card to each stack of the forth row.\n\n</string>
-    <string name="manual_mod3_scoring">Move a card on a correct field of the tableau: +50\n\nMove a card back to the fourth row of the tableau: -75</string>
+    <string name="manual_mod3_structure">2 kartaroj po 52 kartoj.
+	\n\n32 tablamasoj, 1 ĉefa kaj 1 asa stakoj.</string>
+    <string name="manual_mod3_objective">Ordigu ĉiujn kartojn en 3 la plej supraj vicoj kiel seriojn de samaj koloroj en la jena maniero:
+	\n\nUnua vico: serioj de 2-5-8-J
+	\n\nDua vico: serioj de 3-6-9-Q
+	\n\nTria vico: serioj de 4-7-10-K
+	\n\nAsojn oni forĵetas.</string>
+    <string name="manual_mod3_rules">Vi povas movi nur unu karton de supro de stako samtempe. Kartojn oni nur povas meti se la serio montrata en \"Celo\" estas ĝusta. Do ekzemple vi povas meti kreon 5 sur keron 2, tamen nur kiam kero 2 estas en la unua vico. Malsamaj kartaj emblemoj ankaŭ ne estas permesataj.
+	\n\nAkiru liberajjn kampojn por meti kartojn per movante asojn al asa stako supre de ĉefa stako.
+	\n\nKvara vico estas ankaŭ forĵeta vico por kartoj de ĉefa stako. Ĉiun karton oni povas meti sur malplenan kampon en kvara vico.
+	\n\nFrapetu ĉefan stakon por disdoni po unu karto al ĉiu stako de kvara vico.</string>
+    <string name="manual_mod3_scoring">Movi karton al ĝusta kampo sur tablamaso: +50
+	\n\nMovi karton reen al kvara vico: -75</string>
 
     <!-- Gypsy -->
-    <string name="manual_gypsy_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation stacks,
-        and 1 main stack.</string>
-    <string name="manual_gypsy_objective">Order every card in real families in ascending order on the
-        foundation.</string>
-    <string name="manual_gypsy_rules">Cards can be placed on the tableau in descending order and in
-        alternating colors. You can move a whole correct sequence of cards at once. On the foundation,
-        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
-        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
-        pressing on the main stack, one card will be moved to each tableau stack.</string>
-    <string name="manual_gypsy_scoring">Move a card to foundation: +75\n\nMove a card from foundation to tableau: -100\n\n
-        Flip a card over: +50</string>
+    <string name="manual_gypsy_structure">2 kartaroj po 52 kartoj.
+	\n\n8 tablamasoj, 8 fundamentaj stakoj kaj 1 ĉefa stako.</string>
+    <string name="manual_gypsy_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_gypsy_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan ĝustan serion da kartoj per unu fojo. Sur fundamentajn stakojn kartojn oni povas meti nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nĈiun karton oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn kampojn.
+	\n\nFrapu ĉefan stakon por movi po unu karto al ĉiu tablamasa stako.</string>
+    <string name="manual_gypsy_scoring">Movi karton al fundamenta stako: +75
+	\n\nMovi karton de fundamenta stako al tablamaso: -100
+	\n\nMalkovri karton: +50</string>
 
     <!-- acesUp -->
-    <string name="manual_acesup_structure">1 deck of 52 cards.\n\n4 tableau stacks, 1 main and 1
-        foundation stack.\n\nAces have the value 14, so they have a higher value than kings.</string>
-    <string name="manual_acesup_objective">Put all cards except the aces on the foundation stack,
-        so there is one ace on every tableau stack left.</string>
-    <string name="manual_acesup_rules">You can move only the top card of a stack. Move cards which
-        have a lower value than another top card of the same family to the foundation. For example:
-        There are a Hearts 5 and a Hearts 10 on top of two tableau stacks. Then you can move the Hearts
-        5 to the foundation. aces have a higher value than every other card.\n\nEvery movable card can
-        be placed on empty tableau stacks.\n\nPress the main stack to deal one card to each tableau
-        stack.</string>
-    <string name="manual_acesup_scoring">Move a card to the foundation stack: +50</string>
+    <string name="manual_acesup_structure">1 kartaro po 25 kartoj.
+	\n\n4 tablamasoj, 1 ĉefa kaj 1 fundamenta stakoj.
+	\n\nAsoj havas valoron 14, do ili valoras pli ol reĝoj.</string>
+    <string name="manual_acesup_objective">Metu ĉiujn kartojn escepte de asoj sur fundamentan stakon, do po unu aso restos sur ĉiu tablamaso.</string>
+    <string name="manual_acesup_rules">Vi povas movi nur supran karton de stako. Movu kartojn, kiuj havas malpli grandan valoron ol alia supra karto de sama emblemo al fundamenta stako. Ekzemplo: estas kero 5 kaj kero 10 supre de du tablamasoj. Vi povas movi keron 2 al fundamenta stako. Asoj havas pli altan valorojn ol ĉiu alia karto.
+	\n\nĈiu movebla karto povas esti metita al malplena tablamasa kampo.
+	\n\nFrapetu ĉefan stakon por disdoni po unu karto al ĉiu tablamaso.</string>
+    <string name="manual_acesup_scoring">Movi karton al fundamenta stako: +50</string>
 </resources>

@@ -18,199 +18,162 @@
     <string name="manual_open_google_play">Otwórz Google Play</string>
     <string name="manual_open_github">Otwórz GitHub Repo</string>
     <!-- Games -->
-    <string name="manual_games_text1">Choose a game to show it\'s structure, objective, rules and scoring.</string>
-    <string name="manual_startpage_text">Bardzo mi przykro, ale strony podręcznika nie są tłumaczone.
-        Jeśli chcesz pomóc poprzez dostarczenie tłumaczenia, odwiedź stronę kontakt.
-        \n\nWelcome to the manual of this game collection! I hope it will explain everything.
-        \n\nUse the menu on the left side to access the other manual pages.</string>
-    <string name="manual_general_main_menu">The usage of the main menu is relatively simple. Just tap on a game to start it.
-        \n\nThe app will automatically load the last played game on a restart, if the app was paused in it. This behavior can
-        be disabled in the settings under \"General\".\n\nThere you can also find the section \"Main menu\", where it\'s possible to hide games
-        from the menu and change the number of columns, so more games fit on the screen at once.</string>
-    <string name="manual_ui_text">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the
-        right side (Landscape mode).It will also show the current score and current played time of the game. If possible, these two values
-        will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons
-        from left to right):\n\nThe \"Scores\" button will show a new window with the high scores and the count of won games of
-        the current game.\n\nThe \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease
-        the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main
-        stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.\n\nThe \"Menu\" button shows three different
-        actions: Start a new game by mixing the cards and drawing a new deal. Give cards again will do the same but without the
-        mixing. So it\'s like a restart of the current game. The last option will end the current game and return the app to the
-        main menu.\n\nThe \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to
-        20 last movements.\n\nThe \"Settings\" button simply opens the settings menu.</string>
-    <string name="manual_feedback_text">Found a bug or an error? Something I should improve? Should I add another game to the
-        collection? Maybe you want to help with some translations? Or have another idea?\n\nI am happy to receive any kind of
-        feedback. If you feel the need to contact me, you should consider the following two options:\n\nUse the Issue Tracker
-        on GitHub: The project of this app on GitHub has a neat function to report issues. Just click on the button on the left
-        side of the screen to open the Issue Tracker with the Internet browser.\n\nUse a rating in Google Play: Just leave a
-        rating on the page from this app and write anything you want in it. Click on the button to the right side to open the
-        Google Play Store (if installed).\n\nThank you in advance for your feedback :)</string>
+    <string name="manual_games_text1">Wybierz grę, aby poznać jej strukturę, cel, zasady i punktację.</string>
+    <string name="manual_startpage_text">Witamy w podręczniku naszej kolekcji gier! Mam nadzieję, że wszytko zostanie objaśnione.
+	\n\nUżyj menu po lewej stronie, aby dostać się do innych stron podręcznika.</string>
+    <string name="manual_general_main_menu">Korzystanie z menu głównego jest względnie proste. Po prostu stuknij w grę, aby w nią zagrać.
+	\n\nProgram automatycznie wznowi ostatnio otwartą grę podczas startu, jeżeli program został na niej zatrzymany. To zachowanie można zmienić w opcjach w sekcji \"Ogólne\".
+	\n\nZnajdziesz tam też sekcję \"Menu główne\", gdzie możesz ukryć gry z menu, wybrać liczbę kolumn, tak aby więcej gier zmieściło się na ekranie jednocześnie.</string>
+    <string name="manual_ui_text">Gra zawsze będzie pokazywała niewielkie menu na dole ekranu (orientacja pionowa) lub po prawej stronie (orientacja pozioma). Będzie także widoczna obecna punktacja i czas gry. Jeżeli to możliwe, te wartości zostaną wpisane na listę wyników. Menu zawiera 5 elementów, które wywołują następujące akcje (przyciski od lewej do prawej):
+	\n\nPrzycisk \"Punktacja\" wywoła nowe okno z listą najlepszych wyników i liczbą rozegranych gier obecnej gry.
+	\n\nPrzycisk \"Wskazówka\" pomoże Ci wyświetlając maksymalnie 3 możliwe ruchy jednocześnie. Ale to zabierze Ci 25 punktów. Zauważ, że banalne ruchy, takie jak przeniesienie karty na puste pole lub stuknięcie w główny stos nie będą pokazane jako podpowiedź. Jeżeli żadna wskazówka nie zostanie wyświetlona, Twoje punkty nie zmaleją.
+	\n\nPrzycisk \"Menu\" umożliwi trzy różne czynności: Rozpoczęcie nowej gry przetasowując karty i rozdając je ponownie. Opcja ponownie rozdaj karty działa tak samo, ale bez przetasowania, jest to po prostu restart obecnej gry. Ostatnia opcja zakończy obecną grę i przeniesie Cię do menu głównego.
+	\n\nPrzycisk \"Cofnij\" cofnie ostatni ruch, ale będzie to kosztowało 25 punktów. Można użyć tej opcji dla 20 ostatnich ruchów.
+	\n\nPrzycisk \"Ustawienia\" zwyczajnie otworzy menu ustawień.</string>
+    <string name="manual_feedback_text">Znalazłeś jakiś błąd? Coś powinienem ulepszyć? Może powinienem dodać jakąś grę do kolekcji? Może chcesz pomóc tłumaczyć? Masz jakiś inny pomysł?
+	\n\nBędę wdzięczny za jakikolwiek odzew. Jeżeli chcesz się ze mną skontaktować, rozważ następujące opcje:
+	\n\nZgłoś błąd na Githubie: strona projektu tego programu na GitHubie oferuje fajną funkcję zgłaszania błędów. Po prostu kliknij na przycisk po lewej stronie ekranu, aby otworzyć stronę śledzenia błędów w przeglądarce internetowej.
+	\n\nOceń na Google Play: po prostu oceń grę na stronie sklepu i napisz co chcesz. Kliknij przycisk po prawej stronie, aby otworzyć sklep Google Play (jeżeli zainstalowany).
+	\n\nZ góry dziękuję Ci za Twoją opinię :)</string>
 
 
 
 
     <!-- Klondike -->
-    <string name="manual_klondike_structure">1 deck of 52 cards.\n\n7 tableau stacks, 4 foundation
-        stacks, 1 main and 1 discard stack.</string>
-    <string name="manual_klondike_objective">Order every card in real families in ascending order on
-        the foundation.</string>
-    <string name="manual_klondike_rules">Cards can be placed on the tableau in descending order and
-        in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards
-        can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed
-        on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing
-        on the main stack, cards will be moved to the discard stack from where you can use them.
-        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected,only one card
-        will be moved (This is the default setting, for easier game play). With \"Draw 3\" enabled, 3 cards
-        will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every
-        card from the discard stack to the main stack and use them again.</string>
-    <string name="manual_klondike_scoring">From tableau to foundation: +60\n\nFrom discard stack to
-        foundation: +45\n\nFrom foundation to tableau: -75\n\nTurn a card over: +25\n\nReturn all cards
-        from discard stack to main stack: -200</string>
+    <string name="manual_klondike_structure">1 talia po 52 karty.
+	\n\n7 stosów gry, 4 stosy bazowe, 1 główny stos i 1 stos odrzutów.</string>
+    <string name="manual_klondike_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_klondike_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+	\n\nTylko króli można kłaść na puste pola gry i tylko asy na puste pola bazowe.
+	\n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś /"Rozdaj 1/", tylko pojedyncza karta zostanie przeniesiona (to jest domyślne ustawienie, łatwiejsze). Przy opcji /"Rozdaj 3/", 3 karty zostaną przeniesione naraz.
+	\n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
+    <string name="manual_klondike_scoring">Ze stosu gry na bazowy: +60
+	\n\nZe stosu odrzutów na bazowy: +45
+	\n\nZe stosu bazowego na stos gry: -75
+	\n\nOdsłonięcie karty: +25
+	\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do głównego: -200</string>
 
     <!-- FreeCell -->
-    <string name="manual_freecell_structure">1 deck of 52 cards.\n\n8 tableau stacks, 4 foundation
-        stacks and 4 free cells.</string>
-    <string name="manual_freecell_objective">Order every card in real families in ascending order on
-        the foundation.</string>
-    <string name="manual_freecell_rules">Cards can be placed on the tableau in descending order and
-        in alternating colors. On the foundation, cards can be placed only in ascending order on the
-        corresponding family. The 4 cells on the top can only contain one card at a time.\n\nYou can
-        move as many cards (which are in a correct sequence) at once, as there are free stacks (tableau
-        and the cells) available. This corresponds to the rule, that only one card can be moved at once,
-        but when there are free stacks available, the cards can be moved on the free stacks first and then
-        to the destination stack.\n\nEvery card can be placed on empty tableau fields and cells. aces can
-        be placed on empty foundation fields.</string>
-    <string name="manual_freecell_scoring">Move a card to foundation: +60\n\nMove a card from foundation:
-        -75\n\nMove a king to an empty field: +20</string>
+    <string name="manual_freecell_structure">1 talia po 52 karty.
+	\n\n8 stosów gry, 4 stosy bazowe i 4 puste komórki.</string>
+    <string name="manual_freecell_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_freecell_rules">Karty można kłaść na stosach gry w kolejności malejącej i naprzemiennych kolorach. Na stosach bazowych karty można umieszczać tylko w kolejności rosnącej i tego samego koloru. 4 komórki na górze mogą pomieścić po jednej karcie każda.
+	\n\nMożesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól (zarówno komórek i stosów gry). To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki, można kartę umieścić w pustej komórce i następnie na docelowym stosie.
+	\n\nKażdą kartę można umieścić na pustych polach gry i wolnych komórkach. Asy można umieścić na pustych komórkach bazowych.</string>
+    <string name="manual_freecell_scoring">Przeniesienie karty na stos bazowy: +60
+	\n\nPrzeniesienie karty ze stosu bazowego: -75
+	\n\nUmieszczenie króla na pustym polu: +20</string>
 
     <!-- Yukon -->
-    <string name="manual_yukon_structure">1 deck of 52 cards.\n\n7 tableau stacks and 4 foundation stacks.</string>
-    <string name="manual_yukon_objective">Order every card in real families in ascending order on the foundation.</string>
-    <string name="manual_yukon_rules">Cards can be placed on the tableau in descending order and in
-        alternating colors. On the foundation, cards can be placed only in ascending order on the
-        corresponding family.\n\nYou can move every faced up card, no matter how many cards and
-        which sequence the cards are on top of it.\n\nOnly kings can be placed on empty tableau
-        fields and only aces can be placed on empty foundation fields.</string>
-    <string name="manual_yukon_scoring">From tableau to foundation: +60\n\nFrom foundation to tableau:
-        -75\n\nMove a king to an empty field: +20\n\nFlip a card up: +25</string>
+    <string name="manual_yukon_structure">1 talia po 52 karty.
+	\n\n7 stosów gry i 4 stosy bazowe.</string>
+    <string name="manual_yukon_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_yukon_rules">Karty można kłaść na stosach gry w kolejności malejącej i naprzemiennych kolorach. Na stosach bazowych karty można umieszczać tylko w kolejności rosnącej i tego samego koloru.
+	\n\nMożesz przenieść każdą odkrytą kartę, bez znaczenia w jakiej kolejności i ile kart znajduje się na niej.
+	\n\nTylko króli można kłaść na pustych polach gry i tylko asy na pustych polach bazowych.</string>
+    <string name="manual_yukon_scoring">Ze stosu gry na stos bazowy: +60
+	\n\nZe stosu bazowego na stos gry: -75
+	\n\nPrzeniesienie króla na puste pole: +20
+	\n\nOdsłonięcie karty: +25</string>
 
     <!-- Spider -->
-    <string name="manual_spider_structure">2 decks of 52 cards.\n\n10 tableau stacks and 8 foundation
-        stacks.\n\n1 main stack, separated in 5 different piles.\n\nDepending on settings: 1, 2 or 4
-        different card families.</string>
-    <string name="manual_spider_objective">Place every card in true descending card families anywhere on the
-        tableau. The built card families will be automatically moved to the foundation.</string>
-    <string name="manual_spider_rules">Cards can be placed on any card in descending order. But only
-        real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau
-        stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
-    <string name="manual_spider_scoring">Move a card family to foundation: +200
-        Flip a card up: +25</string>
+    <string name="manual_spider_structure">2 talie po 52 karty.
+	\n\n10 stosów gry i 8 stosów bazowych.
+	\n\n1 główny stos, rozdawany w 5 rzutach.
+	\n\nZależnie od ustawień: 1, 2 lub 4 różne kolory kart.</string>
+    <string name="manual_spider_objective">Uszereguj wszystkie karty w rodziny tego samego koloru malejąco gdziekolwiek na polu gry. Kompletne rodziny kart zostaną automatycznie przeniesione do stosów bazowych.</string>
+    <string name="manual_spider_rules">Karty można kłaść na dowolną inną w kolejności malejącej. Ale tylko poprawne sekwencje tego samego koloru kart można razem przenosić.
+	\n\nKażdą kartę można położyć na pustych polach gry.
+	\n\nStuknij w główny stos, aby rozdać po jednej karcie na każdy stos gry.</string>
+    <string name="manual_spider_scoring">Przeniesienie rodziny kart na stos bazowy: +200
+	\n\nOdsłonięcie karty: +25</string>
 
     <!-- SimpleSimon -->
-    <string name="manual_simplesimon_structure">1 deck of 52 cards.\n\n10 tableau stacks and 4
-        foundation stacks.</string>
-    <string name="manual_simplesimon_objective">Place every card in true descending card families anywhere
-        on the tableau. The built card families will be automatically moved to the foundation.</string>
-    <string name="manual_simplesimon_rules">Cards can be placed on any card in descending order.
-        But only real card family sequences can be moved at once.\n\nEvery card can be placed on
-        empty tableau stacks.</string>
-    <string name="manual_simplesimon_scoring">Move a card family to foundation: +200</string>
+    <string name="manual_simplesimon_structure">1 talia po 52 karty.
+	\n\n10 stosów gry i 4 stosy bazowe.</string>
+    <string name="manual_simplesimon_objective">Uszereguj wszystkie karty w rodziny tego samego koloru malejąco gdziekolwiek na polu gry. Kompletne rodziny kart zostaną automatycznie przeniesione do stosów bazowych.</string>
+    <string name="manual_simplesimon_rules">Karty można kłaść na dowolną inną w kolejności malejącej. Ale tylko poprawne sekwencje tego samego koloru kart można razem przenosić.
+	\n\nKażdą kartę można położyć na pustych polach gry.</string>
+    <string name="manual_simplesimon_scoring">Przeniesienie rodziny kart na stos bazowy: +200</string>
 
     <!-- Golf -->
-    <string name="manual_golf_structure">1 deck of 52 cards.\n\n7 tableau stacks, 1 main and 1
-        discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
-    <string name="manual_golf_objective">Move every card from the tableau to the discard stack.</string>
-    <string name="manual_golf_rules">Every top card of a stack can be used to play. Cards can only be
-        placed on the discard stack in ascending and descending order regardless of color.\n\nDepending
-        on settings, you can also place a king on an ace and vice versa (easier game play).\n\nIf no
-        card can be moved, press on the main stack to deal one card from it to the discard stack.</string>
-    <string name="manual_golf_scoring">Move a card to the discard stack: +50</string>
+    <string name="manual_golf_structure">1 talia po 52 karty.
+	\n\n7 stosów gry, 1 główny i 1 stos odrzutów.
+	\n\nPrzeniesienie kart ze stosu odrzutów do głównego nie jest możliwe (za wyjątkiem użycia przycisku cofnij).</string>
+    <string name="manual_golf_objective">Przenieś wszystkie karty z pola gry na stos odrzutów.</string>
+    <string name="manual_golf_rules">Każda karta z wierzchu stosu może zostać użyta do gry. Karty można kłaść na stos odrzutów w kolejności rosnącej lub malejącej bez względu na kolor.
+	\n\nZależnie od ustawień, możesz także kłaść króla na asa i odwrotnie (łatwiejsza rozgrywka).
+	\n\nJeżeli nie możesz przesunąć żadnej karty, stuknij w stos główny, aby przenieść jedną kartę do stosu odrzutów.</string>
+    <string name="manual_golf_scoring">Przeniesienie karty na stos odrzutów: +50</string>
 
     <!-- Pyramid -->
-    <string name="manual_pyramid_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main, 1 discard and 1
-        waste stack.\n\nCards from the discard stack can be moved back to then main stack only two times in a game.</string>
-    <string name="manual_pyramid_objective">Move every card from the tableau to the waste. Depending
-        on settings, also every card from
-        main and discard stacks has to be moved to the waste.</string>
-    <string name="manual_pyramid_rules">This game has slightly different rules. Every card, which isn\'t
-        covered by another card can be played. Two cards, whose values add up to 13 can be moved to the
-        waste. To do so, move a card on another free card. If both values are correct, they will be
-        automatically moved to the waste.\n\nIt is also possible to use the cards from main and discard stack.
-        If no card movement is possible, press on the arrow between these stacks to
-        move one card from then main stack to then discard stack. If the main stack is empty, press again on it or
-        on the arrow to return the cards from the discard stack to the main stack. This movement can
-        only be used two times in a game. The remaining amount will be shown as the little number above
-        the arrow.</string>
-    <string name="manual_pyramid_scoring">Move a card to the waste: +50\n\nReturn all cards from
-        discard stack to main stack: -200</string>
+    <string name="manual_pyramid_structure">1 talia po 52 karty.
+	\n\n28 stosów gry, 1 główny, 1 odrzutów i 1 stos docelowy.
+	\n\nKarty ze stosu odrzutów można przenieść na stos główny tylko 2 razy podczas gry.</string>
+    <string name="manual_pyramid_objective">Przenieś wszystkie karty z pola gry na stos docelowy. Zależnie od ustawień, być może będziesz także musiał przenieść wszystkie karty ze stosu głównego i odrzutów na stos docelowy.</string>
+    <string name="manual_pyramid_rules">Ta gra ma odrobinę inne zasady niż inne pasjanse. Każda karta z wierzchu stosu może zostać użyta do gry. 2 karty, których wartości sumują się do 13 można przenieść do stosu docelowego. Aby to zrobić, przenieś kartę na inną wolną kartę, jeżeli ich wartości są poprawne, zostaną one automatycznie przeniesione do stosu docelowego.
+	\n\nJest także możliwe użycie kart ze stosu głównego i odrzutów. Jeżeli nie możesz wykonać żadnego ruchu, stuknij na strzałkę pomiędzy stosami aby przenieść jedną kartę ze stosu głównego do odrzutów. Jeżeli stos główny jest pusty, stuknij go lub strzałkę aby przenieść wszystkie karty z niego do stosu odrzutów do głównego. Ten ruch możesz wykonać tylko dwa razy w ciągu gry. Pozostała liczba razy wyświetla się jako niewielki numer nad strzałką.</string>
+    <string name="manual_pyramid_scoring">Przeniesienie karty na stos docelowy: +50
+	\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do stosu głównego: -200</string>
 
     <!-- TriPekas -->
-    <string name="manual_tripeaks_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main and 1
-        discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
-    <string name="manual_tripeaks_objective">Move every card from the tableau to the discard stack.</string>
-    <string name="manual_tripeaks_rules">The rules of this game are similar to \"Golf\". Every card
-        which isn\'t covered by another card can be used to play. Cards can only be placed on the
-        discard stack in ascending and descending order regardless of color.\n\nIt is also possible
-        to play kings on aces and vice versa.\n\nIf no card can be moved, press on the main stack to
-        deal one card from it to the discard stack.</string>
-    <string name="manual_tripeaks_scoring">Move a card to the waste: +50\n\nReturn cards from discard
-        stack to main stack: -200</string>
+    <string name="manual_tripeaks_structure">1 talia po 52 karty.
+	\n\n28 stosów gry, 1 główny i 1 stos odrzutów.
+	\n\nPrzeniesienie kart ze stosu odrzutów do głównego nie jest możliwe (za wyjątkiem użycia przycisku cofnij).</string>
+    <string name="manual_tripeaks_objective">Przenieś wszystkie karty z pola gry na stos odrzutów.</string>
+    <string name="manual_tripeaks_rules">Reguły tej gry są podobne do gry \"Golf\". Każda karta z wierzchu stosu może zostać użyta do gry. Karty można kłaść na stos odrzutów w kolejności rosnącej lub malejącej bez względu na kolor.
+	\n\nMożna także kłaść króla na asa i odwrotnie.
+	\n\nJeżeli nie możesz przesunąć jakielkolwiek karty, stuknij w stos główny, aby przenieść jedną kartę do stosu odrzutów.</string>
+    <string name="manual_tripeaks_scoring">Przeniesienie karty do stosu odrzutów: +50
+	\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do stosu głównego: -200</string>
 
     <!-- Forty&Eight -->
-    <string name="manual_fortyeight_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation
-        stacks, 1 main and 1 discard stack.\n\nCards from the discard stack can be moved back to the
-        main stack only once in a game.\n\n</string>
-    <string name="manual_fortyeight_objective">Order every card as real families in ascending order
-        on the foundation.</string>
-    <string name="manual_fortyeight_rules">Cards can be placed on the tableau in descending order of
-        the same family. You can move only one card from the top of a stack at once. On the foundation,
-        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
-        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
-        pressing on the main stack, one card will be moved to the discard stack from where you can play
-        it.\n\nIf the main stack is empty, you can still press on it to move every card from the
-        discard stack back to the main stack and use them again. But this is only once a game possible.
-        The remaining amount is shown a the little number above the main stack.</string>
-    <string name="manual_fortyeight_scoring">Move a card to foundation: +45\n\nMove a card back to
-        tableau: -60\n\nMove a card from the discard stack to tableau: +60\n\nReturn cards from discard to main stack: -200</string>
+    <string name="manual_fortyeight_structure">2 talie po 52 karty.
+	\n\n8 stosów gry, 8 stosów bazowych, 1 główny i 1 stos odrzutów.
+	\n\nKarty ze stosu odrzutów można przenieść na stos główny tylko 1 raz podczas gry.</string>
+    <string name="manual_fortyeight_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_fortyeight_rules">Karty można kłaść na stosach gry w kolejności malejącej i tego samego koloru kart. Możesz przenosić tylko jedną kartę z wierzchu stosu naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+	\n\nKażdą kartę można umieścić na pustym polu gry i tylko asy można umieścić na pustych polach bazowych.
+	\n\nKlikając na stos główny, jedna karta zostanie przeniesiona do stosu odrzutów, skąd będziesz mógł ją użyć.
+	\n\nJeżeli stos główny jest pusty, stuknij w niego, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie. Ale możesz to zrobić tylko raz w ciągu gry. Pozostała liczba jest wyświetlana jako niewielki numer nad głównym stosem.</string>
+    <string name="manual_fortyeight_scoring">Przeniesienie karty na stos bazowy: +45
+	\n\nPrzeniesienie karty z powrotem na pole gry: -60
+	\n\nPrzeniesienie karty ze stosu odrzutów na pole gry: +60
+	\n\nPrzeniesienie kart ze stosu odrzutów na stos główny: -200</string>
 
     <!-- Mod3 -->
-    <string name="manual_mod3_structure">2 deck of 52 cards.\n\n32 tableau stacks, 1 main and 1 aces
-        stack.\n\n</string>
-    <string name="manual_mod3_objective">Order every card on the top 3 rows of the tableau as sequences
-        of the same color in the following way:\n\nFirst row: Sequences of 2–5–8–J\nSecond row: Sequences
-        of 3–6–9–Q\nThird row: Sequences of 4–7–10–K\n\nAces will be put away.</string>
-    <string name="manual_mod3_rules">You can move only one card from the top of a stack at once. Cards can only
-        be placed if the sequence shown under \"Objectives\" is correct. So you can place for example a
-        Hearts 5 on a Hearts 2, but only if the Hearts 2 is in the first row of the tableau. Different
-        families aren\'t allowed either.\n\nGain free stacks to place cards by moving aces to the aces
-        stack above the main stack.\n\nThe fourth row is also the discard row for the cards from the main
-        stack. Any card can be placed on a free stack of the forth row.\n\nPress on the main stack to deal
-        one card to each stack of the forth row.\n\n</string>
-    <string name="manual_mod3_scoring">Move a card on a correct field of the tableau: +50\n\nMove a card back to the fourth row of the tableau: -75</string>
+    <string name="manual_mod3_structure">2 talie po 52 karty.
+	\n\n32 stosy gry, 1 główny i 1 stos asów.</string>
+    <string name="manual_mod3_objective">Uszereguj wszystkie karty w 3 górnych rzędach na stosach gry jako sekwencje kart tego samego koloru w następujący sposób:
+	\n\nPierwszy rząd: sekwencja 2-5-8-J
+	\n\nDrugi rząd: sekwencja 3-6-9-Q
+	\n\nTrzeci rząd: sekwencja 4-7-10-K
+	\n\nAsy są odrzucane.</string>
+    <string name="manual_mod3_rules">Możesz przenosić tylko jedną kartę z wierzchu stosu naraz. Karty można układać tylko wtedy, gdy sekwencja pokazana w polu \"Cele\" jest poprawna. Możesz na przykład położyć 5 kier na 2 kier, ale tylko jeżeli 2 kier znajduje się w pierwszym rzędzie pola gry. Różne kolory kart też nie są dozwolone.
+	\n\nUzyskaj puste pola na karty wrzucając asy do stosu asów nad głównym stosem.
+	\n\nCzwarty rząd jest także rzędem odrzutów dla kart z głównego stosu. Każdą kartę można położyć na pustym polu w czwartym rzędzie.
+	\n\nStuknij w główny stos, aby rozdać po jednej karcie na każdy stos w czwartym rzędzie.</string>
+    <string name="manual_mod3_scoring">Przeniesienie karty na poprawne miejsce na stos gry: +50
+	\n\nPrzeniesienie karty z pola gry na czwarty rząd: -75</string>
 
     <!-- Gypsy -->
-    <string name="manual_gypsy_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation stacks,
-        and 1 main stack.</string>
-    <string name="manual_gypsy_objective">Order every card in real families in ascending order on the
-        foundation.</string>
-    <string name="manual_gypsy_rules">Cards can be placed on the tableau in descending order and in
-        alternating colors. You can move a whole correct sequence of cards at once. On the foundation,
-        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
-        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
-        pressing on the main stack, one card will be moved to each tableau stack.</string>
-    <string name="manual_gypsy_scoring">Move a card to foundation: +75\n\nMove a card from foundation to tableau: -100\n\n
-        Flip a card over: +50</string>
+    <string name="manual_gypsy_structure">2 talie po 52 karty.
+	\n\n8 stosów gry, 8 stosów bazowych i 1 stos główny.</string>
+    <string name="manual_gypsy_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_gypsy_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Można przenosić całą serię kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+	\n\nKażdą kartę można umieścić na pustych polach gry i tylko asy można kłaść na pustych polach bazowych.
+	\n\nPo kliknięciu w główny stos, po jednej karcie zostanie umieszczonej w każdym stosie gry.</string>
+    <string name="manual_gypsy_scoring">Przeniesienie karty na stos bazowy: +75
+	\n\nPrzeniesienie karty ze stosu bazowego na pole gry: -100
+	\n\nOdkrycie karty: +50</string>
 
     <!-- acesUp -->
-    <string name="manual_acesup_structure">1 deck of 52 cards.\n\n4 tableau stacks, 1 main and 1
-        foundation stack.\n\nAces have the value 14, so they have a higher value than kings.</string>
-    <string name="manual_acesup_objective">Put all cards except the aces on the foundation stack,
-        so there is one ace on every tableau stack left.</string>
-    <string name="manual_acesup_rules">You can move only the top card of a stack. Move cards which
-        have a lower value than another top card of the same family to the foundation. For example:
-        There are a Hearts 5 and a Hearts 10 on top of two tableau stacks. Then you can move the Hearts
-        5 to the foundation. aces have a higher value than every other card.\n\nEvery movable card can
-        be placed on empty tableau stacks.\n\nPress the main stack to deal one card to each tableau
-        stack.</string>
-    <string name="manual_acesup_scoring">Move a card to the foundation stack: +50</string>
+    <string name="manual_acesup_structure">! talia po 52 karty.
+	\n\n4 stosy gry, 1 główny i 1 stos bazowy.
+	\n\nAsy mają wartość 14, więc mają większą wartość niż króle.</string>
+    <string name="manual_acesup_objective">Umieść wszystkie kart z wyjątkiem asów na stosach bazowych, tak aby tylko jeden as pozostał na każdym polu gry.</string>
+    <string name="manual_acesup_rules">Możesz przesunąć tylko górną kartę ze stosu. Przesuń karty, które mają niższą wartość niż inne karty tego samego koloru na stosy bazowe. Przykład: na dwóch polach gry znajduje się kier 5 i kier 10. Możesz przesunąć kier 5 na pole bazowe. Asy mają wyższą wartość niż wszystkie inne karty.
+	\n\nKażdą przesuwalną kartę można umieścić na pustych polach gry.
+	\n\nStuknij w główny stos, aby rozdać po jednej karcie na każdy stos gry.</string>
+    <string name="manual_acesup_scoring">Umieszczenie karty na stosie bazowym: +50</string>
 </resources>

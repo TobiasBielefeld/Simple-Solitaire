@@ -3,7 +3,7 @@
 <resources>
 
     <string name="about_name">Pri ludo</string>
-    <string name="about_Text1">programita de Tobias Bielefeld</string>
+    <string name="about_Text1">programita de Tobias BIELEFELD</string>
     <string name="about_Text2">dankon por ludadi mian ludon :)</string>
     <string name="about_Text3">bildoj origine publikitaj en:</string>
     <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">sub la permesilo CC0</a></string>
@@ -19,4 +19,5 @@
     <string name="about_translations_japanese">Japana: de GitHub-uzanto naofum</string>
     <string name="about_translations_esperanto_polish">Esperanto kaj Pola: de GitHub-uzanto verdulo</string>
 
+	
 </resources>
