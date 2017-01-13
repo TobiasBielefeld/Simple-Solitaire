@@ -127,8 +127,8 @@
     <string name="manual_pyramid_objective">Move every card from the tableau to the waste. Depending
         on settings, also every card from
         main and discard stacks has to be moved to the waste.</string>
-    <string name="manual_pyramid_rules">This game has slightly different rules. Every card, which isn\'t
-        covered by another card can be played. Two cards, whose values add up to 13 can be moved to the
+    <string name="manual_pyramid_rules">This game has slightly different rules compared to the other Solitare games.
+        Every card, which isn\'t covered by another card can be played. Two cards, whose values add up to 13 can be moved to the
         waste. To do so, move a card on another free card. If both values are correct, they will be
         automatically moved to the waste.\n\nIt is also possible to use the cards from main and discard stack.
         If no card movement is possible, press on the arrow between these stacks to

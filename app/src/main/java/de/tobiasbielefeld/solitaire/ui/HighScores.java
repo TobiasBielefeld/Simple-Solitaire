@@ -53,19 +53,12 @@ public class HighScores extends CustomAppCompatActivity {
         super.onCreate(savedInstanceState);                                                         //initialize stuff
         setContentView(R.layout.activity_high_scores);
 
-        /*if (savedSharedData==null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }*/
-
         ActionBar actionBar = getSupportActionBar();
         layoutScores = (LinearLayout) findViewById(R.id.highScoresLinearLayout1);                   //load the layouts and textView
         text1 = (TextView) findViewById(R.id.highScoresTextViewGamesWon);
 
         if (actionBar != null)                                                                      //set a nice back arrow in the actionBar
             actionBar.setDisplayHomeAsUpEnabled(true);
-
-        //showOrHideStatusBar(this);
-        //setOrientation(this);                                                                       //orientation according to preference
 
         text1.setText(String.format(Locale.getDefault(), "%s: %s", getString(                       //show the number of won games
                 R.string.statistics_games_won), gameLogic.getNumberWonGames()));
