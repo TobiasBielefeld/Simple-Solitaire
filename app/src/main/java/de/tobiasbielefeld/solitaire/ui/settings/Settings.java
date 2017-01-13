@@ -16,7 +16,6 @@
  * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
  */
 
-
 package de.tobiasbielefeld.solitaire.ui.settings;
 
 import android.content.Context;
@@ -57,6 +56,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +68,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
-        if (savedSharedData==null)
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     @Override
@@ -130,6 +128,14 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     public void onResume() {
         super.onResume();
+
+        if (savedSharedData==null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+        }
+
+        if (savedGameData==null) {
+            savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
+        }
 
         savedSharedData.registerOnSharedPreferenceChangeListener(this);
         showOrHideStatusBar();
@@ -325,7 +331,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     private void setLocale() {
-
+        //LocaleChanger.setLocale(this);
+       // recreate();
         Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);

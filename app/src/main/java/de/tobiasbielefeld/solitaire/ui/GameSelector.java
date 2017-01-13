@@ -21,7 +21,6 @@ package de.tobiasbielefeld.solitaire.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -33,9 +32,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
+import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
@@ -45,7 +45,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
   * This is the main menu with the buttons to load a game
   */
 
-public class GameSelector extends AppCompatActivity{
+public class GameSelector extends CustomAppCompatActivity {
 
     ArrayList<LinearLayout> gameLayouts;
     TableLayout tableLayout;
@@ -57,9 +57,6 @@ public class GameSelector extends AppCompatActivity{
          */
         super.onCreate(savedInstanceState);
         savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        defaultLocale = Locale.getDefault().toString();
-
-        changeLocale(this);
 
         setContentView(R.layout.activity_game_chooser_main);
 
@@ -67,8 +64,6 @@ public class GameSelector extends AppCompatActivity{
         gameLayouts = lg.loadLayouts(this);
 
         loadGameList();
-        showOrHideStatusBar(this);
-        setOrientation(this);
 
         if (!getSharedBoolean(getString(R.string.pref_key_start_menu),false)) {
             int savedGame;
@@ -173,31 +168,11 @@ public class GameSelector extends AppCompatActivity{
 
     public void onResume(){
         super.onResume();
-
-        if (savedSharedData==null)
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-
         loadGameList();
-        showOrHideStatusBar(this);
-        setOrientation(this);
     }
 
-    public void changeLocale(Context context) {
-
-        String lang = getSharedString(context.getString(R.string.pref_key_language),"default");
-
-        if (lang.equals("default"))
-            lang = defaultLocale;
-
-        Configuration conf = context.getResources().getConfiguration();
-        Locale locale = new Locale(lang);
-        conf.locale = locale;
-        Locale.setDefault(locale);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            conf.setLayoutDirection(conf.locale);
-        }
-
-        context.getResources().updateConfiguration(conf, context.getResources().getDisplayMetrics());
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleChanger.onAttach(base));
     }
 }

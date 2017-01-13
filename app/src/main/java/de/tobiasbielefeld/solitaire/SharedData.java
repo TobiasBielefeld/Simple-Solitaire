@@ -99,7 +99,6 @@ public class SharedData {
     public static SharedPreferences savedSharedData;
     public static SharedPreferences savedGameData;
     public static Game currentGame;
-    public static String defaultLocale;
 
     public static TestAfterMoveHandler testAfterMoveHandler = new TestAfterMoveHandler();
     public static TestIfWonHandler testIfWonHandler = new TestIfWonHandler();
@@ -350,28 +349,5 @@ public class SharedData {
             return value2;
     }
 
-    public static void showOrHideStatusBar(AppCompatActivity activity) {
-        if (getSharedBoolean(activity.getString(R.string.pref_key_hide_status_bar), false))
-            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        else
-            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    }
 
-    public static void setOrientation(AppCompatActivity activity) {
-        switch (getSharedString("pref_key_orientation", "1")) {
-            case "1": //follow system settings
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-                break;
-            case "2": //portrait
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                break;
-            case "3": //landscape
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-            case "4": //landscape upside down
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                break;
-        }
-    }
 }

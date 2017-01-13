@@ -12,7 +12,7 @@
         android:title="@string/settings_orientation" />
 
     <ListPreference
-        android:defaultValue="1"
+        android:defaultValue="default"
         android:entries="@array/pref_language_titles"
         android:entryValues="@array/pref_language_values"
         android:key="@string/pref_key_language"

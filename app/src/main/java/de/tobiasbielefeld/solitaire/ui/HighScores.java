@@ -16,14 +16,11 @@
  * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
  */
 
-
 package de.tobiasbielefeld.solitaire.ui;
 
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +31,7 @@ import android.widget.Toast;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.dialogs.HighScoreDeleteDialog;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 
@@ -44,7 +42,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * in a vertical list. There is also a button to delete all entries with a dialog
  */
 
-public class HighScores extends AppCompatActivity {
+public class HighScores extends CustomAppCompatActivity {
 
     private TextView text1;
     private LinearLayout layoutScores;
@@ -55,9 +53,9 @@ public class HighScores extends AppCompatActivity {
         super.onCreate(savedInstanceState);                                                         //initialize stuff
         setContentView(R.layout.activity_high_scores);
 
-        if (savedSharedData==null) {
+        /*if (savedSharedData==null) {
             savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }
+        }*/
 
         ActionBar actionBar = getSupportActionBar();
         layoutScores = (LinearLayout) findViewById(R.id.highScoresLinearLayout1);                   //load the layouts and textView
@@ -66,8 +64,8 @@ public class HighScores extends AppCompatActivity {
         if (actionBar != null)                                                                      //set a nice back arrow in the actionBar
             actionBar.setDisplayHomeAsUpEnabled(true);
 
-        showOrHideStatusBar(this);
-        setOrientation(this);                                                                       //orientation according to preference
+        //showOrHideStatusBar(this);
+        //setOrientation(this);                                                                       //orientation according to preference
 
         text1.setText(String.format(Locale.getDefault(), "%s: %s", getString(                       //show the number of won games
                 R.string.statistics_games_won), gameLogic.getNumberWonGames()));

@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -37,6 +36,7 @@ import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.RestartDialog;
 import de.tobiasbielefeld.solitaire.handler.LoadGameHandler;
@@ -56,7 +56,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * This is like the main activity, handles game input, controls the timer, loads and saves everything
  */
 
-public class GameManager extends AppCompatActivity implements View.OnTouchListener {
+public class GameManager extends CustomAppCompatActivity implements View.OnTouchListener {
 
     public boolean hasLoaded = false;                                                               //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                                               //button for auto complete
@@ -65,6 +65,12 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
     public Toast toast;                                                                             //a delicious toast!
 
     private DialogFragment restartDialog = new RestartDialog();
+
+    @Override
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,7 +109,6 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
             stacks[i].view.setBackgroundResource(R.drawable.background_stack);
             layoutGame.addView(stacks[i].view);
         }
-        //mainTextViewRedeals.bringToFront();
 
         for (int i = 0; i < cards.length; i++) {
             cards[i] = new Card(i);
@@ -123,7 +128,6 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
         layoutGame.post(new Runnable() {                                                           //post a runnable to set the dimensions of cards and stacks when the layout has loaded
             @Override
             public void run() {
-
                 boolean isLandscape = getResources().getConfiguration().orientation
                         == Configuration.ORIENTATION_LANDSCAPE;
 
@@ -203,19 +207,8 @@ public class GameManager extends AppCompatActivity implements View.OnTouchListen
     public void onResume() {
         super.onResume();
 
-        //set shared preferences if not loaded to avoid force closes
-        if (savedSharedData==null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-
-            if (savedGameData==null) {
-                savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
-            }
-        }
-
         timer.load();
         loadBackgroundColor();
-        setOrientation(this);
-        showOrHideStatusBar(this);
     }
 
     @Override

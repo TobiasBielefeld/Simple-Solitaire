@@ -27,6 +27,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -37,7 +38,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * This stuff is depreciated, but it works and looks very fine :)
  */
 @SuppressWarnings("deprecation")
-public class AboutActivity extends AppCompatActivity implements ActionBar.TabListener {
+public class AboutActivity extends CustomAppCompatActivity implements ActionBar.TabListener {
 
     private ViewPager viewPager;
     private ActionBar actionBar;
@@ -46,13 +47,6 @@ public class AboutActivity extends AppCompatActivity implements ActionBar.TabLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activty_about);
-
-        if (savedSharedData==null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }
-
-        showOrHideStatusBar(this);
-        setOrientation(this);
 
         actionBar = getSupportActionBar();
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -81,12 +75,10 @@ public class AboutActivity extends AppCompatActivity implements ActionBar.TabLis
     }
 
     @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft)
-    {
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
         viewPager.setCurrentItem(tab.getPosition());
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
             @Override
             public void onPageSelected(int position) {
                 actionBar.setSelectedNavigationItem(position);
@@ -94,6 +86,7 @@ public class AboutActivity extends AppCompatActivity implements ActionBar.TabLis
 
             @Override
             public void onPageScrolled(int arg0, float arg1, int arg2) {}
+
             @Override
             public void onPageScrollStateChanged(int arg0) {}
         });

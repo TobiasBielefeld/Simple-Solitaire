@@ -124,7 +124,7 @@ public class Animate{
         animation.setDuration((distance * 100) / Card.width);
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {                                     //on start, increment the animating status (will be decremented in end of showCard())
-                cardIsAnimating++;
+                ++cardIsAnimating;
             }
 
             public void onAnimationEnd(Animation animation) {
@@ -172,7 +172,7 @@ public class Animate{
             }
 
             public void onAnimationEnd(Animation animation) {                                       //at end, decrement the animating status
-                cardIsAnimating--;
+                decrementAnimating();
             }
 
             public void onAnimationRepeat(Animation animation) {
@@ -191,14 +191,14 @@ public class Animate{
         animation.setDuration(distance * 100 / Card.width);
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {                                     //on start, increment the status
-                cardIsAnimating++;
+                ++cardIsAnimating;
             }
 
             public void onAnimationEnd(Animation animation) {
                 view.clearAnimation();
                 view.setX(pX);
                 view.setY(pY);
-                cardIsAnimating--;
+                decrementAnimating();
             }
 
             public void onAnimationRepeat(Animation animation) {
@@ -211,6 +211,16 @@ public class Animate{
 
     public boolean cardIsAnimating() {
         return cardIsAnimating != 0;
+    }
+
+    private void decrementAnimating(){
+        /*
+         * to prevent errors, only decrement when greater zero (otherwise it would cause problems
+         * when trying to move cards
+         */
+
+        if (cardIsAnimating>0)
+            --cardIsAnimating;
     }
 
     public void reset() {
