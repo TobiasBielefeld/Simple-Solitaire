@@ -63,13 +63,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRedeals;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
     public Toast toast;                                                                             //a delicious toast!
-
-    private DialogFragment restartDialog = new RestartDialog();
-
-    @Override
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-    }
+    public static int loadCounter=0;                                                                //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
 
 
     @Override
@@ -123,7 +117,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
 
         scores.output();
-
+        loadCounter++;
         //post, because i need the dimensions of layoutGame to set the cards and stacks
         layoutGame.post(new Runnable() {                                                           //post a runnable to set the dimensions of cards and stacks when the layout has loaded
             @Override
@@ -138,9 +132,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     for (Stack stack : stacks)
                         stack.view.setX(layoutGame.getWidth() - stack.view.getX() - Card.width);
 
-                    if (currentGame.hasArrow()){
-                        for (Stack stack : stacks){
-                            if (stack.hasArrow()>0) {
+                    if (currentGame.hasArrow()) {
+                        for (Stack stack : stacks) {
+                            if (stack.hasArrow() > 0) {
                                 if (stack.hasArrow() == 1) {
                                     stack.view.setBackgroundResource(R.drawable.arrow_right);
                                 } else {
@@ -158,37 +152,40 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 //there are 4 possible directions. By default, the tableau stacks are stacked down
                 //all other stacks don't have a visible offset
                 //use setDirections() in a game to change that
-                if (currentGame.directions==null) {
+                if (currentGame.directions == null) {
                     for (int i = 0; i <= currentGame.getLastTableauID(); i++) {
                         stacks[i].setSpacingDirection(1);
                     }
-                }
-                else {
-                    for (int i=0;i<currentGame.directions.length;i++) {
+                } else {
+                    for (int i = 0; i < currentGame.directions.length; i++) {
                         stacks[i].setSpacingDirection(currentGame.directions[i]);
                     }
                 }
                 //if there are direction borders set (when cards should'nt overlap another stack)  use it.
                 //else set the layout height/widht as maximum
-                if (currentGame.directionBorders!=null){
-                    for (int i=0;i<currentGame.directionBorders.length;i++){
-                        if (currentGame.directionBorders[i]!=-1)    //-1 means no border
+                if (currentGame.directionBorders != null) {
+                    for (int i = 0; i < currentGame.directionBorders.length; i++) {
+                        if (currentGame.directionBorders[i] != -1)    //-1 means no border
                             stacks[i].setSpacingMax(currentGame.directionBorders[i]);
                         else
                             stacks[i].setSpacingMax(layoutGame);
                     }
                 } else {
-                    for (Stack stack : stacks){
+                    for (Stack stack : stacks) {
                         stack.setSpacingMax(layoutGame);
                     }
                 }
 
                 //load the game
-                scores.load();
-                LoadGameHandler loadGameHandler = new LoadGameHandler(gm);
-                loadGameHandler.sendEmptyMessageDelayed(0,200);
+                loadCounter--;
+                if (loadCounter<1){
+                    scores.load();
+                    LoadGameHandler loadGameHandler = new LoadGameHandler(gm);
+                    loadGameHandler.sendEmptyMessageDelayed(0, 200);
+                }
             }
         });
+
     }
 
 
@@ -361,6 +358,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     public void showRestartDialog(){
+        RestartDialog restartDialog = new RestartDialog();
         restartDialog.show(getSupportFragmentManager(), "restartDialog");
     }
 }
