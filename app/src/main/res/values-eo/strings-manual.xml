@@ -90,7 +90,7 @@
 
     <!-- SimpleSimon -->
     <string name="manual_simplesimon_structure">1 kartaro po 52 kartoj.
-	\n\n10 tablamasojkaj 4 fundamentaj stakoj.</string>
+	\n\n10 tablamasoj kaj 4 fundamentaj stakoj.</string>
     <string name="manual_simplesimon_objective">Ordigu ĉiujn kartojn de ĉiu emblemo malkreskante ie ajn. Kompletitaj familioj de kartoj estos aŭtomate movitaj al fundamentaj stakoj.</string>
     <string name="manual_simplesimon_rules">Kartojn oni povas meti sur iun ajn alian karton laŭ malkreskanta ordo. Tamen nur serioj de samaj kartaj emblemoj povas esti movitaj per unu fojo.
 	\n\nĈiun karton oni povas meti sur maplenan tablamasan kampon.</string>
@@ -111,7 +111,7 @@
 	\n\n28 tablamasoj, 1 ĉefa, 1 forĵeta kaj 1 ruba stakoj.
 	\n\nKartojn de forĵeta stako oni povas movi al ĉefa stako nur dufoje dum ludo.</string>
     <string name="manual_pyramid_objective">Movu ĉiujn kartojn de tablamasoj al ruba stako. Depende de agordoj, vi ankaŭ devas movi ĉiujn kartojn de ĉefa kaj forĵeta stakoj al ruba stako.</string>
-    <string name="manual_pyramid_rules">Tiu ĉi ludo tre similas al la ludo Golfo. Ĉiu karto, kiu ne estas kovrita per alia karto ludeblas. Du kartoj, kies valoroj sumiĝas al 13 povas esti movitaj al ruba stako. Por fari tion, movu karton sur alian liberan karton. Se ambaŭ valoroj estas ĝustaj, ili per si mem moviĝos al ruba stako.
+    <string name="manual_pyramid_rules">Tiu ĉi ludo tre similas al la ludo Golfo. Ĉiu karto, kiu ne estas kovrita per alia karto ludeblas. Du kartoj, kies valoroj sumiĝas al 13, povas esti movitaj al ruba stako. Por fari tion, movu karton sur alian liberan karton. Se ambaŭ valoroj estas ĝustaj, ili per si mem moviĝos al ruba stako.
 	\n\nEstas ankaŭ eble uzi kartojn de ĉefa kaj forĵeta stakoj. Se neniu kart-movo eblas, frapetu sageton inter tiuj stakoj por movi unu karton de ĉefa stako al forĵeta stako. Se ĉefa stako estas malplena, frapetu ĝin ree aŭ sageton por transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako. Tiu ĉi movo povas esti uzita nur dufoje dum ludo. Restanta nombro montriĝos kiel eta numero supre de sageto.</string>
     <string name="manual_pyramid_scoring">Movi karton al ruba stako: +50
 	\n\nTransmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
@@ -132,7 +132,7 @@
 	\n\n8 tablamasoj, 8 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.
 	\n\nKartojn de forĵeta stako oni povas movi al ĉefa stako nur unufoje dum ludo.</string>
     <string name="manual_fortyeight_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
-    <string name="manual_fortyeight_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj sama emblemo. Vi povas movi nur unu karton de supro de stako samtempe. Sur fundamentajn stakojn kartojn oni povas meti nur laŭ kreskanta ordo kaj sama emblemo.
+    <string name="manual_fortyeight_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj sama emblemo. Vi povas movi nur unu karton de supro de stako samtempe. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
 	\n\nĈiun karton oni povas meti sur malplenajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
 	\n\nPer frapeto de ĉefa stako, unu karto estos movita al forĵeta stako, kie vi povas ludi per ĝi.
 	\n\nSe ĉefa stako estas malplena, vi plue povas frapeti ĝin por movi ĉiujn kartojn reen al forĵeta stako kaj reuzi ilin. Tamen tio ĉi eblas nur unufoje dum ludo. Restanta nombro montriĝos kiel eta numero supre de ĉefa stako.</string>
@@ -149,8 +149,8 @@
 	\n\nDua vico: serioj de 3-6-9-Q
 	\n\nTria vico: serioj de 4-7-10-K
 	\n\nAsojn oni forĵetas.</string>
-    <string name="manual_mod3_rules">Vi povas movi nur unu karton de supro de stako samtempe. Kartojn oni nur povas meti se la serio montrata en \"Celo\" estas ĝusta. Do ekzemple vi povas meti kreon 5 sur keron 2, tamen nur kiam kero 2 estas en la unua vico. Malsamaj kartaj emblemoj ankaŭ ne estas permesataj.
-	\n\nAkiru liberajjn kampojn por meti kartojn per movante asojn al asa stako supre de ĉefa stako.
+    <string name="manual_mod3_rules">Vi povas movi nur unu karton de supro de stako samtempe. Kartojn oni nur povas meti se la serio montrata en \"Celo\" estas ĝusta. Do ekzemple vi povas meti keron 5 sur keron 2, tamen nur kiam kero 2 estas en la unua vico. Malsamaj kartaj emblemoj ankaŭ ne estas permesataj.
+	\n\nAkiru liberajn kampojn por meti kartojn per movante asojn al asa stako supre de ĉefa stako.
 	\n\nKvara vico estas ankaŭ forĵeta vico por kartoj de ĉefa stako. Ĉiun karton oni povas meti sur malplenan kampon en kvara vico.
 	\n\nFrapetu ĉefan stakon por disdoni po unu karto al ĉiu stako de kvara vico.</string>
     <string name="manual_mod3_scoring">Movi karton al ĝusta kampo sur tablamaso: +50
@@ -160,7 +160,7 @@
     <string name="manual_gypsy_structure">2 kartaroj po 52 kartoj.
 	\n\n8 tablamasoj, 8 fundamentaj stakoj kaj 1 ĉefa stako.</string>
     <string name="manual_gypsy_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
-    <string name="manual_gypsy_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan ĝustan serion da kartoj per unu fojo. Sur fundamentajn stakojn kartojn oni povas meti nur laŭ kreskanta ordo kaj sama emblemo.
+    <string name="manual_gypsy_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan ĝustan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
 	\n\nĈiun karton oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn kampojn.
 	\n\nFrapu ĉefan stakon por movi po unu karto al ĉiu tablamasa stako.</string>
     <string name="manual_gypsy_scoring">Movi karton al fundamenta stako: +75
