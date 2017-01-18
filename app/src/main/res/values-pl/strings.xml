@@ -3,8 +3,8 @@
     <string name="app_version">Wersja</string>
 
     <!-- not sure if these should be translated-->
-    <string name="portrait">Pionowa</string>
-    <string name="landscape">Pozioma</string>
+    <string name="portrait">Pionowo</string>
+    <string name="landscape">Poziomo</string>
 
     <string name="settings">Ustawienia</string>
     <string name="game_manual">Podręcznik</string>
