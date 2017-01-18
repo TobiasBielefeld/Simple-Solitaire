@@ -3,8 +3,8 @@
     <string name="app_version">Versio</string>
 
     <!-- not sure if these should be translated-->
-    <string name="portrait">Vertikala</string>
-    <string name="landscape">Horizontala</string>
+    <string name="portrait">Vertikale</string>
+    <string name="landscape">Horizontale</string>
 
     <string name="settings">Agordoj</string>
     <string name="game_manual">Manlibro</string>
