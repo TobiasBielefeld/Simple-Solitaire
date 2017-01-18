@@ -19,7 +19,7 @@
     <string name="settings_dark">Ciemne</string>
     <string name="settings_basic">Zwykłe</string>
 
-    <string name="settings_background">Tło numer</string>
+    <string name="settings_background">Koszulka numer</string>
     <string name="settings_customization">Wygląd</string>
     <string name="settings_customization_description">Dostosuj karty i tło</string>
     <string name="settings_other">Ogólne</string>
