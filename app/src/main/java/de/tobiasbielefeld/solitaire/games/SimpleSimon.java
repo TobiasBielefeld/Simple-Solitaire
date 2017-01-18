@@ -183,9 +183,42 @@ public class SimpleSimon extends Game {
                     moveToStack(cards,foundationStack,OPTION_NO_RECORD);
                     scores.update(200);
 
+                    testIfWonHandler.sendEmptyMessageDelayed(0,200);
                     break;
                 }
             }
         }
+    }
+
+    public boolean autoCompleteStartTest() {
+        for (int i = 0; i < 10; i++)
+            if (stacks[i].getSize()>0 && (stacks[i].getFirstUpCardPos()!=0 || !testCardsUpToTop(stacks[i],0,SAME_COLOR)))
+                return false;
+
+        return true;
+    }
+
+    public CardAndStack autoCompletePhaseOne() {
+
+        for (int i = 0; i < 10; i++) {
+            Stack sourceStack = stacks[i];
+
+            if (sourceStack.isEmpty())
+                continue;
+
+            Card cardToMove = sourceStack.getCard(0);
+
+            for (int k = 0; k < 10; k++) {
+                Stack destStack = stacks[k];
+                if (i == k || destStack.isEmpty() || destStack.getTopCard().getColor()!=cardToMove.getColor())
+                    continue;
+
+                if (cardToMove.test(destStack)) {
+                    return new CardAndStack(cardToMove, destStack);
+                }
+            }
+        }
+
+        return null;
     }
 }

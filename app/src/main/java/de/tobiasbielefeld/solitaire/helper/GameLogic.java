@@ -19,7 +19,6 @@
 package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Random;

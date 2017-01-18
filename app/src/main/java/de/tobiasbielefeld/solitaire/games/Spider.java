@@ -256,6 +256,7 @@ public class Spider extends Game {
                         currentStack.getTopCard().flipWithAnim();
                     }
 
+                    testIfWonHandler.sendEmptyMessageDelayed(0,200);
                     break;
                 }
             }
@@ -287,13 +288,12 @@ public class Spider extends Game {
     }
 
     public boolean autoCompleteStartTest() {
-
         for (int i=0;i<4;i++)
             if (!stacks[18+i].isEmpty())
-                return false;
+               return false;
 
         for (int i = 0; i < 10; i++)
-            if (stacks[i].getFirstUpCardPos()!=0 || !testCardsUpToTop(stacks[i],0,SAME_COLOR))
+            if (stacks[i].getSize()>0 && (stacks[i].getFirstUpCardPos()!=0 || !testCardsUpToTop(stacks[i],0,SAME_COLOR)))
                 return false;
 
         return true;
