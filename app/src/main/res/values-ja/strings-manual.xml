@@ -1,211 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="manual_back_to_game">ゲームに戻る</string>
-    <string name="manual_feedback">フィードバック</string>
+    <string name="title_activity_manual">マニュアル</string>
+
     <string name="manual_games">ゲーム</string>
-    <string name="manual_main_menu">メインメニュー</string>
-    <string name="manual_open_github">GitHubリポジトリを開く</string>
-    <string name="manual_open_google_play">Google Playを開く</string>
+    <string name="manual_feedback">フィードバック</string>
     <string name="manual_startpage">開始ページ</string>
+    <string name="manual_back_to_game">ゲームに戻る</string>
+    <string name="manual_structure">仕組み</string>
+    <string name="manual_objective">目的</string>
+    <string name="manual_rules">ルール</string>
+    <string name="manual_scoring">スコアの数え方</string>
+    <string name="manual_main_menu">メインメニュー</string>
     <string name="manual_ui">ユーザーインターフェース</string>
 
-    <string name="manual_structure">Structure</string>
-    <string name="manual_objective">Objective</string>
-    <string name="manual_rules">Rules</string>
-    <string name="manual_scoring">Scoring</string>
+    <!-- Feedback -->
+    <string name="manual_open_github">GitHubリポジトリを開く</string>
+    <string name="manual_open_google_play">Google Playを開く</string>
+    <!-- Games -->
+    <string name="manual_games_text1">仕組み、目的、ルール、スコアの数え方を表示するゲームを選択してください。</string>
+    <string name="manual_startpage_text">\n\nこのゲームコレクションのマニュアルへようこそ! すべて説明されていることを願っています。
+        \n\n他のマニュアルページにアクセスするには、左側のメニューを使用します。</string>
 
-    <string name="manual_startpage_text">大変申し訳ありませんが、マニュアルページは翻訳されていません。
-        翻訳の提供を手伝いたい場合は、フィードバックページをご覧ください。
-        \n\nWelcome to the manual of this game collection! I hope it will explain everything.
-        \n\nUse the menu on the left side to access the other manual pages.</string>
-
-    <string name="manual_games_text1">Choose a game to show it\'s structure, objective, rules and scoring.</string>
-    <string name="manual_general_main_menu">The usage of the main menu is relatively simple. Just tap on a game to start it.
-        \n\nThe app will automatically load the last played game on a restart, if the app was paused in it. This behavior can
-        be disabled in the settings under \"General\".\n\nThere you can also find the section \"Main menu\", where it\'s possible to hide games
-        from the menu and change the number of columns, so more games fit on the screen at once.</string>
-    <string name="manual_ui_text">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the
-        right side (Landscape mode).It will also show the current score and current played time of the game. If possible, these two values
-        will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons
-        from left to right):\n\nThe \"Scores\" button will show a new window with the high scores and the count of won games of
-        the current game.\n\nThe \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease
-        the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main
-        stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.\n\nThe \"Menu\" button shows three different
-        actions: Start a new game by mixing the cards and drawing a new deal. Give cards again will do the same but without the
-        mixing. So it\'s like a restart of the current game. The last option will end the current game and return the app to the
-        main menu.\n\nThe \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to
-        20 last movements.\n\nThe \"Settings\" button simply opens the settings menu.</string>
-    <string name="manual_feedback_text">Found a bug or an error? Something I should improve? Should I add another game to the
-        collection? Maybe you want to help with some translations? Or have another idea?\n\nI am happy to receive any kind of
-        feedback. If you feel the need to contact me, you should consider the following two options:\n\nUse the Issue Tracker
-        on GitHub: The project of this app on GitHub has a neat function to report issues.Just click on the button to the left
-        side of the screen to open the Issue Tracker with the Internet browser.\n\nUse a rating in Google Play: Just leave a
-        rating on the page from this app and write anything you want in it.Click on the button to the right side to open the
-        Google Play Store (if installed).\n\nThank you in advance for your feedback :)</string>
+    <string name="manual_general_main_menu">メインメニューの使用は比較的簡単です。 ゲームをタップして起動するだけです。
+        \n\nアプリを一時停止した場合、再起動時に最後にプレイしたゲームが自動的に読み込まれます。
+        この動作は、\"全般\" 設定で無効にすることができます。\n\nまた、\"メインメニュー\" セクションもあり、
+        メニューからゲームを非表示にしたり、より多くのゲームが一つの画面に収まるように列の数を変更することができます。</string>
+    <string name="manual_ui_text">ゲームは常に、画面の下部（縦向きモード）または右側（横向きモード）に小さなメニューを表示します。
+        また、ゲームの現在のスコアと現在のプレイ時間も表示されます。 可能であれば、これら2つの値がハイスコアリストに保存されます。
+        メニューには5つのアイテムがあり、以下のような効果があります（左から右のボタン）:\n\n\"スコア\" ボタンは、
+        現在のゲームのハイスコアと勝ち数を表示する新しいウィンドウを表示します。 \n\n\"ヒント\" ボタンは、
+        1度に3回までの可能なカードの動きを表示して助けてくれます。 しかし、これは現在のスコアを25減らします。
+        すべてのカードを空のフィールドに移動する、またはメインスタックを押すなどの簡単な動きは、ヒントとして表示されません。
+        ヒントが表示されていない場合、スコアは減りません。\n\n\"メニュー\" ボタンは3つの異なるアクションを表示します:
+        カードを混ぜて新しい札を引き出し、新しいゲームを開始します。 カードをもう一度配ると、混ぜないで同じことが起こります。
+        現在のゲームを再開するようです。 最後のオプションは、現在のゲームを終了し、メインメニューに戻ります。\n\n\"元に戻す\"
+        ボタンは最後の動きを元に戻しますが、これには25ポイント必要です。 これは最大20回まで最後の動きに使用できます。
+        \n\n\"設定\" ボタンは設定メニューを開きます。</string>
+    <string name="manual_feedback_text">バグやエラーを見つけましたか? 何か改善すべきことがありますか?
+        コレクションに別のゲームを追加する必要がありますか? 翻訳の手伝いをしたいですか? それとも別のアイデアがありますか?
+        \n\n何かフィードバックをいただけると有難いです。 私に連絡する必要がある場合は、次の2つのオプションを考慮してください:
+        \n\nGitHub上のイシュートラッカーを使用する: GitHub上のこのアプリのプロジェクトは、問題を報告するための素敵な機能があります。
+        画面の左側にあるボタンをクリックするだけで、インターネットブラウザでイシュートラッカーを開くことができます。
+        \n\nGoogle Playで評価を使用する: このアプリのページで評価を残して、何か書き込んでください。 右側にあるボタンをクリックして
+        Google Playストアを開きます（インストールされている場合）。\n\nご意見をお寄せいただきありがとうございます :)</string>
 
     <!-- Klondike -->
-    <string name="manual_klondike_structure">1 deck of 52 cards.\n\n7 tableau stacks, 4 foundation
-        stacks, 1 main and 1 discard stack.</string>
-    <string name="manual_klondike_objective">Order every card in real families in ascending order on
-        the foundation.</string>
-    <string name="manual_klondike_rules">Cards can be placed on the tableau in descending order and
-        in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards
-        can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed
-        on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing
-        on the main stack, cards will be moved to the discard stack from where you can use them.
-        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected,only one card
-        will be moved (This is the default setting, for easier game play). With \"Draw 3\" enabled, 3 cards
-        will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every
-        card from the discard stack to the main stack and use them again.</string>
-    <string name="manual_klondike_scoring">From tableau to foundation: +60\n\nFrom discard stack to
-        foundation: +45\n\nFrom foundation to tableau: -75\n\nTurn a card over: +25\n\nReturn all cards
-        from discard stack to main stack: -200</string>
+    <string name="manual_klondike_structure">52枚のカードを1組。\n\n7列の場札、4列の組札、
+        1列の山札と1列の捨て札。</string>
+    <string name="manual_klondike_objective">組札に、同じマークのカードをそれぞれ昇順に並べます。</string>
+    <string name="manual_klondike_rules">カードは降順に、交互に色を場札に置くことができます。
+        一連のカード全体を一度に移動できます。 組札は、同じマークのカードを昇順にしか置くことができません。
+        \n\nキングは空の場札にのみ置くことができ、エースは空の組札にのみ置くことができます。
+        \n\n山札を押すことで、カードは使用できる場所から捨て札に移動します。
+        カードの数は、選んだ設定によって異なります。 \"ドロー 1\" が選択されている場合、
+        1枚のカードだけが移動されます（これはゲームを簡単にプレイするためのデフォルト設定です）。
+        \"ドロー 3\" を有効にすると、一度に3枚のカードが移動されます。\n\n山札が空の場合、それを押して、
+        捨て札からすべてのカードを山札に移動して、もう一度使用できます。</string>
+    <string name="manual_klondike_scoring">場札から組札へ: +60\n\n捨て札から組札へ: +45
+        \n\n組札から場札へ: -75\n\nカードをめくる: +25
+        \n\n捨て札からすべてのカードを山札に戻す: -200</string>
 
     <!-- FreeCell -->
-    <string name="manual_freecell_structure">1 deck of 52 cards.\n\n8 tableau stacks, 4 foundation
-        stacks and 4 free cells.</string>
-    <string name="manual_freecell_objective">Order every card in real families in ascending order on
-        the foundation.</string>
-    <string name="manual_freecell_rules">Cards can be placed on the tableau in descending order and
-        in alternating colors. On the foundation, cards can be placed only in ascending order on the
-        corresponding family. The 4 cells on the top can only contain one card at a time.\n\nYou can
-        move as many cards (which are in a correct sequence) at once, as there are free stacks (tableau
-        and the cells) available. This corresponds to the rule, that only one card can be moved at once,
-        but when there are free stacks available, the cards can be moved on the free stacks first and then
-        to the destination stack.\n\nEvery card can be placed on empty tableau fields and cells. aces can
-        be placed on empty foundation fields.</string>
-    <string name="manual_freecell_scoring">Move a card to foundation: +60\n\nMove a card from foundation:
-        -75\n\nMove a king to an empty field: +20</string>
+    <string name="manual_freecell_structure">52枚のカードを1組。\n\n8列の場札、4列の組札、
+        4列の空きマス。</string>
+    <string name="manual_freecell_objective">組札に、同じマークのカードをそれぞれ昇順に並べます。</string>
+    <string name="manual_freecell_rules">カードは降順に、交互に色を場札に置くことができます。
+        組札は、同じマークのカードを昇順にしか置くことができません。
+        上の4つのマスには、一度に1枚のカードしか入れることができません。
+        \n\n利用可能な空きの山（組札とマス）に、一度に多くのカードを（正しい順序で）移動できます。 
+        これは、一度に1枚のカードしか移動できないというルールに対応していますが、
+        空きの山がある場合は、最初に空きの山に移動してから目的の山に移動できます。
+        \n\nそれぞれのカードは 空きの場札とマスに置くことができます。 エースは空きの組札に置くことができます。</string>
+    <string name="manual_freecell_scoring">カードを組札に移動: +60\n\nカードを組札から移動:
+        -75\n\nキングを空きフィールドに移動: +20</string>
 
     <!-- Yukon -->
-    <string name="manual_yukon_structure">1 deck of 52 cards.\n\n7 tableau stacks and 4 foundation stacks.</string>
-    <string name="manual_yukon_objective">Order every card in real families in ascending order on the foundation.</string>
-    <string name="manual_yukon_rules">Cards can be placed on the tableau in descending order and in
-        alternating colors. On the foundation, cards can be placed only in ascending order on the
-        corresponding family.\n\nYou can move every faced up card, no matter how many cards and
-        which sequence the cards are on top of it.\n\nOnly kings can be placed on empty tableau
-        fields and only aces can be placed on empty foundation fields.</string>
-    <string name="manual_yukon_scoring">From tableau to foundation: +60\n\nFrom foundation to tableau:
-        -75\n\nMove a king to an empty field: +20\n\nFlip a card up: +25</string>
+    <string name="manual_yukon_structure">52枚のカードを1組。\n\n7列の場札、4列の組札。</string>
+    <string name="manual_yukon_objective">組札に、同じマークのカードをそれぞれ昇順に並べます。</string>
+    <string name="manual_yukon_rules">カードは降順に、交互に色を場札に置くことができます。
+        組札は、同じマークのカードを昇順にしか置くことができません。
+        \n\n何枚のカードでも、カード上の順序に、上向きのカードを移動することができます。
+        \n\nキングは空の場札にのみ置くことができ、エースは空の組札にのみ置くことができます。</string>
+    <string name="manual_yukon_scoring">場札から組札に: +60\n\n組札から場札に:
+        -75\n\nキングを空のフィールドに移動: +20\n\nカードをめくる: +25</string>
 
     <!-- Spider -->
-    <string name="manual_spider_structure">2 decks of 52 cards.\n\n10 tableau stacks and 8 foundation
-        stacks.\n\n1 main stack, separated in 5 different piles.\n\nDepending on settings: 1, 2 or 4
-        different card families.</string>
-    <string name="manual_spider_objective">Place every card in true descending card families anywhere on the
-        tableau. The built card families will be automatically moved to the foundation.</string>
-    <string name="manual_spider_rules">Cards can be placed on any card in descending order. But only
-        real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau
-        stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
-    <string name="manual_spider_scoring">Move a card family to foundation: +200
-        Flip a card up: +25</string>
+    <string name="manual_spider_structure">52枚のカードを2組。\n\n10列の場札と8列の組札。
+        \n\n1列の山札を、5組に分ける。\n\n設定に応じて: 1、2または4つの異なるカードのマーク。</string>
+    <string name="manual_spider_objective">場札の任意の場所に、すべて降順に同じマークのカードを置きます。
+        完成した一連のカードは自動的に組札に移されます。</string>
+    <string name="manual_spider_rules">カードは、任意のカードの上に降順に置くことができます。
+        しかし、本当に同じマークのカードの並びだけを一度に移動することができます。
+        \n\nそれぞれのカードは、空の場札に置くことができます。
+        \n\n山札を押すと、一度に1枚のカードをそれぞれの場札に配ります。</string>
+    <string name="manual_spider_scoring">同じマークのカードを組札に移動: +200
+        カードをめくる: +25</string>
 
     <!-- SimpleSimon -->
-    <string name="manual_simplesimon_structure">1 deck of 52 cards.\n\n10 tableau stacks and 4
-        foundation stacks.</string>
-    <string name="manual_simplesimon_objective">Place every card in true descending card families anywhere
-        on the tableau. The built card families will be automatically moved to the foundation.</string>
-    <string name="manual_simplesimon_rules">Cards can be placed on any card in descending order.
-        But only real card family sequences can be moved at once.\n\nEvery card can be placed on
-        empty tableau stacks.</string>
-    <string name="manual_simplesimon_scoring">Move a card family to foundation: +200</string>
+    <string name="manual_simplesimon_structure">52枚のカードを1組。\n\n10列の場札と8列の組札。</string>
+    <string name="manual_simplesimon_objective">場札の任意の場所に、すべて降順に同じマークのカードを置きます。
+        完成した一連のカードは自動的に組札に移されます。</string>
+    <string name="manual_simplesimon_rules">カードは、任意のカードの上に降順に置くことができます。
+        しかし、本当に同じマークのカードの並びだけを一度に移動することができます。
+        \n\nそれぞれのカードは、空の場札に置くことができます。</string>
+    <string name="manual_simplesimon_scoring">同じマークのカードを組札に移動: +200</string>
 
     <!-- Golf -->
-    <string name="manual_golf_structure">1 deck of 52 cards.\n\n7 tableau stacks, 1 main and 1
-        discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
-    <string name="manual_golf_objective">Move every card from the tableau to the discard stack.</string>
-    <string name="manual_golf_rules">Every top card of a stack can be used to play. Cards can only be
-        placed on the discard stack in ascending and descending order regardless of color.\n\nDepending
-        on settings, you can also place a king on an ace and vice versa (easier game play).\n\nIf no
-        card can be moved, press on the main stack to deal one card from it to the discard stack.</string>
-    <string name="manual_golf_scoring">Move a card to the discard stack: +50</string>
+    <string name="manual_golf_structure">52枚のカードを1組。\n\n7列の場札、1列の山札、1列の捨て札。
+        \n\n捨て札からカードを山札に戻すことはできません (元に戻すボタンを使用する場合を除き)。</string>
+    <string name="manual_golf_objective">すべてのカードを場札から捨て札に移動します。</string>
+    <string name="manual_golf_rules">札のすべての一番上のカードを使用してプレイすることができます。
+        カードは、色に関係なく、捨て札にのみ昇順または降順に置くことができます。
+        \n\n設定に応じて、エースの上にキングを置くことも、その逆も可能です (より簡単なゲームプレイ)。
+        \n\nカードを移動できない場合は、山札を押して、1枚のカードを捨て札に配ります。</string>
+    <string name="manual_golf_scoring">カードを捨て札に移動: +50</string>
 
     <!-- Pyramid -->
-    <string name="manual_pyramid_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main, 1 discard and 1
-        waste stack.\n\nCards from the discard stack can be moved back to then main stack only two times in a game.</string>
-    <string name="manual_pyramid_objective">Move every card from the tableau to the waste. Depending
-        on settings, also every card from
-        main and discard stacks has to be moved to the waste.</string>
-    <string name="manual_pyramid_rules">This game has slightly different rules. Every card, which isn\'t
-        covered by another card can be played. Two cards, whose values add up to 13 can be moved to the
-        waste. To do so, move a card on another free card. If both values are correct, they will be
-        automatically moved to the waste.\n\nIt is also possible to use the cards from main and discard stack.
-        If no card movement is possible, press on the arrow between these stacks to
-        move one card from then main stack to then discard stack. If the main stack is empty, press again on it or
-        on the arrow to return the cards from the discard stack to the main stack. This movement can
-        only be used two times in a game. The remaining amount will be shown as the little number above
-        the arrow.</string>
-    <string name="manual_pyramid_scoring">Move a card to the waste: +50\n\nReturn all cards from
-        discard stack to main stack: -200</string>
+    <string name="manual_pyramid_structure">52枚のカードを1組。\n\n28列の場札、1列の山札、1列の捨て札、1
+        列のゴミ山。\n\nゲームの中で2回だけ捨て札からのカードを、山札に戻すことができます。</string>
+    <string name="manual_pyramid_objective">すべてのカードを場札からゴミに移動します。
+        設定に応じて、山札と捨て札のカードもすべてゴミに移動する必要があります。</string>
+    <string name="manual_pyramid_rules">このゲームには若干異なるルールがあります。
+        別のカードがかぶさっていないすべてのカードをプレイできます。
+        足すと数が13になる2枚のカードをゴミに移動することができます。
+        そうするには、別の空きカードの上にカードを移動します。 両方の数が正しい場合、自動的にゴミに移動されます。
+        \n\n山札と捨て札のカードを使用することもできます。
+        カードの移動が不可能な場合は、これらの山の間の矢印を押して、山札から捨て札にカードを1枚移動します。
+        山札が空の場合は、それまたは矢印をもう一度押して、カードを捨て札から山札に戻します。
+        この動きはゲームで2回しか使用できません。 残りの量は、矢印の上に小さな数字で表示されます。</string>
+    <string name="manual_pyramid_scoring">カードをゴミに移動: +50
+        \n\nすべてのカードを捨て札から山札に戻す: -200</string>
 
     <!-- TriPekas -->
-    <string name="manual_tripeaks_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main and 1
-        discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
-    <string name="manual_tripeaks_objective">Move every card from the tableau to the discard stack.</string>
-    <string name="manual_tripeaks_rules">The rules of this game are similar to \"Golf\". Every card
-        which isn\'t covered by another card can be used to play. Cards can only be placed on the
-        discard stack in ascending and descending order regardless of color.\n\nIt is also possible
-        to play kings on aces and vice versa.\n\nIf no card can be moved, press on the main stack to
-        deal one card from it to the discard stack.</string>
-    <string name="manual_tripeaks_scoring">Move a card to the waste: +50\n\nReturn cards from discard
-        stack to main stack: -200</string>
+    <string name="manual_tripeaks_structure">52枚のカードを1組。\n\n28列の場札、1列の山札、1列の捨て札。
+        \n\n捨て札からカードを山札に戻すことはできません (元に戻すボタンを使用する場合を除き)。</string>
+    <string name="manual_tripeaks_objective">すべてのカードを場札から捨て札に移動します。</string>
+    <string name="manual_tripeaks_rules">このゲームのルールは \"ゴルフ\" に似ています。
+        別のカードが上がかぶさっていないすべてのカードをプレイに使用することができます。
+        カードは、色に関係なく、捨て札にのみ昇順または降順に置くことができます。
+        \n\nまた、エースの上にキングをプレイすることも、その逆も可能です。
+        \n\nカードを移動できない場合は、山札を押して、1枚のカードを捨て札に配ります。</string>
+    <string name="manual_tripeaks_scoring">カードを捨て札に移動: +50
+        \n\nカードを捨て札から山札に戻す: -200</string>
 
     <!-- Forty&Eight -->
-    <string name="manual_fortyeight_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation
-        stacks, 1 main and 1 discard stack.\n\nCards from the discard stack can be moved back to the
-        main stack only once in a game.\n\n</string>
-    <string name="manual_fortyeight_objective">Order every card as real families in ascending order
-        on the foundation.</string>
-    <string name="manual_fortyeight_rules">Cards can be placed on the tableau in descending order of
-        the same family. You can move only one card from the top of a stack at once. On the foundation,
-        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
-        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
-        pressing on the main stack, one card will be moved to the discard stack from where you can play
-        it.\n\nIf the main stack is empty, you can still press on it to move every card from the
-        discard stack back to the main stack and use them again. But this is only once a game possible.
-        The remaining amount is shown a the little number above the main stack.</string>
-    <string name="manual_fortyeight_scoring">Move a card to foundation: +45\n\nMove a card back to
-        tableau: -60\n\nMove a card from the discard stack to tableau: +60\n\nReturn cards from discard to main stack: -200</string>
+    <string name="manual_fortyeight_structure">52枚のカードを2組。\n\n8列の場札、8列の組札、
+        1列の山札、1列の捨て札。\n\nゲーム内で一度だけ、捨て札からのカードを山札に戻することができます。\n\n</string>
+    <string name="manual_fortyeight_objective">同じマークのすべてのカードを組札に昇順で並べる。</string>
+    <string name="manual_fortyeight_rules">カードは同じマークの降順で場札に置くことができます。
+        山の一番上から一度に1枚のカードしか移動できません。
+        組札に、対応するマークの昇順にしかカードを置くことができません。
+        \n\nすべてのカードは空の場札に置くことができ、エースだけは空の組札に置くことができます。
+        \n\n山札を押すと、1枚のカードが捨て札に移動し、そこからカードをプレイすることができます。
+        \n\n山札が空の場合、それを押して、捨て札からすべてのカードを山札に戻して再び使用することができます。
+        しかし、これはゲームで一度だけ可能です。 残りの量は山札の上に小さい数字で表示されます。</string>
+    <string name="manual_fortyeight_scoring">カードを組札に移動: +45\n\nカードを場札に戻す: -60
+        \n\nカードを捨て札から場札に移動: +60\n\nカードを捨て札から山札に戻す: -200</string>
 
     <!-- Mod3 -->
-    <string name="manual_mod3_structure">2 deck of 52 cards.\n\n32 tableau stacks, 1 main and 1 aces
-        stack.\n\n</string>
-    <string name="manual_mod3_objective">Order every card on the top 3 rows of the tableau as sequences
-        of the same color in the following way:\n\nFirst row: Sequences of 2–5–8–J\nSecond row: Sequences
-        of 3–6–9–Q\nThird row: Sequences of 4–7–10–K\n\nAces will be put away.</string>
-    <string name="manual_mod3_rules">You can move only one card from the top of a stack at once. Cards can only
-        be placed if the sequence shown under \"Objectives\" is correct. So you can place for example a
-        Hearts 5 on a Hearts 2, but only if the Hearts 2 is in the first row of the tableau. Different
-        families aren\'t allowed either.\n\nGain free stacks to place cards by moving aces to the aces
-        stack above the main stack.\n\nThe fourth row is also the discard row for the cards from the main
-        stack. Any card can be placed on a free stack of the forth row.\n\nPress on the main stack to deal
-        one card to each stack of the forth row.\n\n</string>
-    <string name="manual_mod3_scoring">Move a card on a correct field of the tableau: +50\n\nMove a card back to the fourth row of the tableau: -75</string>
+    <string name="manual_mod3_structure">52枚のカードを2組。\n\n32列の場札、1列の山札、1列のエースの山。\n\n</string>
+    <string name="manual_mod3_objective">場札の上3行にあるすべてのカードを、次の方法で同じ色で順に並べる:
+        \n\n最初の行: 2–5–8–J の順\n次の行: 3–6–9–Q の順\n三番目の行: 4–7–10–K の順\n\nエースは離します。</string>
+    <string name="manual_mod3_rules">山の一番上から一度に1枚のカードしか移動できません。
+        カードは、\"目的\" の下に表示されている順序が正しい場合にのみ置くことができます。
+        たとえば、ハートの5をハートの2の上に置ことができますが、ハートの2が場札の最初の行にある場合に限ります。
+        異なるマークも置くことはできません。
+        \n\nエースを山札の上にあるエース山に移動することで、カードを置くための山を空けることができます。
+        \n\n4番目の行は、山札からのカードの捨て行です。どのカードも4行目のフリースタックに置くことができます。
+        \n\n山札を押すと、4行目のそれぞれのスタックに1枚のカードを配ります。\n\n</string>
+    <string name="manual_mod3_scoring">場札の正しいフィールドにカードを移動: +50\n\n場札の4行目にカードを戻す: -75</string>
 
     <!-- Gypsy -->
-    <string name="manual_gypsy_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation stacks,
-        and 1 main stack.</string>
-    <string name="manual_gypsy_objective">Order every card in real families in ascending order on the
-        foundation.</string>
-    <string name="manual_gypsy_rules">Cards can be placed on the tableau in descending order and in
-        alternating colors. You can move a whole correct sequence of cards at once. On the foundation,
-        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
-        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
-        pressing on the main stack, one card will be moved to each tableau stack.</string>
-    <string name="manual_gypsy_scoring">Move a card to foundation: +75\n\nMove a card from foundation to tableau: -100\n\n
-        Flip a card over: +50</string>
+    <string name="manual_gypsy_structure">52枚のカードを2組。\n\n8列の場札、8列の組札、1列の山札。</string>
+    <string name="manual_gypsy_objective">同じマークのすべてのカードを組札に昇順で並べる。</string>
+    <string name="manual_gypsy_rules">カードは降順に、交互に色を場札に置くことができます。
+        正しい順序のカード全体を一度に移動することができます。
+        組札は、同じマークのカードを昇順にしか置くことができません。
+        \n\nすべてのカードは空の場札に置くことができ、エースだけは空の組札に置くことができます。
+        \n\n山札を押すと、1枚のカードがそれぞれの場札に移動します。</string>
+    <string name="manual_gypsy_scoring">カードを組札に移動: +75\n\nカードを組札から場札に移動: -100\n\n
+        カードをめくる: +50</string>
 
     <!-- acesUp -->
-    <string name="manual_acesup_structure">1 deck of 52 cards.\n\n4 tableau stacks, 1 main and 1
-        foundation stack.\n\nAces have the value 14, so they have a higher value than kings.</string>
-    <string name="manual_acesup_objective">Put all cards except the aces on the foundation stack,
-        so there is one ace on every tableau stack left.</string>
-    <string name="manual_acesup_rules">You can move only the top card of a stack. Move cards which
-        have a lower value than another top card of the same family to the foundation. For example:
-        There are a Hearts 5 and a Hearts 10 on top of two tableau stacks. Then you can move the Hearts
-        5 to the foundation. aces have a higher value than every other card.\n\nEvery movable card can
-        be placed on empty tableau stacks.\n\nPress the main stack to deal one card to each tableau
-        stack.</string>
-    <string name="manual_acesup_scoring">Move a card to the foundation stack: +50</string>
+    <string name="manual_acesup_structure">52枚のカードを1組。\n\n4列の場札、1列の山札、1列の組札。
+        \n\nエースは14の数になるので、キングより大きい数になります。</string>
+    <string name="manual_acesup_objective">エース以外のすべてのカードを組札に置き、
+        残りのエースがそれぞれ場札に1枚あります。</string>
+    <string name="manual_acesup_rules">山の一番上のカードだけを移動できます。
+        同じマークで他の一番上のカードよりも小さい数のカードを組札に移動します。
+        例えば: 2つの場札にハートの5とハートの10があります。
+        その場合ハートの5を組札に移動できます。エースは他のすべてのカードよりも大きい数になります。
+        \n\n移動できるカードはすべて、空の場札に置くことができます。
+        \n\n山札を押して、1つのカードをそれぞれの場札に配ります。</string>
+    <string name="manual_acesup_scoring">カードを組札に移動: +50</string>
 </resources>

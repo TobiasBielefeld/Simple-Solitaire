@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
 
-    <!-- Settings -->
-    <string name="settings_background">背景の番号</string>
+<resources>
+    <string name="title_activity_settings">設定</string>
+
     <string name="settings_background_color">背景の色</string>
     <string name="settings_hide_status_bar">ステータスバーを隠す</string>
     <string name="settings_left_handed_mode">左ききモード</string>
@@ -17,34 +17,35 @@
     <string name="settings_modern">モダン</string>
     <string name="settings_abstract">無地</string>
     <string name="settings_dark">ダーク</string>
-    <string name="title_activity_settings">設定</string>
+    <string name="settings_basic">基本</string>
+
+    <string name="settings_background">背景の番号</string>
     <string name="settings_customization">外観</string>
-    <string name="settings_customization_description">カードと背景をカスタマイズする</string>
-    <string name="settings_freecell_multiple_cards">複数のカードの移動を許可する</string>
-    <string name="settings_freecell_multiple_cards_description">フリーセルの数として一度に多くのカードを移動する</string>
+    <string name="settings_customization_description">カードと背景をカスタマイズします</string>
+    <string name="settings_other">全般</string>
+    <string name="settings_other_description">他のすべての設定を設定します</string>
     <string name="settings_games">ゲーム</string>
-    <string name="settings_games_description">" ゲームのバリアントの設定を行う"</string>
-    <string name="settings_klondike_draw">描画するカードの数</string>
-    <string name="settings_other">一般に</string>
-    <string name="settings_show_main_menu">メインメニューで開始</string>
-    <string name="settings_other_description">他のすべての設定を設定する</string>
-    <string name="settings_show_main_menu_description">開始時に最後にプレイしたゲームに参加しない</string>
+    <string name="settings_games_description">"ゲームのバリアントを設定します"</string>
+    <string name="settings_freecell_multiple_cards">複数のカードの移動を許可する</string>
+    <string name="settings_freecell_multiple_cards_description">フリーセルの数として一度に多くのカードを移動します</string>
     <string name="settings_spider_difficulty">異なるカードファミリーの数</string>
-    <string name="settings_golf_easy_description">エースを王に置くことを許可する、またはその逆</string>
-    <string name="settings_golf_easy">循環的な動き （より簡単に）</string>
-    <string name="settings_basic">基本的な</string>
-    <string name="settings_restart_klondike">変更を適用するために新しいクロンダイクゲームを開始する</string>
-    <string name="settings_restart_spider">変更を適用するために新しいスパイダーゲームを開始してください</string>
-    <string name="settings_about_description">ライセンスや変更履歴など、ゲームに関する情報を表示します</string>
-    <string name="settings">設定</string>
+    <string name="settings_klondike_draw">描画するカードの数</string>
+    <string name="settings_show_main_menu">メインメニューで開始</string>
+    <string name="settings_show_main_menu_description">開始時に、最後にプレイしたゲームに入りません</string>
+    <string name="settings_golf_easy">循環的な移動 （より簡単に）</string>
+    <string name="settings_golf_easy_description">エースをキングに置くことを許可する、またはその逆</string>
+    <string name="settings_restart_klondike">変更を適用するために新しいクロンダイクゲームを開始します</string>
+    <string name="settings_restart_spider">変更を適用するために新しいスパイダーゲームを開始します</string>
+    <string name="settings_restart_fortyeight">変更を適用するための新しいフォーティ&amp;エイトゲームを開始します</string>
     <string name="settings_menu">メインメニュー</string>
-    <string name="settings_menu_columns">列の数</string>
     <string name="settings_menu_description">列数の変更、ゲームの表示と非表示</string>
+    <string name="settings_pyramid_difficulty">難易度</string>
+    <string name="settings_menu_columns">列の数</string>
     <string name="settings_menu_games">ゲームの表示と非表示</string>
-    <string name="settings_menu_games_description">メニューに表示されるゲームを選択する</string>
-    <string name="settings_pyramid_difficulty">困難</string>
-    <string name="settings_restart_fortyeight">変更を適用するための新しい40のゲームを始める</string>
-    <string name="settings_show_manual_in_menu">ゲームメニューでマニュアルページ</string>
-    <string name="settings_show_manual_in_menu_description">マニュアルに現在のゲームを開くためのアイテムを表示する</string>
-    <string name="settings_change_language">言語を変えてください</string>
+    <string name="settings_menu_games_description">メニューに表示されるゲームを選択します</string>
+    <string name="settings_about_description">ライセンスや変更履歴など、ゲームに関する情報を表示します</string>
+    <string name="settings_show_manual_in_menu">ゲームメニューにマニュアルページ</string>
+    <string name="settings_show_manual_in_menu_description">マニュアルに現在のゲームを開くためのアイテムを表示します</string>
+    <string name="settings_change_language">言語の変更</string>
+
 </resources>
