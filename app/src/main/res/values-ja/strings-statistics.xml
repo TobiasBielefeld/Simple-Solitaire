@@ -5,6 +5,6 @@
 
     <string name="statistics_games_won">ゲームに勝ちました</string>
     <string name="statistics_button_delete">すべてのエントリーを削除!</string>
-    <string name="statistics_button_delete_text">このゲームをクリアするためのすべてのエントリ！! よろしいですか?</string>
+    <string name="statistics_button_delete_text">このゲームのすべてのエントリーを削除します! よろしいですか?</string>
     <string name="statistics_button_deleted_all_entries">すべてのエントリーを削除しました</string>
 </resources>

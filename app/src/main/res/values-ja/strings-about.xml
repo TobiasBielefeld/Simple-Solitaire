@@ -2,19 +2,20 @@
 
 <resources>
     <string name="about_name">ゲームについて</string>
-    <string name="about_Text1">によって開発された Tobias Bielefeld</string>
+    <string name="about_Text1">開発者 Tobias Bielefeld</string>
     <string name="about_Text2">私のゲームをプレイしていただきありがとうございます :)</string>
     <string name="about_Text3">画像のオリジナルの公開場所:</string>
     <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 ライセンスの下</a></string>
     <string name="about_tab_1">情報</string>
     <string name="about_tab_2">ライセンス</string>
     <string name="about_tab_3">変更履歴</string>
+    <string name="about_build_date">ビルド日</string>
     <string name="about_license_top_text">このゲームは GPL 3.0 ライセンスの下に公開されています:</string>
     <string name="about_program_code_text">ソースコードはこちらで利用可能です:</string>
-    <string name="about_build_date">構築日</string>
+    <string name="about_loading">読み込み中…</string>
 
     <string name="about_translations">翻訳</string>
-    <string name="about_translations_japanese">日本語：GitHubのユーザーから naofum</string>
-    <string name="about_translations_esperanto_polish">エスペラントとポリッシュ：GitHubのユーザーによって verdulo</string>
+    <string name="about_translations_japanese">日本語: GitHubのユーザー naofum</string>
+    <string name="about_translations_esperanto_polish">エスペラントとポーランド語: GitHubのユーザー verdulo</string>
 
 </resources>

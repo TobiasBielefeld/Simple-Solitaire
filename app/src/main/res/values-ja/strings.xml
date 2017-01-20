@@ -1,35 +1,36 @@
 <resources>
+    <string name="app_version">バージョン</string>
+
+    <string name="portrait">縦向き</string>
+    <string name="landscape">横向き</string>
+
+    <string name="settings">設定</string>
+    <string name="game_manual">マニュアル</string>
+    <string name="game_score">スコア</string>
+    <string name="game_time">時間</string>
     <string name="game_cancel">キャンセル</string>
     <string name="game_confirm">確認</string>
     <string name="game_auto_complete_text">オートコンプリート</string>
     <string name="game_press_again">もう一度押すと終了します</string>
     <string name="game_load_error">データの読み込みに失敗しました。新しいゲームを開始しています…</string>
-    <string name="game_score">スコア</string>
-    <string name="game_time">時間</string>
+
+    <string name="menu_scores">スコア</string>
+    <string name="menu_undo">元に戻す</string>
+    <string name="menu_hint">ヒント</string>
+    <string name="menu_main_menu">メニュー</string>
+    <string name="menu_settings">設定</string>
+
     <string name="games_klondike">クロンダイク</string>
     <string name="games_freecell">フリーセル</string>
-    <string name="menu_main_menu">メニュー</string>
-    <string name="games_spider">スパイダ</string>
     <string name="games_yukon">ユーコン</string>
-    <string name="menu_hint">ヒント</string>
-    <string name="menu_scores">高得点</string>
-    <string name="menu_undo">アンドゥ</string>
-    <string name="games_golf">ゴルフ</string>
+    <string name="games_spider">スパイダー</string>
     <string name="games_simplesimon">シンプルシモン</string>
-    <string name="games_mod3">Mod3</string>
-    <string name="games_gypsy">Gypsy</string>
-    <string name="games_acesup">エースアップ</string>
-    <string name="games_fortyeight">フォーティ&amp;エイト</string>
+    <string name="games_golf">ゴルフ</string>
     <string name="games_pyramid">ピラミッド</string>
     <string name="games_tripeaks">トリピーク</string>
-
-    <string name="title_activity_manual">マニュアル</string>
-    <string name="menu_settings">設定</string>
-    <string name="game_manual">マニュアル</string>
-    <string name="about_loading">レイド</string>
-    <string name="app_version">バージョン</string>
-    <string name="portrait">ポートレート</string>
-    <string name="landscape">ランドスケープ</string>
-
+    <string name="games_fortyeight">フォーティ&amp;エイト</string>
+    <string name="games_acesup">エースアップ</string>
+    <string name="games_gypsy">ジプシー</string>
+    <string name="games_mod3">Mod3</string>
 
 </resources>

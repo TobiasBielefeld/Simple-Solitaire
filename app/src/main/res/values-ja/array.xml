@@ -2,53 +2,53 @@
 
     <string-array name="restart_menu">
         <item>新しいゲームを開始する</item>
-        <item>カードをもう一度与える</item>
+        <item>カードをもう一度配る</item>
         <item>メインメニューに戻る</item>
     </string-array>
 
     <string-array name="restart_menu_with_manual">
         <item>新しいゲームを開始する</item>
-        <item>カードをもう一度与える</item>
-        <item>手動で開くゲーム</item>
+        <item>カードをもう一度配る</item>
+        <item>マニュアルでゲームを開く</item>
         <item>メインメニューに戻る</item>
     </string-array>
 
     <string-array name="pref_background_colors_titles">
         <item>青</item>
-        <item>緑色</item>
+        <item>緑</item>
         <item>赤</item>
-        <item>黄色</item>
-        <item>オレンジ色</item>
-        <item>紫色</item>
+        <item>黄</item>
+        <item>オレンジ</item>
+        <item>紫</item>
     </string-array>
 
     <string-array name="pref_orientation_titles">
         <item>システム設定に従う</item>
-        <item>ポートレート</item>
-        <item>風景</item>
-        <item>風景を上下に反転</item>
+        <item>縦向き</item>
+        <item>横向き</item>
+        <item>横向き上下反転</item>
     </string-array>
 
     <string-array name="pref_spider_difficulty_titles">
-        <item>1 (容易)</item>
+        <item>1 (簡単)</item>
         <item>2 (中)</item>
-        <item>4 (難い)</item>
+        <item>4 (難しい)</item>
     </string-array>
 
     <string-array name="pref_klondike_draw_titles">
-        <item>難い 1</item>
-        <item>難い 3</item>
+        <item>ドロー 1</item>
+        <item>ドロー 3</item>
     </string-array>
 
     <string-array name="pref_pyramid_difficulty_titles">
-        <item>簡単：テーブルが空のときにゲームが勝つ</item>
-        <item>ハード：テーブルとストックが空のときに勝ちます</item>
+        <item>簡単: 場札が空のときにゲームに勝ち</item>
+        <item>難しい: 場札と山札が空のときに勝ち</item>
     </string-array>
 
     <string-array name="pref_language_titles">
-        <item>標準語</item>
+        <item>デフォルト言語</item>
         <item>英語</item>
-        <item>ドイツ人</item>
+        <item>ドイツ語</item>
         <item>日本語</item>
         <item>エスペラント</item>
         <item>ポーランド語</item>
