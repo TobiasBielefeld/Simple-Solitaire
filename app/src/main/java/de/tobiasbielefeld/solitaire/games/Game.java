@@ -79,6 +79,8 @@ public abstract class Game {
 
     abstract public void onMainStackTouch();
 
+     //public Stack doubleTapTest(Card card){ return null;};
+
     /*
      * auto complete stuff, can be used or not
      */
@@ -122,8 +124,6 @@ public abstract class Game {
             getMainStack().view.setOnTouchListener(listener);
         }
     }
-
-
 
     /*
      *  stuff that the games should use to set up other stuff

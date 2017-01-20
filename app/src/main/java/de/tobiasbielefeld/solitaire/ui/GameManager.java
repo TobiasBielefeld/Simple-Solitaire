@@ -64,7 +64,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
     public Toast toast;                                                                             //a delicious toast!
     public static int loadCounter=0;                                                                //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
-
+    /*public long doubleTapSpeed = 100;      //time delta between two taps in miliseconds
+    public int tappedCard = -1;
+    public long firstTapTime;              //stores the time of first tapping on a card
+    */
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -253,6 +256,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
             else if (cards[v.getId()].isUp() && currentGame.addCardToMovementTest(cards[v.getId()])) {
                 movingCards.add(cards[v.getId()],event.getX(),event.getY());
+
+                /*if (tappedCard!=-1 && v.getId()==tappedCard){
+                    Stack destination = currentGame.doubleTapTest(cards[tappedCard]);
+
+                    if (destination!=null){
+                        //movingCards.add(cards[tappedCard],event.getX(),event.getY());
+                        movingCards.moveToDestination(destination);
+                        tappedCard=-1;
+                    }
+                } else {
+                    tappedCard = v.getId();
+                }*/
             }
         }
         else if (event.getAction() == MotionEvent.ACTION_MOVE && movingCards.hasCards()) {
