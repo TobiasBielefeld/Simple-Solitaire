@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="title_activity_settings">Réglages</string>
+
+    <string name="settings_background_color">Couleur de fond</string>
+    <string name="settings_hide_status_bar">Cacher la barre de statut</string>
+    <string name="settings_left_handed_mode">Mode pour gaucher</string>
+    <string name="settings_left_handed_mode_description">Positionner les cartes et la pile sur la gauche</string>
+    <string name="settings_back_press">Confirmer avant de quitter une partie</string>
+    <string name="settings_back_press_description">Appuyer deux fois sur retour pour quitter une partie</string>
+    <string name="settings_orientation">Orientation de l\'écran</string>
+    <string name="settings_cards">Cartes</string>
+    <string name="settings_classic">Classique</string>
+    <string name="settings_simple">Simple</string>
+    <string name="settings_cards_back">Dos des cartes</string>
+    <string name="settings_modern">Moderne</string>
+    <string name="settings_abstract">Abstrait</string>
+    <string name="settings_dark">Sombre</string>
+    <string name="settings_basic">Basique</string>
+
+    <string name="settings_background">Fond numéro</string>
+    <string name="settings_customization">Apparence</string>
+    <string name="settings_customization_description">Modifier les cartes et l\'arrière-plan</string>
+    <string name="settings_other">Général</string>
+    <string name="settings_other_description">Modifier les autres réglages</string>
+    <string name="settings_games">Jeux</string>
+    <string name="settings_games_description">Modifier les préférences pour les variantes de jeu</string>
+    <string name="settings_freecell_multiple_cards">Déplacer plusieurs cartes à la fois</string>
+    <string name="settings_freecell_multiple_cards_description">Déplacer autant de cartes à la fois qu\'il
+        y a d\'emplacements libres</string>
+    <string name="settings_spider_difficulty">Nombre de familles différentes de cartes</string>
+    <string name="settings_klondike_draw">Nombre de carte à piocher</string>
+    <string name="settings_show_main_menu">Démarrer sur le menu principal</string>
+    <string name="settings_show_main_menu_description">Ne pas lancer la dernière partie au démarrage</string>
+    <string name="settings_golf_easy">Mouvements cycliques (Facile)</string>
+    <string name="settings_golf_easy_description">Permettre de placer un as sur un roi, et inversement</string>
+    <string name="settings_restart_klondike">Démarrer une nouvelle parte de Klondike pour appliquer les modifications</string>
+    <string name="settings_restart_spider">Démarrer une nouvelle parte de Spider pour appliquer les modifications</string>
+    <string name="settings_restart_fortyeight">Démarrer une nouvelle parte de Forty&amp;Eight pour appliquer les modifications</string>
+    <string name="settings_menu">Menu principal</string>
+    <string name="settings_menu_description">Changer le nombre de colonnes, afficher et masquer des jeux</string>
+    <string name="settings_pyramid_difficulty">Difficulté</string>
+    <string name="settings_menu_columns">Nombre de colonnes</string>
+    <string name="settings_menu_games">Afficher et masquer des jeux</string>
+    <string name="settings_menu_games_description">Séléctionner les jeux à afficher dans le menu principal</string>
+    <string name="settings_about_description">Montrer des informations sur cette application comme sa licence, son changelog</string>
+    <string name="settings_show_manual_in_menu">Page de manuel dans le menu du jeu</string>
+    <string name="settings_show_manual_in_menu_description">Affiche un bouton pour ouvrir le manuel du jeu de carte en cours</string>
+    <string name="settings_change_language">Changer la langue</string>
+
+</resources>

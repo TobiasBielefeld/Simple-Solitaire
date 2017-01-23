@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_version">Version</string>
+
+    <!-- not sure if these should be translated-->
+    <string name="portrait">Portrait</string>
+    <string name="landscape">Paysage</string>
+
+    <string name="settings">Réglages</string>
+    <string name="game_manual">Manuels</string>
+    <string name="game_score">Points</string>
+    <string name="game_time">Temps</string>
+    <string name="game_cancel">Annuler</string>
+    <string name="game_confirm">Confirmer</string>
+    <string name="game_auto_complete_text">Finir automatiquement</string>
+    <string name="game_press_again">Appuyer encore pour sortir</string>
+    <string name="game_load_error">Chargement des données échoué, démarrage d\'une nouvelle partie…</string>
+
+    <!-- Menu -->
+    <string name="menu_scores">Points</string>
+    <string name="menu_undo">Annuler</string>
+    <string name="menu_hint">Indice</string>
+    <string name="menu_main_menu">Menu</string>
+    <string name="menu_settings">Réglages</string>
+
+    <!-- game names -->
+    <string name="games_klondike">Solitaire</string>
+    <string name="games_freecell">FreeCell</string>
+    <string name="games_yukon">Yukon</string>
+    <string name="games_spider">Spider</string>
+    <string name="games_simplesimon">SimpleSimon</string>
+    <string name="games_golf">Golf</string>
+    <string name="games_pyramid">Pyramide</string>
+    <string name="games_tripeaks">TriPeaks</string>
+    <string name="games_fortyeight">Forty&amp;Eight</string>
+    <string name="games_acesup">4 As</string>
+    <string name="games_gypsy">Gypsy</string>
+    <string name="games_mod3">Mod3</string>
+
+</resources>
