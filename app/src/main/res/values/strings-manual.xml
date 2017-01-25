@@ -98,7 +98,7 @@
     <string name="manual_spider_rules">Cards can be placed on any card in descending order. But only
         real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau
         stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
-    <string name="manual_spider_scoring">Move a card family to foundation: +200
+    <string name="manual_spider_scoring">Move a card family to foundation: +200\n\n
         Flip a card up: +25</string>
 
     <!-- SimpleSimon -->
