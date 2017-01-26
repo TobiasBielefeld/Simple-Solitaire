@@ -52,6 +52,7 @@
         <item>日本語</item>
         <item>エスペラント</item>
         <item>ポーランド語</item>
+        <item>フランス語</item>
     </string-array>
 
     <string-array name="pref_language_values">
@@ -61,6 +62,7 @@
         <item>ja</item>
         <item>eo</item>
         <item>pl</item>
+        <item>fr</item>
     </string-array>
 
 </resources>

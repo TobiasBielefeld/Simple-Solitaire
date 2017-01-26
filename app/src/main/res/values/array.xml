@@ -103,6 +103,7 @@
         <item>Default language</item>
         <item>English</item>
         <item>Esperanto</item>
+        <item>French</item>
         <item>German</item>
         <item>Japanese</item>
         <item>Polish</item>
@@ -112,6 +113,7 @@
         <item>default</item>
         <item>en</item>
         <item>eo</item>
+        <item>fr</item>
         <item>de</item>
         <item>ja</item>
         <item>pl</item>

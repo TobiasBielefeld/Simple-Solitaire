@@ -49,6 +49,7 @@
         <item>Domyślny</item>
         <item>Angielski</item>
         <item>Esperanto</item>
+        <item>Francuski</item>
         <item>Japoński</item>
         <item>Niemiecki</item>
 		<item>Polski</item>
@@ -58,6 +59,7 @@
         <item>default</item>
         <item>en</item>
         <item>eo</item>
+        <item>fr</item>
         <item>ja</item>
         <item>de</item>
         <item>pl</item>

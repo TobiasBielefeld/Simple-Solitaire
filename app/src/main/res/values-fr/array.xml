@@ -47,22 +47,22 @@
 
     <string-array name="pref_language_titles">
         <item>Langue par défaut</item>
+        <item>Allemand</item>
         <item>Anglais</item>
         <item>Esperanto</item>
-        <item>Allemand</item>
+        <item>Français</item>
         <item>Japonnais</item>
         <item>Polonais</item>
-        <item>Français</item>
     </string-array>
 
     <string-array name="pref_language_values">
         <item>default</item>
+        <item>de</item>
         <item>en</item>
         <item>eo</item>
-        <item>de</item>
+        <item>fr</item>
         <item>ja</item>
         <item>pl</item>
-        <item>fr</item>
     </string-array>
 
 </resources>
