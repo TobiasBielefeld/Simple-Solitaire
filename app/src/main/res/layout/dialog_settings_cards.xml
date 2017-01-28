@@ -8,7 +8,8 @@
     android:gravity="center"
     android:measureWithLargestChild="false"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -16,7 +17,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsBasic"
@@ -115,7 +117,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsSimple"

@@ -170,14 +170,14 @@ public class Klondike extends Game {
 
                 //then move up to 2 cards to the 2. and 3. discard stack
                 size = min(3, stacks[11].getSize());
-                if (size > 0) {
+                if (size > 1) {
                     moveToStack(stacks[11].getCardFromTop(1), stacks[12], OPTION_NO_RECORD);
                     if (!cards.contains(stacks[12].getTopCard())) {
                         cards.add(stacks[12].getTopCard());
                         origin.add(stacks[11]);
                     }
                 }
-                if (size > 1) {
+                if (size > 0) {
                     moveToStack(stacks[11].getTopCard(), stacks[13], OPTION_NO_RECORD);
                     if (!cards.contains(stacks[13].getTopCard())) {
                         cards.add(stacks[13].getTopCard());
