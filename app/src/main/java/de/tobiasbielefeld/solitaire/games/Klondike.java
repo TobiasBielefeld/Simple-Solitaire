@@ -321,7 +321,7 @@ public class Klondike extends Game {
         return null;
     }
 
-    /*public Stack doubleTapTest(Card card) {
+    public Stack doubleTapTest(Card card) {
 
         if (!(card.isFirstCard() && card.getValue() == 13)
                 && card.getValue() != 1) {
@@ -338,7 +338,7 @@ public class Klondike extends Game {
         }
 
         return null;
-    }*/
+    }
 
     public CardAndStack autoCompletePhaseOne(){
         return null;
@@ -376,7 +376,7 @@ public class Klondike extends Game {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
-        if (originID >=11 && originID <= 13 && destinationID >=11 && destinationID <=13)            //used for from stock to tabaleau/foundation
+        if (originID >=11 && originID <= 13 && destinationID >=11 && destinationID <=13)            //used for from stock to tabaleau/f
             return 45;
         if ((originID < 7 || originID == 14) && destinationID >= 7 && destinationID <= 10)          //transfer from tableau to foundations
             return 60;

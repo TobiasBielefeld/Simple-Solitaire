@@ -15,6 +15,11 @@
         android:title="@string/settings_games" />
 
     <header
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$DoubleTapPreferenceFragment"
+        android:summary="@string/settings_double_tap_description"
+        android:title="@string/settings_double_tap" />
+
+    <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$OtherPreferenceFragment"
         android:summary="@string/settings_other_description"
         android:title="@string/settings_other" />

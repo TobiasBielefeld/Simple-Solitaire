@@ -49,8 +49,16 @@
     <string name="settings_show_manual_in_menu">Manual page in game menu</string>
     <string name="settings_show_manual_in_menu_description">Show an item to open the current game in the manual</string>
     <string name="settings_change_language">Change language</string>
+    <string name="settings_double_tap">Double Tap</string>
+    <string name="settings_double_tap_description">Preferences for double tap movements</string>
+    <string name="settings_double_tap_enable">Enable double tap movements</string>
+    <string name="settings_double_tap_all_cards">Move all possible cards</string>
+    <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
 
     <!-- Preference Keys -->
+    <string name="pref_key_double_tap_enable" translatable="false">pref_key_double_tap_enable</string>
+    <string name="pref_key_double_tap_all_cards" translatable="false">pref_key_double_tap_all_cards</string>
+
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>
     <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
     <string name="pref_key_cards" translatable="false">pref_key_cards</string>

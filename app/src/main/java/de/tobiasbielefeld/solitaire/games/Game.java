@@ -79,7 +79,38 @@ public abstract class Game {
 
     abstract public void onMainStackTouch();
 
-     //public Stack doubleTapTest(Card card){ return null;};
+    public CardAndStack doubleTap(Card card){
+        CardAndStack cardAndStack = null;
+        Stack destination;
+
+        if (card.getStack().getID()<=getLastTableauID() && getSharedBoolean("pref_key_double_tap_all_cards",true)){
+            Stack stack = card.getStack();
+            Card cardToMove = stack.getFirstUpCard();
+
+            while (!addCardToMovementTest(cardToMove)){
+                cardToMove = stack.getCard(cardToMove.getIndexOnStack()+1);
+            }
+
+            destination = doubleTapTest(cardToMove);
+
+            if (destination!=null)
+                cardAndStack = new CardAndStack(cardToMove,destination);
+        }
+
+        if (cardAndStack==null){
+            destination = doubleTapTest(card);
+
+            if (destination!=null){
+                cardAndStack = new CardAndStack(card,destination);
+            }
+        }
+
+        return cardAndStack;
+    }
+
+    public Stack doubleTapTest(Card card){return null;}
+
+
 
     /*
      * auto complete stuff, can be used or not

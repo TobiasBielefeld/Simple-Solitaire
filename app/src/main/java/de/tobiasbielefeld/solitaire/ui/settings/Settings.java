@@ -242,7 +242,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 || CustomizationPreferenceFragment.class.getName().equals(fragmentName)
                 || OtherPreferenceFragment.class.getName().equals(fragmentName)
                 || GamesPreferenceFragment.class.getName().equals(fragmentName)
-                || MenuPreferenceFragment.class.getName().equals(fragmentName);
+                || MenuPreferenceFragment.class.getName().equals(fragmentName)
+                || DoubleTapPreferenceFragment.class.getName().equals(fragmentName);
     }
 
     private void setOrientation() {
@@ -330,6 +331,21 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
             settings.preferenceMenuColumns = findPreference(getString(R.string.pref_key_menu_columns));
             settings.setPreferenceMenuColumns();
+        }
+    }
+
+    public static class DoubleTapPreferenceFragment extends PreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_double_tap);
+            setHasOptionsMenu(true);
+
+            //Settings settings = (Settings) getActivity();
+
+            //settings.preferenceMenuColumns = findPreference(getString(R.string.pref_key_menu_columns));
+            //settings.setPreferenceMenuColumns();
         }
     }
 

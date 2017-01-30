@@ -239,13 +239,12 @@
     <string name="manual_canfield_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
         les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.
-
-
-       \n\nEmpty tableau fields are filled with a card from the reserve stack. If the reserve is empty, a card from the main stack will be used.\n\nThe
-        value of the first card drawn to the foundation will specify which cards can be placed on empty foundation fields.
-        For example: If a Hearts 10 was drawn to the foundation, only cards with the value 10 can be placed on empty foundation fields.
-        But the cards on the foundation can be placed cyclic, so it is also possible to play an ace on a king
-
+        \n\nUne colonne vide du tableau sont remplis d\'une carte de la pile de réserve. Si la réserve est vide, une carte du talon sera utilisée.
+        \n\nLa valeur de la première carte dessinée vers la fondation spécifiera quelles cartes peuvent
+        être placées sur des champs de fondation vides. Par exemple: Si un cœur 10 a été attiré vers
+        la fondation, seules les cartes de la valeur 10 peuvent être placées sur des champs de fondation
+        vides. Mais les cartes sur la fondation peuvent être placées cyclique, donc il est également
+        possible de jouer un as sur un roi
         \n\nEn appuyant sur le talon, les cartes sont retournées
         sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l\'application.
         Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée.

@@ -50,4 +50,10 @@
     <string name="settings_show_manual_in_menu_description">Montras butonon por malfermi paĝon en manlibro pri nuna ludo</string>
     <string name="settings_change_language">Ŝanĝi lingvon</string>
 
+    <string name="settings_double_tap">Double Tap</string>
+    <string name="settings_double_tap_description">Preferences for double tap movements</string>
+    <string name="settings_double_tap_enable">Enable double tap movements</string>
+    <string name="settings_double_tap_all_cards">Move all possible cards</string>
+    <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
+
 </resources>

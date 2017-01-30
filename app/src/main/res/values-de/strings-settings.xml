@@ -48,4 +48,10 @@
     <string name="settings_show_manual_in_menu">Handbuchseite im Spielemenü</string>
     <string name="settings_show_manual_in_menu_description">Zeige einen Punkt im Menü, um das aktuelle Spiel im Handbuch zu öffnen</string>
     <string name="settings_change_language">Sprache ändern</string>
+
+    <string name="settings_double_tap">Doppeltippen</string>
+    <string name="settings_double_tap_description">Einstellungen für Doppeltipp-Bewegungen</string>
+    <string name="settings_double_tap_enable">Erlaube Doppeltipp-Bewegung</string>
+    <string name="settings_double_tap_all_cards">Bewege alle Karten</string>
+    <string name="settings_double_tap_all_cards_text">Bewege so viele Karten wie möglich vom Stapel, nicht nur die berührte Karte</string>
 </resources>
