@@ -18,20 +18,11 @@
 
 package de.tobiasbielefeld.solitaire;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.games.Game;
@@ -47,7 +38,6 @@ import de.tobiasbielefeld.solitaire.helper.MovingCards;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Timer;
-import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 /*
  * static data which is shared across the whole project, i like this more than passing stuff around
@@ -62,6 +52,9 @@ public class SharedData {
     public final static String GAME_REDEAL_COUNT = "GameRedealCount";
     public final static String GAME_WON = "GameWon";
     public final static String GAME_NUMBER_OF_WON_GAMES = "GameNumberOfWonGames";
+    public final static String GAME_NUMBER_OF_PLAYED_GAMES = "GameNumberOfPlayedGames";
+
+
     public final static String GAME_RANDOM_CARDS = "GameRandomCards";
     public final static String GAME_FIRST_RUN = "GameFirstRun";
 

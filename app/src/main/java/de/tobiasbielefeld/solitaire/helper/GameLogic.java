@@ -121,7 +121,10 @@ public class GameLogic{
     }
 
     public void newGame() {
+
         //new game is like a re-deal, but with new randomized
+        incrementPlayedGames();
+
         randomCards = cards.clone();
         randomize(randomCards);
 
@@ -230,8 +233,9 @@ public class GameLogic{
         return numberWonGames;
     }
 
-    public void deleteNumberWonGames() {
+    public void deleteStatistics() {
         numberWonGames = 0;
+        putInt(GAME_NUMBER_OF_PLAYED_GAMES,0);
     }
 
     private void saveRandomCards(){
@@ -248,5 +252,14 @@ public class GameLogic{
 
         for (int i=0;i<randomCards.length;i++)
             randomCards[i] = cards[list.get(i)];
+    }
+
+    private void incrementPlayedGames(){
+        int playedGames = getInt(GAME_NUMBER_OF_PLAYED_GAMES,numberWonGames);
+        putInt(GAME_NUMBER_OF_PLAYED_GAMES,++playedGames);
+    }
+
+    public int getNumberOfPlayedGames(){
+        return getInt(GAME_NUMBER_OF_PLAYED_GAMES,numberWonGames);
     }
 }

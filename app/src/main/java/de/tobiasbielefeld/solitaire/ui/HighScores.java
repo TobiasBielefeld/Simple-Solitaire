@@ -44,7 +44,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class HighScores extends CustomAppCompatActivity {
 
-    private TextView text1;
+    private TextView textWonGames, textWinPercentage;
     private LinearLayout layoutScores;
     private Toast toast;
 
@@ -55,13 +55,13 @@ public class HighScores extends CustomAppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         layoutScores = (LinearLayout) findViewById(R.id.highScoresLinearLayout1);                   //load the layouts and textView
-        text1 = (TextView) findViewById(R.id.highScoresTextViewGamesWon);
+        textWonGames = (TextView) findViewById(R.id.highScoresTextViewGamesWon);
+        textWinPercentage = (TextView) findViewById(R.id.highScoresTextViewWinPercentage);
 
         if (actionBar != null)                                                                      //set a nice back arrow in the actionBar
             actionBar.setDisplayHomeAsUpEnabled(true);
 
-        text1.setText(String.format(Locale.getDefault(), "%s: %s", getString(                       //show the number of won games
-                R.string.statistics_games_won), gameLogic.getNumberWonGames()));
+        loadStatistics();
 
         for (int i = 0; i < Scores.MAX_SAVED_SCORES; i++) {                                         //for each entry in highScores, add a new view with it
             if (scores.get(i, 0) == 0)                                                              //if the score is zero, don't show it
@@ -96,6 +96,18 @@ public class HighScores extends CustomAppCompatActivity {
         }
     }
 
+    private void loadStatistics(){
+        int wonGames= gameLogic.getNumberWonGames();
+        int totalGames = gameLogic.getNumberOfPlayedGames();
+
+        textWonGames.setText(String.format(Locale.getDefault(), getString(R.string.statistics_text_won_games),wonGames, totalGames));
+
+        if (totalGames>0)
+            textWinPercentage.setText(String.format(Locale.getDefault(),getString(R.string.statistics_win_percentage), (float)wonGames*100/totalGames));
+        else
+            textWinPercentage.setText(String.format(Locale.getDefault(),getString(R.string.statistics_win_percentage), 0.0));
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //only menu item is the back button in the action bar, so just finish
@@ -110,10 +122,8 @@ public class HighScores extends CustomAppCompatActivity {
 
     public void deleteHighScores() {
         scores.deleteHighScores();
-        gameLogic.deleteNumberWonGames();
-        text1.setText(String.format(Locale.getDefault(),
-                "%s: %s", getString(   //refresh the textView
-                        R.string.statistics_games_won), gameLogic.getNumberWonGames()));
+        gameLogic.deleteStatistics();
+        loadStatistics();
         layoutScores.setVisibility(View.GONE);
         showToast(getString(R.string.statistics_button_deleted_all_entries));
     }

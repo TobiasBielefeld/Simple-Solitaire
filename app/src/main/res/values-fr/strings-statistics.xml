@@ -3,7 +3,6 @@
 <resources>
     <string name="title_activity_statistics">Meilleurs scores</string>
 
-    <string name="statistics_games_won">Parties gagnées</string>
     <string name="statistics_button_delete">Supprimer tout!</string>
     <string name="statistics_button_delete_text">Supprimer toutes les données pour ce type de jeu ! Êtes-vous sûre ?</string>
     <string name="statistics_button_deleted_all_entries">Tout a été supprimét</string>

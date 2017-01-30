@@ -3,7 +3,8 @@
 <resources>
     <string name="title_activity_statistics">High Scores</string>
 
-    <string name="statistics_games_won">Games won</string>
+    <string name="statistics_text_won_games">Won %1$d out of %2$d games</string>
+    <string name="statistics_win_percentage">Your win percentage: %1$.0f%%</string>
     <string name="statistics_button_delete">Delete all entries!</string>
     <string name="statistics_button_delete_text">Delete all entries for this game! Are you sure?</string>
     <string name="statistics_button_deleted_all_entries">Deleted all entries</string>
