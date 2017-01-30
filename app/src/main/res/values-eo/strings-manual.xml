@@ -13,7 +13,7 @@
     <string name="manual_scoring">Poentado</string>
     <string name="manual_main_menu">Ĉefmenuo</string>
     <string name="manual_ui">Fasado</string>
-	<string name="page_load_error">Neniu paĝo por ĉi ti ludo havebla…</string>
+	<string name="page_load_error">Paĝo pri tiu ĉi ludo ne estas disponebla…</string>
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Malfermi Google Play</string>
