@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.ui.manual;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,8 +26,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -41,6 +44,7 @@ public class ManualGames extends Fragment implements View.OnClickListener{
     ScrollView layout1, scrollView;
     int currentGameButtonID;
     TextView textName, textStructure, textObjective, textRules, textScoring;
+    private Toast toast;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,18 +75,38 @@ public class ManualGames extends Fragment implements View.OnClickListener{
     private void loadGameText(int ID){
         currentGameButtonID= ID;
         String gameName = lg.manualClick(ID);   //get prefix
-        layout1.setVisibility(View.GONE);
-        scrollView.setVisibility(View.VISIBLE);
 
-        //and load everything
-        textName.setText((getString(getResources().getIdentifier("games_"+ gameName + "", "string", getActivity().getPackageName()))));
-        textStructure.setText(getString(getResources().getIdentifier("manual_"+ gameName + "_structure", "string", getActivity().getPackageName())));
-        textObjective.setText(getString(getResources().getIdentifier("manual_"+ gameName + "_objective", "string", getActivity().getPackageName())));
-        textRules.setText(getString(getResources().getIdentifier("manual_"+ gameName + "_rules", "string", getActivity().getPackageName())));
-        textScoring.setText(getString(getResources().getIdentifier("manual_"+ gameName + "_scoring", "string", getActivity().getPackageName())));
+        try {
+            //and load everything
+            textName.setText((getString(getResources().getIdentifier("games_" + gameName + "", "string", getActivity().getPackageName()))));
+            textStructure.setText(getString(getResources().getIdentifier("manual_" + gameName + "_structure", "string", getActivity().getPackageName())));
+            textObjective.setText(getString(getResources().getIdentifier("manual_" + gameName + "_objective", "string", getActivity().getPackageName())));
+            textRules.setText(getString(getResources().getIdentifier("manual_" + gameName + "_rules", "string", getActivity().getPackageName())));
+            textScoring.setText(getString(getResources().getIdentifier("manual_" + gameName + "_scoring", "string", getActivity().getPackageName())));
 
-        //when the back button is pressed, it should return to the main page from the games, not to the start page.
-        //this way is easier than implementing an interface to control what happens in onBackPressed()
-        ((Manual)getActivity()).setGamePageShown(true);
+            //when the back button is pressed, it should return to the main page from the games, not to the start page.
+            //this way is easier than implementing an interface to control what happens in onBackPressed()
+            layout1.setVisibility(View.GONE);
+            scrollView.setVisibility(View.VISIBLE);
+            ((Manual)getActivity()).setGamePageShown(true);
+
+        } catch(Exception e){
+            //no page available
+            showToast(getString(R.string.page_load_error));
+        }
+
+
+    }
+
+    public void showToast(final String text) {
+
+        Activity activity = getActivity();
+
+        if (toast == null)
+            toast = Toast.makeText(activity, text, Toast.LENGTH_SHORT);
+        else
+            toast.setText(text);
+
+        toast.show();
     }
 }

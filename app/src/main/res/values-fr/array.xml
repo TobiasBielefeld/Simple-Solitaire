@@ -40,6 +40,11 @@
         <item>Donner 3 cartes</item>
     </string-array>
 
+    <string-array name="pref_canfield_draw_titles">
+        <item>Donner 1 carte</item>
+        <item>Donner 3 cartes</item>
+    </string-array>
+
     <string-array name="pref_pyramid_difficulty_titles">
         <item>Facile: La partie est gagnée quand le plateau est vide</item>
         <item>Difficile: La partie est gagnée quand le plateau et la pile sont vides</item>

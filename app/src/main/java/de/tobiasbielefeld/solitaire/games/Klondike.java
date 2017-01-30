@@ -376,9 +376,11 @@ public class Klondike extends Game {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
+        if (originID >=11 && originID <= 13 && destinationID >=11 && destinationID <=13)            //used for from stock to tabaleau/foundation
+            return 45;
         if ((originID < 7 || originID == 14) && destinationID >= 7 && destinationID <= 10)          //transfer from tableau to foundations
             return 60;
-        if ((originID == 11 || originID == 12 || originID == 13) && destinationID < 7)              //stock to tableau
+        if ((originID == 11 || originID == 12 || originID == 13) && destinationID < 10)              //stock to tableau
             return 45;
         if (destinationID < 7 && originID >= 7 && originID <= 10)                                   //foundation to tableau
             return -75;

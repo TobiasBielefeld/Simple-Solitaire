@@ -40,6 +40,11 @@
         <item>ドロー 3</item>
     </string-array>
 
+    <string-array name="pref_canfield_draw_titles">
+        <item>ドロー 1</item>
+        <item>ドロー 3</item>
+    </string-array>
+
     <string-array name="pref_pyramid_difficulty_titles">
         <item>簡単: 場札が空のときにゲームに勝ち</item>
         <item>難しい: 場札と山札が空のときに勝ち</item>

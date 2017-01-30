@@ -10,6 +10,7 @@
     <string name="games_freecell">FreeCell</string>
     <string name="games_klondike">Klondike</string>
     <string name="games_spider">Spider</string>
+    <string name="games_canfield">Canfield</string>
     <string name="games_yukon">Yukon</string>
     <string name="menu_main_menu">Menu</string>
     <string name="menu_hint">Hint</string>

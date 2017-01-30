@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory android:title="@string/games_canfield">
+        <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/pref_canfield_draw_titles"
+            android:entryValues="@array/pref_canfield_draw_values"
+            android:key="@string/pref_key_canfield_draw"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_canfield_draw" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/games_klondike">
         <ListPreference
             android:defaultValue="1"

@@ -30,11 +30,13 @@
     <string name="settings_freecell_multiple_cards_description">Permesas movi tiom da kartoj unufoje, kiom da liberaj celoj estas</string>
     <string name="settings_spider_difficulty">Kiom da diversaj emblemoj de kartoj</string>
     <string name="settings_klondike_draw">Kiom da kartoj depreni</string>
+    <string name="settings_canfield_draw">Kiom da kartoj depreni</string>
     <string name="settings_show_main_menu">Eki en ĉefmenuo</string>
     <string name="settings_show_main_menu_description">Ne malfermas laste malfermitan ludon dum starto</string>
     <string name="settings_golf_easy">Ciklaj movoj (pli facile)</string>
     <string name="settings_golf_easy_description">Permesas meti asojn sur reĝojn kaj inverse</string>
     <string name="settings_restart_klondike">Komencu novan ludon Klondiko por apliki ŝanĝojn</string>
+    <string name="settings_restart_canfield">Komencu novan ludon Canfield por apliki ŝanĝojn</string>
     <string name="settings_restart_spider">Komencu novan ludon Araneo por apliki ŝanĝojn</string>
     <string name="settings_restart_fortyeight">Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn</string>
     <string name="settings_menu">Ĉefmenuo</string>

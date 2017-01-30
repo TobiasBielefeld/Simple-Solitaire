@@ -40,6 +40,11 @@
         <item>Draw 3</item>
     </string-array>
 
+    <string-array name="pref_canfield_draw_titles">
+        <item>Draw 1</item>
+        <item>Draw 3</item>
+    </string-array>
+
     <string-array name="pref_pyramid_difficulty_titles">
         <item>Leicht: Spiel ist gewonnen, falls das Tableau leer ist</item>
         <item>Schwer: Spiel ist gewonnen, falls Tableau und Haupt-Stapel leer sind</item>

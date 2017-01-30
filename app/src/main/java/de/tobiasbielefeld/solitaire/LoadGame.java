@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.games.AcesUp;
+import de.tobiasbielefeld.solitaire.games.Canfield;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Freecell;
 import de.tobiasbielefeld.solitaire.games.Game;
@@ -51,7 +52,11 @@ public class LoadGame {
 
     private String gameName;
     private String sharedPrefName;
+    private int[] position = new int[]{0,12,1,2,3,4,5,6,7,8,9,10,11};
 
+    public int getPosition(int index){
+        return position[index];
+    }
     public Game loadClass(Activity activity, int buttonID) {
         /*
          * load the game class and set the shown name and the name used for the sharedPref of the
@@ -124,6 +129,11 @@ public class LoadGame {
                 gameName = activity.getString(R.string.games_yukon);
                 game = new Yukon();
                 break;
+            case R.id.buttonStartCanfield:
+                sharedPrefName = "Canfield";
+                gameName = activity.getString(R.string.games_canfield);
+                game = new Canfield();
+                break;
         }
 
         return game;
@@ -145,6 +155,7 @@ public class LoadGame {
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_spider));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_tripeaks));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_yukon));
+        layouts.add((LinearLayout) activity.findViewById(R.id.layout_canfield));
 
         return layouts;
     }
@@ -158,6 +169,7 @@ public class LoadGame {
         ArrayList<Button> gameButtons = new ArrayList<>();
 
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_acesup));
+
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_fortyeight));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_freecell));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_golf));
@@ -169,6 +181,7 @@ public class LoadGame {
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_spider));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_tripeaks));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_yukon));
+        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_canfield));
 
         for (Button button : gameButtons) {
             button.setOnClickListener(listener);
@@ -190,6 +203,7 @@ public class LoadGame {
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_10));
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_11));
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_12));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_13));
 
         return linearLayouts;
     }
@@ -209,6 +223,7 @@ public class LoadGame {
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_10));
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_11));
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_12));
+        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_13));
 
         return checkBoxes;
     }
@@ -247,6 +262,8 @@ public class LoadGame {
                 return "tripeaks";
             case R.id.manual_games_button_yukon:
                 return "yukon";
+            case R.id.manual_games_button_canfield:
+                return "canfield";
         }
     }
 

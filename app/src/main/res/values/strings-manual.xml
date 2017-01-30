@@ -13,6 +13,8 @@
     <string name="manual_scoring">Scoring</string>
     <string name="manual_main_menu">Main menu</string>
     <string name="manual_ui">User interface</string>
+    <string name="page_load_error">No page for this game available…</string>
+
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Open Google Play</string>
@@ -208,4 +210,25 @@
         be placed on empty tableau stacks.\n\nPress the main stack to deal one card to each tableau
         stack.</string>
     <string name="manual_acesup_scoring">Move a card to the foundation stack: +50</string>
+
+    <!-- Canfield -->
+    <string name="manual_canfield_structure">1 deck of 52 cards.\n\n4 tableau stacks, 4 foundation
+        stacks, 1 main, 1 discard stack and a reserve stack</string>
+    <string name="manual_canfield_objective">Order every card in real families in ascending order on
+        the foundation.</string>
+    <string name="manual_canfield_rules">Cards can be placed on the tableau in descending order and
+        in alternating colors. You can move a complete sequence of cards at once. On the foundation, cards
+        can be placed only in ascending order on the corresponding family.\n\nEmpty
+        tableau fields are filled with a card from the reserve. If the reserve is empty, a card from the main stack will be used.\n\nThe
+        value of the first card drawn to the foundation will specify which cards can be placed on empty foundation fields.
+        For example: If a Hearts 10 was drawn to the foundation, only cards with the value 10 can be placed on empty foundation fields.
+        But the cards on the foundation can be placed cyclic, so it is also possible to play an ace on a king\n\nBy
+        pressing on the main stack, cards will be moved to the discard stack from where you can use them.
+        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card
+        will be moved. With \"Draw 3\" enabled, 3 cards
+        will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every
+        card from the discard stack to the main stack and use them again.</string>
+    <string name="manual_canfield_scoring">From tableau to foundation: +60\n\nFrom discard stack to
+        foundation: +45\n\nFrom foundation to tableau: -75\n\nTurn a card over: +25\n\nReturn all cards
+        from discard stack to main stack: -200</string>
 </resources>

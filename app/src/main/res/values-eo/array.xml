@@ -40,6 +40,11 @@
         <item>Depreni 3</item>
     </string-array>
 
+    <string-array name="pref_canfield_draw_titles">
+        <item>Depreni 1</item>
+        <item>Depreni 3</item>
+    </string-array>
+
     <string-array name="pref_pyramid_difficulty_titles">
         <item>Facila: ludo estas venkita kiam tablamaso estas malplena</item>
         <item>Malfacila: ludo estas venkita kiam tablamaso kaj stako estas malplenaj</item>

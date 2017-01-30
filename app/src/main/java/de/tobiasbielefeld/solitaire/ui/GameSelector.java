@@ -118,7 +118,7 @@ public class GameSelector extends CustomAppCompatActivity {
                 tableLayout.addView(row);
             }
 
-            if (result.size()==0 || result.get(i)==1){
+            if (result.size()==0 || result.size()<(i+1) || result.get(i)==1){
                 gameLayouts.get(i).setVisibility(View.VISIBLE);
                 row.addView(gameLayouts.get(i));
                 counter++;

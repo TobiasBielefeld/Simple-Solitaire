@@ -28,10 +28,12 @@
     <string name="settings_freecell_multiple_cards_description">Bewege so viele Karten auf einmal wie es freie Zellen gibt</string>
     <string name="settings_spider_difficulty">Anzahl verschiedener Karten Familien</string>
     <string name="settings_klondike_draw">Anzahl Karten zum Ziehen</string>
+    <string name="settings_canfield_draw">Anzahl Karten zum Ziehen</string>
     <string name="settings_golf_easy">Zyklische Bewegungen (Einfacher)</string>
     <string name="settings_golf_easy_description">Erlaube das Setzen von Assen auf Könige und umgekehrt</string>
     <string name="settings_basic">Basic</string>
     <string name="settings_restart_klondike">Starte ein neues Klondike Spiel um die Änderung anzuwenden</string>
+    <string name="settings_restart_canfield">Starte ein neues Canfield Spiel um die Änderung anzuwenden</string>
     <string name="settings_restart_spider">Starte ein neues Spider Spiel um die Änderung anzuwenden</string>
     <string name="settings">Einstellungen</string>
     <string name="settings_menu">Hauptmenü</string>

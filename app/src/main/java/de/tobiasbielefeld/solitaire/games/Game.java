@@ -314,6 +314,10 @@ public abstract class Game {
         return hasArrow;
     }
 
+    public void save(){}
+
+    public void load(){}
+
 
 
 

@@ -13,6 +13,7 @@
     <string name="manual_scoring">Punktacja</string>
     <string name="manual_main_menu">Menu główne</string>
     <string name="manual_ui">Interfejs użytkownika</string>
+	<string name="page_load_error">Nie aktualizacja tej grze dostępnych…</string>
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Otwórz Google Play</string>
@@ -176,4 +177,23 @@
 	\n\nKażdą przesuwalną kartę można umieścić na pustych polach gry.
 	\n\nStuknij w główny stos, aby rozdać po jednej karcie na każdy stos gry.</string>
     <string name="manual_acesup_scoring">Umieszczenie karty na stosie bazowym: +50</string>
+
+	<!-- Canfield -->
+    <string name="manual_canfield_structure">1 talia po 52 karty.
+	\n\n4 stosów gry, 4 stosy bazowe, główny stos,1 stos odrzutów i 1 rezerwowy.</string>
+	<string name="manual_canfield_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_canfield_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+
+		\n\nEmpty tableau fields are filled with a card from the reserve stack. If the reserve is empty, a card from the main stack will be used.\n\nThe
+        value of the first card drawn to the foundation will specify which cards can be placed on empty foundation fields.
+        For example: If a Hearts 10 was drawn to the foundation, only cards with the value 10 can be placed on empty foundation fields.
+        But the cards on the foundation can be placed cyclic, so it is also possible to play an ace on a king
+
+		\n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś /"Rozdaj 1/", tylko pojedyncza karta zostanie przeniesiona. Przy opcji /"Rozdaj 3/", 3 karty zostaną przeniesione naraz.
+		\n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
+    <string name="manual_canfield_scoring">Ze stosu gry na bazowy: +60
+		\n\nZe stosu odrzutów na bazowy: +45
+		\n\nZe stosu bazowego na stos gry: -75
+		\n\nOdsłonięcie karty: +25
+		\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do głównego: -200</string>
 </resources>

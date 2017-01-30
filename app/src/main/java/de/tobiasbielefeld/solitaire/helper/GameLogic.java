@@ -60,6 +60,7 @@ public class GameLogic{
 
         Card.save();
         saveRandomCards();
+        currentGame.save();
         currentGame.saveRedealCount();
     }
 
@@ -78,6 +79,7 @@ public class GameLogic{
         Card.updateCardBackgroundChoice();
         animate.reset();
         autoComplete.reset();
+        currentGame.load();
         currentGame.loadRedealCount(gm);
 
         if (first_run) {

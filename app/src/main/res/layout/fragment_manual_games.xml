@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -190,6 +191,25 @@
                         android:maxLines="1"
                         android:text="@string/games_yukon"
                         android:textAllCaps="false" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/manual_games_button_canfield"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_menu"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@string/games_canfield"
+                        android:textAllCaps="false" />
+
+
 
                 </TableRow>
 

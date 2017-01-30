@@ -110,6 +110,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             case "pref_key_klondike_draw":
                 showToast(getString(R.string.settings_restart_klondike));
                 break;
+            case "pref_key_canfield_draw":
+                showToast(getString(R.string.settings_restart_canfield));
+                break;
             case "pref_key_spider_difficulty":
                 showToast(getString(R.string.settings_restart_spider));
                 break;

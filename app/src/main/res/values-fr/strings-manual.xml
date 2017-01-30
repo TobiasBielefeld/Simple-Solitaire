@@ -13,6 +13,7 @@
     <string name="manual_scoring">Points</string>
     <string name="manual_main_menu">Menu principal</string>
     <string name="manual_ui">Interface utilisateur</string>
+    <string name="page_load_error">Pas de pages pour ce jeu disponible…</string>
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Ouvrir Google Play</string>
@@ -230,4 +231,27 @@
         \n\nToutes les cartes déplaçables peuvent être mises sur une emplacement libre du tableau.
         \n\nAppuyer sur le talon pour retourner une nouvelle carte sur chacunes des colonnes.</string>
     <string name="manual_acesup_scoring">Mettre une carte dans la pile de base : +50</string>
+
+
+    <!-- Canfield -->
+    <string name="manual_canfield_structure">1 jeu de 52 cartes.\n\n4 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse, 1 réserve.</string>
+    <string name="manual_canfield_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
+    <string name="manual_canfield_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
+        les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
+        par ordre croissant et dans la même famille.
+
+
+       \n\nEmpty tableau fields are filled with a card from the reserve stack. If the reserve is empty, a card from the main stack will be used.\n\nThe
+        value of the first card drawn to the foundation will specify which cards can be placed on empty foundation fields.
+        For example: If a Hearts 10 was drawn to the foundation, only cards with the value 10 can be placed on empty foundation fields.
+        But the cards on the foundation can be placed cyclic, so it is also possible to play an ace on a king
+
+        \n\nEn appuyant sur le talon, les cartes sont retournées
+        sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l\'application.
+        Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée.
+        Si \"Donner 3 cartes\" est activé, 3 cartes seront retournées à la fois.\n\nSi le talon se vide, vous pouvez encore
+        appuyer dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser.</string>
+    <string name="manual_canfield_scoring">Du tableau à une pile de base : +60\n\nDe la défausse à une pile de
+        base : +45\n\nD\'une pile de base au tableau : -75\n\nPiocher une carte: +25\n\nDéplacer les cartes de
+        la défausse à la pioche : -200</string>
 </resources>

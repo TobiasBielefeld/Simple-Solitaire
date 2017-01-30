@@ -30,11 +30,13 @@
     <string name="settings_freecell_multiple_cards_description">Przenoś tyle kart jednocześnie, ile jest pustych komórek</string>
     <string name="settings_spider_difficulty">Liczba kolorów kart</string>
     <string name="settings_klondike_draw">Po ile kart rozdawać</string>
+    <string name="settings_canfield_draw">Po ile kart rozdawać</string>
     <string name="settings_show_main_menu">Rozpocznij w menu głównym</string>
     <string name="settings_show_main_menu_description">Nie przechodź do ostatnio otwartej gry przy starcie</string>
     <string name="settings_golf_easy">Cykliczne ruchy (łatwiejsze)</string>
     <string name="settings_golf_easy_description">Zezwól kłaść asy na króli i odwrotnie</string>
     <string name="settings_restart_klondike">Aby zastosować zmiany, rozpocznij nową grę Klondkie</string>
+    <string name="settings_restart_canfield">Aby zastosować zmiany, rozpocznij nową grę Canfield</string>
     <string name="settings_restart_spider">Aby zastosować zmiany, rozpocznij nową grę Pająk</string>
     <string name="settings_restart_fortyeight">Aby zastosować zmiany, rozpocznij nową grę Czterdzieści&amp;Osiem</string>
     <string name="settings_menu">Menu główne</string>

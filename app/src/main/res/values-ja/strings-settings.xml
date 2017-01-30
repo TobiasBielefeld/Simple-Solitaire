@@ -30,12 +30,14 @@
     <string name="settings_freecell_multiple_cards_description">フリーセルの数として一度に多くのカードを移動します</string>
     <string name="settings_spider_difficulty">異なるカードファミリーの数</string>
     <string name="settings_klondike_draw">描画するカードの数</string>
+    <string name="settings_canfield_draw">描画するカードの数</string>
     <string name="settings_show_main_menu">メインメニューで開始</string>
     <string name="settings_show_main_menu_description">開始時に、最後にプレイしたゲームに入りません</string>
     <string name="settings_golf_easy">循環的な移動 （より簡単に）</string>
     <string name="settings_golf_easy_description">エースをキングに置くことを許可する、またはその逆</string>
     <string name="settings_restart_klondike">変更を適用するために新しいクロンダイクゲームを開始します</string>
-    <string name="settings_restart_spider">変更を適用するために新しいスパイダーゲームを開始します</string>
+    <string name="settings_restart_canfield">変更を適用するために新しいカンフィールドゲームを開始します</string>
+    <string name="settings_restart_spider">  変更を適用するために新しいスパイダーゲームを開始します</string>
     <string name="settings_restart_fortyeight">変更を適用するための新しいフォーティ&amp;エイトゲームを開始します</string>
     <string name="settings_menu">メインメニュー</string>
     <string name="settings_menu_description">列数の変更、ゲームの表示と非表示</string>
