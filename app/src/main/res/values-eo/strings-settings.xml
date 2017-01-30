@@ -26,8 +26,6 @@
     <string name="settings_other_description">Agordu ĉion alian</string>
     <string name="settings_games">Ludoj</string>
     <string name="settings_games_description">Alĝustigu agordojn de ludaj variaĵoj</string>
-    <string name="settings_freecell_multiple_cards">Permesi movi kelkajn kartojn</string>
-    <string name="settings_freecell_multiple_cards_description">Permesas movi tiom da kartoj unufoje, kiom da liberaj celoj estas</string>
     <string name="settings_spider_difficulty">Kiom da diversaj emblemoj de kartoj</string>
     <string name="settings_klondike_draw">Kiom da kartoj depreni</string>
     <string name="settings_canfield_draw">Kiom da kartoj depreni</string>

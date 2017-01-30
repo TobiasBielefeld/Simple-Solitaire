@@ -24,8 +24,6 @@
     <string name="settings_games_description">Nehme Einstellungen der Spielvarianten vor</string>
     <string name="settings_show_main_menu">Mit Hauptmenü starten</string>
     <string name="settings_show_main_menu_description">Beim Starten nicht das zuletzt gespielte Spiel öffnen</string>
-    <string name="settings_freecell_multiple_cards">Erlaube Bewegung mehrerer Karten</string>
-    <string name="settings_freecell_multiple_cards_description">Bewege so viele Karten auf einmal wie es freie Zellen gibt</string>
     <string name="settings_spider_difficulty">Anzahl verschiedener Karten Familien</string>
     <string name="settings_klondike_draw">Anzahl Karten zum Ziehen</string>
     <string name="settings_canfield_draw">Anzahl Karten zum Ziehen</string>

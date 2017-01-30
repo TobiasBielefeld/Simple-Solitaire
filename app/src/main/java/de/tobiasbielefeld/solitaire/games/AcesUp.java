@@ -163,6 +163,35 @@ public class AcesUp extends Game {
         return null;
     }
 
+    public Stack doubleTapTest(Card card) {
+
+        boolean success = false;
+
+        for (int i = 0; i < 4; i++) {
+            if (stacks[i].isEmpty() || i == card.getStack().getID())
+                continue;
+
+            Card cardOnStack = stacks[i].getTopCard();
+
+            if (cardOnStack.getColor() == card.getColor() && (cardOnStack.getValue() > card.getValue() || cardOnStack.getValue() == 1))
+                success = true;
+        }
+
+        if (success)
+            return getDiscardStack();
+
+        if (!card.isFirstCard()) {
+            for (int i = 0; i < 4; i++) {
+                if (i == card.getStack().getID() || !stacks[i].isEmpty())
+                    continue;
+
+                return stacks[i];
+            }
+        }
+
+        return null;
+    }
+
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
         if (destinationIDs[0]== getDiscardStack().getID())
             return 50;

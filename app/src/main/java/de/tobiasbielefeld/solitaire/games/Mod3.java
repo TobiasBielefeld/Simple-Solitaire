@@ -161,6 +161,36 @@ public class Mod3 extends Game {
         return null;
     }
 
+    @Override
+    public Stack doubleTapTest(Card card) {
+
+        int stackID = card.getStack().getID();
+
+        if (card.getValue()==1)
+            return getDiscardStack();
+
+        for (int j=0;j<=getLastTableauID();j++){
+
+            if (card.test(stacks[j])) {
+                if (stackID>=24 && j>=24 && stackID<32 && j<32)
+                    continue;
+
+                if (stacks[j].getSize()==0 && stacks[stackID].getSize()==1 && ((j>=24) || (stackID<8 && j<8) || (stackID>=8 && j>=8 && stackID<16 && j<16) || (stackID>=16 && j>=16 && stackID<24 && j<24)))
+                    continue;
+
+                return stacks[j];
+            }
+        }
+
+        for (int j=0;j<=getLastTableauID();j++){
+            if (card.test(stacks[j])) {
+                return stacks[j];
+            }
+        }
+
+        return null;
+    }
+
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
         int i = originIDs[0];
         int j = destinationIDs[0];

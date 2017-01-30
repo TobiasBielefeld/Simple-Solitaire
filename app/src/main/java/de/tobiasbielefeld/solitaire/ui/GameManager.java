@@ -265,11 +265,15 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                         movingCards.add(cardAndStack.getCard(),event.getX(),event.getY());
                         movingCards.moveToDestination(cardAndStack.getStack());
                         tappedCard=-1;
+                        return true;
                     }
-                } else {
+                } /*else {
                     tappedCard = v.getId();
                     movingCards.add(cards[v.getId()],event.getX(),event.getY());
-                }
+                }*/
+
+                tappedCard = v.getId();
+                movingCards.add(cards[v.getId()],event.getX(),event.getY());
             }
         }
         else if (event.getAction() == MotionEvent.ACTION_MOVE && movingCards.hasCards()) {

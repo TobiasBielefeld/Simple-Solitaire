@@ -26,8 +26,6 @@
     <string name="settings_other_description">他のすべての設定を設定します</string>
     <string name="settings_games">ゲーム</string>
     <string name="settings_games_description">"ゲームのバリアントを設定します"</string>
-    <string name="settings_freecell_multiple_cards">複数のカードの移動を許可する</string>
-    <string name="settings_freecell_multiple_cards_description">フリーセルの数として一度に多くのカードを移動します</string>
     <string name="settings_spider_difficulty">異なるカードファミリーの数</string>
     <string name="settings_klondike_draw">描画するカードの数</string>
     <string name="settings_canfield_draw">描画するカードの数</string>
@@ -49,5 +47,11 @@
     <string name="settings_show_manual_in_menu">ゲームメニューにマニュアルページ</string>
     <string name="settings_show_manual_in_menu_description">マニュアルに現在のゲームを開くためのアイテムを表示します</string>
     <string name="settings_change_language">言語の変更</string>
+
+    <string name="settings_double_tap">ダブルタップ</string>
+    <string name="settings_double_tap_description">ダブルタップ移動の設定</string>
+    <string name="settings_double_tap_enable">ダブルタップ移動を有効にする</string>
+    <string name="settings_double_tap_all_cards">すべての可能なカードを移動する</string>
+    <string name="settings_double_tap_all_cards_text">スタックからできるだけ多くのカードを移動します。 タッチされたカードだけでなく</string>
 
 </resources>

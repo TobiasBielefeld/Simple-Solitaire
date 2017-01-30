@@ -169,6 +169,46 @@ public class Gypsy extends Game {
         return null;
     }
 
+    @Override
+    public Stack doubleTapTest(Card card) {
+
+        //first foundation
+        if (card.isTopCard()) {
+            for (int k = 0; k < 8; k++) {
+                if (card.test(stacks[8 + k])) {
+                    return stacks[8 + k];
+                }
+            }
+        }
+
+        //then tableau without the same card
+        for (int k = 0; k < 8; k++) {
+            Stack sourceStack = card.getStack();
+            Stack destStack = stacks[k];
+
+
+            if (card.test(destStack)) {
+
+                //if the card is already on the same card as on the other stack, don't return it
+                if (destStack.getSize() > 0 && card.getIndexOnStack()>0 && sourceStack.getCard(card.getIndexOnStack() - 1).isUp()
+                        && sourceStack.getCard(card.getIndexOnStack() - 1).getValue() == destStack.getTopCard().getValue()
+                        && sourceStack.getCard(card.getIndexOnStack() - 1).getColor() % 2 == destStack.getTopCard().getColor() % 2)
+                    continue;
+
+                return destStack;
+            }
+        }
+
+        //then tableau with also the same card
+        for (int k = 0; k < 8; k++) {
+            if (card.test(stacks[k])) {
+                return stacks[k];
+            }
+        }
+
+        return null;
+    }
+
     public boolean autoCompleteStartTest() {
 
         if (!getMainStack().isEmpty())

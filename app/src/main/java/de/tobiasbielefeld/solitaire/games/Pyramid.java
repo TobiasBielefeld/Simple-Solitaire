@@ -197,6 +197,46 @@ public class Pyramid extends Game {
         return null;
     }
 
+    @Override
+    public Stack doubleTapTest(Card card) {
+
+        Stack returnStack = null;
+
+        if (card.getValue()==13){
+            return stacks[28];
+        }
+
+        for (int i = 0; i <= getLastTableauID(); i++) {
+
+            if (stacks[i].isEmpty())
+                continue;
+
+            if (card.getStack().getID() != i && stackIsFree(stacks[i]) && card.getValue() + stacks[i].getTopCard().getValue() == 13) {
+                returnStack = stacks[i];
+                break;
+            }
+        }
+
+        if (returnStack==null && !getDiscardStack().isEmpty() && card.getStack()!=getDiscardStack() && card.getValue()+getDiscardStack().getTopCard().getValue()==13)
+            returnStack = getDiscardStack();
+
+        if (returnStack==null && !dealFromStack().isEmpty() && card.getStack()!=dealFromStack() && card.getValue()+dealFromStack().getTopCard().getValue()==13)
+            returnStack = dealFromStack();
+
+       if (returnStack!=null) {
+           cardsToMove.add(returnStack.getTopCard());
+           cardsToMove.add(card);
+
+           origins.add(returnStack);
+           origins.add(card.getStack());
+           return returnStack;
+       }
+
+        if (card.getStack()==dealFromStack())
+            return getDiscardStack();
+
+        return null;
+    }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
         if (destinationIDs[0]==28)

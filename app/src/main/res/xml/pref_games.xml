@@ -49,14 +49,6 @@
             android:title="@string/settings_pyramid_difficulty" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_freecell">
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="@string/pref_key_freecell_multiple_cards"
-            android:summary="@string/settings_freecell_multiple_cards_description"
-            android:title="@string/settings_freecell_multiple_cards" />
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/games_golf">
         <CheckBoxPreference
             android:defaultValue="true"

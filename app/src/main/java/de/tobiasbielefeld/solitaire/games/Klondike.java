@@ -323,18 +323,28 @@ public class Klondike extends Game {
 
     public Stack doubleTapTest(Card card) {
 
-        if (!(card.isFirstCard() && card.getValue() == 13)
-                && card.getValue() != 1) {
-            for (int j = 0; j <= 6; j++) {
-                if (card.test(stacks[j])) {
+        if (card.isTopCard()) {
+            for (int j = 7; j <= 10; j++) {
+                if (card.test(stacks[j]))
                     return stacks[j];
-                }
             }
         }
 
-        for (int j = 7; j <= 10; j++) {
-            if (card.test(stacks[j]))
+        for (int j = 0; j <= 6; j++) {
+
+            if (card.getValue()==13 && card.isFirstCard() && card.getStack().getID()<=6)
+                continue;
+
+            if (card.test(stacks[j])) {
                 return stacks[j];
+            }
+        }
+
+        for (int j = 0; j <= 6; j++) {
+
+            if (card.test(stacks[j])) {
+                return stacks[j];
+            }
         }
 
         return null;

@@ -156,6 +156,15 @@ public class Tripeaks extends Game {
         return null;
     }
 
+    @Override
+    public Stack doubleTapTest(Card card) {
+
+        if (card.test(getDiscardStack()))
+                return getDiscardStack();
+
+        return null;
+    }
+
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
         int points = 0;
 

@@ -26,8 +26,6 @@
     <string name="settings_other_description">Dostosuj wszystkie inne opcje</string>
     <string name="settings_games">Gry</string>
     <string name="settings_games_description">Dostosuj opcje wariantów gier</string>
-    <string name="settings_freecell_multiple_cards">Zezwalaj na przenoszenie kilku kart</string>
-    <string name="settings_freecell_multiple_cards_description">Przenoś tyle kart jednocześnie, ile jest pustych komórek</string>
     <string name="settings_spider_difficulty">Liczba kolorów kart</string>
     <string name="settings_klondike_draw">Po ile kart rozdawać</string>
     <string name="settings_canfield_draw">Po ile kart rozdawać</string>

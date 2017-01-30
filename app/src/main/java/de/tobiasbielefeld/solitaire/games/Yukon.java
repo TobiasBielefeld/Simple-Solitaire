@@ -155,6 +155,39 @@ public class Yukon extends Game {
         return null;
     }
 
+    @Override
+    public Stack doubleTapTest(Card card) {
+
+        Stack origin = card.getStack();
+        int index = card.getIndexOnStack();
+
+        for (int j=0;j<7;j++) {
+            if ( !stacks[j].isEmpty() && origin.getID()!= j && card.test(stacks[j])) {
+                //example: i don't want to move a hearts 5 to a clubs 6 if the hearts card is already lying on a (faced up) spades 6.
+                if (stacks[j].getSize() > 0 && index > 0 && origin.getCard(index - 1).isUp() && origin.getCard(index - 1).getValue() == stacks[j].getCard(stacks[j].getSize() - 1).getValue())
+                    continue;
+
+                return stacks[j];
+            }
+        }
+
+        if (card.isTopCard()) {
+            for (int j = 7; j < 10; j++) {
+                if (origin.getID() != j && card.test(stacks[j])) {
+                    return stacks[j];
+                }
+            }
+        }
+
+        for (int j=0;j<7;j++) {
+            if (origin.getID()!= j && card.test(stacks[j])) {
+                return stacks[j];
+            }
+        }
+
+        return null;
+    }
+
     public boolean autoCompleteStartTest() {
         /*
          * start auto complete if every card is in the right order

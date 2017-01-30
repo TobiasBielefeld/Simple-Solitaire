@@ -94,12 +94,26 @@ public class Freecell extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
         if (stack.getID() < 8) {
+            //if there are as many cards moving as free stacks, and one of the free stacks was choosen, dont move
+            int numberOfFreeCells = 0;
+            int movingCards = card.getStack().getSize() - card.getIndexOnStack();
+
+            for (int i=0;i<12;i++){
+                if (stacks[i].isEmpty())
+                    numberOfFreeCells++;
+            }
+
+
+            if (movingCards > numberOfFreeCells && stack.isEmpty())
+                return false;
+
+
             return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2)
                     && (stack.getTopCard().getValue() == card.getValue() + 1);
         } else if (stack.getID() < 12) {
-            return movingCards.getSize() < 2 && stack.isEmpty();
+            return movingCards.hasSingleCard() && stack.isEmpty();
         }
-        else if (movingCards.getSize() < 2) {
+        else if (movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
@@ -119,24 +133,19 @@ public class Freecell extends Game {
          *  cards at once, if they are in the right order and if there are enough free cells
          *  Use the testCardsUpToTop() method for that test
          */
-        if (getSharedBoolean("pref_key_freecell_multiple_cards",true)) {
-            int numberOfFreeCells = 0;
-            int startPos;
+        int numberOfFreeCells = 0;
+        int startPos;
 
-            Stack sourceStack = card.getStack();
+        Stack sourceStack = card.getStack();
 
-            for (int i=0;i<12;i++){
-                if (stacks[i].isEmpty())
-                    numberOfFreeCells++;
-            }
-
-            startPos = max(sourceStack.getSize() - numberOfFreeCells-1, card.getStack().getIndexOfCard(card));
-
-            return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos,ALTERNATING_COLOR);
+        for (int i=0;i<12;i++){
+            if (stacks[i].isEmpty())
+                numberOfFreeCells++;
         }
-        else {
-            return card.isTopCard();
-        }
+
+        startPos = max(sourceStack.getSize() - numberOfFreeCells-1, card.getStack().getIndexOfCard(card));
+
+        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos,ALTERNATING_COLOR);
     }
 
     public CardAndStack hintTest(){
@@ -152,19 +161,14 @@ public class Freecell extends Game {
 
             int startPos;
 
-            if (getSharedBoolean("pref_key_freecell_multiple_cards",true)) {
-                int numberOfFreeCells = 0;
+            int numberOfFreeCells = 0;
 
-                for (int j=0;j<12;j++){
-                    if (stacks[j].isEmpty())
-                        numberOfFreeCells++;
-                }
+            for (int j=0;j<12;j++){
+                if (stacks[j].isEmpty())
+                    numberOfFreeCells++;
+            }
 
-                startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
-            }
-            else {
-                startPos = sourceStack.getSize() - 1;
-            }
+            startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
 
             for (int j=startPos;j<sourceStack.getSize();j++){
                 Card cardToMove = sourceStack.getCard(j);
@@ -196,6 +200,54 @@ public class Freecell extends Game {
                         return new CardAndStack(cardToMove,destStack);
                     }
 
+                }
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public Stack doubleTapTest(Card card) {
+        //first foundation
+        if (card.isTopCard()) {
+            for (int k = 12; k < 16; k++) {
+                if (card.test(stacks[k]))
+                    return stacks[k];
+            }
+        }
+
+        //then non empty tableau fields
+        for (int k=0;k<8;k++){
+
+            if (stacks[k].isEmpty())
+                continue;
+
+            if (card.test(stacks[k])) {
+                return stacks[k];
+            }
+        }
+
+        //then all empty tableau fields
+        for (int k = 0; k < 8; k++) {
+
+            if (!stacks[k].isEmpty())
+                continue;
+
+            if (card.test(stacks[k])) {
+                return stacks[k];
+            }
+        }
+
+        //and empty cells
+        if (card.isTopCard()) {
+            for (int k = 8; k < 12; k++) {
+
+                if (!stacks[k].isEmpty())
+                    continue;
+
+                if (card.test(stacks[k])) {
+                    return stacks[k];
                 }
             }
         }

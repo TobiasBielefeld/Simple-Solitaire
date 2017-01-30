@@ -26,8 +26,6 @@
     <string name="settings_other_description">Set all other settings</string>
     <string name="settings_games">Games</string>
     <string name="settings_games_description">Set preferences for the game variants</string>
-    <string name="settings_freecell_multiple_cards">Allow movement of multiple cards</string>
-    <string name="settings_freecell_multiple_cards_description">Move as many cards at once as the number of free cells</string>
     <string name="settings_spider_difficulty">Number of different card families</string>
     <string name="settings_klondike_draw">Number of cards to draw</string>
     <string name="settings_canfield_draw">Number of cards to draw</string>
@@ -68,7 +66,7 @@
     <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
     <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
     <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
-    <string name="pref_key_freecell_multiple_cards" translatable="false">pref_key_freecell_multiple_cards</string>
+    <string name="pref_key_forty_eight_multiple_cards" translatable="false">pref_key_forty_eight_multiple_cards</string>
     <string name="pref_key_spider_difficulty" translatable="false">pref_key_spider_difficulty</string>
     <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
     <string name="pref_key_canfield_draw" translatable="false">pref_key_canfield_draw</string>

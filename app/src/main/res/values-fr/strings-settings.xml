@@ -26,9 +26,6 @@
     <string name="settings_other_description">Modifier les autres réglages</string>
     <string name="settings_games">Jeux</string>
     <string name="settings_games_description">Modifier les préférences pour les variantes de jeu</string>
-    <string name="settings_freecell_multiple_cards">Déplacer plusieurs cartes à la fois</string>
-    <string name="settings_freecell_multiple_cards_description">Déplacer autant de cartes à la fois qu\'il
-        y a d\'emplacements libres</string>
     <string name="settings_spider_difficulty">Nombre de familles différentes de cartes</string>
     <string name="settings_klondike_draw">Nombre de carte à piocher</string>
     <string name="settings_canfield_draw">Nombre de carte à piocher</string>
@@ -50,5 +47,11 @@
     <string name="settings_show_manual_in_menu">Page de manuel dans le menu du jeu</string>
     <string name="settings_show_manual_in_menu_description">Affiche un bouton pour ouvrir le manuel du jeu de carte en cours</string>
     <string name="settings_change_language">Changer la langue</string>
+
+    <string name="settings_double_tap">Tapez deux fois</string>
+    <string name="settings_double_tap_description">Préférences pour les doubles mouvements de prise</string>
+    <string name="settings_double_tap_enable">Activer les doubles mouvements du robinet </string>
+    <string name="settings_double_tap_all_cards">Déplacer toutes les cartes possibles </string>
+    <string name="settings_double_tap_all_cards_text">Déplacer autant de cartes que possible de la pile, pas seulement la carte touchée</string>
 
 </resources>

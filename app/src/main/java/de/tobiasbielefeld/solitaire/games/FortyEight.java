@@ -115,10 +115,23 @@ public class FortyEight extends Game {
 
 
     public boolean cardTest(Stack stack, Card card){
-         if (stack.getID() < 8) {
+        if (stack.getID() < 8) {
+
+            //if there are as many cards moving as free stacks, and one of the free stacks was choosen, dont move
+            int numberOfFreeStacks = 0;
+            int movingCards = card.getStack().getSize() - card.getIndexOnStack();
+
+            for (int i=0;i<8;i++){
+                if (stacks[i].isEmpty())
+                    numberOfFreeStacks++;
+            }
+
+            if (movingCards > numberOfFreeStacks && stack.isEmpty())
+                return false;
+
+
             return stack.isEmpty() || (stack.getTopCard().getColor() == card.getColor())
                     && (stack.getTopCard().getValue() == card.getValue() + 1);
-
         }
         else if (stack.getID() < 16 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
@@ -132,11 +145,79 @@ public class FortyEight extends Game {
 
 
     public boolean addCardToMovementTest(Card card){
-        return card.isTopCard();
+        int numberOfFreeStacks = 0;
+        int startPos;
+
+        Stack sourceStack = card.getStack();
+
+        for (int i=0;i<8;i++){
+            if (stacks[i].isEmpty())
+                numberOfFreeStacks++;
+        }
+
+        startPos = max(sourceStack.getSize() - numberOfFreeStacks-1, card.getStack().getIndexOfCard(card));
+
+        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos,SAME_COLOR);
     }
 
     public CardAndStack hintTest(){
+
         for (int i=0;i<8;i++){
+
+            Stack sourceStack = stacks[i];
+
+            if (sourceStack.isEmpty())
+                continue;
+
+            int startPos;
+
+
+            int numberOfFreeCells = 0;
+
+            for (int j=0;j<12;j++){
+                if (stacks[j].isEmpty())
+                    numberOfFreeCells++;
+            }
+
+            startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
+
+            for (int j=startPos;j<sourceStack.getSize();j++){
+                Card cardToMove = sourceStack.getCard(j);
+
+                if (hint.hasVisited(cardToMove)|| !testCardsUpToTop(sourceStack,j,SAME_COLOR))
+                    continue;
+
+                if (cardToMove.getValue()==1 && cardToMove.isTopCard()) {
+                    for (int k=8;k<16;k++){
+                        if (cardToMove.test(stacks[k]))
+                            return new CardAndStack(cardToMove,stacks[k]);
+                    }
+                }
+
+                if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
+                    continue;
+
+                for (int k=0;k<8;k++){
+                    Stack destStack = stacks[k];
+                    if (i==k || destStack.isEmpty())
+                        continue;
+
+                    if (cardToMove.test(destStack)) {
+
+                        if (destStack.getSize()>0 && j>0 && sourceStack.getCard(j-1).isUp()
+                                && sourceStack.getCard(j-1).getValue()==destStack.getCard(destStack.getSize()-1).getValue())
+                            continue;
+
+                        return new CardAndStack(cardToMove,destStack);
+                    }
+
+                }
+            }
+        }
+
+        return null;
+
+        /*for (int i=0;i<8;i++){
             if (stacks[i].isEmpty() || hint.hasVisited(stacks[i].getTopCard()))
                 continue;
 
@@ -174,6 +255,35 @@ public class FortyEight extends Game {
             }
         }
 
+
+        return null;*/
+    }
+
+    @Override
+    public Stack doubleTapTest(Card card) {
+
+        //first foundation
+        for (int j=0;j<8;j++){
+            if (cardTest(stacks[8+j],card))
+                return stacks[8+j];
+        }
+
+        //then non empty fields
+        for (int j=0;j<8;j++){
+
+            if (stacks[j].isEmpty())
+                continue;
+
+            if (cardTest(stacks[j],card))
+                return stacks[j];
+        }
+
+        //then empty fields
+        for (int j=0;j<8;j++){
+
+            if (cardTest(stacks[j],card))
+                return stacks[j];
+        }
 
         return null;
     }

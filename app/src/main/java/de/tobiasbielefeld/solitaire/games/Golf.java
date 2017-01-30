@@ -115,6 +115,11 @@ public class Golf extends Game {
         return null;
     }
 
+    @Override
+    public Stack doubleTapTest(Card card) {
+        return card.test(getDiscardStack()) ? getDiscardStack() : null;
+    }
+
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
         if (destinationIDs[0]==getDiscardStack().getID() && originIDs[0]<7)
             return 50;

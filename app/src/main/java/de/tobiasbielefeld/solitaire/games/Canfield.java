@@ -381,6 +381,35 @@ public class Canfield extends Game {
         return null;
     }
 
+    public Stack doubleTapTest(Card card) {
+
+        if (card.isTopCard()) {
+            for (int j = 5; j <= 8; j++) {
+                if (card.test(stacks[j]))
+                    return stacks[j];
+            }
+        }
+
+        for (int j = 0; j <= 4; j++) {
+
+            if (card.getValue()==13 && card.isFirstCard() && card.getStack().getID()<=4)
+                continue;
+
+            if (card.test(stacks[j])) {
+                return stacks[j];
+            }
+        }
+
+        for (int j = 0; j <= 4; j++) {
+
+            if (card.test(stacks[j])) {
+                return stacks[j];
+            }
+        }
+
+        return null;
+    }
+
     public CardAndStack autoCompletePhaseOne(){
         return null;
     }

@@ -81,11 +81,26 @@ public abstract class Game {
 
     public CardAndStack doubleTap(Card card){
         CardAndStack cardAndStack = null;
-        Stack destination;
+        Stack destination = null;
 
-        if (card.getStack().getID()<=getLastTableauID() && getSharedBoolean("pref_key_double_tap_all_cards",true)){
+        if (getSharedBoolean("pref_key_double_tap_all_cards",true) && card.getStack().getID()<=getLastTableauID() ){
             Stack stack = card.getStack();
-            Card cardToMove = stack.getFirstUpCard();
+
+
+
+            for (int i = stack.getFirstUpCardPos(); i < stack.getSize(); i++) {
+                if (addCardToMovementTest(stack.getCard(i))) {
+                    destination = doubleTapTest(stack.getCard(i));
+                }
+
+                if (destination!=null) {
+                    cardAndStack = new CardAndStack(stack.getCard(i),destination);
+                    break;
+                }
+            }
+
+            /*Card cardToMove = stack.getFirstUpCard();
+
 
             while (!addCardToMovementTest(cardToMove)){
                 cardToMove = stack.getCard(cardToMove.getIndexOnStack()+1);
@@ -94,16 +109,22 @@ public abstract class Game {
             destination = doubleTapTest(cardToMove);
 
             if (destination!=null)
-                cardAndStack = new CardAndStack(cardToMove,destination);
-        }
-
-        if (cardAndStack==null){
+                cardAndStack = new CardAndStack(cardToMove,destination);*/
+        } else {
             destination = doubleTapTest(card);
 
             if (destination!=null){
                 cardAndStack = new CardAndStack(card,destination);
             }
         }
+
+        /*if (cardAndStack==null){
+            destination = doubleTapTest(card);
+
+            if (destination!=null){
+                cardAndStack = new CardAndStack(card,destination);
+            }
+        }*/
 
         return cardAndStack;
     }
