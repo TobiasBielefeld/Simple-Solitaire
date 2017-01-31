@@ -122,9 +122,7 @@ public class SimpleSimon extends Game {
                                 && destStack.getTopCard().getColor()!=cardToMove.getColor())
                             continue;
                         //if the card is already on the same card as on the other stack, don't return it
-                        if (destStack.getSize()>0 && j>0 && sourceStack.getCard(j-1).isUp()
-                                && sourceStack.getCard(j-1).getValue()==destStack.getTopCard().getValue()
-                                && sourceStack.getCard(j-1).getColor()==destStack.getTopCard().getColor())
+                        if (sameCardOnOtherStack(cardToMove,destStack,SAME_VALUE_AND_FAMILY))
                             continue;
 
                         return new CardAndStack(cardToMove,destStack);
@@ -152,9 +150,7 @@ public class SimpleSimon extends Game {
                         && destStack.getTopCard().getColor()!=card.getColor())
                     continue;
                 //if the card is already on the same card as on the other stack, don't return it
-                if (destStack.getSize()>0 && index>0 && card.getStack().getCard(index-1).isUp()
-                        && card.getStack().getCard(index-1).getValue()==destStack.getTopCard().getValue()
-                        && card.getStack().getCard(index-1).getColor()==destStack.getTopCard().getColor())
+                if (sameCardOnOtherStack(card,destStack,SAME_VALUE_AND_FAMILY))
                     continue;
 
                 return destStack;
@@ -163,12 +159,6 @@ public class SimpleSimon extends Game {
 
         for (int k=0;k<10;k++){
             if (stacks[k].isEmpty() && card.test(stacks[k])) {
-                return stacks[k];
-            }
-        }
-
-        for (int k=0;k<10;k++){
-            if (card.test(stacks[k])) {
                 return stacks[k];
             }
         }

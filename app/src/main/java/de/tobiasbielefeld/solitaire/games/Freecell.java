@@ -193,8 +193,7 @@ public class Freecell extends Game {
 
                     if (cardToMove.test(destStack)) {
 
-                        if (destStack.getSize()>0 && j>0 && sourceStack.getCard(j-1).isUp()
-                                && sourceStack.getCard(j-1).getValue()==destStack.getCard(destStack.getSize()-1).getValue())
+                        if (sameCardOnOtherStack(cardToMove,destStack,SAME_VALUE_AND_COLOR))
                             continue;
 
                         return new CardAndStack(cardToMove,destStack);
@@ -234,7 +233,10 @@ public class Freecell extends Game {
             if (!stacks[k].isEmpty())
                 continue;
 
-            if (card.test(stacks[k])) {
+            if (cardTest(stacks[k], card)) {
+                if (sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR))
+                    continue;
+
                 return stacks[k];
             }
         }
@@ -246,7 +248,10 @@ public class Freecell extends Game {
                 if (!stacks[k].isEmpty())
                     continue;
 
-                if (card.test(stacks[k])) {
+                if (cardTest(stacks[k], card)) {
+                    if (sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR))
+                        continue;
+
                     return stacks[k];
                 }
             }

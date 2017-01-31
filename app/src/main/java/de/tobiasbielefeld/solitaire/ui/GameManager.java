@@ -258,7 +258,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             else if (cards[v.getId()].isUp() && currentGame.addCardToMovementTest(cards[v.getId()])) {
                // movingCards.add(cards[v.getId()],event.getX(),event.getY());
 
-                if (getSharedBoolean("pref_key_double_tap_enable",true) && tappedCard!=-1 && v.getId()==tappedCard){
+                if (getSharedBoolean("pref_key_double_tap_enable",true) && tappedCard!=-1 ){//&& v.getId()==tappedCard){
+                    tappedCard = v.getId();
                     CardAndStack cardAndStack = currentGame.doubleTap(cards[tappedCard]);
 
                     if (cardAndStack!=null){
@@ -296,6 +297,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     public void menuClick(View view) {
         //if something important happens don't accept input
+
+        if (view.getId()==R.id.mainButtonRestart) {
+            showRestartDialog();
+            return;
+        }
+
         if (stopConditions())
             return;
 
@@ -313,9 +320,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             case R.id.mainButtonHint:
                 hint.showHint();                                                                    //show a hint
                 break;
-            case R.id.mainButtonRestart:                                                            //show restart dialog
-                showRestartDialog();
-                break;
+            //case R.id.mainButtonRestart:                                                            //show restart dialog
+            //    showRestartDialog();
+            //    break;
             case R.id.mainButtonSettings:                                                           //open Settings activity
                 startActivity(new Intent(getApplicationContext(), Settings.class));
                 break;

@@ -143,7 +143,7 @@ public class Yukon extends Game {
                         if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
                             continue;
                         //example: i don't want to move a hearts 5 to a clubs 6 if the hearts card is already lying on a (faced up) spades 6.
-                        if (stacks[j].getSize()>0 && k>0 && stacks[i].getCard(k-1).isUp() && stacks[i].getCard(k-1).getValue()==stacks[j].getCard(stacks[j].getSize()-1).getValue())
+                        if (sameCardOnOtherStack(cardToMove,stacks[j],SAME_VALUE_AND_COLOR))
                             continue;
 
                         return new CardAndStack(cardToMove,stacks[j]);
@@ -159,12 +159,11 @@ public class Yukon extends Game {
     public Stack doubleTapTest(Card card) {
 
         Stack origin = card.getStack();
-        int index = card.getIndexOnStack();
 
         for (int j=0;j<7;j++) {
             if ( !stacks[j].isEmpty() && origin.getID()!= j && card.test(stacks[j])) {
                 //example: i don't want to move a hearts 5 to a clubs 6 if the hearts card is already lying on a (faced up) spades 6.
-                if (stacks[j].getSize() > 0 && index > 0 && origin.getCard(index - 1).isUp() && origin.getCard(index - 1).getValue() == stacks[j].getCard(stacks[j].getSize() - 1).getValue())
+                if (sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
                     continue;
 
                 return stacks[j];
@@ -179,11 +178,11 @@ public class Yukon extends Game {
             }
         }
 
-        for (int j=0;j<7;j++) {
+        /*for (int j=0;j<7;j++) {
             if (origin.getID()!= j && card.test(stacks[j])) {
                 return stacks[j];
             }
-        }
+        }*/
 
         return null;
     }

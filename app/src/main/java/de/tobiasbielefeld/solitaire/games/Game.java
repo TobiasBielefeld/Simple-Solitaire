@@ -42,6 +42,9 @@ public abstract class Game {
     final static protected boolean SAME_COLOR = false;
     final static protected boolean ALTERNATING_COLOR = true;
 
+    final static protected int SAME_VALUE_AND_COLOR = 0;
+    final static protected int SAME_VALUE_AND_FAMILY = 1;
+
     final static protected int LEFT = 1;
     final static protected int RIGHT = 2;
 
@@ -79,6 +82,24 @@ public abstract class Game {
 
     abstract public void onMainStackTouch();
 
+    protected boolean sameCardOnOtherStack(Card card, Stack otherStack, int mode){
+        Stack origin = card.getStack();
+
+        if (card.getIndexOnStack()>0 && origin.getCard(card.getIndexOnStack()-1).isUp() && otherStack.getSize()>0){
+            Card cardBelow = origin.getCard(card.getIndexOnStack()-1);
+
+            if (mode == SAME_VALUE_AND_COLOR) {
+                if (cardBelow.getValue()==otherStack.getTopCard().getValue() && cardBelow.getColor()%2 ==otherStack.getTopCard().getColor()%2)
+                    return true;
+            } else if (mode == SAME_VALUE_AND_FAMILY){
+                if (cardBelow.getValue()==otherStack.getTopCard().getValue() && cardBelow.getColor() ==otherStack.getTopCard().getColor())
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
     public CardAndStack doubleTap(Card card){
         CardAndStack cardAndStack = null;
         Stack destination = null;
@@ -98,18 +119,6 @@ public abstract class Game {
                     break;
                 }
             }
-
-            /*Card cardToMove = stack.getFirstUpCard();
-
-
-            while (!addCardToMovementTest(cardToMove)){
-                cardToMove = stack.getCard(cardToMove.getIndexOnStack()+1);
-            }
-
-            destination = doubleTapTest(cardToMove);
-
-            if (destination!=null)
-                cardAndStack = new CardAndStack(cardToMove,destination);*/
         } else {
             destination = doubleTapTest(card);
 
@@ -117,14 +126,6 @@ public abstract class Game {
                 cardAndStack = new CardAndStack(card,destination);
             }
         }
-
-        /*if (cardAndStack==null){
-            destination = doubleTapTest(card);
-
-            if (destination!=null){
-                cardAndStack = new CardAndStack(card,destination);
-            }
-        }*/
 
         return cardAndStack;
     }

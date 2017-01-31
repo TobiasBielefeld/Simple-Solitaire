@@ -332,15 +332,11 @@ public class Klondike extends Game {
 
         for (int j = 0; j <= 6; j++) {
 
-            if (card.getValue()==13 && card.isFirstCard() && card.getStack().getID()<=6)
+            if (card.getStack().getID()<7 && sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
                 continue;
 
-            if (card.test(stacks[j])) {
-                return stacks[j];
-            }
-        }
-
-        for (int j = 0; j <= 6; j++) {
+            if (card.getValue()==13 && card.isFirstCard() && card.getStack().getID()<=6)
+                continue;
 
             if (card.test(stacks[j])) {
                 return stacks[j];

@@ -83,8 +83,6 @@ public class FortyEight extends Game {
     }
 
     public void dealCards(){
-        //putSharedString("pref_key_fortyeight_redeals_old",getSharedString("pref_key_fortyeight_redeals","5"));
-
         for (int i=0;i<8;i++){
             for (int j=0;j<4;j++){
                 moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
@@ -174,7 +172,7 @@ public class FortyEight extends Game {
 
             int numberOfFreeCells = 0;
 
-            for (int j=0;j<12;j++){
+            for (int j=0;j<8;j++){
                 if (stacks[j].isEmpty())
                     numberOfFreeCells++;
             }
@@ -204,14 +202,27 @@ public class FortyEight extends Game {
 
                     if (cardToMove.test(destStack)) {
 
-                        if (destStack.getSize()>0 && j>0 && sourceStack.getCard(j-1).isUp()
-                                && sourceStack.getCard(j-1).getValue()==destStack.getCard(destStack.getSize()-1).getValue())
+                        if (sameCardOnOtherStack(cardToMove,destStack,SAME_VALUE_AND_FAMILY))
                             continue;
 
                         return new CardAndStack(cardToMove,destStack);
                     }
 
                 }
+            }
+        }
+
+        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard())){
+            Card cardToTest = getDiscardStack().getTopCard();
+
+            for (int j=0;j<8;j++){
+                if (!stacks[j].isEmpty() && cardTest(stacks[j],cardToTest) && cardToTest.getValue()!=1)
+                    return new CardAndStack(cardToTest,stacks[j]);
+            }
+
+            for (int j=0;j<8;j++){
+                if (cardTest(stacks[8+j],cardToTest))
+                    return new CardAndStack(cardToTest,stacks[8+j]);
             }
         }
 
@@ -269,20 +280,21 @@ public class FortyEight extends Game {
         }
 
         //then non empty fields
-        for (int j=0;j<8;j++){
+        for (int k=0;k<2;k++) {
+            for (int j = 0; j < 8; j++) {
 
-            if (stacks[j].isEmpty())
-                continue;
+                if ((k==0 && stacks[j].isEmpty()) || (card.isFirstCard() && stacks[j].isEmpty()))
+                    continue;
 
-            if (cardTest(stacks[j],card))
-                return stacks[j];
-        }
 
-        //then empty fields
-        for (int j=0;j<8;j++){
+                if (cardTest(stacks[j], card)) {
 
-            if (cardTest(stacks[j],card))
-                return stacks[j];
+                    if (sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))
+                        continue;
+
+                    return stacks[j];
+                }
+            }
         }
 
         return null;
