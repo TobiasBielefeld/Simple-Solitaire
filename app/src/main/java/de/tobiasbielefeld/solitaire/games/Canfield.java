@@ -392,7 +392,7 @@ public class Canfield extends Game {
 
         for (int j = 0; j <= 4; j++) {
 
-            if (sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
+            if (card.getStack().getID() < 4 && sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
                 continue;
 
             if (card.getValue()==13 && card.isFirstCard() && card.getStack().getID()<=6)

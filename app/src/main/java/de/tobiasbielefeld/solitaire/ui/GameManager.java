@@ -65,7 +65,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
     public Toast toast;                                                                             //a delicious toast!
     public static int loadCounter=0;                                                                //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
-    public long doubleTapSpeed = 100;      //time delta between two taps in miliseconds
+    public long doubleTapSpeed = 500;      //time delta between two taps in miliseconds
     public int tappedCard = -1;
     public long firstTapTime;              //stores the time of first tapping on a card
 
@@ -256,24 +256,25 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 currentGame.onMainStackTouch();
             }
             else if (cards[v.getId()].isUp() && currentGame.addCardToMovementTest(cards[v.getId()])) {
-               // movingCards.add(cards[v.getId()],event.getX(),event.getY());
 
-                if (getSharedBoolean("pref_key_double_tap_enable",true) && tappedCard!=-1 ){//&& v.getId()==tappedCard){
-                    tappedCard = v.getId();
-                    CardAndStack cardAndStack = currentGame.doubleTap(cards[tappedCard]);
+                if (getSharedBoolean("pref_key_double_tap_enable",true)){
+                    if (tappedCard!=-1 && tappedCard == v.getId() && System.currentTimeMillis() - firstTapTime < doubleTapSpeed) {
 
-                    if (cardAndStack!=null){
-                        movingCards.add(cardAndStack.getCard(),event.getX(),event.getY());
-                        movingCards.moveToDestination(cardAndStack.getStack());
-                        tappedCard=-1;
-                        return true;
+
+                        CardAndStack cardAndStack = currentGame.doubleTap(cards[tappedCard]);
+
+                        if (cardAndStack != null) {
+                            movingCards.add(cardAndStack.getCard(), event.getX(), event.getY());
+                            movingCards.moveToDestination(cardAndStack.getStack());
+                            tappedCard = -1;
+                            return true;
+                        }
+                    } else {
+                        tappedCard = v.getId();
+                        firstTapTime = System.currentTimeMillis();
                     }
-                } /*else {
-                    tappedCard = v.getId();
-                    movingCards.add(cards[v.getId()],event.getX(),event.getY());
-                }*/
+                }
 
-                tappedCard = v.getId();
                 movingCards.add(cards[v.getId()],event.getX(),event.getY());
             }
         }

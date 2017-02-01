@@ -185,7 +185,7 @@ public class FortyEight extends Game {
                 if (hint.hasVisited(cardToMove)|| !testCardsUpToTop(sourceStack,j,SAME_COLOR))
                     continue;
 
-                if (cardToMove.getValue()==1 && cardToMove.isTopCard()) {
+                if (cardToMove.isTopCard()) {
                     for (int k=8;k<16;k++){
                         if (cardToMove.test(stacks[k]))
                             return new CardAndStack(cardToMove,stacks[k]);
