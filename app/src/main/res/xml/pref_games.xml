@@ -47,6 +47,20 @@
             android:positiveButtonText="@null"
             android:summary="%s"
             android:title="@string/settings_pyramid_difficulty" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_pyramid_limited_redeals"
+            android:summary="@string/settings_pyramid_limted_redeals_text"
+            android:title="@string/settings_pyramid_limted_redeals" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_fortyeight">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_forty_eight_limited_redeals"
+            android:summary="@string/settings_forty_eight_limted_redeals_text"
+            android:title="@string/settings_forty_eight_limted_redeals" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/games_golf">
@@ -56,6 +70,8 @@
             android:summary="@string/settings_golf_easy_description"
             android:title="@string/settings_golf_easy" />
     </PreferenceCategory>
+
+
 
 
 </PreferenceScreen>

@@ -375,6 +375,10 @@ public abstract class Game {
 
     public void load(){}
 
+    public void toggleRedeals(){
+        hasLimitedRedeals = !hasLimitedRedeals;
+    }
+
 
 
 

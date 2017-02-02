@@ -173,9 +173,15 @@
     <string name="manual_fortyeight_objective">Empiler, sur les piles de base, toutes les cartes par
         famille et dans l\'ordre croissant.</string>
     <string name="manual_fortyeight_rules">Les cartes doivent être placées sur le tableau dans l\'ordre
-        décroissant de la même famille. Vous ne pouvez déplacer que la première carte d\'une colonne à
-        la fois (même si plusieurs cartes forment une séquence). Sur les piles de base, les cartes doivent
-        être placées dans l\'ordre croissant et dans la même famille.\n\nToutes les cartes peuvent être déposées
+        décroissant de la même famille. Sur les piles de base, les cartes doivent
+        être placées dans l\'ordre croissant et dans la même famille.
+
+        \n\nVous pouvez déplacer autant de cartes en une fois (si elles sont placées dans le bon ordre),
+        qu\'il y a d\'emplacements libres sur le tableau. Cela suis la règle qu\'une seule carte peut
+        être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n\'importe quelle carte,
+        celles-ci servent d\'intermédiaire.
+
+        \n\nToutes les cartes peuvent être déposées
         sur un emplacement libre du tableau et seulent les As peuvent être placés sur une pile de base vide.
         \n\nEn appuyant sur le talon, une carte est retournée sur la défausse ; vous pouvez la jouer à
         partir de là.\n\nSi le talon devient vide, vous pouvez encore appuyer dessus pour déplacer les cartes

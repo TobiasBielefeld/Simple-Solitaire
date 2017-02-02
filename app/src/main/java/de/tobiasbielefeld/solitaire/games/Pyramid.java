@@ -47,9 +47,13 @@ public class Pyramid extends Game {
         setFirstMainStackID(31);
         setFirstDiscardStackID(29);
         setLastTableauID(27);
-        setLimitedRedeals(2);
         setDealFromID(30);
         setDirections(new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+
+        setLimitedRedeals(2);
+
+        if (!getSharedBoolean("pref_key_pyramid_limited_redeals",true))
+            toggleRedeals();
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

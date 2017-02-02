@@ -19,6 +19,7 @@
 package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -261,5 +262,23 @@ public class GameLogic{
 
     public int getNumberOfPlayedGames(){
         return getInt(GAME_NUMBER_OF_PLAYED_GAMES,numberWonGames);
+    }
+
+    public void toggleNumberOfRedeals(){
+
+        if (currentGame==null)
+            return;
+
+        currentGame.toggleRedeals();
+
+        if (currentGame.hasLimitedRedeals()){
+
+            gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
+            gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
+            gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
+
+        } else {
+            gm.mainTextViewRedeals.setVisibility(View.GONE);
+        }
     }
 }

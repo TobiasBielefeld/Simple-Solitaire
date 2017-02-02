@@ -44,6 +44,9 @@ public class FortyEight extends Game {
 
         setLimitedRedeals(1);
 
+        if (!getSharedBoolean("pref_key_forty_eight_limited_redeals",true))
+            toggleRedeals();
+
         setDirections(new int[]{1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,3,0});
     }
 

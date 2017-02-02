@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -38,6 +39,8 @@ import java.util.List;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.games.FortyEight;
+import de.tobiasbielefeld.solitaire.games.Pyramid;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -116,15 +119,21 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             case "pref_key_spider_difficulty":
                 showToast(getString(R.string.settings_restart_spider));
                 break;
-            case "pref_key_fortyeight_redeals":
-                showToast(getString(R.string.settings_restart_fortyeight));
-                break;
             case MENU_COLUMNS_PORTRAIT:case MENU_COLUMNS_LANDSCAPE:
                 setPreferenceMenuColumns();
                 break;
             case "pref_key_language":
                 setLocale();
                 break;
+            case "pref_key_forty_eight_limited_redeals":
+                if (currentGame instanceof FortyEight)
+                    gameLogic.toggleNumberOfRedeals();
+                break;
+            case "pref_key_pyramid_limited_redeals":
+                if (currentGame instanceof Pyramid)
+                    gameLogic.toggleNumberOfRedeals();
+                break;
+
         }
 
     }
@@ -341,17 +350,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_double_tap);
             setHasOptionsMenu(true);
-
-            //Settings settings = (Settings) getActivity();
-
-            //settings.preferenceMenuColumns = findPreference(getString(R.string.pref_key_menu_columns));
-            //settings.setPreferenceMenuColumns();
         }
     }
 
     private void setLocale() {
-        //LocaleChanger.setLocale(this);
-       // recreate();
         Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);

@@ -160,8 +160,15 @@
     <string name="manual_fortyeight_objective">Order every card as real families in ascending order
         on the foundation.</string>
     <string name="manual_fortyeight_rules">Cards can be placed on the tableau in descending order of
-        the same family. You can move only one card from the top of a stack at once. On the foundation,
-        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
+        the same family. On the foundation, cards can be placed only in ascending order on the corresponding family.
+
+        \n\nYou can
+        move as many cards (which are in a correct sequence) at once, as there are free stacks available.
+        This corresponds to the rule, that only one card can be moved at once,
+        but when there are free stacks available, the cards can be moved on the free stacks first and then
+        to the destination stack.
+
+        \n\nEvery card can be
         placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
         pressing on the main stack, one card will be moved to the discard stack from where you can play
         it.\n\nIf the main stack is empty, you can still press on it to move every card from the

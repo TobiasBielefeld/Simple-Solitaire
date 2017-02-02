@@ -168,8 +168,14 @@
         zurückgeleget werden.</string>
     <string name="manual_fortyeight_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
     <string name="manual_fortyeight_rules">Karten können auf dem Tableau in abfallender Reihenfolge
-        derselben Kartenfamilie gespielt werden. Man kann immer nur die oberste Karte eines Stapels auf einmal
-        bewegen.Auf der Foundation müssen Karten in steigender Reihenfolge derselben Familie gespielt werden.\n\nJede
+        derselben Kartenfamilie gespielt werden.Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.
+
+        \n\nMan kann so viele Karten einer korrekten
+        Sequenz auf einmal bewegen, wie es freie Spielfelder gibt. Dies entspricht der Regel, dass nur eine
+        Karte auf einmal bewegt werden darf, aber Karten einer Sequenz können zuerst auf die freien Felder
+        aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden.
+
+        \n\nJede
         Karte kann auf leere Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
         werden.\n\nTippe den Haupt-Stapel an um eine Karte zum Ablage-Stapel zu bewegen.\n\nFalls der Haupt-Stapel leer ist, tippe
         drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten

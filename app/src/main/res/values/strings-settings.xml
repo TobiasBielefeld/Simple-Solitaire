@@ -52,11 +52,19 @@
     <string name="settings_double_tap_enable">Enable double tap movements</string>
     <string name="settings_double_tap_all_cards">Move all possible cards</string>
     <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
+    <string name="settings_forty_eight_limted_redeals">Limit number of Re-deals</string>
+    <string name="settings_forty_eight_limted_redeals_text">Re-dealing is allowed only once a game, uncheck to deactivate</string>
+
+    <string name="settings_pyramid_limted_redeals">Limit number of Re-deals</string>
+    <string name="settings_pyramid_limted_redeals_text">Re-dealing is allowed only twice a game, uncheck to deactivate</string>
 
     <!-- Preference Keys -->
+    <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
     <string name="pref_key_double_tap_enable" translatable="false">pref_key_double_tap_enable</string>
     <string name="pref_key_double_tap_all_cards" translatable="false">pref_key_double_tap_all_cards</string>
 
+    <string name="pref_key_pyramid_limited_redeals" translatable="false">pref_key_pyramid_limited_redeals</string>
+    <string name="pref_key_forty_eight_limited_redeals" translatable="false">pref_key_forty_eight_limited_redeals</string>
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>
     <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
     <string name="pref_key_cards" translatable="false">pref_key_cards</string>
@@ -66,14 +74,12 @@
     <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
     <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
     <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
-    <string name="pref_key_forty_eight_multiple_cards" translatable="false">pref_key_forty_eight_multiple_cards</string>
     <string name="pref_key_spider_difficulty" translatable="false">pref_key_spider_difficulty</string>
     <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
     <string name="pref_key_canfield_draw" translatable="false">pref_key_canfield_draw</string>
     <string name="pref_key_current_game" translatable="false">pref_key_current_game</string>
     <string name="pref_key_start_menu" translatable="false">pref_key_start_menu</string>
     <string name="pref_key_golf_cyclic" translatable="false">pref_key_golf_cyclic</string>
-    <string name="pref_key_fortyeight_redeals" translatable="false">pref_key_fortyeight_redeals</string>
     <string name="pref_key_pyramid_difficulty" translatable="false">pref_key_pyramid_difficult</string>
     <string name="pref_key_menu_columns" translatable="false">pref_key_menu_columns</string>
     <string name="pref_key_menu_games" translatable="false">pref_key_menu_games</string>

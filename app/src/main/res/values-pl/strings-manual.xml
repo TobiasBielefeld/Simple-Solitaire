@@ -133,8 +133,11 @@
 	\n\n8 stosów gry, 8 stosów bazowych, 1 główny i 1 stos odrzutów.
 	\n\nKarty ze stosu odrzutów można przenieść na stos główny tylko 1 raz podczas gry.</string>
     <string name="manual_fortyeight_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
-    <string name="manual_fortyeight_rules">Karty można kłaść na stosach gry w kolejności malejącej i tego samego koloru kart. Możesz przenosić tylko jedną kartę z wierzchu stosu naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
-	\n\nKażdą kartę można umieścić na pustym polu gry i tylko asy można umieścić na pustych polach bazowych.
+    <string name="manual_fortyeight_rules">Karty można kłaść na stosach gry w kolejności malejącej i tego samego koloru kart. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+
+		\n\nMożesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól. To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki, można kartę umieścić w pustej komórce i następnie na docelowym stosie.
+
+		\n\nKażdą kartę można umieścić na pustym polu gry i tylko asy można umieścić na pustych polach bazowych.
 	\n\nKlikając na stos główny, jedna karta zostanie przeniesiona do stosu odrzutów, skąd będziesz mógł ją użyć.
 	\n\nJeżeli stos główny jest pusty, stuknij w niego, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie. Ale możesz to zrobić tylko raz w ciągu gry. Pozostała liczba jest wyświetlana jako niewielki numer nad głównym stosem.</string>
     <string name="manual_fortyeight_scoring">Przeniesienie karty na stos bazowy: +45

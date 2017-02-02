@@ -110,7 +110,7 @@ public class GameSelector extends CustomAppCompatActivity {
                 parent.removeView(gameLayout);
         }
 
-        if (result.size()==12){ //add canfield to list
+        if (result.size()==12){ //add canfield to list for older version of game
             result.add(1,1);
         }
 

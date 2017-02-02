@@ -133,8 +133,11 @@
 	\n\n8 tablamasoj, 8 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.
 	\n\nKartojn de forĵeta stako oni povas movi al ĉefa stako nur unufoje dum ludo.</string>
     <string name="manual_fortyeight_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
-    <string name="manual_fortyeight_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj sama emblemo. Vi povas movi nur unu karton de supro de stako samtempe. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
-	\n\nĈiun karton oni povas meti sur malplenajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
+    <string name="manual_fortyeight_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj sama emblemo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+
+		\n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj estas disponeblaj. Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako.
+
+    \n\nĈiun karton oni povas meti sur malplenajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
 	\n\nPer frapeto de ĉefa stako, unu karto estos movita al forĵeta stako, kie vi povas ludi per ĝi.
 	\n\nSe ĉefa stako estas malplena, vi plue povas frapeti ĝin por movi ĉiujn kartojn reen al forĵeta stako kaj reuzi ilin. Tamen tio ĉi eblas nur unufoje dum ludo. Restanta nombro montriĝos kiel eta numero supre de ĉefa stako.</string>
     <string name="manual_fortyeight_scoring">Movi karton al fundamenta stako: +45

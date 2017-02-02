@@ -52,4 +52,13 @@
     <string name="settings_double_tap_enable">Erlaube Doppeltipp-Bewegung</string>
     <string name="settings_double_tap_all_cards">Bewege alle Karten</string>
     <string name="settings_double_tap_all_cards_text">Bewege so viele Karten wie möglich vom Stapel, nicht nur die berührte Karte</string>
+
+    <string name="settings_forty_eight_limted_redeals">Begrenzte Kartenrückgabe</string>
+    <string name="settings_forty_eight_limted_redeals_text">Das Zurücklegen der Karten vom Ablage-
+        zum Hauptstapel ist nur einmal pro Spiel möglich, zum Deaktiveren entferne den Haken</string>
+
+    <string name="settings_pyramid_limted_redeals">Begrenzte Kartenrückgabe</string>
+    <string name="settings_pyramid_limted_redeals_text">Das Zurücklegen der Karten vom Ablage-
+        zum Hauptstapel ist nur zweimal pro Spiel möglich, zum Deaktiveren entferne den Haken</string>
+
 </resources>

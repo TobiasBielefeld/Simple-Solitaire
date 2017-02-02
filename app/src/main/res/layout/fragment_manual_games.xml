@@ -54,6 +54,17 @@
                         android:textAllCaps="false" />
 
                     <Button
+                        android:id="@+id/manual_games_button_canfield"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_menu"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@string/games_canfield"
+                        android:textAllCaps="false" />
+
+                    <Button
                         android:id="@+id/manual_games_button_fortyeight"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -63,6 +74,12 @@
                         android:maxLines="1"
                         android:text="@string/games_fortyeight"
                         android:textAllCaps="false" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/manual_games_button_freecell"
@@ -74,12 +91,6 @@
                         android:maxLines="1"
                         android:text="@string/games_freecell"
                         android:textAllCaps="false" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/manual_games_button_golf"
@@ -103,6 +114,12 @@
                         android:text="@string/games_gypsy"
                         android:textAllCaps="false" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
                     <Button
                         android:id="@+id/manual_games_button_klondike"
                         android:layout_width="0dp"
@@ -113,12 +130,6 @@
                         android:maxLines="1"
                         android:text="@string/games_klondike"
                         android:textAllCaps="false" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/manual_games_button_mod3"
@@ -142,6 +153,12 @@
                         android:text="@string/games_pyramid"
                         android:textAllCaps="false" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
                     <Button
                         android:id="@+id/manual_games_button_simplesimon"
                         android:layout_width="0dp"
@@ -152,12 +169,6 @@
                         android:maxLines="1"
                         android:text="@string/games_simplesimon"
                         android:textAllCaps="false" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/manual_games_button_spider"
@@ -181,6 +192,13 @@
                         android:text="@string/games_tripeaks"
                         android:textAllCaps="false" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
                     <Button
                         android:id="@+id/manual_games_button_yukon"
                         android:layout_width="0dp"
@@ -191,26 +209,6 @@
                         android:maxLines="1"
                         android:text="@string/games_yukon"
                         android:textAllCaps="false" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <Button
-                        android:id="@+id/manual_games_button_canfield"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_menu"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="@string/games_canfield"
-                        android:textAllCaps="false" />
-
-
-
                 </TableRow>
 
             </TableLayout>
