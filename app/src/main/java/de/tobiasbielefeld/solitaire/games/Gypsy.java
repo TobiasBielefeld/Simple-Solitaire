@@ -170,14 +170,7 @@ public class Gypsy extends Game {
     @Override
     public Stack doubleTapTest(Card card) {
 
-        //first foundation
-        if (card.isTopCard()) {
-            for (int k = 0; k < 8; k++) {
-                if (card.test(stacks[8 + k])) {
-                    return stacks[8 + k];
-                }
-            }
-        }
+
 
         //then tableau without the same card
         for (int k = 0; k < 8; k++) {
@@ -189,6 +182,15 @@ public class Gypsy extends Game {
                     continue;
 
                 return destStack;
+            }
+        }
+
+        //first foundation
+        if (card.isTopCard()) {
+            for (int k = 0; k < 8; k++) {
+                if (card.test(stacks[8 + k])) {
+                    return stacks[8 + k];
+                }
             }
         }
 

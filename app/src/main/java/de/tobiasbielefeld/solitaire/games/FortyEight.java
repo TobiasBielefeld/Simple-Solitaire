@@ -283,13 +283,13 @@ public class FortyEight extends Game {
         for (int k=0;k<2;k++) {
             for (int j = 0; j < 8; j++) {
 
-                if ((k==0 && stacks[j].isEmpty()) || (card.isFirstCard() && stacks[j].isEmpty()))
+                if ((k==0 && stacks[j].isEmpty()) || (card.getStack().getID()<=getLastTableauID() && card.isFirstCard() && stacks[j].isEmpty()))
                     continue;
 
 
                 if (cardTest(stacks[j], card)) {
 
-                    if (sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))
+                    if (card.getStack().getID()<=getLastTableauID() && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))
                         continue;
 
                     return stacks[j];

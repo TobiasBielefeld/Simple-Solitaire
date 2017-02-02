@@ -52,12 +52,12 @@ public abstract class Game {
     public int[] directions;
     public int[] directionBorders;
     private boolean hasMainStack = false;
-    private int dealFromID;
-    private int mainStackID;
+    private int dealFromID = -1;
+    private int mainStackID = -1;
     private boolean hasDiscardStack = false;
     private boolean hasLimitedRedeals = false;
-    private int discardStackID;
-    private int lastTableauID;
+    private int discardStackID = -1;
+    private int lastTableauID = -1;
     private int redealCounter=0;
     private int totalRedeals=0;
     private boolean hasArrow=false;
@@ -206,8 +206,12 @@ public abstract class Game {
     }
 
     protected void setLimitedRedeals(int number){
-        hasLimitedRedeals=true;
-        totalRedeals=number;
+        if (number>=0) {
+            hasLimitedRedeals = true;
+            totalRedeals = number;
+        } else {
+            hasLimitedRedeals = false;
+        }
     }
 
     protected void setUpCardWidth(RelativeLayout layoutGame, boolean isLandscape, int portraitValue, int landscapeValue){
@@ -300,14 +304,14 @@ public abstract class Game {
      */
 
     public Stack getMainStack(){
-        if (mainStackID==0)
+        if (mainStackID==-1)
             Log.e("Game.getMainStack()","No main stack specified");
 
         return stacks[mainStackID];
     }
 
     public int getLastTableauID(){
-        if (lastTableauID==0)
+        if (lastTableauID==-1)
             Log.e("Game.getLastTableauID()","No last tableau stack specified");
 
         return lastTableauID;
@@ -330,7 +334,7 @@ public abstract class Game {
     }
 
     public Stack getDiscardStack(){
-        if (discardStackID==0)
+        if (discardStackID==-1)
             Log.e("Game.getDiscardStack()","No discard stack specified");
 
         return stacks[discardStackID];

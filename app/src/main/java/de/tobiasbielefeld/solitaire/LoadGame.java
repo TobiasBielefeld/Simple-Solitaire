@@ -74,6 +74,11 @@ public class LoadGame {
                 gameName = activity.getString(R.string.games_acesup);
                 game = new AcesUp();
                 break;
+            case R.id.buttonStartCanfield:
+                sharedPrefName = "Canfield";
+                gameName = activity.getString(R.string.games_canfield);
+                game = new Canfield();
+                break;
             case R.id.buttonStartFortyEight:
                 sharedPrefName = "FortyEight";
                 gameName = activity.getString(R.string.games_fortyeight);
@@ -129,11 +134,6 @@ public class LoadGame {
                 gameName = activity.getString(R.string.games_yukon);
                 game = new Yukon();
                 break;
-            case R.id.buttonStartCanfield:
-                sharedPrefName = "Canfield";
-                gameName = activity.getString(R.string.games_canfield);
-                game = new Canfield();
-                break;
         }
 
         return game;
@@ -144,6 +144,7 @@ public class LoadGame {
 
         //This is the exact same order like the games are shown in the main menu!
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_acesup));
+        layouts.add((LinearLayout) activity.findViewById(R.id.layout_canfield));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_fortyeight));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_freecell));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_golf));
@@ -155,7 +156,6 @@ public class LoadGame {
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_spider));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_tripeaks));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_yukon));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_canfield));
 
         return layouts;
     }
@@ -169,7 +169,7 @@ public class LoadGame {
         ArrayList<Button> gameButtons = new ArrayList<>();
 
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_acesup));
-
+        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_canfield));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_fortyeight));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_freecell));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_golf));
@@ -181,7 +181,6 @@ public class LoadGame {
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_spider));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_tripeaks));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_yukon));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_canfield));
 
         for (Button button : gameButtons) {
             button.setOnClickListener(listener);
@@ -240,6 +239,8 @@ public class LoadGame {
                 Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");
             case R.id.manual_games_button_acesup:
                 return "acesup";
+            case R.id.manual_games_button_canfield:
+                return "canfield";
             case R.id.manual_games_button_fortyeight:
                 return "fortyeight";
             case R.id.manual_games_button_freecell:
@@ -262,8 +263,7 @@ public class LoadGame {
                 return "tripeaks";
             case R.id.manual_games_button_yukon:
                 return "yukon";
-            case R.id.manual_games_button_canfield:
-                return "canfield";
+
         }
     }
 

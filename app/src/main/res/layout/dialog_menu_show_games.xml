@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_fortyeight"
+                    android:text="@string/games_canfield"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_freecell"
+                    android:text="@string/games_fortyeight"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_golf"
+                    android:text="@string/games_freecell"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_gypsy"
+                    android:text="@string/games_golf"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -163,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_klondike"
+                    android:text="@string/games_gypsy"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_mod3"
+                    android:text="@string/games_klondike"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -215,7 +215,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_pyramid"
+                    android:text="@string/games_mod3"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -241,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_simplesimon"
+                    android:text="@string/games_pyramid"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -267,7 +267,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_spider"
+                    android:text="@string/games_simplesimon"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -293,7 +293,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_tripeaks"
+                    android:text="@string/games_spider"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -319,12 +319,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_yukon"
+                    android:text="@string/games_tripeaks"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/menu_linearLayout_13"
@@ -346,11 +345,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_canfield"
+                    android:text="@string/games_yukon"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
             </LinearLayout>
+
+
+
 
         </LinearLayout>
     </ScrollView>

@@ -40,6 +40,7 @@ public class Yukon extends Game {
         setNumberOfStacks(11);
         setDealFromID(0);
         setLastTableauID(6);
+
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -161,7 +162,7 @@ public class Yukon extends Game {
         Stack origin = card.getStack();
 
         for (int j=0;j<7;j++) {
-            if ( !(stacks[j].isEmpty() && card.getID()!=13)  && origin.getID()!= j && card.test(stacks[j])) {
+            if (origin.getID()!= j && card.test(stacks[j])) {
                 //example: i don't want to move a hearts 5 to a clubs 6 if the hearts card is already lying on a (faced up) spades 6.
                 if (sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
                     continue;

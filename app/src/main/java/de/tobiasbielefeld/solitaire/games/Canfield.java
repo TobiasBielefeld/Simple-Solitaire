@@ -300,7 +300,7 @@ public class Canfield extends Game {
         //for example: if touched a card on stack 11 (first discard stack) but there is a card
         //on stack 12 (second discard stack) don't move if.
         return !(((card.getStack().getID() == 9 || card.getStack().getID() == 10) && !stacks[11].isEmpty())
-                || (card.getStack().getID() == 9 && !stacks[10].isEmpty())) && (card.isFirstCard() || card.isTopCard());
+                || (card.getStack().getID() == 9 && !stacks[10].isEmpty()));
     }
 
     public CardAndStack hintTest() {
@@ -395,7 +395,7 @@ public class Canfield extends Game {
             if (card.getStack().getID() < 4 && sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
                 continue;
 
-            if (card.getValue()==13 && card.isFirstCard() && card.getStack().getID()<=6)
+            if (card.getValue()==13 && card.isFirstCard() && card.getStack().getID()<=3)
                 continue;
 
             if (card.test(stacks[j])) {
