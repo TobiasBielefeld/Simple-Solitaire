@@ -130,19 +130,6 @@ public class Canfield extends Game {
         //save the new settings, so it only takes effect on new deals
         putSharedString("pref_key_canfield_draw_old", getSharedString("pref_key_canfield_draw", "3"));
 
-        //deal cards to trash according to the draw option
-        if (getSharedString("pref_key_canfield_draw_old", "1").equals("3")) {
-            for (int i = 0; i < 3; i++) {
-                moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
-                stacks[9 + i].getTopCard().flipUp();
-            }
-        } else {
-            moveToStack(getMainStack().getTopCard(), stacks[11], OPTION_NO_RECORD);
-            stacks[11].getTopCard().flipUp();
-        }
-
-
-
         //and move cards to the tableau
         for (int i = 0; i < 4; i++) {
             moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
@@ -160,6 +147,17 @@ public class Canfield extends Game {
         moveToStack(getMainStack().getTopCard(), stacks[5], OPTION_NO_RECORD);
         stacks[5].getTopCard().flipUp();
         startCardValue = stacks[5].getTopCard().getValue();
+
+        //deal cards to trash according to the draw option
+        if (getSharedString("pref_key_canfield_draw_old", "1").equals("3")) {
+            for (int i = 0; i < 3; i++) {
+                moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
+                stacks[9 + i].getTopCard().flipUp();
+            }
+        } else {
+            moveToStack(getMainStack().getTopCard(), stacks[11], OPTION_NO_RECORD);
+            stacks[11].getTopCard().flipUp();
+        }
     }
 
     public void onMainStackTouch() {
@@ -383,14 +381,16 @@ public class Canfield extends Game {
 
     public Stack doubleTapTest(Card card) {
 
+        //foundation stacks
         if (card.isTopCard()) {
-            for (int j = 5; j <= 8; j++) {
+            for (int j = 5; j <9; j++) {
                 if (card.test(stacks[j]))
                     return stacks[j];
             }
         }
 
-        for (int j = 0; j <= 4; j++) {
+        //tableau stacks
+        for (int j = 0; j < 5; j++) {
 
             if (card.getStack().getID() < 4 && sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
                 continue;
@@ -401,6 +401,11 @@ public class Canfield extends Game {
             if (card.test(stacks[j])) {
                 return stacks[j];
             }
+        }
+
+        for (int j = 0; j < 4; j++) {
+            if (stacks[j].isEmpty() && card.test(stacks[j]))
+                return stacks[j];
         }
 
         return null;
@@ -472,7 +477,6 @@ public class Canfield extends Game {
             if (stacks[i].isEmpty()){
 
                 if (!stacks[4].isEmpty()) {
-
                     moveToStack(stacks[4].getTopCard(),stacks[i],OPTION_NO_RECORD);
                     recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[4]);
 
@@ -480,8 +484,16 @@ public class Canfield extends Game {
                         stacks[4].getTopCard().flipWithAnim();
                     }
 
+                } else if (!stacks[11].isEmpty()){
+                    moveToStack(stacks[11].getTopCard(), stacks[i], OPTION_NO_RECORD);
+                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[11]);
+                } else if (!stacks[10].isEmpty()){
+                    moveToStack(stacks[10].getTopCard(), stacks[i], OPTION_NO_RECORD);
+                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[10]);
+                } else if (!stacks[9].isEmpty()){
+                    moveToStack(stacks[9].getTopCard(), stacks[i], OPTION_NO_RECORD);
+                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[9]);
                 } else if (!getMainStack().isEmpty()){
-
                     getMainStack().getTopCard().flipUp();
                     moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
                     recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), getMainStack());
@@ -489,7 +501,7 @@ public class Canfield extends Game {
             }
         }
 
-        if (!getSharedString("pref_key_klondike_draw_old", "1").equals("3"))
+        if (!getSharedString("pref_key_canfield_draw_old", "1").equals("3"))
             return;
 
         if (stacks[10].getSize() == 0 || stacks[11].getSize() == 0) {

@@ -102,28 +102,35 @@ public abstract class Game {
 
     public CardAndStack doubleTap(Card card){
         CardAndStack cardAndStack = null;
+        Stack destination;
+
+        destination = doubleTapTest(card);
+
+        if (destination!=null){
+            cardAndStack = new CardAndStack(card,destination);
+        }
+
+        return cardAndStack;
+    }
+
+    public CardAndStack doubleTap(Stack stack){
+        CardAndStack cardAndStack = null;
         Stack destination = null;
 
-        if (getSharedBoolean("pref_key_double_tap_all_cards",true) && card.getStack().getID()<=getLastTableauID() ){
-            Stack stack = card.getStack();
+        for (int i = stack.getFirstUpCardPos(); i < stack.getSize(); i++) {
+            if (addCardToMovementTest(stack.getCard(i))) {
+                destination = doubleTapTest(stack.getCard(i));
+            }
 
-
-
-            for (int i = stack.getFirstUpCardPos(); i < stack.getSize(); i++) {
-                if (addCardToMovementTest(stack.getCard(i))) {
-                    destination = doubleTapTest(stack.getCard(i));
-                }
-
-                if (destination!=null) {
-                    cardAndStack = new CardAndStack(stack.getCard(i),destination);
+            if (destination!=null) {
+                if (destination.isEmpty()) {
+                    if (cardAndStack==null) {
+                        cardAndStack = new CardAndStack(stack.getCard(i), destination);
+                    }
+                } else {
+                    cardAndStack = new CardAndStack(stack.getCard(i), destination);
                     break;
                 }
-            }
-        } else {
-            destination = doubleTapTest(card);
-
-            if (destination!=null){
-                cardAndStack = new CardAndStack(card,destination);
             }
         }
 
@@ -131,7 +138,6 @@ public abstract class Game {
     }
 
     public Stack doubleTapTest(Card card){return null;}
-
 
 
     /*

@@ -277,28 +277,28 @@ public class FortyEight extends Game {
     public Stack doubleTapTest(Card card) {
 
         //first foundation
-        for (int j=0;j<8;j++){
-            if (cardTest(stacks[8+j],card))
-                return stacks[8+j];
+        if (card.isTopCard()) {
+            for (int j = 0; j < 8; j++) {
+                if (cardTest(stacks[8 + j], card))
+                    return stacks[8 + j];
+            }
         }
 
         //then non empty fields
-        for (int k=0;k<2;k++) {
-            for (int j = 0; j < 8; j++) {
-
-                if ((k==0 && stacks[j].isEmpty()) || (card.getStack().getID()<=getLastTableauID() && card.isFirstCard() && stacks[j].isEmpty()))
-                    continue;
-
-
-                if (cardTest(stacks[j], card)) {
-
-                    if (card.getStack().getID()<=getLastTableauID() && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))
-                        continue;
-
-                    return stacks[j];
-                }
+        for (int j = 0; j < 8; j++) {
+            if (cardTest(stacks[j], card) && !stacks[j].isEmpty()
+                    && !(card.getStack().getID()<=getLastTableauID() && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))) {
+                return stacks[j];
             }
         }
+
+        //then the empty fields
+        for (int j = 0; j < 8; j++) {
+            if (stacks[j].isEmpty() && cardTest(stacks[j], card)) {
+                return stacks[j];
+            }
+        }
+
 
         return null;
     }

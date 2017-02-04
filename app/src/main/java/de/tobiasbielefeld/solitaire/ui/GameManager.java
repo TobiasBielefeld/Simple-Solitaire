@@ -66,7 +66,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public Toast toast;                                                                             //a delicious toast!
     public static int loadCounter=0;                                                                //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
     public long doubleTapSpeed = 500;      //time delta between two taps in miliseconds
-    public int tappedCard = -1;
+    public Stack tappedStack = null;
     public long firstTapTime;              //stores the time of first tapping on a card
 
 
@@ -255,27 +255,36 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
                 currentGame.onMainStackTouch();
             }
-            else if (cards[v.getId()].isUp() && currentGame.addCardToMovementTest(cards[v.getId()])) {
+            else if (cards[v.getId()].isUp() ){//&& currentGame.addCardToMovementTest(cards[v.getId()])) {
 
-                if (getSharedBoolean("pref_key_double_tap_enable",true)){
-                    if (tappedCard!=-1 && tappedCard == v.getId() && System.currentTimeMillis() - firstTapTime < doubleTapSpeed) {
+                if (getSharedBoolean("pref_key_double_tap_enable", true)) {
+                    if (tappedStack != null && tappedStack == cards[v.getId()].getStack() && System.currentTimeMillis() - firstTapTime < doubleTapSpeed) {
 
+                        CardAndStack cardAndStack = null;
 
-                        CardAndStack cardAndStack = currentGame.doubleTap(cards[tappedCard]);
+                        if (getSharedBoolean("pref_key_double_tap_all_cards",true) && cards[v.getId()].getStack().getID()<=currentGame.getLastTableauID() ){
+                            cardAndStack = currentGame.doubleTap(cards[v.getId()].getStack());
+                        } else if (currentGame.addCardToMovementTest(cards[v.getId()])){
+                            cardAndStack = currentGame.doubleTap(cards[v.getId()]);
+                        }
 
                         if (cardAndStack != null) {
                             movingCards.add(cardAndStack.getCard(), event.getX(), event.getY());
                             movingCards.moveToDestination(cardAndStack.getStack());
-                            tappedCard = -1;
+                            tappedStack = null;
                             return true;
                         }
+
+
                     } else {
-                        tappedCard = v.getId();
+                        tappedStack = cards[v.getId()].getStack();
                         firstTapTime = System.currentTimeMillis();
                     }
                 }
 
-                movingCards.add(cards[v.getId()],event.getX(),event.getY());
+                if (currentGame.addCardToMovementTest(cards[v.getId()])){
+                    movingCards.add(cards[v.getId()], event.getX(), event.getY());
+                }
             }
         }
         else if (event.getAction() == MotionEvent.ACTION_MOVE && movingCards.hasCards()) {

@@ -140,6 +140,7 @@ public class GameLogic{
         animate.reset();
         scores.reset();
         movingCards.reset();
+        hint.stop();
         recordList.reset();
         timer.reset();
         autoComplete.hideButton();

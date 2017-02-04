@@ -191,37 +191,23 @@ public class Spider extends Game {
     @Override
     public Stack doubleTapTest(Card card) {
 
-        int index = card.getIndexOnStack();
-
+        //tableau stacks
         for (int k=0;k<10;k++){
             Stack destStack = stacks[k];
             if (card.getStack().getID()==k || destStack.isEmpty())
                 continue;
 
-            if (card.test(destStack)) {
-                //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
-                if (index>0 && card.getStack().getCard(index-1).isUp()  && card.getStack().getCard(index-1).getValue()==card.getValue()+1
-                        && destStack.getTopCard().getColor()!=card.getColor())
-                    continue;
-                //if the card is already on the same card as on the other stack, don't return it
-                if (sameCardOnOtherStack(card,destStack,SAME_VALUE_AND_FAMILY))
-                    continue;
-
+            if (card.test(destStack) && !sameCardOnOtherStack(card,destStack,SAME_VALUE_AND_FAMILY)) {
                 return destStack;
             }
         }
 
+        //empty stacks
         for (int k=0;k<10;k++){
             if (stacks[k].isEmpty() && card.test(stacks[k])) {
                 return stacks[k];
             }
         }
-
-        /*for (int k=0;k<10;k++){
-            if (card.test(stacks[k])) {
-                return stacks[k];
-            }
-        }*/
 
         return null;
     }

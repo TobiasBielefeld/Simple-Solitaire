@@ -158,32 +158,28 @@ public class Yukon extends Game {
 
     @Override
     public Stack doubleTapTest(Card card) {
-
-        Stack origin = card.getStack();
-
+        //tableau fields first
         for (int j=0;j<7;j++) {
-            if (origin.getID()!= j && card.test(stacks[j])) {
-                //example: i don't want to move a hearts 5 to a clubs 6 if the hearts card is already lying on a (faced up) spades 6.
-                if (sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
-                    continue;
-
+            if (card.test(stacks[j]) && !sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR)) {
                 return stacks[j];
             }
         }
 
+        //then foundation stacks
         if (card.isTopCard()) {
             for (int j = 7; j <= 10; j++) {
-                if (origin.getID() != j && card.test(stacks[j])) {
+                if (card.getStack().getID() != j && card.test(stacks[j])) {
                     return stacks[j];
                 }
             }
         }
 
-        /*for (int j=0;j<7;j++) {
-            if (origin.getID()!= j && card.test(stacks[j])) {
-                return stacks[j];
+        //and empty stacks
+        for (int k=0;k<10;k++){
+            if (stacks[k].isEmpty() && card.test(stacks[k])) {
+                return stacks[k];
             }
-        }*/
+        }
 
         return null;
     }

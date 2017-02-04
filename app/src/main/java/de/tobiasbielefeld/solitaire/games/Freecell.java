@@ -218,25 +218,14 @@ public class Freecell extends Game {
 
         //then non empty tableau fields
         for (int k=0;k<8;k++){
-
-            if (stacks[k].isEmpty())
-                continue;
-
-            if (card.test(stacks[k])) {
+            if (card.test(stacks[k])  && !stacks[k].isEmpty() && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
                 return stacks[k];
             }
         }
 
         //then all empty tableau fields
         for (int k = 0; k < 8; k++) {
-
-            if (!stacks[k].isEmpty())
-                continue;
-
-            if (cardTest(stacks[k], card)) {
-                if (sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR))
-                    continue;
-
+            if (card.test(stacks[k]) && stacks[k].isEmpty() && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
                 return stacks[k];
             }
         }
@@ -244,14 +233,7 @@ public class Freecell extends Game {
         //and empty cells
         if (card.isTopCard()) {
             for (int k = 8; k < 12; k++) {
-
-                if (!stacks[k].isEmpty())
-                    continue;
-
-                if (cardTest(stacks[k], card)) {
-                    if (sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR))
-                        continue;
-
+                if (card.test(stacks[k])  && stacks[k].isEmpty() && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
                     return stacks[k];
                 }
             }

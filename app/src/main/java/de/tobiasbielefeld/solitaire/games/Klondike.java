@@ -101,6 +101,15 @@ public class Klondike extends Game {
         //save the new settings, so it only takes effect on new deals
         putSharedString("pref_key_klondike_draw_old", getSharedString("pref_key_klondike_draw", "1"));
 
+        //and move cards to the tableau
+        for (int i = 0; i <= 6; i++) {
+            for (int j = 0; j < i + 1; j++) {
+                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                if (j == i)
+                    stacks[i].getTopCard().flipUp();
+            }
+        }
+
         //deal cards to trash according to the draw option
         if (getSharedString("pref_key_klondike_draw_old", "1").equals("3")) {
             for (int i = 0; i < 3; i++) {
@@ -110,15 +119,6 @@ public class Klondike extends Game {
         } else {
             moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
             stacks[13].getTopCard().flipUp();
-        }
-
-        //and move cards to the tableau
-        for (int i = 0; i <= 6; i++) {
-            for (int j = 0; j < i + 1; j++) {
-                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                if (j == i)
-                    stacks[i].getTopCard().flipUp();
-            }
         }
     }
 
@@ -323,14 +323,16 @@ public class Klondike extends Game {
 
     public Stack doubleTapTest(Card card) {
 
+        //foundation stacks
         if (card.isTopCard()) {
-            for (int j = 7; j <= 10; j++) {
+            for (int j = 7; j <11; j++) {
                 if (card.test(stacks[j]))
                     return stacks[j];
             }
         }
 
-        for (int j = 0; j <= 6; j++) {
+        //tableau stacks
+        for (int j = 0; j <7; j++) {
 
             if (card.getStack().getID()<7 && sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
                 continue;
@@ -341,6 +343,12 @@ public class Klondike extends Game {
             if (card.test(stacks[j])) {
                 return stacks[j];
             }
+        }
+
+        //empty tableau stacks
+        for (int j = 0; j <7; j++) {
+            if (stacks[j].isEmpty() && card.test(stacks[j]))
+                return stacks[j];
         }
 
         return null;
