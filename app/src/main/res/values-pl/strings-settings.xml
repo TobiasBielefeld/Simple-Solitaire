@@ -53,5 +53,10 @@
     <string name="settings_double_tap_enable">Włącz ruchy przy podwójnym stuknięciu</string>
     <string name="settings_double_tap_all_cards">Przenoś wszystkie możliwe karty</string>
     <string name="settings_double_tap_all_cards_text">Przenoś jak najwięcej kart ze stosu, nie tylko dotykaną kartę</string>
-
+    
+    <string name="settings_forty_eight_limted_redeals">Limituj liczbę ponownych rozdań</string>
+    <string name="settings_forty_eight_limted_redeals_text">Ponowne rozdanie jest dozwolone tylko jeden raz podczas gry, odznacz aby wyłączyć</string>
+    <string name="settings_pyramid_limted_redeals">Limituj liczbę ponownych rozdań</string>
+    <string name="settings_pyramid_limted_redeals_text">Ponowne rozdanie jest dozwolone tylko dwa razy podczas gry, odznacz aby wyłączyć</string>
+    
 </resources>
