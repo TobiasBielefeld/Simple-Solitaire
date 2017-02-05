@@ -53,5 +53,10 @@
     <string name="settings_double_tap_enable">Aktivigi agojn pri duoblaj frapetoj</string>
     <string name="settings_double_tap_all_cards">Movi ĉiujn eblajn kartojn</string>
     <string name="settings_double_tap_all_cards_text">Movas kiel eble plej kartojn de stako, ne nur tuŝatan karton</string>
-
+    
+    <string name="settings_forty_eight_limted_redeals">Limigi nombron da redisdonoj</string>
+    <string name="settings_forty_eight_limted_redeals_text">Redisdono estas permesata nur unufoje dum ludo, malmarku por malaktivigi</string>
+    <string name="settings_pyramid_limted_redeals">Limigi nombron da redisdonoj</string>
+    <string name="settings_pyramid_limted_redeals_text">Redisdono estas permesata nur dufoje dum ludo, malmarku por malaktivigi</string>
+    
 </resources>
