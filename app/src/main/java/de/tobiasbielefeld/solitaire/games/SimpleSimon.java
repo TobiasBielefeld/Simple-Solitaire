@@ -136,11 +136,18 @@ public class SimpleSimon extends Game {
 
     @Override
     public Stack doubleTapTest(Card card) {
+        Card cardBelow = null;
 
+        if (card.getIndexOnStack()>0)
+            cardBelow = card.getStack().getCard(card.getIndexOnStack()-1);
+        
         //tableau stacks
         for (int k=0;k<10;k++){
             Stack destStack = stacks[k];
             if (card.getStack().getID()==k || destStack.isEmpty())
+                continue;
+
+            if (cardBelow!=null && cardBelow.isUp() && cardBelow.getValue()==card.getValue()+1 && destStack.getTopCard().getColor()!=card.getColor())
                 continue;
 
             if (card.test(destStack) && !sameCardOnOtherStack(card,destStack,SAME_VALUE_AND_FAMILY)) {

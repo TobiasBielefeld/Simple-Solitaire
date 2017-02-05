@@ -43,10 +43,6 @@ public class TimerHandler extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        /*if (gm.tappedCard!=-1 && System.currentTimeMillis() - gm.firstTapTime > gm.doubleTapSpeed){
-            gm.tappedCard=-1;
-        }*/
-
         if (timer.isRunning() && !gameLogic.hasWon()) {
             timer.setCurrentTime((System.currentTimeMillis() - timer.getStartTime()) / 1000);
             timer.timerHandler.sendEmptyMessageDelayed(0, 1000);

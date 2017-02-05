@@ -52,11 +52,7 @@ public class LoadGame {
 
     private String gameName;
     private String sharedPrefName;
-    private int[] position = new int[]{0,12,1,2,3,4,5,6,7,8,9,10,11};
 
-    public int getPosition(int index){
-        return position[index];
-    }
     public Game loadClass(Activity activity, int buttonID) {
         /*
          * load the game class and set the shown name and the name used for the sharedPref of the

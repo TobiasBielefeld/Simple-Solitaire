@@ -308,10 +308,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void menuClick(View view) {
         //if something important happens don't accept input
 
-        if (view.getId()==R.id.mainButtonRestart) {
+        /*if (view.getId()==R.id.mainButtonRestart) {
             showRestartDialog();
             return;
-        }
+        }*/
 
         if (stopConditions())
             return;
@@ -330,9 +330,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             case R.id.mainButtonHint:
                 hint.showHint();                                                                    //show a hint
                 break;
-            //case R.id.mainButtonRestart:                                                            //show restart dialog
-            //    showRestartDialog();
-            //    break;
+            case R.id.mainButtonRestart:                                                            //show restart dialog
+                showRestartDialog();
+                break;
             case R.id.mainButtonSettings:                                                           //open Settings activity
                 startActivity(new Intent(getApplicationContext(), Settings.class));
                 break;
