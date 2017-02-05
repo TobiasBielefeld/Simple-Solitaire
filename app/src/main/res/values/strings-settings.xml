@@ -52,9 +52,9 @@
     <string name="settings_double_tap_enable">Enable double tap movements</string>
     <string name="settings_double_tap_all_cards">Move all possible cards</string>
     <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
+
     <string name="settings_forty_eight_limted_redeals">Limit number of Re-deals</string>
     <string name="settings_forty_eight_limted_redeals_text">Re-dealing is allowed only once a game, uncheck to deactivate</string>
-
     <string name="settings_pyramid_limted_redeals">Limit number of Re-deals</string>
     <string name="settings_pyramid_limted_redeals_text">Re-dealing is allowed only twice a game, uncheck to deactivate</string>
 
@@ -62,7 +62,6 @@
     <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
     <string name="pref_key_double_tap_enable" translatable="false">pref_key_double_tap_enable</string>
     <string name="pref_key_double_tap_all_cards" translatable="false">pref_key_double_tap_all_cards</string>
-
     <string name="pref_key_pyramid_limited_redeals" translatable="false">pref_key_pyramid_limited_redeals</string>
     <string name="pref_key_forty_eight_limited_redeals" translatable="false">pref_key_forty_eight_limited_redeals</string>
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>
