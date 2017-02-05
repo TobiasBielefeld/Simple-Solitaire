@@ -19,7 +19,8 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/highScoresTextViewWinPercentage"
@@ -31,7 +32,8 @@
         android:paddingBottom="10dp"
         android:paddingTop="5dp"
         android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAlignment="center" />
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -54,4 +54,9 @@
     <string name="settings_double_tap_all_cards">すべての可能なカードを移動する</string>
     <string name="settings_double_tap_all_cards_text">スタックからできるだけ多くのカードを移動します。 タッチされたカードだけでなく</string>
 
+    <string name="settings_forty_eight_limted_redeals">再取引の数を制限する</string>
+    <string name="settings_forty_eight_limted_redeals_text">再処理はゲームで1回だけ許可され、無効にするにはチェックを外す</string>
+    <string name="settings_pyramid_limted_redeals">再取引の数を制限する</string>
+    <string name="settings_pyramid_limted_redeals_text">再処理はゲームで2回だけ許可され、無効にするにはチェックを外す</string>
+
 </resources>
