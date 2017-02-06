@@ -10,6 +10,16 @@
         android:summary="%s"
         android:title="@string/settings_background_color" />
 
+    <ListPreference
+        android:defaultValue="Material"
+        android:entries="@array/pref_icon_theme_titles"
+        android:entryValues="@array/pref_icon_theme_values"
+        android:key="@string/pref_key_icon_theme"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@null"
+        android:summary="%s"
+        android:title="@string/settings_icon_theme" />
+
     <de.tobiasbielefeld.solitaire.dialogs.CardDialogPreference
         android:key="@string/pref_key_cards"
         android:negativeButtonText="@string/game_cancel"
@@ -23,5 +33,7 @@
         android:positiveButtonText="@null"
         android:summary=""
         android:title="@string/settings_cards_back" />
+
+
 
 </PreferenceScreen>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.GameManager">
 
     <RelativeLayout
@@ -103,58 +104,97 @@
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="5dp"
         android:visibility="visible">
 
-        <ImageView
+        <FrameLayout
             android:id="@+id/mainButtonScores"
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_menu"
-            android:contentDescription="@string/menu_scores"
             android:onClick="menuClick"
-            android:src="@drawable/highscores" />
+            android:layout_weight="1">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/button_scores"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/menu_scores"
+                app:srcCompat="@drawable/scores_material" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/mainButtonHint"
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_menu"
-            android:contentDescription="@string/menu_hint"
             android:onClick="menuClick"
-            android:src="@drawable/hint" />
+            android:layout_weight="1">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/button_hint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/menu_hint"
+                app:srcCompat="@drawable/hint_material" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/mainButtonRestart"
             android:layout_width="50dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_menu"
-            android:contentDescription="@string/menu_main_menu"
             android:onClick="menuClick"
-            android:src="@drawable/restart" />
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/button_restart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/menu_main_menu"
+                app:srcCompat="@drawable/menu_material" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/mainButtonUndo"
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_menu"
-            android:contentDescription="@string/menu_undo"
             android:onClick="menuClick"
-            android:src="@drawable/undo" />
+            android:layout_weight="1">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/button_undo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/menu_undo"
+                app:srcCompat="@drawable/undo_material" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/mainButtonSettings"
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_menu"
-            android:contentDescription="@string/menu_settings"
             android:onClick="menuClick"
-            android:src="@drawable/settings" />
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/button_settings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/menu_settings"
+                app:srcCompat="@drawable/settings_material" />
+        </FrameLayout>
 
     </LinearLayout>
 

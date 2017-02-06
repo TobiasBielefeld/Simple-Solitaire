@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true">
 
     <include
-        layout="@layout/activity_game_chooser"
+        layout="@layout/activity_game_selector"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/gameChooserLayoutSettings" />
@@ -46,32 +46,33 @@
             android:baselineAligned="false"
             android:clickable="true"
             android:orientation="horizontal"
-            android:padding="5dp">
+            >
 
             <LinearLayout
                 android:id="@+id/buttonStartManual"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginRight="1dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
                 android:onClick="onClick2"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:gravity="left|center">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/manual" />
+                        app:srcCompat="@drawable/manual_material"
+                        android:id="@+id/game_selector_button_manual" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -91,26 +92,27 @@
                 android:id="@+id/buttonStartSettings"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="1dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
                 android:onClick="onClick2"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:gravity="left|center">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/settings" />
+                        app:srcCompat="@drawable/settings_material"
+                        android:id="@+id/game_selector_button_settings" />
 
                     <TextView
                         android:layout_width="wrap_content"

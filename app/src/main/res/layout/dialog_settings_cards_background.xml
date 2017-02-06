@@ -6,9 +6,7 @@
     android:baselineAligned="false"
     android:gravity="center"
     android:measureWithLargestChild="false"
-    android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:orientation="vertical">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -24,7 +22,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -50,7 +48,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -76,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -102,7 +100,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -128,7 +126,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -154,7 +152,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -186,7 +184,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -212,7 +210,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -238,7 +236,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -264,7 +262,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -290,7 +288,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -316,7 +314,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_menu"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">

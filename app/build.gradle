@@ -1,9 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
         applicationId "de.tobiasbielefeld.solitaire"
         minSdkVersion 11

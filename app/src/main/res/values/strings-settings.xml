@@ -57,9 +57,11 @@
     <string name="settings_forty_eight_limted_redeals_text">Re-dealing is allowed only once a game, uncheck to deactivate</string>
     <string name="settings_pyramid_limted_redeals">Limit number of Re-deals</string>
     <string name="settings_pyramid_limted_redeals_text">Re-dealing is allowed only twice a game, uncheck to deactivate</string>
+    <string name="settings_icon_theme">Icon theme</string>
 
     <!-- Preference Keys -->
     <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
+    <string name="pref_key_icon_theme" translatable="false">pref_key_icon_theme</string>
     <string name="pref_key_double_tap_enable" translatable="false">pref_key_double_tap_enable</string>
     <string name="pref_key_double_tap_all_cards" translatable="false">pref_key_double_tap_all_cards</string>
     <string name="pref_key_pyramid_limited_redeals" translatable="false">pref_key_pyramid_limited_redeals</string>

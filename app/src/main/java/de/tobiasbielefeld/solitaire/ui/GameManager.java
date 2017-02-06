@@ -95,10 +95,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         currentGame = lg.loadClass(this,getIntent().getIntExtra("game",1));
         savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
 
-
         if (savedSharedData==null) {
             savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
         }
+
+        updateIcons();
 
         //initialize cards and stacks
         for (int i = 0; i < stacks.length; i++) {
@@ -398,5 +399,33 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void showRestartDialog(){
         RestartDialog restartDialog = new RestartDialog();
         restartDialog.show(getSupportFragmentManager(), "restartDialog");
+    }
+
+    public void updateIcons(){
+        ImageView scores,hint,menu,undo,settings;
+
+        scores = (ImageView) findViewById(R.id.button_scores);
+        hint = (ImageView) findViewById(R.id.button_hint);
+        menu = (ImageView) findViewById(R.id.button_restart);
+        undo = (ImageView) findViewById(R.id.button_undo);
+        settings = (ImageView) findViewById(R.id.button_settings);
+
+        switch(getSharedString(getString(R.string.pref_key_icon_theme),"Material")){
+            case "Material":
+                scores.setImageResource(R.drawable.scores_material);
+                hint.setImageResource(R.drawable.hint_material);
+                menu.setImageResource(R.drawable.menu_material);
+                undo.setImageResource(R.drawable.undo_material);
+                settings.setImageResource(R.drawable.settings_material);
+                break;
+            case "Old":
+                scores.setImageResource(R.drawable.scores_old);
+                hint.setImageResource(R.drawable.hint_old);
+                menu.setImageResource(R.drawable.menu_old);
+                undo.setImageResource(R.drawable.undo_old);
+                settings.setImageResource(R.drawable.settings_old);
+                break;
+        }
+
     }
 }

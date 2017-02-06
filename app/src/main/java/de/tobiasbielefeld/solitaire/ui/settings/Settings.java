@@ -133,6 +133,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 if (currentGame instanceof Pyramid)
                     gameLogic.toggleNumberOfRedeals();
                 break;
+            case "pref_key_icon_theme":
+                if (gameLogic!=null)
+                    gameLogic.updateIcons();
+                break;
 
         }
 

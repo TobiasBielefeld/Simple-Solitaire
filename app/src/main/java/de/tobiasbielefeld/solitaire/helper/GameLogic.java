@@ -281,4 +281,8 @@ public class GameLogic{
             gm.mainTextViewRedeals.setVisibility(View.GONE);
         }
     }
+
+    public void updateIcons(){
+        gm.updateIcons();
+    }
 }

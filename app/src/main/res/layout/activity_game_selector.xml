@@ -440,7 +440,7 @@
                     android:background="@android:drawable/btn_default_small"
                     android:onClick="onClick"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/menu_klondike" />
+                    app:srcCompat="@drawable/menu_canfield" />
             </LinearLayout>
 
 

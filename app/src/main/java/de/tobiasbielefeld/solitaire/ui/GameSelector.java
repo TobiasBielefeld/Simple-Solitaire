@@ -23,10 +23,10 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -58,7 +58,7 @@ public class GameSelector extends CustomAppCompatActivity {
         super.onCreate(savedInstanceState);
         savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
 
-        setContentView(R.layout.activity_game_chooser_main);
+        setContentView(R.layout.activity_game_selector_main);
 
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
         gameLayouts = lg.loadLayouts(this);
@@ -173,10 +173,25 @@ public class GameSelector extends CustomAppCompatActivity {
     public void onResume(){
         super.onResume();
         loadGameList();
+        updateIcons();
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleChanger.onAttach(base));
+    public void updateIcons(){
+        ImageView manual,settings;
+
+        manual = (ImageView) findViewById(R.id.game_selector_button_manual);
+        settings = (ImageView) findViewById(R.id.game_selector_button_settings);
+
+        switch(getSharedString(getString(R.string.pref_key_icon_theme),"Material")){
+            case "Material":
+                manual.setImageResource(R.drawable.manual_material);
+                settings.setImageResource(R.drawable.settings_material);
+                break;
+            case "Old":
+                manual.setImageResource(R.drawable.manual_old);
+                settings.setImageResource(R.drawable.settings_old);
+                break;
+        }
+
     }
 }
