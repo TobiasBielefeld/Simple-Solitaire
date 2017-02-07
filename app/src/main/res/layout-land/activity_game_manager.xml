@@ -11,9 +11,7 @@
         android:id="@+id/mainRelativeLayoutGame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toLeftOf="@+id/linearLayout"
-        android:layout_toStartOf="@+id/linearLayout"
-        android:visibility="visible">
+        android:layout_toLeftOf="@+id/linearLayout">
 
     </RelativeLayout>
 
@@ -21,8 +19,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toLeftOf="@+id/linearLayout"
-        android:layout_toStartOf="@+id/linearLayout"
-        android:visibility="visible">
+        android:id="@+id/mainRelativeLayoutGameOverlay">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="#000000"></FrameLayout>
 
         <View
             android:layout_width="match_parent"
@@ -65,8 +69,7 @@
             android:id="@+id/frameLayout"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
+
             android:layout_alignParentRight="true"
             android:background="#000000"></FrameLayout>
 
@@ -95,7 +98,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="?attr/actionBarSize"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -108,7 +111,7 @@
 
         <FrameLayout
             android:id="@+id/mainButtonScores"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:onClick="menuClick"
             android:layout_weight="1">
@@ -126,7 +129,7 @@
 
         <FrameLayout
             android:id="@+id/mainButtonHint"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:onClick="menuClick"
             android:layout_weight="1">
@@ -144,7 +147,7 @@
 
         <FrameLayout
             android:id="@+id/mainButtonRestart"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:onClick="menuClick"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -162,7 +165,7 @@
 
         <FrameLayout
             android:id="@+id/mainButtonUndo"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:onClick="menuClick"
             android:layout_weight="1">
@@ -180,7 +183,7 @@
 
         <FrameLayout
             android:id="@+id/mainButtonSettings"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:onClick="menuClick"
             android:layout_weight="1">

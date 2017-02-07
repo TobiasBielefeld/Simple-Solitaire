@@ -285,4 +285,8 @@ public class GameLogic{
     public void updateIcons(){
         gm.updateIcons();
     }
+
+    public void updateMenuBar() {
+        gm.updateMenuBar();
+    }
 }

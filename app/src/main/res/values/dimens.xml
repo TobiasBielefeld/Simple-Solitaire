@@ -6,4 +6,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="drawer_size">240dp</dimen>
     <dimen name="layout_padding">15dp</dimen>
+    <dimen name="menuBarHeight">56dp</dimen>
 </resources>

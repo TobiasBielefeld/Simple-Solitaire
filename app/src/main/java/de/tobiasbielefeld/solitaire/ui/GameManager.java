@@ -26,8 +26,10 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -100,6 +102,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         updateIcons();
+        updateMenuBar();
 
         //initialize cards and stacks
         for (int i = 0; i < stacks.length; i++) {
@@ -427,5 +430,43 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 break;
         }
 
+    }
+
+    public void updateMenuBar(){
+        boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+
+        RelativeLayout.LayoutParams params1;
+        RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        LinearLayout menu = (LinearLayout) findViewById(R.id.linearLayout);
+        RelativeLayout gameWindow = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
+        RelativeLayout gameOverlay = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlay);
+
+        if (isLandscape) {
+            params1 = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.menuBarHeight), ViewGroup.LayoutParams.MATCH_PARENT);
+
+            if (getSharedString("pref_key_menu_bar_position_landscape", "right").equals("right")) {
+                params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
+
+            } else {
+                params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayout);
+            }
+        } else {
+            params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.menuBarHeight));
+
+            if (getSharedString("pref_key_menu_bar_position_portrait", "bottom").equals("bottom")) {
+                params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+                params2.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
+
+            } else {
+                params1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+                params2.addRule(RelativeLayout.BELOW, R.id.linearLayout);
+            }
+        }
+
+        menu.setLayoutParams(params1);
+        gameWindow.setLayoutParams(params2);
+        gameOverlay.setLayoutParams(params2);
     }
 }

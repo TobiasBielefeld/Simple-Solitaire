@@ -46,7 +46,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Animate{
 
     public AfterWonHandler afterWonHandler;
-    private int cardIsAnimating=0;                                                                  //if greater than zero, some card is animating
     private GameManager gm;
 
     public Animate(GameManager gm){
@@ -123,8 +122,8 @@ public class Animate{
 
         animation.setDuration((distance * 100) / Card.width);
         animation.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationStart(Animation animation) {                                     //on start, increment the animating status (will be decremented in end of showCard())
-                ++cardIsAnimating;
+            public void onAnimationStart(Animation animation) {
+                card.startAnim();
             }
 
             public void onAnimationEnd(Animation animation) {
@@ -146,8 +145,7 @@ public class Animate{
                 gm.getApplicationContext(), R.anim.card_fade_out);
 
         card_fade_out.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationStart(Animation animation) {
-            }
+            public void onAnimationStart(Animation animation) { }
 
             public void onAnimationEnd(Animation animation) {
                 card.view.setVisibility(View.INVISIBLE);
@@ -171,8 +169,8 @@ public class Animate{
                 card.view.setVisibility(View.VISIBLE);
             }
 
-            public void onAnimationEnd(Animation animation) {                                       //at end, decrement the animating status
-                decrementAnimating();
+            public void onAnimationEnd(Animation animation) {
+                card.stopAnim();
             }
 
             public void onAnimationRepeat(Animation animation) {
@@ -190,15 +188,15 @@ public class Animate{
         int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
         animation.setDuration(distance * 100 / Card.width);
         animation.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationStart(Animation animation) {                                     //on start, increment the status
-                ++cardIsAnimating;
+            public void onAnimationStart(Animation animation) {
+                card.startAnim();
             }
 
             public void onAnimationEnd(Animation animation) {
                 view.clearAnimation();
                 view.setX(pX);
                 view.setY(pY);
-                decrementAnimating();
+                card.stopAnim();
             }
 
             public void onAnimationRepeat(Animation animation) {
@@ -210,25 +208,21 @@ public class Animate{
     }
 
     public boolean cardIsAnimating() {
-        return cardIsAnimating != 0;
-    }
 
-    private void decrementAnimating(){
-        /*
-         * to prevent errors, only decrement when greater zero (otherwise it would cause problems
-         * when trying to move cards
-         */
+        for (Card card : cards){
 
-        if (cardIsAnimating>0)
-            --cardIsAnimating;
+            if (card.isAnimating())
+                return true;
+        }
+
+        return false;
     }
 
     public void reset() {
         for (Card card : cards){
             card.view.clearAnimation();
+            card.stopAnim();
         }
-
-        cardIsAnimating = 0;
     }
 
     public void flipCard(final Card card, final boolean mode) {

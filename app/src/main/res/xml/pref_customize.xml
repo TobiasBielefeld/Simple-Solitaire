@@ -20,6 +20,14 @@
         android:summary="%s"
         android:title="@string/settings_icon_theme" />
 
+    <de.tobiasbielefeld.solitaire.dialogs.MenuBarPositionDialogPreference
+        android:key="@string/pref_key_menu_bar_position"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@string/game_confirm"
+        android:summary="Portrait: Bottom, Landscape: Right"
+        android:title="@string/settings_menu_bar_position" />
+
+
     <de.tobiasbielefeld.solitaire.dialogs.CardDialogPreference
         android:key="@string/pref_key_cards"
         android:negativeButtonText="@string/game_cancel"

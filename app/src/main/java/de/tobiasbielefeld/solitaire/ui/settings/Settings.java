@@ -51,7 +51,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     Toast toast;
-    private Preference preferenceCards, preferenceCardsBackground;
+    private Preference preferenceCards, preferenceCardsBackground, preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
 
     private static boolean isXLargeTablet(Context context) {
@@ -136,6 +136,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             case "pref_key_icon_theme":
                 if (gameLogic!=null)
                     gameLogic.updateIcons();
+                break;
+            case "pref_key_menu_bar_position_landscape":
+            case "pref_key_menu_bar_position_portrait":
+                setPreferenceMenuBarPosition();
+                if (gameLogic!=null)
+                    gameLogic.updateMenuBar();
                 break;
 
         }
@@ -250,6 +256,26 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceMenuColumns.setSummary(text);
     }
 
+    private void setPreferenceMenuBarPosition(){
+        String portrait, landscape;
+        if (getSharedString("pref_key_menu_bar_position_portrait", "bottom").equals("bottom")) {
+            portrait = getString(R.string.settings_menu_bar_position_bottom);
+        } else {
+            portrait = getString(R.string.settings_menu_bar_position_top);
+        }
+
+        if (getSharedString("pref_key_menu_bar_position_landscape", "right").equals("right")) {
+            landscape = getString(R.string.settings_menu_bar_position_right);
+        } else {
+            landscape = getString(R.string.settings_menu_bar_position_left);
+        }
+
+        String text = String.format(Locale.getDefault(),"%s: %s\n%s: %s",
+                getString(R.string.portrait),portrait,getString(R.string.landscape),landscape);
+
+        preferenceMenuBarPosition.setSummary(text);
+    }
+
     protected boolean isValidFragment(String fragmentName) {
         return PreferenceFragment.class.getName().equals(fragmentName)
                 || CustomizationPreferenceFragment.class.getName().equals(fragmentName)
@@ -306,9 +332,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
             settings.preferenceCards = findPreference(getString(R.string.pref_key_cards));
             settings.preferenceCardsBackground = findPreference(getString(R.string.pref_key_cards_background));
+            settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
 
             settings.setPreferenceCardsSummary();
             settings.setPreferenceCardsBackgroundSummary();
+            settings.setPreferenceMenuBarPosition();
         }
     }
 

@@ -11,9 +11,7 @@
         android:id="@+id/mainRelativeLayoutGame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true">
+        android:layout_above="@+id/linearLayout">
 
     </RelativeLayout>
 
@@ -21,8 +19,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/linearLayout"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true">
+        android:id="@+id/mainRelativeLayoutGameOverlay">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="#000000"></FrameLayout>
 
         <TextView
             android:id="@+id/mainTextViewTime"
@@ -103,15 +108,13 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:background="#e7e7e7"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:layout_height="?attr/actionBarSize">
 
         <LinearLayout
             android:orientation="vertical"
@@ -131,14 +134,13 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_scores"
                 app:srcCompat="@drawable/scores_material"
-                android:layout_height="30dp"
+                android:layout_height="match_parent"
                 android:id="@+id/button_scores"/>
 
             <TextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_scores" />
@@ -162,14 +164,13 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_hint"
                 app:srcCompat="@drawable/hint_material"
-                android:layout_height="30dp"
+                android:layout_height="match_parent"
                 android:id="@+id/button_hint"/>
 
             <TextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_hint" />
@@ -193,14 +194,13 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_main_menu"
                 app:srcCompat="@drawable/menu_material"
-                android:layout_height="30dp"
+                android:layout_height="match_parent"
                 android:id="@+id/button_restart"/>
 
             <TextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_main_menu" />
@@ -224,7 +224,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_undo"
                 app:srcCompat="@drawable/undo_material"
-                android:layout_height="30dp"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="false"
                 android:id="@+id/button_undo"/>
 
@@ -232,7 +232,6 @@
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_undo" />
@@ -256,14 +255,13 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_settings"
                 app:srcCompat="@drawable/settings_material"
-                android:layout_height="30dp"
-                android:id="@+id/button_settings"/>
+                android:id="@+id/button_settings"
+                android:layout_height="match_parent" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_settings" />

@@ -31,18 +31,18 @@
         (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand
         und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert.
         Das Menü enthält 5 Punkte, die die folgendenen Zwecke erfüllen (Punkte von links
-        nach rechts):\n\nDer \"Scores\" Punkt zeigt ein neues Fenster mit den High-Scores und der Anzahl
-        der gewonnen Spiele an.\n\nDer \"Hint\" Punkt hilft dir im Spiel, indem es bis zu 3 mögliche Karten
+        nach rechts):\n\nDer \"Punkte\" Punkt zeigt ein neues Fenster mit den High-Scores und der Anzahl
+        der gewonnen Spiele an.\n\nDer \"Hinweis\" Punkt hilft dir im Spiel, indem es bis zu 3 mögliche Karten
         Bewegungen anzeigt. Aber diese Aktion wird die aktuelle Punktzahl um 25 reduzieren. Bemerke,
         dass triviale Bewegungen wie das Bewegen von einer beliebigen Karte auf einen leeren Platz
         oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis
-        angezeigt wird, wird auch die Punktzahl nicht reduziert.\n\nDer \"Menu\" Punkt zeigt drei mögliche
+        angezeigt wird, wird auch die Punktzahl nicht reduziert.\n\nDer \"Menü\" Punkt zeigt drei mögliche
         Aktionen an: Starte ein neues Spiel, indem die Karten gemischt werden und neu ausgegeben werden.
         Karten erneut geben hat denselben Effekt, aber die Karten werden nicht gemischt. Das entspricht
         einem Neustart des aktuellen Spiels. Der letzte Punkt wird das aktuelle Spiel beenden und zurück
-        zum Hauptmenü versetzen.\n\nDer \"Undo\" Punkt wird die letzte Kartenbewegung rückgängig machen,
+        zum Hauptmenü versetzen.\n\nDer \"Zurück\" Punkt wird die letzte Kartenbewegung rückgängig machen,
         aber dies wird 25 Punkte kosten. Diese Aktion kann für die letzten 20 Kartenbewegungen genutzt
-        werden.\n\nDer \"Settings\" Punkt öffnet einfach nur das Einstellungsmenü.</string>
+        werden.\n\nDer \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü.</string>
     <string name="manual_feedback_text">Hast du einen Fehler gefunden? Etwas was ich verbessern sollte?
         Soll ich noch ein weiteres Spiel zur Sammlung hinzufügen? Vielleicht möchtest du mit Übersetzungen
         helfen? Oder hast du ein anderes Anliegen?\n\nIch freue mich über jede Art von Feedback. Falls

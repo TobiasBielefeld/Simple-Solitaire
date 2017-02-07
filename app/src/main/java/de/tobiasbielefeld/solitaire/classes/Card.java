@@ -46,6 +46,20 @@ public class Card {
     private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
     private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
 
+    private boolean animating = false;
+
+    public void startAnim(){
+        animating = true;
+    }
+
+    public void stopAnim(){
+        animating = false;
+    }
+
+    public boolean isAnimating(){
+        return animating;
+    }
+
     public Card(int ID) {
         /*
          *  set ID color and value. color depends on the cardDrawableOrder. But by default the
