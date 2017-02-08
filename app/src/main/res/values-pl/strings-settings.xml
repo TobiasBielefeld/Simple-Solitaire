@@ -58,5 +58,12 @@
     <string name="settings_forty_eight_limted_redeals_text">Ponowne rozdanie jest dozwolone tylko jeden raz podczas gry, odznacz aby wyłączyć</string>
     <string name="settings_pyramid_limted_redeals">Limituj liczbę ponownych rozdań</string>
     <string name="settings_pyramid_limted_redeals_text">Ponowne rozdanie jest dozwolone tylko dwa razy podczas gry, odznacz aby wyłączyć</string>
+	
+	<string name="settings_icon_theme">Temat ikon</string>
+    <string name="settings_menu_bar_position">Pozycja paska menu</string>
+    <string name="settings_menu_bar_position_top">Góra</string>
+    <string name="settings_menu_bar_position_bottom">Dół</string>
+    <string name="settings_menu_bar_position_left">Lewo</string>
+<string name="settings_menu_bar_position_right">Prawo</string>
     
 </resources>
