@@ -48,6 +48,7 @@
     <string name="settings_show_manual_in_menu_description">マニュアルに現在のゲームを開くためのアイテムを表示します</string>
     <string name="settings_change_language">言語の変更</string>
 
+    <!-- following are translated with an online translator -->
     <string name="settings_double_tap">ダブルタップ</string>
     <string name="settings_double_tap_description">ダブルタップ移動の設定</string>
     <string name="settings_double_tap_enable">ダブルタップ移動を有効にする</string>
@@ -58,5 +59,13 @@
     <string name="settings_forty_eight_limted_redeals_text">再処理はゲームで1回だけ許可され、無効にするにはチェックを外す</string>
     <string name="settings_pyramid_limted_redeals">再取引の数を制限する</string>
     <string name="settings_pyramid_limted_redeals_text">再処理はゲームで2回だけ許可され、無効にするにはチェックを外す</string>
+
+    <string name="settings_icon_theme">アイコンのテーマ</string>
+    <string name="settings_menu_bar_position">メニューバーの位置</string>
+    <string name="settings_menu_bar_position_top">上</string>
+    <string name="settings_menu_bar_position_bottom">ボトム</string>
+    <string name="settings_menu_bar_position_left">左</string>
+    <string name="settings_menu_bar_position_right">右</string>
+
 
 </resources>

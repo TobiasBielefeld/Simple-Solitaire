@@ -61,4 +61,13 @@
     <string name="settings_pyramid_limted_redeals_text">Das Zurücklegen der Karten vom Ablage-
         zum Hauptstapel ist nur zweimal pro Spiel möglich, zum Deaktiveren entferne den Haken</string>
 
+    <string name="settings_icon_theme">Symbol Thema</string>
+    <string name="settings_menu_bar_position">Menüleistenposition</string>
+    <string name="settings_menu_bar_position_top">Oben</string>
+    <string name="settings_menu_bar_position_bottom">Unten</string>
+    <string name="settings_menu_bar_position_left">Links</string>
+    <string name="settings_menu_bar_position_right">Rechts</string>
+
+
+
 </resources>

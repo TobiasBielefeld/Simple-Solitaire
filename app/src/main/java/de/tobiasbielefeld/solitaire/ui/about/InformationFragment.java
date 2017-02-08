@@ -26,6 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
@@ -46,8 +48,9 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         TextView textViewAppVersion = (TextView) view.findViewById(R.id.aboutTextViewVersion);      //app version
         TextView textViewCC0License = (TextView) view.findViewById(R.id.aboutTextViewLicense);      //cc0 license from the pictures
         TextView textViewGitHubLink = (TextView) view.findViewById(R.id.aboutTextViewGitHubLink);   //link for the gitHub repo
+        TextView textViewApacheLicense = (TextView) view.findViewById(R.id.aboutTextViewApacheLicense); //apache2.0
 
-        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");                           //generate a new date for build date
+        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd",Locale.getDefault());       //generate a new date for build date
         String strDt = simpleDate.format(BuildConfig.TIMESTAMP);                                    //get the build date as a string
 
 
@@ -56,6 +59,7 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         textViewBuildDate.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.about_build_date), strDt));
         textViewCC0License.setMovementMethod(LinkMovementMethod.getInstance());
         textViewGitHubLink.setMovementMethod(LinkMovementMethod.getInstance());
+        textViewApacheLicense.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }

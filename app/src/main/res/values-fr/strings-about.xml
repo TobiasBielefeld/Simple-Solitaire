@@ -20,4 +20,7 @@
     <string name="about_translations_esperanto_polish">Esperanto et Polonais: par le compte GitHub verdulo</string>
     <string name="about_translations_french">Français: par le compte GitHub romainhk</string>
 
+    <string name="about_material_icons_text">Material design icons are made by Google Inc and published under the
+        <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 license</a></string>
+
 </resources>

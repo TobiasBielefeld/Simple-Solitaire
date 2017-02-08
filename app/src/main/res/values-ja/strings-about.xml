@@ -19,4 +19,8 @@
     <string name="about_translations_esperanto_polish">エスペラントとポーランド語: GitHubのユーザー verdulo</string>
     <string name="about_translations_french">フランス語: GitHubのユーザー romainhk</string>
 
+    <!-- following are translated with an online translator -->
+    <string name="about_material_icons_text">材料デザインアイコンはGoogle Incによって作成され、
+        <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 license</a>ライセンスで公開されています</string>string
+
 </resources>

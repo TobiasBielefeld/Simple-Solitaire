@@ -158,5 +158,16 @@
             android:text="@string/about_Text5"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
+
+        <TextView
+            android:id="@+id/aboutTextViewApacheLicense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/about_material_icons_text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
     </LinearLayout>
 </ScrollView>

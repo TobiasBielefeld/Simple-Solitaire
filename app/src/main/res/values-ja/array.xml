@@ -70,4 +70,10 @@
         <item>fr</item>
     </string-array>
 
+    <!-- following are translated with an online translator -->
+    <string-array name="pref_icon_theme_titles">
+        <item>材料</item>
+        <item>古い</item>
+    </string-array>
+
 </resources>

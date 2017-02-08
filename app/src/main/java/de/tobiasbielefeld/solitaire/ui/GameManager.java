@@ -442,7 +442,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         RelativeLayout gameOverlay = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlay);
 
         if (isLandscape) {
-            params1 = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.menuBarHeight), ViewGroup.LayoutParams.MATCH_PARENT);
+            params1 = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.menuBarWidht), ViewGroup.LayoutParams.MATCH_PARENT);
 
             if (getSharedString("pref_key_menu_bar_position_landscape", "right").equals("right")) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);

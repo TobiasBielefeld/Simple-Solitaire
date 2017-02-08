@@ -136,7 +136,7 @@
 
     <string-array name="pref_icon_theme_titles">
         <item>Material</item>
-        <item>Old</item>
+        <item>Old theme</item>
     </string-array>
 
 </resources>

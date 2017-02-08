@@ -59,4 +59,11 @@
     <string name="settings_pyramid_limted_redeals">Limit number of Re-deals</string>
     <string name="settings_pyramid_limted_redeals_text">Re-dealing is allowed only twice a game, uncheck to deactivate</string>
 
+    <string name="settings_icon_theme">Icon theme</string>
+    <string name="settings_menu_bar_position">Menu bar position</string>
+    <string name="settings_menu_bar_position_top">Top</string>
+    <string name="settings_menu_bar_position_bottom">Bottom</string>
+    <string name="settings_menu_bar_position_left">Left</string>
+    <string name="settings_menu_bar_position_right">Right</string>
+
 </resources>

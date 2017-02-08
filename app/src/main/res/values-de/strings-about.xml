@@ -17,4 +17,7 @@
     <string name="about_translations_japanese">Japanisch: Von GitHub Nutzer naofum</string>
     <string name="about_translations_esperanto_polish">Esperanto und Polnisch: Von GitHub Nutzer verdulo</string>
     <string name="about_translations_french">Französisch: Von GitHub Nutzer romainhk</string>
+
+    <string name="about_material_icons_text">Material Design Symbole wurden von Google Inc erstellt
+        und unter der <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 Lizenz</a> veröffentlicht</string>
 </resources>

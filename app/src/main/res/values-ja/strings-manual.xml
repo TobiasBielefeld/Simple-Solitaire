@@ -200,6 +200,8 @@
         \n\n山札を押して、1つのカードをそれぞれの場札に配ります。</string>
     <string name="manual_acesup_scoring">カードを組札に移動: +50</string>
 
+    <!-- following are translated with an online translator -->
+
     <!-- Canfield -->
     <string name="manual_canfield_structure">52枚のカードを1組。\n\n4列の場札、4列の組札、
         1列の山札と1列の捨て札1つの予備。</string>
