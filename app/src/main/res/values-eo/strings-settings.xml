@@ -38,7 +38,7 @@
     <string name="settings_restart_spider">Komencu novan ludon Araneo por apliki ŝanĝojn</string>
     <string name="settings_restart_fortyeight">Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn</string>
     <string name="settings_menu">Ĉefmenuo</string>
-    <string name="settings_menu_description">Ŝanĝu nombro da kolumnoj, montru kaj kaŝu ludojn</string>
+    <string name="settings_menu_description">Ŝanĝu nombron da kolumnoj, montru kaj kaŝu ludojn</string>
     <string name="settings_pyramid_difficulty">Facileco</string>
     <string name="settings_menu_columns">Nombro da kolumnoj</string>
     <string name="settings_menu_games">Montri kaj kaŝi ludojn</string>
@@ -58,5 +58,12 @@
     <string name="settings_forty_eight_limted_redeals_text">Redisdono estas permesata nur unufoje dum ludo, malmarku por malaktivigi</string>
     <string name="settings_pyramid_limted_redeals">Limigi nombron da redisdonoj</string>
     <string name="settings_pyramid_limted_redeals_text">Redisdono estas permesata nur dufoje dum ludo, malmarku por malaktivigi</string>
+	
+	<string name="settings_icon_theme">Piktograma temo</string>
+    <string name="settings_menu_bar_position">Pozicio de menua breto</string>
+    <string name="settings_menu_bar_position_top">Supre</string>
+    <string name="settings_menu_bar_position_bottom">Sube</string>
+    <string name="settings_menu_bar_position_left">Maldekstre</string>
+<string name="settings_menu_bar_position_right">Dekstre</string>
     
 </resources>
