@@ -21,20 +21,19 @@
         android:layout_toLeftOf="@+id/linearLayout"
         android:id="@+id/mainRelativeLayoutGameOverlay">
 
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/shadow_left_to_right" />
+
         <FrameLayout
             android:id="@+id/frameLayout2"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:background="#000000"></FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/shadow" />
 
         <View
             android:layout_width="4dp"

@@ -134,7 +134,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_scores"
                 app:srcCompat="@drawable/scores_material"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:id="@+id/button_scores"/>
 
             <TextView
@@ -164,7 +164,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_hint"
                 app:srcCompat="@drawable/hint_material"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:id="@+id/button_hint"/>
 
             <TextView
@@ -194,7 +194,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_main_menu"
                 app:srcCompat="@drawable/menu_material"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:id="@+id/button_restart"/>
 
             <TextView
@@ -224,7 +224,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_undo"
                 app:srcCompat="@drawable/undo_material"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:adjustViewBounds="false"
                 android:id="@+id/button_undo"/>
 
@@ -256,7 +256,7 @@
                 android:contentDescription="@string/menu_settings"
                 app:srcCompat="@drawable/settings_material"
                 android:id="@+id/button_settings"
-                android:layout_height="match_parent" />
+                android:layout_height="0dp" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
