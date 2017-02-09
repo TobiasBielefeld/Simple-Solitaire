@@ -25,11 +25,11 @@
     <RelativeLayout
         android:id="@+id/gameChooserLayoutSettings"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="?attr/colorButtonNormal">
+        android:background="?attr/colorButtonNormal"
+        android:layout_height="40dp">
 
         <FrameLayout
             android:id="@+id/frameLayout"
