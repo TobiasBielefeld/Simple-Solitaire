@@ -28,14 +28,17 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
 
 /**
- * Shows some infos about my app
+ * Shows some info about my app
  */
 
 public class InformationFragment extends Fragment implements View.OnClickListener {
@@ -50,13 +53,11 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         TextView textViewGitHubLink = (TextView) view.findViewById(R.id.aboutTextViewGitHubLink);   //link for the gitHub repo
         TextView textViewApacheLicense = (TextView) view.findViewById(R.id.aboutTextViewApacheLicense); //apache2.0
 
-        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd",Locale.getDefault());       //generate a new date for build date
-        String strDt = simpleDate.format(BuildConfig.TIMESTAMP);                                    //get the build date as a string
-
+        String buildDate =  DateFormat.getDateInstance().format(BuildConfig.TIMESTAMP);             //get the build date in locale time format
 
         //update the textViews
         textViewAppVersion.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.app_version), BuildConfig.VERSION_NAME));
-        textViewBuildDate.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.about_build_date), strDt));
+        textViewBuildDate.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.about_build_date), buildDate));
         textViewCC0License.setMovementMethod(LinkMovementMethod.getInstance());
         textViewGitHubLink.setMovementMethod(LinkMovementMethod.getInstance());
         textViewApacheLicense.setMovementMethod(LinkMovementMethod.getInstance());

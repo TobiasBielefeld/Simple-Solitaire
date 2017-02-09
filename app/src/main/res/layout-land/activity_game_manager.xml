@@ -22,7 +22,7 @@
         android:id="@+id/mainRelativeLayoutGameOverlay">
 
         <FrameLayout
-            android:id="@+id/frameLayout"
+            android:id="@+id/frameLayout2"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"

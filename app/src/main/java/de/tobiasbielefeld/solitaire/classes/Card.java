@@ -46,19 +46,26 @@ public class Card {
     private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
     private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
 
-    private boolean animating = false;
+    /*private boolean animating = false;
+    private long startTimeOfAnimation;
 
     public void startAnim(){
         animating = true;
+        startTimeOfAnimation = System.currentTimeMillis();
     }
 
     public void stopAnim(){
         animating = false;
+        view.clearAnimation();
+    }
+
+    public long getStartTimeOfAnimation(){
+        return startTimeOfAnimation;
     }
 
     public boolean isAnimating(){
         return animating;
-    }
+    }*/
 
     public Card(int ID) {
         /*

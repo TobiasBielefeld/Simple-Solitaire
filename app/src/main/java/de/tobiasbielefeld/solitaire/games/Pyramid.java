@@ -210,7 +210,7 @@ public class Pyramid extends Game {
             return stacks[28];
         }
 
-        for (int i = 0; i <= getLastTableauID(); i++) {
+        for (int i = getLastTableauID(); i >=0; i--) {
 
             if (stacks[i].isEmpty())
                 continue;

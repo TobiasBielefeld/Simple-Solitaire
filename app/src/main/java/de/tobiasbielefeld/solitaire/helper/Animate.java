@@ -47,6 +47,8 @@ public class Animate{
 
     public AfterWonHandler afterWonHandler;
     private GameManager gm;
+    private int animationCounter =0;
+    //private static final long maxTimeAnimating = 2000; //in ms
 
     public Animate(GameManager gm){
         this.gm = gm;
@@ -120,10 +122,10 @@ public class Animate{
 
         TranslateAnimation animation = new TranslateAnimation(0, dist_x, 0, dist_y);
 
-        animation.setDuration((distance * 100) / Card.width);
+        animation.setDuration(max((distance * 100 / Card.width),1));        //so minimum duration is 1
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
-                card.startAnim();
+                incCounter();
             }
 
             public void onAnimationEnd(Animation animation) {
@@ -170,7 +172,7 @@ public class Animate{
             }
 
             public void onAnimationEnd(Animation animation) {
-                card.stopAnim();
+                decCounter();
             }
 
             public void onAnimationRepeat(Animation animation) {
@@ -186,17 +188,18 @@ public class Animate{
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
         int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
-        animation.setDuration(distance * 100 / Card.width);
+        animation.setDuration(max((distance * 100 / Card.width),1));        //so minimum duration is 1
+
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
-                card.startAnim();
+                incCounter();
             }
 
             public void onAnimationEnd(Animation animation) {
                 view.clearAnimation();
                 view.setX(pX);
                 view.setY(pY);
-                card.stopAnim();
+                decCounter();
             }
 
             public void onAnimationRepeat(Animation animation) {
@@ -209,20 +212,38 @@ public class Animate{
 
     public boolean cardIsAnimating() {
 
-        for (Card card : cards){
+        return animationCounter>0;
 
-            if (card.isAnimating())
-                return true;
+        /*for (Card card : cards){
+            if (card.isAnimating()) {
+                if (System.currentTimeMillis() - card.getStartTimeOfAnimation() > maxTimeAnimating) {
+                    card.stopAnim();
+                } else {
+                    //logText("One Card is still animating!!");
+                    //logText("Value: " +card.getValue() + ", Color: " + card.getColor() + ", Stack: " + card.getStack().getID() + ", Position: " + card.getIndexOnStack());
+                    return true;
+                }
+            }
         }
 
-        return false;
+        return false;*/
+    }
+
+    private void incCounter(){
+        animationCounter++;
+    }
+
+    private void decCounter(){
+        if (animationCounter>0)
+            animationCounter--;
     }
 
     public void reset() {
         for (Card card : cards){
             card.view.clearAnimation();
-            card.stopAnim();
         }
+
+        animationCounter = 0;
     }
 
     public void flipCard(final Card card, final boolean mode) {
