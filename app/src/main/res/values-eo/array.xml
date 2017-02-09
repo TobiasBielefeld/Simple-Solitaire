@@ -67,7 +67,11 @@
         <item>Franca</item>
         <item>Germana</item>
         <item>Japana</item>
-		<item>Pola</item>
+	<item>Pola</item>
     </string-array>
-
+	
+	<string-array name="pref_icon_theme_titles">
+		<item>Material</item>
+                <item>Malnova etoso</item>
+	</string-array>
 </resources>
