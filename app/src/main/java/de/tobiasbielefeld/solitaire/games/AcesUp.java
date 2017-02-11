@@ -167,18 +167,20 @@ public class AcesUp extends Game {
 
         boolean success = false;
 
-        for (int i = 0; i < 4; i++) {
-            if (stacks[i].isEmpty() || i == card.getStack().getID())
-                continue;
+        if (card.getValue()!=1) {                                                                   //do not move aces to discard stack
+            for (int i = 0; i < 4; i++) {
+                if (stacks[i].isEmpty() || i == card.getStack().getID())
+                    continue;
 
-            Card cardOnStack = stacks[i].getTopCard();
+                Card cardOnStack = stacks[i].getTopCard();
 
-            if (cardOnStack.getColor() == card.getColor() && (cardOnStack.getValue() > card.getValue() || cardOnStack.getValue() == 1))
-                success = true;
+                if (cardOnStack.getColor() == card.getColor() && (cardOnStack.getValue() > card.getValue() || cardOnStack.getValue() == 1))
+                    success = true;
+            }
+
+            if (success)
+                return getDiscardStack();
         }
-
-        if (success)
-            return getDiscardStack();
 
         if (!card.isFirstCard()) {
             for (int i = 0; i < 4; i++) {
