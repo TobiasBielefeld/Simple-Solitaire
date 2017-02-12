@@ -5,7 +5,7 @@
 [<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire)
 
 ####Now contains 13 different Solitaire games!
-AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks und Yukon!
+AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks and Yukon!
 
 ## To-Do List
 
