@@ -31,6 +31,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.getInt;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
 import static de.tobiasbielefeld.solitaire.SharedData.hint;
 import static de.tobiasbielefeld.solitaire.SharedData.min;
@@ -282,7 +283,8 @@ public class Canfield extends Game {
             return false;
 
         if (stack.getID() < 4) {
-            return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2) && (stack.getTopCard().getValue() == card.getValue() + 1);
+            return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2)
+                    && ( (stack.getTopCard().getValue() == card.getValue() + 1) || (stack.getTopCard().getValue()==1 && card.getValue()==13) );
 
         } else if (stack.getID() < 9 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
@@ -382,7 +384,8 @@ public class Canfield extends Game {
     public Stack doubleTapTest(Card card) {
 
         //foundation stacks
-        if (card.isTopCard()) {
+
+        if (card.isTopCard() && !(card.getStack().getID()>=5 && card.getStack().getID()<=8)) {
             for (int j = 5; j <9; j++) {
                 if (card.test(stacks[j]))
                     return stacks[j];
