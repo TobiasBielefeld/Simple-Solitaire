@@ -160,7 +160,8 @@ public class Yukon extends Game {
     public Stack doubleTapTest(Card card) {
         //tableau fields first
         for (int j=0;j<7;j++) {
-            if (card.test(stacks[j]) && !sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR)) {
+
+            if (!stacks[j].isEmpty() && card.getStack().getID()!= j && card.test(stacks[j]) && !sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR)) {
                 return stacks[j];
             }
         }
@@ -176,6 +177,9 @@ public class Yukon extends Game {
 
         //and empty stacks
         for (int k=0;k<10;k++){
+            if (card.getValue()==13 && card.isFirstCard() && stacks[k].isEmpty())
+                continue;
+
             if (stacks[k].isEmpty() && card.test(stacks[k])) {
                 return stacks[k];
             }
