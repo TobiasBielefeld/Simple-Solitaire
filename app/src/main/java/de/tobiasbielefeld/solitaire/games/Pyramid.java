@@ -264,6 +264,8 @@ public class Pyramid extends Game {
 
             cardsToMove.clear();
             origins.clear();
+
+            testIfWonHandler.sendEmptyMessageDelayed(0,200);
         }
     }
 
