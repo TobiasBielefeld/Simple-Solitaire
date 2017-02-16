@@ -49,6 +49,7 @@ public class Pyramid extends Game {
         setLastTableauID(27);
         setDealFromID(30);
         setDirections(new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+        ignoreEmptyTableauStacks();
 
         setLimitedRedeals(2);
 
@@ -135,6 +136,9 @@ public class Pyramid extends Game {
 
 
     public boolean cardTest(Stack stack, Card card){
+        if (stack.getID() == 31)
+            return false;
+
         if (stack.getID()==28 && card.getValue()==13)
             return true;
 

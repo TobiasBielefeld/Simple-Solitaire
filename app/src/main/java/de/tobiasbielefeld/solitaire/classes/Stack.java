@@ -19,6 +19,7 @@
 package de.tobiasbielefeld.solitaire.classes;
 
 import android.graphics.PointF;
+import android.graphics.RectF;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -325,6 +326,26 @@ public class Stack {
                 setSpacingMax(currentGame.directionBorders[getID()]);
             else
                 setSpacingMax(layoutGame);
+        }
+    }
+
+    public RectF getRect(){
+
+        if (isEmpty()){
+            return new RectF(view.getX(),view.getY(),view.getX()+view.getWidth(),view.getY()+view.getHeight());
+        }
+
+        switch (spacingDirection){
+            default://no spacing
+                return new RectF(view.getX(),view.getY(),view.getX()+view.getWidth(),view.getY()+view.getHeight());
+            case 1: //down
+                return new RectF(view.getX(),view.getY(),view.getX()+view.getWidth(),getTopCard().view.getY()+view.getHeight());
+            case 2: //up
+                return new RectF(view.getX(),getTopCard().view.getY(),view.getX()+view.getWidth(),view.getY()+view.getHeight());
+            case 3: //left
+                return new RectF(getTopCard().view.getX(),view.getY(),view.getX()+view.getWidth(),view.getY()+view.getHeight());
+            case 4: //right
+                return new RectF(view.getX(),view.getY(),getTopCard().view.getX()+view.getWidth(),view.getY()+view.getHeight());
         }
     }
 }

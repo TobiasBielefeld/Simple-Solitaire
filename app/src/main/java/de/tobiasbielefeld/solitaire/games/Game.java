@@ -61,6 +61,7 @@ public abstract class Game {
     private int redealCounter=0;
     private int totalRedeals=0;
     private boolean hasArrow=false;
+    private boolean ignoreEmptyTableauStacks = false;
 
     /*
      *  stuff that a game MUST implement
@@ -323,6 +324,10 @@ public abstract class Game {
         return lastTableauID;
     }
 
+    protected void ignoreEmptyTableauStacks(){
+        ignoreEmptyTableauStacks = true;
+    }
+
     protected void setLastTableauID(int ID){
         lastTableauID = ID;
     }
@@ -383,6 +388,10 @@ public abstract class Game {
 
     public void toggleRedeals(){
         hasLimitedRedeals = !hasLimitedRedeals;
+    }
+
+    public boolean ignoresEmptyTableauStacks(){
+        return ignoreEmptyTableauStacks;
     }
 
 

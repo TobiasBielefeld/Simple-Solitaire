@@ -20,6 +20,8 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
@@ -295,9 +297,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             movingCards.move(X, Y);
         }
         else if (event.getAction() == MotionEvent.ACTION_UP && movingCards.hasCards()) {
-            for (Stack stack : stacks) {
-                if (stack.isOnLocation(X, Y) && movingCards.first().getStack() != stack
-                        && movingCards.first().test(stack)) {
+            Stack stack = getIntersectingStack(movingCards.first());
+
+            if (stack!=null) {
+                if (movingCards.first().getStack() != stack && movingCards.first().test(stack)){
                     movingCards.moveToDestination(stack);
                     return true;
                 }
@@ -309,14 +312,40 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         return true;
     }
 
+
+    private Stack getIntersectingStack(Card card){
+        /*
+         * Use the rectangles of the card and the stacks to determinate if they intersect. If so,
+         * calculate the amount of intersection. Return the stack with the highest intersection rate.
+         */
+
+        RectF cardRect = new RectF(card.view.getX(), card.view.getY(),card.view.getX()+ card.view.getWidth(),card.view.getY() +card.view.getHeight());
+
+        Stack returnStack = null;
+        float overlapArea = 0;
+
+        for (Stack stack : stacks) {
+            //for Pyramid, do not use the empty tableau stacks
+            if (currentGame.ignoresEmptyTableauStacks() && stack.getID() <= currentGame.getLastTableauID() && stack.isEmpty())
+                continue;
+
+            RectF stackRect = stack.getRect();
+
+            if (RectF.intersects(cardRect,stackRect)){
+                float overlapX = Math.max(0, Math.min(cardRect.right,stackRect.right) - Math.max(cardRect.left,stackRect.left));
+                float overlapY = Math.max(0, Math.min(cardRect.bottom,stackRect.bottom) - Math.max(cardRect.top,stackRect.top));
+
+                if (overlapX*overlapY>overlapArea){
+                    overlapArea=overlapX*overlapY;
+                    returnStack = stack;
+                }
+            }
+        }
+
+        return returnStack;
+    }
     public void menuClick(View view) {
         //if something important happens don't accept input
-
-        /*if (view.getId()==R.id.mainButtonRestart) {
-            showRestartDialog();
-            return;
-        }*/
-
         if (stopConditions())
             return;
 

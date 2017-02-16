@@ -176,7 +176,7 @@ public class Yukon extends Game {
         }
 
         //and empty stacks
-        for (int k=0;k<10;k++){
+        for (int k=0;k<7;k++){
             if (card.getValue()==13 && card.isFirstCard() && stacks[k].isEmpty())
                 continue;
 
@@ -236,7 +236,7 @@ public class Yukon extends Game {
             return -75;
         if (originIDs[0] == destinationIDs[0])                                                  //card flip up
             return 25;
-        if (cards.get(0).getValue()==13 && destinationIDs[0] < 7 && stacks[originIDs[0]].getSize()!=1)//king to an empty filed
+        if (!cards.get(0).isFirstCard() &&cards.get(0).getValue()==13 && destinationIDs[0] < 7 && stacks[originIDs[0]].getSize()!=1)//king to an empty filed
             return 20;
         else
             return 0;
