@@ -123,7 +123,7 @@ public class GameLogic{
 
     public void newGame() {
 
-        //new game is like a re-deal, but with new randomized
+        //new game is like a re-deal, but with randomized cards
         incrementPlayedGames();
 
         randomCards = cards.clone();

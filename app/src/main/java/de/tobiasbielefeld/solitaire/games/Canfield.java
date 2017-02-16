@@ -34,12 +34,15 @@ import static de.tobiasbielefeld.solitaire.SharedData.getInt;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
 import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.min;
 import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
 import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
 import static de.tobiasbielefeld.solitaire.SharedData.putInt;
 import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
 import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.savedGameData;
+import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
@@ -107,14 +110,12 @@ public class Canfield extends Game {
         }
 
         //also set backgrounds of the stacks
-        for (Stack stack : stacks) {
-            if (stack.getID() > 4 && stack.getID() <= 8)
-                stack.view.setBackgroundResource(R.drawable.background_stack_ace);
-            else if (stack.getID() > 8 && stack.getID() <= 11)
-                stack.view.setBackgroundResource(R.drawable.background_stack_transparent);
-            else if (stack.getID() == 12)
-                stack.view.setBackgroundResource(R.drawable.background_stack_stock);
-        }
+        for (int i=9;i<12;i++)
+            stacks[i].view.setBackgroundResource(R.drawable.background_stack_transparent);
+
+        stacks[12].view.setBackgroundResource(R.drawable.background_stack_stock);
+        load();
+        setFoundationBackgrounds();
     }
 
     public boolean winTest() {
@@ -124,6 +125,56 @@ public class Canfield extends Game {
                 return false;
 
         return true;
+    }
+
+    private void setFoundationBackgrounds(){
+        int resID;
+
+        switch (startCardValue){
+            case 1:default:
+                resID = R.drawable.background_stack_1;
+                break;
+            case 2:
+                resID = R.drawable.background_stack_2;
+                break;
+            case 3:
+                resID = R.drawable.background_stack_3;
+                break;
+            case 4:
+                resID = R.drawable.background_stack_4;
+                break;
+            case 5:
+                resID = R.drawable.background_stack_5;
+                break;
+            case 6:
+                resID = R.drawable.background_stack_6;
+                break;
+            case 7:
+                resID = R.drawable.background_stack_7;
+                break;
+            case 8:
+                resID = R.drawable.background_stack_8;
+                break;
+            case 9:
+                resID = R.drawable.background_stack_9;
+                break;
+            case 10:
+                resID = R.drawable.background_stack_10;
+                break;
+            case 11:
+                resID = R.drawable.background_stack_11;
+                break;
+            case 12:
+                resID = R.drawable.background_stack_12;
+                break;
+            case 13:
+                resID = R.drawable.background_stack_13;
+                break;
+        }
+
+        for (int i=5;i<9;i++) {
+            stacks[i].view.setBackgroundResource(resID);
+        }
     }
 
     public void dealCards() {
@@ -148,6 +199,7 @@ public class Canfield extends Game {
         moveToStack(getMainStack().getTopCard(), stacks[5], OPTION_NO_RECORD);
         stacks[5].getTopCard().flipUp();
         startCardValue = stacks[5].getTopCard().getValue();
+        setFoundationBackgrounds();
 
         //deal cards to trash according to the draw option
         if (getSharedString("pref_key_canfield_draw_old", "1").equals("3")) {

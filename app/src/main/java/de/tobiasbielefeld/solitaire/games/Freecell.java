@@ -62,7 +62,7 @@ public class Freecell extends Game {
         }
         //nice background for foundation stacks
         for (int i=12;i<16;i++) {
-            stacks[i].view.setBackgroundResource(R.drawable.background_stack_ace);
+            stacks[i].view.setBackgroundResource(R.drawable.background_stack_1);
         }
     }
 

@@ -184,7 +184,7 @@ public class DummyGame extends Game {
 
         //Last step: Set the drawables of the stacks. Default one is just gray.
         //So maybe show on some an big A for ace or make them transparent or something
-        stacks[6].view.setBackgroundResource(R.drawable.background_stack_ace);
+        stacks[6].view.setBackgroundResource(R.drawable.background_stack_1);
         stacks[6].view.setBackgroundResource(R.drawable.background_stack_stock);
         stacks[6].view.setBackgroundResource(R.drawable.background_stack_transparent);
     }
