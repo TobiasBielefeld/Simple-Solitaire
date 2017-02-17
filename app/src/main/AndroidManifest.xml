@@ -25,13 +25,14 @@
             android:theme="@style/AppThemeActionBar" />
         <activity
             android:name=".ui.GameSelector"
-            android:theme="@style/AppThemeActionBar">
+            android:theme="@style/ThemeGameSelector">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.GameManager" />
+        <activity
+            android:name=".ui.GameManager"/>
         <activity
             android:name=".ui.manual.Manual"
             android:configChanges="keyboardHidden|orientation|screenSize"

@@ -322,24 +322,19 @@ public class SharedData {
     }
 
     public static int min(int value1, int value2) {
-        if (value1 < value2)
-            return value1;
-        else
-            return value2;
+        return value1 < value2 ? value1 : value2;
     }
 
     public static float min(float value1, float value2) {
-        if (value1 < value2)
-            return value1;
-        else
-            return value2;
+        return value1 < value2 ? value1 : value2;
     }
 
     public static int max(int value1, int value2) {
-        if (value1 > value2)
-            return value1;
-        else
-            return value2;
+        return value1 > value2 ? value1 : value2;
+    }
+
+    public static float max(float value1, float value2) {
+        return value1 > value2 ? value1 : value2;
     }
 
 

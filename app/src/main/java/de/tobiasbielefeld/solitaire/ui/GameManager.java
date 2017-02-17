@@ -325,6 +325,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         float overlapArea = 0;
 
         for (Stack stack : stacks) {
+            if (card.getStack()==stack)
+                continue;
+
             //for Pyramid, do not use the empty tableau stacks
             if (currentGame.ignoresEmptyTableauStacks() && stack.getID() <= currentGame.getLastTableauID() && stack.isEmpty())
                 continue;
@@ -332,8 +335,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             RectF stackRect = stack.getRect();
 
             if (RectF.intersects(cardRect,stackRect)){
-                float overlapX = Math.max(0, Math.min(cardRect.right,stackRect.right) - Math.max(cardRect.left,stackRect.left));
-                float overlapY = Math.max(0, Math.min(cardRect.bottom,stackRect.bottom) - Math.max(cardRect.top,stackRect.top));
+                float overlapX = max(0, min(cardRect.right,stackRect.right) - max(cardRect.left,stackRect.left));
+                float overlapY = max(0, min(cardRect.bottom,stackRect.bottom) - max(cardRect.top,stackRect.top));
 
                 if (overlapX*overlapY>overlapArea){
                     overlapArea=overlapX*overlapY;
