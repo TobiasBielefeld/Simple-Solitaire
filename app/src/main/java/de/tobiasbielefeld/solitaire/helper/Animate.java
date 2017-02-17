@@ -200,11 +200,12 @@ public class Animate{
             }
 
             public void onAnimationEnd(Animation animation) {
-                view.clearAnimation();
+                //view.clearAnimation();
+                card.stopAnim();
                 view.setX(pX);
                 view.setY(pY);
                 //decCounter();
-                card.stopAnim();
+
             }
 
             public void onAnimationRepeat(Animation animation) {
