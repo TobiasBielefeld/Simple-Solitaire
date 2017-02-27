@@ -238,25 +238,28 @@
         \n\nAppuyer sur le talon pour retourner une nouvelle carte sur chacunes des colonnes.</string>
     <string name="manual_acesup_scoring">Mettre une carte dans la pile de base : +50</string>
 
-
     <!-- Canfield -->
-    <string name="manual_canfield_structure">1 jeu de 52 cartes.\n\n4 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse, 1 réserve.</string>
+    <string name="manual_canfield_structure">1 jeu de 52 cartes.\n\n4 colonnes sur le tableau, 4 piles de bases,
+        1 talon, 1 défausse, 1 réserve.</string>
     <string name="manual_canfield_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
     <string name="manual_canfield_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
         les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.
-        \n\nUne colonne vide du tableau sont remplis d\'une carte de la pile de réserve. Si la réserve est vide, une carte du talon sera utilisée.
-        \n\nLa valeur de la première carte dessinée vers la fondation spécifiera quelles cartes peuvent
-        être placées sur des champs de fondation vides. Par exemple: Si un cœur 10 a été attiré vers
+        \n\nLes colonnes vident du tableau sont remplies automatiquement par une carte de la pile de réserve.
+        Si la réserve est vide, une carte du talon sera utilisée.
+        \n\nLa valeur de la premier carte sur la fondation définira quelle valeur de carte doit être
+        placée pour commencer les piles de fondation vides. Par exemple, en début de partie : si un 10 de cœur est retourné sur
         la fondation, seules les cartes de la valeur 10 peuvent être placées sur des champs de fondation
-        vides. Mais les cartes sur la fondation peuvent être placées cyclique, donc il est également
-        possible de jouer un as sur un roi
-        \n\nEn appuyant sur le talon, les cartes sont retournées
-        sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l\'application.
+        vides. Les cartes sur la fondation peuvent être placées cycliquement, donc il est possible de jouer un as sur un roi.
+        \n\nEn appuyant sur le talon, les cartes sont retournées sur la défausse, où vous pouvez les
+        utiliser. Le nombre de cartes piochées dépend des réglages de l\'application.
         Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée.
-        Si \"Donner 3 cartes\" est activé, 3 cartes seront retournées à la fois.\n\nSi le talon se vide, vous pouvez encore
-        appuyer dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser.</string>
-    <string name="manual_canfield_scoring">Du tableau à une pile de base : +60\n\nDe la défausse à une pile de
-        base : +45\n\nD\'une pile de base au tableau : -75\n\nPiocher une carte: +25\n\nDéplacer les cartes de
-        la défausse à la pioche : -200</string>
+        Si \"Donner 3 cartes\" est activé, trois cartes seront retournées à la fois.\n\nSi le talon
+        devient vide, vous pouvez appuyer de nouveau dessus pour déplacer les cartes de la défausse
+        vers le talon et continuer à les utiliser.</string>
+    <string name="manual_canfield_scoring">Du tableau à une pile de base : +60
+        \n\nDe la défausse à une pile de base : +45
+        \n\nD\'une pile de base au tableau : -75
+        \n\nPiocher une carte : +25
+        \n\nDéplacer les cartes de la défausse à la pioche : -200</string>
 </resources>

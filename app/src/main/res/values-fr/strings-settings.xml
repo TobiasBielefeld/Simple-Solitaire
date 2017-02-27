@@ -49,21 +49,21 @@
     <string name="settings_change_language">Changer la langue</string>
 
     <string name="settings_double_tap">Double Tap</string>
-    <string name="settings_double_tap_description">Preferences for double tap movements</string>
-    <string name="settings_double_tap_enable">Enable double tap movements</string>
-    <string name="settings_double_tap_all_cards">Move all possible cards</string>
-    <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
+    <string name="settings_double_tap_description">Préférences sur les mouvements lorsque l\'on tappe deux fois rapidement</string>
+    <string name="settings_double_tap_enable">Activer le double tap</string>
+    <string name="settings_double_tap_all_cards">Déplacer toutes les cartes possibles</string>
+    <string name="settings_double_tap_all_cards_text">Déplacer autant de cartes que possible depuis une pile, pas seulement celle touchée</string>
 
-    <string name="settings_forty_eight_limted_redeals">Limit number of Re-deals</string>
-    <string name="settings_forty_eight_limted_redeals_text">Re-dealing is allowed only once a game, uncheck to deactivate</string>
-    <string name="settings_pyramid_limted_redeals">Limit number of Re-deals</string>
-    <string name="settings_pyramid_limted_redeals_text">Re-dealing is allowed only twice a game, uncheck to deactivate</string>
+    <string name="settings_forty_eight_limted_redeals">Limitation du nombre de donnes</string>
+    <string name="settings_forty_eight_limted_redeals_text">Le retour des cartes de la défausse dans le talon est limité à une fois par partie, décochez pour désactiver</string>
+    <string name="settings_pyramid_limted_redeals">Limitation du nombre de donnes</string>
+    <string name="settings_pyramid_limted_redeals_text">Le retour des cartes de la défausse vers à la pioche est limité à deux fois par partie, décochez pour désactiver</string>
 
-    <string name="settings_icon_theme">Icon theme</string>
-    <string name="settings_menu_bar_position">Menu bar position</string>
-    <string name="settings_menu_bar_position_top">Top</string>
-    <string name="settings_menu_bar_position_bottom">Bottom</string>
-    <string name="settings_menu_bar_position_left">Left</string>
-    <string name="settings_menu_bar_position_right">Right</string>
+    <string name="settings_icon_theme">Set d\'icônes</string>
+    <string name="settings_menu_bar_position">Position de la barre de menu</string>
+    <string name="settings_menu_bar_position_top">Haut</string>
+    <string name="settings_menu_bar_position_bottom">Bas</string>
+    <string name="settings_menu_bar_position_left">Gauche</string>
+    <string name="settings_menu_bar_position_right">Droite</string>
 
 </resources>
