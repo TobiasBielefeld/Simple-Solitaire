@@ -78,8 +78,7 @@ public class HighScores extends CustomAppCompatActivity {
 
             TextView textView = new TextView(this);                                                 //new textView for the score of the entry
             textView.setText(String.format(Locale.getDefault(),
-                    "%s. %s %s ", i + 1, getString(         //add the score
-                    R.string.game_score), scores.get(i, 0)));
+                    "%s. %s %s ", i + 1, getString(R.string.game_score), scores.get(i, 0)));
             textView.setTextSize(20);                                                               //and set text size
 
             TextView textView2 = new TextView(this);                                                //new textView for the time of the entry

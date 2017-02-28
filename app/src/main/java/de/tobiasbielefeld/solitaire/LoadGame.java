@@ -45,7 +45,7 @@ import de.tobiasbielefeld.solitaire.games.Yukon;
 /**
  * Everything about loading a game should be here. If you want to add a game, just expand the switch
  * statements with a new case. But think of the order! Every game is alphabetically ordered.
- * The order is important for the methods wich returns ArrayLists.
+ * The order is important for the methods which returns ArrayLists.
  */
 
 public class LoadGame {

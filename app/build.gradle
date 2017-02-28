@@ -11,8 +11,8 @@ android {
         applicationId "de.tobiasbielefeld.solitaire"
         minSdkVersion 11
         targetSdkVersion 25
-        versionCode 33
-        versionName "3.3.4"
+        versionCode 34
+        versionName "3.3.5"
     }
     buildTypes {
         release {

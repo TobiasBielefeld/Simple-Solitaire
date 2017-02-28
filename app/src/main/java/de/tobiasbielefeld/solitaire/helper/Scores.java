@@ -161,7 +161,7 @@ public class Scores {
         ArrayList<Long> listScores = getLongList(SAVED_SCORES + 0);
         ArrayList<Long> listTimes = getLongList(SAVED_SCORES + 1);
 
-        if (listScores.size()==0 && listTimes.size()==0){
+        if (listScores.size()==0 || listTimes.size()==0){
             //in case there isn't a score list saved yet
             for (int i = 0; i < MAX_SAVED_SCORES; i++) {
                 savedScores[i][0] = 0;
