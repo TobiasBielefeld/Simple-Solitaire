@@ -14,7 +14,7 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [X] Add even more games (Simple Simon, Golf, etc)
 - [ ] Add the card themes from Kpatience, if their license is compatible to mine.
 - [ ] Add a color chooser for background color
-- [ ] Improve the Highscores to a Statistics Activity (including data stamps)
+- [ ] Improve the Highscores to a Statistics Activity (including date stamps)
 - [ ] Find the reason why the game activity gets created two times when changing the screen orientation in game
 - [ ] Add a button to mix the cards if no movement can be done
 - [ ] Add 'Grandfathers Clock'
