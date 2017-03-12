@@ -14,10 +14,14 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [X] Add even more games (Simple Simon, Golf, etc)
 - [ ] Add the card themes from Kpatience, if their license is compatible to mine.
 - [ ] Add a color chooser for background color
-- [ ] Improve the Highscores to a Statistics Activity
+- [ ] Improve the Highscores to a Statistics Activity (including data stamps)
 - [ ] Find the reason why the game activity gets created two times when changing the screen orientation in game
 - [ ] Add a button to mix the cards if no movement can be done
 - [ ] Add 'Grandfathers Clock'
+- [ ] Add a Custom game maker, maybe
+- [ ] Add a 'poker standard' card theme and 4 color themes
+- [ ] Add a option to Yukon to play on same suits, instead of different color (like Russian Solitaire)
+- [ ] Also save high scores when canceling a game
 
 ## Translations
 Thanks to the following persons for providing translations :D
