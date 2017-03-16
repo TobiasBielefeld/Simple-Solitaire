@@ -37,6 +37,18 @@
             android:title="@string/settings_spider_difficulty" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/games_yukon">
+        <ListPreference
+            android:defaultValue="default"
+            android:entries="@array/pref_yukon_rules_titles"
+            android:entryValues="@array/pref_yukon_rules_values"
+            android:key="@string/pref_key_yukon_rules"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_yukon_rules" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/games_pyramid">
         <ListPreference
             android:defaultValue="1"

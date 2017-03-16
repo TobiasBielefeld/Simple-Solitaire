@@ -54,13 +54,13 @@ public class ManualFeedback extends Fragment implements View.OnClickListener{
         switch (v.getId()){
             case R.id.manual_feedback_button_google_play:
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=de.tobiasbielefeld.solitaire")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_market_URL))));
                 } catch (android.content.ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_web_URL))));
                 }
                 break;
             case R.id.manual_feedback_button_github:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/TobiasBielefeld/Simple-Solitaire/issues")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.github_issues_URL))));
                 break;
         }
     }

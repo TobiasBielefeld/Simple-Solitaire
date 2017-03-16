@@ -67,5 +67,7 @@
     <string name="settings_menu_bar_position_left">左</string>
     <string name="settings_menu_bar_position_right">右</string>
 
+    <string name="settings_restart_yukon">変更を適用するために新しいユーコンゲームを開始します</string>
+
 
 </resources>

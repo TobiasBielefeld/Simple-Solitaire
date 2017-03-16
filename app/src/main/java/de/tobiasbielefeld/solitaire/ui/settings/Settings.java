@@ -38,6 +38,7 @@ import android.content.Intent;
 import java.util.List;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
@@ -91,61 +92,60 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        switch (key) {
-            case CARD_DRAWABLES:
-                Card.updateCardDrawableChoice();
-                setPreferenceCardsSummary();
-                break;
-            case CARD_BACKGROUND:
-                Card.updateCardBackgroundChoice();
-                setPreferenceCardsBackgroundSummary();
-                break;
-            case "pref_key_hide_status_bar":
-                showOrHideStatusBar();
-                break;
-            case "pref_key_orientation":
-                setOrientation();
-                break;
-            case "pref_key_left_handed_mode":
-                if (gameLogic!=null)
-                    gameLogic.mirrorStacks();
-                break;
-            case "pref_key_klondike_draw":
-                showToast(getString(R.string.settings_restart_klondike));
-                break;
-            case "pref_key_canfield_draw":
-                showToast(getString(R.string.settings_restart_canfield));
-                break;
-            case "pref_key_spider_difficulty":
-                showToast(getString(R.string.settings_restart_spider));
-                break;
-            case MENU_COLUMNS_PORTRAIT:case MENU_COLUMNS_LANDSCAPE:
-                setPreferenceMenuColumns();
-                break;
-            case "pref_key_language":
-                setLocale();
-                break;
-            case "pref_key_forty_eight_limited_redeals":
-                if (currentGame instanceof FortyEight)
-                    gameLogic.toggleNumberOfRedeals();
-                break;
-            case "pref_key_pyramid_limited_redeals":
-                if (currentGame instanceof Pyramid)
-                    gameLogic.toggleNumberOfRedeals();
-                break;
-            case "pref_key_icon_theme":
-                if (gameLogic!=null)
-                    gameLogic.updateIcons();
-                break;
-            case "pref_key_menu_bar_position_landscape":
-            case "pref_key_menu_bar_position_portrait":
-                setPreferenceMenuBarPosition();
-                if (gameLogic!=null)
-                    gameLogic.updateMenuBar();
-                break;
+        if (key.equals(getString(R.string.pref_key_card_drawables))) {
+            Card.updateCardDrawableChoice();
+            setPreferenceCardsSummary();
+
+        } else if (key.equals(getString(R.string.pref_key_card_background))) {
+            Card.updateCardBackgroundChoice();
+            setPreferenceCardsBackgroundSummary();
+
+        } else if (key.equals(getString(R.string.pref_key_hide_status_bar))) {
+            showOrHideStatusBar();
+
+        } else if (key.equals(getString(R.string.pref_key_orientation))) {
+            setOrientation();
+
+        } else if (key.equals(getString(R.string.pref_key_left_handed_mode))) {
+            if (gameLogic != null)
+                gameLogic.mirrorStacks();
+
+        } else if (key.equals(getString(R.string.pref_key_klondike_draw))) {
+            showToast(getString(R.string.settings_restart_klondike));
+
+        } else if (key.equals(getString(R.string.pref_key_canfield_draw))) {
+            showToast(getString(R.string.settings_restart_canfield));
+
+        } else if (key.equals(getString(R.string.pref_key_spider_difficulty))) {
+            showToast(getString(R.string.settings_restart_spider));
+
+        } else if (key.equals(getString(R.string.pref_key_yukon_rules))) {
+            showToast(getString(R.string.settings_restart_yukon));
+
+        } else if (key.equals(getString(R.string.pref_key_menu_columns_portrait)) || key.equals(getString(R.string.pref_key_menu_columns_landscape))) {
+            setPreferenceMenuColumns();
+
+        } else if (key.equals(getString(R.string.pref_key_language))) {
+            setLocale();
+
+        } else if (key.equals(getString(R.string.pref_key_forty_eight_limited_redeals))) {
+            if (currentGame instanceof FortyEight)
+                gameLogic.toggleNumberOfRedeals();
+
+        } else if (key.equals(getString(R.string.pref_key_pyramid_limited_redeals))) {
+            if (currentGame instanceof Pyramid)
+                gameLogic.toggleNumberOfRedeals();
+
+        } else if (key.equals(getString(R.string.pref_key_icon_theme))) {
+            if (gameLogic != null)
+                gameLogic.updateIcons();
+
+        } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
+            setPreferenceMenuBarPosition();
+            if (gameLogic != null)
+                gameLogic.updateMenuBar();
 
         }
-
     }
 
     public void onResume() {
@@ -247,10 +247,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     private void setPreferenceMenuColumns(){
-        String portraitValue = getSharedString(MENU_COLUMNS_PORTRAIT,"3");
-        String landscapeValue = getSharedString(MENU_COLUMNS_LANDSCAPE,"5");
+        int portraitValue = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT,DEFAULT_MENU_COLUMNS_PORTRAIT));
+        int landscapeValue = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE,DEFAULT_MENU_COLUMNS_LANDSCAPE));
 
-        String text = String.format(Locale.getDefault(),"%s: %s\n%s: %s",
+        String text = String.format(Locale.getDefault(),"%s: %d\n%s: %d",
                 getString(R.string.portrait),portraitValue,getString(R.string.landscape),landscapeValue);
 
         preferenceMenuColumns.setSummary(text);
@@ -258,13 +258,13 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     private void setPreferenceMenuBarPosition(){
         String portrait, landscape;
-        if (getSharedString("pref_key_menu_bar_position_portrait", "bottom").equals("bottom")) {
+        if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_portrait),DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
             portrait = getString(R.string.settings_menu_bar_position_bottom);
         } else {
             portrait = getString(R.string.settings_menu_bar_position_top);
         }
 
-        if (getSharedString("pref_key_menu_bar_position_landscape", "right").equals("right")) {
+        if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_landscape),DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
             landscape = getString(R.string.settings_menu_bar_position_right);
         } else {
             landscape = getString(R.string.settings_menu_bar_position_left);
@@ -286,7 +286,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     private void setOrientation() {
-        switch (getSharedString("pref_key_orientation", "1")) {
+        switch (getSharedString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION)) {
             case "1": //follow system settings
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;

@@ -96,7 +96,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         animate = new Animate(gm);
         autoComplete = new AutoComplete(gm);
         timer = new Timer(gm);
-        currentGame = lg.loadClass(this,getIntent().getIntExtra("game",1));
+        currentGame = lg.loadClass(this,getIntent().getIntExtra(GAME,1));
         savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
 
         if (savedSharedData==null) {
@@ -138,7 +138,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 currentGame.setStacks(layoutGame, isLandscape);
 
                 //if left handed mode is true, mirror all stacks
-                if (getSharedBoolean(getString(R.string.pref_key_left_handed_mode), false)) {
+                if (getSharedBoolean(getString(R.string.pref_key_left_handed_mode), DEFAULT_LEFT_HANDED_MODE)) {
                     for (Stack stack : stacks)
                         stack.view.setX(layoutGame.getWidth() - stack.view.getX() - Card.width);
 
@@ -222,7 +222,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             DialogFragment restartDialog = new RestartDialog();
-            restartDialog.show(getSupportFragmentManager(), "restartDialog");
+            restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
 
             return true;
         }
@@ -263,12 +263,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
             else if (cards[v.getId()].isUp() ){//&& currentGame.addCardToMovementTest(cards[v.getId()])) {
 
-                if (getSharedBoolean("pref_key_double_tap_enable", true)) {
+                if (getSharedBoolean(getString(R.string.pref_key_double_tap_enable),  DEFAULT_DOUBLE_TAP_ENABLE)) {
                     if (tappedStack != null && tappedStack == cards[v.getId()].getStack() && System.currentTimeMillis() - firstTapTime < doubleTapSpeed) {
 
                         CardAndStack cardAndStack = null;
 
-                        if (getSharedBoolean("pref_key_double_tap_all_cards",true) && cards[v.getId()].getStack().getID()<=currentGame.getLastTableauID() ){
+                        if (getSharedBoolean(getString(R.string.pref_key_double_tap_all_cards),DEFAULT_DOUBLE_TAP_ALL_CARDS) && cards[v.getId()].getStack().getID()<=currentGame.getLastTableauID() ){
                             cardAndStack = currentGame.doubleTap(cards[v.getId()].getStack());
                         } else if (currentGame.addCardToMovementTest(cards[v.getId()])){
                             cardAndStack = currentGame.doubleTap(cards[v.getId()]);
@@ -382,7 +382,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         RelativeLayout layout_background = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
 
         if (layout_background != null) {
-            switch (getSharedString(getString(R.string.pref_key_background_color), "2"))  {
+            switch (getSharedString(getString(R.string.pref_key_background_color), BACKGROUND_COLOR_DEFAULT))  {
                 case "1":
                     layout_background.setBackgroundResource(R.drawable.background_color_blue);
                     break;
@@ -433,7 +433,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     public void showRestartDialog(){
         RestartDialog restartDialog = new RestartDialog();
-        restartDialog.show(getSupportFragmentManager(), "restartDialog");
+        restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
     }
 
     public void updateIcons(){
@@ -445,7 +445,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         undo = (ImageView) findViewById(R.id.button_undo);
         settings = (ImageView) findViewById(R.id.button_settings);
 
-        switch(getSharedString(getString(R.string.pref_key_icon_theme),"Material")){
+        switch(getSharedString(getString(R.string.pref_key_icon_theme),DEFAULT_ICON_THEME)){
             case "Material":
                 scores.setImageResource(R.drawable.scores_material);
                 hint.setImageResource(R.drawable.hint_material);
@@ -476,7 +476,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         if (isLandscape) {
             params1 = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.menuBarWidht), ViewGroup.LayoutParams.MATCH_PARENT);
 
-            if (getSharedString("pref_key_menu_bar_position_landscape", "right").equals("right")) {
+            if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_landscape),DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
                 params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
 
@@ -487,7 +487,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         } else {
             params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.menuBarHeight));
 
-            if (getSharedString("pref_key_menu_bar_position_portrait", "bottom").equals("bottom")) {
+            if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_portrait),DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
                 params2.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
 

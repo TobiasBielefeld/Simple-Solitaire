@@ -35,6 +35,7 @@
     <string name="settings_golf_easy_description">Permesas meti asojn sur reĝojn kaj inverse</string>
     <string name="settings_restart_klondike">Komencu novan ludon Klondiko por apliki ŝanĝojn</string>
     <string name="settings_restart_canfield">Komencu novan ludon Canfield por apliki ŝanĝojn</string>
+    <string name="settings_restart_yukon">Komencu novan ludon Yukon por apliki ŝanĝojn</string>
     <string name="settings_restart_spider">Komencu novan ludon Araneo por apliki ŝanĝojn</string>
     <string name="settings_restart_fortyeight">Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn</string>
     <string name="settings_menu">Ĉefmenuo</string>

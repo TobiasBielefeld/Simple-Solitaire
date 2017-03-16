@@ -18,7 +18,9 @@
 
 package de.tobiasbielefeld.solitaire;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -46,34 +48,79 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 public class SharedData {
 
     //Strings
-    public final static String SCORE = "Score";
-    public final static String SAVED_SCORES = "SavedScores";
+    public static String SCORE;
+    public static String SAVED_SCORES;
+    public static String OLD;
 
-    public final static String GAME_REDEAL_COUNT = "GameRedealCount";
-    public final static String GAME_WON = "GameWon";
-    public final static String GAME_NUMBER_OF_WON_GAMES = "GameNumberOfWonGames";
-    public final static String GAME_NUMBER_OF_PLAYED_GAMES = "GameNumberOfPlayedGames";
+    public static String GAME;
+    public static String GAME_REDEAL_COUNT;
+    public static String GAME_WON;
+    public static String GAME_NUMBER_OF_WON_GAMES;
+    public static String GAME_NUMBER_OF_PLAYED_GAMES;
+    public static String GAME_RANDOM_CARDS;
+    public static String GAME_FIRST_RUN;
 
+    public static String RECORD_LIST_ENTRY;
+    public static String RECORD_LIST_ENTRIES_SIZE;
+    public static String FLIP_CARD;
+    public static String ORIGIN;
+    public static String CARD;
+    public static String CARDS;
+    public static String STACK;
 
-    public final static String GAME_RANDOM_CARDS = "GameRandomCards";
-    public final static String GAME_FIRST_RUN = "GameFirstRun";
+    public static String TIMER_CURRENT_TIME;
+    public static String TIMER_START_TIME;
+    public static String TIMER_SHOWN_TIME;
 
-    public final static String RECORD_LIST_ENTRY = "RecordListEntry";
-    public final static String RECORD_LIST_ENTRIES_SIZE = "RecordListEntriesSize";
-    public final static String FLIP_CARD = "FlipCard";
-    public final static String ORIGIN = "Origin";
-    public final static String CARD = "Card";
-    public final static String CARDS = "Cards";
-    public final static String STACK = "Stack";
+    public static String CARD_DRAWABLES;
+    public static String CARD_BACKGROUND;
+    public static String MENU_COLUMNS_PORTRAIT;
+    public static String MENU_COLUMNS_LANDSCAPE;
 
-    public final static String TIMER_CURRENT_TIME = "SavedCurrentTime";
-    public final static String TIMER_START_TIME = "SavedStartTime";
-    public final static String TIMER_SHOWN_TIME = "SavedShownTime";
+    public static String CANFIELD_START_CARD_VALUE;
+    public static String BACKGROUND_COLOR_DEFAULT;
+    public static String RESTART_DIALOG;
 
-    final public static String CARD_DRAWABLES = "CardDrawables";
-    final public static String CARD_BACKGROUND = "CardBackground";
-    final public static String MENU_COLUMNS_PORTRAIT = "MenuColumnsPortrait";
-    final public static String MENU_COLUMNS_LANDSCAPE = "MenuColumnsLandscape";
+    public static String PREF_KEY_YUKON_RULES;
+    public static String PREF_KEY_YUKON_RULES_OLD;
+    public static String PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS;
+    public static String PREF_KEY_KLONDIKE_DRAW;
+    public static String PREF_KEY_KLONDIKE_DRAW_OLD;
+    public static String PREF_KEY_GOLF_CYCLIC;
+    public static String PREF_KEY_CANFIELD_DRAW;
+    public static String PREF_KEY_CANFIELD_DRAW_OLD;
+    public static String PREF_KEY_PYRAMID_LIMITED_REDEALS;
+    public static String PREF_KEY_PYRAMID_DIFFICULTY;
+    public static String PREF_KEY_SPIDER_DIFFICULTY;
+    public static String PREF_KEY_SPIDER_DIFFICULTY_OLD;
+    public static String PREF_KEY_LANGUAGE;
+    public static String PREF_KEY_CURRENT_GAME;
+    public static String PREF_KEY_ORIENTATION;
+    public static String PREF_KEY_MENU_GAMES;
+
+    public static String DEFAULT_CANFIELD_DRAW;
+    public static String DEFAULT_KLONDIKE_DRAW;
+    public static String DEFAULT_YUKON_RULES;
+    public static String DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
+    public static String DEFAULT_MENU_BAR_POSITION_PORTRAIT;
+    public static String DEFAULT_ICON_THEME;
+    public static String DEFAULT_PYRAMID_DIFFICULTY;
+    public static String DEFAULT_SPIDER_DIFFICULTY;
+    public static String DEFAULT_LANGUAGE;
+    public static String DEFAULT_MENU_COLUMNS_LANDSCAPE;
+    public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
+    public static String DEFAULT_ORIENTATION;
+
+    public static int DEFAULT_CURRENT_GAME;
+
+    public static boolean DEFAULT_PYRAMID_LIMITED_REDEALS;
+    public static boolean DEFAULT_GOLF_CYCLIC;
+    public static boolean DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
+    public static boolean DEFAULT_LEFT_HANDED_MODE;
+    public static boolean DEFAULT_DOUBLE_TAP_ENABLE;
+    public static boolean DEFAULT_DOUBLE_TAP_ALL_CARDS;
+    public static boolean DEFAULT_WON;
+    public static boolean DEFAULT_FIRST_RUN;
 
     public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
 
@@ -95,6 +142,83 @@ public class SharedData {
 
     public static TestAfterMoveHandler testAfterMoveHandler = new TestAfterMoveHandler();
     public static TestIfWonHandler testIfWonHandler = new TestIfWonHandler();
+
+    //load the values from the xml files
+    public static void loadStrings(Context context){
+        Resources res = context.getResources();
+
+        GAME = context.getString(R.string.game);
+
+        PREF_KEY_YUKON_RULES = res.getString(R.string.pref_key_yukon_rules);
+        PREF_KEY_KLONDIKE_DRAW = res.getString(R.string.pref_key_klondike_draw);
+        PREF_KEY_CANFIELD_DRAW = res.getString(R.string.pref_key_canfield_draw);
+        PREF_KEY_YUKON_RULES_OLD = PREF_KEY_YUKON_RULES + OLD;
+        PREF_KEY_KLONDIKE_DRAW_OLD = PREF_KEY_KLONDIKE_DRAW + OLD;
+        PREF_KEY_CANFIELD_DRAW_OLD = PREF_KEY_CANFIELD_DRAW + OLD;
+        PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS = res.getString(R.string.pref_key_forty_eight_limited_redeals);
+        PREF_KEY_GOLF_CYCLIC = res.getString(R.string.pref_key_golf_cyclic);
+        PREF_KEY_PYRAMID_LIMITED_REDEALS = res.getString(R.string.pref_key_pyramid_limited_redeals);
+        PREF_KEY_PYRAMID_DIFFICULTY = res.getString(R.string.pref_key_pyramid_difficulty);
+        PREF_KEY_SPIDER_DIFFICULTY = res.getString(R.string.pref_key_language);
+        PREF_KEY_SPIDER_DIFFICULTY_OLD = PREF_KEY_SPIDER_DIFFICULTY + OLD;
+        PREF_KEY_LANGUAGE = res.getString(R.string.pref_key_language);
+        PREF_KEY_CURRENT_GAME = res.getString(R.string.pref_key_current_game);
+        PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
+        PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
+
+        DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
+        DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
+        DEFAULT_SPIDER_DIFFICULTY = res.getStringArray(R.array.pref_spider_difficulty_values)[0];
+        DEFAULT_ORIENTATION = res.getStringArray(R.array.pref_orientation_values)[0];
+        DEFAULT_DOUBLE_TAP_ALL_CARDS = res.getBoolean(R.bool.default_double_tap_all_cards);
+        DEFAULT_DOUBLE_TAP_ENABLE = res.getBoolean(R.bool.default_double_tap_enable);
+        DEFAULT_LEFT_HANDED_MODE = res.getBoolean(R.bool.default_left_handed_mode);
+        DEFAULT_PYRAMID_LIMITED_REDEALS = res.getBoolean(R.bool.default_pyramid_limited_redeals);
+        DEFAULT_GOLF_CYCLIC = res.getBoolean(R.bool.default_golf_cyclic);
+        DEFAULT_FORTY_EIGHT_LIMITED_REDEALS = res.getBoolean(R.bool.default_forty_eight_limited_redeals);
+        DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
+        DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
+        DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
+        DEFAULT_MENU_BAR_POSITION_LANDSCAPE = res.getString(R.string.default_menu_bar_position_landscape);
+        DEFAULT_MENU_BAR_POSITION_PORTRAIT = res.getString(R.string.default_menu_bar_position_portrait);
+        DEFAULT_FIRST_RUN = res.getBoolean(R.bool.default_first_run);
+        DEFAULT_WON = res.getBoolean(R.bool.default_won);
+
+        DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
+        DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];
+        DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_canfield_draw_values)[1];
+        DEFAULT_ICON_THEME = res.getStringArray(R.array.pref_icon_theme_values)[0];
+
+        GAME_REDEAL_COUNT = res.getString(R.string.game_redeal_count);
+        GAME_WON = res.getString(R.string.game_won);
+        GAME_NUMBER_OF_WON_GAMES = res.getString(R.string.game_number_of_won_games);
+        GAME_NUMBER_OF_PLAYED_GAMES = res.getString(R.string.game_number_of_played_games);
+        GAME_RANDOM_CARDS = res.getString(R.string.game_random_cards);
+        GAME_FIRST_RUN = res.getString(R.string.game_first_run);
+
+        BACKGROUND_COLOR_DEFAULT = res.getStringArray(R.array.pref_background_colors_values)[1];
+        RESTART_DIALOG = res.getString(R.string.restart_dialog);
+        CANFIELD_START_CARD_VALUE = res.getString(R.string.canfield_start_value);
+        SCORE = res.getString(R.string.score);
+        SAVED_SCORES = res.getString(R.string.saved_scores);
+
+        RECORD_LIST_ENTRY = res.getString(R.string.record_list_entry);
+        RECORD_LIST_ENTRIES_SIZE = res.getString(R.string.record_list_entries_size);
+        FLIP_CARD = res.getString(R.string.flip_card);
+        ORIGIN = res.getString(R.string.origin);
+        CARD = res.getString(R.string.card);
+        CARDS = res.getString(R.string.cards);
+        STACK = res.getString(R.string.stack);
+
+        TIMER_CURRENT_TIME = res.getString(R.string.saved_current_time);
+        TIMER_START_TIME = res.getString(R.string.saved_start_time);
+        TIMER_SHOWN_TIME = res.getString(R.string.saved_shown_time);
+
+        CARD_DRAWABLES = res.getString(R.string.pref_key_card_drawables);
+        CARD_BACKGROUND = res.getString(R.string.pref_key_card_background);
+        MENU_COLUMNS_PORTRAIT = res.getString(R.string.pref_key_menu_columns_portrait);
+        MENU_COLUMNS_LANDSCAPE = res.getString(R.string.pref_key_menu_columns_landscape);
+    }
 
     /*
      * a lot of overloaded versions for moveToStack(), because it can be called with one card, card
@@ -274,6 +398,10 @@ public class SharedData {
         return savedSharedData.getInt(name, defaultValue);
     }
 
+    //test if saved value equals the default value
+    public static boolean sharedStringEquals(String name, String defaultValue) {
+        return savedSharedData.getString(name, defaultValue).equals(defaultValue);
+    }
     public static String getSharedString(String name, String defaultValue) {
         return savedSharedData.getString(name, defaultValue);
     }

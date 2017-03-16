@@ -48,12 +48,12 @@ public class Canfield extends Game {
 
     @Override
     public void save() {
-        putInt("canfield_startCardValue",startCardValue);
+        putInt(CANFIELD_START_CARD_VALUE,startCardValue);
     }
 
     @Override
     public void load() {
-        startCardValue = getInt("canfield_startCardValue",0);
+        startCardValue = getInt(CANFIELD_START_CARD_VALUE,0);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -163,7 +163,7 @@ public class Canfield extends Game {
     public void dealCards() {
 
         //save the new settings, so it only takes effect on new deals
-        putSharedString("pref_key_canfield_draw_old", getSharedString("pref_key_canfield_draw", "3"));
+        putSharedString(PREF_KEY_CANFIELD_DRAW_OLD, getSharedString(PREF_KEY_CANFIELD_DRAW, DEFAULT_CANFIELD_DRAW));
 
         //and move cards to the tableau
         for (int i = 0; i < 4; i++) {
@@ -185,7 +185,7 @@ public class Canfield extends Game {
         setFoundationBackgrounds();
 
         //deal cards to trash according to the draw option
-        if (getSharedString("pref_key_canfield_draw_old", "1").equals("3")) {
+        if (sharedStringEquals(PREF_KEY_CANFIELD_DRAW_OLD,DEFAULT_CANFIELD_DRAW)) {
             for (int i = 0; i < 3; i++) {
                 moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
                 stacks[9 + i].getTopCard().flipUp();
@@ -198,7 +198,7 @@ public class Canfield extends Game {
 
     public void onMainStackTouch() {
 
-        boolean deal3 = getSharedString("pref_key_canfield_draw_old", "1").equals("3");
+        boolean deal3 = sharedStringEquals(PREF_KEY_CANFIELD_DRAW_OLD,DEFAULT_CANFIELD_DRAW);
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
@@ -539,7 +539,7 @@ public class Canfield extends Game {
             }
         }
 
-        if (!getSharedString("pref_key_canfield_draw_old", "1").equals("3"))
+        if (!sharedStringEquals(PREF_KEY_CANFIELD_DRAW_OLD,DEFAULT_CANFIELD_DRAW))
             return;
 
         if (stacks[10].getSize() == 0 || stacks[11].getSize() == 0) {

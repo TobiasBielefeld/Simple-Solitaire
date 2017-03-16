@@ -39,7 +39,7 @@ public class LicenseFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.content_about_tab2, container, false);
 
         WebView webView = (WebView) view.findViewById(R.id.about_tab2_webview);
-        webView.loadUrl("file:///android_asset/license.html");
+        webView.loadUrl(getString(R.string.license_URL));
 
         return view;
     }

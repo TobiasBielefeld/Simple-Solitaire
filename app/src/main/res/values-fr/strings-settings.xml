@@ -35,6 +35,7 @@
     <string name="settings_golf_easy_description">Permettre de placer un as sur un roi, et inversement</string>
     <string name="settings_restart_klondike">Démarrer une nouvelle parte de Klondike pour appliquer les modifications</string>
     <string name="settings_restart_canfield">Démarrer une nouvelle parte de Canfield pour appliquer les modifications</string>
+    <string name="settings_restart_yukon">Démarrer une nouvelle parte de Yukon pour appliquer les modifications</string>
     <string name="settings_restart_spider">Démarrer une nouvelle parte de Spider pour appliquer les modifications</string>
     <string name="settings_restart_fortyeight">Démarrer une nouvelle parte de Forty&amp;Eight pour appliquer les modifications</string>
     <string name="settings_menu">Menu principal</string>

@@ -39,7 +39,7 @@ public class ChangeLogFragment extends Fragment implements View.OnClickListener 
         View view = inflater.inflate(R.layout.content_about_tab3, container, false);
 
         WebView webView = (WebView) view.findViewById(R.id.about_tab3_webview);
-        webView.loadUrl("file:///android_asset/changelog.html");
+        webView.loadUrl(getString(R.string.changelog_URL));
 
         return view;
     }

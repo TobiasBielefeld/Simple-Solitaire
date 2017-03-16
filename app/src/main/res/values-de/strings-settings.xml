@@ -33,6 +33,7 @@
     <string name="settings_restart_klondike">Starte ein neues Klondike Spiel um die Änderung anzuwenden</string>
     <string name="settings_restart_canfield">Starte ein neues Canfield Spiel um die Änderung anzuwenden</string>
     <string name="settings_restart_spider">Starte ein neues Spider Spiel um die Änderung anzuwenden</string>
+    <string name="settings_restart_yukon">Starte ein neues Yukon Spiel um die Änderung anzuwenden</string>
     <string name="settings">Einstellungen</string>
     <string name="settings_menu">Hauptmenü</string>
     <string name="settings_menu_columns">Anzahl der Spalten</string>
@@ -46,6 +47,7 @@
     <string name="settings_show_manual_in_menu">Handbuchseite im Spielemenü</string>
     <string name="settings_show_manual_in_menu_description">Zeige einen Punkt im Menü, um das aktuelle Spiel im Handbuch zu öffnen</string>
     <string name="settings_change_language">Sprache ändern</string>
+    <string name="settings_yukon_rules">Lege Karten auf…</string>
 
     <string name="settings_double_tap">Doppeltippen</string>
     <string name="settings_double_tap_description">Einstellungen für Doppeltipp-Bewegungen</string>

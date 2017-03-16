@@ -55,6 +55,11 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="pref_yukon_rules_values" translatable="false">
+        <item>default</item>
+        <item>russian</item>
+    </string-array>
+
     <string-array name="manual_side_menu_tablet" translatable="false">
         <item>@string/manual_startpage</item>
         <item>@string/manual_main_menu</item>
@@ -67,13 +72,6 @@
     <string-array name="restart_menu">
         <item>Start new game</item>
         <item>Give cards again</item>
-        <item>Return to main menu</item>
-    </string-array>
-
-    <string-array name="restart_menu_with_manual">
-        <item>Start new game</item>
-        <item>Give cards again</item>
-        <item>Open game in manual</item>
         <item>Return to main menu</item>
     </string-array>
 
@@ -137,6 +135,11 @@
     <string-array name="pref_icon_theme_titles">
         <item>Material</item>
         <item>Old theme</item>
+    </string-array>
+
+    <string-array name="pref_yukon_rules_titles">
+        <item>different colors (Default)</item>
+        <item>same suit (Russian Solitaire)</item>
     </string-array>
 
 </resources>

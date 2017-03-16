@@ -37,6 +37,7 @@
     <string name="settings_restart_canfield">Start a new Canfield game to apply the change</string>
     <string name="settings_restart_spider">Start a new Spider game to apply the change</string>
     <string name="settings_restart_fortyeight">Start a new Forty&amp;Eight game to apply the change</string>
+    <string name="settings_restart_yukon">Start a new Yukon game to apply the change</string>
     <string name="settings_menu">Main menu</string>
     <string name="settings_menu_description">Change number of columns, show and hide games</string>
     <string name="settings_pyramid_difficulty">Difficulty</string>
@@ -52,6 +53,7 @@
     <string name="settings_double_tap_enable">Enable double tap movements</string>
     <string name="settings_double_tap_all_cards">Move all possible cards</string>
     <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
+    <string name="settings_yukon_rules">Place cards on…</string>
 
     <string name="settings_forty_eight_limted_redeals">Limit number of Re-deals</string>
     <string name="settings_forty_eight_limted_redeals_text">Re-dealing is allowed only once a game, uncheck to deactivate</string>
@@ -95,5 +97,10 @@
     <string name="pref_key_about" translatable="false">pref_key_about</string>
     <string name="pref_key_show_manual_in_menu" translatable="false">pref_key_show_manual_in_menu</string>
     <string name="pref_key_language" translatable="false">pref_key_language</string>
+    <string name="pref_key_yukon_rules" translatable="false">pref_key_yukon_rules</string>
+    <string name="pref_key_menu_columns_landscape" translatable="false">MenuColumnsLandscape</string>
+    <string name="pref_key_menu_columns_portrait" translatable="false">MenuColumnsPortrait</string>
+    <string name="pref_key_card_background" translatable="false">CardBackground</string>
+    <string name="pref_key_card_drawables" translatable="false">CardDrawables</string>
 
 </resources>

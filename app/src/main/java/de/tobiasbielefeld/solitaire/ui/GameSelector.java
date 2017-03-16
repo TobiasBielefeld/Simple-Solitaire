@@ -18,7 +18,6 @@
 
 package de.tobiasbielefeld.solitaire.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -35,7 +34,6 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
-import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
@@ -63,42 +61,43 @@ public class GameSelector extends CustomAppCompatActivity {
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
         gameLayouts = lg.loadLayouts(this);
 
+        loadStrings(this);
         loadGameList();
 
         if (!getSharedBoolean(getString(R.string.pref_key_start_menu),false)) {
             int savedGame;
 
             try {
-                savedGame = getSharedInt("pref_key_current_game", 0);
+                savedGame = getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
             } catch (Exception e){
-                savedSharedData.edit().remove("pref_key_current_game").apply();
+                savedSharedData.edit().remove(PREF_KEY_CURRENT_GAME).apply();
                 savedGame=0;
             }
 
             if (savedGame!=0) {
                 Intent intent = new Intent(getApplicationContext(), GameManager.class);
-                intent.putExtra("game", savedGame);
+                intent.putExtra(GAME, savedGame);
                 startActivityForResult(intent,0);
             }
         }
         else {
-            putSharedInt("pref_key_current_game",0);
+            putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
         }
     }
 
     private void loadGameList(){
         ArrayList<Integer> result;
 
-        result = getSharedIntList("pref_key_menu_games");
+        result = getSharedIntList(PREF_KEY_MENU_GAMES);
 
         TableRow row = new TableRow(this);
         int counter = 0;
         int columns;
 
         if  (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-            columns = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE,"5"));
+            columns = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE,DEFAULT_MENU_COLUMNS_LANDSCAPE));
         else
-            columns = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT,"3"));
+            columns = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT,DEFAULT_MENU_COLUMNS_PORTRAIT));
 
         //clear the complete layout first
         tableLayout.removeAllViewsInLayout();
@@ -145,7 +144,7 @@ public class GameSelector extends CustomAppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //if the player returns from a game to the main menu, save it.
-        putSharedInt("pref_key_current_game",0);
+        putSharedInt(PREF_KEY_CURRENT_GAME,DEFAULT_CURRENT_GAME);
     }
 
     public void onClick(View view) {
@@ -153,13 +152,13 @@ public class GameSelector extends CustomAppCompatActivity {
          *  load a game when clicking a button
          */
         //avoid loading two games at once when pressing two buttons at once
-        if (getSharedInt("pref_key_current_game",0)!=0)
+        if (getSharedInt(PREF_KEY_CURRENT_GAME,DEFAULT_CURRENT_GAME)!=0)
             return;
 
         //prepare the sharedPreferences and start the GameManager with the game name as a intent
-        putSharedInt("pref_key_current_game",view.getId());
+        putSharedInt(PREF_KEY_CURRENT_GAME,view.getId());
         Intent intent = new Intent(getApplicationContext(), GameManager.class);
-        intent.putExtra("game", view.getId());
+        intent.putExtra(GAME, view.getId());
         startActivityForResult(intent,0);//*/
     }
 
@@ -182,7 +181,7 @@ public class GameSelector extends CustomAppCompatActivity {
         manual = (ImageView) findViewById(R.id.game_selector_button_manual);
         settings = (ImageView) findViewById(R.id.game_selector_button_settings);
 
-        switch(getSharedString(getString(R.string.pref_key_icon_theme),"Material")){
+        switch(getSharedString(getString(R.string.pref_key_icon_theme),DEFAULT_ICON_THEME)){
             case "Material":
                 manual.setImageResource(R.drawable.manual_material);
                 settings.setImageResource(R.drawable.settings_material);

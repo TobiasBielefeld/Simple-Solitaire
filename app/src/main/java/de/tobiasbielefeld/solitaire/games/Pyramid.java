@@ -53,7 +53,7 @@ public class Pyramid extends Game {
 
         setLimitedRedeals(2);
 
-        if (!getSharedBoolean("pref_key_pyramid_limited_redeals",true))
+        if (!getSharedBoolean(PREF_KEY_PYRAMID_LIMITED_REDEALS,DEFAULT_PYRAMID_LIMITED_REDEALS))
             toggleRedeals();
     }
 
@@ -95,13 +95,12 @@ public class Pyramid extends Game {
         stacks[30].view.setY(stacks[28].view.getY());
     }
 
-    public boolean winTest(){
-        for (int i=0;i<=getLastTableauID();i++)
+    public boolean winTest() {
+        for (int i = 0; i <= getLastTableauID(); i++)
             if (!stacks[i].isEmpty())
                 return false;
 
-        return !(getSharedString("pref_key_pyramid_difficulty", "1").equals("2") && !getDiscardStack().isEmpty() && stacks[30].isEmpty());
-
+        return sharedStringEquals(PREF_KEY_PYRAMID_DIFFICULTY, DEFAULT_PYRAMID_DIFFICULTY) || getDiscardStack().isEmpty() && stacks[30].isEmpty();
     }
 
     public void dealCards(){

@@ -57,7 +57,7 @@ public class MenuHideGamesPreference extends DialogPreference implements View.On
             linearLayout.setOnClickListener(this);
         }
 
-        ArrayList<Integer> result = getSharedIntList("pref_key_menu_games");
+        ArrayList<Integer> result = getSharedIntList(PREF_KEY_MENU_GAMES);
 
         for (int i=0;i<checkBoxes.size();i++){
             if (result.size()-1<i){

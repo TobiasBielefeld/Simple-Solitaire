@@ -81,7 +81,7 @@ public class Spider extends Game {
 
     public void dealCards(){
         //when starting a new game, load the difficulty preference in the "old" preference
-        putSharedString("pref_key_spider_difficulty_old",getSharedString("pref_key_spider_difficulty","1"));
+        putSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD,getSharedString(PREF_KEY_SPIDER_DIFFICULTY,DEFAULT_SPIDER_DIFFICULTY));
         loadCards();
 
         for (int i = 0; i < 10; i++) {
@@ -296,7 +296,7 @@ public class Spider extends Game {
         /*
          * load the card families depending on the preference
          */
-        switch(getSharedString("pref_key_spider_difficulty_old","1")){
+        switch(getSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD,DEFAULT_SPIDER_DIFFICULTY)){
             case "1":
                 setCardDrawables(3,3,3,3);
                 break;

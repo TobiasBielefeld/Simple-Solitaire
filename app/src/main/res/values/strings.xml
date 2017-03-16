@@ -2,7 +2,6 @@
     <string name="app_name" translatable="false">Simple Solitaire Collection</string>
     <string name="app_version">Version</string>
 
-    <!-- not sure if these should be translated-->
     <string name="portrait">Portrait</string>
     <string name="landscape">Landscape</string>
 
@@ -16,10 +15,6 @@
     <string name="game_press_again">Press again to exit</string>
     <string name="game_load_error">Loading data failed, starting new game…</string>
 
-    <!-- only used in program code, not shown on ui-->
-    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
-    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-
     <!-- Menu -->
     <string name="menu_scores">Scores</string>
     <string name="menu_undo">Undo</string>
@@ -28,7 +23,6 @@
     <string name="menu_settings">Settings</string>
 
     <!-- game names -->
-    <string name="games_menu" translatable="false">Menu</string><!-- only used in program code for game selection, not shown on ui-->
     <string name="games_klondike">Klondike</string>
     <string name="games_freecell">FreeCell</string>
     <string name="games_yukon">Yukon</string>
@@ -42,5 +36,46 @@
     <string name="games_gypsy">Gypsy</string>
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">Canfield</string>
+
+
+    <!-- internal stuff only used in program code -->
+    <string name="games_menu" translatable="false">Menu</string>
+    <string name="loading_data_failed" translatable="false">Loading data failed</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <string name="changelog_URL" translatable="false">file:///android_asset/changelog.html</string>
+    <string name="license_URL" translatable="false">file:///android_asset/license.html"</string>
+    <string name="app_market_URL" translatable="false">market://details?id=de.tobiasbielefeld.solitaire</string>
+    <string name="app_web_URL" translatable="false">https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire</string>
+    <string name="github_issues_URL" translatable="false">https://github.com/TobiasBielefeld/Simple-Solitaire/issues</string>
+
+    <string name="game" translatable="false">game</string>
+    <string name="restart_dialog" translatable="false">restartDialog</string>
+    <string name="canfield_start_value" translatable="false">canfield_startCardValue</string>
+    <string name="old" translatable="false">_old</string>
+    <string name="default_menu_bar_position_landscape" translatable="false">right</string>
+    <string name="default_menu_bar_position_portrait" translatable="false">bottom</string>
+
+    <string name="saved_shown_time" translatable="false">SavedShownTime</string>
+    <string name="saved_start_time" translatable="false">SavedStartTime</string>
+    <string name="saved_current_time" translatable="false">SavedCurrentTime</string>
+    <string name="stack" translatable="false">Stack</string>
+    <string name="cards" translatable="false">Cards</string>
+    <string name="card" translatable="false">Card</string>
+    <string name="origin" translatable="false">Origin</string>
+    <string name="flip_card" translatable="false">FlipCard</string>
+    <string name="record_list_entries_size" translatable="false">RecordListEntriesSize</string>
+    <string name="record_list_entry" translatable="false">RecordListEntry</string>
+    <string name="game_first_run" translatable="false">GameFirstRun</string>
+    <string name="game_random_cards" translatable="false">GameRandomCards</string>
+    <string name="game_number_of_played_games" translatable="false">GameNumberOfPlayedGames</string>
+    <string name="game_number_of_won_games" translatable="false">GameNumberOfWonGames</string>
+    <string name="game_won" translatable="false">GameWon</string>
+    <string name="game_redeal_count" translatable="false">GameRedealCount</string>
+    <string name="saved_scores" translatable="false">SavedScores</string>
+    <string name="score" translatable="false">"Score</string>
+
+
 
 </resources>

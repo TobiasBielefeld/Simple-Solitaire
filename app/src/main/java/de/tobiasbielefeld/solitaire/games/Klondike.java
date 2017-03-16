@@ -99,7 +99,7 @@ public class Klondike extends Game {
 
     public void dealCards() {
         //save the new settings, so it only takes effect on new deals
-        putSharedString("pref_key_klondike_draw_old", getSharedString("pref_key_klondike_draw", "1"));
+        putSharedString(PREF_KEY_KLONDIKE_DRAW_OLD, getSharedString(PREF_KEY_KLONDIKE_DRAW, DEFAULT_KLONDIKE_DRAW));
 
         //and move cards to the tableau
         for (int i = 0; i <= 6; i++) {
@@ -111,20 +111,20 @@ public class Klondike extends Game {
         }
 
         //deal cards to trash according to the draw option
-        if (getSharedString("pref_key_klondike_draw_old", "1").equals("3")) {
+        if (sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD,DEFAULT_KLONDIKE_DRAW)) {
+            moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
+            stacks[13].getTopCard().flipUp();
+        } else {
             for (int i = 0; i < 3; i++) {
                 moveToStack(getMainStack().getTopCard(), stacks[11 + i], OPTION_NO_RECORD);
                 stacks[11 + i].getTopCard().flipUp();
             }
-        } else {
-            moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
-            stacks[13].getTopCard().flipUp();
         }
     }
 
     public void onMainStackTouch() {
 
-        boolean deal3 = getSharedString("pref_key_klondike_draw_old", "1").equals("3");
+        boolean deal3 = !sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD,DEFAULT_KLONDIKE_DRAW);
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
@@ -413,7 +413,7 @@ public class Klondike extends Game {
          *  This movement will be added to the last record list entry, so it will be also undone if
          *  the card will be moved back to the discard stacks
          */
-        if (!getSharedString("pref_key_klondike_draw_old", "1").equals("3") || gameLogic.hasWon())
+        if (sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD,DEFAULT_KLONDIKE_DRAW) || gameLogic.hasWon())
             return;
 
         if (stacks[12].getSize() == 0 || stacks[13].getSize() == 0) {

@@ -72,9 +72,9 @@ public class GameLogic{
          * The main loading part is put in a try catch block, so when there goes something wrong
          * on saving/loading, it won't crash the game. (in that case, it loads a new game
          */
-        boolean first_run = getBoolean(GAME_FIRST_RUN, true);
+        boolean first_run = getBoolean(GAME_FIRST_RUN, DEFAULT_FIRST_RUN);
         numberWonGames = getInt(GAME_NUMBER_OF_WON_GAMES, 0);
-        won = getBoolean(GAME_WON, false);
+        won = getBoolean(GAME_WON, DEFAULT_WON);
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
@@ -114,7 +114,7 @@ public class GameLogic{
                     autoComplete.showButton();
                 }
             } catch (Exception e) {
-                Log.e("Loading data failed", e.toString());
+                Log.e(gm.getString(R.string.loading_data_failed), e.toString());
                 gm.showToast(gm.getString(R.string.game_load_error));
                 newGame();
             }

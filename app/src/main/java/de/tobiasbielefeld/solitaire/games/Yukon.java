@@ -80,6 +80,9 @@ public class Yukon extends Game {
         /*
          * because there is no main stack, use the stack from dealFromStack()
          */
+
+        putSharedString(PREF_KEY_YUKON_RULES_OLD, getSharedString(PREF_KEY_YUKON_RULES, DEFAULT_YUKON_RULES));
+
         for (int i = 1; i <= 6; i++) {
             for (int j = 0; j < 5 + i; j++) {
                 moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
@@ -97,14 +100,14 @@ public class Yukon extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getID() < 7) {
+
+        if (stack.getID() < 7) {                                                                    //tableau
             if (stack.isEmpty())
                 return card.getValue() == 13;
             else
-                return (stack.getTopCard().getColor() % 2 != card.getColor() % 2)
-                        && (stack.getTopCard().getValue() == card.getValue() + 1);
+                return checkRules(stack,card) && (stack.getTopCard().getValue() == card.getValue() + 1);
         }
-        else if (movingCards.hasSingleCard()) {
+        else if (movingCards.hasSingleCard()) {                                                     //foundation
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
@@ -114,6 +117,13 @@ public class Yukon extends Game {
         else {
             return false;
         }
+    }
+
+    boolean checkRules(Stack stack, Card card){
+        boolean defaultRules = sharedStringEquals(PREF_KEY_YUKON_RULES_OLD,DEFAULT_YUKON_RULES);
+
+        return (defaultRules && (stack.getTopCard().getColor() % 2 != card.getColor() % 2)) ||
+                (!defaultRules && (stack.getTopCard().getColor() == card.getColor()));
     }
 
     public boolean addCardToMovementTest(Card card) {

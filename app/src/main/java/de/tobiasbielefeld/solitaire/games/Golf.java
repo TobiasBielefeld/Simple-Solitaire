@@ -94,7 +94,7 @@ public class Golf extends Game {
          * or the cards values difference is 1 or -1
          */
         return stack == getDiscardStack()
-                && ((getSharedBoolean("pref_key_golf_cyclic", true)
+                && ((getSharedBoolean(PREF_KEY_GOLF_CYCLIC, DEFAULT_GOLF_CYCLIC)
                     && (card.getValue() == 13 && stack.getTopCard().getValue() == 1 || card.getValue() == 1 && stack.getTopCard().getValue() == 13))
                 || (card.getValue() == stack.getTopCard().getValue() + 1 || card.getValue() == stack.getTopCard().getValue() - 1));
     }

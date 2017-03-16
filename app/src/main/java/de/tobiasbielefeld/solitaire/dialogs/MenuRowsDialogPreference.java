@@ -50,8 +50,8 @@ public class MenuRowsDialogPreference extends DialogPreference{
         spinnerLandscape = (Spinner) view.findViewById(R.id.dialogSettingsMenuColumnsLandscape);
 
         //minus 1 because the values are 1 to 10, indexes are from 0 to 9
-        spinnerPortrait.setSelection(Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT,"3"))-1);
-        spinnerLandscape.setSelection(Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE,"5"))-1);
+        spinnerPortrait.setSelection(Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT,DEFAULT_MENU_COLUMNS_PORTRAIT))-1);
+        spinnerLandscape.setSelection(Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE,DEFAULT_MENU_COLUMNS_LANDSCAPE))-1);
 
         super.onBindDialogView(view);
     }

@@ -75,4 +75,9 @@
         <item>Altes Thema</item>
     </string-array>
 
+    <string-array name="pref_yukon_rules_titles">
+        <item>unterschiedliche Farben (Standard)</item>
+        <item>selbe Familie (Russian Solitare)</item>
+    </string-array>
+
 </resources>

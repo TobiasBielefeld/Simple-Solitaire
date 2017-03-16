@@ -28,6 +28,9 @@ import android.preference.PreferenceManager;
 
 import java.util.Locale;
 
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_LANGUAGE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_LANGUAGE;
+
 /**
  *
  * Update locale in the activities,
@@ -39,8 +42,6 @@ import java.util.Locale;
  */
 
 public class LocaleChanger {
-
-    private static final String SELECTED_LANGUAGE = "pref_key_language";
 
     private static Locale defaultLocale;
 
@@ -65,14 +66,14 @@ public class LocaleChanger {
 
     private static String getPersistedData(Context context, String defaultLanguage) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getString(SELECTED_LANGUAGE, defaultLanguage);
+        return preferences.getString(PREF_KEY_LANGUAGE, defaultLanguage);
     }
 
     @TargetApi(Build.VERSION_CODES.N)
     private static Context updateResources(Context context, String language) {
         Locale locale;
 
-        if (language.equals("default")){
+        if (language.equals(DEFAULT_LANGUAGE)){
             locale = defaultLocale;
         } else {
             locale = new Locale(language);
@@ -89,7 +90,7 @@ public class LocaleChanger {
     private static Context updateResourcesLegacy(Context context, String language) {
         Locale locale;
 
-        if (language.equals("default")){
+        if (language.equals(DEFAULT_LANGUAGE)){
             locale = defaultLocale;
         } else {
             locale = new Locale(language);
