@@ -56,7 +56,6 @@ public class Statistics extends CustomAppCompatActivity{
         int padding = (int) getResources().getDimension(R.dimen.statistics_table_padding);
         int textSize = getResources().getInteger(R.integer.statistics_text_size);
         boolean addedEntries = false;
-        DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
         TableRow row;
 
         if (getSupportActionBar()!=null)
@@ -89,7 +88,7 @@ public class Statistics extends CustomAppCompatActivity{
                     (scores.get(i, 1) % 3600) / 60,
                     (scores.get(i, 1) % 60)));
 
-            textView3.setText(df.format(scores.get(i,2)));
+            textView3.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(scores.get(i,2)));
             textView4.setText(DateFormat.getTimeInstance(DateFormat.SHORT).format(scores.get(i,2)));
             //textView4.setText(new SimpleDateFormat("HH:mm",Locale.getDefault()).format(scores.get(i,2)));
 
