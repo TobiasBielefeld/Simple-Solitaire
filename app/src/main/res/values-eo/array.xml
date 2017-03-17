@@ -6,13 +6,6 @@
         <item>Reveni al ĉefmenuo</item>
     </string-array>
 
-    <string-array name="restart_menu_with_manual">
-        <item>Komenci novan ludon</item>
-        <item>Disdoni kartojn ree</item>
-        <item>Malfermi paĝon pri ludo en manlibro</item>
-        <item>Reveni al ĉefmenuo</item>
-    </string-array>
-
     <string-array name="pref_background_colors_titles">
         <item>Blua</item>
         <item>Verda</item>
@@ -67,11 +60,18 @@
         <item>Franca</item>
         <item>Germana</item>
         <item>Japana</item>
-	<item>Pola</item>
+	    <item>Pola</item>
     </string-array>
 	
 	<string-array name="pref_icon_theme_titles">
 		<item>Material</item>
-                <item>Malnova etoso</item>
+        <item>Malnova etoso</item>
 	</string-array>
+
+    <!-- New values -->
+    <string-array name="pref_yukon_rules_titles">
+        <item>different colors (Default)</item>
+        <item>same suit (Russian Solitaire)</item>
+    </string-array>
+
 </resources>

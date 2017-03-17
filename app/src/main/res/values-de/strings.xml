@@ -14,7 +14,7 @@
     <string name="games_yukon">Yukon</string>
     <string name="menu_main_menu">Menü</string>
     <string name="menu_hint">Hinweis</string>
-    <string name="menu_scores">Punkte</string>
+    <string name="menu_statistics">Punkte</string>
     <string name="menu_settings">Optionen</string>
     <string name="menu_undo">Zurück</string>
     <string name="games_golf">Golf</string>

@@ -16,7 +16,7 @@
             android:label="@string/about_name"
             android:theme="@style/AppThemeActionBar" />
         <activity
-            android:name=".ui.HighScores"
+            android:name=".ui.Statistics"
             android:label="@string/title_activity_statistics"
             android:theme="@style/AppThemeActionBar" />
         <activity

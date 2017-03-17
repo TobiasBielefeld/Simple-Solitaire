@@ -6,13 +6,6 @@
         <item>Zurück zum Hauptmenü</item>
     </string-array>
 
-    <string-array name="restart_menu_with_manual">
-        <item>Neues Spiel starten</item>
-        <item>Karten erneut geben</item>
-        <item>Spiel im Handbuch öffnen</item>
-        <item>Zurück zum Hauptmenü</item>
-    </string-array>
-
     <string-array name="pref_background_colors_titles">
         <item>Blau</item>
         <item>Grün</item>

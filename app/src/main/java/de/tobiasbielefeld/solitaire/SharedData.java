@@ -59,6 +59,7 @@ public class SharedData {
     public static String GAME_NUMBER_OF_PLAYED_GAMES;
     public static String GAME_RANDOM_CARDS;
     public static String GAME_FIRST_RUN;
+    public static String GAME_MOVED_FIRST_CARD;
 
     public static String RECORD_LIST_ENTRY;
     public static String RECORD_LIST_ENTRIES_SIZE;
@@ -121,6 +122,7 @@ public class SharedData {
     public static boolean DEFAULT_DOUBLE_TAP_ALL_CARDS;
     public static boolean DEFAULT_WON;
     public static boolean DEFAULT_FIRST_RUN;
+    public static boolean DEFAULT_MOVED_FIRST_CARD;
 
     public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
 
@@ -183,6 +185,7 @@ public class SharedData {
         DEFAULT_MENU_BAR_POSITION_PORTRAIT = res.getString(R.string.default_menu_bar_position_portrait);
         DEFAULT_FIRST_RUN = res.getBoolean(R.bool.default_first_run);
         DEFAULT_WON = res.getBoolean(R.bool.default_won);
+        DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];
@@ -195,6 +198,7 @@ public class SharedData {
         GAME_NUMBER_OF_PLAYED_GAMES = res.getString(R.string.game_number_of_played_games);
         GAME_RANDOM_CARDS = res.getString(R.string.game_random_cards);
         GAME_FIRST_RUN = res.getString(R.string.game_first_run);
+        GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
 
         BACKGROUND_COLOR_DEFAULT = res.getStringArray(R.array.pref_background_colors_values)[1];
         RESTART_DIALOG = res.getString(R.string.restart_dialog);

@@ -6,13 +6,6 @@
         <item>メインメニューに戻る</item>
     </string-array>
 
-    <string-array name="restart_menu_with_manual">
-        <item>新しいゲームを開始する</item>
-        <item>カードをもう一度配る</item>
-        <item>マニュアルでゲームを開く</item>
-        <item>メインメニューに戻る</item>
-    </string-array>
-
     <string-array name="pref_background_colors_titles">
         <item>青</item>
         <item>緑</item>
@@ -74,6 +67,11 @@
     <string-array name="pref_icon_theme_titles">
         <item>材料</item>
         <item>古い</item>
+    </string-array>
+
+    <string-array name="pref_yukon_rules_titles">
+        <item>different colors (Default)</item>
+        <item>same suit (Russian Solitaire)</item>
     </string-array>
 
 </resources>

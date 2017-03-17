@@ -17,7 +17,7 @@
     <string name="game_load_error">Wczytywanie danych nie powiodło się, zaczynam nową grę…</string>
 
     <!-- Menu -->
-    <string name="menu_scores">Punkty</string>
+    <string name="menu_statistics">Punkty</string>
     <string name="menu_undo">Cofnij</string>
     <string name="menu_hint">Wskazówka</string>
     <string name="menu_main_menu">Menu</string>

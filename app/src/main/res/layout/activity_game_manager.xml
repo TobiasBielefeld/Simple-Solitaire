@@ -132,7 +132,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:contentDescription="@string/menu_scores"
+                android:contentDescription="@string/menu_statistics"
                 app:srcCompat="@drawable/scores_material"
                 android:layout_height="0dp"
                 android:id="@+id/button_scores"/>
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="@string/menu_scores" />
+                android:text="@string/menu_statistics" />
         </LinearLayout>
 
         <LinearLayout

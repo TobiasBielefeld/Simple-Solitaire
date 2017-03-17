@@ -37,7 +37,7 @@ public class Scores {
     public final static int MAX_SAVED_SCORES = 10;                                                  //set how many scores will be saved and shown
 
     private long score;                                                                             //the current score
-    private long savedScores[][] = new long[MAX_SAVED_SCORES][2];                                   //array to hold the saved scores with score and time
+    private long savedScores[][] = new long[MAX_SAVED_SCORES][3];                                   //array to hold the saved scores with score and time
     private GameManager gm;
 
     public Scores(GameManager gm){
@@ -116,14 +116,17 @@ public class Scores {
     private void saveHighScore() {
         ArrayList<Long> listScores = new ArrayList<>();
         ArrayList<Long> listTimes = new ArrayList<>();
+        ArrayList<Long> listDates = new ArrayList<>();
 
         for (int i=0;i<MAX_SAVED_SCORES;i++){
             listScores.add(savedScores[i][0]);
             listTimes.add(savedScores[i][1]);
+            listDates.add(savedScores[i][2]);
         }
 
         putLongList(SAVED_SCORES + 0,listScores);
         putLongList(SAVED_SCORES + 1,listTimes);
+        putLongList(SAVED_SCORES + 2,listDates);
     }
 
     public void addNewHighScore() {
@@ -135,8 +138,8 @@ public class Scores {
         int index = MAX_SAVED_SCORES - 1;
 
         //if the new score is greater than the last saved one or the last one is empty, override it
-        if (score > savedScores[index][0] || savedScores[index][0] == 0) {
-            savedScores[index] = new long[]{score, timer.getCurrentTime()};
+        if (score > 0 && score > savedScores[index][0] || savedScores[index][0] == 0) {
+            savedScores[index] = new long[]{score, timer.getCurrentTime(), System.currentTimeMillis()};
 
             while (index > 0 && (savedScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
                     || savedScores[index - 1][0] < savedScores[index][0]                            //or the score at index is less than the score before it
@@ -157,24 +160,14 @@ public class Scores {
         score = getLong(SCORE, 0);
         output();
 
-
         ArrayList<Long> listScores = getLongList(SAVED_SCORES + 0);
         ArrayList<Long> listTimes = getLongList(SAVED_SCORES + 1);
+        ArrayList<Long> listDates = getLongList(SAVED_SCORES + 2);
 
-        if (listScores.size()==0 || listTimes.size()==0){
-            //in case there isn't a score list saved yet
-            for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-                savedScores[i][0] = 0;
-                savedScores[i][1] = 0;
-            }
-
-            saveHighScore();
-        }
-        else {
-            for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-                savedScores[i][0] = listScores.get(i);
-                savedScores[i][1] = listTimes.get(i);
-            }
+        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
+            savedScores[i][0] = listScores.size()>i ? listScores.get(i) : 0;
+            savedScores[i][1] = listTimes.size()>i ? listTimes.get(i) : 0;
+            savedScores[i][2] = listDates.size()>i ? listDates.get(i) : 0;
         }
     }
 
@@ -188,7 +181,7 @@ public class Scores {
          * delete the high scores by just creating a new empty array and save it
          */
 
-        savedScores = new long[MAX_SAVED_SCORES][2];
+        savedScores = new long[MAX_SAVED_SCORES][3];
 
         saveHighScore();
     }

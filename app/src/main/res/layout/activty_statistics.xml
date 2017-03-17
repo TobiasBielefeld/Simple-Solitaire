@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/statisticsLinearLayout1"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/statisticsTextViewGamesWon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/statisticsTextViewWinPercentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_below="@id/statisticsLinearLayout1"
+        android:fillViewport="true">
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:scrollbarSize="5dp"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+
+            <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/statisticsTableHighScores"
+                android:padding="@dimen/layout_padding"
+                android:gravity="center_horizontal">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:text="@string/game_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingRight="@dimen/statistics_table_padding"
+                    android:paddingLeft="@dimen/statistics_table_padding" />
+
+                <TextView
+                    android:text="@string/game_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/statistics_table_padding"
+                    android:paddingRight="@dimen/statistics_table_padding" />
+
+                <TextView
+                    android:text="@string/statistics_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/statistics_table_padding"
+                    android:paddingRight="@dimen/statistics_table_padding" />
+
+                <TextView
+                    android:text="@string/statistics_time_of_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/statistics_table_padding"
+                    android:paddingRight="@dimen/statistics_table_padding" />
+            </TableRow>
+        </TableLayout>
+
+
+        </HorizontalScrollView>
+    </ScrollView>
+
+</RelativeLayout>

@@ -17,7 +17,7 @@
     <string name="game_load_error">Malsukcesis ŝargi lud-datumojn, ekigante novan ludon…</string>
 
     <!-- Menu -->
-    <string name="menu_scores">Poentaro</string>
+    <string name="menu_statistics">Poentaro</string>
     <string name="menu_undo">Malfari</string>
     <string name="menu_hint">Konsilo</string>
     <string name="menu_main_menu">Menuo</string>

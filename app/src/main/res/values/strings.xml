@@ -9,6 +9,8 @@
     <string name="game_manual">Manual</string>
     <string name="game_score">Score</string>
     <string name="game_time">Time</string>
+
+
     <string name="game_cancel">Cancel</string>
     <string name="game_confirm">Confirm</string>
     <string name="game_auto_complete_text">Autocomplete</string>
@@ -16,7 +18,7 @@
     <string name="game_load_error">Loading data failed, starting new game…</string>
 
     <!-- Menu -->
-    <string name="menu_scores">Scores</string>
+    <string name="menu_statistics">Scores</string>
     <string name="menu_undo">Undo</string>
     <string name="menu_hint">Hint</string>
     <string name="menu_main_menu">Menu</string>
@@ -36,7 +38,6 @@
     <string name="games_gypsy">Gypsy</string>
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">Canfield</string>
-
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>
@@ -74,7 +75,8 @@
     <string name="game_won" translatable="false">GameWon</string>
     <string name="game_redeal_count" translatable="false">GameRedealCount</string>
     <string name="saved_scores" translatable="false">SavedScores</string>
-    <string name="score" translatable="false">"Score</string>
+    <string name="score" translatable="false">Score</string>
+    <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
 
 
 

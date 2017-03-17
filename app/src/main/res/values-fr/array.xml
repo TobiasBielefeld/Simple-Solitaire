@@ -6,13 +6,6 @@
         <item>Revenir au menu principal</item>
     </string-array>
 
-    <string-array name="restart_menu_with_manual">
-        <item>Démarrer une nouvelle partie</item>
-        <item>Redistribuer les cartes</item>
-        <item>Ouvrir le manuel du jeu</item>
-        <item>Revenir au menu principal</item>
-    </string-array>
-
     <string-array name="pref_background_colors_titles">
         <item>Bleu</item>
         <item>Vert</item>
@@ -73,6 +66,12 @@
     <string-array name="pref_icon_theme_titles">
         <item>Thème Material Design</item>
         <item>Ancien thème</item>
+    </string-array>
+
+    <!-- New values -->
+    <string-array name="pref_yukon_rules_titles">
+        <item>different colors (Default)</item>
+        <item>same suit (Russian Solitaire)</item>
     </string-array>
 
 </resources>

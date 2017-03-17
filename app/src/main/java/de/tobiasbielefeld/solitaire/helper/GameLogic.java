@@ -41,9 +41,17 @@ public class GameLogic{
     private int numberWonGames;                                                                     //number of won games. It's shown in the high score activity
     private boolean won;                                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
+    private boolean movedFirstCard = false;
 
     public GameLogic(GameManager gm){
         this.gm = gm;
+    }
+
+    public void checkFirstMovement(){
+        if (!movedFirstCard){
+            incrementPlayedGames();
+            movedFirstCard = true;
+        }
     }
 
     public void save() {
@@ -54,6 +62,7 @@ public class GameLogic{
         scores.save();
         recordList.save();
         putBoolean(GAME_WON, won);
+        putBoolean(GAME_MOVED_FIRST_CARD,movedFirstCard);
         putInt(GAME_NUMBER_OF_WON_GAMES, numberWonGames);
         /* Timer will be saved in onPause() */
         for (Stack stack : stacks)
@@ -75,6 +84,7 @@ public class GameLogic{
         boolean first_run = getBoolean(GAME_FIRST_RUN, DEFAULT_FIRST_RUN);
         numberWonGames = getInt(GAME_NUMBER_OF_WON_GAMES, 0);
         won = getBoolean(GAME_WON, DEFAULT_WON);
+        movedFirstCard = getBoolean(GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
@@ -122,10 +132,7 @@ public class GameLogic{
     }
 
     public void newGame() {
-
         //new game is like a re-deal, but with randomized cards
-        incrementPlayedGames();
-
         randomCards = cards.clone();
         randomize(randomCards);
 
@@ -134,6 +141,11 @@ public class GameLogic{
 
     public void redeal(){
         //reset EVERYTHING
+        if (!won) {                                                                                  //if the game has been won, the score was already saved
+            scores.addNewHighScore();
+        }
+
+        movedFirstCard = false;
         won = false;
         currentGame.reset(gm);
 
@@ -160,10 +172,10 @@ public class GameLogic{
 
     public void testIfWon() {
         if (!won && ! autoComplete.isRunning() && currentGame.winTest()) {
-            scores.updateBonus();
             won = true;
             numberWonGames++;
 
+            scores.updateBonus();
             scores.addNewHighScore();
             recordList.reset();
             autoComplete.hideButton();

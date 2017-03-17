@@ -16,7 +16,7 @@
     <string name="game_load_error">Chargement des données échoué, démarrage d\'une nouvelle partie…</string>
 
     <!-- Menu -->
-    <string name="menu_scores">Points</string>
+    <string name="menu_statistics">Points</string>
     <string name="menu_undo">Annuler</string>
     <string name="menu_hint">Indice</string>
     <string name="menu_main_menu">Menu</string>

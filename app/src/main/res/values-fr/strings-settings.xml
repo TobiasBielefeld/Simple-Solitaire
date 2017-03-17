@@ -67,4 +67,7 @@
     <string name="settings_menu_bar_position_left">Gauche</string>
     <string name="settings_menu_bar_position_right">Droite</string>
 
+    <!-- new values -->
+    <string name="settings_yukon_rules">Place cards on…</string>
+
 </resources>

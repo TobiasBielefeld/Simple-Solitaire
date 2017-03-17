@@ -14,7 +14,7 @@
     <string name="game_press_again">もう一度押すと終了します</string>
     <string name="game_load_error">データの読み込みに失敗しました。新しいゲームを開始しています…</string>
 
-    <string name="menu_scores">スコア</string>
+    <string name="menu_statistics">スコア</string>
     <string name="menu_undo">元に戻す</string>
     <string name="menu_hint">ヒント</string>
     <string name="menu_main_menu">メニュー</string>

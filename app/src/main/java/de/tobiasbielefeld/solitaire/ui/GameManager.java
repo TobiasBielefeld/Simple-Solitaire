@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
@@ -195,10 +194,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
             }
         });
-
     }
-
-
 
     @Override
     public void onPause() {
@@ -358,7 +354,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         switch (view.getId()) {
             case R.id.mainButtonScores:
-                startActivity(new Intent(getApplicationContext(), HighScores.class));               //open high scores activity
+                startActivity(new Intent(getApplicationContext(), Statistics.class));               //open high scores activity
                 break;
             case R.id.mainButtonUndo:
                 recordList.undo();                                                                  //undo last movement

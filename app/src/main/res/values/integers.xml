@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="default_current_game">0</integer>
+    <integer name="statistics_text_size">18</integer>
 
     <!-- changing these to integers would cause problems with already saved values -->
-    <string name="default_menu_columns_landscape">5</string>
-    <string name="default_menu_columns_portrait">3</string>
+    <string name="default_menu_columns_landscape" translatable="false">5</string>
+    <string name="default_menu_columns_portrait" translatable="false">3</string>
+
 </resources>

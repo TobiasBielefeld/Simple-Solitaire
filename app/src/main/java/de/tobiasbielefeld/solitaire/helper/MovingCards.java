@@ -63,6 +63,8 @@ public class MovingCards {
     }
 
     public void moveToDestination(Stack destination) {
+        gameLogic.checkFirstMovement();
+
         Stack origin = currentCards.get(0).getStack();
 
         moveToStack(currentCards, destination);

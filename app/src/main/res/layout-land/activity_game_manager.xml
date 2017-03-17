@@ -122,7 +122,7 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/menu_scores"
+                android:contentDescription="@string/menu_statistics"
                 app:srcCompat="@drawable/scores_material" />
         </FrameLayout>
 

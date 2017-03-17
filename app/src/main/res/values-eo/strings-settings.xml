@@ -65,6 +65,9 @@
     <string name="settings_menu_bar_position_top">Supre</string>
     <string name="settings_menu_bar_position_bottom">Sube</string>
     <string name="settings_menu_bar_position_left">Maldekstre</string>
-<string name="settings_menu_bar_position_right">Dekstre</string>
+    <string name="settings_menu_bar_position_right">Dekstre</string>
+
+    <!-- new values -->
+    <string name="settings_yukon_rules">Place cards on…</string>
     
 </resources>

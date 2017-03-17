@@ -9,4 +9,9 @@
     <!-- following are translated with an online translator -->
     <string name="statistics_text_won_games">%2$d試合のうち%1$d勝利</string>  <!-- %1$d and %2$d are placeholders for the values-->
     <string name="statistics_win_percentage">勝率： %1$.0f%%</string> <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
+
+    <!-- new values -->
+    <string name="statistics_time_of_day">Time of day</string>
+    <string name="statistics_date">Date</string>
+
 </resources>

@@ -65,6 +65,9 @@
     <string name="settings_menu_bar_position_top">Góra</string>
     <string name="settings_menu_bar_position_bottom">Dół</string>
     <string name="settings_menu_bar_position_left">Lewo</string>
-<string name="settings_menu_bar_position_right">Prawo</string>
-    
+    <string name="settings_menu_bar_position_right">Prawo</string>
+
+    <!-- new values -->
+    <string name="settings_yukon_rules">Place cards on…</string>
+
 </resources>
