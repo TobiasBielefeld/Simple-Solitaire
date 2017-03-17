@@ -90,7 +90,8 @@ public class Statistics extends CustomAppCompatActivity{
                     (scores.get(i, 1) % 60)));
 
             textView3.setText(df.format(scores.get(i,2)));
-            textView4.setText(new SimpleDateFormat("HH:mm",Locale.getDefault()).format(scores.get(i,2)));
+            textView4.setText(DateFormat.getTimeInstance(DateFormat.SHORT).format(scores.get(i,2)));
+            //textView4.setText(new SimpleDateFormat("HH:mm",Locale.getDefault()).format(scores.get(i,2)));
 
             textView1.setPadding(padding,0,padding,0);
             textView2.setPadding(padding,0,padding,0);
