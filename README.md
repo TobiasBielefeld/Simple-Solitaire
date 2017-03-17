@@ -22,6 +22,7 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [ ] Add a 'poker standard' card theme and 4 color themes
 - [X] Add a option to Yukon to play on same suits, instead of different color (like Russian Solitaire)
 - [X] Also save high scores when canceling a game
+- [ ] Add an option to set up appearance for each game indivially
 
 ## Translations
 Thanks to the following persons for providing translations :D
@@ -53,7 +54,7 @@ When winning a game, your score will be saved in a list of up to 10 high scores.
 Game features:
 This game has a undo function to take back up to 20 card movements. A hint function shows you up to 3 possible card movements at once.
 
-Left handed mode:
+Left handed mode:little changea
 There is a option for left handed people to mirror the card positions to the left side of the screen.
 
 No ads:
