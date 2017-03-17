@@ -9,5 +9,6 @@
     <bool name="default_first_run">true</bool>
     <bool name="default_won">false</bool>
     <bool name="default_moved_first_card">false</bool>
+    <bool name="default_4_color_mode">false</bool>
 </resources>
 

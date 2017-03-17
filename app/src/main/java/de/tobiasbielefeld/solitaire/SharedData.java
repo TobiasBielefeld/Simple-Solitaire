@@ -98,6 +98,7 @@ public class SharedData {
     public static String PREF_KEY_CURRENT_GAME;
     public static String PREF_KEY_ORIENTATION;
     public static String PREF_KEY_MENU_GAMES;
+    public static String PREF_KEY_4_COLOR_MODE;
 
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
@@ -123,6 +124,7 @@ public class SharedData {
     public static boolean DEFAULT_WON;
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
+    public static boolean DEFAULT_4_COLOR_MODE;
 
     public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
 
@@ -167,6 +169,7 @@ public class SharedData {
         PREF_KEY_CURRENT_GAME = res.getString(R.string.pref_key_current_game);
         PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
         PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
+        PREF_KEY_4_COLOR_MODE = res.getString(R.string.pref_key_4_color_mode);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -186,6 +189,7 @@ public class SharedData {
         DEFAULT_FIRST_RUN = res.getBoolean(R.bool.default_first_run);
         DEFAULT_WON = res.getBoolean(R.bool.default_won);
         DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
+        DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];

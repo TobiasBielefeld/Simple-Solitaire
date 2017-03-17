@@ -145,6 +145,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             if (gameLogic != null)
                 gameLogic.updateMenuBar();
 
+        } else if (key.equals(getString(R.string.pref_key_4_color_mode))){
+            Card.updateCardDrawableChoice();
+
         }
     }
 

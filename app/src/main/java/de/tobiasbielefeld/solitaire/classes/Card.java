@@ -18,7 +18,11 @@
 
 package de.tobiasbielefeld.solitaire.classes;
 
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.PointF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -47,21 +51,15 @@ public class Card {
     private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
 
     private boolean animating = false;
-    //private long startTimeOfAnimation;
 
     public void startAnim(){
         animating = true;
-        //startTimeOfAnimation = System.currentTimeMillis();
     }
 
     public void stopAnim(){
         animating = false;
         view.clearAnimation();
     }
-
-    /*public long getStartTimeOfAnimation(){
-        return startTimeOfAnimation;
-    }*/
 
     public boolean isAnimating(){
         return animating;
@@ -79,27 +77,29 @@ public class Card {
     }
 
     public static void updateCardDrawableChoice(){
-        //get
+        boolean fourColors = getSharedBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE);
+
         switch (getSharedInt(CARD_DRAWABLES, 1)) {
             case 1:
-                drawables = sDrawablesBasic;
+                drawables = fourColors? sDrawablesBasic4Colors : sDrawablesBasic;
                 break;
             case 2:
-                drawables = sDrawablesClassic;
+                drawables = fourColors? sDrawablesClassic4Colors : sDrawablesClassic;
                 break;
             case 3:
-                drawables = sDrawablesAbstract;
+                drawables = fourColors? sDrawablesAbstract4Colors : sDrawablesAbstract;
                 break;
             case 4:
-                drawables = sDrawablesSimple;
+                drawables = fourColors? sDrawablesSimple4Colors : sDrawablesSimple;
                 break;
             case 5:
-                drawables = sDrawablesModern;
+                drawables = fourColors? sDrawablesModern4Colors : sDrawablesModern;
                 break;
             case 6:
-                drawables = sDrawablesDark;
+                drawables = fourColors? sDrawablesDark4Colors : sDrawablesDark;
                 break;
         }
+
         //apply
         if (cards!=null) {
             for (Card card : cards)
@@ -230,13 +230,12 @@ public class Card {
 
     public void flipUp() {
         isUp = true;
-        //set the corresponding drawable as image
-        view.setImageResource(drawables[(getColor() - 1) *13 + getValue() - 1]);
+        setCardFront();
     }
 
     public void flipDown() {
         isUp = false;
-        view.setImageResource(background);
+        setCardBack();
     }
 
     public void flip() {

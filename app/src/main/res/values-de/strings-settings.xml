@@ -70,6 +70,7 @@
     <string name="settings_menu_bar_position_left">Links</string>
     <string name="settings_menu_bar_position_right">Rechts</string>
 
-
+    <string name="settings_4_color_mode_title">4 Farben Decks</string>
+    <string name="settings_4_color_mode_text">Ändere die Farben von Kreuz zu Grün und von Karo zu Blau.</string>
 
 </resources>

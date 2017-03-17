@@ -110,4 +110,93 @@ public class CardDrawables
             R.drawable.basic_diamonds_1, R.drawable.basic_diamonds_2, R.drawable.basic_diamonds_3, R.drawable.basic_diamonds_4, R.drawable.basic_diamonds_5, R.drawable.basic_diamonds_6,
             R.drawable.basic_diamonds_7, R.drawable.basic_diamonds_8, R.drawable.basic_diamonds_9, R.drawable.basic_diamonds_10, R.drawable.basic_diamonds_11, R.drawable.basic_diamonds_12, R.drawable.basic_diamonds_13
     };
+
+    /*
+     * 4 color versions of the themes from above!
+     */
+
+    public final static int[] sDrawablesClassic4Colors = {
+            R.drawable.classic_clubs_1, R.drawable.classic_clubs_2, R.drawable.classic_clubs_3, R.drawable.classic_clubs_4, R.drawable.classic_clubs_5, R.drawable.classic_clubs_6,
+            R.drawable.classic_clubs_7, R.drawable.classic_clubs_8, R.drawable.classic_clubs_9, R.drawable.classic_clubs_10, R.drawable.classic_clubs_11, R.drawable.classic_clubs_12, R.drawable.classic_clubs_13,
+
+            R.drawable.classic_hearts_1, R.drawable.classic_hearts_2, R.drawable.classic_hearts_3, R.drawable.classic_hearts_4, R.drawable.classic_hearts_5, R.drawable.classic_hearts_6,
+            R.drawable.classic_hearts_7, R.drawable.classic_hearts_8, R.drawable.classic_hearts_9, R.drawable.classic_hearts_10, R.drawable.classic_hearts_11, R.drawable.classic_hearts_12, R.drawable.classic_hearts_13,
+
+            R.drawable.classic_spades_1, R.drawable.classic_spades_2, R.drawable.classic_spades_3, R.drawable.classic_spades_4, R.drawable.classic_spades_5, R.drawable.classic_spades_6,
+            R.drawable.classic_spades_7, R.drawable.classic_spades_8, R.drawable.classic_spades_9, R.drawable.classic_spades_10, R.drawable.classic_spades_11, R.drawable.classic_spades_12, R.drawable.classic_spades_13,
+
+            R.drawable.classic_diamonds_1, R.drawable.classic_diamonds_2, R.drawable.classic_diamonds_3, R.drawable.classic_diamonds_4, R.drawable.classic_diamonds_5, R.drawable.classic_diamonds_6,
+            R.drawable.classic_diamonds_7, R.drawable.classic_diamonds_8, R.drawable.classic_diamonds_9, R.drawable.classic_diamonds_10, R.drawable.classic_diamonds_11, R.drawable.classic_diamonds_12, R.drawable.classic_diamonds_13
+    };
+
+    public final static int[] sDrawablesAbstract4Colors = {
+            R.drawable.abstract_clubs_1, R.drawable.abstract_clubs_2, R.drawable.abstract_clubs_3, R.drawable.abstract_clubs_4, R.drawable.abstract_clubs_5, R.drawable.abstract_clubs_6,
+            R.drawable.abstract_clubs_7, R.drawable.abstract_clubs_8, R.drawable.abstract_clubs_9, R.drawable.abstract_clubs_10, R.drawable.abstract_clubs_11, R.drawable.abstract_clubs_12, R.drawable.abstract_clubs_13,
+
+            R.drawable.abstract_hearts_1, R.drawable.abstract_hearts_2, R.drawable.abstract_hearts_3, R.drawable.abstract_hearts_4, R.drawable.abstract_hearts_5, R.drawable.abstract_hearts_6,
+            R.drawable.abstract_hearts_7, R.drawable.abstract_hearts_8, R.drawable.abstract_hearts_9, R.drawable.abstract_hearts_10, R.drawable.abstract_hearts_11, R.drawable.abstract_hearts_12, R.drawable.abstract_hearts_13,
+
+            R.drawable.abstract_spades_1, R.drawable.abstract_spades_2, R.drawable.abstract_spades_3, R.drawable.abstract_spades_4, R.drawable.abstract_spades_5, R.drawable.abstract_spades_6,
+            R.drawable.abstract_spades_7, R.drawable.abstract_spades_8, R.drawable.abstract_spades_9, R.drawable.abstract_spades_10, R.drawable.abstract_spades_11, R.drawable.abstract_spades_12, R.drawable.abstract_spades_13,
+
+            R.drawable.abstract_diamonds_1, R.drawable.abstract_diamonds_2, R.drawable.abstract_diamonds_3, R.drawable.abstract_diamonds_4, R.drawable.abstract_diamonds_5, R.drawable.abstract_diamonds_6,
+            R.drawable.abstract_diamonds_7, R.drawable.abstract_diamonds_8, R.drawable.abstract_diamonds_9, R.drawable.abstract_diamonds_10, R.drawable.abstract_diamonds_11, R.drawable.abstract_diamonds_12, R.drawable.abstract_diamonds_13
+    };
+
+    public final static int[] sDrawablesSimple4Colors = {
+            R.drawable.simple_clubs_1, R.drawable.simple_clubs_2, R.drawable.simple_clubs_3, R.drawable.simple_clubs_4, R.drawable.simple_clubs_5, R.drawable.simple_clubs_6,
+            R.drawable.simple_clubs_7, R.drawable.simple_clubs_8, R.drawable.simple_clubs_9, R.drawable.simple_clubs_10, R.drawable.simple_clubs_11, R.drawable.simple_clubs_12, R.drawable.simple_clubs_13,
+
+            R.drawable.simple_hearts_1, R.drawable.simple_hearts_2, R.drawable.simple_hearts_3, R.drawable.simple_hearts_4, R.drawable.simple_hearts_5, R.drawable.simple_hearts_6,
+            R.drawable.simple_hearts_7, R.drawable.simple_hearts_8, R.drawable.simple_hearts_9, R.drawable.simple_hearts_10, R.drawable.simple_hearts_11, R.drawable.simple_hearts_12, R.drawable.simple_hearts_13,
+
+            R.drawable.simple_spades_1, R.drawable.simple_spades_2, R.drawable.simple_spades_3, R.drawable.simple_spades_4, R.drawable.simple_spades_5, R.drawable.simple_spades_6,
+            R.drawable.simple_spades_7, R.drawable.simple_spades_8, R.drawable.simple_spades_9, R.drawable.simple_spades_10, R.drawable.simple_spades_11, R.drawable.simple_spades_12, R.drawable.simple_spades_13,
+
+            R.drawable.simple_diamonds_1, R.drawable.simple_diamonds_2, R.drawable.simple_diamonds_3, R.drawable.simple_diamonds_4, R.drawable.simple_diamonds_5, R.drawable.simple_diamonds_6,
+            R.drawable.simple_diamonds_7, R.drawable.simple_diamonds_8, R.drawable.simple_diamonds_9, R.drawable.simple_diamonds_10, R.drawable.simple_diamonds_11, R.drawable.simple_diamonds_12, R.drawable.simple_diamonds_13
+    };
+
+    public final static int[] sDrawablesModern4Colors = {
+            R.drawable.modern_clubs_1, R.drawable.modern_clubs_2, R.drawable.modern_clubs_3, R.drawable.modern_clubs_4, R.drawable.modern_clubs_5, R.drawable.modern_clubs_6,
+            R.drawable.modern_clubs_7, R.drawable.modern_clubs_8, R.drawable.modern_clubs_9, R.drawable.modern_clubs_10, R.drawable.modern_clubs_11, R.drawable.modern_clubs_12, R.drawable.modern_clubs_13,
+
+            R.drawable.modern_hearts_1, R.drawable.modern_hearts_2, R.drawable.modern_hearts_3, R.drawable.modern_hearts_4, R.drawable.modern_hearts_5, R.drawable.modern_hearts_6,
+            R.drawable.modern_hearts_7, R.drawable.modern_hearts_8, R.drawable.modern_hearts_9, R.drawable.modern_hearts_10, R.drawable.modern_hearts_11, R.drawable.modern_hearts_12, R.drawable.modern_hearts_13,
+
+            R.drawable.modern_spades_1, R.drawable.modern_spades_2, R.drawable.modern_spades_3, R.drawable.modern_spades_4, R.drawable.modern_spades_5, R.drawable.modern_spades_6,
+            R.drawable.modern_spades_7, R.drawable.modern_spades_8, R.drawable.modern_spades_9, R.drawable.modern_spades_10, R.drawable.modern_spades_11, R.drawable.modern_spades_12, R.drawable.modern_spades_13,
+
+            R.drawable.modern_diamonds_1, R.drawable.modern_diamonds_2, R.drawable.modern_diamonds_3, R.drawable.modern_diamonds_4, R.drawable.modern_diamonds_5, R.drawable.modern_diamonds_6,
+            R.drawable.modern_diamonds_7, R.drawable.modern_diamonds_8, R.drawable.modern_diamonds_9, R.drawable.modern_diamonds_10, R.drawable.modern_diamonds_11, R.drawable.modern_diamonds_12, R.drawable.modern_diamonds_13
+    };
+
+    public final static int[] sDrawablesDark4Colors = {
+            R.drawable.dark_clubs_1, R.drawable.dark_clubs_2, R.drawable.dark_clubs_3, R.drawable.dark_clubs_4, R.drawable.dark_clubs_5, R.drawable.dark_clubs_6,
+            R.drawable.dark_clubs_7, R.drawable.dark_clubs_8, R.drawable.dark_clubs_9, R.drawable.dark_clubs_10, R.drawable.dark_clubs_11, R.drawable.dark_clubs_12, R.drawable.dark_clubs_13,
+
+            R.drawable.dark_hearts_1, R.drawable.dark_hearts_2, R.drawable.dark_hearts_3, R.drawable.dark_hearts_4, R.drawable.dark_hearts_5, R.drawable.dark_hearts_6,
+            R.drawable.dark_hearts_7, R.drawable.dark_hearts_8, R.drawable.dark_hearts_9, R.drawable.dark_hearts_10, R.drawable.dark_hearts_11, R.drawable.dark_hearts_12, R.drawable.dark_hearts_13,
+
+            R.drawable.dark_spades_1, R.drawable.dark_spades_2, R.drawable.dark_spades_3, R.drawable.dark_spades_4, R.drawable.dark_spades_5, R.drawable.dark_spades_6,
+            R.drawable.dark_spades_7, R.drawable.dark_spades_8, R.drawable.dark_spades_9, R.drawable.dark_spades_10, R.drawable.dark_spades_11, R.drawable.dark_spades_12, R.drawable.dark_spades_13,
+
+            R.drawable.dark_diamonds_1, R.drawable.dark_diamonds_2, R.drawable.dark_diamonds_3, R.drawable.dark_diamonds_4, R.drawable.dark_diamonds_5, R.drawable.dark_diamonds_6,
+            R.drawable.dark_diamonds_7, R.drawable.dark_diamonds_8, R.drawable.dark_diamonds_9, R.drawable.dark_diamonds_10, R.drawable.dark_diamonds_11, R.drawable.dark_diamonds_12, R.drawable.dark_diamonds_13
+    };
+
+
+    public final static int[] sDrawablesBasic4Colors = {
+            R.drawable.basic_clubs_1_green, R.drawable.basic_clubs_2_green, R.drawable.basic_clubs_3_green, R.drawable.basic_clubs_4_green, R.drawable.basic_clubs_5_green, R.drawable.basic_clubs_6_green,
+            R.drawable.basic_clubs_7_green, R.drawable.basic_clubs_8_green, R.drawable.basic_clubs_9_green, R.drawable.basic_clubs_10_green, R.drawable.basic_clubs_11_green, R.drawable.basic_clubs_12_green, R.drawable.basic_clubs_13_green,
+
+            R.drawable.basic_hearts_1, R.drawable.basic_hearts_2, R.drawable.basic_hearts_3, R.drawable.basic_hearts_4, R.drawable.basic_hearts_5, R.drawable.basic_hearts_6,
+            R.drawable.basic_hearts_7, R.drawable.basic_hearts_8, R.drawable.basic_hearts_9, R.drawable.basic_hearts_10, R.drawable.basic_hearts_11, R.drawable.basic_hearts_12, R.drawable.basic_hearts_13,
+
+            R.drawable.basic_spades_1, R.drawable.basic_spades_2, R.drawable.basic_spades_3, R.drawable.basic_spades_4, R.drawable.basic_spades_5, R.drawable.basic_spades_6,
+            R.drawable.basic_spades_7, R.drawable.basic_spades_8, R.drawable.basic_spades_9, R.drawable.basic_spades_10, R.drawable.basic_spades_11, R.drawable.basic_spades_12, R.drawable.basic_spades_13,
+
+            R.drawable.basic_diamonds_1_blue, R.drawable.basic_diamonds_2_blue, R.drawable.basic_diamonds_3_blue, R.drawable.basic_diamonds_4_blue, R.drawable.basic_diamonds_5_blue, R.drawable.basic_diamonds_6_blue,
+            R.drawable.basic_diamonds_7_blue, R.drawable.basic_diamonds_8_blue, R.drawable.basic_diamonds_9_blue, R.drawable.basic_diamonds_10_blue, R.drawable.basic_diamonds_11_blue, R.drawable.basic_diamonds_12_blue, R.drawable.basic_diamonds_13_blue
+    };
 }
