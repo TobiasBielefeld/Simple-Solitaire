@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <string name="title_activity_statistics">Statistiken</string>
+    <string name="title_activity_statistics">High Scores</string>
     <string name="statistics_text_won_games">%1$d aus %2$d Spiele gewonnen</string>  <!-- %1$d and %2$d are placeholders for the values-->
     <string name="statistics_win_percentage">Deine Gewinnrate: %1$.0f%%</string> <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
     <string name="statistics_button_delete">Alle Einträge löschen!</string>
