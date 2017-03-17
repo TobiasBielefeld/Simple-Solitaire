@@ -49,7 +49,8 @@ public class InformationFragment extends Fragment implements View.OnClickListene
 
         TextView textViewBuildDate = (TextView) view.findViewById(R.id.aboutTextViewBuild);         //build date
         TextView textViewAppVersion = (TextView) view.findViewById(R.id.aboutTextViewVersion);      //app version
-        TextView textViewCC0License = (TextView) view.findViewById(R.id.aboutTextViewLicense);      //cc0 license from the pictures
+        TextView textViewCC0License = (TextView) view.findViewById(R.id.aboutTextViewCC0License);      //cc0 license from the pictures
+        TextView textViewPokerTheme = (TextView) view.findViewById(R.id.aboutTextViewPokerThemeLicense);      //cc0 license from the pictures
         TextView textViewGitHubLink = (TextView) view.findViewById(R.id.aboutTextViewGitHubLink);   //link for the gitHub repo
         TextView textViewApacheLicense = (TextView) view.findViewById(R.id.aboutTextViewApacheLicense); //apache2.0
 
@@ -59,6 +60,7 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         textViewAppVersion.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.app_version), BuildConfig.VERSION_NAME));
         textViewBuildDate.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.about_build_date), buildDate));
         textViewCC0License.setMovementMethod(LinkMovementMethod.getInstance());
+        textViewPokerTheme.setMovementMethod(LinkMovementMethod.getInstance());
         textViewGitHubLink.setMovementMethod(LinkMovementMethod.getInstance());
         textViewApacheLicense.setMovementMethod(LinkMovementMethod.getInstance());
 

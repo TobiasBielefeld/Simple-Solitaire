@@ -85,12 +85,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:focusable="false"
             android:gravity="center"
             android:text="@string/about_translations"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -120,34 +121,38 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/about_third_party_licenses"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="normal|bold" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_Text3"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="@string/about_poker_ctheme_license"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/aboutTextViewPokerThemeLicense"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:autoLink="web"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_Text4"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/aboutTextViewLicense"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:focusable="false"
-            android:gravity="center"
-            android:text="@string/about_Text5"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="@string/about_pixa_bay_license_text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/aboutTextViewCC0License" />
 
 
         <TextView

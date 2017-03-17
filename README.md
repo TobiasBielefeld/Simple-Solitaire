@@ -64,7 +64,8 @@ You can switch to landscape mode, this is better for larger screens. It is also 
 
 ##License
 
-The pictures used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
+The Poker card theme was originally pulbished on https://sourceforge.net/projects/vector-cards/ under the [LGPLv3 license!](https://www.gnu.org/licenses/lgpl-3.0.en.html)
+The other card themes used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
 You can download the used pictures in the original solution from my [pictures directory](./Pictures)
 

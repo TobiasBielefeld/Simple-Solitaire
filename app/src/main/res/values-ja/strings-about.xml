@@ -23,4 +23,11 @@
     <string name="about_material_icons_text">材料デザインアイコンはGoogle Incによって作成され、
         <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 license</a>ライセンスで公開されています</string>string
 
+    <!-- new values -->
+    <string name="about_poker_ctheme_license">The Poker card theme was originally published on <a href=" https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> under the
+        <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPLv3 license</a></string>
+    <string name="about_pixa_bay_license_text">The other card themes and the old icon theme were originally published on <a href="www.pixabay.com">pixabay.com</a> under the
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 license</a></string>
+    <string name="about_third_party_licenses">Third party licenses</string>
+
 </resources>

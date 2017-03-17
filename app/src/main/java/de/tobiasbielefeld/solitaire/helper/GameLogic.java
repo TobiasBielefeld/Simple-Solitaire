@@ -141,7 +141,7 @@ public class GameLogic{
 
     public void redeal(){
         //reset EVERYTHING
-        if (!won) {                                                                                  //if the game has been won, the score was already saved
+        if (!won) {                                                                                 //if the game has been won, the score was already saved
             scores.addNewHighScore();
         }
 

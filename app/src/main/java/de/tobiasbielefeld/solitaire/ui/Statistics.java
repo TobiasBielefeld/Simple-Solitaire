@@ -20,16 +20,9 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -46,7 +39,6 @@ import de.tobiasbielefeld.solitaire.helper.Scores;
 
 import static android.view.View.GONE;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 public class Statistics extends CustomAppCompatActivity{
