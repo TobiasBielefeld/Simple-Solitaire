@@ -18,6 +18,7 @@
     <string name="settings_abstract">Abstract</string>
     <string name="settings_dark">Dark</string>
     <string name="settings_basic">Basic</string>
+    <string name="settings_poker">Poker</string>
 
     <string name="settings_background">Background number</string>
     <string name="settings_customization">Appearance</string>

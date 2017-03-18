@@ -79,10 +79,10 @@
             android:layout_above="@+id/mainTextViewTime"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/button"
             android:onClick="menuClick"
             android:text="@string/game_auto_complete_text"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:background="@android:drawable/btn_default_small" />
 
         <TextView
             android:id="@+id/textViewRedeals"
@@ -123,7 +123,7 @@
                 android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_statistics"
-                app:srcCompat="@drawable/scores_material" />
+                app:srcCompat="@drawable/icon_material_scores" />
         </FrameLayout>
 
         <FrameLayout
@@ -141,7 +141,7 @@
                 android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_hint"
-                app:srcCompat="@drawable/hint_material" />
+                app:srcCompat="@drawable/icon_material_hint" />
         </FrameLayout>
 
         <FrameLayout
@@ -159,7 +159,7 @@
                 android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_main_menu"
-                app:srcCompat="@drawable/menu_material" />
+                app:srcCompat="@drawable/icon_material_menu" />
         </FrameLayout>
 
         <FrameLayout
@@ -177,7 +177,7 @@
                 android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_undo"
-                app:srcCompat="@drawable/undo_material" />
+                app:srcCompat="@drawable/icon_material_undo" />
         </FrameLayout>
 
         <FrameLayout
@@ -195,7 +195,7 @@
                 android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_settings"
-                app:srcCompat="@drawable/settings_material" />
+                app:srcCompat="@drawable/icon_material_settings" />
         </FrameLayout>
 
     </LinearLayout>

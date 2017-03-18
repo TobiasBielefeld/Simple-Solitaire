@@ -97,6 +97,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         timer = new Timer(gm);
         currentGame = lg.loadClass(this,getIntent().getIntExtra(GAME,1));
         savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
+        Stack.loadBackgrounds();
 
         if (savedSharedData==null) {
             savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
@@ -105,11 +106,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         updateIcons();
         updateMenuBar();
 
+
         //initialize cards and stacks
         for (int i = 0; i < stacks.length; i++) {
             stacks[i] = new Stack(i);
             stacks[i].view = new ImageView(this);
-            stacks[i].view.setBackgroundResource(R.drawable.background_stack);
+            stacks[i].view.setImageBitmap(Stack.backgroundDefault);
             layoutGame.addView(stacks[i].view);
         }
 
@@ -443,18 +445,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         switch(getSharedString(getString(R.string.pref_key_icon_theme),DEFAULT_ICON_THEME)){
             case "Material":
-                scores.setImageResource(R.drawable.scores_material);
-                hint.setImageResource(R.drawable.hint_material);
-                menu.setImageResource(R.drawable.menu_material);
-                undo.setImageResource(R.drawable.undo_material);
-                settings.setImageResource(R.drawable.settings_material);
+                scores.setImageResource(R.drawable.icon_material_scores);
+                hint.setImageResource(R.drawable.icon_material_hint);
+                menu.setImageResource(R.drawable.icon_material_menu);
+                undo.setImageResource(R.drawable.icon_material_undo);
+                settings.setImageResource(R.drawable.icon_material_settings);
                 break;
             case "Old":
-                scores.setImageResource(R.drawable.scores_old);
-                hint.setImageResource(R.drawable.hint_old);
-                menu.setImageResource(R.drawable.menu_old);
-                undo.setImageResource(R.drawable.undo_old);
-                settings.setImageResource(R.drawable.settings_old);
+                scores.setImageResource(R.drawable.icon_old_scores);
+                hint.setImageResource(R.drawable.icon_old_hint);
+                menu.setImageResource(R.drawable.icon_old_menu);
+                undo.setImageResource(R.drawable.icon_old_undo);
+                settings.setImageResource(R.drawable.icon_old_settings);
                 break;
         }
 

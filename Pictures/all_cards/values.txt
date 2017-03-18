@@ -1,0 +1,8 @@
+blue: -145
+green hey code: 087a08
+
+each card: 133*200
+
+each menu picture: 350*288
+
+card theme previes: 267*200

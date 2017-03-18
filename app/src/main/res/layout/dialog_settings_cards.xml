@@ -36,7 +36,6 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/settings_basic"
-                    app:srcCompat="@drawable/preview_basic"
                     android:padding="2dp" />
 
                 <TextView
@@ -67,7 +66,6 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/settings_classic"
-                    app:srcCompat="@drawable/preview_classic"
                     android:padding="2dp" />
 
                 <TextView
@@ -98,7 +96,6 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/settings_abstract"
-                    app:srcCompat="@drawable/preview_abstract"
                     android:padding="2dp" />
 
                 <TextView
@@ -136,7 +133,6 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/settings_simple"
-                    app:srcCompat="@drawable/preview_simple"
                     android:padding="2dp" />
 
                 <TextView
@@ -167,7 +163,6 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/settings_modern"
-                    app:srcCompat="@drawable/preview_modern"
                     android:padding="2dp" />
 
                 <TextView
@@ -198,7 +193,6 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/settings_dark"
-                    app:srcCompat="@drawable/preview_dark"
                     android:padding="2dp" />
 
                 <TextView
@@ -213,6 +207,64 @@
             </LinearLayout>
 
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/settingsLinearLayoutCardsPoker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/settings_simple"
+                android:padding="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/settings_poker"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:ellipsize="end" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settingsLinearLayoutCardsSimple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/settingsLinearLayoutCardsSimple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_weight="1"/>
+
+            </TableRow>
+
+
 
     </TableLayout>
 

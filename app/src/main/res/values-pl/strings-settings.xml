@@ -67,7 +67,6 @@
     <string name="settings_menu_bar_position_left">Lewo</string>
     <string name="settings_menu_bar_position_right">Prawo</string>
 
-    <!-- new values -->
     <string name="settings_yukon_rules">Kładź karty na…</string>
     <string name="settings_4_color_mode_title">4 kolory kart</string>
     <string name="settings_4_color_mode_text">Pokoloruj trefle na zielono i karo na niebiesko</string>

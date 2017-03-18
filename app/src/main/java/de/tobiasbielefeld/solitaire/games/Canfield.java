@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.graphics.Bitmap;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -94,9 +95,9 @@ public class Canfield extends Game {
 
         //also set backgrounds of the stacks
         for (int i=9;i<12;i++)
-            stacks[i].view.setBackgroundResource(R.drawable.background_stack_transparent);
+            stacks[i].view.setImageBitmap(Stack.backgroundTransparent);
 
-        stacks[12].view.setBackgroundResource(R.drawable.background_stack_stock);
+        stacks[12].view.setImageBitmap(Stack.backgroundTalon);
         load();
         setFoundationBackgrounds();
     }
@@ -111,52 +112,52 @@ public class Canfield extends Game {
     }
 
     private void setFoundationBackgrounds(){
-        int resID;
+        Bitmap bitmap;
 
         switch (startCardValue){
             case 1:default:
-                resID = R.drawable.background_stack_1;
+                bitmap = Stack.background1;
                 break;
             case 2:
-                resID = R.drawable.background_stack_2;
+                bitmap = Stack.background2;
                 break;
             case 3:
-                resID = R.drawable.background_stack_3;
+                bitmap = Stack.background3;
                 break;
             case 4:
-                resID = R.drawable.background_stack_4;
+                bitmap = Stack.background4;
                 break;
             case 5:
-                resID = R.drawable.background_stack_5;
+                bitmap = Stack.background5;
                 break;
             case 6:
-                resID = R.drawable.background_stack_6;
+                bitmap = Stack.background6;
                 break;
             case 7:
-                resID = R.drawable.background_stack_7;
+                bitmap = Stack.background7;
                 break;
             case 8:
-                resID = R.drawable.background_stack_8;
+                bitmap = Stack.background8;
                 break;
             case 9:
-                resID = R.drawable.background_stack_9;
+                bitmap = Stack.background9;
                 break;
             case 10:
-                resID = R.drawable.background_stack_10;
+                bitmap = Stack.background10;
                 break;
             case 11:
-                resID = R.drawable.background_stack_11;
+                bitmap = Stack.background11;
                 break;
             case 12:
-                resID = R.drawable.background_stack_12;
+                bitmap = Stack.background12;
                 break;
             case 13:
-                resID = R.drawable.background_stack_13;
+                bitmap = Stack.background13;
                 break;
         }
 
         for (int i=5;i<9;i++) {
-            stacks[i].view.setBackgroundResource(resID);
+            stacks[i].view.setImageBitmap(bitmap);
         }
     }
 

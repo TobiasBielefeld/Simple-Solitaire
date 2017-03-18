@@ -67,7 +67,6 @@
     <string name="settings_menu_bar_position_left">Maldekstre</string>
     <string name="settings_menu_bar_position_right">Dekstre</string>
 
-    <!-- new values -->
     <string name="settings_yukon_rules">Meti kartojn sur…</string>
     <string name="settings_4_color_mode_title">4 ludkartaj emblemoj</string>
     <string name="settings_4_color_mode_text">Kolorigi trefojn verde kaj karoojn blue</string>

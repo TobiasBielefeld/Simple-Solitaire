@@ -18,6 +18,9 @@
 
 package de.tobiasbielefeld.solitaire.classes;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.util.Log;
@@ -45,6 +48,28 @@ public class Stack {
     private int spacingDirection;
     private int hasArrow;
     private float spacingMax;
+    public static Bitmap backgroundDefault, backgroundTalon, background1, background2,background3,
+            background4,background5,background6,background7,background8,background9,background10,
+            background11,background12,background13, backgroundTransparent;
+
+    public static void loadBackgrounds(){
+        backgroundDefault = bitmaps.getStackBackground(0,0);
+        backgroundTalon = bitmaps.getStackBackground(1,0);
+        background1 = bitmaps.getStackBackground(2,0);
+        background2 = bitmaps.getStackBackground(3,0);
+        background3 = bitmaps.getStackBackground(4,0);
+        background4 = bitmaps.getStackBackground(5,0);
+        background5 = bitmaps.getStackBackground(6,0);
+        background6 = bitmaps.getStackBackground(7,0);
+        background7 = bitmaps.getStackBackground(0,1);
+        background8 = bitmaps.getStackBackground(1,1);
+        background9 = bitmaps.getStackBackground(2,1);
+        background10 = bitmaps.getStackBackground(3,1);
+        background11 = bitmaps.getStackBackground(4,1);
+        background12 = bitmaps.getStackBackground(5,1);;
+        background13 = bitmaps.getStackBackground(6,1);
+        backgroundTransparent = bitmaps.getStackBackground(7,1);
+    }
 
     public Stack(int ID) {                                                                          //Constructor: set ID
         this.ID = ID;

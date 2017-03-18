@@ -20,6 +20,8 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -61,6 +63,7 @@ public class GameSelector extends CustomAppCompatActivity {
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
         gameLayouts = lg.loadLayouts(this);
 
+        bitmaps.setResources(getResources());
         loadStrings(this);
         loadGameList();
 
@@ -109,7 +112,8 @@ public class GameSelector extends CustomAppCompatActivity {
                 parent.removeView(gameLayout);
         }
 
-        if (result.size()==12){ //add canfield to list for older version of game
+        //add games to list for older versions of the app
+        if (result.size()==12){                                                                     //new canfield
             result.add(1,1);
         }
 
@@ -123,6 +127,8 @@ public class GameSelector extends CustomAppCompatActivity {
 
             if (result.size()==0 || result.size()<(i+1) || result.get(i)==1){
                 gameLayouts.get(i).setVisibility(View.VISIBLE);
+                ImageView imageView = (ImageView) gameLayouts.get(i).getChildAt(1);
+                imageView.setImageBitmap(bitmaps.getMenu(i%6,i/6));
                 row.addView(gameLayouts.get(i));
                 counter++;
             }
@@ -183,12 +189,12 @@ public class GameSelector extends CustomAppCompatActivity {
 
         switch(getSharedString(getString(R.string.pref_key_icon_theme),DEFAULT_ICON_THEME)){
             case "Material":
-                manual.setImageResource(R.drawable.manual_material);
-                settings.setImageResource(R.drawable.settings_material);
+                manual.setImageResource(R.drawable.icon_material_manual);
+                settings.setImageResource(R.drawable.icon_material_settings);
                 break;
             case "Old":
-                manual.setImageResource(R.drawable.manual_old);
-                settings.setImageResource(R.drawable.settings_old);
+                manual.setImageResource(R.drawable.icon_old_manual);
+                settings.setImageResource(R.drawable.icon_old_settings);
                 break;
         }
 

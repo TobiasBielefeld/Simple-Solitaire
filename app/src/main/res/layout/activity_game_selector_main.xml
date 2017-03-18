@@ -4,7 +4,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5d80f0"
+    android:background="@color/blueBackground"
     android:fitsSystemWindows="true">
 
     <include
@@ -71,7 +71,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/manual_material"
+                        app:srcCompat="@drawable/icon_material_manual"
                         android:id="@+id/game_selector_button_manual" />
 
                     <TextView
@@ -111,7 +111,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/settings_material"
+                        app:srcCompat="@drawable/icon_material_settings"
                         android:id="@+id/game_selector_button_settings" />
 
                     <TextView

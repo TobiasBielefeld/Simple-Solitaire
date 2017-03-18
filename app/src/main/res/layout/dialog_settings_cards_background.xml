@@ -32,8 +32,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_1" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,8 +57,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_2" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -84,8 +82,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_3" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,8 +107,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_4" />
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,8 +132,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_5" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -162,8 +157,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_6" />
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -194,8 +188,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_7" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -220,8 +213,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_8" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -246,8 +238,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_9" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -272,8 +263,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_10" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -298,8 +288,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_11" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -324,8 +313,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"
-                    android:src="@drawable/background_12" />
+                    android:contentDescription="@string/settings_cards_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"

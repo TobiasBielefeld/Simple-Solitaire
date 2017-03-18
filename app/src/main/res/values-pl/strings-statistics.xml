@@ -9,7 +9,6 @@
     <string name="statistics_button_delete_text">Usunięte zostaną wszystkie wpisy dla tej gry! Czy na pewno?</string>
     <string name="statistics_button_deleted_all_entries">Usunięto wszystkie wpisy</string>
 
-    <!-- new values -->
     <string name="statistics_time_of_day">Godzina</string>
     <string name="statistics_date">Data</string>
 

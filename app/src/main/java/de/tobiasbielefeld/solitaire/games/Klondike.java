@@ -80,11 +80,11 @@ public class Klondike extends Game {
         //also set backgrounds of the stacks
         for (Stack stack : stacks) {
             if (stack.getID() > 6 && stack.getID() <= 10)
-                stack.view.setBackgroundResource(R.drawable.background_stack_1);
+                stack.view.setImageBitmap(Stack.background1);
             else if (stack.getID() > 10 && stack.getID() <= 13)
-                stack.view.setBackgroundResource(R.drawable.background_stack_transparent);
+                stack.view.setImageBitmap(Stack.backgroundTransparent);
             else if (stack.getID() == 14)
-                stack.view.setBackgroundResource(R.drawable.background_stack_stock);
+                stack.view.setImageBitmap(Stack.backgroundTalon);
         }
     }
 

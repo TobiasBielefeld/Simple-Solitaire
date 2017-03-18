@@ -75,7 +75,7 @@ public class Pyramid extends Game {
 
                 stacks[index].view.setX(startPosX + j* (spacing + Card.width) );
                 stacks[index].view.setY(startPosY);
-                stacks[index].view.setBackgroundResource(R.drawable.background_stack_transparent);
+                stacks[index].view.setImageBitmap(Stack.backgroundTransparent);
 
                 index++;
             }

@@ -6,4 +6,5 @@
     <color name="colorDrawerSelected">#FFBDBDBD</color>
     <color name="white">#FFFFFFFF</color>
     <color name="greenBackground">#00a008</color>
+    <color name="blueBackground">#5d80f0</color>
 </resources>

@@ -77,7 +77,7 @@ public class Tripeaks extends Game {
 
             stacks[i].view.setX(startPosX);
             stacks[i].view.setY(startPosY);
-            stacks[i].view.setBackgroundResource(R.drawable.background_stack_transparent);
+            stacks[i].view.setImageBitmap(Stack.backgroundTransparent);
 
 
             if (i<3)

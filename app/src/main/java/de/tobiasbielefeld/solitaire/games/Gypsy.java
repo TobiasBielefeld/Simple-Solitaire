@@ -54,7 +54,7 @@ public class Gypsy extends Game {
         for (int i = 0; i < 8; i++) {
             stacks[8+i].view.setX(startPos + i*(spacing+Card.width) );
             stacks[8+i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) +1);
-            stacks[8+i].view.setBackgroundResource(R.drawable.background_stack_1);
+            stacks[8+i].view.setImageBitmap(Stack.background1);
         }
 
         for (int i = 0; i < 8; i++) {

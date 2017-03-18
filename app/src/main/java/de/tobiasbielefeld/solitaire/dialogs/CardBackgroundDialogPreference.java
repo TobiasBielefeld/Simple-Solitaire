@@ -19,9 +19,13 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import de.tobiasbielefeld.solitaire.R;
 
@@ -34,6 +38,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class CardBackgroundDialogPreference extends DialogPreference implements View.OnClickListener{
 
+    private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_BACKGROUNDS];
+
     public CardBackgroundDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards_background);
@@ -42,18 +48,25 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
 
     @Override
     protected void onBindDialogView(View view) {
-        view.findViewById(R.id.settingsCardBackground1).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground2).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground3).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground4).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground5).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground6).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground7).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground8).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground9).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground10).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground11).setOnClickListener(this);
-        view.findViewById(R.id.settingsCardBackground12).setOnClickListener(this);
+
+        linearLayouts[0] = (LinearLayout) view.findViewById(R.id.settingsCardBackground1);
+        linearLayouts[1] = (LinearLayout) view.findViewById(R.id.settingsCardBackground2);
+        linearLayouts[2] = (LinearLayout) view.findViewById(R.id.settingsCardBackground3);
+        linearLayouts[3] = (LinearLayout) view.findViewById(R.id.settingsCardBackground4);
+        linearLayouts[4] = (LinearLayout) view.findViewById(R.id.settingsCardBackground5);
+        linearLayouts[5] = (LinearLayout) view.findViewById(R.id.settingsCardBackground6);
+        linearLayouts[6] = (LinearLayout) view.findViewById(R.id.settingsCardBackground7);
+        linearLayouts[7] = (LinearLayout) view.findViewById(R.id.settingsCardBackground8);
+        linearLayouts[8] = (LinearLayout) view.findViewById(R.id.settingsCardBackground9);
+        linearLayouts[9] = (LinearLayout) view.findViewById(R.id.settingsCardBackground10);
+        linearLayouts[10] = (LinearLayout) view.findViewById(R.id.settingsCardBackground11);
+        linearLayouts[11] = (LinearLayout) view.findViewById(R.id.settingsCardBackground12);
+
+        for (int i=0; i<NUMBER_OF_CARD_BACKGROUNDS;i++){
+            linearLayouts[i].setOnClickListener(this);
+            ImageView imageView = (ImageView) linearLayouts[i].getChildAt(0);
+            imageView.setImageBitmap(bitmaps.getCardBack(i % 8, i/ 8));
+        }
 
         super.onBindDialogView(view);
     }

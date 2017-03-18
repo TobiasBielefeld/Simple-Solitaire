@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ import java.util.StringTokenizer;
 import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.handler.TestAfterMoveHandler;
 import de.tobiasbielefeld.solitaire.handler.TestIfWonHandler;
+import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -139,6 +141,7 @@ public class SharedData {
     public static AutoComplete autoComplete;
     public static Timer timer;
     public static LoadGame lg = new LoadGame();
+    public static Bitmaps bitmaps = new Bitmaps();
 
     public static SharedPreferences savedSharedData;
     public static SharedPreferences savedGameData;
@@ -146,6 +149,9 @@ public class SharedData {
 
     public static TestAfterMoveHandler testAfterMoveHandler = new TestAfterMoveHandler();
     public static TestIfWonHandler testIfWonHandler = new TestIfWonHandler();
+
+    public static int NUMBER_OF_CARD_BACKGROUNDS;
+    public static int NUMBER_OF_CARD_THEMES;
 
     //load the values from the xml files
     public static void loadStrings(Context context){
@@ -226,6 +232,9 @@ public class SharedData {
         CARD_BACKGROUND = res.getString(R.string.pref_key_card_background);
         MENU_COLUMNS_PORTRAIT = res.getString(R.string.pref_key_menu_columns_portrait);
         MENU_COLUMNS_LANDSCAPE = res.getString(R.string.pref_key_menu_columns_landscape);
+
+        NUMBER_OF_CARD_BACKGROUNDS = res.getInteger(R.integer.number_of_card_backgrounds);
+        NUMBER_OF_CARD_THEMES = res.getInteger(R.integer.number_of_card_themes);
     }
 
     /*

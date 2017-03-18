@@ -128,15 +128,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(getString(R.string.pref_key_language))) {
             setLocale();
 
-        } else if (key.equals(getString(R.string.pref_key_forty_eight_limited_redeals))) {
-            if (currentGame instanceof FortyEight)
+        } else if (key.equals(getString(R.string.pref_key_forty_eight_limited_redeals)) || key.equals(getString(R.string.pref_key_pyramid_limited_redeals))) {
+            if (currentGame instanceof FortyEight || currentGame instanceof Pyramid)
                 gameLogic.toggleNumberOfRedeals();
-
-        } else if (key.equals(getString(R.string.pref_key_pyramid_limited_redeals))) {
-            if (currentGame instanceof Pyramid)
-                gameLogic.toggleNumberOfRedeals();
-
-        } else if (key.equals(getString(R.string.pref_key_icon_theme))) {
+        }
+        else if (key.equals(getString(R.string.pref_key_icon_theme))) {
             if (gameLogic != null)
                 gameLogic.updateIcons();
 
@@ -176,9 +172,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceCardsBackground.setSummary(String.format(Locale.getDefault(), "%s %s",
                 getString(R.string.settings_background), getSharedInt(CARD_BACKGROUND, 1)));
 
-        switch (getSharedInt(CARD_BACKGROUND, 1)) {
+        /*switch (getSharedInt(CARD_BACKGROUND, 1)) {
             case 1:
-                preferenceCardsBackground.setIcon(R.drawable.background_1);
+                //preferenceCardsBackground.setIcon(R.drawable.background_1);
                 break;
             case 2:
                 preferenceCardsBackground.setIcon(R.drawable.background_2);
@@ -213,7 +209,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             case 12:
                 preferenceCardsBackground.setIcon(R.drawable.background_12);
                 break;
-        }
+        }*/
     }
 
     private void setPreferenceCardsSummary() {
@@ -222,27 +218,31 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         switch (getSharedInt(CARD_DRAWABLES, 1)) {
             case 1:
                 text = getString(R.string.settings_basic);
-                preferenceCards.setIcon(R.drawable.basic_diamonds_13);
+                //preferenceCards.setIcon(R.drawable.basic_diamonds_13);
                 break;
             case 2:
                 text = getString(R.string.settings_classic);
-                preferenceCards.setIcon(R.drawable.classic_diamonds_13);
+                //preferenceCards.setIcon(R.drawable.classic_diamonds_13);
                 break;
             case 3:
                 text = getString(R.string.settings_abstract);
-                preferenceCards.setIcon(R.drawable.abstract_diamonds_13);
+                //preferenceCards.setIcon(R.drawable.abstract_diamonds_13);
                 break;
             case 4:
                 text = getString(R.string.settings_simple);
-                preferenceCards.setIcon(R.drawable.simple_diamonds_13);
+                //preferenceCards.setIcon(R.drawable.simple_diamonds_13);
                 break;
             case 5:
                 text = getString(R.string.settings_modern);
-                preferenceCards.setIcon(R.drawable.modern_diamonds_13);
+                //preferenceCards.setIcon(R.drawable.modern_diamonds_13);
                 break;
             case 6:
                 text = getString(R.string.settings_dark);
-                preferenceCards.setIcon(R.drawable.dark_diamonds_13);
+                //preferenceCards.setIcon(R.drawable.dark_diamonds_13);
+                break;
+            case 7:
+                text = getString(R.string.settings_poker);
+                //preferenceCards.setIcon(R.drawable.poker_diamonds_13);
                 break;
         }
 

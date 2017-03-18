@@ -59,10 +59,10 @@
             android:layout_above="@+id/mainTextViewTime"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/button"
             android:onClick="menuClick"
             android:text="@string/game_auto_complete_text"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:background="@android:drawable/btn_default_small" />
 
         <TextView
             android:id="@+id/textViewRedeals"
@@ -84,7 +84,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/shadow" />
+            android:background="@drawable/shadow_top_to_bottom" />
 
 
         <View
@@ -133,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_statistics"
-                app:srcCompat="@drawable/scores_material"
+                app:srcCompat="@drawable/icon_material_scores"
                 android:layout_height="0dp"
                 android:id="@+id/button_scores"/>
 
@@ -163,7 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_hint"
-                app:srcCompat="@drawable/hint_material"
+                app:srcCompat="@drawable/icon_material_hint"
                 android:layout_height="0dp"
                 android:id="@+id/button_hint"/>
 
@@ -193,7 +193,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_main_menu"
-                app:srcCompat="@drawable/menu_material"
+                app:srcCompat="@drawable/icon_material_menu"
                 android:layout_height="0dp"
                 android:id="@+id/button_restart"/>
 
@@ -223,7 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_undo"
-                app:srcCompat="@drawable/undo_material"
+                app:srcCompat="@drawable/icon_material_undo"
                 android:layout_height="0dp"
                 android:adjustViewBounds="false"
                 android:id="@+id/button_undo"/>
@@ -254,7 +254,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_settings"
-                app:srcCompat="@drawable/settings_material"
+                app:srcCompat="@drawable/icon_material_settings"
                 android:id="@+id/button_settings"
                 android:layout_height="0dp" />
 

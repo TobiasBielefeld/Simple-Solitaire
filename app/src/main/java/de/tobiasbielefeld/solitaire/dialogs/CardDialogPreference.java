@@ -22,6 +22,8 @@ import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import de.tobiasbielefeld.solitaire.R;
 
@@ -34,6 +36,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class CardDialogPreference extends DialogPreference implements View.OnClickListener{
 
+    private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_THEMES];
+
     public CardDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards);
@@ -42,12 +46,20 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
 
     @Override
     protected void onBindDialogView(View view) {
-        view.findViewById(R.id.settingsLinearLayoutCardsClassic).setOnClickListener(this);
-        view.findViewById(R.id.settingsLinearLayoutCardsAbstract).setOnClickListener(this);
-        view.findViewById(R.id.settingsLinearLayoutCardsSimple).setOnClickListener(this);
-        view.findViewById(R.id.settingsLinearLayoutCardsModern).setOnClickListener(this);
-        view.findViewById(R.id.settingsLinearLayoutCardsDark).setOnClickListener(this);
-        view.findViewById(R.id.settingsLinearLayoutCardsBasic).setOnClickListener(this);
+
+        linearLayouts[0] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsBasic);
+        linearLayouts[1] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsClassic);
+        linearLayouts[2] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsAbstract);
+        linearLayouts[3] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsSimple);
+        linearLayouts[4] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsModern);
+        linearLayouts[5] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsDark);
+        linearLayouts[6] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsPoker);
+
+        for (int i=0; i < NUMBER_OF_CARD_THEMES;i++){
+            linearLayouts[i].setOnClickListener(this);
+            ImageView imageView = (ImageView) linearLayouts[i].getChildAt(0);
+            imageView.setImageBitmap(bitmaps.getCardPreview(i, 0));
+        }
 
         super.onBindDialogView(view);
     }
@@ -73,6 +85,9 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
                 break;
             case R.id.settingsLinearLayoutCardsDark:
                 choice = 6;
+                break;
+            case R.id.settingsLinearLayoutCardsPoker:
+                choice = 7;
                 break;
 
         }

@@ -18,10 +18,10 @@
 
 package de.tobiasbielefeld.solitaire.classes;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.Color;
+import android.graphics.BitmapFactory;
 import android.graphics.PointF;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.CardDrawables.*;
 
 /*
  *  Contains everything related to cards. it uses a picture view for drawable,
@@ -40,8 +39,7 @@ import static de.tobiasbielefeld.solitaire.helper.CardDrawables.*;
 public class Card {
 
     public static int width, height;                                                                //width and height calculated in relation of the screen dimensions in Main activity
-    public static int[] drawables;                                                                  //array with the drawables of the cards
-    public static int background;                                                                   //background drawable of the cards
+
     public ImageView view;                                                                          //the image view of the card, for easier code not private
     private int color;                                                                              //1=clubs 2=hearts 3=Spades 4=diamonds
     private int value;                                                                              //1=ace 2,3,4,5,6,7,8,9,10, 11=joker 12=queen 13=king
@@ -49,6 +47,8 @@ public class Card {
     private int ID;                                                                                 //internal id
     private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
     private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
+    private static Bitmap[] drawables = new Bitmap[52];
+    public static Bitmap background;
 
     private boolean animating = false;
 
@@ -79,28 +79,13 @@ public class Card {
     public static void updateCardDrawableChoice(){
         boolean fourColors = getSharedBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE);
 
-        switch (getSharedInt(CARD_DRAWABLES, 1)) {
-            case 1:
-                drawables = fourColors? sDrawablesBasic4Colors : sDrawablesBasic;
-                break;
-            case 2:
-                drawables = fourColors? sDrawablesClassic4Colors : sDrawablesClassic;
-                break;
-            case 3:
-                drawables = fourColors? sDrawablesAbstract4Colors : sDrawablesAbstract;
-                break;
-            case 4:
-                drawables = fourColors? sDrawablesSimple4Colors : sDrawablesSimple;
-                break;
-            case 5:
-                drawables = fourColors? sDrawablesModern4Colors : sDrawablesModern;
-                break;
-            case 6:
-                drawables = fourColors? sDrawablesDark4Colors : sDrawablesDark;
-                break;
+        for (int i=0;i<13;i++){
+            drawables[i]      = bitmaps.getCardFront(i, fourColors ? 1 : 0);
+            drawables[13 + i] = bitmaps.getCardFront(i, 2);
+            drawables[26 + i] = bitmaps.getCardFront(i, 3);
+            drawables[39 + i] = bitmaps.getCardFront(i, fourColors ? 5 : 4);
         }
 
-        //apply
         if (cards!=null) {
             for (Card card : cards)
                 if (card.isUp())
@@ -109,54 +94,18 @@ public class Card {
     }
 
     public void setCardFront(){
-        view.setImageResource(drawables[(color - 1) *13 + value - 1]);
+        view.setImageBitmap(drawables[(color - 1) *13 + value - 1]);
     }
 
     public void setCardBack(){
-        view.setImageResource(background);
+        view.setImageBitmap(background);
     }
 
     public static void updateCardBackgroundChoice() {
-        //get
-        switch (getSharedInt(CARD_BACKGROUND, 1)) {
-            case 1:
-                background = R.drawable.background_1;
-                break;
-            case 2:
-                background = R.drawable.background_2;
-                break;
-            case 3:
-                background = R.drawable.background_3;
-                break;
-            case 4:
-                background = R.drawable.background_4;
-                break;
-            case 5:
-                background = R.drawable.background_5;
-                break;
-            case 6:
-                background = R.drawable.background_6;
-                break;
-            case 7:
-                background = R.drawable.background_7;
-                break;
-            case 8:
-                background = R.drawable.background_8;
-                break;
-            case 9:
-                background = R.drawable.background_9;
-                break;
-            case 10:
-                background = R.drawable.background_10;
-                break;
-            case 11:
-                background = R.drawable.background_11;
-                break;
-            case 12:
-                background = R.drawable.background_12;
-                break;
-        }
-        //apply
+
+        int position = getSharedInt(CARD_BACKGROUND, 1) - 1;
+        background = bitmaps.getCardBack(position % 8, position / 8);
+
         if (cards!=null) {
             for (Card card : cards)
                 if (!card.isUp())

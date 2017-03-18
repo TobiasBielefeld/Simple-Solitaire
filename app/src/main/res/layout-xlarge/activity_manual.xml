@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:layout_below="@+id/appBarLayout"
-        android:background="@drawable/shadow" />
+        android:background="@drawable/shadow_top_to_bottom" />
 
     <FrameLayout
         android:id="@+id/flContent"

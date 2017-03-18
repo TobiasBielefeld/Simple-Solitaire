@@ -135,10 +135,13 @@ public class Scores {
          * and moved left until it is in the right position
          */
 
+        if (score < 0)
+            return;
+
         int index = MAX_SAVED_SCORES - 1;
 
         //if the new score is greater than the last saved one or the last one is empty, override it
-        if (score > 0 && score > savedScores[index][0] || savedScores[index][0] == 0) {
+        if (score > savedScores[index][0] || savedScores[index][0] == 0) {
             savedScores[index] = new long[]{score, timer.getCurrentTime(), System.currentTimeMillis()};
 
             while (index > 0 && (savedScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
