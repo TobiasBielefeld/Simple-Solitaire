@@ -46,6 +46,7 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
 
     @Override
     protected void onBindDialogView(View view) {
+        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE) ? 1 : 0;
 
         linearLayouts[0] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsBasic);
         linearLayouts[1] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsClassic);
@@ -58,7 +59,7 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
         for (int i=0; i < NUMBER_OF_CARD_THEMES;i++){
             linearLayouts[i].setOnClickListener(this);
             ImageView imageView = (ImageView) linearLayouts[i].getChildAt(0);
-            imageView.setImageBitmap(bitmaps.getCardPreview(i, 0));
+            imageView.setImageBitmap(bitmaps.getCardPreview(i, row));
         }
 
         super.onBindDialogView(view);

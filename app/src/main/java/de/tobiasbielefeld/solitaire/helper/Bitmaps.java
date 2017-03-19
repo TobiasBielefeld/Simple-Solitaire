@@ -34,12 +34,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Bitmaps {
 
     private Resources res;
-    private Bitmap menu, stackBackground, cardBack, cardFront, cardPreview;
+    private Bitmap menu, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private int savedCardTheme;
 
     int menuWidth, menuHeight , stackBackgroundWidth, stackBackgroundHeight,
             cardBackWidth, cardBackHeight, cardFrontWidth, cardFrontHeight,
-            cardPreviewWidth, cardPreviewHeight;
+            cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
 
     public void setResources(Resources res){
         this.res = res;
@@ -122,9 +122,20 @@ public class Bitmaps {
         if (cardPreview==null){
             cardPreview = BitmapFactory.decodeResource(res,R.drawable.card_previews);
             cardPreviewWidth =  cardPreview.getWidth()/7;
-            cardPreviewHeight =  cardPreview.getHeight()/1;
+            cardPreviewHeight =  cardPreview.getHeight()/2;
         }
 
         return Bitmap.createBitmap(cardPreview, posX*cardPreviewWidth, posY*cardPreviewHeight,cardPreviewWidth,cardPreviewHeight);
+    }
+
+    public Bitmap getCardPreview2(int posX, int posY){
+
+        if (cardPreview2==null){
+            cardPreview2 = BitmapFactory.decodeResource(res,R.drawable.card_previews_2);
+            cardPreview2Width =  cardPreview2.getWidth()/7;
+            cardPreview2Height =  cardPreview2.getHeight()/2;
+        }
+
+        return Bitmap.createBitmap(cardPreview2, posX*cardPreview2Width, posY*cardPreview2Height,cardPreview2Width,cardPreview2Height);
     }
 }

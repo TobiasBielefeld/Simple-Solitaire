@@ -22,6 +22,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -59,8 +61,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         return (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +143,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
         } else if (key.equals(getString(R.string.pref_key_4_color_mode))){
             Card.updateCardDrawableChoice();
+            setPreferenceCardsSummary();
 
         }
     }
@@ -169,84 +170,90 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     private void setPreferenceCardsBackgroundSummary() {
+        Bitmap cardBack;
         preferenceCardsBackground.setSummary(String.format(Locale.getDefault(), "%s %s",
                 getString(R.string.settings_background), getSharedInt(CARD_BACKGROUND, 1)));
 
-        /*switch (getSharedInt(CARD_BACKGROUND, 1)) {
-            case 1:
-                //preferenceCardsBackground.setIcon(R.drawable.background_1);
+        switch (getSharedInt(CARD_BACKGROUND, 1)) {
+            case 1: default:
+                cardBack = bitmaps.getCardBack(0,0);
                 break;
             case 2:
-                preferenceCardsBackground.setIcon(R.drawable.background_2);
+                cardBack = bitmaps.getCardBack(1,0);
                 break;
             case 3:
-                preferenceCardsBackground.setIcon(R.drawable.background_3);
+                cardBack = bitmaps.getCardBack(2,0);
                 break;
             case 4:
-                preferenceCardsBackground.setIcon(R.drawable.background_4);
+                cardBack = bitmaps.getCardBack(3,0);
                 break;
             case 5:
-                preferenceCardsBackground.setIcon(R.drawable.background_5);
+                cardBack = bitmaps.getCardBack(4,0);
                 break;
             case 6:
-                preferenceCardsBackground.setIcon(R.drawable.background_6);
+                cardBack = bitmaps.getCardBack(5,0);
                 break;
             case 7:
-                preferenceCardsBackground.setIcon(R.drawable.background_7);
+                cardBack = bitmaps.getCardBack(6,0);
                 break;
             case 8:
-                preferenceCardsBackground.setIcon(R.drawable.background_8);
+                cardBack = bitmaps.getCardBack(7,0);
                 break;
             case 9:
-                preferenceCardsBackground.setIcon(R.drawable.background_9);
+                cardBack = bitmaps.getCardBack(0,1);
                 break;
             case 10:
-                preferenceCardsBackground.setIcon(R.drawable.background_10);
+                cardBack = bitmaps.getCardBack(1,1);
                 break;
             case 11:
-                preferenceCardsBackground.setIcon(R.drawable.background_11);
+                cardBack = bitmaps.getCardBack(2,1);
                 break;
             case 12:
-                preferenceCardsBackground.setIcon(R.drawable.background_12);
+                cardBack = bitmaps.getCardBack(3,1);
                 break;
-        }*/
+        }
+
+        preferenceCardsBackground.setIcon(new BitmapDrawable(getResources(), cardBack));
     }
 
     private void setPreferenceCardsSummary() {
         String text = "";
+        Bitmap cardPreview;
+        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE) ? 1 : 0;
 
         switch (getSharedInt(CARD_DRAWABLES, 1)) {
-            case 1:
+            case 1: default:
                 text = getString(R.string.settings_basic);
-                //preferenceCards.setIcon(R.drawable.basic_diamonds_13);
+                cardPreview = bitmaps.getCardPreview2(0,row);
                 break;
             case 2:
                 text = getString(R.string.settings_classic);
-                //preferenceCards.setIcon(R.drawable.classic_diamonds_13);
+                cardPreview = bitmaps.getCardPreview2(1,row);
                 break;
             case 3:
                 text = getString(R.string.settings_abstract);
-                //preferenceCards.setIcon(R.drawable.abstract_diamonds_13);
+                cardPreview = bitmaps.getCardPreview2(2,row);
                 break;
             case 4:
                 text = getString(R.string.settings_simple);
-                //preferenceCards.setIcon(R.drawable.simple_diamonds_13);
+                cardPreview = bitmaps.getCardPreview2(3,row);
                 break;
             case 5:
                 text = getString(R.string.settings_modern);
-                //preferenceCards.setIcon(R.drawable.modern_diamonds_13);
+                cardPreview = bitmaps.getCardPreview2(4,row);
                 break;
             case 6:
                 text = getString(R.string.settings_dark);
-                //preferenceCards.setIcon(R.drawable.dark_diamonds_13);
+                cardPreview = bitmaps.getCardPreview2(5,row);
                 break;
             case 7:
                 text = getString(R.string.settings_poker);
-                //preferenceCards.setIcon(R.drawable.poker_diamonds_13);
+                cardPreview = bitmaps.getCardPreview2(6,row);
                 break;
         }
 
         preferenceCards.setSummary(text);
+        preferenceCards.setIcon(new BitmapDrawable(getResources(), cardPreview));
     }
 
     private void setPreferenceMenuColumns(){
