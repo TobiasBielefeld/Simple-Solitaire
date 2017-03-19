@@ -224,14 +224,14 @@ public class GameLogic{
                 if (stack.hasArrow()>0) {
                     if (stack.hasArrow() == 1) {
                         if (getSharedBoolean(gm.getString(R.string.pref_key_left_handed_mode), false))
-                            stack.view.setBackgroundResource(R.drawable.arrow_right);
+                            stack.view.setImageBitmap(Stack.arrowRight);
                         else
-                            stack.view.setBackgroundResource(R.drawable.arrow_left);
+                            stack.view.setImageBitmap(Stack.arrowLeft);
                     } else {
                         if (getSharedBoolean(gm.getString(R.string.pref_key_left_handed_mode), false))
-                            stack.view.setBackgroundResource(R.drawable.arrow_left);
+                            stack.view.setImageBitmap(Stack.arrowLeft);
                         else
-                            stack.view.setBackgroundResource(R.drawable.arrow_right);
+                            stack.view.setImageBitmap(Stack.arrowRight);
                     }
                 }
             }

@@ -296,13 +296,12 @@ public abstract class Game {
 
     protected void setArrow(Stack stack, int direction){
         hasArrow=true;
-
         stack.setArrow(direction);
 
         if (direction == LEFT) {
-            stack.view.setBackgroundResource(R.drawable.arrow_left);
+            stack.view.setImageBitmap(Stack.arrowLeft);
         } else if (direction == RIGHT){
-            stack.view.setBackgroundResource(R.drawable.arrow_right);
+            stack.view.setImageBitmap(Stack.arrowRight);
         }
     }
 

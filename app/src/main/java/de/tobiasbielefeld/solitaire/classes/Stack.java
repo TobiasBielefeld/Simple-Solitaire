@@ -48,9 +48,9 @@ public class Stack {
     private int spacingDirection;
     private int hasArrow;
     private float spacingMax;
-    public static Bitmap backgroundDefault, backgroundTalon, background1, background2,background3,
+    public static Bitmap backgroundDefault, backgroundTalon, background1, background2,background3,  //bitmaps for the stack background images
             background4,background5,background6,background7,background8,background9,background10,
-            background11,background12,background13, backgroundTransparent;
+            background11,background12,background13, arrowLeft, arrowRight, backgroundTransparent;
 
     public static void loadBackgrounds(){
         backgroundDefault = bitmaps.getStackBackground(0,0);
@@ -61,14 +61,16 @@ public class Stack {
         background4 = bitmaps.getStackBackground(5,0);
         background5 = bitmaps.getStackBackground(6,0);
         background6 = bitmaps.getStackBackground(7,0);
-        background7 = bitmaps.getStackBackground(0,1);
-        background8 = bitmaps.getStackBackground(1,1);
-        background9 = bitmaps.getStackBackground(2,1);
-        background10 = bitmaps.getStackBackground(3,1);
-        background11 = bitmaps.getStackBackground(4,1);
-        background12 = bitmaps.getStackBackground(5,1);;
-        background13 = bitmaps.getStackBackground(6,1);
-        backgroundTransparent = bitmaps.getStackBackground(7,1);
+        background7 = bitmaps.getStackBackground(8,0);
+        background8 = bitmaps.getStackBackground(0,1);
+        background9 = bitmaps.getStackBackground(1,1);
+        background10 = bitmaps.getStackBackground(2,1);
+        background11 = bitmaps.getStackBackground(3,1);
+        background12 = bitmaps.getStackBackground(4,1);
+        background13 = bitmaps.getStackBackground(5,1);
+        arrowLeft = bitmaps.getStackBackground(6,1);
+        arrowRight = bitmaps.getStackBackground(7,1);
+        backgroundTransparent = bitmaps.getStackBackground(8,1);
     }
 
     public Stack(int ID) {                                                                          //Constructor: set ID

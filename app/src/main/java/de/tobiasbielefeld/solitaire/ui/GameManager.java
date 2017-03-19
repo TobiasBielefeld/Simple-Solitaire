@@ -147,9 +147,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                         for (Stack stack : stacks) {
                             if (stack.hasArrow() > 0) {
                                 if (stack.hasArrow() == 1) {
-                                    stack.view.setBackgroundResource(R.drawable.arrow_right);
+                                    stack.view.setImageBitmap(Stack.arrowRight);
                                 } else {
-                                    stack.view.setBackgroundResource(R.drawable.arrow_left);
+                                    stack.view.setImageBitmap(Stack.arrowLeft);
                                 }
                             }
                         }

@@ -60,7 +60,7 @@ public class Bitmaps {
 
         if (stackBackground==null){
             stackBackground = BitmapFactory.decodeResource(res,R.drawable.backgrounds_stacks);
-            stackBackgroundWidth =  stackBackground.getWidth()/8;
+            stackBackgroundWidth =  stackBackground.getWidth()/9;
             stackBackgroundHeight =  stackBackground.getHeight()/2;
         }
 
