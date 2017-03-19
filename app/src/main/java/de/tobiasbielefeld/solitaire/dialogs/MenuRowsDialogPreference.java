@@ -19,22 +19,25 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Spinner;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
 
 /*
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
-public class MenuRowsDialogPreference extends DialogPreference{
+public class MenuRowsDialogPreference extends DialogPreference {
 
     Spinner spinnerPortrait, spinnerLandscape;
 
@@ -50,12 +53,11 @@ public class MenuRowsDialogPreference extends DialogPreference{
         spinnerLandscape = (Spinner) view.findViewById(R.id.dialogSettingsMenuColumnsLandscape);
 
         //minus 1 because the values are 1 to 10, indexes are from 0 to 9
-        spinnerPortrait.setSelection(Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT,DEFAULT_MENU_COLUMNS_PORTRAIT))-1);
-        spinnerLandscape.setSelection(Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE,DEFAULT_MENU_COLUMNS_LANDSCAPE))-1);
+        spinnerPortrait.setSelection(Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT)) - 1);
+        spinnerLandscape.setSelection(Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE)) - 1);
 
         super.onBindDialogView(view);
     }
-
 
 
     @Override

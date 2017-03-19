@@ -35,7 +35,7 @@ public class LoadGameHandler extends Handler {
 
     GameManager gm;
 
-    public LoadGameHandler(GameManager gm){
+    public LoadGameHandler(GameManager gm) {
         this.gm = gm;
     }
 
@@ -43,7 +43,7 @@ public class LoadGameHandler extends Handler {
         super.handleMessage(msg);
         gameLogic.load();
 
-        if (currentGame.hasLimitedRedeals()){
+        if (currentGame.hasLimitedRedeals()) {
             gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
             gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
             gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());

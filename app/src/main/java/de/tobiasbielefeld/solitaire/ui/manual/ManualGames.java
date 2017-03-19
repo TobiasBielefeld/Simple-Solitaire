@@ -29,16 +29,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
 
 /*
  *  Games Page contains a button for each game. If one button is pressed, the view with the buttons
  *  will be hidden and a scroll view with the manual entry will be loaded. A button click gets a prefix
  *  for the string resources
  */
-public class ManualGames extends Fragment implements View.OnClickListener{
+public class ManualGames extends Fragment implements View.OnClickListener {
 
 
     ScrollView layout1, scrollView;
@@ -50,8 +49,8 @@ public class ManualGames extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_manual_games, container, false);
 
-        lg.loadManualButtons(view,this);
-        ((Manual)getActivity()).setGamePageShown(false);
+        lg.loadManualButtons(view, this);
+        ((Manual) getActivity()).setGamePageShown(false);
 
         layout1 = (ScrollView) view.findViewById(R.id.manual_games_layout_selection);
         scrollView = (ScrollView) view.findViewById(R.id.manual_games_scrollView);
@@ -72,8 +71,8 @@ public class ManualGames extends Fragment implements View.OnClickListener{
         loadGameText(v.getId());
     }
 
-    private void loadGameText(int ID){
-        currentGameButtonID= ID;
+    private void loadGameText(int ID) {
+        currentGameButtonID = ID;
         String gameName = lg.manualClick(ID);   //get prefix
 
         try {
@@ -88,9 +87,9 @@ public class ManualGames extends Fragment implements View.OnClickListener{
             //this way is easier than implementing an interface to control what happens in onBackPressed()
             layout1.setVisibility(View.GONE);
             scrollView.setVisibility(View.VISIBLE);
-            ((Manual)getActivity()).setGamePageShown(true);
+            ((Manual) getActivity()).setGamePageShown(true);
 
-        } catch(Exception e){
+        } catch (Exception e) {
             //no page available
             showToast(getString(R.string.page_load_error));
         }

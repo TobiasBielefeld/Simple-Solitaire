@@ -27,7 +27,12 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.max;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
 
 /**
  * Handler for the auto complete: Move a card, wait a bit, move the next one and so on.
@@ -47,15 +52,14 @@ public class AutoCompleteHandler extends Handler {
         super.handleMessage(msg);
 
         //if the phase is 1 (moving on the tableau) wait until the moving animation is over
-        if (animate.cardIsAnimating() && phase==1) {
-            autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,currentTime);
+        if (animate.cardIsAnimating() && phase == 1) {
+            autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, currentTime);
         }
         //if the auto complete is finished, wait until the movement of the cards stop and then show the win animation
         else if (isFinished) {
             if (animate.cardIsAnimating()) {
                 autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, currentTime);
-            }
-            else {
+            } else {
                 autoComplete.reset();
                 gameLogic.testIfWon();
             }
@@ -64,28 +68,26 @@ public class AutoCompleteHandler extends Handler {
         else if (autoComplete.isRunning()) {
             CardAndStack cardAndStack;
 
-            if (phase==1)
+            if (phase == 1)
                 cardAndStack = currentGame.autoCompletePhaseOne();
             else
                 cardAndStack = currentGame.autoCompletePhaseTwo();
 
-            if (cardAndStack==null) {
-                if (phase==1) {
+            if (cardAndStack == null) {
+                if (phase == 1) {
                     phase = 2;
-                    autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,0);
-                }
-                else {
+                    autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, 0);
+                } else {
                     isFinished = true;
-                    autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,START_TIME);
+                    autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, START_TIME);
                 }
-            }
-            else {
+            } else {
                 //if phase 1, move the card and every card above it
-                if (phase==1){
+                if (phase == 1) {
                     ArrayList<Card> cards = new ArrayList<>();
                     Stack origin = cardAndStack.getCard().getStack();
 
-                    for (int i=origin.getIndexOfCard(cardAndStack.getCard());i<origin.getSize();i++)
+                    for (int i = origin.getIndexOfCard(cardAndStack.getCard()); i < origin.getSize(); i++)
                         cards.add(cardAndStack.getCard().getStack().getCard(i));
 
                     moveToStack(cards, cardAndStack.getStack());
@@ -95,16 +97,16 @@ public class AutoCompleteHandler extends Handler {
                     moveToStack(cardAndStack.getCard(), cardAndStack.getStack());
                 }
 
-                currentTime = max(currentTime-DELTA_TIME,MIN_TIME);
+                currentTime = max(currentTime - DELTA_TIME, MIN_TIME);
                 //start the next handler in some milliseconds
-                autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0,currentTime);
+                autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, currentTime);
             }
         }
     }
 
-    public void reset(){
+    public void reset() {
         phase = 1;
-        isFinished=false;
+        isFinished = false;
         currentTime = START_TIME;
     }
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.GameManager">
 
     <RelativeLayout
@@ -16,10 +16,10 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/mainRelativeLayoutGameOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toLeftOf="@+id/linearLayout"
-        android:id="@+id/mainRelativeLayoutGameOverlay">
+        android:layout_toLeftOf="@+id/linearLayout">
 
         <View
             android:layout_width="4dp"
@@ -79,10 +79,10 @@
             android:layout_above="@+id/mainTextViewTime"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
+            android:background="@android:drawable/btn_default_small"
             android:onClick="menuClick"
             android:text="@string/game_auto_complete_text"
-            android:visibility="gone"
-            android:background="@android:drawable/btn_default_small" />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewRedeals"
@@ -112,17 +112,17 @@
             android:id="@+id/mainButtonScores"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:onClick="menuClick"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="menuClick">
 
             <ImageView
                 android:id="@+id/button_scores"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_statistics"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 app:srcCompat="@drawable/icon_material_scores" />
         </FrameLayout>
 
@@ -130,35 +130,35 @@
             android:id="@+id/mainButtonHint"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:onClick="menuClick"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="menuClick">
 
             <ImageView
                 android:id="@+id/button_hint"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_hint"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 app:srcCompat="@drawable/icon_material_hint" />
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/mainButtonRestart"
             android:layout_width="match_parent"
-            android:onClick="menuClick"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="menuClick">
 
             <ImageView
                 android:id="@+id/button_restart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_main_menu"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 app:srcCompat="@drawable/icon_material_menu" />
         </FrameLayout>
 
@@ -166,17 +166,17 @@
             android:id="@+id/mainButtonUndo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:onClick="menuClick"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="menuClick">
 
             <ImageView
                 android:id="@+id/button_undo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_undo"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 app:srcCompat="@drawable/icon_material_undo" />
         </FrameLayout>
 
@@ -184,17 +184,17 @@
             android:id="@+id/mainButtonSettings"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:onClick="menuClick"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="menuClick">
 
             <ImageView
                 android:id="@+id/button_settings"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/menu_settings"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 app:srcCompat="@drawable/icon_material_settings" />
         </FrameLayout>
 

@@ -22,12 +22,22 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_YUKON_RULES;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_YUKON_RULES;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_YUKON_RULES_OLD;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEquals;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /*
  * Yukon Game! 7 tableau stacks, 4 foundation stacks and no main stack
@@ -45,10 +55,10 @@ public class Yukon extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        setUpCardDimensions(layoutGame,9,5);
+        setUpCardDimensions(layoutGame, 9, 5);
 
         //order the stacks on the screen
-        int spacingHorizontal = setUpSpacing(layoutGame,8,9);
+        int spacingHorizontal = setUpSpacing(layoutGame, 8, 9);
         int spacingVertical = min((layoutGame.getHeight() - 4 * Card.height) / 5, Card.width / 4);
         int startPos = (int) (layoutGame.getWidth() / 2 - 4 * Card.width - 3.5 * spacingHorizontal);
         //tableau stacks
@@ -95,7 +105,7 @@ public class Yukon extends Game {
         dealFromStack().getTopCard().flipUp();
     }
 
-    public void onMainStackTouch(){
+    public void onMainStackTouch() {
         //no main stack, so empty
     }
 
@@ -105,22 +115,20 @@ public class Yukon extends Game {
             if (stack.isEmpty())
                 return card.getValue() == 13;
             else
-                return checkRules(stack,card) && (stack.getTopCard().getValue() == card.getValue() + 1);
-        }
-        else if (movingCards.hasSingleCard()) {                                                     //foundation
+                return checkRules(stack, card) && (stack.getTopCard().getValue() == card.getValue() + 1);
+        } else if (movingCards.hasSingleCard()) {                                                     //foundation
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
                 return (stack.getTopCard().getColor() == card.getColor())
                         && (stack.getTopCard().getValue() == card.getValue() - 1);
-        }
-        else {
+        } else {
             return false;
         }
     }
 
-    boolean checkRules(Stack stack, Card card){
-        boolean defaultRules = sharedStringEquals(PREF_KEY_YUKON_RULES_OLD,DEFAULT_YUKON_RULES);
+    boolean checkRules(Stack stack, Card card) {
+        boolean defaultRules = sharedStringEquals(PREF_KEY_YUKON_RULES_OLD, DEFAULT_YUKON_RULES);
 
         return (defaultRules && (stack.getTopCard().getColor() % 2 != card.getColor() % 2)) ||
                 (!defaultRules && (stack.getTopCard().getColor() == card.getColor()));
@@ -132,32 +140,32 @@ public class Yukon extends Game {
     }
 
     public CardAndStack hintTest() {
-        for (int i=0;i<7;i++){
-            for (int j=0;j<11;j++) {
-                if (stacks[i].isEmpty() || i==j)
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 11; j++) {
+                if (stacks[i].isEmpty() || i == j)
                     continue;
 
                 for (int k = 0; k < stacks[i].getSize(); k++) {
 
                     Card cardToMove = stacks[i].getCard(k);
 
-                    if (j>=7 && !cardToMove.isTopCard())
+                    if (j >= 7 && !cardToMove.isTopCard())
                         continue;
 
                     if (cardToMove.isUp() && !hint.hasVisited(cardToMove) && cardToMove.test(stacks[j])) {
                         //don't move if it's an ace and not a top card and also not if the stack id is below 7
                         //so only move single aces to the foundation stacks
-                        if (cardToMove.getValue()==1 && j<7)
+                        if (cardToMove.getValue() == 1 && j < 7)
                             continue;
                         //move kings not when they are the first card on a stack
                         //so they won't be moved around on empty fields
-                        if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
+                        if (cardToMove.getValue() == 13 && cardToMove.isFirstCard())
                             continue;
                         //example: i don't want to move a hearts 5 to a clubs 6 if the hearts card is already lying on a (faced up) spades 6.
-                        if (sameCardOnOtherStack(cardToMove,stacks[j],SAME_VALUE_AND_COLOR))
+                        if (sameCardOnOtherStack(cardToMove, stacks[j], SAME_VALUE_AND_COLOR))
                             continue;
 
-                        return new CardAndStack(cardToMove,stacks[j]);
+                        return new CardAndStack(cardToMove, stacks[j]);
                     }
                 }
             }
@@ -169,9 +177,9 @@ public class Yukon extends Game {
     @Override
     public Stack doubleTapTest(Card card) {
         //tableau fields first
-        for (int j=0;j<7;j++) {
+        for (int j = 0; j < 7; j++) {
 
-            if (!stacks[j].isEmpty() && card.getStack().getID()!= j && card.test(stacks[j]) && !sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR)) {
+            if (!stacks[j].isEmpty() && card.getStack().getID() != j && card.test(stacks[j]) && !sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR)) {
                 return stacks[j];
             }
         }
@@ -186,8 +194,8 @@ public class Yukon extends Game {
         }
 
         //and empty stacks
-        for (int k=0;k<7;k++){
-            if (card.getValue()==13 && card.isFirstCard() && stacks[k].isEmpty())
+        for (int k = 0; k < 7; k++) {
+            if (card.getValue() == 13 && card.isFirstCard() && stacks[k].isEmpty())
                 continue;
 
             if (stacks[k].isEmpty() && card.test(stacks[k])) {
@@ -202,18 +210,18 @@ public class Yukon extends Game {
         /*
          * start auto complete if every card is in the right order
          */
-        for (int i=0;i<7;i++){
+        for (int i = 0; i < 7; i++) {
             if (stacks[i].isEmpty())
                 continue;
 
-            for (int j=0;j<stacks[i].getSize()-1;j++) {
+            for (int j = 0; j < stacks[i].getSize() - 1; j++) {
                 Card cardBottom = stacks[i].getCard(j);
-                Card cardTop = stacks[i].getCard(j+1);
+                Card cardTop = stacks[i].getCard(j + 1);
 
                 if (!cardBottom.isUp() || !cardTop.isUp())
                     return false;
 
-                if ((cardBottom.getColor()%2 == cardTop.getColor()%2) || (cardBottom.getValue() != cardTop.getValue() + 1))
+                if ((cardBottom.getColor() % 2 == cardTop.getColor() % 2) || (cardBottom.getValue() != cardTop.getValue() + 1))
                     return false;
             }
         }
@@ -221,32 +229,32 @@ public class Yukon extends Game {
         return true;
     }
 
-    public CardAndStack autoCompletePhaseTwo(){
-        for (int i=0; i<7; i++) {
+    public CardAndStack autoCompletePhaseTwo() {
+        for (int i = 0; i < 7; i++) {
             Stack origin = stacks[i];
 
             if (origin.isEmpty())
                 continue;
 
-            for (int j=7;j<11;j++){
+            for (int j = 7; j < 11; j++) {
                 Stack destination = stacks[j];
 
                 if (origin.getTopCard().test(destination))
-                    return new CardAndStack(origin.getTopCard(),destination);
+                    return new CardAndStack(origin.getTopCard(), destination);
             }
         }
 
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
-        if (originIDs[0] < 7 && destinationIDs[0] >=7 )                                         //from tableau to foundations
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+        if (originIDs[0] < 7 && destinationIDs[0] >= 7)                                         //from tableau to foundations
             return 60;
-        if (destinationIDs[0] < 7 && originIDs[0] >= 7 )                                        //foundations to tableau
+        if (destinationIDs[0] < 7 && originIDs[0] >= 7)                                        //foundations to tableau
             return -75;
         if (originIDs[0] == destinationIDs[0])                                                  //card flip up
             return 25;
-        if (!cards.get(0).isFirstCard() &&cards.get(0).getValue()==13 && destinationIDs[0] < 7 && stacks[originIDs[0]].getSize()!=1)//king to an empty filed
+        if (!cards.get(0).isFirstCard() && cards.get(0).getValue() == 13 && destinationIDs[0] < 7 && stacks[originIDs[0]].getSize() != 1)//king to an empty filed
             return 20;
         else
             return 0;

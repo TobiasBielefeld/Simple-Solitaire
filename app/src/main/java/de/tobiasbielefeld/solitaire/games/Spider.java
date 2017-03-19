@@ -22,12 +22,25 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_SPIDER_DIFFICULTY;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_SPIDER_DIFFICULTY;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_SPIDER_DIFFICULTY_OLD;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.testAfterMoveHandler;
+import static de.tobiasbielefeld.solitaire.SharedData.testIfWonHandler;
 
 /**
  * Spider Solitaire! A bit special game, because it has 2 card decks, the card families depend
@@ -45,43 +58,43 @@ public class Spider extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        setUpCardWidth(layoutGame,isLandscape,11,12);
-        int spacing = setUpSpacing(layoutGame,10,11);
-        int startPos = layoutGame.getWidth()-Card.width - 5*Card.width/2;
+        setUpCardWidth(layoutGame, isLandscape, 11, 12);
+        int spacing = setUpSpacing(layoutGame, 10, 11);
+        int startPos = layoutGame.getWidth() - Card.width - 5 * Card.width / 2;
         //main stacks
-        for (int i=0;i<5;i++) {
-            stacks[18+i].view.setX(startPos + i*Card.width/2);
-            stacks[18+i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1 );
-            stacks[18+i].view.setImageBitmap(Stack.backgroundTransparent);
+        for (int i = 0; i < 5; i++) {
+            stacks[18 + i].view.setX(startPos + i * Card.width / 2);
+            stacks[18 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
+            stacks[18 + i].view.setImageBitmap(Stack.backgroundTransparent);
         }
         //foundation stacks
-        for (int i=0;i<8;i++) {
-            stacks[10+i].view.setX(Card.width/2+i*Card.width/2);
-            stacks[10+i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1 );
-            stacks[10+i].view.setImageBitmap(Stack.backgroundTransparent);
+        for (int i = 0; i < 8; i++) {
+            stacks[10 + i].view.setX(Card.width / 2 + i * Card.width / 2);
+            stacks[10 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
+            stacks[10 + i].view.setImageBitmap(Stack.backgroundTransparent);
         }
         //tableau stacks
-        startPos = layoutGame.getWidth() / 2 - 5 * Card.width - 4 * spacing - spacing/2;
+        startPos = layoutGame.getWidth() / 2 - 5 * Card.width - 4 * spacing - spacing / 2;
         for (int i = 0; i < 10; i++) {
             stacks[i].view.setX(startPos + spacing * i + Card.width * i);
-            stacks[i].view.setY(stacks[18].view.getY() + Card.height +  (isLandscape ? Card.width / 4 : Card.width / 2) + 1 );
+            stacks[i].view.setY(stacks[18].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
         //set card families depending on settings
         loadCards();
     }
 
-    public boolean winTest(){
+    public boolean winTest() {
         //if every foundation stacks is full, game is won
-        for (int i=0;i<8;i++)
-            if (stacks[10+i].getSize()!=13)
+        for (int i = 0; i < 8; i++)
+            if (stacks[10 + i].getSize() != 13)
                 return false;
 
         return true;
     }
 
-    public void dealCards(){
+    public void dealCards() {
         //when starting a new game, load the difficulty preference in the "old" preference
-        putSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD,getSharedString(PREF_KEY_SPIDER_DIFFICULTY,DEFAULT_SPIDER_DIFFICULTY));
+        putSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD, getSharedString(PREF_KEY_SPIDER_DIFFICULTY, DEFAULT_SPIDER_DIFFICULTY));
         loadCards();
 
         for (int i = 0; i < 10; i++) {
@@ -89,38 +102,38 @@ public class Spider extends Game {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
 
-            if (i<4) {
+            if (i < 4) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
 
             stacks[i].getTopCard().flipUp();
         }
 
-        for (int i=0;i<5;i++) {
+        for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
-                moveToStack(getMainStack().getTopCard(), stacks[18+i], OPTION_NO_RECORD);
+                moveToStack(getMainStack().getTopCard(), stacks[18 + i], OPTION_NO_RECORD);
             }
         }
 
-        for (int i=0;i<5;i++) {
+        for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
-                stacks[18+i].getCard(i).view.bringToFront();
+                stacks[18 + i].getCard(i).view.bringToFront();
             }
         }
     }
 
-    public void onMainStackTouch(){
+    public void onMainStackTouch() {
         /*
          * first get the current main stack, then deal the cards from it to the tableau.
          * with the reversed record option
          */
-        int currentMainStackID=22;
+        int currentMainStackID = 22;
 
-        while(stacks[currentMainStackID].isEmpty())
+        while (stacks[currentMainStackID].isEmpty())
             currentMainStackID--;
 
         //ID below 18 means all main stacks are empty
-        if (stacks[currentMainStackID].getID()>=18) {
+        if (stacks[currentMainStackID].getID() >= 18) {
 
             ArrayList<Card> cards = new ArrayList<>();
             ArrayList<Stack> destinations = new ArrayList<>();
@@ -131,7 +144,7 @@ public class Spider extends Game {
                 destinations.add(stacks[i]);
             }
 
-            moveToStack(cards,destinations,OPTION_REVERSED_RECORD);
+            moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
             //test if a card family is now full
             testAfterMoveHandler.sendEmptyMessageDelayed(0, 100);
         }
@@ -139,8 +152,8 @@ public class Spider extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
         //can always place a card on an empty field, or the value of the card on the other stack is +1
-        if (stack.getID()<10) {
-            if (stack.isEmpty() || (stack.getSize()>0 && stack.getTopCard().getValue() == card.getValue()+1))
+        if (stack.getID() < 10) {
+            if (stack.isEmpty() || (stack.getSize() > 0 && stack.getTopCard().getValue() == card.getValue() + 1))
                 return true;
         }
 
@@ -149,34 +162,34 @@ public class Spider extends Game {
 
     public boolean addCardToMovementTest(Card card) {
         //do not accept cards from foundation and test if the cards are in the right order.
-        return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(),SAME_COLOR);
+        return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_COLOR);
     }
 
-    public CardAndStack hintTest(){
-        for (int i=0;i<10;i++){
+    public CardAndStack hintTest() {
+        for (int i = 0; i < 10; i++) {
             Stack sourceStack = stacks[i];
 
             if (sourceStack.isEmpty())
                 continue;
 
-            for (int j=sourceStack.getFirstUpCardPos();j<sourceStack.getSize();j++){
+            for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j,SAME_COLOR))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_COLOR))
                     continue;
 
-                for (int k=0;k<10;k++){
+                for (int k = 0; k < 10; k++) {
                     Stack destStack = stacks[k];
-                    if (i==k || destStack.isEmpty())
+                    if (i == k || destStack.isEmpty())
                         continue;
 
                     if (cardToMove.test(destStack)) {
                         //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
-                        if (j>0 && sourceStack.getCard(j-1).isUp()  && sourceStack.getCard(j-1).getValue()==cardToMove.getValue()+1
-                                && destStack.getTopCard().getColor()!=cardToMove.getColor())
+                        if (j > 0 && sourceStack.getCard(j - 1).isUp() && sourceStack.getCard(j - 1).getValue() == cardToMove.getValue() + 1
+                                && destStack.getTopCard().getColor() != cardToMove.getColor())
                             continue;
                         //if the card is already on the same card as on the other stack, don't return it
-                        if (sameCardOnOtherStack(cardToMove,destStack,SAME_VALUE_AND_FAMILY))
+                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY))
                             continue;
 
                         return new CardAndStack(cardToMove, destStack);
@@ -192,25 +205,25 @@ public class Spider extends Game {
     public Stack doubleTapTest(Card card) {
         Card cardBelow = null;
 
-        if (card.getIndexOnStack()>0)
-            cardBelow = card.getStack().getCard(card.getIndexOnStack()-1);
+        if (card.getIndexOnStack() > 0)
+            cardBelow = card.getStack().getCard(card.getIndexOnStack() - 1);
 
         //tableau stacks
-        for (int k=0;k<10;k++){
+        for (int k = 0; k < 10; k++) {
             Stack destStack = stacks[k];
-            if (card.getStack().getID()==k || destStack.isEmpty())
+            if (card.getStack().getID() == k || destStack.isEmpty())
                 continue;
 
-            if (cardBelow!=null && cardBelow.isUp() && cardBelow.getValue()==card.getValue()+1 && destStack.getTopCard().getColor()!=card.getColor())
+            if (cardBelow != null && cardBelow.isUp() && cardBelow.getValue() == card.getValue() + 1 && destStack.getTopCard().getColor() != card.getColor())
                 continue;
 
-            if (card.test(destStack) && !sameCardOnOtherStack(card,destStack,SAME_VALUE_AND_FAMILY)) {
+            if (card.test(destStack) && !sameCardOnOtherStack(card, destStack, SAME_VALUE_AND_FAMILY)) {
                 return destStack;
             }
         }
 
         //empty stacks
-        for (int k=0;k<10;k++){
+        for (int k = 0; k < 10; k++) {
             if (stacks[k].isEmpty() && card.test(stacks[k])) {
                 return stacks[k];
             }
@@ -219,15 +232,15 @@ public class Spider extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
         int points = 0;
         boolean foundation = false;
 
-        for (int i=0;i<originIDs.length;i++){
+        for (int i = 0; i < originIDs.length; i++) {
             if (originIDs[i] == destinationIDs[i])
-                points+=25;
+                points += 25;
 
-            if (!foundation && destinationIDs[i] >= 10 && destinationIDs[i]<18) {
+            if (!foundation && destinationIDs[i] >= 10 && destinationIDs[i] < 18) {
                 points += 200;
                 foundation = true;
             }
@@ -237,74 +250,74 @@ public class Spider extends Game {
     }
 
     @Override
-    public boolean testIfMainStackTouched(float X, float Y){
-        return (stacks[18].isOnLocation(X,Y) ||
-                stacks[19].isOnLocation(X,Y) ||
-                stacks[20].isOnLocation(X,Y) ||
-                stacks[21].isOnLocation(X,Y) ||
-                stacks[22].isOnLocation(X,Y));
+    public boolean testIfMainStackTouched(float X, float Y) {
+        return (stacks[18].isOnLocation(X, Y) ||
+                stacks[19].isOnLocation(X, Y) ||
+                stacks[20].isOnLocation(X, Y) ||
+                stacks[21].isOnLocation(X, Y) ||
+                stacks[22].isOnLocation(X, Y));
     }
 
     @Override
-    public void testAfterMove(){
+    public void testAfterMove() {
         /*
          * after a move, test if somewhere is a complete card family, if so, move it to foundations
          */
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             Stack currentStack = stacks[i];
 
-            if (currentStack.isEmpty() || currentStack.getTopCard().getValue()!=1)
+            if (currentStack.isEmpty() || currentStack.getTopCard().getValue() != 1)
                 continue;
 
-            for (int j=currentStack.getFirstUpCardPos();j<currentStack.getSize();j++){
-                if (j==-1)
+            for (int j = currentStack.getFirstUpCardPos(); j < currentStack.getSize(); j++) {
+                if (j == -1)
                     break;
 
                 Card cardToTest = currentStack.getCard(j);
 
-                if (cardToTest.getValue()==13 && testCardsUpToTop(currentStack,j,SAME_COLOR)){
+                if (cardToTest.getValue() == 13 && testCardsUpToTop(currentStack, j, SAME_COLOR)) {
                     Stack foundationStack = stacks[10];
 
                     while (!foundationStack.isEmpty())
-                        foundationStack = stacks[foundationStack.getID()+1];
+                        foundationStack = stacks[foundationStack.getID() + 1];
 
                     ArrayList<Card> cards = new ArrayList<>();
                     ArrayList<Stack> origins = new ArrayList<>();
 
-                    for (int k=j;k<currentStack.getSize();k++){
+                    for (int k = j; k < currentStack.getSize(); k++) {
                         cards.add(currentStack.getCard(k));
                         origins.add(currentStack);
                     }
 
-                    recordList.addAtEndOfLastEntry(cards,origins);
-                    moveToStack(cards,foundationStack,OPTION_NO_RECORD);
+                    recordList.addAtEndOfLastEntry(cards, origins);
+                    moveToStack(cards, foundationStack, OPTION_NO_RECORD);
                     scores.update(200);
 
                     //turn the card below up, if there is one
-                    if (!currentStack.isEmpty() && !currentStack.getTopCard().isUp()){
+                    if (!currentStack.isEmpty() && !currentStack.getTopCard().isUp()) {
                         currentStack.getTopCard().flipWithAnim();
                     }
 
-                    testIfWonHandler.sendEmptyMessageDelayed(0,200);
+                    testIfWonHandler.sendEmptyMessageDelayed(0, 200);
                     break;
                 }
             }
         }
     }
 
-    private void loadCards(){
+    private void loadCards() {
         /*
          * load the card families depending on the preference
          */
-        switch(getSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD,DEFAULT_SPIDER_DIFFICULTY)){
+        switch (getSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD, DEFAULT_SPIDER_DIFFICULTY)) {
             case "1":
-                setCardDrawables(3,3,3,3);
+                setCardDrawables(3, 3, 3, 3);
                 break;
             case "2":
-                setCardDrawables(2,3,2,3);
+                setCardDrawables(2, 3, 2, 3);
                 break;
             case "4":
-                setCardDrawables(1,2,3,4);
+                setCardDrawables(1, 2, 3, 4);
                 break;
         }
 
@@ -317,12 +330,12 @@ public class Spider extends Game {
     }
 
     public boolean autoCompleteStartTest() {
-        for (int i=0;i<4;i++)
-            if (!stacks[18+i].isEmpty())
-               return false;
+        for (int i = 0; i < 4; i++)
+            if (!stacks[18 + i].isEmpty())
+                return false;
 
         for (int i = 0; i < 10; i++)
-            if (stacks[i].getSize()>0 && (stacks[i].getFirstUpCardPos()!=0 || !testCardsUpToTop(stacks[i],0,SAME_COLOR)))
+            if (stacks[i].getSize() > 0 && (stacks[i].getFirstUpCardPos() != 0 || !testCardsUpToTop(stacks[i], 0, SAME_COLOR)))
                 return false;
 
         return true;
@@ -340,7 +353,7 @@ public class Spider extends Game {
 
             for (int k = 0; k < 10; k++) {
                 Stack destStack = stacks[k];
-                if (i == k || destStack.isEmpty() || destStack.getTopCard().getColor()!=cardToMove.getColor())
+                if (i == k || destStack.isEmpty() || destStack.getTopCard().getColor() != cardToMove.getColor())
                     continue;
 
                 if (cardToMove.test(destStack)) {

@@ -19,22 +19,18 @@
 package de.tobiasbielefeld.solitaire.ui.about;
 
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-
 /**
  * This is created with help of this article: http://simpledeveloper.com/how-to-create-android-swipe-views-tabs/
  * The About activity contains 3 tabs. The content of the tabs is in the fragments
- *
+ * <p>
  * This stuff is depreciated, but it works and looks very fine :)
  */
 @SuppressWarnings("deprecation")
@@ -85,17 +81,21 @@ public class AboutActivity extends CustomAppCompatActivity implements ActionBar.
             }
 
             @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {}
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            }
 
             @Override
-            public void onPageScrollStateChanged(int arg0) {}
+            public void onPageScrollStateChanged(int arg0) {
+            }
         });
     }
 
 
     @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {}
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+    }
 
     @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {}
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+    }
 }

@@ -22,12 +22,25 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_KLONDIKE_DRAW;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_DRAW;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_DRAW_OLD;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEquals;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
  * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
@@ -48,10 +61,10 @@ public class Klondike extends Game {
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
         // initialize the dimensions
-        setUpCardWidth(layoutGame,isLandscape,8,10);
+        setUpCardWidth(layoutGame, isLandscape, 8, 10);
 
         //calculate spacing and startposition of cards
-        int spacing = setUpSpacing(layoutGame,7,8);
+        int spacing = setUpSpacing(layoutGame, 7, 8);
         int startPos = layoutGame.getWidth() / 2 - Card.width / 2 - 3 * Card.width - 3 * spacing;
 
         //first order the foundation stacks
@@ -111,7 +124,7 @@ public class Klondike extends Game {
         }
 
         //deal cards to trash according to the draw option
-        if (sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD,DEFAULT_KLONDIKE_DRAW)) {
+        if (sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD, DEFAULT_KLONDIKE_DRAW)) {
             moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
             stacks[13].getTopCard().flipUp();
         } else {
@@ -124,7 +137,7 @@ public class Klondike extends Game {
 
     public void onMainStackTouch() {
 
-        boolean deal3 = !sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD,DEFAULT_KLONDIKE_DRAW);
+        boolean deal3 = !sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD, DEFAULT_KLONDIKE_DRAW);
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
@@ -213,20 +226,20 @@ public class Klondike extends Game {
         else if (stacks[11].getSize() != 0 || stacks[12].getSize() != 0 || stacks[13].getSize() != 0) {
             ArrayList<Card> cards = new ArrayList<>();
 
-            for (int i=0;i<stacks[11].getSize();i++)
+            for (int i = 0; i < stacks[11].getSize(); i++)
                 cards.add(stacks[11].getCard(i));
 
-            for (int i=0;i<stacks[12].getSize();i++)
+            for (int i = 0; i < stacks[12].getSize(); i++)
                 cards.add(stacks[12].getCard(i));
 
-            for (int i=0;i<stacks[13].getSize();i++)
+            for (int i = 0; i < stacks[13].getSize(); i++)
                 cards.add(stacks[13].getCard(i));
 
             ArrayList<Card> cardsReversed = new ArrayList<>();
             for (int i = 0; i < cards.size(); i++)
                 cardsReversed.add(cards.get(cards.size() - 1 - i));
 
-            moveToStack( cardsReversed,getMainStack(),OPTION_REVERSED_RECORD);
+            moveToStack(cardsReversed, getMainStack(), OPTION_REVERSED_RECORD);
         }
     }
 
@@ -286,7 +299,7 @@ public class Klondike extends Game {
                         continue;
 
                     if (card.test(stacks[j])) {
-                        return new CardAndStack(card,stacks[j]);
+                        return new CardAndStack(card, stacks[j]);
                     }
                 }
             }
@@ -297,7 +310,7 @@ public class Klondike extends Game {
             if (!hint.hasVisited(card)) {
                 for (int j = 7; j <= 10; j++) {
                     if (card.test(stacks[j]))
-                        return new CardAndStack(card,stacks[j]);
+                        return new CardAndStack(card, stacks[j]);
                 }
             }
 
@@ -312,7 +325,7 @@ public class Klondike extends Game {
             if (stacks[11 + i].getSize() > 0 && !hint.hasVisited(stacks[11 + i].getTopCard())) {
                 for (int j = 10; j >= 0; j--) {
                     if (stacks[11 + i].getTopCard().test(stacks[j])) {
-                        return new CardAndStack(stacks[11 + i].getTopCard(),stacks[j]);
+                        return new CardAndStack(stacks[11 + i].getTopCard(), stacks[j]);
                     }
                 }
             }
@@ -325,19 +338,19 @@ public class Klondike extends Game {
 
         //foundation stacks
         if (card.isTopCard()) {
-            for (int j = 7; j <11; j++) {
+            for (int j = 7; j < 11; j++) {
                 if (card.test(stacks[j]))
                     return stacks[j];
             }
         }
 
         //tableau stacks
-        for (int j = 0; j <7; j++) {
+        for (int j = 0; j < 7; j++) {
 
-            if (card.getStack().getID()<7 && sameCardOnOtherStack(card,stacks[j],SAME_VALUE_AND_COLOR))
+            if (card.getStack().getID() < 7 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
                 continue;
 
-            if (card.getValue()==13 && card.isFirstCard() && card.getStack().getID()<=6)
+            if (card.getValue() == 13 && card.isFirstCard() && card.getStack().getID() <= 6)
                 continue;
 
             if (card.test(stacks[j])) {
@@ -346,7 +359,7 @@ public class Klondike extends Game {
         }
 
         //empty tableau stacks
-        for (int j = 0; j <7; j++) {
+        for (int j = 0; j < 7; j++) {
             if (stacks[j].isEmpty() && card.test(stacks[j]))
                 return stacks[j];
         }
@@ -354,7 +367,7 @@ public class Klondike extends Game {
         return null;
     }
 
-    public CardAndStack autoCompletePhaseOne(){
+    public CardAndStack autoCompletePhaseOne() {
         return null;
     }
 
@@ -367,7 +380,7 @@ public class Klondike extends Game {
                 Stack origin = stacks[j];
 
                 if (origin.getSize() > 0 && origin.getTopCard().test(destination)) {
-                    return new CardAndStack(origin.getTopCard(),destination);
+                    return new CardAndStack(origin.getTopCard(), destination);
                 }
             }
 
@@ -377,7 +390,7 @@ public class Klondike extends Game {
                 for (int k = 0; k < origin.getSize(); k++) {
                     if (origin.getCard(k).test(destination)) {
                         origin.getCard(k).flipUp();
-                        return new CardAndStack(origin.getCard(k),destination);
+                        return new CardAndStack(origin.getCard(k), destination);
                     }
                 }
             }
@@ -390,7 +403,7 @@ public class Klondike extends Game {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
-        if (originID >=11 && originID <= 13 && destinationID >=11 && destinationID <=13)            //used for from stock to tabaleau/f
+        if (originID >= 11 && originID <= 13 && destinationID >= 11 && destinationID <= 13)            //used for from stock to tabaleau/f
             return 45;
         if ((originID < 7 || originID == 14) && destinationID >= 7 && destinationID <= 10)          //transfer from tableau to foundations
             return 60;
@@ -413,7 +426,7 @@ public class Klondike extends Game {
          *  This movement will be added to the last record list entry, so it will be also undone if
          *  the card will be moved back to the discard stacks
          */
-        if (sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD,DEFAULT_KLONDIKE_DRAW) || gameLogic.hasWon())
+        if (sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD, DEFAULT_KLONDIKE_DRAW) || gameLogic.hasWon())
             return;
 
         if (stacks[12].getSize() == 0 || stacks[13].getSize() == 0) {

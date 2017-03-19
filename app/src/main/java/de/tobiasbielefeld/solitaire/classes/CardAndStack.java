@@ -29,12 +29,12 @@ public class CardAndStack {
     private int cardID;
     private int stackID;
 
-    public CardAndStack(Card card, Stack stack){
+    public CardAndStack(Card card, Stack stack) {
         cardID = card.getID();
         stackID = stack.getID();
     }
 
-    public CardAndStack(int cardID, int stackID){
+    public CardAndStack(int cardID, int stackID) {
         this.cardID = cardID;
         this.stackID = stackID;
     }

@@ -19,8 +19,6 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
@@ -29,14 +27,17 @@ import android.widget.LinearLayout;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
+import static de.tobiasbielefeld.solitaire.SharedData.NUMBER_OF_CARD_BACKGROUNDS;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
 
 /*
  * dialog for picking the card background drawable. Clicks on it are handled here and the
  * sharedPrefChanged listener in Settings will update the cards.
  */
 
-public class CardBackgroundDialogPreference extends DialogPreference implements View.OnClickListener{
+public class CardBackgroundDialogPreference extends DialogPreference implements View.OnClickListener {
 
     private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_BACKGROUNDS];
 
@@ -62,10 +63,10 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
         linearLayouts[10] = (LinearLayout) view.findViewById(R.id.settingsCardBackground11);
         linearLayouts[11] = (LinearLayout) view.findViewById(R.id.settingsCardBackground12);
 
-        for (int i=0; i<NUMBER_OF_CARD_BACKGROUNDS;i++){
+        for (int i = 0; i < NUMBER_OF_CARD_BACKGROUNDS; i++) {
             linearLayouts[i].setOnClickListener(this);
             ImageView imageView = (ImageView) linearLayouts[i].getChildAt(0);
-            imageView.setImageBitmap(bitmaps.getCardBack(i % 8, i/ 8));
+            imageView.setImageBitmap(bitmaps.getCardBack(i % 8, i / 8));
         }
 
         super.onBindDialogView(view);
@@ -75,7 +76,8 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
         int choice;
 
         switch (v.getId()) {
-            case R.id.settingsCardBackground1:default:
+            case R.id.settingsCardBackground1:
+            default:
                 choice = 1;
                 break;
             case R.id.settingsCardBackground2:

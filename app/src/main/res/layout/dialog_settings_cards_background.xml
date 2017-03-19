@@ -32,7 +32,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -188,7 +188,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -213,7 +213,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -238,7 +238,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -263,7 +263,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -288,7 +288,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -313,7 +313,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back"/>
+                    android:contentDescription="@string/settings_cards_back" />
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -22,16 +22,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_REDEAL_COUNT;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getInt;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.putInt;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
  * Abstract class for all the games. See the DUMMY GAME for detailed explanation of everything!
@@ -48,7 +52,7 @@ public abstract class Game {
     final static protected int LEFT = 1;
     final static protected int RIGHT = 2;
 
-    public int[] cardDrawablesOrder = new int[]{1,2,3,4};
+    public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
     public int[] directions;
     public int[] directionBorders;
     private boolean hasMainStack = false;
@@ -58,9 +62,9 @@ public abstract class Game {
     private boolean hasLimitedRedeals = false;
     private int discardStackID = -1;
     private int lastTableauID = -1;
-    private int redealCounter=0;
-    private int totalRedeals=0;
-    private boolean hasArrow=false;
+    private int redealCounter = 0;
+    private int totalRedeals = 0;
+    private boolean hasArrow = false;
     private boolean ignoreEmptyTableauStacks = false;
 
     /*
@@ -83,17 +87,17 @@ public abstract class Game {
 
     abstract public void onMainStackTouch();
 
-    protected boolean sameCardOnOtherStack(Card card, Stack otherStack, int mode){
+    protected boolean sameCardOnOtherStack(Card card, Stack otherStack, int mode) {
         Stack origin = card.getStack();
 
-        if (card.getIndexOnStack()>0 && origin.getCard(card.getIndexOnStack()-1).isUp() && otherStack.getSize()>0){
-            Card cardBelow = origin.getCard(card.getIndexOnStack()-1);
+        if (card.getIndexOnStack() > 0 && origin.getCard(card.getIndexOnStack() - 1).isUp() && otherStack.getSize() > 0) {
+            Card cardBelow = origin.getCard(card.getIndexOnStack() - 1);
 
             if (mode == SAME_VALUE_AND_COLOR) {
-                if (cardBelow.getValue()==otherStack.getTopCard().getValue() && cardBelow.getColor()%2 ==otherStack.getTopCard().getColor()%2)
+                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() % 2 == otherStack.getTopCard().getColor() % 2)
                     return true;
-            } else if (mode == SAME_VALUE_AND_FAMILY){
-                if (cardBelow.getValue()==otherStack.getTopCard().getValue() && cardBelow.getColor() ==otherStack.getTopCard().getColor())
+            } else if (mode == SAME_VALUE_AND_FAMILY) {
+                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() == otherStack.getTopCard().getColor())
                     return true;
             }
         }
@@ -101,20 +105,20 @@ public abstract class Game {
         return false;
     }
 
-    public CardAndStack doubleTap(Card card){
+    public CardAndStack doubleTap(Card card) {
         CardAndStack cardAndStack = null;
         Stack destination;
 
         destination = doubleTapTest(card);
 
-        if (destination!=null){
-            cardAndStack = new CardAndStack(card,destination);
+        if (destination != null) {
+            cardAndStack = new CardAndStack(card, destination);
         }
 
         return cardAndStack;
     }
 
-    public CardAndStack doubleTap(Stack stack){
+    public CardAndStack doubleTap(Stack stack) {
         CardAndStack cardAndStack = null;
         Stack destination = null;
 
@@ -123,9 +127,9 @@ public abstract class Game {
                 destination = doubleTapTest(stack.getCard(i));
             }
 
-            if (destination!=null) {
+            if (destination != null) {
                 if (destination.isEmpty()) {
-                    if (cardAndStack==null) {
+                    if (cardAndStack == null) {
                         cardAndStack = new CardAndStack(stack.getCard(i), destination);
                     }
                 } else {
@@ -138,22 +142,24 @@ public abstract class Game {
         return cardAndStack;
     }
 
-    public Stack doubleTapTest(Card card){return null;}
+    public Stack doubleTapTest(Card card) {
+        return null;
+    }
 
 
     /*
      * auto complete stuff, can be used or not
      */
 
-    public boolean autoCompleteStartTest(){
+    public boolean autoCompleteStartTest() {
         return false;
     }
 
-    public CardAndStack autoCompletePhaseOne(){
+    public CardAndStack autoCompletePhaseOne() {
         return null;
     }
 
-    public CardAndStack autoCompletePhaseTwo(){
+    public CardAndStack autoCompletePhaseTwo() {
         return null;
     }
 
@@ -161,7 +167,7 @@ public abstract class Game {
      *  stuff that the games can override if necessary
      */
 
-    public void reset(GameManager gm){
+    public void reset(GameManager gm) {
         if (hasLimitedRedeals) {
             redealCounter = 0;
 
@@ -169,17 +175,18 @@ public abstract class Game {
         }
     }
 
-    public boolean testIfMainStackTouched(float X, float Y){
-        return getMainStack().isOnLocation(X,Y);
+    public boolean testIfMainStackTouched(float X, float Y) {
+        return getMainStack().isOnLocation(X, Y);
     }
 
-    protected void setCardDrawables(int p1, int p2, int p3, int p4){
-        cardDrawablesOrder = new int[]{p1,p2,p3,p4};
+    protected void setCardDrawables(int p1, int p2, int p3, int p4) {
+        cardDrawablesOrder = new int[]{p1, p2, p3, p4};
     }
 
-    public void testAfterMove(){}
+    public void testAfterMove() {
+    }
 
-    public void addOnTouchListener(View.OnTouchListener listener){
+    public void addOnTouchListener(View.OnTouchListener listener) {
         if (hasMainStack()) {
             getMainStack().view.setOnTouchListener(listener);
         }
@@ -195,15 +202,15 @@ public abstract class Game {
          * set mode to true if the card color has to alternate, false otherwise
          */
 
-        for (int i=startPos;i<stack.getSize()-1;i++){
+        for (int i = startPos; i < stack.getSize() - 1; i++) {
             Card bottomCard = stack.getCard(i);
-            Card upperCard = stack.getCard(i+1);
+            Card upperCard = stack.getCard(i + 1);
 
-            if (mode == ALTERNATING_COLOR){  //alternating color
-                if ((bottomCard.getColor()%2 == upperCard.getColor()%2) || (bottomCard.getValue() != upperCard.getValue()+1))
+            if (mode == ALTERNATING_COLOR) {  //alternating color
+                if ((bottomCard.getColor() % 2 == upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1))
                     return false;
             } else {    //same color
-                if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue()+1))
+                if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue() + 1))
                     return false;
             }
 
@@ -212,8 +219,8 @@ public abstract class Game {
         return true;
     }
 
-    protected void setLimitedRedeals(int number){
-        if (number>=0) {
+    protected void setLimitedRedeals(int number) {
+        if (number >= 0) {
             hasLimitedRedeals = true;
             totalRedeals = number;
         } else {
@@ -221,7 +228,7 @@ public abstract class Game {
         }
     }
 
-    protected void setUpCardWidth(RelativeLayout layoutGame, boolean isLandscape, int portraitValue, int landscapeValue){
+    protected void setUpCardWidth(RelativeLayout layoutGame, boolean isLandscape, int portraitValue, int landscapeValue) {
         //use this to set the cards with according to last two values.
         //second last is for portrait mode, last one for landscape.
         //the game width will be divided by these values according to orientation to use as card widths.
@@ -234,11 +241,11 @@ public abstract class Game {
         for (Stack stack : stacks) stack.view.setLayoutParams(params);
     }
 
-    protected int setUpSpacing(RelativeLayout layoutGame, int cardWidth, int divider){
-        return min(Card.width / 2,(layoutGame.getWidth() - cardWidth * Card.width) / (divider));
+    protected int setUpSpacing(RelativeLayout layoutGame, int cardWidth, int divider) {
+        return min(Card.width / 2, (layoutGame.getWidth() - cardWidth * Card.width) / (divider));
     }
 
-    protected void setUpCardDimensions(RelativeLayout layoutGame, int portraitValue, int landscapeValue){
+    protected void setUpCardDimensions(RelativeLayout layoutGame, int portraitValue, int landscapeValue) {
 
         int testWidth1, testHeight1, testWidth2, testHeight2;
 
@@ -248,7 +255,7 @@ public abstract class Game {
         testHeight2 = layoutGame.getHeight() / landscapeValue;
         testWidth2 = (int) (testHeight2 / 1.5);
 
-        if (testHeight1  < testHeight2) {
+        if (testHeight1 < testHeight2) {
             Card.width = testWidth1;
             Card.height = testHeight1;
         } else {
@@ -262,22 +269,22 @@ public abstract class Game {
         for (Stack stack : stacks) stack.view.setLayoutParams(params);
     }
 
-    protected void setNumberOfDecks(int number){
-        cards = new Card[52*number];
+    protected void setNumberOfDecks(int number) {
+        cards = new Card[52 * number];
         gameLogic.randomCards = new Card[cards.length];
     }
 
-    protected void setNumberOfStacks(int number){
+    protected void setNumberOfStacks(int number) {
         stacks = new Stack[number];
     }
 
-    protected void setFirstMainStackID(int ID){
-        hasMainStack=true;
+    protected void setFirstMainStackID(int ID) {
+        hasMainStack = true;
         mainStackID = ID;
         dealFromID = ID;
     }
 
-    protected void setFirstDiscardStackID(int ID){
+    protected void setFirstDiscardStackID(int ID) {
         hasDiscardStack = true;
         discardStackID = ID;
     }
@@ -286,7 +293,7 @@ public abstract class Game {
         dealFromID = ID;
     }
 
-    protected void setDirections(int[] directions){
+    protected void setDirections(int[] directions) {
         this.directions = directions;
     }
 
@@ -294,13 +301,13 @@ public abstract class Game {
         directionBorders = stackIDs;
     }
 
-    protected void setArrow(Stack stack, int direction){
-        hasArrow=true;
+    protected void setArrow(Stack stack, int direction) {
+        hasArrow = true;
         stack.setArrow(direction);
 
         if (direction == LEFT) {
             stack.view.setImageBitmap(Stack.arrowLeft);
-        } else if (direction == RIGHT){
+        } else if (direction == RIGHT) {
             stack.view.setImageBitmap(Stack.arrowRight);
         }
     }
@@ -309,33 +316,33 @@ public abstract class Game {
      * some getters, games should'nt override these
      */
 
-    public Stack getMainStack(){
-        if (mainStackID==-1)
-            Log.e("Game.getMainStack()","No main stack specified");
+    public Stack getMainStack() {
+        if (mainStackID == -1)
+            Log.e("Game.getMainStack()", "No main stack specified");
 
         return stacks[mainStackID];
     }
 
-    public int getLastTableauID(){
-        if (lastTableauID==-1)
-            Log.e("Game.getLastTableauID()","No last tableau stack specified");
+    public int getLastTableauID() {
+        if (lastTableauID == -1)
+            Log.e("Game.getLastTableauID()", "No last tableau stack specified");
 
         return lastTableauID;
     }
 
-    protected void ignoreEmptyTableauStacks(){
-        ignoreEmptyTableauStacks = true;
-    }
-
-    protected void setLastTableauID(int ID){
+    protected void setLastTableauID(int ID) {
         lastTableauID = ID;
     }
 
-    public boolean hasMainStack(){
+    protected void ignoreEmptyTableauStacks() {
+        ignoreEmptyTableauStacks = true;
+    }
+
+    public boolean hasMainStack() {
         return hasMainStack;
     }
 
-    public Stack dealFromStack(){
+    public Stack dealFromStack() {
         return stacks[dealFromID];
     }
 
@@ -343,61 +350,57 @@ public abstract class Game {
         return hasDiscardStack;
     }
 
-    public Stack getDiscardStack(){
-        if (discardStackID==-1)
-            Log.e("Game.getDiscardStack()","No discard stack specified");
+    public Stack getDiscardStack() {
+        if (discardStackID == -1)
+            Log.e("Game.getDiscardStack()", "No discard stack specified");
 
         return stacks[discardStackID];
     }
 
-    public boolean hasLimitedRedeals(){
+    public boolean hasLimitedRedeals() {
         return hasLimitedRedeals;
     }
 
-    public int getRemainingNumberOfRedeals(){
+    public int getRemainingNumberOfRedeals() {
         return totalRedeals - redealCounter;
     }
 
-    public void incrementRedealCounter(GameManager gm){
+    public void incrementRedealCounter(GameManager gm) {
         redealCounter++;
         gm.updateNumberOfRedeals();
     }
 
-    public void decrementRedealCounter(GameManager gm){
+    public void decrementRedealCounter(GameManager gm) {
         redealCounter--;
         gm.updateNumberOfRedeals();
     }
 
-    public void saveRedealCount(){
-        putInt(GAME_REDEAL_COUNT,redealCounter);
+    public void saveRedealCount() {
+        putInt(GAME_REDEAL_COUNT, redealCounter);
     }
 
-    public void loadRedealCount(GameManager gm){
-        redealCounter = getInt(GAME_REDEAL_COUNT,totalRedeals);
+    public void loadRedealCount(GameManager gm) {
+        redealCounter = getInt(GAME_REDEAL_COUNT, totalRedeals);
         gm.updateNumberOfRedeals();
     }
 
-    public boolean hasArrow(){
+    public boolean hasArrow() {
         return hasArrow;
     }
 
-    public void save(){}
+    public void save() {
+    }
 
-    public void load(){}
+    public void load() {
+    }
 
-    public void toggleRedeals(){
+    public void toggleRedeals() {
         hasLimitedRedeals = !hasLimitedRedeals;
     }
 
-    public boolean ignoresEmptyTableauStacks(){
+    public boolean ignoresEmptyTableauStacks() {
         return ignoreEmptyTableauStacks;
     }
-
-
-
-
-
-
 
 
 }

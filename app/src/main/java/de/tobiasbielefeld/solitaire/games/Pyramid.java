@@ -23,12 +23,24 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_PYRAMID_DIFFICULTY;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_PYRAMID_LIMITED_REDEALS;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_PYRAMID_DIFFICULTY;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_PYRAMID_LIMITED_REDEALS;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEquals;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.testIfWonHandler;
 
 /*
  * Pyramid Solitaire! It has a lot of stacks.
@@ -41,39 +53,39 @@ public class Pyramid extends Game {
     ArrayList<Card> cardsToMove = new ArrayList<>();
     ArrayList<Stack> origins = new ArrayList<>();
 
-    public  Pyramid() {
+    public Pyramid() {
         setNumberOfDecks(1);
         setNumberOfStacks(32);
         setFirstMainStackID(31);
         setFirstDiscardStackID(29);
         setLastTableauID(27);
         setDealFromID(30);
-        setDirections(new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+        setDirections(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
         ignoreEmptyTableauStacks();
 
         setLimitedRedeals(2);
 
-        if (!getSharedBoolean(PREF_KEY_PYRAMID_LIMITED_REDEALS,DEFAULT_PYRAMID_LIMITED_REDEALS))
+        if (!getSharedBoolean(PREF_KEY_PYRAMID_LIMITED_REDEALS, DEFAULT_PYRAMID_LIMITED_REDEALS))
             toggleRedeals();
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
-        setUpCardDimensions(layoutGame,7+1,5+1);
+        setUpCardDimensions(layoutGame, 7 + 1, 5 + 1);
 
-        int spacing = setUpSpacing(layoutGame,7,8);
+        int spacing = setUpSpacing(layoutGame, 7, 8);
 
         int index = 0;
         for (int i = 0; i < 7; i++) {
 
-            int startPosX = layoutGame.getWidth()/2 - (i+1)*Card.width/2 - i*spacing/2;
-            int startPosY = (isLandscape ? Card.width / 4 : Card.width / 2) + i* Card.height/2;
+            int startPosX = layoutGame.getWidth() / 2 - (i + 1) * Card.width / 2 - i * spacing / 2;
+            int startPosY = (isLandscape ? Card.width / 4 : Card.width / 2) + i * Card.height / 2;
 
-            for (int j = 0; j < i+1; j++) {
+            for (int j = 0; j < i + 1; j++) {
 
-                stackAboveID[index] = ((i+1)*(i+2))/2+j;
+                stackAboveID[index] = ((i + 1) * (i + 2)) / 2 + j;
 
-                stacks[index].view.setX(startPosX + j* (spacing + Card.width) );
+                stacks[index].view.setX(startPosX + j * (spacing + Card.width));
                 stacks[index].view.setY(startPosY);
                 stacks[index].view.setImageBitmap(Stack.backgroundTransparent);
 
@@ -81,17 +93,17 @@ public class Pyramid extends Game {
             }
         }
 
-        stacks[28].view.setX(stacks[21].view.getX() + Card.width/2 + spacing/2);
+        stacks[28].view.setX(stacks[21].view.getX() + Card.width / 2 + spacing / 2);
         stacks[28].view.setY(stacks[21].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
 
-        stacks[29].view.setX(stacks[24].view.getX() + Card.width/2);
+        stacks[29].view.setX(stacks[24].view.getX() + Card.width / 2);
         stacks[29].view.setY(stacks[28].view.getY());
 
-        stacks[31].view.setX(stacks[29].view.getX() + Card.width +spacing);
+        stacks[31].view.setX(stacks[29].view.getX() + Card.width + spacing);
         stacks[31].view.setY(stacks[28].view.getY());
-        setArrow(stacks[31],LEFT);
+        setArrow(stacks[31], LEFT);
 
-        stacks[30].view.setX(stacks[31].view.getX() + Card.width +spacing);
+        stacks[30].view.setX(stacks[31].view.getX() + Card.width + spacing);
         stacks[30].view.setY(stacks[28].view.getY());
     }
 
@@ -103,27 +115,27 @@ public class Pyramid extends Game {
         return sharedStringEquals(PREF_KEY_PYRAMID_DIFFICULTY, DEFAULT_PYRAMID_DIFFICULTY) || getDiscardStack().isEmpty() && stacks[30].isEmpty();
     }
 
-    public void dealCards(){
-        for (Card card : cards){
+    public void dealCards() {
+        for (Card card : cards) {
             card.flipUp();
         }
 
-        for (int i = 0; i<28 ; i++) {
+        for (int i = 0; i < 28; i++) {
             moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
         }
 
-        moveToStack(dealFromStack().getTopCard(),getDiscardStack(),OPTION_NO_RECORD);
+        moveToStack(dealFromStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
-    public boolean testIfMainStackTouched(float X, float Y){
-        return (dealFromStack().isEmpty() && dealFromStack().isOnLocation(X,Y)) || getMainStack().isOnLocation(X,Y);
+    public boolean testIfMainStackTouched(float X, float Y) {
+        return (dealFromStack().isEmpty() && dealFromStack().isOnLocation(X, Y)) || getMainStack().isOnLocation(X, Y);
     }
 
-    public void onMainStackTouch(){
+    public void onMainStackTouch() {
 
         if (!dealFromStack().isEmpty()) {
             moveToStack(dealFromStack().getTopCard(), getDiscardStack());
-        } else if (!getDiscardStack().isEmpty()){
+        } else if (!getDiscardStack().isEmpty()) {
             recordList.add(getDiscardStack().currentCards);
 
             while (getDiscardStack().getSize() > 0)
@@ -134,14 +146,14 @@ public class Pyramid extends Game {
     }
 
 
-    public boolean cardTest(Stack stack, Card card){
+    public boolean cardTest(Stack stack, Card card) {
         if (stack.getID() == 31)
             return false;
 
-        if (stack.getID()==28 && card.getValue()==13)
+        if (stack.getID() == 28 && card.getValue() == 13)
             return true;
 
-        if (!stack.isEmpty() && stackIsFree(stack) && card.getValue()+stack.getTopCard().getValue()==13){
+        if (!stack.isEmpty() && stackIsFree(stack) && card.getValue() + stack.getTopCard().getValue() == 13) {
 
             cardsToMove.add(stack.getTopCard());
             cardsToMove.add(card);
@@ -158,7 +170,7 @@ public class Pyramid extends Game {
 
     public boolean addCardToMovementTest(Card card) {
 
-        if (card.getStack().getID()==28)
+        if (card.getStack().getID() == 28)
             return false;
 
         if (card.getStack().getID() == getDiscardStack().getID())
@@ -170,11 +182,11 @@ public class Pyramid extends Game {
 
     }
 
-    public CardAndStack hintTest(){
+    public CardAndStack hintTest() {
 
         ArrayList<Stack> freeStacks = new ArrayList<>();
 
-        for (int i=0;i<=getLastTableauID();i++){
+        for (int i = 0; i <= getLastTableauID(); i++) {
             if (stackIsFree(stacks[i]) && !stacks[i].isEmpty() && !hint.hasVisited(stacks[i].getTopCard()))
                 freeStacks.add(stacks[i]);
         }
@@ -186,18 +198,18 @@ public class Pyramid extends Game {
         if (!stacks[30].isEmpty() && !hint.hasVisited(stacks[30].getTopCard()))
             freeStacks.add(stacks[30]);
 
-        for (Stack stack : freeStacks){
+        for (Stack stack : freeStacks) {
 
-            if (stack.getTopCard().getValue()==13){
-                return new CardAndStack(stack.getTopCard(),stacks[28]);
+            if (stack.getTopCard().getValue() == 13) {
+                return new CardAndStack(stack.getTopCard(), stacks[28]);
             }
 
             for (Stack otherStack : freeStacks) {
                 if (stack.getID() == otherStack.getID())
                     continue;
 
-                if (stackIsFree(stack) && stack.getTopCard().getValue()+otherStack.getTopCard().getValue()==13)
-                    return new CardAndStack(stack.getTopCard(),otherStack);
+                if (stackIsFree(stack) && stack.getTopCard().getValue() + otherStack.getTopCard().getValue() == 13)
+                    return new CardAndStack(stack.getTopCard(), otherStack);
             }
         }
 
@@ -209,11 +221,11 @@ public class Pyramid extends Game {
 
         Stack returnStack = null;
 
-        if (card.getValue()==13){
+        if (card.getValue() == 13) {
             return stacks[28];
         }
 
-        for (int i = getLastTableauID(); i >=0; i--) {
+        for (int i = getLastTableauID(); i >= 0; i--) {
 
             if (stacks[i].isEmpty())
                 continue;
@@ -224,61 +236,61 @@ public class Pyramid extends Game {
             }
         }
 
-        if (returnStack==null && !getDiscardStack().isEmpty() && card.getStack()!=getDiscardStack() && card.getValue()+getDiscardStack().getTopCard().getValue()==13)
+        if (returnStack == null && !getDiscardStack().isEmpty() && card.getStack() != getDiscardStack() && card.getValue() + getDiscardStack().getTopCard().getValue() == 13)
             returnStack = getDiscardStack();
 
-        if (returnStack==null && !dealFromStack().isEmpty() && card.getStack()!=dealFromStack() && card.getValue()+dealFromStack().getTopCard().getValue()==13)
+        if (returnStack == null && !dealFromStack().isEmpty() && card.getStack() != dealFromStack() && card.getValue() + dealFromStack().getTopCard().getValue() == 13)
             returnStack = dealFromStack();
 
-       if (returnStack!=null) {
-           cardsToMove.add(returnStack.getTopCard());
-           cardsToMove.add(card);
+        if (returnStack != null) {
+            cardsToMove.add(returnStack.getTopCard());
+            cardsToMove.add(card);
 
-           origins.add(returnStack);
-           origins.add(card.getStack());
-           return returnStack;
-       }
+            origins.add(returnStack);
+            origins.add(card.getStack());
+            return returnStack;
+        }
 
-        if (card.getStack()==dealFromStack())
+        if (card.getStack() == dealFromStack())
             return getDiscardStack();
 
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
-        if (destinationIDs[0]==28)
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+        if (destinationIDs[0] == 28)
             return 50;
-        else if (cards.size()>1 && originIDs[0]==getDiscardStack().getID() && destinationIDs[0]==dealFromStack().getID())
+        else if (cards.size() > 1 && originIDs[0] == getDiscardStack().getID() && destinationIDs[0] == dealFromStack().getID())
             return -200;
         else
             return 0;
     }
 
-    public void testAfterMove(){
-        if (cardsToMove.size()>0){
+    public void testAfterMove() {
+        if (cardsToMove.size() > 0) {
             recordList.deleteLast();
-            moveToStack(cardsToMove,stacks[28],OPTION_NO_RECORD);
-            recordList.add(cardsToMove,origins);
+            moveToStack(cardsToMove, stacks[28], OPTION_NO_RECORD);
+            recordList.add(cardsToMove, origins);
             scores.update(50);
 
             cardsToMove.clear();
             origins.clear();
 
-            testIfWonHandler.sendEmptyMessageDelayed(0,200);
+            testIfWonHandler.sendEmptyMessageDelayed(0, 200);
         }
     }
 
-    public void addOnTouchListener(View.OnTouchListener listener){
+    public void addOnTouchListener(View.OnTouchListener listener) {
         super.addOnTouchListener(listener);
         dealFromStack().view.setOnTouchListener(listener);
     }
 
-    private boolean stackIsFree(Stack stack){
-        if (stack.getID()>20)
+    private boolean stackIsFree(Stack stack) {
+        if (stack.getID() > 20)
             return true;
 
         Stack stackAbove1 = stacks[stackAboveID[stack.getID()]];
-        Stack stackAbove2 = stacks[stackAboveID[stack.getID()]+1];
+        Stack stackAbove2 = stacks[stackAboveID[stack.getID()] + 1];
 
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
     }

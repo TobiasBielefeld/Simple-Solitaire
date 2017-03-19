@@ -2,6 +2,6 @@
 
     <item
         android:id="@+id/item_delete"
-        android:title="@string/statistics_button_delete"/>
-	
+        android:title="@string/statistics_button_delete" />
+
 </menu>

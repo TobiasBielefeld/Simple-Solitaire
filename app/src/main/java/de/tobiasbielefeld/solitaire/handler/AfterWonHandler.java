@@ -20,15 +20,10 @@ package de.tobiasbielefeld.solitaire.handler;
 
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.DialogFragment;
 
-import java.util.Random;
-
-import de.tobiasbielefeld.solitaire.classes.Card;
-import de.tobiasbielefeld.solitaire.dialogs.RestartDialog;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
 
 /**
  * Handler to show the menu after the win animation
@@ -39,7 +34,7 @@ public class AfterWonHandler extends Handler {
     GameManager gm;
     int phase = 1;
 
-    public AfterWonHandler(GameManager gm){
+    public AfterWonHandler(GameManager gm) {
         this.gm = gm;
     }
 
@@ -47,15 +42,14 @@ public class AfterWonHandler extends Handler {
         super.handleMessage(msg);
 
         if (animate.cardIsAnimating())
-            animate.afterWonHandler.sendEmptyMessageDelayed(0,100);
+            animate.afterWonHandler.sendEmptyMessageDelayed(0, 100);
         else {
-            if (phase==1) {
+            if (phase == 1) {
                 animate.wonAnimationPhase1();
 
                 phase = 2;
-                animate.afterWonHandler.sendEmptyMessageDelayed(0,100);
-            }
-            else {
+                animate.afterWonHandler.sendEmptyMessageDelayed(0, 100);
+            } else {
                 phase = 1;
                 gm.showRestartDialog();
             }

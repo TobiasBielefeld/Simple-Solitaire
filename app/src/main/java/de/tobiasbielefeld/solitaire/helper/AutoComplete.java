@@ -23,7 +23,7 @@ import android.view.View;
 import de.tobiasbielefeld.solitaire.handler.AutoCompleteHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
 
 /*
  *  if the last card on the tableau is flipped up, the auto complete can be run. it simply test
@@ -35,18 +35,18 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class AutoComplete {
 
     public AutoCompleteHandler autoCompleteHandler = new AutoCompleteHandler();
-    private boolean running=false;                                                                  //shows if the autocomplete is still running
+    private boolean running = false;                                                                  //shows if the autocomplete is still running
     private boolean buttonShown = false;
     private GameManager gm;
 
-    public AutoComplete(GameManager gm){
+    public AutoComplete(GameManager gm) {
         this.gm = gm;
     }
 
     public void reset() {
         autoCompleteHandler.reset();
         hideButton();
-        running=false;
+        running = false;
     }
 
     public void start() {
@@ -60,16 +60,16 @@ public class AutoComplete {
         return running;
     }
 
-    public boolean buttonIsShown(){
+    public boolean buttonIsShown() {
         return buttonShown;
     }
 
-    public void showButton(){
+    public void showButton() {
         buttonShown = true;
         animate.showAutoCompleteButton();
     }
 
-    public void hideButton(){
+    public void hideButton() {
         buttonShown = false;
         gm.buttonAutoComplete.setVisibility(View.GONE);
     }

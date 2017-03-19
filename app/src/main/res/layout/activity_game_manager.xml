@@ -16,17 +16,17 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/mainRelativeLayoutGameOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout"
-        android:id="@+id/mainRelativeLayoutGameOverlay">
+        android:layout_above="@+id/linearLayout">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:background="#000000"></FrameLayout>
 
         <TextView
@@ -59,10 +59,10 @@
             android:layout_above="@+id/mainTextViewTime"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="15dp"
+            android:background="@android:drawable/btn_default_small"
             android:onClick="menuClick"
             android:text="@string/game_auto_complete_text"
-            android:visibility="gone"
-            android:background="@android:drawable/btn_default_small" />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewRedeals"
@@ -108,34 +108,34 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
         android:background="#e7e7e7"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="visible"
-        android:layout_height="?attr/actionBarSize">
+        android:visibility="visible">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_height="match_parent"
+            android:id="@+id/mainButtonScores"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
-            android:id="@+id/mainButtonScores"
             android:onClick="menuClick"
+            android:orientation="vertical"
             android:paddingBottom="5dp"
             android:paddingLeft="2dp"
-            android:paddingTop="5dp"
-            android:paddingRight="2dp">
+            android:paddingRight="2dp"
+            android:paddingTop="5dp">
 
             <ImageView
+                android:id="@+id/button_scores"
                 android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_statistics"
-                app:srcCompat="@drawable/icon_material_scores"
-                android:layout_height="0dp"
-                android:id="@+id/button_scores"/>
+                app:srcCompat="@drawable/icon_material_scores" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -147,25 +147,25 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/mainButtonHint"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
-            android:id="@+id/mainButtonHint"
             android:onClick="menuClick"
+            android:orientation="vertical"
             android:paddingBottom="5dp"
             android:paddingLeft="2dp"
-            android:paddingTop="5dp"
-            android:paddingRight="2dp">
+            android:paddingRight="2dp"
+            android:paddingTop="5dp">
 
             <ImageView
+                android:id="@+id/button_hint"
                 android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_hint"
-                app:srcCompat="@drawable/icon_material_hint"
-                android:layout_height="0dp"
-                android:id="@+id/button_hint"/>
+                app:srcCompat="@drawable/icon_material_hint" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -177,25 +177,25 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/mainButtonRestart"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
-            android:id="@+id/mainButtonRestart"
             android:onClick="menuClick"
+            android:orientation="vertical"
             android:paddingBottom="5dp"
             android:paddingLeft="2dp"
-            android:paddingTop="5dp"
-            android:paddingRight="2dp">
+            android:paddingRight="2dp"
+            android:paddingTop="5dp">
 
             <ImageView
+                android:id="@+id/button_restart"
                 android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_main_menu"
-                app:srcCompat="@drawable/icon_material_menu"
-                android:layout_height="0dp"
-                android:id="@+id/button_restart"/>
+                app:srcCompat="@drawable/icon_material_menu" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -207,26 +207,26 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/mainButtonUndo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
-            android:id="@+id/mainButtonUndo"
             android:onClick="menuClick"
+            android:orientation="vertical"
             android:paddingBottom="5dp"
             android:paddingLeft="2dp"
-            android:paddingTop="5dp"
-            android:paddingRight="2dp">
+            android:paddingRight="2dp"
+            android:paddingTop="5dp">
 
             <ImageView
+                android:id="@+id/button_undo"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:contentDescription="@string/menu_undo"
-                app:srcCompat="@drawable/icon_material_undo"
                 android:layout_height="0dp"
+                android:layout_weight="1"
                 android:adjustViewBounds="false"
-                android:id="@+id/button_undo"/>
+                android:contentDescription="@string/menu_undo"
+                app:srcCompat="@drawable/icon_material_undo" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -238,25 +238,25 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/mainButtonSettings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
-            android:id="@+id/mainButtonSettings"
             android:onClick="menuClick"
+            android:orientation="vertical"
             android:paddingBottom="5dp"
             android:paddingLeft="2dp"
-            android:paddingTop="5dp"
-            android:paddingRight="2dp">
+            android:paddingRight="2dp"
+            android:paddingTop="5dp">
 
             <ImageView
+                android:id="@+id/button_settings"
                 android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_settings"
-                app:srcCompat="@drawable/icon_material_settings"
-                android:id="@+id/button_settings"
-                android:layout_height="0dp" />
+                app:srcCompat="@drawable/icon_material_settings" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"

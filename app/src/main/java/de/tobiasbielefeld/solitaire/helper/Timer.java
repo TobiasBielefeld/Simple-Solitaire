@@ -21,7 +21,12 @@ package de.tobiasbielefeld.solitaire.helper;
 import de.tobiasbielefeld.solitaire.handler.TimerHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.TIMER_CURRENT_TIME;
+import static de.tobiasbielefeld.solitaire.SharedData.TIMER_SHOWN_TIME;
+import static de.tobiasbielefeld.solitaire.SharedData.TIMER_START_TIME;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getLong;
+import static de.tobiasbielefeld.solitaire.SharedData.putLong;
 
 /*
  *  Handles the timer, updates, saves and load the current time of playing
@@ -35,7 +40,7 @@ public class Timer {
     private long startTime;                                                                         //set start and saved time both to current time
     private boolean running;                                                                        //indicates if the timer is currently runns
 
-    public Timer(GameManager gm){
+    public Timer(GameManager gm) {
 
         timerHandler = new TimerHandler(gm);
     }
@@ -60,9 +65,9 @@ public class Timer {
     public void load() {
         running = true;
 
-            startTime = getLong(TIMER_START_TIME, System.currentTimeMillis())
-                    + System.currentTimeMillis()
-                    - getLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
+        startTime = getLong(TIMER_START_TIME, System.currentTimeMillis())
+                + System.currentTimeMillis()
+                - getLong(TIMER_CURRENT_TIME, System.currentTimeMillis());
 
         timerHandler.sendEmptyMessage(0);
     }
@@ -75,11 +80,11 @@ public class Timer {
         timerHandler.sendEmptyMessage(0);
     }
 
-    public boolean isRunning(){
+    public boolean isRunning() {
         return running;
     }
 
-    public long getStartTime(){
+    public long getStartTime() {
         return startTime;
     }
 }

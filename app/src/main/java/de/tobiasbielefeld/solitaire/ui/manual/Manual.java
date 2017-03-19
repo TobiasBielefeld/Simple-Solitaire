@@ -47,7 +47,7 @@ import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
  */
 
 public class Manual extends CustomAppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,AdapterView.OnItemClickListener{
+        implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
 
     DrawerLayout drawer;
     ListView listView;
@@ -56,7 +56,7 @@ public class Manual extends CustomAppCompatActivity
     boolean fragmentLoaded;
     NavigationView navigationView;
 
-    boolean gamePageShown=false;
+    boolean gamePageShown = false;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -68,21 +68,21 @@ public class Manual extends CustomAppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fragmentLoaded=false;
+        fragmentLoaded = false;
 
 
         loadFragment(ManualStartPage.class);
 
 
-        if (drawer!=null) {
+        if (drawer != null) {
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
             drawer.setDrawerListener(toggle);
             toggle.syncState();
             navigationView = (NavigationView) findViewById(R.id.nav_view);
             navigationView.setNavigationItemSelectedListener(this);
             navigationView.setCheckedItem(R.id.nav_startpage);
-        } else if (listView!=null){
-            if (getSupportActionBar()!=null) {
+        } else if (listView != null) {
+            if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             }
 
@@ -100,7 +100,7 @@ public class Manual extends CustomAppCompatActivity
     @Override
     public void onBackPressed() {
         //phones
-        if (drawer!=null) {
+        if (drawer != null) {
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             if (drawer.isDrawerOpen(GravityCompat.START)) {
                 drawer.closeDrawer(GravityCompat.START);
@@ -112,22 +112,22 @@ public class Manual extends CustomAppCompatActivity
         if (fragmentLoaded) {
 
             //if a game manual page has been shown, return to the selector
-            if (gamePageShown){
+            if (gamePageShown) {
                 loadFragment(ManualGames.class);
-                gamePageShown=false;
+                gamePageShown = false;
                 return;
             }
 
             //check the first menu item on phones/tablets
-            if (drawer!=null) {
+            if (drawer != null) {
                 navigationView.setCheckedItem(R.id.nav_startpage);
-            } else{
+            } else {
                 checkMenuItem(0);
             }
 
             //return to start page
             loadFragment(ManualStartPage.class);
-            fragmentLoaded=false;
+            fragmentLoaded = false;
 
         }
         //else close manual
@@ -137,15 +137,16 @@ public class Manual extends CustomAppCompatActivity
 
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //this method can be loaded only on tablets, because smaller screens
         //have the drawer menu
 
         if (fragmentLoaded) {
-            if (gamePageShown){
+            if (gamePageShown) {
                 loadFragment(ManualGames.class);
-                gamePageShown=false;
+                gamePageShown = false;
             } else {
                 checkMenuItem(0);
                 loadFragment(ManualStartPage.class);
@@ -162,7 +163,7 @@ public class Manual extends CustomAppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         //only used on phones and screens smaller than xlarge
 
-        if (item.getItemId()==R.id.nav_back_to_game){
+        if (item.getItemId() == R.id.nav_back_to_game) {
             finish();
             return true;
         }
@@ -170,8 +171,9 @@ public class Manual extends CustomAppCompatActivity
         int id = item.getItemId();
         Class fragmentClass;
 
-        switch (id){
-            case R.id.nav_startpage: default:
+        switch (id) {
+            case R.id.nav_startpage:
+            default:
                 fragmentClass = ManualStartPage.class;
                 break;
             case R.id.nav_menu:
@@ -190,7 +192,7 @@ public class Manual extends CustomAppCompatActivity
 
         loadFragment(fragmentClass);
 
-        fragmentLoaded = id!=R.id.nav_startpage;
+        fragmentLoaded = id != R.id.nav_startpage;
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -203,15 +205,16 @@ public class Manual extends CustomAppCompatActivity
 
         checkMenuItem(position);
 
-        if (position==5){
+        if (position == 5) {
             finish();
             return;
         }
 
         Class fragmentClass;
 
-        switch (position){
-            case 0:default:
+        switch (position) {
+            case 0:
+            default:
                 fragmentClass = ManualStartPage.class;
                 break;
             case 1:
@@ -232,7 +235,7 @@ public class Manual extends CustomAppCompatActivity
         fragmentLoaded = position != 0;
     }
 
-    private void loadFragment(Class fragmentClass){
+    private void loadFragment(Class fragmentClass) {
         try {
             Fragment fragment = (Fragment) fragmentClass.newInstance();
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -242,14 +245,15 @@ public class Manual extends CustomAppCompatActivity
         }
     }
 
-    private void checkMenuItem(int listPosition){
-        if(lastSelectedView != null) lastSelectedView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+    private void checkMenuItem(int listPosition) {
+        if (lastSelectedView != null)
+            lastSelectedView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         lastSelectedView = listView.getChildAt(listPosition);
         lastSelectedViewPosition = listPosition;
         lastSelectedView.setBackgroundColor(getResources().getColor(R.color.colorDrawerSelected));
     }
 
-    public void setGamePageShown(boolean shown){
-        gamePageShown=shown;
+    public void setGamePageShown(boolean shown) {
+        gamePageShown = shown;
     }
 }

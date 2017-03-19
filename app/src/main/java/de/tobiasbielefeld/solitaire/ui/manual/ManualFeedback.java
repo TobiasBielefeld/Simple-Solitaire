@@ -32,7 +32,7 @@ import de.tobiasbielefeld.solitaire.R;
 /*
  * Feedback contains just text and two buttons
  */
-public class ManualFeedback extends Fragment implements View.OnClickListener{
+public class ManualFeedback extends Fragment implements View.OnClickListener {
 
     Button buttonGoogle, buttonGitHub;
 
@@ -51,7 +51,7 @@ public class ManualFeedback extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.manual_feedback_button_google_play:
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_market_URL))));

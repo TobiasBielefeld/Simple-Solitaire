@@ -26,12 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.BuildConfig;
@@ -54,7 +49,7 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         TextView textViewGitHubLink = (TextView) view.findViewById(R.id.aboutTextViewGitHubLink);   //link for the gitHub repo
         TextView textViewApacheLicense = (TextView) view.findViewById(R.id.aboutTextViewApacheLicense); //apache2.0
 
-        String buildDate =  DateFormat.getDateInstance().format(BuildConfig.TIMESTAMP);             //get the build date in locale time format
+        String buildDate = DateFormat.getDateInstance().format(BuildConfig.TIMESTAMP);             //get the build date in locale time format
 
         //update the textViews
         textViewAppVersion.setText(String.format(Locale.getDefault(), "%s: %s", getString(R.string.app_version), BuildConfig.VERSION_NAME));

@@ -27,14 +27,20 @@ import android.widget.LinearLayout;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_4_COLOR_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.NUMBER_OF_CARD_THEMES;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_4_COLOR_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
 
 /*
  * dialog for picking the card front drawable. Clicks on it are handled here and the
  * sharedPrefChanged listener in Settings will update the cards.
  */
 
-public class CardDialogPreference extends DialogPreference implements View.OnClickListener{
+public class CardDialogPreference extends DialogPreference implements View.OnClickListener {
 
     private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_THEMES];
 
@@ -46,7 +52,7 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
 
     @Override
     protected void onBindDialogView(View view) {
-        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE) ? 1 : 0;
+        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE) ? 1 : 0;
 
         linearLayouts[0] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsBasic);
         linearLayouts[1] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsClassic);
@@ -56,7 +62,7 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
         linearLayouts[5] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsDark);
         linearLayouts[6] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsPoker);
 
-        for (int i=0; i < NUMBER_OF_CARD_THEMES;i++){
+        for (int i = 0; i < NUMBER_OF_CARD_THEMES; i++) {
             linearLayouts[i].setOnClickListener(this);
             ImageView imageView = (ImageView) linearLayouts[i].getChildAt(0);
             imageView.setImageBitmap(bitmaps.getCardPreview(i, row));

@@ -41,7 +41,7 @@ import static android.view.View.GONE;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
-public class Statistics extends CustomAppCompatActivity{
+public class Statistics extends CustomAppCompatActivity {
 
     private TableLayout tableLayout;
     private TextView textWonGames, textWinPercentage;
@@ -58,7 +58,7 @@ public class Statistics extends CustomAppCompatActivity{
         boolean addedEntries = false;
         TableRow row;
 
-        if (getSupportActionBar()!=null)
+        if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tableLayout = (TableLayout) findViewById(R.id.statisticsTableHighScores);
@@ -82,20 +82,20 @@ public class Statistics extends CustomAppCompatActivity{
             TextView textView4 = new TextView(this);
 
             textView1.setText(String.format(Locale.getDefault(),
-                    "%s",scores.get(i, 0)));
+                    "%s", scores.get(i, 0)));
             textView2.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d",               //add it to the view
                     scores.get(i, 1) / 3600,
                     (scores.get(i, 1) % 3600) / 60,
                     (scores.get(i, 1) % 60)));
 
-            textView3.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(scores.get(i,2)));
+            textView3.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(scores.get(i, 2)));
             //textView4.setText(DateFormat.getTimeInstance(DateFormat.SHORT).format(scores.get(i,2)));
-            textView4.setText(new SimpleDateFormat("HH:mm",Locale.getDefault()).format(scores.get(i,2)));
+            textView4.setText(new SimpleDateFormat("HH:mm", Locale.getDefault()).format(scores.get(i, 2)));
 
-            textView1.setPadding(padding,0,padding,0);
-            textView2.setPadding(padding,0,padding,0);
-            textView3.setPadding(padding,0,padding,0);
-            textView4.setPadding(padding,0,padding,0);
+            textView1.setPadding(padding, 0, padding, 0);
+            textView2.setPadding(padding, 0, padding, 0);
+            textView3.setPadding(padding, 0, padding, 0);
+            textView4.setPadding(padding, 0, padding, 0);
 
             textView1.setTextSize(textSize);
             textView2.setTextSize(textSize);
@@ -116,12 +116,12 @@ public class Statistics extends CustomAppCompatActivity{
         }
     }
 
-    private void loadData(){
-        int wonGames= gameLogic.getNumberWonGames();
+    private void loadData() {
+        int wonGames = gameLogic.getNumberWonGames();
         int totalGames = gameLogic.getNumberOfPlayedGames();
 
-        textWonGames.setText(String.format(Locale.getDefault(), getString(R.string.statistics_text_won_games),wonGames, totalGames));
-        textWinPercentage.setText(String.format(Locale.getDefault(),getString(R.string.statistics_win_percentage), totalGames>0 ? ((float)wonGames*100/totalGames) : 0.0));
+        textWonGames.setText(String.format(Locale.getDefault(), getString(R.string.statistics_text_won_games), wonGames, totalGames));
+        textWinPercentage.setText(String.format(Locale.getDefault(), getString(R.string.statistics_win_percentage), totalGames > 0 ? ((float) wonGames * 100 / totalGames) : 0.0));
     }
 
     @Override
@@ -132,7 +132,7 @@ public class Statistics extends CustomAppCompatActivity{
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.item_delete:
                 DialogFragment deleteDialog = new HighScoreDeleteDialog();
                 deleteDialog.show(getSupportFragmentManager(), "high_score_delete");

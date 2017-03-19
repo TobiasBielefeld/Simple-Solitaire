@@ -22,12 +22,16 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /*
  * Gypsy Solitaire! (Maybe needs another name)
@@ -35,7 +39,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Gypsy extends Game {
 
-    public  Gypsy() {
+    public Gypsy() {
         setNumberOfDecks(2);
         setNumberOfStacks(17);
         setFirstMainStackID(16);
@@ -44,21 +48,21 @@ public class Gypsy extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
-        setUpCardWidth(layoutGame,isLandscape,9+1,9+3);
+        setUpCardWidth(layoutGame, isLandscape, 9 + 1, 9 + 3);
 
-        int spacing = setUpSpacing(layoutGame,9,10);
-        int verticalSpacing = (isLandscape ? Card.width / 4 : Card.width / 2) +1;
-        int startPos = (int)(layoutGame.getWidth()/2 - 4.5*Card.width - 4*spacing);
+        int spacing = setUpSpacing(layoutGame, 9, 10);
+        int verticalSpacing = (isLandscape ? Card.width / 4 : Card.width / 2) + 1;
+        int startPos = (int) (layoutGame.getWidth() / 2 - 4.5 * Card.width - 4 * spacing);
 
 
         for (int i = 0; i < 8; i++) {
-            stacks[8+i].view.setX(startPos + i*(spacing+Card.width) );
-            stacks[8+i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) +1);
-            stacks[8+i].view.setImageBitmap(Stack.background1);
+            stacks[8 + i].view.setX(startPos + i * (spacing + Card.width));
+            stacks[8 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
+            stacks[8 + i].view.setImageBitmap(Stack.background1);
         }
 
         for (int i = 0; i < 8; i++) {
-            stacks[i].view.setX(startPos + i*(spacing+Card.width) );
+            stacks[i].view.setX(startPos + i * (spacing + Card.width));
             stacks[i].view.setY(stacks[8].view.getY() + Card.height + verticalSpacing);
         }
 
@@ -67,43 +71,43 @@ public class Gypsy extends Game {
     }
 
 
-    public boolean winTest(){
-        for (int i=0;i<8;i++){
-            if (stacks[8+i].getSize()!=13)
+    public boolean winTest() {
+        for (int i = 0; i < 8; i++) {
+            if (stacks[8 + i].getSize() != 13)
                 return false;
         }
 
         return true;
     }
 
-    public void dealCards(){
+    public void dealCards() {
 
-        for (int i=0;i<8;i++) {
-            for (int j=0;j<3;j++) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 3; j++) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                if (j>0)
+                if (j > 0)
                     stacks[i].getTopCard().flipUp();
             }
         }
     }
 
-    public void onMainStackTouch(){
+    public void onMainStackTouch() {
 
         if (!getMainStack().isEmpty()) {
             ArrayList<Card> cards = new ArrayList<>();
             ArrayList<Stack> destinations = new ArrayList<>();
 
             for (int i = 0; i < 8; i++) {
-                    cards.add(getMainStack().getCardFromTop(i));
-                    getMainStack().getCardFromTop(i).flipUp();
-                    destinations.add(stacks[i]);
+                cards.add(getMainStack().getCardFromTop(i));
+                getMainStack().getCardFromTop(i).flipUp();
+                destinations.add(stacks[i]);
             }
 
-            moveToStack(cards,destinations,OPTION_REVERSED_RECORD);
+            moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
         }
     }
 
-    public boolean cardTest(Stack stack, Card card){
+    public boolean cardTest(Stack stack, Card card) {
 
         if (stack.getID() < 8) {
             return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2) && (stack.getTopCard().getValue() == card.getValue() + 1);
@@ -117,25 +121,25 @@ public class Gypsy extends Game {
             return false;
     }
 
-    public boolean addCardToMovementTest(Card card){
-        return testCardsUpToTop(card.getStack(),card.getIndexOnStack(),ALTERNATING_COLOR);
+    public boolean addCardToMovementTest(Card card) {
+        return testCardsUpToTop(card.getStack(), card.getIndexOnStack(), ALTERNATING_COLOR);
     }
 
-    public CardAndStack hintTest(){
+    public CardAndStack hintTest() {
 
-        for (int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
             Stack sourceStack = stacks[i];
 
             if (sourceStack.isEmpty())
                 continue;
 
-            for (int j=sourceStack.getFirstUpCardPos();j<sourceStack.getSize();j++){
+            for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack,j,ALTERNATING_COLOR))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR))
                     continue;
 
-                if (cardToMove.getValue()!=1) {
+                if (cardToMove.getValue() != 1) {
                     for (int k = 0; k < 8; k++) {
                         Stack destStack = stacks[k];
                         if (i == k || destStack.isEmpty())
@@ -144,7 +148,7 @@ public class Gypsy extends Game {
                         if (cardToMove.test(destStack)) {
 
                             //if the card is already on the same card as on the other stack, don't return it
-                            if (sameCardOnOtherStack(cardToMove,destStack,SAME_VALUE_AND_COLOR))
+                            if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_COLOR))
                                 continue;
 
                             return new CardAndStack(cardToMove, destStack);
@@ -171,7 +175,7 @@ public class Gypsy extends Game {
     public Stack doubleTapTest(Card card) {
         //tableau without the same card
         for (int k = 0; k < 8; k++) {
-            if (card.test(stacks[k]) && !sameCardOnOtherStack(card,stacks[k],SAME_VALUE_AND_COLOR)) {
+            if (card.test(stacks[k]) && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
                 return stacks[k];
             }
         }
@@ -200,8 +204,8 @@ public class Gypsy extends Game {
         if (!getMainStack().isEmpty())
             return false;
 
-        for (int i=0;i<8;i++){
-            if (stacks[i].isEmpty() || !stacks[i].getCard(0).isUp() || !testCardsUpToTop(stacks[i],0,ALTERNATING_COLOR))
+        for (int i = 0; i < 8; i++) {
+            if (stacks[i].isEmpty() || !stacks[i].getCard(0).isUp() || !testCardsUpToTop(stacks[i], 0, ALTERNATING_COLOR))
                 return false;
         }
 
@@ -210,32 +214,32 @@ public class Gypsy extends Game {
 
     public CardAndStack autoCompletePhaseTwo() {
 
-        for (int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
 
             if (stacks[i].isEmpty())
                 continue;
 
             Card cardToTest = stacks[i].getTopCard();
 
-            for (int j=0;j<8;j++){
+            for (int j = 0; j < 8; j++) {
 
 
-                if (cardTest(stacks[8+j],cardToTest))
-                    return new CardAndStack(cardToTest,stacks[8+j]);
+                if (cardTest(stacks[8 + j], cardToTest))
+                    return new CardAndStack(cardToTest, stacks[8 + j]);
             }
         }
 
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
-        if (originIDs[0]==destinationIDs[0])
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+        if (originIDs[0] == destinationIDs[0])
             return 50;
 
-        if (originIDs[0]<8 && destinationIDs[0]>=8)
+        if (originIDs[0] < 8 && destinationIDs[0] >= 8)
             return 75;
 
-        if (originIDs[0]>=8 && originIDs[0]<getMainStack().getID() && destinationIDs[0]<8)
+        if (originIDs[0] >= 8 && originIDs[0] < getMainStack().getID() && destinationIDs[0] < 8)
             return -100;
 
         return 0;

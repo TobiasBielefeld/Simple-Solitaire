@@ -22,37 +22,42 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
  * Dummy Game, so you can see what to do if you want to add more games
- *
+ * <p>
  * Notice:
  * don't use stack.getTopCard() on empty stacks! check with isEmpty() to avoid it
- *
+ * <p>
  * To add a new game, also include it here:
- *  - in LoadGame class, it handles all the loading of a game
- *  - in strings.xml as the shown name (use games_) as a prefix, like the other games
- *  - add new button to fragment_manual_games.xml
- *  - in strings-manual.xml add a new manual entry for the game
- *  - add entry to the dialog_menu_show_games.xml
- *  - and of course, include a button in the activity_game_chooser.xml
- *
- *  The stacks array should be in this order:
- *  - first the tableau stacks
- *  - then the foundation stacks (if any)
- *  - then the discard stacks (if any)
- *  - at last the main stacks (if any)
- *
- *  because I use the ids to determinate if cards should flip
- *  for example: Because the main stacks are always the last ones,
- *  every card added to a stack with an ID greater than the FirstMainStack ID will be flipped down
+ * - in LoadGame class, it handles all the loading of a game
+ * - in strings.xml as the shown name (use games_) as a prefix, like the other games
+ * - add new button to fragment_manual_games.xml
+ * - in strings-manual.xml add a new manual entry for the game
+ * - add entry to the dialog_menu_show_games.xml
+ * - and of course, include a button in the activity_game_chooser.xml
+ * <p>
+ * The stacks array should be in this order:
+ * - first the tableau stacks
+ * - then the foundation stacks (if any)
+ * - then the discard stacks (if any)
+ * - at last the main stacks (if any)
+ * <p>
+ * because I use the ids to determinate if cards should flip
+ * for example: Because the main stacks are always the last ones,
+ * every card added to a stack with an ID greater than the FirstMainStack ID will be flipped down
  */
 
 @SuppressWarnings("all")
@@ -61,7 +66,7 @@ public class DummyGame extends Game {
     /*
      *  Initialise stuff in the constructor!
      */
-    public  DummyGame() {
+    public DummyGame() {
         //set how may cards you need. One deck contains 52 cards
         setNumberOfDecks(1);
 
@@ -90,7 +95,7 @@ public class DummyGame extends Game {
         //if you have more than one deck, the following decks are set the same way
         //for example: in Spider i want to set the difficulty: Easy would mean
         //every family is the same color, so i use this:
-        setCardDrawables(1,1,1,1);
+        setCardDrawables(1, 1, 1, 1);
 
         //you can set up how the cards on a stack are stacked. which an offset to right, down and so on
         //So use this method, put an int array with values for each stack that should get a direction
@@ -104,16 +109,16 @@ public class DummyGame extends Game {
         // 2 up
         // 3 left (like the discard stack on Golf
         // 4 right (like the stack on golf in left handed mode
-        setDirections(new int[]{1,1,1,0,0,1,1,3});
+        setDirections(new int[]{1, 1, 1, 0, 0, 1, 1, 3});
 
         //use this if the cards on a stack should'nt overlap another stack. pass the id of the other stack
         //in the array. A 1 on index 0 means, that stacks[0] should'nt overlap stacks[1]. A -1 stands for no
         //border, so the border will be the screen width/height
-        setDirectionBorders(new int[]{1,1,1,-1,-1});
+        setDirectionBorders(new int[]{1, 1, 1, -1, -1});
 
         //sets an arrow as the background of a stack, use the constants LEFT and RIGHT for the direction.
         //it will automatically flip the direction, if left handed mode is enabled
-        setArrow(stacks[1],LEFT);
+        setArrow(stacks[1], LEFT);
 
         //if your game needs to have limited redeals, so after a few tries of moving the cards from
         //the discard stack back to the main stack, use this method. It will automatically show the
@@ -124,7 +129,7 @@ public class DummyGame extends Game {
     /*
      * METHODS YOU CAN USE: (put in this method, to not cause an compiler error
      */
-    private void methodsYouCanUse(){
+    private void methodsYouCanUse() {
 
         /*
          * test the cards of a given stack from the gives index up to top if the cards are in the
@@ -149,34 +154,34 @@ public class DummyGame extends Game {
         //
         //use as values +1, +2 or another value on top of the number of stacks in a row, so there is
         //enough space left to use as spacing between the stacs.
-        setUpCardWidth(layoutGame,isLandscape,7+1,7+2);
+        setUpCardWidth(layoutGame, isLandscape, 7 + 1, 7 + 2);
 
         //use this to automatically set up the dimensions (then the call above isn't nessessary).
         //It will take the layout and a value for width and one value for height. The values
         //represent the limiting values for the orientation. For example here: There are 7 rows, so 7
         //stacks have to fit on the horizontal axis, but also 4 cards in the height. The method uses
         //these values to calculate the right dimensions for the cards, so everything fits fine on the screen
-        setUpCardDimensions(layoutGame,7,4);
+        setUpCardDimensions(layoutGame, 7, 4);
 
         //no we order the stacks on the field. First calculate a spacing variable, to know how much
         //space will be between the stacks. It just uses the layout width minus the number of stacks
         //in a row, divided with the number of spaces between the stacks (which should be the number
         //of stacks +1) It also uses a maximum value of Card.widht/2, so the cards won't be too far apart
-        int spacing = setUpSpacing(layoutGame,7,8);
+        int spacing = setUpSpacing(layoutGame, 7, 8);
 
         //no get the start position to place the stacks, so they are centered around the middle of
         //the screen. I use this way: Get the half of the layout width, minus how many stacks are
         //left to it times the card width, minus how many spacings are left to it times the spacing
         //width. (Do not use the spacing from the left screen edge to the first stack).
         //So it should look like this:
-        int startPos = layoutGame.getWidth()/2 - 3*Card.width - 3*spacing;
+        int startPos = layoutGame.getWidth() / 2 - 3 * Card.width - 3 * spacing;
         //Then set the stack coordinates like this:
         //X cor is the start pos + loop index times (spacing + card width)
         //Y cor can be like in the example code. In landscape use a bit less spacing from the
         //screen edge. The +1 is only so Android Studio doesnt show an error
         for (int i = 0; i < 6; i++) {
-            stacks[i].view.setX(startPos + i* (spacing+ Card.width) );
-            stacks[i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1 );
+            stacks[i].view.setX(startPos + i * (spacing + Card.width));
+            stacks[i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
         //Also set other stacks like the main pile or something
         stacks[6].view.setX(stacks[0].view.getX());
@@ -193,7 +198,7 @@ public class DummyGame extends Game {
      * Put your calculation to test if the game is won here.
      * It will be called on every card move. Return false for Not won, and true for won
      */
-    public boolean winTest(){
+    public boolean winTest() {
         //For example on Klondike all foundation stacks have to be full, so everyone of them
         //needs to habe 13 cards. If not, game isn't won yet. If yes, game is won
         for (int i = 7; i <= 10; i++)
@@ -207,7 +212,7 @@ public class DummyGame extends Game {
      * Put how to deal cards here: All cards are set to the main stack or the dealFromID stack, if set.
      * The cards will be faced down by default to, so flip them up if needed.
      */
-    public void dealCards(){
+    public void dealCards() {
         //Simple example: Deal the first card from the main stack to another one.
         //Use the OPTION_NO_RECORD, or else the player can undo this movement.
         //After that, flip the card up
@@ -220,15 +225,15 @@ public class DummyGame extends Game {
      * one main stack. But Spider is a bit special, it
      */
     @Override
-    public boolean testIfMainStackTouched(float X, float Y){
-        return currentGame.getMainStack().isOnLocation(X,Y);
+    public boolean testIfMainStackTouched(float X, float Y) {
+        return currentGame.getMainStack().isOnLocation(X, Y);
     }
 
     /*
      * Put what happens if the player touches the main stack, if there is any.
      * If there is no main stack, leave it empty
      */
-    public void onMainStackTouch(){
+    public void onMainStackTouch() {
 
         //first test the coordinates of they are really on the main stack.
         //(I put this test here because in Spider Solitaire, the cards from "main" are placed on
@@ -253,7 +258,7 @@ public class DummyGame extends Game {
      * Test a card if you can place it on a stack.
      * Tested every time if the player wants to place a card on some stack
      */
-    public boolean cardTest(Stack stack, Card card){
+    public boolean cardTest(Stack stack, Card card) {
         //Example from Klondike.
         if (stack.getID() < 7) {                                                                    //tableau stacks
             if (stack.isEmpty())                                                                    //if there is no card
@@ -276,7 +281,7 @@ public class DummyGame extends Game {
      * Test if the player can even pick up a card (faced down cards are never moved)
      * If yes, every card from the touched card to the stack top card will be moved
      */
-    public boolean addCardToMovementTest(Card card){
+    public boolean addCardToMovementTest(Card card) {
         //in case of Klondike it's easy: If a card is faced up, every card on top on it in the stack
         //has the right order. So return true if a card is up. But because faced down cards aren't even
         //tested here, just return true
@@ -292,7 +297,7 @@ public class DummyGame extends Game {
      *
      * Use hint.hasVisited(card) to get if the card has been visited, so it won't result in an endless loop
      */
-    public CardAndStack hintTest(){
+    public CardAndStack hintTest() {
         //Short example from Klonsike
         Card card;                                                                                  //card to test
 
@@ -310,7 +315,7 @@ public class DummyGame extends Game {
                 for (int j = 7; j <= 10; j++) {                                                     //loop through every foundation stack as destination
                     if (card.test(stacks[j])) {                                                     //then test
 
-                        return new CardAndStack(card,stacks[j]);
+                        return new CardAndStack(card, stacks[j]);
                     }
                 }
             }
@@ -351,9 +356,9 @@ public class DummyGame extends Game {
         //Example Code: Only game using this is Golf, because the discard stack is no foundation field,
         // the calculation has to be in pahse one
 
-        if (!getMainStack().isEmpty()){
+        if (!getMainStack().isEmpty()) {
             getMainStack().getTopCard().flipUp();
-            return new CardAndStack(getMainStack().getTopCard(),getDiscardStack());
+            return new CardAndStack(getMainStack().getTopCard(), getDiscardStack());
         }
 
         return null;    //don't forget to return null at the end! so phase two can start
@@ -402,7 +407,7 @@ public class DummyGame extends Game {
      *
      * Undo movements will invert the points, but also set -25 points for using undo
      */
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
@@ -424,14 +429,14 @@ public class DummyGame extends Game {
      * Use this if you want to run something custom after every movement (right after the end
      * of the animation. For example in Spider, i have to test if a card family is complete
      */
-    public void testAfterMove(){
+    public void testAfterMove() {
     }
 
     /*
      *  use this if you need to reset something on a game start. Call super if your games
      *  has limited redeals to reset them automatically
      */
-    public void reset(GameManager gm){
+    public void reset(GameManager gm) {
         super.reset(gm);
     }
 }

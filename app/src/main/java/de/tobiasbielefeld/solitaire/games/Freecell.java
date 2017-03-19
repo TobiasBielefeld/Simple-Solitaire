@@ -22,12 +22,17 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.max;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
  * Freecell Solitaire Game! 8 tableau, 4 free and 4 foundation stacks
@@ -44,15 +49,15 @@ public class Freecell extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        setUpCardWidth(layoutGame,isLandscape,9,10);
+        setUpCardWidth(layoutGame, isLandscape, 9, 10);
 
         //order the stacks on the screen
-        int spacing = setUpSpacing(layoutGame,8,9);
-        int startPos = layoutGame.getWidth() / 2 - 4 * Card.width - 3 * spacing - spacing/2;
+        int spacing = setUpSpacing(layoutGame, 8, 9);
+        int startPos = layoutGame.getWidth() / 2 - 4 * Card.width - 3 * spacing - spacing / 2;
         //free cells and foundation stacks
         for (int i = 0; i < 8; i++) {
             stacks[8 + i].view.setX(startPos + spacing * i + Card.width * i);
-            stacks[8 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1 );
+            stacks[8 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
         //tableau stacks
         for (int i = 0; i < 8; i++) {
@@ -61,12 +66,12 @@ public class Freecell extends Game {
                     (isLandscape ? Card.width / 4 : Card.width / 2));
         }
         //nice background for foundation stacks
-        for (int i=12;i<16;i++) {
+        for (int i = 12; i < 16; i++) {
             stacks[i].view.setImageBitmap(Stack.background1);
         }
     }
 
-    public boolean winTest(){
+    public boolean winTest() {
         //won if the foundation stacks are full
         for (int i = 12; i <= 15; i++)
             if (stacks[i].getSize() != 13)
@@ -75,20 +80,20 @@ public class Freecell extends Game {
         return true;
     }
 
-    public void dealCards(){
+    public void dealCards() {
         //flip every card up the move them to the tableau
         for (Card card : cards)
             card.flipUp();
 
         for (int i = 1; i < 8; i++) {
             for (int j = 0; j < 7; j++) {
-                if (!(i>=4 && j==6))
+                if (!(i >= 4 && j == 6))
                     moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
         }
     }
 
-    public void onMainStackTouch(){
+    public void onMainStackTouch() {
         //no main stack, so empty
     }
 
@@ -98,7 +103,7 @@ public class Freecell extends Game {
             int numberOfFreeCells = 0;
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
-            for (int i=0;i<12;i++){
+            for (int i = 0; i < 12; i++) {
                 if (stacks[i].isEmpty())
                     numberOfFreeCells++;
             }
@@ -112,20 +117,18 @@ public class Freecell extends Game {
                     && (stack.getTopCard().getValue() == card.getValue() + 1);
         } else if (stack.getID() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
-        }
-        else if (movingCards.hasSingleCard()) {
+        } else if (movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
                 return (stack.getTopCard().getColor() == card.getColor())
                         && (stack.getTopCard().getValue() == card.getValue() - 1);
-        }
-        else {
+        } else {
             return false;
         }
     }
 
-    public boolean addCardToMovementTest(Card card){
+    public boolean addCardToMovementTest(Card card) {
         /*
          *  add cards to movement depending on settings:
          *  normally the player can only move one card at once, but he can also put cards to free
@@ -138,21 +141,21 @@ public class Freecell extends Game {
 
         Stack sourceStack = card.getStack();
 
-        for (int i=0;i<12;i++){
+        for (int i = 0; i < 12; i++) {
             if (stacks[i].isEmpty())
                 numberOfFreeCells++;
         }
 
-        startPos = max(sourceStack.getSize() - numberOfFreeCells-1, card.getStack().getIndexOfCard(card));
+        startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, card.getStack().getIndexOfCard(card));
 
-        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos,ALTERNATING_COLOR);
+        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, ALTERNATING_COLOR);
     }
 
-    public CardAndStack hintTest(){
+    public CardAndStack hintTest() {
         /*
          * showing hints also depends on the settings. It can also show multiple cards at once
          */
-        for (int i=0;i<12;i++){
+        for (int i = 0; i < 12; i++) {
 
             Stack sourceStack = stacks[i];
 
@@ -163,40 +166,40 @@ public class Freecell extends Game {
 
             int numberOfFreeCells = 0;
 
-            for (int j=0;j<12;j++){
+            for (int j = 0; j < 12; j++) {
                 if (stacks[j].isEmpty())
                     numberOfFreeCells++;
             }
 
             startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
 
-            for (int j=startPos;j<sourceStack.getSize();j++){
+            for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove)|| !testCardsUpToTop(sourceStack,j,ALTERNATING_COLOR))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR))
                     continue;
 
-                if (cardToMove.getValue()==1 && cardToMove.isTopCard()) {
-                    for (int k=12;k<16;k++){
+                if (cardToMove.getValue() == 1 && cardToMove.isTopCard()) {
+                    for (int k = 12; k < 16; k++) {
                         if (cardToMove.test(stacks[k]))
-                            return new CardAndStack(cardToMove,stacks[k]);
+                            return new CardAndStack(cardToMove, stacks[k]);
                     }
                 }
 
-                if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
+                if (cardToMove.getValue() == 13 && cardToMove.isFirstCard())
                     continue;
 
-                for (int k=0;k<8;k++){
+                for (int k = 0; k < 8; k++) {
                     Stack destStack = stacks[k];
-                    if (i==k || destStack.isEmpty())
+                    if (i == k || destStack.isEmpty())
                         continue;
 
                     if (cardToMove.test(destStack)) {
 
-                        if (sameCardOnOtherStack(cardToMove,destStack,SAME_VALUE_AND_COLOR))
+                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_COLOR))
                             continue;
 
-                        return new CardAndStack(cardToMove,destStack);
+                        return new CardAndStack(cardToMove, destStack);
                     }
 
                 }
@@ -217,8 +220,8 @@ public class Freecell extends Game {
         }
 
         //then non empty tableau fields
-        for (int k=0;k<8;k++){
-            if (card.test(stacks[k])  && !stacks[k].isEmpty() && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
+        for (int k = 0; k < 8; k++) {
+            if (card.test(stacks[k]) && !stacks[k].isEmpty() && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
                 return stacks[k];
             }
         }
@@ -233,7 +236,7 @@ public class Freecell extends Game {
         //and empty cells
         if (card.isTopCard()) {
             for (int k = 8; k < 12; k++) {
-                if (card.test(stacks[k])  && stacks[k].isEmpty() && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
+                if (card.test(stacks[k]) && stacks[k].isEmpty() && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
                     return stacks[k];
                 }
             }
@@ -244,11 +247,11 @@ public class Freecell extends Game {
 
     public boolean autoCompleteStartTest() {
         //autocomplete can start if stack has cards in the right order
-        for (int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
             if (stacks[i].isEmpty())
                 continue;
 
-            if (!testCardsUpToTop(stacks[i],0,ALTERNATING_COLOR))
+            if (!testCardsUpToTop(stacks[i], 0, ALTERNATING_COLOR))
                 return false;
         }
 
@@ -256,29 +259,29 @@ public class Freecell extends Game {
     }
 
     public CardAndStack autoCompletePhaseTwo() {
-        for (int i=0; i<12; i++) {
+        for (int i = 0; i < 12; i++) {
             Stack origin = stacks[i];
 
             if (origin.isEmpty())
                 continue;
 
-            for (int j=12;j<16;j++){
+            for (int j = 12; j < 16; j++) {
                 Stack destination = stacks[j];
 
                 if (origin.getTopCard().test(destination))
-                    return new CardAndStack(origin.getTopCard(),destination);
+                    return new CardAndStack(origin.getTopCard(), destination);
             }
         }
 
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
-        if ((originIDs[0] < 12 && destinationIDs[0] >=12))                                          //to foundations
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+        if ((originIDs[0] < 12 && destinationIDs[0] >= 12))                                          //to foundations
             return 60;
-        if ((destinationIDs[0] < 12 && originIDs[0] >=12))                                          //from foundations
+        if ((destinationIDs[0] < 12 && originIDs[0] >= 12))                                          //from foundations
             return -75;
-        if (cards.get(0).getValue()==13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize()!=1)//king to a empty field
+        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize() != 1)//king to a empty field
             return 20;
         else
             return 0;

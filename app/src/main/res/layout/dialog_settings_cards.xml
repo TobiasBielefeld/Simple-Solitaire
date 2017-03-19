@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:baselineAligned="false"
     android:gravity="center"
     android:measureWithLargestChild="false"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -23,11 +21,11 @@
                 android:id="@+id/settingsLinearLayoutCardsBasic"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="1">
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -41,11 +39,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_basic"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:ellipsize="end" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
 
@@ -53,11 +51,11 @@
                 android:id="@+id/settingsLinearLayoutCardsClassic"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="1">
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -71,11 +69,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_classic"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:ellipsize="end" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
 
@@ -83,11 +81,11 @@
                 android:id="@+id/settingsLinearLayoutCardsAbstract"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="1">
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -101,11 +99,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_abstract"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:ellipsize="end" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
 
@@ -120,11 +118,11 @@
                 android:id="@+id/settingsLinearLayoutCardsSimple"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="1">
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -138,11 +136,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_simple"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:ellipsize="end" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
 
@@ -150,11 +148,11 @@
                 android:id="@+id/settingsLinearLayoutCardsModern"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="1">
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -168,11 +166,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_modern"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:ellipsize="end" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
 
@@ -180,11 +178,11 @@
                 android:id="@+id/settingsLinearLayoutCardsDark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="1">
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -198,11 +196,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@string/settings_dark"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:ellipsize="end" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
 
@@ -213,57 +211,56 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-        <LinearLayout
-            android:id="@+id/settingsLinearLayoutCardsPoker"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="5dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="1dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/settings_simple"
-                android:padding="2dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/settingsLinearLayoutCardsPoker"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
-                android:maxLines="1"
-                android:text="@string/settings_poker"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:ellipsize="end" />
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/settings_simple"
+                    android:padding="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/settings_poker"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsSimple"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="1"/>
+                android:padding="5dp" />
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsSimple"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp"
-                android:layout_weight="1"/>
+                android:padding="5dp" />
 
-            </TableRow>
-
+        </TableRow>
 
 
     </TableLayout>

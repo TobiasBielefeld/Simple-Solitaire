@@ -25,7 +25,16 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.SAVED_SCORES;
+import static de.tobiasbielefeld.solitaire.SharedData.SCORE;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getLong;
+import static de.tobiasbielefeld.solitaire.SharedData.getLongList;
+import static de.tobiasbielefeld.solitaire.SharedData.max;
+import static de.tobiasbielefeld.solitaire.SharedData.putLong;
+import static de.tobiasbielefeld.solitaire.SharedData.putLongList;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /*
  *  Handles scoring. It has two functions which tests movements and update the score.
@@ -40,7 +49,7 @@ public class Scores {
     private long savedScores[][] = new long[MAX_SAVED_SCORES][3];                                   //array to hold the saved scores with score and time
     private GameManager gm;
 
-    public Scores(GameManager gm){
+    public Scores(GameManager gm) {
         this.gm = gm;
     }
 
@@ -57,7 +66,7 @@ public class Scores {
         int[] originIDs = new int[cards.size()];
         int[] destinationIDs = new int[stacks.size()];
 
-        for (int i=0;i<originIDs.length;i++){
+        for (int i = 0; i < originIDs.length; i++) {
             originIDs[i] = cards.get(i).getStack().getID();
             destinationIDs[i] = stacks.get(i).getID();
         }
@@ -85,17 +94,17 @@ public class Scores {
         int[] originIDs = new int[cards.size()];
         int[] destinationIDs = new int[stacks.size()];
 
-        for (int i=0;i<originIDs.length;i++){
+        for (int i = 0; i < originIDs.length; i++) {
             originIDs[i] = cards.get(i).getStack().getID();
             destinationIDs[i] = stacks.get(i).getID();
         }
 
-        int points = - currentGame.addPointsToScore(cards, destinationIDs, originIDs);
+        int points = -currentGame.addPointsToScore(cards, destinationIDs, originIDs);
 
         update(points);
     }
 
-    public void update(int points){
+    public void update(int points) {
         if (gameLogic.hasWon())
             return;
 
@@ -104,7 +113,7 @@ public class Scores {
     }
 
     public void updateBonus() {
-        int bonus = max((int)(2 * score - (10 * timer.getCurrentTime() / 1000)), 0);
+        int bonus = max((int) (2 * score - (10 * timer.getCurrentTime() / 1000)), 0);
 
         update(bonus);
     }
@@ -118,15 +127,15 @@ public class Scores {
         ArrayList<Long> listTimes = new ArrayList<>();
         ArrayList<Long> listDates = new ArrayList<>();
 
-        for (int i=0;i<MAX_SAVED_SCORES;i++){
+        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
             listScores.add(savedScores[i][0]);
             listTimes.add(savedScores[i][1]);
             listDates.add(savedScores[i][2]);
         }
 
-        putLongList(SAVED_SCORES + 0,listScores);
-        putLongList(SAVED_SCORES + 1,listTimes);
-        putLongList(SAVED_SCORES + 2,listDates);
+        putLongList(SAVED_SCORES + 0, listScores);
+        putLongList(SAVED_SCORES + 1, listTimes);
+        putLongList(SAVED_SCORES + 2, listDates);
     }
 
     public void addNewHighScore() {
@@ -168,9 +177,9 @@ public class Scores {
         ArrayList<Long> listDates = getLongList(SAVED_SCORES + 2);
 
         for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-            savedScores[i][0] = listScores.size()>i ? listScores.get(i) : 0;
-            savedScores[i][1] = listTimes.size()>i ? listTimes.get(i) : 0;
-            savedScores[i][2] = listDates.size()>i ? listDates.get(i) : 0;
+            savedScores[i][0] = listScores.size() > i ? listScores.get(i) : 0;
+            savedScores[i][1] = listTimes.size() > i ? listTimes.get(i) : 0;
+            savedScores[i][2] = listDates.size() > i ? listDates.get(i) : 0;
         }
     }
 
@@ -196,6 +205,6 @@ public class Scores {
 
     public void output() {
         gm.mainTextViewScore.setText(String.format("%s: %s",
-                    gm.getString(R.string.game_score), score));
+                gm.getString(R.string.game_score), score));
     }
 }

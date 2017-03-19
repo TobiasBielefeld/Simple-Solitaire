@@ -24,7 +24,9 @@ import android.os.Message;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
 
 /**
  * shows hints, waits until the movement is done and then starts the next hint
@@ -41,17 +43,16 @@ public class HintHandler extends Handler {
             if (!animate.cardIsAnimating()) {
                 cardAndStack = currentGame.hintTest();
 
-                if (cardAndStack==null)
+                if (cardAndStack == null)
                     hint.stop();
                 else
                     hint.move(cardAndStack.getCard(), cardAndStack.getStack());
 
-                hint.setCounter(hint.getCounter()+1);
+                hint.setCounter(hint.getCounter() + 1);
             }
 
             hint.hintHandler.sendEmptyMessageDelayed(0, 100);
-        }
-        else {
+        } else {
             hint.setCounter(0);
         }
     }

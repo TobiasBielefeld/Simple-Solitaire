@@ -10,9 +10,8 @@
         android:defaultValue="true"
         android:dependency="@string/pref_key_double_tap_enable"
         android:key="@string/pref_key_double_tap_all_cards"
-        android:title="@string/settings_double_tap_all_cards"
-        android:summary="@string/settings_double_tap_all_cards_text"/>
-
+        android:summary="@string/settings_double_tap_all_cards_text"
+        android:title="@string/settings_double_tap_all_cards" />
 
 
 </PreferenceScreen>

@@ -26,7 +26,8 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /*
  * Handler to update the current time and show it
@@ -36,7 +37,7 @@ public class TimerHandler extends Handler {
 
     private GameManager gm;
 
-    public TimerHandler(GameManager gm){
+    public TimerHandler(GameManager gm) {
         this.gm = gm;
     }
 
@@ -51,7 +52,7 @@ public class TimerHandler extends Handler {
         Long time = timer.getCurrentTime();
 
         gm.mainTextViewTime.setText(String.format(Locale.getDefault(),
-                "%s: %02d:%02d:%02d",gm.getString(R.string.game_time),
+                "%s: %02d:%02d:%02d", gm.getString(R.string.game_time),
                 time / 3600, (time % 3600) / 60, (time % 60)));                                     //in hours:minutes:seconds format
     }
 }

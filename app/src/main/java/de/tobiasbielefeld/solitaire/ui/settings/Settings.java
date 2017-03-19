@@ -19,13 +19,13 @@
 package de.tobiasbielefeld.solitaire.ui.settings;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -34,18 +34,37 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
-import java.util.Locale;
-import android.content.Intent;
 
 import java.util.List;
+import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_4_COLOR_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_ORIENTATION;
+import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_4_COLOR_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_ORIENTATION;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.savedGameData;
+import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
+import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEquals;
 
 /*
  *  Settings activity created with the "Create settings activity" tool from Android Studio.
@@ -131,8 +150,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(getString(R.string.pref_key_forty_eight_limited_redeals)) || key.equals(getString(R.string.pref_key_pyramid_limited_redeals))) {
             if (currentGame instanceof FortyEight || currentGame instanceof Pyramid)
                 gameLogic.toggleNumberOfRedeals();
-        }
-        else if (key.equals(getString(R.string.pref_key_icon_theme))) {
+        } else if (key.equals(getString(R.string.pref_key_icon_theme))) {
             if (gameLogic != null)
                 gameLogic.updateIcons();
 
@@ -141,7 +159,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             if (gameLogic != null)
                 gameLogic.updateMenuBar();
 
-        } else if (key.equals(getString(R.string.pref_key_4_color_mode))){
+        } else if (key.equals(getString(R.string.pref_key_4_color_mode))) {
             Card.updateCardDrawableChoice();
             setPreferenceCardsSummary();
 
@@ -151,11 +169,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     public void onResume() {
         super.onResume();
 
-        if (savedSharedData==null) {
+        if (savedSharedData == null) {
             savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
         }
 
-        if (savedGameData==null) {
+        if (savedGameData == null) {
             savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
         }
 
@@ -175,41 +193,42 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 getString(R.string.settings_background), getSharedInt(CARD_BACKGROUND, 1)));
 
         switch (getSharedInt(CARD_BACKGROUND, 1)) {
-            case 1: default:
-                cardBack = bitmaps.getCardBack(0,0);
+            case 1:
+            default:
+                cardBack = bitmaps.getCardBack(0, 0);
                 break;
             case 2:
-                cardBack = bitmaps.getCardBack(1,0);
+                cardBack = bitmaps.getCardBack(1, 0);
                 break;
             case 3:
-                cardBack = bitmaps.getCardBack(2,0);
+                cardBack = bitmaps.getCardBack(2, 0);
                 break;
             case 4:
-                cardBack = bitmaps.getCardBack(3,0);
+                cardBack = bitmaps.getCardBack(3, 0);
                 break;
             case 5:
-                cardBack = bitmaps.getCardBack(4,0);
+                cardBack = bitmaps.getCardBack(4, 0);
                 break;
             case 6:
-                cardBack = bitmaps.getCardBack(5,0);
+                cardBack = bitmaps.getCardBack(5, 0);
                 break;
             case 7:
-                cardBack = bitmaps.getCardBack(6,0);
+                cardBack = bitmaps.getCardBack(6, 0);
                 break;
             case 8:
-                cardBack = bitmaps.getCardBack(7,0);
+                cardBack = bitmaps.getCardBack(7, 0);
                 break;
             case 9:
-                cardBack = bitmaps.getCardBack(0,1);
+                cardBack = bitmaps.getCardBack(0, 1);
                 break;
             case 10:
-                cardBack = bitmaps.getCardBack(1,1);
+                cardBack = bitmaps.getCardBack(1, 1);
                 break;
             case 11:
-                cardBack = bitmaps.getCardBack(2,1);
+                cardBack = bitmaps.getCardBack(2, 1);
                 break;
             case 12:
-                cardBack = bitmaps.getCardBack(3,1);
+                cardBack = bitmaps.getCardBack(3, 1);
                 break;
         }
 
@@ -219,36 +238,37 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private void setPreferenceCardsSummary() {
         String text = "";
         Bitmap cardPreview;
-        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE) ? 1 : 0;
+        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE) ? 1 : 0;
 
         switch (getSharedInt(CARD_DRAWABLES, 1)) {
-            case 1: default:
+            case 1:
+            default:
                 text = getString(R.string.settings_basic);
-                cardPreview = bitmaps.getCardPreview2(0,row);
+                cardPreview = bitmaps.getCardPreview2(0, row);
                 break;
             case 2:
                 text = getString(R.string.settings_classic);
-                cardPreview = bitmaps.getCardPreview2(1,row);
+                cardPreview = bitmaps.getCardPreview2(1, row);
                 break;
             case 3:
                 text = getString(R.string.settings_abstract);
-                cardPreview = bitmaps.getCardPreview2(2,row);
+                cardPreview = bitmaps.getCardPreview2(2, row);
                 break;
             case 4:
                 text = getString(R.string.settings_simple);
-                cardPreview = bitmaps.getCardPreview2(3,row);
+                cardPreview = bitmaps.getCardPreview2(3, row);
                 break;
             case 5:
                 text = getString(R.string.settings_modern);
-                cardPreview = bitmaps.getCardPreview2(4,row);
+                cardPreview = bitmaps.getCardPreview2(4, row);
                 break;
             case 6:
                 text = getString(R.string.settings_dark);
-                cardPreview = bitmaps.getCardPreview2(5,row);
+                cardPreview = bitmaps.getCardPreview2(5, row);
                 break;
             case 7:
                 text = getString(R.string.settings_poker);
-                cardPreview = bitmaps.getCardPreview2(6,row);
+                cardPreview = bitmaps.getCardPreview2(6, row);
                 break;
         }
 
@@ -256,32 +276,32 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceCards.setIcon(new BitmapDrawable(getResources(), cardPreview));
     }
 
-    private void setPreferenceMenuColumns(){
-        int portraitValue = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT,DEFAULT_MENU_COLUMNS_PORTRAIT));
-        int landscapeValue = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE,DEFAULT_MENU_COLUMNS_LANDSCAPE));
+    private void setPreferenceMenuColumns() {
+        int portraitValue = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT));
+        int landscapeValue = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE));
 
-        String text = String.format(Locale.getDefault(),"%s: %d\n%s: %d",
-                getString(R.string.portrait),portraitValue,getString(R.string.landscape),landscapeValue);
+        String text = String.format(Locale.getDefault(), "%s: %d\n%s: %d",
+                getString(R.string.portrait), portraitValue, getString(R.string.landscape), landscapeValue);
 
         preferenceMenuColumns.setSummary(text);
     }
 
-    private void setPreferenceMenuBarPosition(){
+    private void setPreferenceMenuBarPosition() {
         String portrait, landscape;
-        if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_portrait),DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
+        if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_portrait), DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
             portrait = getString(R.string.settings_menu_bar_position_bottom);
         } else {
             portrait = getString(R.string.settings_menu_bar_position_top);
         }
 
-        if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_landscape),DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
+        if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_landscape), DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
             landscape = getString(R.string.settings_menu_bar_position_right);
         } else {
             landscape = getString(R.string.settings_menu_bar_position_left);
         }
 
-        String text = String.format(Locale.getDefault(),"%s: %s\n%s: %s",
-                getString(R.string.portrait),portrait,getString(R.string.landscape),landscape);
+        String text = String.format(Locale.getDefault(), "%s: %s\n%s: %s",
+                getString(R.string.portrait), portrait, getString(R.string.landscape), landscape);
 
         preferenceMenuBarPosition.setSummary(text);
     }
@@ -320,14 +340,19 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
-    private void showToast( String text) {
+    private void showToast(String text) {
         if (toast == null) {
             toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
-        }
-        else
+        } else
             toast.setText(text);
 
         toast.show();
+    }
+
+    private void setLocale() {
+        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
     }
 
     public static class CustomizationPreferenceFragment extends PreferenceFragment {
@@ -393,11 +418,5 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             addPreferencesFromResource(R.xml.pref_double_tap);
             setHasOptionsMenu(true);
         }
-    }
-
-    private void setLocale() {
-        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(i);
     }
 }

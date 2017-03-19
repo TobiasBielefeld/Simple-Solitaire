@@ -21,7 +21,9 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.testIfWonHandler;
 
 /**
  * Handler for the moveToStack() method. i need to wait until the card movement is done, so i use this handler
@@ -32,7 +34,7 @@ public class TestIfWonHandler extends Handler {
         super.handleMessage(msg);
 
         if (animate.cardIsAnimating())
-            testIfWonHandler.sendEmptyMessageDelayed(0,100);
+            testIfWonHandler.sendEmptyMessageDelayed(0, 100);
         else
             gameLogic.testIfWon();
     }

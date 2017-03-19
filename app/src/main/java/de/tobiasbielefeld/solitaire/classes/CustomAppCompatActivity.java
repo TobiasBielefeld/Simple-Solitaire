@@ -28,7 +28,11 @@ import android.view.WindowManager;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.savedGameData;
+import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
 
 /*
  * Custom AppCompatActivity to implement local changing in attachBaseContext()
@@ -37,36 +41,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  */
 
 public class CustomAppCompatActivity extends AppCompatActivity {
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleChanger.onAttach(base));
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        if (savedSharedData==null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }
-
-        if (savedGameData==null) {
-            savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
-        }
-
-        setOrientation(this);
-        showOrHideStatusBar(this);
-    }
-
-
-    public void showOrHideStatusBar(Activity activity) {
-        if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
-            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        else
-            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    }
 
     public static void setOrientation(Activity activity) {
         switch (getSharedString("pref_key_orientation", "1")) {
@@ -83,6 +57,35 @@ public class CustomAppCompatActivity extends AppCompatActivity {
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleChanger.onAttach(base));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (savedSharedData == null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+        }
+
+        if (savedGameData == null) {
+            savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
+        }
+
+        setOrientation(this);
+        showOrHideStatusBar(this);
+    }
+
+    public void showOrHideStatusBar(Activity activity) {
+        if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
+            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        else
+            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
 }

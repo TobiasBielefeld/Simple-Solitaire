@@ -22,19 +22,28 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.max;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /*
  * Forty&Eight game! it's pretty hard to win
  */
 public class FortyEight extends Game {
 
-    public  FortyEight() {
+    public FortyEight() {
 
         setNumberOfDecks(2);
         setNumberOfStacks(18);
@@ -47,47 +56,47 @@ public class FortyEight extends Game {
         if (!getSharedBoolean(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS, DEFAULT_FORTY_EIGHT_LIMITED_REDEALS))
             toggleRedeals();
 
-        setDirections(new int[]{1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,3,0});
+        setDirections(new int[]{1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0});
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
-        setUpCardWidth(layoutGame,isLandscape,8+1,8+4);
+        setUpCardWidth(layoutGame, isLandscape, 8 + 1, 8 + 4);
 
-        int spacing = setUpSpacing(layoutGame,8,9);
-        int startPos = (int) (layoutGame.getWidth()/2 - 4*Card.width - 3.5*spacing);
+        int spacing = setUpSpacing(layoutGame, 8, 9);
+        int startPos = (int) (layoutGame.getWidth() / 2 - 4 * Card.width - 3.5 * spacing);
 
-        stacks[17].view.setX((int)(layoutGame.getWidth()/2 + 3*Card.width + 3.5*spacing));
-        stacks[17].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1 );
+        stacks[17].view.setX((int) (layoutGame.getWidth() / 2 + 3 * Card.width + 3.5 * spacing));
+        stacks[17].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         stacks[17].view.setImageBitmap(Stack.backgroundTalon);
 
         stacks[16].view.setX(stacks[17].view.getX() - spacing - Card.width);
         stacks[16].view.setY(stacks[17].view.getY());
 
         for (int i = 0; i < 8; i++) {
-            stacks[8+i].view.setX(startPos + i* (spacing + Card.width) );
-            stacks[8+i].view.setY(stacks[17].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) );
-            stacks[8+i].view.setImageBitmap(Stack.background1);
+            stacks[8 + i].view.setX(startPos + i * (spacing + Card.width));
+            stacks[8 + i].view.setY(stacks[17].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
+            stacks[8 + i].view.setImageBitmap(Stack.background1);
         }
 
         for (int i = 0; i < 8; i++) {
-            stacks[i].view.setX(startPos + i* (spacing + Card.width) );
-            stacks[i].view.setY(stacks[8].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) );
+            stacks[i].view.setX(startPos + i * (spacing + Card.width));
+            stacks[i].view.setY(stacks[8].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
         }
 
     }
 
-    public boolean winTest(){
-        for (int i=0;i<8;i++)
-            if (stacks[8+i].getSize()!=13)
+    public boolean winTest() {
+        for (int i = 0; i < 8; i++)
+            if (stacks[8 + i].getSize() != 13)
                 return false;
 
         return true;
     }
 
-    public void dealCards(){
-        for (int i=0;i<8;i++){
-            for (int j=0;j<4;j++){
+    public void dealCards() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 4; j++) {
                 moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
                 stacks[i].getTopCard().flipUp();
             }
@@ -98,13 +107,12 @@ public class FortyEight extends Game {
     }
 
 
-    public void onMainStackTouch(){
+    public void onMainStackTouch() {
 
         if (!getMainStack().isEmpty()) {
             moveToStack(getMainStack().getTopCard(), getDiscardStack());
 
-        }
-        else if (getDiscardStack().getSize() != 0){
+        } else if (getDiscardStack().getSize() != 0) {
             recordList.add(getDiscardStack().currentCards);
 
             while (getDiscardStack().getSize() > 0)
@@ -115,14 +123,14 @@ public class FortyEight extends Game {
     }
 
 
-    public boolean cardTest(Stack stack, Card card){
+    public boolean cardTest(Stack stack, Card card) {
         if (stack.getID() < 8) {
 
             //if there are as many cards moving as free stacks, and one of the free stacks was choosen, dont move
             int numberOfFreeStacks = 0;
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
-            for (int i=0;i<8;i++){
+            for (int i = 0; i < 8; i++) {
                 if (stacks[i].isEmpty())
                     numberOfFreeStacks++;
             }
@@ -133,8 +141,7 @@ public class FortyEight extends Game {
 
             return stack.isEmpty() || (stack.getTopCard().getColor() == card.getColor())
                     && (stack.getTopCard().getValue() == card.getValue() + 1);
-        }
-        else if (stack.getID() < 16 && movingCards.hasSingleCard()) {
+        } else if (stack.getID() < 16 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
@@ -145,25 +152,25 @@ public class FortyEight extends Game {
     }
 
 
-    public boolean addCardToMovementTest(Card card){
+    public boolean addCardToMovementTest(Card card) {
         int numberOfFreeStacks = 0;
         int startPos;
 
         Stack sourceStack = card.getStack();
 
-        for (int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
             if (stacks[i].isEmpty())
                 numberOfFreeStacks++;
         }
 
-        startPos = max(sourceStack.getSize() - numberOfFreeStacks-1, card.getStack().getIndexOfCard(card));
+        startPos = max(sourceStack.getSize() - numberOfFreeStacks - 1, card.getStack().getIndexOfCard(card));
 
-        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos,SAME_COLOR);
+        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, SAME_COLOR);
     }
 
-    public CardAndStack hintTest(){
+    public CardAndStack hintTest() {
 
-        for (int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
 
             Stack sourceStack = stacks[i];
 
@@ -175,57 +182,57 @@ public class FortyEight extends Game {
 
             int numberOfFreeCells = 0;
 
-            for (int j=0;j<8;j++){
+            for (int j = 0; j < 8; j++) {
                 if (stacks[j].isEmpty())
                     numberOfFreeCells++;
             }
 
             startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
 
-            for (int j=startPos;j<sourceStack.getSize();j++){
+            for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove)|| !testCardsUpToTop(sourceStack,j,SAME_COLOR))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_COLOR))
                     continue;
 
                 if (cardToMove.isTopCard()) {
-                    for (int k=8;k<16;k++){
+                    for (int k = 8; k < 16; k++) {
                         if (cardToMove.test(stacks[k]))
-                            return new CardAndStack(cardToMove,stacks[k]);
+                            return new CardAndStack(cardToMove, stacks[k]);
                     }
                 }
 
-                if (cardToMove.getValue()==13 && cardToMove.isFirstCard())
+                if (cardToMove.getValue() == 13 && cardToMove.isFirstCard())
                     continue;
 
-                for (int k=0;k<8;k++){
+                for (int k = 0; k < 8; k++) {
                     Stack destStack = stacks[k];
-                    if (i==k || destStack.isEmpty())
+                    if (i == k || destStack.isEmpty())
                         continue;
 
                     if (cardToMove.test(destStack)) {
 
-                        if (sameCardOnOtherStack(cardToMove,destStack,SAME_VALUE_AND_FAMILY))
+                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY))
                             continue;
 
-                        return new CardAndStack(cardToMove,destStack);
+                        return new CardAndStack(cardToMove, destStack);
                     }
 
                 }
             }
         }
 
-        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard())){
+        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard())) {
             Card cardToTest = getDiscardStack().getTopCard();
 
-            for (int j=0;j<8;j++){
-                if (!stacks[j].isEmpty() && cardTest(stacks[j],cardToTest) && cardToTest.getValue()!=1)
-                    return new CardAndStack(cardToTest,stacks[j]);
+            for (int j = 0; j < 8; j++) {
+                if (!stacks[j].isEmpty() && cardTest(stacks[j], cardToTest) && cardToTest.getValue() != 1)
+                    return new CardAndStack(cardToTest, stacks[j]);
             }
 
-            for (int j=0;j<8;j++){
-                if (cardTest(stacks[8+j],cardToTest))
-                    return new CardAndStack(cardToTest,stacks[8+j]);
+            for (int j = 0; j < 8; j++) {
+                if (cardTest(stacks[8 + j], cardToTest))
+                    return new CardAndStack(cardToTest, stacks[8 + j]);
             }
         }
 
@@ -287,7 +294,7 @@ public class FortyEight extends Game {
         //then non empty fields
         for (int j = 0; j < 8; j++) {
             if (cardTest(stacks[j], card) && !stacks[j].isEmpty()
-                    && !(card.getStack().getID()<=getLastTableauID() && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))) {
+                    && !(card.getStack().getID() <= getLastTableauID() && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))) {
                 return stacks[j];
             }
         }
@@ -304,45 +311,45 @@ public class FortyEight extends Game {
     }
 
     public boolean autoCompleteStartTest() {
-        for (int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
             Stack stack = stacks[i];
 
-            if (stack.isEmpty() || !stack.getCard(0).isUp() || !testCardsUpToTop(stack,0,SAME_COLOR))
+            if (stack.isEmpty() || !stack.getCard(0).isUp() || !testCardsUpToTop(stack, 0, SAME_COLOR))
                 return false;
         }
 
-       return getMainStack().isEmpty() && getDiscardStack().isEmpty();
+        return getMainStack().isEmpty() && getDiscardStack().isEmpty();
     }
 
     public CardAndStack autoCompletePhaseTwo() {
-        for (int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
             if (stacks[i].isEmpty())
                 continue;
 
             Card cardToTest = stacks[i].getTopCard();
 
-            for (int j=0;j<8;j++){
-                if (cardTest(stacks[8+j],cardToTest))
-                    return new CardAndStack(cardToTest,stacks[8+j]);
+            for (int j = 0; j < 8; j++) {
+                if (cardTest(stacks[8 + j], cardToTest))
+                    return new CardAndStack(cardToTest, stacks[8 + j]);
             }
         }
 
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
 
         //anywhere to foundation
-        if (destinationIDs[0]>=8 && destinationIDs[0]<16)
+        if (destinationIDs[0] >= 8 && destinationIDs[0] < 16)
             return 45;
         //foundation to tableau
-        if (originIDs[0]>=8 && originIDs[0]<16 && destinationIDs[0]<8)
+        if (originIDs[0] >= 8 && originIDs[0] < 16 && destinationIDs[0] < 8)
             return -60;
         //discard to tableau
-        if (originIDs[0]==getDiscardStack().getID() && destinationIDs[0]<8)
+        if (originIDs[0] == getDiscardStack().getID() && destinationIDs[0] < 8)
             return 60;
         //redeal cards from discard to main stack
-        if (originIDs[0]==getDiscardStack().getID() && destinationIDs[0]==getMainStack().getID() && originIDs.length>0)
+        if (originIDs[0] == getDiscardStack().getID() && destinationIDs[0] == getMainStack().getID() && originIDs.length > 0)
             return -200;
 
         return 0;

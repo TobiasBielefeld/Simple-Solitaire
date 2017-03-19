@@ -18,18 +18,27 @@
 
 package de.tobiasbielefeld.solitaire.classes;
 
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.PointF;
-import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
-
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.CARDS;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_4_COLOR_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_4_COLOR_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 /*
  *  Contains everything related to cards. it uses a picture view for drawable,
@@ -39,7 +48,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Card {
 
     public static int width, height;                                                                //width and height calculated in relation of the screen dimensions in Main activity
-
+    public static Bitmap background;
+    private static Bitmap[] drawables = new Bitmap[52];
     public ImageView view;                                                                          //the image view of the card, for easier code not private
     private int color;                                                                              //1=clubs 2=hearts 3=Spades 4=diamonds
     private int value;                                                                              //1=ace 2,3,4,5,6,7,8,9,10, 11=joker 12=queen 13=king
@@ -47,23 +57,7 @@ public class Card {
     private int ID;                                                                                 //internal id
     private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
     private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
-    private static Bitmap[] drawables = new Bitmap[52];
-    public static Bitmap background;
-
     private boolean animating = false;
-
-    public void startAnim(){
-        animating = true;
-    }
-
-    public void stopAnim(){
-        animating = false;
-        view.clearAnimation();
-    }
-
-    public boolean isAnimating(){
-        return animating;
-    }
 
     public Card(int ID) {
         /*
@@ -72,33 +66,25 @@ public class Card {
          *  from ace to king, then again with the next color
          */
         this.ID = ID;
-        color = currentGame.cardDrawablesOrder[(ID%52) / 13];
-        value = (ID%13) +1;
+        color = currentGame.cardDrawablesOrder[(ID % 52) / 13];
+        value = (ID % 13) + 1;
     }
 
-    public static void updateCardDrawableChoice(){
-        boolean fourColors = getSharedBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE);
+    public static void updateCardDrawableChoice() {
+        boolean fourColors = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE);
 
-        for (int i=0;i<13;i++){
-            drawables[i]      = bitmaps.getCardFront(i, fourColors ? 1 : 0);
+        for (int i = 0; i < 13; i++) {
+            drawables[i] = bitmaps.getCardFront(i, fourColors ? 1 : 0);
             drawables[13 + i] = bitmaps.getCardFront(i, 2);
             drawables[26 + i] = bitmaps.getCardFront(i, 3);
             drawables[39 + i] = bitmaps.getCardFront(i, fourColors ? 5 : 4);
         }
 
-        if (cards!=null) {
+        if (cards != null) {
             for (Card card : cards)
                 if (card.isUp())
                     card.setCardFront();
         }
-    }
-
-    public void setCardFront(){
-        view.setImageBitmap(drawables[(color - 1) *13 + value - 1]);
-    }
-
-    public void setCardBack(){
-        view.setImageBitmap(background);
     }
 
     public static void updateCardBackgroundChoice() {
@@ -106,7 +92,7 @@ public class Card {
         int position = getSharedInt(CARD_BACKGROUND, 1) - 1;
         background = bitmaps.getCardBack(position % 8, position / 8);
 
-        if (cards!=null) {
+        if (cards != null) {
             for (Card card : cards)
                 if (!card.isUp())
                     card.setCardBack();
@@ -116,27 +102,48 @@ public class Card {
     public static void save() {
         ArrayList<Integer> list = new ArrayList<>();
 
-        for (Card card: cards)
+        for (Card card : cards)
             list.add(card.isUp ? 1 : 0);
 
-        putIntList(CARDS,list);
+        putIntList(CARDS, list);
     }
 
     public static void load() {
         ArrayList<Integer> list = getIntList(CARDS);
 
-        for (int i=0;i<cards.length;i++) {
+        for (int i = 0; i < cards.length; i++) {
 
-            if (list.get(i)==1)
+            if (list.get(i) == 1)
                 cards[i].flipUp();
             else
                 cards[i].flipDown();
         }
     }
 
-    public void setColor(){
+    public void startAnim() {
+        animating = true;
+    }
+
+    public void stopAnim() {
+        animating = false;
+        view.clearAnimation();
+    }
+
+    public boolean isAnimating() {
+        return animating;
+    }
+
+    public void setCardFront() {
+        view.setImageBitmap(drawables[(color - 1) * 13 + value - 1]);
+    }
+
+    public void setCardBack() {
+        view.setImageBitmap(background);
+    }
+
+    public void setColor() {
         //update the color, used in Spider after loading the preference
-        color = currentGame.cardDrawablesOrder[(ID%52) / 13];
+        color = currentGame.cardDrawablesOrder[(ID % 52) / 13];
     }
 
     public int getID() {
@@ -161,7 +168,7 @@ public class Card {
             animate.moveCard(this, pX, pY);
     }
 
-    public void setLocationWithoutMovement(float pX,float pY) {
+    public void setLocationWithoutMovement(float pX, float pY) {
         view.bringToFront();
         view.setX(pX);
         view.setY(pY);
@@ -223,16 +230,16 @@ public class Card {
 
     }
 
-    public int getColor(){
+    public int getColor() {
         return color;
     }
 
-    public boolean isTopCard(){
-        return getStack().getTopCard()==this;
+    public boolean isTopCard() {
+        return getStack().getTopCard() == this;
     }
 
-    public boolean isFirstCard(){
-        return getStack().getCard(0)==this;
+    public boolean isFirstCard() {
+        return getStack().getCard(0) == this;
     }
 
     public int getIndexOnStack() {

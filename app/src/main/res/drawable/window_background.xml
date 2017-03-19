@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list  xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/greenBackground"/>
+            <solid android:color="@color/greenBackground" />
         </shape>
     </item>
     <item>
 
         <bitmap
-            android:src="@drawable/cards"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:src="@drawable/cards" />
     </item>
 </layer-list>

@@ -24,7 +24,8 @@ import android.graphics.BitmapFactory;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
 
 /**
  * Here is the code to load the individual pictures from the sets located in drawable-nodpi.
@@ -33,49 +34,49 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Bitmaps {
 
+    int menuWidth, menuHeight, stackBackgroundWidth, stackBackgroundHeight,
+            cardBackWidth, cardBackHeight, cardFrontWidth, cardFrontHeight,
+            cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
     private Resources res;
     private Bitmap menu, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private int savedCardTheme;
 
-    int menuWidth, menuHeight , stackBackgroundWidth, stackBackgroundHeight,
-            cardBackWidth, cardBackHeight, cardFrontWidth, cardFrontHeight,
-            cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
-
-    public void setResources(Resources res){
+    public void setResources(Resources res) {
         this.res = res;
     }
 
-    public Bitmap getMenu(int posX, int posY){
+    public Bitmap getMenu(int posX, int posY) {
 
-        if (menu==null) {
+        if (menu == null) {
             menu = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu);
-            menuWidth = menu.getWidth()/6;
-            menuHeight = menu.getHeight()/3;
+            menuWidth = menu.getWidth() / 6;
+            menuHeight = menu.getHeight() / 3;
         }
 
-        return Bitmap.createBitmap(menu, posX*menuWidth, posY*menuHeight,menuWidth,menuHeight);
+        return Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
     }
 
-    public Bitmap getStackBackground(int posX, int posY){
+    public Bitmap getStackBackground(int posX, int posY) {
 
-        if (stackBackground==null){
-            stackBackground = BitmapFactory.decodeResource(res,R.drawable.backgrounds_stacks);
-            stackBackgroundWidth =  stackBackground.getWidth()/9;
-            stackBackgroundHeight =  stackBackground.getHeight()/2;
+        if (stackBackground == null) {
+            stackBackground = BitmapFactory.decodeResource(res, R.drawable.backgrounds_stacks);
+            stackBackgroundWidth = stackBackground.getWidth() / 9;
+            stackBackgroundHeight = stackBackground.getHeight() / 2;
         }
 
-        return Bitmap.createBitmap(stackBackground, posX*stackBackgroundWidth, posY*stackBackgroundHeight,stackBackgroundWidth,stackBackgroundHeight);
+        return Bitmap.createBitmap(stackBackground, posX * stackBackgroundWidth, posY * stackBackgroundHeight, stackBackgroundWidth, stackBackgroundHeight);
     }
 
-    public Bitmap getCardFront(int posX, int posY){
+    public Bitmap getCardFront(int posX, int posY) {
 
-        if (cardFront==null || savedCardTheme!=getSharedInt(CARD_DRAWABLES, 1)){
+        if (cardFront == null || savedCardTheme != getSharedInt(CARD_DRAWABLES, 1)) {
 
             savedCardTheme = getSharedInt(CARD_DRAWABLES, 1);
             int resID;
 
             switch (savedCardTheme) {
-                case 1:default:
+                case 1:
+                default:
                     resID = R.drawable.cards_basic;
                     break;
                 case 2:
@@ -98,44 +99,44 @@ public class Bitmaps {
                     break;
             }
 
-            cardFront = BitmapFactory.decodeResource(res,resID);
-            cardFrontWidth = cardFront.getWidth()/13;
-            cardFrontHeight = cardFront.getHeight()/6;
+            cardFront = BitmapFactory.decodeResource(res, resID);
+            cardFrontWidth = cardFront.getWidth() / 13;
+            cardFrontHeight = cardFront.getHeight() / 6;
         }
 
-        return Bitmap.createBitmap(cardFront, posX*cardFrontWidth, posY*cardFrontHeight,cardFrontWidth,cardFrontHeight);
+        return Bitmap.createBitmap(cardFront, posX * cardFrontWidth, posY * cardFrontHeight, cardFrontWidth, cardFrontHeight);
     }
 
-    public Bitmap getCardBack(int posX, int posY){
+    public Bitmap getCardBack(int posX, int posY) {
 
-        if (cardBack==null){
-            cardBack = BitmapFactory.decodeResource(res,R.drawable.backgrounds_cards);
-            cardBackWidth =  cardBack.getWidth()/8;
-            cardBackHeight =  cardBack.getHeight()/2;
+        if (cardBack == null) {
+            cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
+            cardBackWidth = cardBack.getWidth() / 8;
+            cardBackHeight = cardBack.getHeight() / 2;
         }
 
-        return Bitmap.createBitmap(cardBack, posX*cardBackWidth, posY*cardBackHeight,cardBackWidth,cardBackHeight);
+        return Bitmap.createBitmap(cardBack, posX * cardBackWidth, posY * cardBackHeight, cardBackWidth, cardBackHeight);
     }
 
-    public Bitmap getCardPreview(int posX, int posY){
+    public Bitmap getCardPreview(int posX, int posY) {
 
-        if (cardPreview==null){
-            cardPreview = BitmapFactory.decodeResource(res,R.drawable.card_previews);
-            cardPreviewWidth =  cardPreview.getWidth()/7;
-            cardPreviewHeight =  cardPreview.getHeight()/2;
+        if (cardPreview == null) {
+            cardPreview = BitmapFactory.decodeResource(res, R.drawable.card_previews);
+            cardPreviewWidth = cardPreview.getWidth() / 7;
+            cardPreviewHeight = cardPreview.getHeight() / 2;
         }
 
-        return Bitmap.createBitmap(cardPreview, posX*cardPreviewWidth, posY*cardPreviewHeight,cardPreviewWidth,cardPreviewHeight);
+        return Bitmap.createBitmap(cardPreview, posX * cardPreviewWidth, posY * cardPreviewHeight, cardPreviewWidth, cardPreviewHeight);
     }
 
-    public Bitmap getCardPreview2(int posX, int posY){
+    public Bitmap getCardPreview2(int posX, int posY) {
 
-        if (cardPreview2==null){
-            cardPreview2 = BitmapFactory.decodeResource(res,R.drawable.card_previews_2);
-            cardPreview2Width =  cardPreview2.getWidth()/7;
-            cardPreview2Height =  cardPreview2.getHeight()/2;
+        if (cardPreview2 == null) {
+            cardPreview2 = BitmapFactory.decodeResource(res, R.drawable.card_previews_2);
+            cardPreview2Width = cardPreview2.getWidth() / 7;
+            cardPreview2Height = cardPreview2.getHeight() / 2;
         }
 
-        return Bitmap.createBitmap(cardPreview2, posX*cardPreview2Width, posY*cardPreview2Height,cardPreview2Width,cardPreview2Height);
+        return Bitmap.createBitmap(cardPreview2, posX * cardPreview2Width, posY * cardPreview2Height, cardPreview2Width, cardPreview2Height);
     }
 }

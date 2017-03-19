@@ -23,7 +23,11 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
 
 /*
  *  Handles the input of cards to move around. When a card was touched, it adds all cards
@@ -58,8 +62,8 @@ public class MovingCards {
 
     public void move(float X, float Y) {
         for (Card card : currentCards)
-            card.setLocationWithoutMovement(X -offsetX, (Y - offsetY)
-                    + currentCards.indexOf(card) * Stack.defaultSpacing/2);
+            card.setLocationWithoutMovement(X - offsetX, (Y - offsetY)
+                    + currentCards.indexOf(card) * Stack.defaultSpacing / 2);
     }
 
     public void moveToDestination(Stack destination) {

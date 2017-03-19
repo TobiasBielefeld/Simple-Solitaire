@@ -22,14 +22,10 @@ import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_PORTRAIT;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
 import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
 
@@ -37,9 +33,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
-public class MenuBarPositionDialogPreference extends DialogPreference{
+public class MenuBarPositionDialogPreference extends DialogPreference {
 
-    RadioButton top,bottom,left,right;
+    RadioButton top, bottom, left, right;
 
     public MenuBarPositionDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -70,7 +66,6 @@ public class MenuBarPositionDialogPreference extends DialogPreference{
 
         super.onBindDialogView(view);
     }
-
 
 
     @Override

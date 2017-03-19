@@ -29,7 +29,10 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_GAMES;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedIntList;
 
 /*
  *  Dialog for hiding games in the main menu.
@@ -37,7 +40,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  *  just use a linearLayout with a button and a textView for each game
  */
 
-public class MenuHideGamesPreference extends DialogPreference implements View.OnClickListener{
+public class MenuHideGamesPreference extends DialogPreference implements View.OnClickListener {
 
     ArrayList<LinearLayout> linearLayouts;
     ArrayList<CheckBox> checkBoxes;
@@ -53,14 +56,14 @@ public class MenuHideGamesPreference extends DialogPreference implements View.On
         linearLayouts = lg.loadMenuPreferenceViews(view);
         checkBoxes = lg.loadMenuPreferenceCheckBoxes(view);
 
-        for (LinearLayout linearLayout : linearLayouts){
+        for (LinearLayout linearLayout : linearLayouts) {
             linearLayout.setOnClickListener(this);
         }
 
         ArrayList<Integer> result = getSharedIntList(PREF_KEY_MENU_GAMES);
 
-        for (int i=0;i<checkBoxes.size();i++){
-            if (result.size()-1<i){
+        for (int i = 0; i < checkBoxes.size(); i++) {
+            if (result.size() - 1 < i) {
                 checkBoxes.get(i).setChecked(true);
             } else {
                 checkBoxes.get(i).setChecked(result.get(i) == 1);
@@ -84,11 +87,11 @@ public class MenuHideGamesPreference extends DialogPreference implements View.On
         if (positiveResult) {
             ArrayList<Integer> list = new ArrayList<>();
 
-            for (CheckBox checkBox : checkBoxes){
-               list.add(checkBox.isChecked() ? 1 : 0);
+            for (CheckBox checkBox : checkBoxes) {
+                list.add(checkBox.isChecked() ? 1 : 0);
             }
 
-            putSharedIntList("pref_key_menu_games",list);
+            putSharedIntList("pref_key_menu_games", list);
         }
     }
 }

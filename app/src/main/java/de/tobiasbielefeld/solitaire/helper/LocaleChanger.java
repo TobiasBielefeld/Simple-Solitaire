@@ -32,13 +32,11 @@ import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_LANGUAGE;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_LANGUAGE;
 
 /**
- *
  * Update locale in the activities,
  * created with this guide: http://gunhansancar.com/change-language-programmatically-in-android/
- *
+ * <p>
  * Created by gunhansancar on 07/10/15.
  * And updated to fit my needs.
- *
  */
 
 public class LocaleChanger {
@@ -73,7 +71,7 @@ public class LocaleChanger {
     private static Context updateResources(Context context, String language) {
         Locale locale;
 
-        if (language.equals(DEFAULT_LANGUAGE)){
+        if (language.equals(DEFAULT_LANGUAGE)) {
             locale = defaultLocale;
         } else {
             locale = new Locale(language);
@@ -90,7 +88,7 @@ public class LocaleChanger {
     private static Context updateResourcesLegacy(Context context, String language) {
         Locale locale;
 
-        if (language.equals(DEFAULT_LANGUAGE)){
+        if (language.equals(DEFAULT_LANGUAGE)) {
             locale = defaultLocale;
         } else {
             locale = new Locale(language);
@@ -107,7 +105,7 @@ public class LocaleChanger {
         return context;
     }
 
-    public static void setDefaultLocale(Locale locale){
+    public static void setDefaultLocale(Locale locale) {
         defaultLocale = locale;
     }
 }

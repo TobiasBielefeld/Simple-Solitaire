@@ -26,7 +26,13 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_GOLF_CYCLIC;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_GOLF_CYCLIC;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
  * Golf Game! Very easy but a lot of dealt games can't be won.
@@ -37,54 +43,54 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Golf extends Game {
 
-    public Golf(){
+    public Golf() {
         setNumberOfDecks(1);
         setNumberOfStacks(9);
         setFirstMainStackID(8);
         setFirstDiscardStackID(7);
         setLastTableauID(6);
-        setDirections(new int[]{1,1,1,1,1,1,1,3});
+        setDirections(new int[]{1, 1, 1, 1, 1, 1, 1, 3});
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
-        setUpCardWidth(layoutGame,isLandscape,8,9);
+        setUpCardWidth(layoutGame, isLandscape, 8, 9);
 
         //order stacks on the screen
-        int spacing = setUpSpacing(layoutGame,7,8);
-        int startPos = layoutGame.getWidth()/2 - 3*spacing - (int)(3.5*Card.width);
+        int spacing = setUpSpacing(layoutGame, 7, 8);
+        int startPos = layoutGame.getWidth() / 2 - 3 * spacing - (int) (3.5 * Card.width);
         //main stack
         stacks[8].view.setX(layoutGame.getWidth() - startPos - Card.width);
-        stacks[8].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1 );
+        stacks[8].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         //discard stack
-        stacks[7].view.setX(layoutGame.getWidth() - 2*startPos - 2*Card.width);
+        stacks[7].view.setX(layoutGame.getWidth() - 2 * startPos - 2 * Card.width);
         stacks[7].view.setY(stacks[8].view.getY());
         //tableau stacks
         for (int i = 0; i < 7; i++) {
             stacks[i].view.setX(startPos + spacing * i + Card.width * i);
-            stacks[i].view.setY(stacks[8].view.getY() + Card.height +  (isLandscape ? Card.width / 4 : Card.width / 2) + 1 );
+            stacks[i].view.setY(stacks[8].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
     }
 
-    public boolean winTest(){
+    public boolean winTest() {
         //game is won if tableau is empty
-        for (int i=0;i<=getLastTableauID();i++)
+        for (int i = 0; i <= getLastTableauID(); i++)
             if (!stacks[i].isEmpty())
                 return false;
 
         return true;
     }
 
-    public void dealCards(){
+    public void dealCards() {
 
-        for (int i=0;i<7;i++){
-            for (int j=0;j<5;j++) {
-                moveToStack(getMainStack().getTopCard(),stacks[i],OPTION_NO_RECORD);
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 5; j++) {
+                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
                 stacks[i].getTopCard().flipUp();
             }
         }
 
-        moveToStack(getMainStack().getTopCard(),getDiscardStack(),OPTION_NO_RECORD);
+        moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
     public boolean cardTest(Stack stack, Card card) {
@@ -95,21 +101,21 @@ public class Golf extends Game {
          */
         return stack == getDiscardStack()
                 && ((getSharedBoolean(PREF_KEY_GOLF_CYCLIC, DEFAULT_GOLF_CYCLIC)
-                    && (card.getValue() == 13 && stack.getTopCard().getValue() == 1 || card.getValue() == 1 && stack.getTopCard().getValue() == 13))
+                && (card.getValue() == 13 && stack.getTopCard().getValue() == 1 || card.getValue() == 1 && stack.getTopCard().getValue() == 13))
                 || (card.getValue() == stack.getTopCard().getValue() + 1 || card.getValue() == stack.getTopCard().getValue() - 1));
     }
 
-    public boolean addCardToMovementTest(Card card){
-        return card.getStack().getID()<7 && card.isTopCard();
+    public boolean addCardToMovementTest(Card card) {
+        return card.getStack().getID() < 7 && card.isTopCard();
     }
 
-    public CardAndStack hintTest(){
-        for (int i=0;i<7;i++){
+    public CardAndStack hintTest() {
+        for (int i = 0; i < 7; i++) {
             if (stacks[i].isEmpty())
                 continue;
 
             if (!hint.hasVisited(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack()))
-                return new CardAndStack(stacks[i].getTopCard(),getDiscardStack());
+                return new CardAndStack(stacks[i].getTopCard(), getDiscardStack());
         }
 
         return null;
@@ -120,15 +126,15 @@ public class Golf extends Game {
         return card.test(getDiscardStack()) ? getDiscardStack() : null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
-        if (destinationIDs[0]==getDiscardStack().getID() && originIDs[0]<7)
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+        if (destinationIDs[0] == getDiscardStack().getID() && originIDs[0] < 7)
             return 50;
         else
             return 0;
     }
 
     public void onMainStackTouch() {
-        if (getMainStack().getSize()>0)
-        moveToStack(getMainStack().getTopCard(),getDiscardStack());
+        if (getMainStack().getSize() > 0)
+            moveToStack(getMainStack().getTopCard(), getDiscardStack());
     }
 }

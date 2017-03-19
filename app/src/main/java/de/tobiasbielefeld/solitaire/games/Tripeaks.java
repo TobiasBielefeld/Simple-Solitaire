@@ -22,12 +22,14 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /*
  *  Tripeaks is nearly the same as Golf, but with a different field layout
@@ -37,7 +39,7 @@ public class Tripeaks extends Game {
 
     //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
     //with index 0 are the stacks with index 3 and 3+1
-    int[] stackAboveID = new int[]{3,5,7,9,10,12,13,15,16,18,19,20,21,22,23,24,25,26};//28
+    int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28
 
     public Tripeaks() {
 
@@ -47,32 +49,32 @@ public class Tripeaks extends Game {
         setLastTableauID(27);
         setFirstDiscardStackID(28);
         setFirstMainStackID(29);
-        setDirections(new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+        setDirections(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
-        setUpCardDimensions(layoutGame,11,6);
+        setUpCardDimensions(layoutGame, 11, 6);
 
-        int spacing = setUpSpacing(layoutGame,10,11);
+        int spacing = setUpSpacing(layoutGame, 10, 11);
 
-        int startPosX = (int) (layoutGame.getWidth()/2 - 3.5*Card.width - 3*spacing);
-        int startPosY = (int) ((layoutGame.getHeight()- Card.height *4.25  - (isLandscape ? Card.height / 4 : Card.height / 2))/2 );
+        int startPosX = (int) (layoutGame.getWidth() / 2 - 3.5 * Card.width - 3 * spacing);
+        int startPosY = (int) ((layoutGame.getHeight() - Card.height * 4.25 - (isLandscape ? Card.height / 4 : Card.height / 2)) / 2);
 
-        for (int i=0;i<28;i++) {
+        for (int i = 0; i < 28; i++) {
 
-            if (i==3){
-                startPosX = (int) (layoutGame.getWidth()/2 - 4*Card.width - 3.5*spacing);
-                startPosY = (int) ((layoutGame.getHeight()- Card.height *4.25  - (isLandscape ? Card.height / 4 : Card.height / 2))/2 + 0.75* Card.height);
-            } else if (i==9){
-                startPosX = (int) (layoutGame.getWidth()/2 - 4.5*Card.width - 4*spacing);
-                startPosY = (int) ((layoutGame.getHeight()- Card.height *4.25  - (isLandscape ? Card.height / 4 : Card.height / 2))/2 + 1.5* Card.height);
-            } else if (i==18){
-                startPosX = (int) (layoutGame.getWidth()/2 - 5*Card.width - 4.5*spacing);
-                startPosY = (int) ((layoutGame.getHeight()- Card.height *4.25  - (isLandscape ? Card.height / 4 : Card.height / 2))/2 + 2.25* Card.height);
+            if (i == 3) {
+                startPosX = (int) (layoutGame.getWidth() / 2 - 4 * Card.width - 3.5 * spacing);
+                startPosY = (int) ((layoutGame.getHeight() - Card.height * 4.25 - (isLandscape ? Card.height / 4 : Card.height / 2)) / 2 + 0.75 * Card.height);
+            } else if (i == 9) {
+                startPosX = (int) (layoutGame.getWidth() / 2 - 4.5 * Card.width - 4 * spacing);
+                startPosY = (int) ((layoutGame.getHeight() - Card.height * 4.25 - (isLandscape ? Card.height / 4 : Card.height / 2)) / 2 + 1.5 * Card.height);
+            } else if (i == 18) {
+                startPosX = (int) (layoutGame.getWidth() / 2 - 5 * Card.width - 4.5 * spacing);
+                startPosY = (int) ((layoutGame.getHeight() - Card.height * 4.25 - (isLandscape ? Card.height / 4 : Card.height / 2)) / 2 + 2.25 * Card.height);
             }
 
-            if (i>3 && i< 9 && (i-1)%2==0)
+            if (i > 3 && i < 9 && (i - 1) % 2 == 0)
                 startPosX += Card.width + spacing;
 
             stacks[i].view.setX(startPosX);
@@ -80,22 +82,22 @@ public class Tripeaks extends Game {
             stacks[i].view.setImageBitmap(Stack.backgroundTransparent);
 
 
-            if (i<3)
-                startPosX += 3*Card.width + 3*spacing;
+            if (i < 3)
+                startPosX += 3 * Card.width + 3 * spacing;
             else
-                startPosX+= Card.width + spacing;
+                startPosX += Card.width + spacing;
         }
 
-        stacks[28].view.setX(layoutGame.getWidth() / 2 -Card.width - spacing);
+        stacks[28].view.setX(layoutGame.getWidth() / 2 - Card.width - spacing);
         stacks[28].view.setY(stacks[18].view.getY() + Card.height + (isLandscape ? Card.height / 4 : Card.height / 2));
 
-        stacks[29].view.setX(stacks[28].view.getX() + 2*spacing + Card.width);
+        stacks[29].view.setX(stacks[28].view.getX() + 2 * spacing + Card.width);
         stacks[29].view.setY(stacks[28].view.getY());
 
     }
 
-    public boolean winTest(){
-        for (int i=0;i<=getLastTableauID();i++){
+    public boolean winTest() {
+        for (int i = 0; i <= getLastTableauID(); i++) {
             if (!stacks[i].isEmpty())
                 return false;
         }
@@ -103,19 +105,19 @@ public class Tripeaks extends Game {
         return true;
     }
 
-    public void dealCards(){
-        for (int i = 0; i<28 ; i++) {
+    public void dealCards() {
+        for (int i = 0; i < 28; i++) {
             moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
-            if (i>17)
+            if (i > 17)
                 stacks[i].getTopCard().flipUp();
         }
 
-        moveToStack(dealFromStack().getTopCard(),getDiscardStack(),OPTION_NO_RECORD);
+        moveToStack(dealFromStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
 
-    public void onMainStackTouch(){
+    public void onMainStackTouch() {
 
         if (getMainStack().getSize() > 0) {
             moveToStack(getMainStack().getTopCard(), getDiscardStack());
@@ -130,7 +132,7 @@ public class Tripeaks extends Game {
     }
 
 
-    public boolean cardTest(Stack stack, Card card){
+    public boolean cardTest(Stack stack, Card card) {
         return stack == getDiscardStack() &&
                 (card.getValue() == 13 && stack.getTopCard().getValue() == 1
                         || card.getValue() == 1 && stack.getTopCard().getValue() == 13
@@ -139,18 +141,18 @@ public class Tripeaks extends Game {
     }
 
 
-    public boolean addCardToMovementTest(Card card){
+    public boolean addCardToMovementTest(Card card) {
 
         return card.getStack().getID() != getDiscardStack().getID();
     }
 
-    public CardAndStack hintTest(){
-        for (int i=0;i<28;i++){
+    public CardAndStack hintTest() {
+        for (int i = 0; i < 28; i++) {
             if (stacks[i].isEmpty() || !stacks[i].getTopCard().isUp())
                 continue;
 
             if (!hint.hasVisited(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack()))
-                return new CardAndStack(stacks[i].getTopCard(),getDiscardStack());
+                return new CardAndStack(stacks[i].getTopCard(), getDiscardStack());
         }
 
         return null;
@@ -160,40 +162,40 @@ public class Tripeaks extends Game {
     public Stack doubleTapTest(Card card) {
 
         if (card.test(getDiscardStack()))
-                return getDiscardStack();
+            return getDiscardStack();
 
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs){
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
         int points = 0;
 
-        for (int i=0;i<originIDs.length;i++)
+        for (int i = 0; i < originIDs.length; i++)
             if (originIDs[i] == destinationIDs[i])
-                points+=25;
+                points += 25;
 
-        if (originIDs[0]<28 && destinationIDs[0]==28)
-            points+=50;
+        if (originIDs[0] < 28 && destinationIDs[0] == 28)
+            points += 50;
         //else if (originIDs[0]==getDiscardStack().getID() && destinationIDs[0]==getMainStack().getID())
         //    points-=200;
 
         return points;
     }
 
-    public void testAfterMove(){
-        for (int i=0;i<18;i++){
-            if (!stacks[i].isEmpty() && !stacks[i].getTopCard().isUp() && stackIsFree(stacks[i])){
+    public void testAfterMove() {
+        for (int i = 0; i < 18; i++) {
+            if (!stacks[i].isEmpty() && !stacks[i].getTopCard().isUp() && stackIsFree(stacks[i])) {
                 stacks[i].getTopCard().flipWithAnim();
             }
         }
     }
 
-    private boolean stackIsFree(Stack stack){
-        if (stack.getID()>17)
+    private boolean stackIsFree(Stack stack) {
+        if (stack.getID() > 17)
             return true;
 
         Stack stackAbove1 = stacks[stackAboveID[stack.getID()]];
-        Stack stackAbove2 = stacks[stackAboveID[stack.getID()]+1];
+        Stack stackAbove2 = stacks[stackAboveID[stack.getID()] + 1];
 
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
     }

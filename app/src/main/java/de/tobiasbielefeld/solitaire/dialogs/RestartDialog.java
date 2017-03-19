@@ -28,7 +28,9 @@ import android.support.v4.app.DialogFragment;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /*
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
@@ -44,7 +46,7 @@ public class RestartDialog extends DialogFragment {
                 .setItems(R.array.restart_menu, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // "which" argument contains index of selected item
-                        switch (which){
+                        switch (which) {
 
                             case 0:
                                 gameLogic.newGame();
@@ -56,7 +58,7 @@ public class RestartDialog extends DialogFragment {
                                 getActivity().finish();
                                 break;
                             case 3:
-                                if (((GameManager)getActivity()).hasLoaded) {
+                                if (((GameManager) getActivity()).hasLoaded) {
                                     timer.save();
                                     gameLogic.save();
                                 }

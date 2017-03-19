@@ -21,22 +21,21 @@ package de.tobiasbielefeld.solitaire;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.handler.TestAfterMoveHandler;
 import de.tobiasbielefeld.solitaire.handler.TestIfWonHandler;
-import de.tobiasbielefeld.solitaire.helper.Bitmaps;
-import de.tobiasbielefeld.solitaire.helper.GameLogic;
-import de.tobiasbielefeld.solitaire.classes.Card;
-import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
+import de.tobiasbielefeld.solitaire.helper.Bitmaps;
+import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
@@ -49,11 +48,11 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 
 public class SharedData {
 
+    public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
     //Strings
     public static String SCORE;
     public static String SAVED_SCORES;
     public static String OLD;
-
     public static String GAME;
     public static String GAME_REDEAL_COUNT;
     public static String GAME_WON;
@@ -62,7 +61,6 @@ public class SharedData {
     public static String GAME_RANDOM_CARDS;
     public static String GAME_FIRST_RUN;
     public static String GAME_MOVED_FIRST_CARD;
-
     public static String RECORD_LIST_ENTRY;
     public static String RECORD_LIST_ENTRIES_SIZE;
     public static String FLIP_CARD;
@@ -70,20 +68,16 @@ public class SharedData {
     public static String CARD;
     public static String CARDS;
     public static String STACK;
-
     public static String TIMER_CURRENT_TIME;
     public static String TIMER_START_TIME;
     public static String TIMER_SHOWN_TIME;
-
     public static String CARD_DRAWABLES;
     public static String CARD_BACKGROUND;
     public static String MENU_COLUMNS_PORTRAIT;
     public static String MENU_COLUMNS_LANDSCAPE;
-
     public static String CANFIELD_START_CARD_VALUE;
     public static String BACKGROUND_COLOR_DEFAULT;
     public static String RESTART_DIALOG;
-
     public static String PREF_KEY_YUKON_RULES;
     public static String PREF_KEY_YUKON_RULES_OLD;
     public static String PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS;
@@ -101,7 +95,6 @@ public class SharedData {
     public static String PREF_KEY_ORIENTATION;
     public static String PREF_KEY_MENU_GAMES;
     public static String PREF_KEY_4_COLOR_MODE;
-
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
@@ -114,9 +107,7 @@ public class SharedData {
     public static String DEFAULT_MENU_COLUMNS_LANDSCAPE;
     public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
     public static String DEFAULT_ORIENTATION;
-
     public static int DEFAULT_CURRENT_GAME;
-
     public static boolean DEFAULT_PYRAMID_LIMITED_REDEALS;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
@@ -127,9 +118,6 @@ public class SharedData {
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
     public static boolean DEFAULT_4_COLOR_MODE;
-
-    public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
-
     public static Card[] cards;
     public static Stack[] stacks;
     public static RecordList recordList;
@@ -154,7 +142,7 @@ public class SharedData {
     public static int NUMBER_OF_CARD_THEMES;
 
     //load the values from the xml files
-    public static void loadStrings(Context context){
+    public static void loadStrings(Context context) {
         Resources res = context.getResources();
 
         GAME = context.getString(R.string.game);
@@ -419,6 +407,7 @@ public class SharedData {
     public static boolean sharedStringEquals(String name, String defaultValue) {
         return savedSharedData.getString(name, defaultValue).equals(defaultValue);
     }
+
     public static String getSharedString(String name, String defaultValue) {
         return savedSharedData.getString(name, defaultValue);
     }

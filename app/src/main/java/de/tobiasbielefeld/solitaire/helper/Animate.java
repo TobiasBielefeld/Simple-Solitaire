@@ -35,7 +35,8 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.handler.AfterWonHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.max;
 
 /*
  * class for all card animations. Like moving cards and fading them out and in for hints.
@@ -43,35 +44,36 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * then move them out the screen borders
  */
 
-public class Animate{
+public class Animate {
 
-    public AfterWonHandler afterWonHandler;
-    private GameManager gm;
     //private int animationCounter =0;
     private static final int minAnimatingTime = 10; //in ms
+    public AfterWonHandler afterWonHandler;
+    private GameManager gm;
     //private static final long maxTimeAnimating = 2000; //in ms
 
-    public Animate(GameManager gm){
+    public Animate(GameManager gm) {
         this.gm = gm;
         afterWonHandler = new AfterWonHandler(gm);
     }
 
     public void wonAnimation() {
         for (Card card : cards) {
-            card.setLocation(gm.layoutGame.getWidth()/2-Card.width/2,gm.layoutGame.getHeight()/2-Card.height/2);
+            card.setLocation(gm.layoutGame.getWidth() / 2 - Card.width / 2, gm.layoutGame.getHeight() / 2 - Card.height / 2);
         }
 
-        afterWonHandler.sendEmptyMessageDelayed(0,100);
+        afterWonHandler.sendEmptyMessageDelayed(0, 100);
     }
 
-    public void wonAnimationPhase1(){
+    public void wonAnimationPhase1() {
         int direction = 0;
         int counter = 0;
         Random rand = new Random();
 
         for (Card card : cards) {
             switch (direction) {
-                case 0: default://right side
+                case 0:
+                default://right side
                     card.setLocation(gm.layoutGame.getWidth(), counter);
                     counter += Card.height;
 
@@ -149,7 +151,8 @@ public class Animate{
                 gm.getApplicationContext(), R.anim.card_fade_out);
 
         card_fade_out.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationStart(Animation animation) { }
+            public void onAnimationStart(Animation animation) {
+            }
 
             public void onAnimationEnd(Animation animation) {
                 card.view.setVisibility(View.INVISIBLE);
@@ -220,14 +223,14 @@ public class Animate{
 
         //return animationCounter>0;
 
-        for (Card card : cards){
+        for (Card card : cards) {
             if (card.isAnimating()) {
                 //if (System.currentTimeMillis() - card.getStartTimeOfAnimation() > maxTimeAnimating) {
                 //    card.stopAnim();
                 //} else {
-                    //logText("One Card is still animating!!");
-                    //logText("Value: " +card.getValue() + ", Color: " + card.getColor() + ", Stack: " + card.getStack().getID() + ", Position: " + card.getIndexOnStack());
-                    return true;
+                //logText("One Card is still animating!!");
+                //logText("Value: " +card.getValue() + ", Color: " + card.getColor() + ", Stack: " + card.getStack().getID() + ", Position: " + card.getIndexOnStack());
+                return true;
                 //}
             }
         }
@@ -245,7 +248,7 @@ public class Animate{
     }*/
 
     public void reset() {
-        for (Card card : cards){
+        for (Card card : cards) {
             card.stopAnim();
             //card.view.clearAnimation();
         }
@@ -310,9 +313,11 @@ public class Animate{
                 gm.buttonAutoComplete.setVisibility(View.VISIBLE);
             }
 
-            public void onAnimationEnd(Animation animation) {}
+            public void onAnimationEnd(Animation animation) {
+            }
 
-            public void onAnimationRepeat(Animation animation) {}
+            public void onAnimationRepeat(Animation animation) {
+            }
         });
 
         gm.buttonAutoComplete.startAnimation(fade_in);

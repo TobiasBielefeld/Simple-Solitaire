@@ -29,13 +29,39 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FIRST_RUN;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MOVED_FIRST_CARD;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_WON;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_FIRST_RUN;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_MOVED_FIRST_CARD;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_NUMBER_OF_PLAYED_GAMES;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_NUMBER_OF_WON_GAMES;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_RANDOM_CARDS;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_WON;
+import static de.tobiasbielefeld.solitaire.SharedData.TIMER_CURRENT_TIME;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.getBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getInt;
+import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.getLong;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.putBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.putInt;
+import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /**
  * Contains stuff for the game which i didn't know where i should put it.
  */
 
-public class GameLogic{
+public class GameLogic {
 
     public Card[] randomCards;                                                                      //array to shuffle the cards
     private int numberWonGames;                                                                     //number of won games. It's shown in the high score activity
@@ -43,12 +69,12 @@ public class GameLogic{
     private GameManager gm;
     private boolean movedFirstCard = false;
 
-    public GameLogic(GameManager gm){
+    public GameLogic(GameManager gm) {
         this.gm = gm;
     }
 
-    public void checkFirstMovement(){
-        if (!movedFirstCard){
+    public void checkFirstMovement() {
+        if (!movedFirstCard) {
             incrementPlayedGames();
             movedFirstCard = true;
         }
@@ -62,7 +88,7 @@ public class GameLogic{
         scores.save();
         recordList.save();
         putBoolean(GAME_WON, won);
-        putBoolean(GAME_MOVED_FIRST_CARD,movedFirstCard);
+        putBoolean(GAME_MOVED_FIRST_CARD, movedFirstCard);
         putInt(GAME_NUMBER_OF_WON_GAMES, numberWonGames);
         /* Timer will be saved in onPause() */
         for (Stack stack : stacks)
@@ -96,14 +122,12 @@ public class GameLogic{
         if (first_run) {
             newGame();
             putBoolean(GAME_FIRST_RUN, false);
-        }
-        else if (won) {
+        } else if (won) {
             loadRandomCards();
 
             for (Card card : cards)
                 card.setLocationWithoutMovement(gm.layoutGame.getWidth(), 0);
-        }
-        else {
+        } else {
             try {
                 for (Card card : cards) {
                     card.setLocationWithoutMovement(currentGame.dealFromStack().view.getX(), currentGame.dealFromStack().view.getY());
@@ -112,7 +136,7 @@ public class GameLogic{
 
                 scores.load();
                 recordList.load();
-                timer.setCurrentTime(getLong(TIMER_CURRENT_TIME,0));
+                timer.setCurrentTime(getLong(TIMER_CURRENT_TIME, 0));
                 //timer will be loaded in onResume()
                 for (Stack stack : stacks)
                     stack.load();
@@ -120,7 +144,7 @@ public class GameLogic{
                 Card.load();
                 loadRandomCards();
 
-                if (! autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
+                if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
                     autoComplete.showButton();
                 }
             } catch (Exception e) {
@@ -139,7 +163,7 @@ public class GameLogic{
         redeal();
     }
 
-    public void redeal(){
+    public void redeal() {
         //reset EVERYTHING
         if (!won) {                                                                                 //if the game has been won, the score was already saved
             scores.addNewHighScore();
@@ -171,7 +195,7 @@ public class GameLogic{
     }
 
     public void testIfWon() {
-        if (!won && ! autoComplete.isRunning() && currentGame.winTest()) {
+        if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
             won = true;
             numberWonGames++;
 
@@ -200,28 +224,28 @@ public class GameLogic{
         }
     }
 
-    public void mirrorStacks(){
+    public void mirrorStacks() {
         /*
          * for left handed mode: mirrors the stacks to the other side and then updates the card
          * positions.
          */
 
-        if (stacks!=null) {
+        if (stacks != null) {
             for (Stack stack : stacks) {
                 stack.mirrorStack(gm.layoutGame);
             }
         }
 
         //move the re-deal counter too
-        if (currentGame.hasLimitedRedeals()){
+        if (currentGame.hasLimitedRedeals()) {
             gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
             gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
         }
 
         //change the arrow direction
-        if (currentGame.hasArrow()){
-            for (Stack stack : stacks){
-                if (stack.hasArrow()>0) {
+        if (currentGame.hasArrow()) {
+            for (Stack stack : stacks) {
+                if (stack.hasArrow() > 0) {
                     if (stack.hasArrow() == 1) {
                         if (getSharedBoolean(gm.getString(R.string.pref_key_left_handed_mode), false))
                             stack.view.setImageBitmap(Stack.arrowRight);
@@ -248,42 +272,42 @@ public class GameLogic{
 
     public void deleteStatistics() {
         numberWonGames = 0;
-        putInt(GAME_NUMBER_OF_PLAYED_GAMES,0);
+        putInt(GAME_NUMBER_OF_PLAYED_GAMES, 0);
     }
 
-    private void saveRandomCards(){
+    private void saveRandomCards() {
         ArrayList<Integer> list = new ArrayList<>();
 
-        for (Card card: randomCards)
+        for (Card card : randomCards)
             list.add(card.getID());
 
-        putIntList(GAME_RANDOM_CARDS,list);
+        putIntList(GAME_RANDOM_CARDS, list);
     }
 
-    private void loadRandomCards(){
+    private void loadRandomCards() {
         ArrayList<Integer> list = getIntList(GAME_RANDOM_CARDS);
 
-        for (int i=0;i<randomCards.length;i++)
+        for (int i = 0; i < randomCards.length; i++)
             randomCards[i] = cards[list.get(i)];
     }
 
-    private void incrementPlayedGames(){
-        int playedGames = getInt(GAME_NUMBER_OF_PLAYED_GAMES,numberWonGames);
-        putInt(GAME_NUMBER_OF_PLAYED_GAMES,++playedGames);
+    private void incrementPlayedGames() {
+        int playedGames = getInt(GAME_NUMBER_OF_PLAYED_GAMES, numberWonGames);
+        putInt(GAME_NUMBER_OF_PLAYED_GAMES, ++playedGames);
     }
 
-    public int getNumberOfPlayedGames(){
-        return getInt(GAME_NUMBER_OF_PLAYED_GAMES,numberWonGames);
+    public int getNumberOfPlayedGames() {
+        return getInt(GAME_NUMBER_OF_PLAYED_GAMES, numberWonGames);
     }
 
-    public void toggleNumberOfRedeals(){
+    public void toggleNumberOfRedeals() {
 
-        if (currentGame==null)
+        if (currentGame == null)
             return;
 
         currentGame.toggleRedeals();
 
-        if (currentGame.hasLimitedRedeals()){
+        if (currentGame.hasLimitedRedeals()) {
 
             gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
             gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
@@ -294,7 +318,7 @@ public class GameLogic{
         }
     }
 
-    public void updateIcons(){
+    public void updateIcons() {
         gm.updateIcons();
     }
 
