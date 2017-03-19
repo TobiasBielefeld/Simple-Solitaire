@@ -19,7 +19,7 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [ ] Add a button to mix the cards if no movement can be done
 - [ ] Add 'Grandfathers Clock'
 - [ ] Add a Custom game maker, maybe
-- [ ] Add a 'poker standard' card theme and 4 color themes
+- [X] Add a 'poker standard' card theme and 4 color themes
 - [X] Add a option to Yukon to play on same suits, instead of different color (like Russian Solitaire)
 - [X] Also save high scores when canceling a game
 - [ ] Add an option to set up appearance for each game indivially
