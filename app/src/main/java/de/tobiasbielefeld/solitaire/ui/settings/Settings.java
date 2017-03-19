@@ -263,12 +263,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 cardPreview = bitmaps.getCardPreview2(4, row);
                 break;
             case 6:
-                text = getString(R.string.settings_dark);
+                text = getString(R.string.settings_oxygen_dark);
                 cardPreview = bitmaps.getCardPreview2(5, row);
                 break;
             case 7:
-                text = getString(R.string.settings_poker);
+                text = getString(R.string.settings_oxygen_light);
                 cardPreview = bitmaps.getCardPreview2(6, row);
+                break;
+            case 8:
+                text = getString(R.string.settings_poker);
+                cardPreview = bitmaps.getCardPreview2(7, row);
                 break;
         }
 

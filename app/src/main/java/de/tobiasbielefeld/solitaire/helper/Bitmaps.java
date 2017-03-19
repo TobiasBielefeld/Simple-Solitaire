@@ -92,9 +92,12 @@ public class Bitmaps {
                     resID = R.drawable.cards_modern;
                     break;
                 case 6:
-                    resID = R.drawable.cards_dark;
+                    resID = R.drawable.cards_oxygen_dark;
                     break;
                 case 7:
+                    resID = R.drawable.cards_oxygen_light;
+                    break;
+                case 8:
                     resID = R.drawable.cards_poker;
                     break;
             }
@@ -122,7 +125,7 @@ public class Bitmaps {
 
         if (cardPreview == null) {
             cardPreview = BitmapFactory.decodeResource(res, R.drawable.card_previews);
-            cardPreviewWidth = cardPreview.getWidth() / 7;
+            cardPreviewWidth = cardPreview.getWidth() / 8;
             cardPreviewHeight = cardPreview.getHeight() / 2;
         }
 
@@ -133,7 +136,7 @@ public class Bitmaps {
 
         if (cardPreview2 == null) {
             cardPreview2 = BitmapFactory.decodeResource(res, R.drawable.card_previews_2);
-            cardPreview2Width = cardPreview2.getWidth() / 7;
+            cardPreview2Width = cardPreview2.getWidth() / 8;
             cardPreview2Height = cardPreview2.getHeight() / 2;
         }
 

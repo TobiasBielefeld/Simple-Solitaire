@@ -3,7 +3,7 @@
     <integer name="default_current_game">0</integer>
     <integer name="statistics_text_size">18</integer>
     <integer name="number_of_card_backgrounds">12</integer>
-    <integer name="number_of_card_themes">7</integer>
+    <integer name="number_of_card_themes">8</integer>
 
     <!-- changing these to integers would cause problems with already saved values -->
     <string name="default_menu_columns_landscape" translatable="false">5</string>

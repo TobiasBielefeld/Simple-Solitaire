@@ -73,4 +73,7 @@
     <string name="settings_4_color_mode_title">4 Farben Decks</string>
     <string name="settings_4_color_mode_text">Ändere die Farben von Kreuz zu Grün und von Karo zu Blau.</string>
 
+    <string name="settings_oxygen_dark">Oxygen Dark</string>
+    <string name="settings_oxygen_light">Oxygen Light</string>
+
 </resources>

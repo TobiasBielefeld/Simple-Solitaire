@@ -59,8 +59,9 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
         linearLayouts[2] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsAbstract);
         linearLayouts[3] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsSimple);
         linearLayouts[4] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsModern);
-        linearLayouts[5] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsDark);
-        linearLayouts[6] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsPoker);
+        linearLayouts[5] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsOxygenDark);
+        linearLayouts[6] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsOxygenLight);
+        linearLayouts[7] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsPoker);
 
         for (int i = 0; i < NUMBER_OF_CARD_THEMES; i++) {
             linearLayouts[i].setOnClickListener(this);
@@ -90,11 +91,14 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
             case R.id.settingsLinearLayoutCardsModern:
                 choice = 5;
                 break;
-            case R.id.settingsLinearLayoutCardsDark:
+            case R.id.settingsLinearLayoutCardsOxygenDark:
                 choice = 6;
                 break;
-            case R.id.settingsLinearLayoutCardsPoker:
+            case R.id.settingsLinearLayoutCardsOxygenLight:
                 choice = 7;
+                break;
+            case R.id.settingsLinearLayoutCardsPoker:
+                choice = 8;
                 break;
 
         }

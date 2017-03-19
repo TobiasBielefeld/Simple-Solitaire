@@ -107,13 +107,6 @@
 
             </LinearLayout>
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsSimple"
                 android:layout_width="0dp"
@@ -143,6 +136,13 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsModern"
@@ -204,13 +204,6 @@
 
             </LinearLayout>
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
             <LinearLayout
                 android:id="@+id/settingsLinearLayoutCardsOxygenLight"
                 android:layout_width="0dp"
@@ -268,16 +261,6 @@
                     android:text="@string/settings_poker"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/settingsLinearLayoutCardsSimple"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp" />
 
         </TableRow>
 
