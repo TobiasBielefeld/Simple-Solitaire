@@ -37,24 +37,7 @@ import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CURRENT_GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_ICON_THEME;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CURRENT_GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_GAMES;
-import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.loadStrings;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
  /*
   * This is the main menu with the buttons to load a game
@@ -71,15 +54,11 @@ public class GameSelector extends CustomAppCompatActivity {
          * initialize stuff and if the corresponding setting is set to true, load the last played game
          */
         super.onCreate(savedInstanceState);
-        savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-
         setContentView(R.layout.activity_game_selector_main);
 
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
         gameLayouts = lg.loadLayouts(this);
 
-        bitmaps.setResources(getResources());
-        loadStrings(this);
         loadGameList();
 
         if (!getSharedBoolean(getString(R.string.pref_key_start_menu), false)) {

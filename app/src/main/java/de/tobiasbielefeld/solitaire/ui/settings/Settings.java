@@ -43,28 +43,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_4_COLOR_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_ORIENTATION;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_4_COLOR_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_ORIENTATION;
-import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.savedGameData;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
-import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEquals;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Settings activity created with the "Create settings activity" tool from Android Studio.
@@ -91,6 +70,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        reinitializeData(getApplicationContext());
     }
 
     @Override

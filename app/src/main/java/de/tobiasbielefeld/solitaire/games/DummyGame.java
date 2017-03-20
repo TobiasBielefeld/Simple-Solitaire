@@ -27,14 +27,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.hint;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
-import static de.tobiasbielefeld.solitaire.SharedData.recordList;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
-
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 /**
  * Dummy Game, so you can see what to do if you want to add more games
  * <p>

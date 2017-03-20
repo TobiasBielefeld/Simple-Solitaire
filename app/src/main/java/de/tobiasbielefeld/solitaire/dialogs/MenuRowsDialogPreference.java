@@ -26,12 +26,7 @@ import android.widget.Spinner;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape

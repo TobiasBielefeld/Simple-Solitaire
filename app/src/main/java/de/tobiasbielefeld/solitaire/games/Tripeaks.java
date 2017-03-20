@@ -26,10 +26,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.hint;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Tripeaks is nearly the same as Golf, but with a different field layout

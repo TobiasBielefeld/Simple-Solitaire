@@ -26,17 +26,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.hint;
-import static de.tobiasbielefeld.solitaire.SharedData.max;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
-import static de.tobiasbielefeld.solitaire.SharedData.recordList;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * Forty&Eight game! it's pretty hard to win

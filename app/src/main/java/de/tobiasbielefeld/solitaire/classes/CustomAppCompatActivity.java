@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.classes;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
@@ -28,11 +29,7 @@ import android.view.WindowManager;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.savedGameData;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * Custom AppCompatActivity to implement local changing in attachBaseContext()
@@ -41,6 +38,17 @@ import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
  */
 
 public class CustomAppCompatActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+        reinitializeData(this);
+
+        if (savedSharedData == null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
+        }
+    }
 
     public static void setOrientation(Activity activity) {
         switch (getSharedString("pref_key_orientation", "1")) {

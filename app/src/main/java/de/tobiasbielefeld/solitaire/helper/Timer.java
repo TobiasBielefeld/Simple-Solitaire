@@ -21,12 +21,7 @@ package de.tobiasbielefeld.solitaire.helper;
 import de.tobiasbielefeld.solitaire.handler.TimerHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.TIMER_CURRENT_TIME;
-import static de.tobiasbielefeld.solitaire.SharedData.TIMER_SHOWN_TIME;
-import static de.tobiasbielefeld.solitaire.SharedData.TIMER_START_TIME;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getLong;
-import static de.tobiasbielefeld.solitaire.SharedData.putLong;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Handles the timer, updates, saves and load the current time of playing

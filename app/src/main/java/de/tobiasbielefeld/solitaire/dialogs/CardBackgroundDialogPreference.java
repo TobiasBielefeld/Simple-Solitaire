@@ -27,10 +27,7 @@ import android.widget.LinearLayout;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
-import static de.tobiasbielefeld.solitaire.SharedData.NUMBER_OF_CARD_BACKGROUNDS;
-import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * dialog for picking the card background drawable. Clicks on it are handled here and the

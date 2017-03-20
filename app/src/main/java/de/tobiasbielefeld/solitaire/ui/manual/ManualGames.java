@@ -30,7 +30,7 @@ import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Games Page contains a button for each game. If one button is pressed, the view with the buttons

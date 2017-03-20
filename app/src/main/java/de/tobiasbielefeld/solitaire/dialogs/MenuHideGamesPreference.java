@@ -29,10 +29,7 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_GAMES;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Dialog for hiding games in the main menu.

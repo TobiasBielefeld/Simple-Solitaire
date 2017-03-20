@@ -28,8 +28,7 @@ import android.preference.PreferenceManager;
 
 import java.util.Locale;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_LANGUAGE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_LANGUAGE;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Update locale in the activities,

@@ -25,16 +25,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.SAVED_SCORES;
-import static de.tobiasbielefeld.solitaire.SharedData.SCORE;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getLong;
-import static de.tobiasbielefeld.solitaire.SharedData.getLongList;
-import static de.tobiasbielefeld.solitaire.SharedData.max;
-import static de.tobiasbielefeld.solitaire.SharedData.putLong;
-import static de.tobiasbielefeld.solitaire.SharedData.putLongList;
-import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Handles scoring. It has two functions which tests movements and update the score.

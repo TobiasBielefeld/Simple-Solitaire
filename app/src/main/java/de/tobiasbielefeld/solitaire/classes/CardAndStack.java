@@ -18,8 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.classes;
 
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Just a little class to return a stack and a card at once from a method

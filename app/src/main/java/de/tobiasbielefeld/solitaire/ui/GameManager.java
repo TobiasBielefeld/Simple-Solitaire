@@ -54,34 +54,7 @@ import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Timer;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
-import static de.tobiasbielefeld.solitaire.SharedData.BACKGROUND_COLOR_DEFAULT;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_DOUBLE_TAP_ALL_CARDS;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_DOUBLE_TAP_ENABLE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_ICON_THEME;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_LEFT_HANDED_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.RESTART_DIALOG;
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.hint;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.max;
-import static de.tobiasbielefeld.solitaire.SharedData.min;
-import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
-import static de.tobiasbielefeld.solitaire.SharedData.recordList;
-import static de.tobiasbielefeld.solitaire.SharedData.savedGameData;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEquals;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
-import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * This is like the main activity, handles game input, controls the timer, loads and saves everything
@@ -101,7 +74,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
 
@@ -125,10 +98,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
         savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
         Stack.loadBackgrounds();
-
-        if (savedSharedData == null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }
 
         updateIcons();
         updateMenuBar();

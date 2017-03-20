@@ -27,15 +27,7 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import static de.tobiasbielefeld.solitaire.SharedData.STACK;
-import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.min;
-import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Contains everything around a stack

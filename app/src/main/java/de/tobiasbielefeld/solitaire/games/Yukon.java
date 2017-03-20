@@ -26,18 +26,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_YUKON_RULES;
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_YUKON_RULES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_YUKON_RULES_OLD;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.hint;
-import static de.tobiasbielefeld.solitaire.SharedData.min;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEquals;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * Yukon Game! 7 tableau stacks, 4 foundation stacks and no main stack

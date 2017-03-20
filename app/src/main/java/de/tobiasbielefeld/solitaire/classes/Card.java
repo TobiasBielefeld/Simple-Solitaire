@@ -24,21 +24,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-import static de.tobiasbielefeld.solitaire.SharedData.CARDS;
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_4_COLOR_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_4_COLOR_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
-import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.recordList;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Contains everything related to cards. it uses a picture view for drawable,

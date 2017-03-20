@@ -29,33 +29,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FIRST_RUN;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MOVED_FIRST_CARD;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_WON;
-import static de.tobiasbielefeld.solitaire.SharedData.GAME_FIRST_RUN;
-import static de.tobiasbielefeld.solitaire.SharedData.GAME_MOVED_FIRST_CARD;
-import static de.tobiasbielefeld.solitaire.SharedData.GAME_NUMBER_OF_PLAYED_GAMES;
-import static de.tobiasbielefeld.solitaire.SharedData.GAME_NUMBER_OF_WON_GAMES;
-import static de.tobiasbielefeld.solitaire.SharedData.GAME_RANDOM_CARDS;
-import static de.tobiasbielefeld.solitaire.SharedData.GAME_WON;
-import static de.tobiasbielefeld.solitaire.SharedData.TIMER_CURRENT_TIME;
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.getBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getInt;
-import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.getLong;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
-import static de.tobiasbielefeld.solitaire.SharedData.putBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.putInt;
-import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.recordList;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
-import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Contains stuff for the game which i didn't know where i should put it.

@@ -23,7 +23,7 @@ import android.os.Message;
 
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Handler to show the menu after the win animation

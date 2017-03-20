@@ -23,7 +23,7 @@ import android.view.View;
 import de.tobiasbielefeld.solitaire.handler.AutoCompleteHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  if the last card on the tableau is flipped up, the auto complete can be run. it simply test

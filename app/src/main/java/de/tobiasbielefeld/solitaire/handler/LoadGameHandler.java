@@ -24,8 +24,7 @@ import android.view.View;
 
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * load the game data in a handler which waits a bit, so the initial card deal looks smoother

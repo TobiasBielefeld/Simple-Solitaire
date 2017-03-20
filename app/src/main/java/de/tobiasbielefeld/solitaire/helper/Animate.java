@@ -35,8 +35,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.handler.AfterWonHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.max;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * class for all card animations. Like moving cards and fading them out and in for hints.

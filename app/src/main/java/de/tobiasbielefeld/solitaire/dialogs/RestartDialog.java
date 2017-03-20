@@ -28,9 +28,7 @@ import android.support.v4.app.DialogFragment;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)

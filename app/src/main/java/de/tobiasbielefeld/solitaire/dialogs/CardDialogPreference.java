@@ -27,13 +27,7 @@ import android.widget.LinearLayout;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_4_COLOR_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.NUMBER_OF_CARD_THEMES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_4_COLOR_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * dialog for picking the card front drawable. Clicks on it are handled here and the

@@ -24,22 +24,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.CARD;
-import static de.tobiasbielefeld.solitaire.SharedData.FLIP_CARD;
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_UNDO;
-import static de.tobiasbielefeld.solitaire.SharedData.ORIGIN;
-import static de.tobiasbielefeld.solitaire.SharedData.RECORD_LIST_ENTRIES_SIZE;
-import static de.tobiasbielefeld.solitaire.SharedData.RECORD_LIST_ENTRY;
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.getInt;
-import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.putInt;
-import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
-
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 /*
  *  Manages the records, so the player can undo movements. for that it has an entry subclass
  *  which has a variable amount of cards, so multiple cards can be undo at once

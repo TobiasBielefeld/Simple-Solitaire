@@ -142,10 +142,23 @@ public class SharedData {
     public static int NUMBER_OF_CARD_THEMES;
 
     //load the values from the xml files
-    public static void loadStrings(Context context) {
-        Resources res = context.getResources();
 
-        GAME = context.getString(R.string.game);
+    public static void reinitializeData(Context context){
+
+        //Strings
+        if (GAME==null) {
+            logText("reini strings");
+            loadStrings(context.getResources());
+        }
+
+        if (!bitmaps.checkResources()){
+            logText("reini bitmaps");
+            bitmaps.setResources(context.getResources());
+        }
+    }
+
+    public static void loadStrings(Resources res) {
+        GAME = res.getString(R.string.game);
 
         PREF_KEY_YUKON_RULES = res.getString(R.string.pref_key_yukon_rules);
         PREF_KEY_KLONDIKE_DRAW = res.getString(R.string.pref_key_klondike_draw);

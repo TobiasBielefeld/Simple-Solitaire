@@ -24,8 +24,7 @@ import android.graphics.BitmapFactory;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Here is the code to load the individual pictures from the sets located in drawable-nodpi.
@@ -41,6 +40,9 @@ public class Bitmaps {
     private Bitmap menu, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private int savedCardTheme;
 
+    public boolean checkResources(){
+        return res != null;
+    }
     public void setResources(Resources res) {
         this.res = res;
     }

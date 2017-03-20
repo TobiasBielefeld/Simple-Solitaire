@@ -24,9 +24,7 @@ import android.os.Message;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * shows hints, waits until the movement is done and then starts the next hint

@@ -29,13 +29,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.GAME_REDEAL_COUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getInt;
-import static de.tobiasbielefeld.solitaire.SharedData.min;
-import static de.tobiasbielefeld.solitaire.SharedData.putInt;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Abstract class for all the games. See the DUMMY GAME for detailed explanation of everything!

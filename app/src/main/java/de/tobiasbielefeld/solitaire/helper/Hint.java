@@ -24,8 +24,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.handler.HintHandler;
 
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Shows hints. It has a handler which shows up to MAX_NUMBER_OF_HINTS hints.
