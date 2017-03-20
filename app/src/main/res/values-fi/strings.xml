@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_version">Versio</string>
+    <string name="portrait">Pystysuunta</string>
+    <string name="landscape">Vaakataso</string>
+
+    <string name="settings">Asetukset</string>
+    <string name="game_manual">Ohje</string>
+    <string name="game_score">Tulos</string>
+    <string name="game_time">Aika</string>
+
+    <string name="game_cancel">Peruuta</string>
+    <string name="game_confirm">Vahvista</string>
+    <string name="game_auto_complete_text">Automaattinen lopetus</string>
+    <string name="game_press_again">Poistu painamalla uudestaan</string>
+    <string name="game_load_error">Tietojen lataus epäonnistui, uusi peli aloitetaan...</string>
+
+    <!-- Menu -->
+    <string name="menu_scores">Tulokset</string>
+    <string name="menu_undo">Kumoa</string>
+    <string name="menu_hint">Vihje</string>
+    <string name="menu_main_menu">Valikko</string>
+    <string name="menu_settings">Asetukset</string>
+
+    <!-- game names -->
+    <string name="games_klondike">Klondike</string>
+    <string name="games_freecell">FreeCell</string>
+    <string name="games_yukon">Yukon</string>
+    <string name="games_spider">Spider</string>
+    <string name="games_simplesimon">SimpleSimon</string>
+    <string name="games_golf">Golf</string>
+    <string name="games_pyramid">Pyramid</string>
+    <string name="games_tripeaks">TriPeaks</string>
+    <string name="games_fortyeight">Forty&amp;Eight</string>
+    <string name="games_acesup">AcesUp</string>
+    <string name="games_gypsy">Gypsy</string>
+    <string name="games_mod3">Mod3</string>
+    <string name="games_canfield">Canfield</string>
+
+</resources>

@@ -1,0 +1,85 @@
+<resources>
+
+    <string-array name="restart_menu">
+        <item>Aloita uusi peli</item>
+        <item>Jaa kortit uudelleen</item>
+        <item>Palaa päävalikkoon</item>
+    </string-array>
+
+    <string-array name="restart_menu_with_manual">
+        <item>Aloita uusi peli</item>
+        <item>Jaa kortit uudelleen</item>
+        <item>Avaa pelin ohje</item>
+        <item>Palaa päävalikkoon</item>
+    </string-array>
+
+    <string-array name="pref_background_colors_titles">
+        <item>Sininen</item>
+        <item>Vihreä</item>
+        <item>Punainen</item>
+        <item>Keltainen</item>
+        <item>Oranssi</item>
+        <item>Purppura</item>
+    </string-array>
+
+    <string-array name="pref_orientation_titles">
+        <item>Seuraa järjestelmän asetuksia</item>
+        <item>Pystysuunta</item>
+        <item>Vaakataso</item>
+        <item>Vaakataso ylösalaisin</item>
+    </string-array>
+
+    <string-array name="pref_spider_difficulty_titles">
+        <item>1 (Helppo)</item>
+        <item>2 (Keskitaso)</item>
+        <item>4 (Vaikea)</item>
+    </string-array>
+
+    <string-array name="pref_klondike_draw_titles">
+        <item>Nosta 1</item>
+        <item>Nosta 3</item>
+    </string-array>
+
+    <string-array name="pref_canfield_draw_titles">
+        <item>Nosta 1</item>
+        <item>Nosta 3</item>
+    </string-array>
+
+    <string-array name="pref_pyramid_difficulty_titles">
+        <item>Helppo: Peli on voitettu kun pöytä on tyhjä</item>
+        <item>Vaikea: Peli on voitettu kun pöytä ja pino ovat tyhjiä</item>
+    </string-array>
+
+    <string-array name="pref_language_titles">
+        <item>Oletus kieli</item>
+        <item>Englanti</item>
+        <item>Esperanto</item>
+        <item>Japani</item>
+        <item>Puola</item>
+        <item>Ranska</item>
+        <item>Saksa</item>
+        <item>Suomi</item>
+    </string-array>
+
+    <string-array name="pref_language_values">
+        <item>default</item>
+        <item>en</item>
+        <item>eo</item>
+        <item>ja</item>
+        <item>pl</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>fi</item>
+    </string-array>
+
+    <string-array name="pref_icon_theme_titles">
+        <item>Material Design teema</item>
+        <item>Vanha teema</item>
+    </string-array>
+
+    <string-array name="pref_yukon_rules_titles">
+        <item>Eri värit (Oletus)</item>
+        <item>Samaa maata (Venäläinen parianssi)</item>
+    </string-array>
+
+</resources>

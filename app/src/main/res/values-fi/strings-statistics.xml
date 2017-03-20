@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="title_activity_statistics">Ennätykset</string>
+
+    <string name="statistics_text_won_games">%1$d voittoa, %2$d peliä</string>  <!-- %1$d and %2$d are placeholders for the values-->
+    <string name="statistics_win_percentage">Voittoprosentti: %1$.0f%%</string> <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
+    <string name="statistics_button_delete">Poista kaikki tulokset!</string>
+    <string name="statistics_button_delete_text">Poista kaikki tämän pelin tulokset! Oletko varma?</string>
+    <string name="statistics_button_deleted_all_entries">Kaikki tulokset poistettu</string>
+
+    <string name="statistics_time_of_day">Kellonaika</string>
+    <string name="statistics_date">Päiväys</string>
+</resources>
