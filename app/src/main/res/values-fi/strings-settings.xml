@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="title_activity_settings">Asetukset</string>
+
+    <string name="settings_background_color">Taustaväri</string>
+    <string name="settings_hide_status_bar">Piilota tilapalkki</string>
+    <string name="settings_left_handed_mode">Vasenkätinen tila</string>
+    <string name="settings_left_handed_mode_description">Siirtää kortit ja pinot vasemmalle puolelle</string>
+    <string name="settings_back_press">Vahvista pelin sulkeminen</string>
+    <string name="settings_back_press_description">Paina takaisin painiketta kahdesti sulkeaksesi pelin</string>
+    <string name="settings_orientation">Näytön orientaatio</string>
+    <string name="settings_cards">Kortit</string>
+    <string name="settings_classic">Klassinen</string>
+    <string name="settings_simple">Yksinkertainen</string>
+    <string name="settings_cards_back">Korttien taustat</string>
+    <string name="settings_modern">Moderni</string>
+    <string name="settings_abstract">Abstrakti</string>
+    <string name="settings_dark">Tumma</string>
+    <string name="settings_oxygen_dark">Oxygen Tumma</string>
+    <string name="settings_oxygen_light">Oxygen Vaalea</string>
+    <string name="settings_basic">Perus</string>
+    <string name="settings_poker">Pokeri</string>
+
+    <string name="settings_background">Taustanumero</string>
+    <string name="settings_customization">Ulkoasu</string>
+    <string name="settings_customization_description">Muuta kortteja ja taustaa</string>
+    <string name="settings_other">Yleistä</string>
+    <string name="settings_other_description">Aseta kaikki muut asetukset</string>
+    <string name="settings_games">Pelit</string>
+    <string name="settings_games_description">Aseta valinnat eri peleille</string>
+    <string name="settings_spider_difficulty">Kuinka monta eri maata</string>
+    <string name="settings_klondike_draw">Kuinka monta korttia nostetaan</string>
+    <string name="settings_canfield_draw">Kuinka monta korttia nostetaan</string>
+    <string name="settings_show_main_menu">Käynnisty päävalikkoon</string>
+    <string name="settings_show_main_menu_description">Älä siirry käynnistyessä edelliseen pelattuun peliin</string>
+    <string name="settings_golf_easy">Kierteiset siirrot (Helpompi)</string>
+    <string name="settings_golf_easy_description">Salli ässien asettaminen kuninkaiden päälle ja päinvastoin</string>
+    <string name="settings_restart_klondike">Aloita uusi Klondike peli jotta muutokset tulevat voimaan</string>
+    <string name="settings_restart_canfield">Aloita uusi Canfield peli jotta muutokset tulevat voimaan</string>
+    <string name="settings_restart_spider">Aloita uusi Spider peli jotta muutokset tulevat voimaan</string>
+    <string name="settings_restart_fortyeight">Aloita uusi Forty&amp;Eight peli jotta muutokset tulevat voimaan</string>
+    <string name="settings_restart_yukon">Aloita uusi Yukon peli jotta muutokset tulevat voimaan</string>
+    <string name="settings_menu">Päävalikko</string>
+    <string name="settings_menu_description">Muuta sarakkeiden määrää, tuo esiin ja piilota pelejä</string>
+    <string name="settings_pyramid_difficulty">Vaikeustaso</string>
+    <string name="settings_menu_columns">Sarakkeiden määrä</string>
+    <string name="settings_menu_games">Tuo esiin ja piilota pelejä</string>
+    <string name="settings_menu_games_description">Valitse mitkä pelit näytetään valikossa</string>
+    <string name="settings_about_description">Näytä tietoa pelistä kuten lisenssi ja muutosloki</string>
+    <string name="settings_show_manual_in_menu">Ohjesivu pelivalikossa</string>
+    <string name="settings_show_manual_in_menu_description">Näytä painike jolla avata kyseisen pelin ohje</string>
+    <string name="settings_change_language">Vaihda kieli</string>
+    <string name="settings_double_tap">Kaksoisnapautus</string>
+    <string name="settings_double_tap_description">Valinnat siirroille kaksoinapautuksella</string>
+    <string name="settings_double_tap_enable">Mahdollista siirrot kaksoisnapautuksella</string>
+    <string name="settings_double_tap_all_cards">Siirrä kaikki mahdolliset kortit</string>
+    <string name="settings_double_tap_all_cards_text">Siirrä niin monta korttia pinosta kuin mahdollista,
+        eikä ainoastaan korttia johon on koskettu</string>
+    <string name="settings_yukon_rules">Aseta kortit…</string>
+
+    <string name="settings_forty_eight_limted_redeals">Rajoita uudelleen jakojen määrää</string>
+    <string name="settings_forty_eight_limted_redeals_text">Uudelleen jako on sallittu vain kerran pelissä, deaktivoi poistamalla valinta</string>
+    <string name="settings_pyramid_limted_redeals">Rajoita uudelleen jakojen määrää</string>
+    <string name="settings_pyramid_limted_redeals_text">Uudelleen jako on sallittu vain kaksi kertaa pelissä, deaktivoi poistamalla valinta</string>
+    <string name="settings_icon_theme">Kuvake teema</string>
+    <string name="settings_menu_bar_position">Valikkopalkin sijanti</string>
+    <string name="settings_menu_bar_position_top">Ylhäällä</string>
+    <string name="settings_menu_bar_position_bottom">Alhaalla</string>
+    <string name="settings_menu_bar_position_left">Vasemmalla</string>
+    <string name="settings_menu_bar_position_right">Oikealla</string>
+    <string name="settings_4_color_mode_title">Neliväri pakat</string>
+    <string name="settings_4_color_mode_text">Muuta ristit vihreiksi ja ruudut sinisiksi</string>
+
+</resources>
