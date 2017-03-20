@@ -147,12 +147,11 @@ public class SharedData {
 
         //Strings
         if (GAME==null) {
-            logText("reini strings");
             loadStrings(context.getResources());
         }
 
+        //Bitmaps
         if (!bitmaps.checkResources()){
-            logText("reini bitmaps");
             bitmaps.setResources(context.getResources());
         }
     }

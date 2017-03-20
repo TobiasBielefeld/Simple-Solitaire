@@ -122,6 +122,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/about_translations_finnish"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:focusable="false"
             android:gravity="center"
@@ -138,7 +147,7 @@
             android:layout_marginTop="10dp"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_poker_ctheme_license"
+            android:text="@string/about_poker_theme_license"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView

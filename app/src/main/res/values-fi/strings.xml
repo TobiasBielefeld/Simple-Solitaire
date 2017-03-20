@@ -12,7 +12,7 @@
     <string name="game_confirm">Vahvista</string>
     <string name="game_auto_complete_text">Automaattinen lopetus</string>
     <string name="game_press_again">Poistu painamalla uudestaan</string>
-    <string name="game_load_error">Tietojen lataus epäonnistui, uusi peli aloitetaan...</string>
+    <string name="game_load_error">Tietojen lataus epäonnistui, uusi peli aloitetaan…</string>
 
     <!-- Menu -->
     <string name="menu_scores">Tulokset</string>
