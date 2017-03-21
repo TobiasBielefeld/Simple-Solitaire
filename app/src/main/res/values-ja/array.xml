@@ -72,8 +72,8 @@
     </string-array>
 
     <string-array name="pref_yukon_rules_titles">
-        <item>different colors (Default)</item>
-        <item>same suit (Russian Solitaire)</item>
+        <item>異なる色（デフォルト）</item>
+        <item>同じカードファミリー（ロシアソリティア）</item>
     </string-array>
 
 </resources>

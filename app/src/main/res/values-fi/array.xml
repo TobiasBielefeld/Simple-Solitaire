@@ -6,13 +6,6 @@
         <item>Palaa päävalikkoon</item>
     </string-array>
 
-    <string-array name="restart_menu_with_manual">
-        <item>Aloita uusi peli</item>
-        <item>Jaa kortit uudelleen</item>
-        <item>Avaa pelin ohje</item>
-        <item>Palaa päävalikkoon</item>
-    </string-array>
-
     <string-array name="pref_background_colors_titles">
         <item>Sininen</item>
         <item>Vihreä</item>

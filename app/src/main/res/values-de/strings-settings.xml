@@ -2,7 +2,6 @@
 <resources>
     <string name="title_activity_settings">Einstellungen</string>
 
-    <string name="settings_dark">Dunkel</string>
     <string name="settings_back_press">Beenden des Spiels bestätigen</string>
     <string name="settings_background_color">Hintergrundfarbe</string>
     <string name="settings_hide_status_bar">Statusleiste verbergen</string>
@@ -75,5 +74,6 @@
 
     <string name="settings_oxygen_dark">Oxygen Dark</string>
     <string name="settings_oxygen_light">Oxygen Light</string>
+    <string name="settings_poker">Poker</string>
 
 </resources>

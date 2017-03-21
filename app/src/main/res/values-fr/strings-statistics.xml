@@ -8,8 +8,8 @@
     <string name="statistics_button_delete_text">Supprimer toutes les données pour ce type de jeu ! Êtes-vous sûre ?</string>
     <string name="statistics_button_deleted_all_entries">Tout a été supprimé</string>
 
-    <!-- new values -->
-    <string name="statistics_time_of_day">Time of day</string>
+    <!-- following are translated with an online translator -->
+    <string name="statistics_time_of_day">Moment</string>
     <string name="statistics_date">Date</string>
 
 </resources>

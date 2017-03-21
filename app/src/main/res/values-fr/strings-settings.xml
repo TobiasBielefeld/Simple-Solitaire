@@ -16,7 +16,6 @@
     <string name="settings_cards_back">Dos des cartes</string>
     <string name="settings_modern">Moderne</string>
     <string name="settings_abstract">Abstrait</string>
-    <string name="settings_dark">Sombre</string>
     <string name="settings_basic">Basique</string>
 
     <string name="settings_background">Fond numéro</string>
@@ -67,9 +66,12 @@
     <string name="settings_menu_bar_position_left">Gauche</string>
     <string name="settings_menu_bar_position_right">Droite</string>
 
-    <!-- new values -->
-    <string name="settings_yukon_rules">Place cards on…</string>
-    <string name="settings_4_color_mode_title">4 color decks</string>
-    <string name="settings_4_color_mode_text">Change Clubs to green and diamonds to blue colors</string>
+    <!-- the following strings are translated using an online translator -->
+    <string name="settings_yukon_rules">Placez les cartes sur…</string>
+    <string name="settings_4_color_mode_title">4 ponts de couleurs</string>
+    <string name="settings_4_color_mode_text">Changer les couleurs de Trèfle au vert et de Carreau au bleu</string>
+    <string name="settings_oxygen_dark">Oxygen Sombre</string>
+    <string name="settings_oxygen_light">Oxygen Lumière</string>
+    <string name="settings_poker">Poker</string>
 
 </resources>

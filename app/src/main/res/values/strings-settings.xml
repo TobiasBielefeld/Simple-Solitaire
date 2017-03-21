@@ -16,9 +16,9 @@
     <string name="settings_cards_back">Card backgrounds</string>
     <string name="settings_modern">Modern</string>
     <string name="settings_abstract">Abstract</string>
+    <string name="settings_basic">Basic</string>
     <string name="settings_oxygen_dark">Oxygen Dark</string>
     <string name="settings_oxygen_light">Oxygen Light</string>
-    <string name="settings_basic">Basic</string>
     <string name="settings_poker">Poker</string>
 
     <string name="settings_background">Background number</string>

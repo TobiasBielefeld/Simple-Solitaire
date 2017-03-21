@@ -1,7 +1,6 @@
 <resources>
     <string name="app_version">Version</string>
 
-    <!-- not sure if these should be translated-->
     <string name="portrait">Portrait</string>
     <string name="landscape">Paysage</string>
 

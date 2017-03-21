@@ -16,7 +16,6 @@
     <string name="settings_cards_back">Kartaj malantaŭoj</string>
     <string name="settings_modern">Modernaj</string>
     <string name="settings_abstract">Abstraktaj</string>
-    <string name="settings_dark">Mallumaj</string>
     <string name="settings_basic">Normaj</string>
 
     <string name="settings_background">Malantaŭo numero</string>
@@ -70,5 +69,10 @@
     <string name="settings_yukon_rules">Meti kartojn sur…</string>
     <string name="settings_4_color_mode_title">4 ludkartaj emblemoj</string>
     <string name="settings_4_color_mode_text">Kolorigi trefojn verde kaj karoojn blue</string>
+
+    <!-- new values -->
+    <string name="settings_oxygen_dark">Oxygen Mallumaj</string>
+    <string name="settings_oxygen_light">Oxygen Lumo</string>
+    <string name="settings_poker">Pokero</string>
 
 </resources>

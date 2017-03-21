@@ -5,8 +5,6 @@
     <string name="about_name">O grze</string>
     <string name="about_Text1">twórca: Tobias Bielefeld</string>
     <string name="about_Text2">dziękuję za granie w moją grę :)</string>
-    <string name="about_Text3">obrazki oryginalnie opublikowane na:</string>
-    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.pl">na licencji CC0</a></string>
     <string name="about_tab_1">Informacje</string>
     <string name="about_tab_2">Licencja</string>
     <string name="about_tab_3">Zmiany</string>

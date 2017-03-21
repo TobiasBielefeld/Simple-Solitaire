@@ -16,7 +16,6 @@
     <string name="settings_cards_back">Koszulki kart</string>
     <string name="settings_modern">Nowoczesne</string>
     <string name="settings_abstract">Abstrakcyjne</string>
-    <string name="settings_dark">Ciemne</string>
     <string name="settings_basic">Zwykłe</string>
 
     <string name="settings_background">Koszulka numer</string>
@@ -70,5 +69,10 @@
     <string name="settings_yukon_rules">Kładź karty na…</string>
     <string name="settings_4_color_mode_title">4 kolory kart</string>
     <string name="settings_4_color_mode_text">Pokoloruj trefle na zielono i karo na niebiesko</string>
+
+    <!-- new values -->
+    <string name="settings_oxygen_dark">Oxygen Ciemne</string>
+    <string name="settings_oxygen_light">Oxygen Lekki</string>
+    <string name="settings_poker">Poker</string>
 
 </resources>

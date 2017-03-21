@@ -3,8 +3,6 @@
 <resources>
     <string name="about_Text1">entwickelt von Tobias Bielefeld</string>
     <string name="about_Text2">Danke fürs Spielen :)</string>
-    <string name="about_Text3">Bilder ursprünglich veröffentlicht auf:</string>
-    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">unter der CC0 Lizenz</a></string>
     <string name="about_program_code_text">Quelltext erhältlich auf:</string>
     <string name="about_tab_1">Informationen</string>
     <string name="about_tab_3">Änderungen</string>

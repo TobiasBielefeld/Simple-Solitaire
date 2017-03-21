@@ -5,8 +5,6 @@
     <string name="about_name">À propos du jeu</string>
     <string name="about_Text1">développé par Tobias Bielefeld</string>
     <string name="about_Text2">merci de jouer avec mon jeu :)</string>
-    <string name="about_Text3">images publiées originellement sur :</string>
-    <string name="about_Text5"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">sous licence CC0</a></string>
     <string name="about_tab_1">Information</string>
     <string name="about_tab_2">Licence</string>
     <string name="about_tab_3">Changelog</string>
@@ -23,12 +21,10 @@
 
     <string name="about_material_icons_text">Les icônes « Material Design » sont la propriété de Google Inc et publiées sous licence
         <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>
-
-    <!-- new values -->
-    <string name="about_poker_theme_license">The Poker card theme was originally published on <a href=" https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> under the
-        <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPLv3 license</a></string>
-    <string name="about_pixa_bay_license_text">The other card themes and the old icon theme were originally published on <a href="www.pixabay.com">pixabay.com</a> under the
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 license</a></string>
-    <string name="about_third_party_licenses">Third party licenses</string>
+    <string name="about_poker_theme_license">Le thème de la carte Poker a été publié à l\'origine sur <a href=" https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> sous license
+        <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPLv3</a></string>
+    <string name="about_pixa_bay_license_text">Les autres thèmes de cartes et l\'ancien thème d\'icône ont été publiés sur <a href="www.pixabay.com">pixabay.com</a> sous la license
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
+    <string name="about_third_party_licenses">Licences tierces</string>
 
 </resources>

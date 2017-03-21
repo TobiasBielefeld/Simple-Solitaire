@@ -16,7 +16,6 @@
     <string name="settings_cards_back">カードの背景</string>
     <string name="settings_modern">モダン</string>
     <string name="settings_abstract">無地</string>
-    <string name="settings_dark">ダーク</string>
     <string name="settings_basic">基本</string>
 
     <string name="settings_background">背景の番号</string>
@@ -69,10 +68,11 @@
 
     <!-- the following strings are translated using an online translator -->
     <string name="settings_restart_yukon">変更を適用するために新しいユーコンゲームを開始します</string>
-
-    <!-- new values -->
-    <string name="settings_yukon_rules">Place cards on…</string>
-    <string name="settings_4_color_mode_title">4 color decks</string>
-    <string name="settings_4_color_mode_text">Change Clubs to green and diamonds to blue colors</string>
+    <string name="settings_yukon_rules">カードを置く…</string>
+    <string name="settings_4_color_mode_title">4色デッキ</string>
+    <string name="settings_4_color_mode_text">青と緑、クラブ、ダイヤモンドの色を変更</string>
+    <string name="settings_oxygen_dark">酸素ダーク</string>
+    <string name="settings_oxygen_light">酸素ライト</string>
+    <string name="settings_poker">ポーカー</string>
 
 </resources>

@@ -15,7 +15,7 @@
     <string name="game_load_error">Tietojen lataus epäonnistui, uusi peli aloitetaan…</string>
 
     <!-- Menu -->
-    <string name="menu_scores">Tulokset</string>
+    <string name="menu_statistics">Tulokset</string>
     <string name="menu_undo">Kumoa</string>
     <string name="menu_hint">Vihje</string>
     <string name="menu_main_menu">Valikko</string>
