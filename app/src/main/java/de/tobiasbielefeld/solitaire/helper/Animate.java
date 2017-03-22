@@ -41,15 +41,21 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * class for all card animations. Like moving cards and fading them out and in for hints.
  * The win animation is split up in two parts: First move every card to the middle of the screen,
  * then move them out the screen borders
+ *
+ * TODO:
+ * The TranslateAnimation in moveCard() is a bit problematic, because i had some cases where the
+ * onAnimationEnd() method from the listener wasn't called, so a card was still set to animating and
+ * looked up the whole app.
+ *
+ * Overriding onAnimationStart() and onAnimationEnd() in a custom ImageView class would solve this
+ * problem, but then i get huge flickerings on card movements which i couldn't solve.
  */
 
 public class Animate {
 
-    //private int animationCounter =0;
     private static final int minAnimatingTime = 10; //in ms
     public AfterWonHandler afterWonHandler;
     private GameManager gm;
-    //private static final long maxTimeAnimating = 2000; //in ms
 
     public Animate(GameManager gm) {
         this.gm = gm;
@@ -127,7 +133,6 @@ public class Animate {
         animation.setDuration(max((distance * 100 / Card.width), minAnimatingTime));
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
-                //incCounter();
                 card.startAnim();
             }
 
@@ -176,7 +181,6 @@ public class Animate {
             }
 
             public void onAnimationEnd(Animation animation) {
-                //decCounter();
                 card.stopAnim();
             }
 
@@ -198,15 +202,12 @@ public class Animate {
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
                 card.startAnim();
-                //incCounter();
             }
 
             public void onAnimationEnd(Animation animation) {
-                //view.clearAnimation();
                 card.stopAnim();
                 view.setX(pX);
                 view.setY(pY);
-                //decCounter();
 
             }
 
@@ -220,39 +221,20 @@ public class Animate {
 
     public boolean cardIsAnimating() {
 
-        //return animationCounter>0;
-
         for (Card card : cards) {
             if (card.isAnimating()) {
-                //if (System.currentTimeMillis() - card.getStartTimeOfAnimation() > maxTimeAnimating) {
-                //    card.stopAnim();
-                //} else {
-                //logText("One Card is still animating!!");
                 //logText("Value: " +card.getValue() + ", Color: " + card.getColor() + ", Stack: " + card.getStack().getID() + ", Position: " + card.getIndexOnStack());
                 return true;
-                //}
             }
         }
 
         return false;//*/
     }
 
-    /*private void incCounter(){
-        animationCounter++;
-    }
-
-    private void decCounter(){
-        if (animationCounter>0)
-            animationCounter--;
-    }*/
-
     public void reset() {
         for (Card card : cards) {
             card.stopAnim();
-            //card.view.clearAnimation();
         }
-
-        //animationCounter = 0;
     }
 
     public void flipCard(final Card card, final boolean mode) {

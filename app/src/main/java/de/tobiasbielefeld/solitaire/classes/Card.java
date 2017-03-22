@@ -149,6 +149,12 @@ public class Card {
     }
 
     public void setLocation(float pX, float pY) {
+
+        //do not move cards when screen is off
+        if (!isScreenOn()){
+            setLocationWithoutMovement(pX, pY) ;
+        }
+
         //if not already there, animate the moving
         if (view.getX() != pX || view.getY() != pY)
             animate.moveCard(this, pX, pY);

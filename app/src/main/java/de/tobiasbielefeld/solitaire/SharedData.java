@@ -18,9 +18,12 @@
 
 package de.tobiasbielefeld.solitaire;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Build;
+import android.os.PowerManager;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -141,10 +144,12 @@ public class SharedData {
     public static int NUMBER_OF_CARD_BACKGROUNDS;
     public static int NUMBER_OF_CARD_THEMES;
 
-    //load the values from the xml files
+    public static PowerManager powerManager;
 
+    //load the values from the xml files
     public static void reinitializeData(Context context){
 
+        powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         //Strings
         if (GAME==null) {
             loadStrings(context.getResources());
@@ -481,6 +486,25 @@ public class SharedData {
 
     public static float max(float value1, float value2) {
         return value1 > value2 ? value1 : value2;
+    }
+
+    /*
+     * detect if the screen is turned on, used for the card animation: If the screen is off and
+     * cards move, the end won't called properly and they get stuck. Use this to avoid it
+     */
+
+    public static boolean isScreenOn(){
+        return Build.VERSION.SDK_INT >= 20 ? isScreenOnNew() : isScreenOnOld();
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private static boolean isScreenOnNew(){
+        return powerManager.isInteractive();
+    }
+
+    @SuppressWarnings("deprecation")
+    private static boolean isScreenOnOld(){
+        return powerManager.isScreenOn();
     }
 
 
