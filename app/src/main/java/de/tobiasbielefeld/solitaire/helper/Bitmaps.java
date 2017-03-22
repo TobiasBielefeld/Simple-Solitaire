@@ -136,9 +136,11 @@ public class Bitmaps {
 
     public Bitmap getCardPreview2(int posX, int posY) {
 
+        posX = posX*2 + 1;
+
         if (cardPreview2 == null) {
-            cardPreview2 = BitmapFactory.decodeResource(res, R.drawable.card_previews_2);
-            cardPreview2Width = cardPreview2.getWidth() / 8;
+            cardPreview2 = BitmapFactory.decodeResource(res, R.drawable.card_previews);
+            cardPreview2Width = cardPreview2.getWidth() / 16;
             cardPreview2Height = cardPreview2.getHeight() / 2;
         }
 

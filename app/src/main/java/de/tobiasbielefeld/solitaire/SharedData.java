@@ -169,7 +169,7 @@ public class SharedData {
         PREF_KEY_GOLF_CYCLIC = res.getString(R.string.pref_key_golf_cyclic);
         PREF_KEY_PYRAMID_LIMITED_REDEALS = res.getString(R.string.pref_key_pyramid_limited_redeals);
         PREF_KEY_PYRAMID_DIFFICULTY = res.getString(R.string.pref_key_pyramid_difficulty);
-        PREF_KEY_SPIDER_DIFFICULTY = res.getString(R.string.pref_key_language);
+        PREF_KEY_SPIDER_DIFFICULTY = res.getString(R.string.pref_key_spider_difficulty);
         PREF_KEY_SPIDER_DIFFICULTY_OLD = PREF_KEY_SPIDER_DIFFICULTY + OLD;
         PREF_KEY_LANGUAGE = res.getString(R.string.pref_key_language);
         PREF_KEY_CURRENT_GAME = res.getString(R.string.pref_key_current_game);
