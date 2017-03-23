@@ -117,7 +117,7 @@ public class Bitmaps {
         if (cardBack == null) {
             cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
             cardBackWidth = cardBack.getWidth() / 8;
-            cardBackHeight = cardBack.getHeight() / 2;
+            cardBackHeight = cardBack.getHeight() / 3;
         }
 
         return Bitmap.createBitmap(cardBack, posX * cardBackWidth, posY * cardBackHeight, cardBackWidth, cardBackHeight);

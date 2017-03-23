@@ -31,6 +31,7 @@ import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.handler.AfterWonHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -41,19 +42,11 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * class for all card animations. Like moving cards and fading them out and in for hints.
  * The win animation is split up in two parts: First move every card to the middle of the screen,
  * then move them out the screen borders
- *
- * TODO:
- * The TranslateAnimation in moveCard() is a bit problematic, because i had some cases where the
- * onAnimationEnd() method from the listener wasn't called, so a card was still set to animating and
- * looked up the whole app.
- *
- * Overriding onAnimationStart() and onAnimationEnd() in a custom ImageView class would solve this
- * problem, but then i get huge flickerings on card movements which i couldn't solve.
  */
 
 public class Animate {
 
-    private static final int minAnimatingTime = 10; //in ms
+    private static final int minAnimatingTime = 10; //in ms, set to prevent bugs
     public AfterWonHandler afterWonHandler;
     private GameManager gm;
 
@@ -133,7 +126,6 @@ public class Animate {
         animation.setDuration(max((distance * 100 / Card.width), minAnimatingTime));
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
-                card.startAnim();
             }
 
             public void onAnimationEnd(Animation animation) {
@@ -181,7 +173,6 @@ public class Animate {
             }
 
             public void onAnimationEnd(Animation animation) {
-                card.stopAnim();
             }
 
             public void onAnimationRepeat(Animation animation) {
@@ -192,48 +183,32 @@ public class Animate {
     }
 
     public void moveCard(final Card card, final float pX, final float pY) {
-        final View view = card.view;
+        final CustomImageView view = card.view;
+        int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
 
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
-        int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
         animation.setDuration(max((distance * 100 / Card.width), minAnimatingTime));
+        animation.setFillEnabled(true);
 
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationStart(Animation animation) {
-                card.startAnim();
-            }
-
-            public void onAnimationEnd(Animation animation) {
-                card.stopAnim();
-                view.setX(pX);
-                view.setY(pY);
-
-            }
-
-            public void onAnimationRepeat(Animation animation) {
-            }
-
-        });
-
+        view.setDestination(pX,pY);
         view.startAnimation(animation);
     }
 
     public boolean cardIsAnimating() {
 
         for (Card card : cards) {
-            if (card.isAnimating()) {
-                //logText("Value: " +card.getValue() + ", Color: " + card.getColor() + ", Stack: " + card.getStack().getID() + ", Position: " + card.getIndexOnStack());
+            if (card.view.isAnimating()) {
                 return true;
             }
         }
 
-        return false;//*/
+        return false;
     }
 
     public void reset() {
         for (Card card : cards) {
-            card.stopAnim();
+            card.view.stopAnim();
         }
     }
 

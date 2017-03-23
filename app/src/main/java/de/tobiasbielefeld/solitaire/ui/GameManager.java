@@ -40,6 +40,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
+import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.RestartDialog;
 import de.tobiasbielefeld.solitaire.handler.LoadGameHandler;
@@ -112,7 +113,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         for (int i = 0; i < cards.length; i++) {
             cards[i] = new Card(i);
-            cards[i].view = new ImageView(this);
+            cards[i].view = new CustomImageView(this);
             cards[i].view.setId(i);
             cards[i].view.setOnTouchListener(this);
             layoutGame.addView(cards[i].view);

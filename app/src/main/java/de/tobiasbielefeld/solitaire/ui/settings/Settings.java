@@ -223,6 +223,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             case 16:
                 cardBack = bitmaps.getCardBack(7, 1);
                 break;
+            case 17:
+                cardBack = bitmaps.getCardBack(0, 2);
+                break;
+            case 18:
+                cardBack = bitmaps.getCardBack(1, 2);
+                break;
         }
 
         preferenceCardsBackground.setIcon(new BitmapDrawable(getResources(), cardBack));

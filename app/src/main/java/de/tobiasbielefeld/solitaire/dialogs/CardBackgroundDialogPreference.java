@@ -63,6 +63,8 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
         linearLayouts[13] = (LinearLayout) view.findViewById(R.id.settingsCardBackground14);
         linearLayouts[14] = (LinearLayout) view.findViewById(R.id.settingsCardBackground15);
         linearLayouts[15] = (LinearLayout) view.findViewById(R.id.settingsCardBackground16);
+        linearLayouts[16] = (LinearLayout) view.findViewById(R.id.settingsCardBackground17);
+        linearLayouts[17] = (LinearLayout) view.findViewById(R.id.settingsCardBackground18);
 
         for (int i = 0; i < NUMBER_OF_CARD_BACKGROUNDS; i++) {
             linearLayouts[i].setOnClickListener(this);
@@ -125,6 +127,12 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
                 break;
             case R.id.settingsCardBackground16:
                 choice = 16;
+                break;
+            case R.id.settingsCardBackground17:
+                choice = 17;
+                break;
+            case R.id.settingsCardBackground18:
+                choice = 18;
                 break;
         }
 

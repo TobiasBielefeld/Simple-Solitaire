@@ -36,7 +36,7 @@ public class Card {
     public static int width, height;                                                                //width and height calculated in relation of the screen dimensions in Main activity
     public static Bitmap background;
     private static Bitmap[] drawables = new Bitmap[52];
-    public ImageView view;                                                                          //the image view of the card, for easier code not private
+    public CustomImageView view;                                                                          //the image view of the card, for easier code not private
     private int color;                                                                              //1=clubs 2=hearts 3=Spades 4=diamonds
     private int value;                                                                              //1=ace 2,3,4,5,6,7,8,9,10, 11=joker 12=queen 13=king
     private Stack stack;                                                                            //saves the stack where the card is placed
@@ -106,19 +106,6 @@ public class Card {
         }
     }
 
-    public void startAnim() {
-        animating = true;
-    }
-
-    public void stopAnim() {
-        animating = false;
-        view.clearAnimation();
-    }
-
-    public boolean isAnimating() {
-        return animating;
-    }
-
     public void setCardFront() {
         view.setImageBitmap(drawables[(color - 1) * 13 + value - 1]);
     }
@@ -149,12 +136,6 @@ public class Card {
     }
 
     public void setLocation(float pX, float pY) {
-
-        //do not move cards when screen is off
-        if (!isScreenOn()){
-            setLocationWithoutMovement(pX, pY) ;
-        }
-
         //if not already there, animate the moving
         if (view.getX() != pX || view.getY() != pY)
             animate.moveCard(this, pX, pY);
