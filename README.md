@@ -29,6 +29,7 @@ Thanks to the following persons for providing translations :D
 - Esperanto and Polish: verdulo
 - French: romainhk
 - Japanese: naofum
+- Finnish: winjar
 
 #Simple Solitaire
 You can find screenshots for phones and tablets [here](./Pictures/screenshots)
