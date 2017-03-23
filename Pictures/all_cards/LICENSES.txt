@@ -44,7 +44,7 @@ Cards Basic:
 Card Backgrounds:
 
     The first two are created by me from some background file by pixabay, under CC0 license.
-    The last two are from the Poker Card theme, under LGPLv3 license.
+    The last 4 are from the Poker Card theme, under LGPLv3 license. Edited to have nicer colors.
     The other backgrounds are also downloaded from pixabay, under CC0 license. (Most of them
     are part of the Modern card theme)
 

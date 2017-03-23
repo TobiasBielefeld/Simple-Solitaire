@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.classes;
 
 import android.graphics.Bitmap;
 import android.graphics.PointF;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -43,7 +42,6 @@ public class Card {
     private int ID;                                                                                 //internal id
     private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
     private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
-    private boolean animating = false;
 
     public Card(int ID) {
         /*
@@ -75,7 +73,7 @@ public class Card {
 
     public static void updateCardBackgroundChoice() {
 
-        int position = getSharedInt(CARD_BACKGROUND, 1) - 1;
+        int position = getSharedInt(CARD_BACKGROUND, DEFAULt_CARD_BACKGROUND) - 1;
         background = bitmaps.getCardBack(position % 8, position / 8);
 
         if (cards != null) {

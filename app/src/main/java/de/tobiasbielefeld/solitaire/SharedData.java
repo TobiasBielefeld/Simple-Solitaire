@@ -109,6 +109,7 @@ public class SharedData {
     public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
     public static String DEFAULT_ORIENTATION;
     public static int DEFAULT_CURRENT_GAME;
+    public static int DEFAULt_CARD_BACKGROUND;
     public static boolean DEFAULT_PYRAMID_LIMITED_REDEALS;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
@@ -199,6 +200,7 @@ public class SharedData {
         DEFAULT_WON = res.getBoolean(R.bool.default_won);
         DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
         DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
+        DEFAULt_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];

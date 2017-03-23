@@ -170,10 +170,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     private void setPreferenceCardsBackgroundSummary() {
         Bitmap cardBack;
+        int selectedBackground = getSharedInt(CARD_BACKGROUND, DEFAULt_CARD_BACKGROUND);
         preferenceCardsBackground.setSummary(String.format(Locale.getDefault(), "%s %s",
-                getString(R.string.settings_background), getSharedInt(CARD_BACKGROUND, 1)));
+                getString(R.string.settings_background), selectedBackground));
 
-        switch (getSharedInt(CARD_BACKGROUND, 1)) {
+        switch (selectedBackground) {
             case 1:
             default:
                 cardBack = bitmaps.getCardBack(0, 0);
