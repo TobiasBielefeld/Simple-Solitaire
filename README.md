@@ -32,7 +32,7 @@ Thanks to the following persons for providing translations :D
 - Finnish: winjar
 
 #Simple Solitaire
-You can find screenshots for phones and tablets [here](./Pictures/screenshots)
+You can find screenshots for phones and tablets and the uses card themes as .svg files [here](./pictures/screenshots)
 
 There is a DummyGame class with a lot of comments, if you want to add a new game. I hope it's good enough for that!
 

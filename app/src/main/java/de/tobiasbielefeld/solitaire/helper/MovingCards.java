@@ -24,6 +24,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static java.lang.Math.abs;
 
 /*
  *  Handles the input of cards to move around. When a card was touched, it adds all cards
@@ -35,6 +36,7 @@ public class MovingCards {
 
     private ArrayList<Card> currentCards = new ArrayList<>();                                       //array list containing the current cards to move
     private float offsetX, offsetY;
+    private boolean moveStarted;
 
     public void reset() {
         currentCards.clear();
@@ -49,6 +51,7 @@ public class MovingCards {
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         Stack stack = card.getStack();
+        moveStarted = false;
 
         for (int i = stack.getIndexOfCard(card); i < stack.getSize(); i++) {
             stack.getCard(i).saveOldLocation();
@@ -56,10 +59,24 @@ public class MovingCards {
         }
     }
 
+    /*
+     * Move card to new location, but only if its moved out a little radius from the touch-point.
+     */
     public void move(float X, float Y) {
-        for (Card card : currentCards)
-            card.setLocationWithoutMovement(X - offsetX, (Y - offsetY)
-                    + currentCards.indexOf(card) * Stack.defaultSpacing / 2);
+        if (moveStarted || didMoveStart(X,Y)) {
+            for (Card card : currentCards)
+                card.setLocationWithoutMovement(X - offsetX, (Y - offsetY)
+                        + currentCards.indexOf(card) * Stack.defaultSpacing / 2);
+        }
+    }
+
+    private boolean didMoveStart(float X, float Y){
+        if (abs(currentCards.get(0).view.getX() + offsetX-X)>Card.width/4 || abs(currentCards.get(0).view.getY() +offsetY-Y)>Card.height/4){
+            moveStarted = true;
+            return true;
+        }
+
+        return false;
     }
 
     public void moveToDestination(Stack destination) {
