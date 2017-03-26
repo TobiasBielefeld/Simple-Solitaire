@@ -23,6 +23,7 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [X] Add a option to Yukon to play on same suits, instead of different color (like Russian Solitaire)
 - [X] Also save high scores when canceling a game
 - [ ] Add an option to set up appearance for each game indivially
+- [ ] implement "Tap to select/move cards"
 
 ## Translations
 Thanks to the following persons for providing translations :D
