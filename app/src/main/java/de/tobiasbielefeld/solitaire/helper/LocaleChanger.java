@@ -63,7 +63,7 @@ public class LocaleChanger {
 
     private static String getPersistedData(Context context, String defaultLanguage) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getString(PREF_KEY_LANGUAGE, defaultLanguage);
+        return preferences.getString("pref_key_language", defaultLanguage);
     }
 
     @TargetApi(Build.VERSION_CODES.N)
