@@ -71,13 +71,13 @@ public class SimpleSimon extends Game {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 8; j++) {
-                moveToStack(dealFromStack().getTopCard(), stacks[7 + i], OPTION_NO_RECORD);
+                moveToStack(getDealStack().getTopCard(), stacks[7 + i], OPTION_NO_RECORD);
             }
         }
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 1 + i; j++) {
-                moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
         }
 

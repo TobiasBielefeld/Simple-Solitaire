@@ -79,7 +79,7 @@ public class Mod3 extends Game {
     public void dealCards() {
 
         for (int i = 0; i < 32; i++) {
-            moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+            moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             stacks[i].getTopCard().flipUp();
         }
     }

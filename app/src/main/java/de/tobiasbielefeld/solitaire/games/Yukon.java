@@ -77,21 +77,21 @@ public class Yukon extends Game {
 
     public void dealCards() {
         /*
-         * because there is no main stack, use the stack from dealFromStack()
+         * because there is no main stack, use the stack from getDealStack()
          */
 
         putSharedString(PREF_KEY_YUKON_RULES_OLD, getSharedString(PREF_KEY_YUKON_RULES, DEFAULT_YUKON_RULES));
 
         for (int i = 1; i <= 6; i++) {
             for (int j = 0; j < 5 + i; j++) {
-                moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
                 if (j >= i)
                     stacks[i].getTopCard().flipUp();
             }
         }
 
-        dealFromStack().getTopCard().flipUp();
+        getDealStack().getTopCard().flipUp();
     }
 
     public void onMainStackTouch() {

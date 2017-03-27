@@ -228,7 +228,7 @@ public class RecordList {
 
         void undo() {
 
-            if (currentGame.hasLimitedRedeals() && currentOrigins.get(0) == currentGame.getDiscardStack() && currentCards.get(0).getStack() == currentGame.dealFromStack()) {
+            if (currentGame.hasLimitedRedeals() && currentOrigins.get(0) == currentGame.getDiscardStack() && currentCards.get(0).getStack() == currentGame.getDealStack()) {
                 currentGame.decrementRedealCounter(gm);
             }
 

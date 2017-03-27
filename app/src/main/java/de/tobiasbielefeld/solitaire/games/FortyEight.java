@@ -87,12 +87,12 @@ public class FortyEight extends Game {
     public void dealCards() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 4; j++) {
-                moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
                 stacks[i].getTopCard().flipUp();
             }
         }
 
-        moveToStack(dealFromStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
         getDiscardStack().getTopCard().flipUp();
     }
 

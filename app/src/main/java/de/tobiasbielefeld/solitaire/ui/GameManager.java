@@ -246,7 +246,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
 
-                if (currentGame.hasLimitedRedeals() && currentGame.dealFromStack().isEmpty()) {
+                if (currentGame.hasLimitedRedeals() && currentGame.getDealStack().isEmpty()) {
                     if (currentGame.getRemainingNumberOfRedeals() == 0)
                         return true;
                     else

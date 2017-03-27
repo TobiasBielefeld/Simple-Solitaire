@@ -108,25 +108,25 @@ public class Pyramid extends Game {
         }
 
         for (int i = 0; i < 28; i++) {
-            moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+            moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
         }
 
-        moveToStack(dealFromStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
     public boolean testIfMainStackTouched(float X, float Y) {
-        return (dealFromStack().isEmpty() && dealFromStack().isOnLocation(X, Y)) || getMainStack().isOnLocation(X, Y);
+        return (getDealStack().isEmpty() && getDealStack().isOnLocation(X, Y)) || getMainStack().isOnLocation(X, Y);
     }
 
     public void onMainStackTouch() {
 
-        if (!dealFromStack().isEmpty()) {
-            moveToStack(dealFromStack().getTopCard(), getDiscardStack());
+        if (!getDealStack().isEmpty()) {
+            moveToStack(getDealStack().getTopCard(), getDiscardStack());
         } else if (!getDiscardStack().isEmpty()) {
             recordList.add(getDiscardStack().currentCards);
 
             while (getDiscardStack().getSize() > 0)
-                moveToStack(getDiscardStack().getTopCard(), dealFromStack(), OPTION_NO_RECORD);
+                moveToStack(getDiscardStack().getTopCard(), getDealStack(), OPTION_NO_RECORD);
 
             scores.update(-200);    //because of no record, it isn't updated automatically
         }
@@ -151,7 +151,7 @@ public class Pyramid extends Game {
             return true;
         }
 
-        return card.getStack() == dealFromStack() && stack == getDiscardStack();
+        return card.getStack() == getDealStack() && stack == getDiscardStack();
     }
 
 
@@ -226,8 +226,8 @@ public class Pyramid extends Game {
         if (returnStack == null && !getDiscardStack().isEmpty() && card.getStack() != getDiscardStack() && card.getValue() + getDiscardStack().getTopCard().getValue() == 13)
             returnStack = getDiscardStack();
 
-        if (returnStack == null && !dealFromStack().isEmpty() && card.getStack() != dealFromStack() && card.getValue() + dealFromStack().getTopCard().getValue() == 13)
-            returnStack = dealFromStack();
+        if (returnStack == null && !getDealStack().isEmpty() && card.getStack() != getDealStack() && card.getValue() + getDealStack().getTopCard().getValue() == 13)
+            returnStack = getDealStack();
 
         if (returnStack != null) {
             cardsToMove.add(returnStack.getTopCard());
@@ -238,7 +238,7 @@ public class Pyramid extends Game {
             return returnStack;
         }
 
-        if (card.getStack() == dealFromStack())
+        if (card.getStack() == getDealStack())
             return getDiscardStack();
 
         return null;
@@ -247,7 +247,7 @@ public class Pyramid extends Game {
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
         if (destinationIDs[0] == 28)
             return 50;
-        else if (cards.size() > 1 && originIDs[0] == getDiscardStack().getID() && destinationIDs[0] == dealFromStack().getID())
+        else if (cards.size() > 1 && originIDs[0] == getDiscardStack().getID() && destinationIDs[0] == getDealStack().getID())
             return -200;
         else
             return 0;
@@ -269,7 +269,7 @@ public class Pyramid extends Game {
 
     public void addOnTouchListener(View.OnTouchListener listener) {
         super.addOnTouchListener(listener);
-        dealFromStack().view.setOnTouchListener(listener);
+        getDealStack().view.setOnTouchListener(listener);
     }
 
     private boolean stackIsFree(Stack stack) {

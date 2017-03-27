@@ -297,13 +297,13 @@ public class Spider extends Game {
          */
         switch (getSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD, DEFAULT_SPIDER_DIFFICULTY)) {
             case "1":
-                setCardDrawables(3, 3, 3, 3);
+                setCardFamilies(3, 3, 3, 3);
                 break;
             case "2":
-                setCardDrawables(2, 3, 2, 3);
+                setCardFamilies(2, 3, 2, 3);
                 break;
             case "4":
-                setCardDrawables(1, 2, 3, 4);
+                setCardFamilies(1, 2, 3, 4);
                 break;
         }
 

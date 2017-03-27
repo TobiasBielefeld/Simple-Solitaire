@@ -82,7 +82,7 @@ public class Freecell extends Game {
         for (int i = 1; i < 8; i++) {
             for (int j = 0; j < 7; j++) {
                 if (!(i >= 4 && j == 6))
-                    moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                    moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
         }
     }

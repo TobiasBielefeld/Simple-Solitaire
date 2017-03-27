@@ -104,7 +104,7 @@ public class GameLogic {
         } else {
             try {
                 for (Card card : cards) {
-                    card.setLocationWithoutMovement(currentGame.dealFromStack().view.getX(), currentGame.dealFromStack().view.getY());
+                    card.setLocationWithoutMovement(currentGame.getDealStack().view.getX(), currentGame.getDealStack().view.getY());
                     card.flipDown();
                 }
 
@@ -159,8 +159,8 @@ public class GameLogic {
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
-            card.setLocationWithoutMovement(currentGame.dealFromStack().view.getX(), currentGame.dealFromStack().view.getY());
-            currentGame.dealFromStack().addCard(card);
+            card.setLocationWithoutMovement(currentGame.getDealStack().view.getX(), currentGame.getDealStack().view.getY());
+            currentGame.getDealStack().addCard(card);
             card.flipDown();
         }
 

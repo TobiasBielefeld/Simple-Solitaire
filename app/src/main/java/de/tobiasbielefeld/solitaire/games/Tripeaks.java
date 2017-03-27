@@ -104,13 +104,13 @@ public class Tripeaks extends Game {
 
     public void dealCards() {
         for (int i = 0; i < 28; i++) {
-            moveToStack(dealFromStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+            moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
             if (i > 17)
                 stacks[i].getTopCard().flipUp();
         }
 
-        moveToStack(dealFromStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
 

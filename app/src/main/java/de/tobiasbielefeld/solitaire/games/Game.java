@@ -173,7 +173,7 @@ public abstract class Game {
         return getMainStack().isOnLocation(X, Y);
     }
 
-    protected void setCardDrawables(int p1, int p2, int p3, int p4) {
+    protected void setCardFamilies(int p1, int p2, int p3, int p4) {
         cardDrawablesOrder = new int[]{p1, p2, p3, p4};
     }
 
@@ -324,6 +324,13 @@ public abstract class Game {
         return lastTableauID;
     }
 
+    public Stack getLastTableauStack(){
+        if (lastTableauID == -1)
+            Log.e("Game.getLastTableauID()", "No last tableau stack specified");
+
+        return stacks[lastTableauID];
+    }
+
     protected void setLastTableauID(int ID) {
         lastTableauID = ID;
     }
@@ -336,7 +343,7 @@ public abstract class Game {
         return hasMainStack;
     }
 
-    public Stack dealFromStack() {
+    public Stack getDealStack() {
         return stacks[dealFromID];
     }
 

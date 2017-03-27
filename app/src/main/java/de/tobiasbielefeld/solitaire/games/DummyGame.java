@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -36,10 +37,10 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * <p>
  * To add a new game, also include it here:
  * - in LoadGame class, it handles all the loading of a game
- * - in strings.xml as the shown name (use games_) as a prefix, like the other games
+ * - in strings.xml as the shown name (use "games_" as a prefix, like the other games)
  * - add new button to fragment_manual_games.xml
  * - in strings-manual.xml add a new manual entry for the game
- * - add entry to the dialog_menu_show_games.xml
+ * - add a entry to the dialog_menu_show_games.xml
  * - and of course, include a button in the activity_game_chooser.xml
  * <p>
  * The stacks array should be in this order:
@@ -50,7 +51,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * <p>
  * because I use the ids to determinate if cards should flip
  * for example: Because the main stacks are always the last ones,
- * every card added to a stack with an ID greater than the FirstMainStack ID will be flipped down
+ * every card added to a stack with an ID >= the firstMainStack ID will be flipped down
  */
 
 @SuppressWarnings("all")
@@ -69,32 +70,32 @@ public class DummyGame extends Game {
         //if you game has a main stack, set its ID here. Cards will be automatically dealt from there.
         setFirstMainStackID(12);
 
-        //if there is a discard stack, set it's ID, because i need the ID for the undo movement
+        //if there is a discard stack, set it's ID, because I need the ID for the undo movement
         //(cards should be faced up when returning to discard)
         setFirstDiscardStackID(11);
 
         //if your game has NO main stack, set where the cards are dealt from
         setDealFromID(1);
 
-        //set the tablues. All cards from stacks 0 to the last tableau stack
+        //set the tableau. All cards from stacks 0 to the last tableau stack
         //are stacked with an offset, so you can see every card on it.
         //Every card on a stack with a higher ID will be put exactly on the stacks coordinates,
         //without an offset.
         setLastTableauID(6);
 
-        //use this to set your cards. Set each family in the following way:
+        //use this to set your card families in the following way:
         //1=clubs 2=hearts 3=spades 4=diamonds
-        //if you don't call it, the default will be used: every family has a different color (1,2,3,4)
+        //if you don't call it, the default will be used: 1,2,3,4.
         //if you have more than one deck, the following decks are set the same way
-        //for example: in Spider i want to set the difficulty: Easy would mean
-        //every family is the same color, so i use this:
-        setCardDrawables(1, 1, 1, 1);
+        //for example: in Spider I want to set the difficulty: Easy would mean
+        //every family is the same color, so I use this:
+        setCardFamilies(1, 1, 1, 1);
 
-        //you can set up how the cards on a stack are stacked. which an offset to right, down and so on
-        //So use this method, put an int array with values for each stack that should get a direction
+        //you can set up how the cards on a stack are stacked. With an offset to the right, down and so on
+        //Put an int array with values for each stack that should get a direction
         //int value at array pos 0 will be assigned to stack[0] and so on
         //tableau stacks are set to "down" by default, so you don't need to call this method for them
-        //but if you want to change anything, don't forget to set the tableau stacks to "1" again
+        //but if you use this method, don't forget to set the tableau stacks to "1" again
         //
         //the directions are:
         // 0 no visible offset (like the main stacks)
@@ -104,9 +105,9 @@ public class DummyGame extends Game {
         // 4 right (like the stack on golf in left handed mode
         setDirections(new int[]{1, 1, 1, 0, 0, 1, 1, 3});
 
-        //use this if the cards on a stack should'nt overlap another stack. pass the id of the other stack
-        //in the array. A 1 on index 0 means, that stacks[0] should'nt overlap stacks[1]. A -1 stands for no
-        //border, so the border will be the screen width/height
+        //use this if the cards on a stack should'nt overlap another stack (if the other stack is in the stacking direction.
+        //Pass the id of the other stack in the array. A 1 on index 0 means, that stacks[0] should'nt overlap stacks[1].
+        // A -1 stands for no border, so the border will be the screen width/height
         setDirectionBorders(new int[]{1, 1, 1, -1, -1});
 
         //sets an arrow as the background of a stack, use the constants LEFT and RIGHT for the direction.
@@ -114,39 +115,68 @@ public class DummyGame extends Game {
         setArrow(stacks[1], LEFT);
 
         //if your game needs to have limited redeals, so after a few tries of moving the cards from
-        //the discard stack back to the main stack, use this method. It will automatically show the
-        //remaining redeals on the main stack.
+        //the discard stack back to the main stack, it won't be possible anymore, use this method
+        //It will automatically show the remaining redeals on the main stack.
         setLimitedRedeals(5);
+
+        //if you used setLimitedRedeals(), you can also use toggleRedeals like this to disable the limitation
+        //from the settings
+        if (!getSharedBoolean("your_pref_key_for_limited_redeals", false))
+            toggleRedeals();
+
+        //this is used in Pyramid, to ignore empty tableau stacks in the MovingCards methods.
+        ignoreEmptyTableauStacks();
     }
 
     /*
-     * METHODS YOU CAN USE: (put in this method, to not cause an compiler error
+     * METHODS YOU CAN USE: (I put them here, to not cause an Compiler error)
      */
     private void methodsYouCanUse() {
 
-        /*
-         * test the cards of a given stack from the gives index up to top if the cards are in the
-         * right order. Use fort the card order the constants SAME_COLOR or ALTERNATING_COLOR
-         */
+        //test the cards of a given stack from the gives index up to top if the cards are in the
+        //right order. Use for the card order the constants SAME_COLOR or ALTERNATING_COLOR
         testCardsUpToTop(stacks[5], 5, SAME_COLOR);
+
+        //used in movements: detect if the top card on the given stack is equal to the give card.
+        //you can use this for example to test in a hint: do not show hints if the card on the other
+        //stack has the same value/color, because that would be useless.
+        //You can use the constants SAME_VALUE_AND_COLOR and SAME_VALUE_AND_FAMILY
+        sameCardOnOtherStack(cards[5],stacks[2],SAME_VALUE_AND_COLOR);
+
+        //BEFORE USING THESE METHODS:
+        //you have to call setNumberOfDecks() in the constructor, or else the returned classes aren't
+        //initialized yet
+
+        //return the mainStack
+        getMainStack();
+
+        //return the last tableau stack or it's id
+        getLastTableauID();
+        getLastTableauStack();
+
+        //return the stack, where cards are dealt from
+        getDealStack();
+
+        //return the discard stack
+        getDiscardStack();
     }
 
     /*
      *  here you need to set the cards and stacks on the screen with the dimensions.
      *  You get the game layout to use its width and height and you get a boolean value
-     *  to show if the phone is currently in landscape, so can change the layout
+     *  to show if the phone is currently in landscape
      *
-     *  Here is an example like code you should follow
+     *  Here is an example code you should follow
      */
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
-        //use this to set the cards with according to last two values.
+        //use this to set the cards width according to last two values.
         //second last is for portrait mode, last one for landscape.
-        //the game width will be divided by these values according to orientation to use as card widths.
+        //the layout width will be divided by these values according to orientation to use as card widths.
         //Card height is 1.5*widht and the dimensions are applied to every card and stack
         //
-        //use as values +1, +2 or another value on top of the number of stacks in a row, so there is
-        //enough space left to use as spacing between the stacs.
+        //use values as +1, +2 added to the number of stacks in the longest row of your layout, so there is
+        //enough space left to use as spacing between the stacks.
         setUpCardWidth(layoutGame, isLandscape, 7 + 1, 7 + 2);
 
         //use this to automatically set up the dimensions (then the call above isn't nessessary).
@@ -156,14 +186,14 @@ public class DummyGame extends Game {
         //these values to calculate the right dimensions for the cards, so everything fits fine on the screen
         setUpCardDimensions(layoutGame, 7, 4);
 
-        //no we order the stacks on the field. First calculate a spacing variable, to know how much
+        //now we order the stacks on the field. First calculate a spacing variable, to know how much
         //space will be between the stacks. It just uses the layout width minus the number of stacks
         //in a row, divided with the number of spaces between the stacks (which should be the number
         //of stacks +1) It also uses a maximum value of Card.widht/2, so the cards won't be too far apart
         int spacing = setUpSpacing(layoutGame, 7, 8);
 
-        //no get the start position to place the stacks, so they are centered around the middle of
-        //the screen. I use this way: Get the half of the layout width, minus how many stacks are
+        //now get the start position to place the stacks, so they are centered around the middle of
+        //the screen. I use this way: Get the half of the layout width, minus how many stacks are on the
         //left to it times the card width, minus how many spacings are left to it times the spacing
         //width. (Do not use the spacing from the left screen edge to the first stack).
         //So it should look like this:
@@ -181,10 +211,10 @@ public class DummyGame extends Game {
         stacks[6].view.setY(stacks[0].view.getY() + Card.height + spacing);
 
         //Last step: Set the drawables of the stacks. Default one is just gray.
-        //So maybe show on some an big A for ace or make them transparent or something
-        stacks[6].view.setImageBitmap(Stack.background1);
-        stacks[6].view.setImageBitmap(Stack.backgroundTalon);
-        stacks[6].view.setImageBitmap(Stack.backgroundTransparent);
+        //So maybe show on some a big A for ace or make them transparent or something
+        stacks[6].view.setImageBitmap(Stack.background1);               //shows an A
+        stacks[6].view.setImageBitmap(Stack.backgroundTalon);           //shows a circle arrow
+        stacks[6].view.setImageBitmap(Stack.backgroundTransparent);     //no background at all
     }
 
     /*
@@ -202,20 +232,21 @@ public class DummyGame extends Game {
     }
 
     /*
-     * Put how to deal cards here: All cards are set to the main stack or the dealFromID stack, if set.
-     * The cards will be faced down by default to, so flip them up if needed.
+     * Put how to deal cards here: All cards are set to the main stack or the dealStack, if set.
+     * The cards will be faced down by default too, so flip them up if needed.
      */
     public void dealCards() {
         //Simple example: Deal the first card from the main stack to another one.
         //Use the OPTION_NO_RECORD, or else the player can undo this movement.
         //After that, flip the card up
-        moveToStack(dealFromStack().getTopCard(), stacks[0], OPTION_NO_RECORD);
+        moveToStack(getDealStack().getTopCard(), stacks[0], OPTION_NO_RECORD);
         stacks[0].getTopCard().flipUp();
     }
 
     /*
      * tests if the mainstack got touched. For nearly every game it's the same, because they only have
-     * one main stack. But Spider is a bit special, it
+     * one main stack. But Spider is a bit special, it has multiple main stacks. If your game has only
+     * one main stack, don't override it
      */
     @Override
     public boolean testIfMainStackTouched(float X, float Y) {
@@ -223,12 +254,12 @@ public class DummyGame extends Game {
     }
 
     /*
-     * Put what happens if the player touches the main stack, if there is any.
+     * Put here what happens if the player touches the main stack, if there is any.
      * If there is no main stack, leave it empty
      */
     public void onMainStackTouch() {
 
-        //first test the coordinates of they are really on the main stack.
+        //first test the coordinates if they are really on the main stack.
         //(I put this test here because in Spider Solitaire, the cards from "main" are placed on
         // multiple stacks).
         if (getMainStack().getSize() > 0) {                                                         //if it has cards
@@ -237,7 +268,7 @@ public class DummyGame extends Game {
         }
         //if it empty, do something like move all cards from the discard pile to the main
         // Stack again. In this example from Klondike, the cards are moved in reversed order than
-        //they would be movend with the moveToStack(), so i move them one by one and update
+        //they would be movend with the moveToStack(), so I move them one by one and update
         //the recordList and score
         else if (stacks[11].getSize() != 0) {                                                       //if there are cards on stack11 which can be moved
             recordList.add(stacks[11].currentCards);                                                //save the record in normal order
@@ -253,20 +284,21 @@ public class DummyGame extends Game {
      */
     public boolean cardTest(Stack stack, Card card) {
         //Example from Klondike.
+
         if (stack.getID() < 7) {                                                                    //tableau stacks
-            if (stack.isEmpty())                                                                    //if there is no card
-                return card.getValue() == 13;                                                       //you can place a king
+            if (stack.isEmpty())                                                                    //if it's empty, you can place a king
+                return card.getValue() == 13;
             else
                 return (stack.getTopCard().getColor() % 2 != card.getColor() % 2)                   //else different Color. black is uneven and red even
-                        && (stack.getTopCard().getValue() == card.getValue() + 1);                  //and the Value must match
+                        && (stack.getTopCard().getValue() == card.getValue() + 1);
 
-        } else if (stack.getID() < 11 && movingCards.getSize() < 2) {                               //if its an foundation stack and only one card is moving (<2 because for eg undo, movingCards size is zero)
-            if (stack.isEmpty())                                                                    //if there is no card, you can place an ace
+        } else if (stack.getID() < 11 && movingCards.hasSingleCard()) {                             //if its an foundation stack and only one card is moving
+            if (stack.isEmpty())                                                                    //place if it's an ace
                 return card.getValue() == 1;
-            else
-                return (stack.getTopCard().getColor() == card.getColor())                           //else has to be the same colour
-                        && (stack.getTopCard().getValue() == card.getValue() - 1);                  // and Value has to match
-        } else                                                                                      //else not place-able
+            else                                                                                    //else same color
+                return (stack.getTopCard().getColor() == card.getColor())
+                        && (stack.getTopCard().getValue() == card.getValue() - 1);
+        } else
             return false;
     }
 
@@ -275,23 +307,22 @@ public class DummyGame extends Game {
      * If yes, every card from the touched card to the stack top card will be moved
      */
     public boolean addCardToMovementTest(Card card) {
-        //in case of Klondike it's easy: If a card is faced up, every card on top on it in the stack
-        //has the right order. So return true if a card is up. But because faced down cards aren't even
+        //in case of Klondike it's easy: If a card is faced up, every card on top of it in the stack
+        //has the correct order. So return true if a card is up. But because faced down cards aren't even
         //tested here, just return true
         return true;
     }
 
     /*
      * Called up to three times when pressing the hint button.
-     * Test the cards if there can be shown something as a hint.
-     * If so, return the card and then the destination stack (or the ID's of them, works also).
-     * If no card can be found, return null at the end of the method, so
-     * the hint will stop.
+     * Test the cards if a hint can be shown
+     * If so, return the card and then the destination stack.
+     * If no card can be found, return null at the end of the method, so the hint will stop.
      *
      * Use hint.hasVisited(card) to get if the card has been visited, so it won't result in an endless loop
      */
     public CardAndStack hintTest() {
-        //Short example from Klonsike
+        //Short example from Klondike
         Card card;                                                                                  //card to test
 
         for (int i = 0; i <= 6; i++) {                                                              //loop through every stack on the tableau as origin
@@ -338,7 +369,7 @@ public class DummyGame extends Game {
      *  AutoComplete Phase One: Move cards around on the tableau. To the foundations is phase two.
      *  Because I need to wait until a card reaches the destination if the cards moves to a foundation field
      *  (or any field with visible spacing). Else the counter in animation isn't set right and the
-     *  game does'nt respond anymore.
+     *  game doesn't respond anymore.
      *
      *  Return the card and the stack (or the ID's of them) as a new 'CardAndStack'.
      *  This will move every card from the returned card up to the origin stack top
@@ -347,7 +378,7 @@ public class DummyGame extends Game {
      */
     public CardAndStack autoCompletePhaseOne() {
         //Example Code: Only game using this is Golf, because the discard stack is no foundation field,
-        // the calculation has to be in pahse one
+        // the calculation has to be in phase one
 
         if (!getMainStack().isEmpty()) {
             getMainStack().getTopCard().flipUp();
@@ -432,4 +463,71 @@ public class DummyGame extends Game {
     public void reset(GameManager gm) {
         super.reset(gm);
     }
+
+
+    /*
+     * method for double tap movements. By default it will return null, so double tap is disabled.
+     * this method will be called with every single card, until a non empty stack is returned (or
+     * every card was tested) So it prefers non empty stacks over empty stacks. You can use
+     * sameCardOnOtherStack() to prevent senseless movements.
+     */
+    public Stack doubleTapTest(Card card) {
+
+        //example code from klondike
+
+        //foundation stacks
+        if (card.isTopCard()) {
+            for (int j = 7; j < 11; j++) {
+                if (card.test(stacks[j]))
+                    return stacks[j];
+            }
+        }
+
+        //tableau stacks
+        for (int j = 0; j < 7; j++) {
+
+            if (card.getStack().getID() < 7 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
+                continue;
+
+            if (card.getValue() == 13 && card.isFirstCard() && card.getStack().getID() <= 6)
+                continue;
+
+            if (card.test(stacks[j])) {
+                return stacks[j];
+            }
+        }
+
+        //empty tableau stacks
+        for (int j = 0; j < 7; j++) {
+            if (stacks[j].isEmpty() && card.test(stacks[j]))
+                return stacks[j];
+        }
+
+        return null;
+    }
+
+    /*
+     * set OnTouchListener to some stacks. By default, it will use the main stack for the listener
+     * (so you can press on the empty stack). But for example Pyramid has two stacks which should be touchable:
+     * The main stack and the stack with the arrow, so set it using this method.
+     */
+    public void addOnTouchListener(View.OnTouchListener listener) {
+        super.addOnTouchListener(listener);                                                         //sets the main stack (in Pyramid it's the stack with the arrow, so the redeal counter will be shown there)
+        getDealStack().view.setOnTouchListener(listener);                                           //and the stack with the cards
+    }
+
+
+    /*
+     * save and load values, to save custom stuff. save will be called in every onPause().
+     * load will be called on a game start
+     */
+    public void save(){
+
+    }
+
+    public void load(){
+
+    }
+
+
 }
