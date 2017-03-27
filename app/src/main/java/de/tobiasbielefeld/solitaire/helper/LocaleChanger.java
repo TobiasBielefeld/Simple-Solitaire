@@ -70,7 +70,7 @@ public class LocaleChanger {
     private static Context updateResources(Context context, String language) {
         Locale locale;
 
-        if (language.equals(DEFAULT_LANGUAGE)) {
+        if (language.equals("default")) {
             locale = defaultLocale;
         } else {
             locale = new Locale(language);
@@ -87,7 +87,7 @@ public class LocaleChanger {
     private static Context updateResourcesLegacy(Context context, String language) {
         Locale locale;
 
-        if (language.equals(DEFAULT_LANGUAGE)) {
+        if (language.equals("default")) {
             locale = defaultLocale;
         } else {
             locale = new Locale(language);
