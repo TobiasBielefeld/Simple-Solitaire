@@ -70,7 +70,7 @@ You can switch to landscape mode, this is better for larger screens. It is also 
 The Poker card theme was originally pulbished on https://sourceforge.net/projects/vector-cards/ under the [LGPLv3 license!](https://www.gnu.org/licenses/lgpl-3.0.en.html)
 The other card themes used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
-You can download the used pictures in the original solution from my [pictures directory](./Pictures)
+You can download the used pictures as .svg files from my [pictures directory](./pictures/cards)
 
 The Material Design Symbols used for the menu icons are made by Google Inc and are published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
