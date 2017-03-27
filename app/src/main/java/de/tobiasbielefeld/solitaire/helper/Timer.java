@@ -23,7 +23,7 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  *  Handles the timer, updates, saves and load the current time of playing
  */
 
@@ -31,12 +31,11 @@ public class Timer {
 
     public TimerHandler timerHandler;                                                               //handler to show the current time
 
-    private long currentTime;                                                                       //current system time
-    private long startTime;                                                                         //set start and saved time both to current time
-    private boolean running;                                                                        //indicates if the timer is currently runns
+    private long currentTime;                                                                       //current system time, will be "frozen" if a game has been won
+    private long startTime;                                                                         //time where the game was started
+    private boolean running;                                                                        //indicates if the timer currently runs
 
     public Timer(GameManager gm) {
-
         timerHandler = new TimerHandler(gm);
     }
 

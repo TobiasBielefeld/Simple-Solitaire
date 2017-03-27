@@ -22,7 +22,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
@@ -31,25 +30,40 @@ import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
- * Custom AppCompatActivity to implement local changing in attachBaseContext()
+/**
+ * Custom AppCompatActivity to implement language changing in attachBaseContext()
  * and some settings in onResume().  It also sets the Preferences, in case the app
- * was paused for a longer time and the references got lost. This prevents force closes.
+ * was paused for a longer time and the references got lost.
  */
 
 public class CustomAppCompatActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
+    @Override protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         reinitializeData(this);
-
-        if (savedSharedData == null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleChanger.onAttach(base));
+    }
+
+    /**
+     * Apply the preferences from orientation and status bar to the current activity. It will be
+     * called in the onResume, so after changing the preferences I don't need a listener to update
+     * the changes on the previous activities.
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        setOrientation(this);
+        showOrHideStatusBar(this);
+    }
+
+    /**
+     * Sets the screen orientation according to the settings. It is called from onResume().
+     * @param activity The activity to apply the orientation on.
+     */
     public static void setOrientation(Activity activity) {
         switch (getSharedString("pref_key_orientation", "1")) {
             case "1": //follow system settings
@@ -67,27 +81,10 @@ public class CustomAppCompatActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleChanger.onAttach(base));
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        if (savedSharedData == null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(this);
-        }
-
-        if (savedGameData == null) {
-            savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
-        }
-
-        setOrientation(this);
-        showOrHideStatusBar(this);
-    }
-
+    /**
+     * Hides the status bar according to the settings. It is called from onResume().
+     * @param activity The activity to apply the changes on.
+     */
     public void showOrHideStatusBar(Activity activity) {
         if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
             activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -95,5 +92,6 @@ public class CustomAppCompatActivity extends AppCompatActivity {
         else
             activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
+
 
 }

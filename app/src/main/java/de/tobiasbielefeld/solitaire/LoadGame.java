@@ -223,14 +223,14 @@ public class LoadGame {
         return checkBoxes;
     }
 
-    public String manualClick(int ID) {
+    public String manualClick(int id) {
 
         /*
          * returns the prefix of the manual entries for the games. The strings have the following structure:
          * manual_<game name>_rules , manual_<game name>_points and so on.
          */
 
-        switch (ID) {
+        switch (id) {
             default:
                 Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");
             case R.id.manual_games_button_acesup:

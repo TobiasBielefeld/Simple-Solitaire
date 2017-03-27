@@ -30,7 +30,7 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
  */
 
@@ -45,7 +45,6 @@ public class RestartDialog extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // "which" argument contains index of selected item
                         switch (which) {
-
                             case 0:
                                 gameLogic.newGame();
                                 break;

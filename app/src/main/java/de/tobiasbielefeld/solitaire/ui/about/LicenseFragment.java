@@ -27,7 +27,7 @@ import android.webkit.WebView;
 
 import de.tobiasbielefeld.solitaire.R;
 
-/*
+/**
  * Shows the GPL License, which is simply loaded from a webView. The About activity disables recreation
  * after orientation change, so don't need to handle that.
  */

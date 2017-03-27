@@ -25,7 +25,8 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-/*
+
+/**
  *  Manages the records, so the player can undo movements. for that it has an entry subclass
  *  which has a variable amount of cards, so multiple cards can be undo at once
  */
@@ -44,10 +45,13 @@ public class RecordList {
         entries.clear();
     }
 
-    /*
-     * a lot of overloaded add methods
-     */
 
+    /**
+     * Adds entries of the card list, if the maximum number of records was reached, delete
+     * the last one. The origin of the cards will be the current stack
+     *
+     * @param cards The card list to add
+     */
     public void add(ArrayList<Card> cards) {
         if (entries.size() == MAX_RECORDS)
             entries.remove(0);
@@ -55,6 +59,13 @@ public class RecordList {
         entries.add(new Entry(cards));
     }
 
+    /**
+     * Adds entries of the card list, if the maximum number of records was reached, delete
+     * the last one. This version also takes a stack as origin of the cards
+     *
+     * @param cards The card list to add
+     * @param origin Other stack as origin, where the cards can be returned to
+     */
     public void add(ArrayList<Card> cards, Stack origin) {
         if (entries.size() == MAX_RECORDS)
             entries.remove(0);
@@ -62,6 +73,15 @@ public class RecordList {
         entries.add(new Entry(cards, origin));
     }
 
+
+    /**
+     * Adds entries of the card list, if the maximum number of records was reached, delete
+     * the last one. This version also takes a stack array list as origins, so every card can
+     * have a different origin stack
+     *
+     * @param cards the card list to add
+     * @param origins Other stacks as origin, where the cards can be returned to
+     */
     public void add(ArrayList<Card> cards, ArrayList<Stack> origins) {
         if (entries.size() == MAX_RECORDS)
             entries.remove(0);
@@ -69,6 +89,15 @@ public class RecordList {
         entries.add(new Entry(cards, origins));
     }
 
+    /**
+     * Adds more cards to the last entry, used for example in Spider: If a card family is completed,
+     * move the cards to the foundation, but also add the movement to the last entry.
+     *
+     * Method version with a single card and stack
+     *
+     * @param card Single card to add
+     * @param origin The origin stack of that card
+     */
     public void addAtEndOfLastEntry(Card card, Stack origin) {
         ArrayList<Card> cards = new ArrayList<>();
         ArrayList<Stack> origins = new ArrayList<>();
@@ -79,15 +108,15 @@ public class RecordList {
         addAtEndOfLastEntry(cards, origins);
     }
 
-    public void addAtEndOfLastEntry(ArrayList<Card> cards, Stack origin) {
-        ArrayList<Stack> origins = new ArrayList<>();
-
-        for (int i = 0; i < cards.size(); i++)
-            origins.add(origin);
-
-        addAtEndOfLastEntry(cards, origins);
-    }
-
+    /**
+     * Adds more cards to the last entry, used for example in Spider: If a card family is completed,
+     * move the cards to the foundation, but also add the movement to the last entry.
+     *
+     * Method version with card and stack arrays for multiple cards
+     *
+     * @param cards Multiple cards to add
+     * @param origins Origin stacks of these cards
+     */
     public void addAtEndOfLastEntry(ArrayList<Card> cards, ArrayList<Stack> origins) {
         if (entries.size() == 0)
             entries.add(new Entry(cards, origins));
@@ -95,6 +124,14 @@ public class RecordList {
             entries.get(entries.size() - 1).addAtEnd(cards, origins);
     }
 
+
+    /**
+     * Adds more cards to the last entry but as the first cards of that entry, so these cards will be
+     * moved at first, if the record is undone
+     *
+     * @param cards Multiple cards to add
+     * @param origins Origin stacks of these cards
+     */
     public void addInFrontOfLastEntry(ArrayList<Card> cards, ArrayList<Stack> origins) {
         if (entries.size() == 0)
             entries.add(new Entry(cards, origins));
@@ -102,6 +139,10 @@ public class RecordList {
             entries.get(entries.size() - 1).addInFront(cards, origins);
     }
 
+    /**
+     * reverst one record, this will delete that record from the list and takes 25 points away
+     * from the current score
+     */
     public void undo() {
         if (!entries.isEmpty()) {
             scores.update(-25);
@@ -110,17 +151,22 @@ public class RecordList {
         }
     }
 
+    /**
+     * a flip card will be added to the last entry.
+     * so it can be flipped down in a undo
+     *
+     * @param card The card to add
+     */
     public void addFlip(Card card) {
-        /*
-         * a flip card will be added to the last entry.
-         * so it can be flipped down in a undo
-         */
+
         if (entries.size() > 0)
             entries.get(entries.size() - 1).addFlip(card);
     }
 
+    /**
+     * Saves every entry
+     */
     public void save() {
-        //save each entry
         putInt(RECORD_LIST_ENTRIES_SIZE, entries.size());
 
         for (int i = 0; i < entries.size(); i++) {
@@ -128,8 +174,12 @@ public class RecordList {
         }
     }
 
+    /**
+     * load the saved entries. Calling the Entry constructor with a string will load
+     * its content from the shared Pref
+     */
     public void load() {
-        //load each entry, reset first to get sure the entries are empty
+
         reset();
 
         int size = getInt(RECORD_LIST_ENTRIES_SIZE, -1);
@@ -148,57 +198,12 @@ public class RecordList {
         private ArrayList<Stack> currentOrigins = new ArrayList<>();
         private ArrayList<Card> flipCards = new ArrayList<>();
 
+        /**
+         * This constructor is used to load saved entries.
+         *
+         * @param pos The index of the saved entry to load
+         */
         Entry(String pos) {
-            /*
-             * used to load an entry after (re)starting the game
-             */
-            load(pos);
-        }
-
-        Entry(ArrayList<Card> cards) {
-            currentCards.addAll(cards);
-
-            for (Card card : cards)
-                currentOrigins.add(card.getStack());
-        }
-
-        Entry(ArrayList<Card> cards, Stack origin) {
-            currentCards.addAll(cards);
-
-            for (int i = 0; i < currentCards.size(); i++)
-                currentOrigins.add(origin);
-        }
-
-        Entry(ArrayList<Card> cards, ArrayList<Stack> origins) {
-            currentCards.addAll(cards);
-            currentOrigins.addAll(origins);
-        }
-
-        void save(String pos) {
-            ArrayList<Integer> listCards = new ArrayList<>();
-            ArrayList<Integer> listFlipCards = new ArrayList<>();
-            ArrayList<Integer> listOrigins = new ArrayList<>();
-
-            for (int i = 0; i < currentCards.size(); i++) {
-                listCards.add(currentCards.get(i).getID());
-                listOrigins.add(currentOrigins.get(i).getID());
-
-            }
-
-            putIntList(RECORD_LIST_ENTRY + pos + CARD, listCards);
-            putIntList(RECORD_LIST_ENTRY + pos + ORIGIN, listOrigins);
-
-            for (Card card : flipCards) {
-                listFlipCards.add(card.getID());
-            }
-
-            putIntList(RECORD_LIST_ENTRY + pos + FLIP_CARD, listFlipCards);
-            //putInt(RECORD_LIST_ENTRY + pos + FLIP_CARD, hasFlipCard()? flipCard.getID() : -1);
-
-        }
-
-        void load(String pos) {
-
             ArrayList<Integer> cardList = getIntList(RECORD_LIST_ENTRY + pos + CARD);
             ArrayList<Integer> originList = getIntList(RECORD_LIST_ENTRY + pos + ORIGIN);
 
@@ -222,22 +227,96 @@ public class RecordList {
             }
         }
 
-        void addFlip(Card card) {                                                                   //add a card to flip
-            flipCards.add(card);
+        /**
+         * Create a new entry with the given cards. Origins will be the current card positions
+         *
+         * @param cards The cards to add
+         */
+        Entry(ArrayList<Card> cards) {
+            currentCards.addAll(cards);
+
+            for (Card card : cards)
+                currentOrigins.add(card.getStack());
         }
 
-        void undo() {
+        /**
+         * Create a new entry with the given cards. Origin will be applied for all cards
+         *
+         * @param cards The cards to add
+         * @param origin The origin of the cards
+         */
+        Entry(ArrayList<Card> cards, Stack origin) {
+            currentCards.addAll(cards);
 
-            if (currentGame.hasLimitedRedeals() && currentOrigins.get(0) == currentGame.getDiscardStack() && currentCards.get(0).getStack() == currentGame.getDealStack()) {
+            for (int i = 0; i < currentCards.size(); i++)
+                currentOrigins.add(origin);
+        }
+
+        /**
+         * Create a new entry with the given cards and origins
+         *
+         * @param cards The cards to add
+         * @param origins The orgins of the cards
+         */
+        Entry(ArrayList<Card> cards, ArrayList<Stack> origins) {
+            currentCards.addAll(cards);
+            currentOrigins.addAll(origins);
+        }
+
+        /**
+         * Saves the current entry in the shared pref. It needs to save the IDS of the cards and the
+         * size of the array lists. Loading happens in one of the constructors
+         *
+         * @param pos The index of this entry in the array list
+         */
+        void save(String pos) {
+            ArrayList<Integer> listCards = new ArrayList<>();
+            ArrayList<Integer> listFlipCards = new ArrayList<>();
+            ArrayList<Integer> listOrigins = new ArrayList<>();
+
+            for (int i = 0; i < currentCards.size(); i++) {
+                listCards.add(currentCards.get(i).getID());
+                listOrigins.add(currentOrigins.get(i).getID());
+
+            }
+
+            putIntList(RECORD_LIST_ENTRY + pos + CARD, listCards);
+            putIntList(RECORD_LIST_ENTRY + pos + ORIGIN, listOrigins);
+
+            for (Card card : flipCards) {
+                listFlipCards.add(card.getID());
+            }
+
+            putIntList(RECORD_LIST_ENTRY + pos + FLIP_CARD, listFlipCards);
+        }
+
+
+        /**
+         * Undos the latest entry.
+         */
+        void undo() {
+            //Check if the movement resulted in a increment of the redeal counter, if so, revert it
+            if (currentGame.hasLimitedRedeals()
+                    && currentOrigins.get(0) == currentGame.getDiscardStack()
+                    && currentCards.get(0).getStack() == currentGame.getDealStack()) {
                 currentGame.decrementRedealCounter(gm);
             }
 
+            //Use option undo to revert the scores made with this movement
             moveToStack(currentCards, currentOrigins, OPTION_UNDO);
 
-            for (Card card : flipCards)
+            for (Card card : flipCards) {
                 card.flipWithAnim();
+            }
         }
 
+        /**
+         * Adds cards in front of this entry. It also checks if the cards added were already in this entry,
+         * if so, replace the old origin with the new one
+         *
+         * @param cards The cards to add
+         * @param stacks The origins of the cards to add
+         */
         void addInFront(ArrayList<Card> cards, ArrayList<Stack> stacks) {
             ArrayList<Card> tempCards = currentCards;
             ArrayList<Stack> tempOrigins = currentOrigins;
@@ -245,8 +324,7 @@ public class RecordList {
             currentCards = cards;
             currentOrigins = stacks;
 
-            //if some cards which are added were already in currentCards, replace their origins with
-            //the original one
+            //Check for each card, if it is already in the entry
             for (int i = 0; i < tempCards.size(); i++) {
                 if (currentCards.contains(tempCards.get(i))) {
                     currentOrigins.add(currentCards.indexOf(tempCards.get(i)), tempOrigins.get(i));
@@ -257,6 +335,13 @@ public class RecordList {
             }
         }
 
+        /**
+         * Adds cards at the end of this entry. Checking if the card is already in this entry isn't
+         * necessary here.
+         *
+         * @param cards The cards to add
+         * @param stacks The origins of the cards to add
+         */
         void addAtEnd(ArrayList<Card> cards, ArrayList<Stack> stacks) {
 
             for (int i = 0; i < cards.size(); i++) {
@@ -265,9 +350,10 @@ public class RecordList {
                     currentOrigins.add(stacks.get(i));
                 }
             }
+        }
 
-            //currentCards.addAll(cards);
-            //currentOrigins.addAll(stacks);
+        void addFlip(Card card) {                                                                   //add a card to flip
+            flipCards.add(card);
         }
     }
 }

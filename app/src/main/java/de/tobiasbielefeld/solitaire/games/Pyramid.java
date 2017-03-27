@@ -28,8 +28,9 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
 
-/*
+/**
  * Pyramid Solitaire! It has a lot of stacks.
  */
 
@@ -47,7 +48,7 @@ public class Pyramid extends Game {
         setFirstDiscardStackID(29);
         setLastTableauID(27);
         setDealFromID(30);
-        setDirections(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+        setDirections();                                                                              //empty so all stacks have no spacing direction
         ignoreEmptyTableauStacks();
 
         setLimitedRedeals(2);

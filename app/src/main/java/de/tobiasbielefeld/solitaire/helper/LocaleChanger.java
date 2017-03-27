@@ -35,7 +35,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * created with this guide: http://gunhansancar.com/change-language-programmatically-in-android/
  * <p>
  * Created by gunhansancar on 07/10/15.
- * And updated to fit my needs.
+ * And updated by me to fit my needs.
  */
 
 public class LocaleChanger {
@@ -47,7 +47,9 @@ public class LocaleChanger {
     }
 
     public static String getLanguage(Context context) {
-        return getPersistedData(context, Locale.getDefault().getLanguage());
+        PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString("pref_key_language", Locale.getDefault().getLanguage());       //I can't use my static variable for the string, because it isn't initialized here yet
     }
 
     public static Context setLocale(Context context) {
@@ -55,22 +57,23 @@ public class LocaleChanger {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return updateResources(context, language);
+        } else {
+            return updateResourcesLegacy(context, language);
         }
-
-        return updateResourcesLegacy(context, language);
     }
 
-
-    private static String getPersistedData(Context context, String defaultLanguage) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getString(PREF_KEY_LANGUAGE, defaultLanguage);
-    }
-
+    /**
+     * Applies the loaded language to the context for Android N and above.
+     *
+     * @param context The application context
+     * @param language The language to apply
+     * @return A new context with the updated language
+     */
     @TargetApi(Build.VERSION_CODES.N)
     private static Context updateResources(Context context, String language) {
         Locale locale;
 
-        if (language.equals(DEFAULT_LANGUAGE)) {
+        if (language.equals("default")) {
             locale = defaultLocale;
         } else {
             locale = new Locale(language);
@@ -83,11 +86,18 @@ public class LocaleChanger {
         return context.createConfigurationContext(configuration);
     }
 
+    /**
+     * Applies the loaded language to the context for Android M and below
+     *
+     * @param context The application context
+     * @param language The language to apply
+     * @return A new context with the updated language
+     */
     @SuppressWarnings("deprecation")
     private static Context updateResourcesLegacy(Context context, String language) {
         Locale locale;
 
-        if (language.equals(DEFAULT_LANGUAGE)) {
+        if (language.equals("default")) {
             locale = defaultLocale;
         } else {
             locale = new Locale(language);

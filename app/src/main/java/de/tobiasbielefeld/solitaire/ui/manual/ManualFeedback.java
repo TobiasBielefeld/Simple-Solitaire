@@ -29,9 +29,10 @@ import android.widget.Button;
 
 import de.tobiasbielefeld.solitaire.R;
 
-/*
+/**
  * Feedback contains just text and two buttons
  */
+
 public class ManualFeedback extends Fragment implements View.OnClickListener {
 
     Button buttonGoogle, buttonGitHub;

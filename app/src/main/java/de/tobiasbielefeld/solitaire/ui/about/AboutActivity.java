@@ -33,6 +33,7 @@ import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
  * <p>
  * This stuff is depreciated, but it works and looks very fine :)
  */
+
 @SuppressWarnings("deprecation")
 public class AboutActivity extends CustomAppCompatActivity implements ActionBar.TabListener {
 

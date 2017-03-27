@@ -29,7 +29,7 @@ import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  * dialog for picking the card background drawable. Clicks on it are handled here and the
  * sharedPrefChanged listener in Settings will update the cards.
  */

@@ -49,6 +49,9 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
         animating = true;
     }
 
+    /**
+     * ends the animation. If a destination is set, also move it there
+     */
     @Override
     protected void onAnimationEnd() {
         super.onAnimationEnd();
@@ -62,10 +65,12 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
         }
     }
 
-    public boolean isAnimating(){
-        return animating;
-    }
-
+    /**
+     * Sets a destination to apply at the end of a animation. Only used for the Translate Anim of
+     * card movements
+     * @param pX The X-coordinate of the destination
+     * @param pY The X-coordinate of the destination
+     */
     public void setDestination(float pX, float pY){
         moveAtEnd = true;
         destX = pX;
@@ -75,5 +80,9 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
     public void stopAnim(){
         animating = false;
         clearAnimation();
+    }
+
+    public boolean isAnimating(){
+        return animating;
     }
 }

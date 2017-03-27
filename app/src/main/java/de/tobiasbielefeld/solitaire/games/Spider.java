@@ -118,7 +118,7 @@ public class Spider extends Game {
         while (stacks[currentMainStackID].isEmpty())
             currentMainStackID--;
 
-        //ID below 18 means all main stacks are empty
+        //id below 18 means all main stacks are empty
         if (stacks[currentMainStackID].getID() >= 18) {
 
             ArrayList<Card> cards = new ArrayList<>();
@@ -339,8 +339,9 @@ public class Spider extends Game {
 
             for (int k = 0; k < 10; k++) {
                 Stack destStack = stacks[k];
-                if (i == k || destStack.isEmpty() || destStack.getTopCard().getColor() != cardToMove.getColor())
+                if (i == k || destStack.isEmpty() || destStack.getTopCard().getColor() != cardToMove.getColor()) {
                     continue;
+                }
 
                 if (cardToMove.test(destStack)) {
                     return new CardAndStack(cardToMove, destStack);

@@ -28,7 +28,7 @@ import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
@@ -51,13 +51,13 @@ public class MenuBarPositionDialogPreference extends DialogPreference {
 
 
         //minus 1 because the values are 1 to 10, indexes are from 0 to 9
-        if (getSharedString("pref_key_menu_bar_position_portrait", "bottom").equals("bottom")) {
+        if (sharedStringEquals(PREF_KEY_MENU_BAR_POS_PORTRAIT,DEFAULT_MENU_BAR_POSITION_PORTRAIT)){
             bottom.setChecked(true);
         } else {
             top.setChecked(true);
         }
 
-        if (getSharedString("pref_key_menu_bar_position_landscape", "right").equals("right")) {
+        if (sharedStringEquals(PREF_KEY_MENU_BAR_POS_LANDSCAPE,DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
             right.setChecked(true);
         } else {
             left.setChecked(true);
@@ -72,8 +72,8 @@ public class MenuBarPositionDialogPreference extends DialogPreference {
         super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
-            putSharedString("pref_key_menu_bar_position_portrait", bottom.isChecked() ? "bottom" : "top");
-            putSharedString("pref_key_menu_bar_position_landscape", right.isChecked() ? "right" : "left");
+            putSharedString(PREF_KEY_MENU_BAR_POS_PORTRAIT, bottom.isChecked() ? "bottom" : "top");
+            putSharedString(PREF_KEY_MENU_BAR_POS_LANDSCAPE, right.isChecked() ? "right" : "left");
         }
     }
 }

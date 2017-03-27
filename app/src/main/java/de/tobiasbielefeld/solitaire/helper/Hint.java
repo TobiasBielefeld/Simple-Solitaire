@@ -26,7 +26,7 @@ import de.tobiasbielefeld.solitaire.handler.HintHandler;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  *  Shows hints. It has a handler which shows up to MAX_NUMBER_OF_HINTS hints.
  *  The hint function tests the tableau and stock if a card can be moved. If so,
  *  the hint animation will be started and the card will be marked, so it won't be shown again
@@ -45,13 +45,12 @@ public class Hint {
         hintHandler.sendEmptyMessage(0);
     }
 
+    /**
+     * moves a card with the hint animation. It will also be marked as visited, so the card
+     * won't be used in the next step. It gets one card and the stack destination, but it
+     * also adds all cards above.
+     */
     public void move(Card card, Stack destination) {
-        /*
-         * moves a card with the hint animation. It will also be marked as visited, so the card
-         * won't be used in the next step. It gets one card and the stack destination, but it
-         * also adds all cards above.
-         */
-
         Stack origin = card.getStack();
         int index = origin.getIndexOfCard(card);
         ArrayList<Card> currentCards = new ArrayList<>();
@@ -61,7 +60,6 @@ public class Hint {
 
         visited[counter] = card;
 
-
         for (int i = index; i < origin.getSize(); i++)
             currentCards.add(origin.getCard(i));
 
@@ -69,6 +67,11 @@ public class Hint {
             animate.cardHint(currentCards.get(i), i, destination);
     }
 
+    /**
+     * tests a card if it has been visited in the current hint
+     * @param test_card The card to test
+     * @return True if the card has been visited, false otherwise
+     */
     public boolean hasVisited(Card test_card) {
         for (int i = 0; i < counter; i++)
             if (test_card == visited[i])

@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.PowerManager;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Timer;
 
-/*
+/**
  * static data which is shared across the whole project, i like this more than passing stuff around
  */
 
@@ -96,6 +97,9 @@ public class SharedData {
     public static String PREF_KEY_ORIENTATION;
     public static String PREF_KEY_MENU_GAMES;
     public static String PREF_KEY_4_COLOR_MODE;
+    public static String PREF_KEY_LEFT_HANDED_MODE;
+    public static String PREF_KEY_MENU_BAR_POS_PORTRAIT;
+    public static String PREF_KEY_MENU_BAR_POS_LANDSCAPE;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
@@ -143,12 +147,8 @@ public class SharedData {
     public static int NUMBER_OF_CARD_BACKGROUNDS;
     public static int NUMBER_OF_CARD_THEMES;
 
-    public static PowerManager powerManager;
-
     //load the values from the xml files
     public static void reinitializeData(Context context){
-
-        powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         //Strings
         if (GAME==null) {
             loadStrings(context.getResources());
@@ -157,6 +157,15 @@ public class SharedData {
         //Bitmaps
         if (!bitmaps.checkResources()){
             bitmaps.setResources(context.getResources());
+        }
+
+        //SharedPrefs
+        if (savedSharedData == null) {
+            savedSharedData = PreferenceManager.getDefaultSharedPreferences(context);
+        }
+
+        if (savedGameData == null) {
+            savedGameData = context.getSharedPreferences(lg.getSharedPrefName(), Context.MODE_PRIVATE);
         }
     }
 
@@ -180,6 +189,9 @@ public class SharedData {
         PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
         PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
         PREF_KEY_4_COLOR_MODE = res.getString(R.string.pref_key_4_color_mode);
+        PREF_KEY_LEFT_HANDED_MODE =  res.getString(R.string.pref_key_left_handed_mode);
+        PREF_KEY_MENU_BAR_POS_PORTRAIT = res.getString(R.string.pref_key_menu_bar_position_portrait);
+        PREF_KEY_MENU_BAR_POS_LANDSCAPE = res.getString(R.string.pref_key_menu_bar_position_landscape);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];

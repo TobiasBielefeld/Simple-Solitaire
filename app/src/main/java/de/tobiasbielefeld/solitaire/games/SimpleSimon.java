@@ -28,7 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  * Simple Simon Game! It's nearly like Spider, but with less cards and all cards are
  * already faced up at start
  */

@@ -28,9 +28,10 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  * Forty&Eight game! it's pretty hard to win
  */
+
 public class FortyEight extends Game {
 
     public FortyEight() {
@@ -46,7 +47,7 @@ public class FortyEight extends Game {
         if (!getSharedBoolean(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS, DEFAULT_FORTY_EIGHT_LIMITED_REDEALS))
             toggleRedeals();
 
-        setDirections(new int[]{1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0});
+        setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

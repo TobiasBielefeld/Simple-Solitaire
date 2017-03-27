@@ -25,9 +25,9 @@ import java.util.ArrayList;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
- *  Contains everything related to cards. it uses a picture view for drawable,
- *  like loading or saving cards orientation and setting the drawable files
+/**
+ *  Contains everything related to cards. The view is a custom image view, which overrides some
+ *  methods for animations. The drawable files are also updated here
  */
 
 public class Card {
@@ -35,25 +35,35 @@ public class Card {
     public static int width, height;                                                                //width and height calculated in relation of the screen dimensions in Main activity
     public static Bitmap background;
     private static Bitmap[] drawables = new Bitmap[52];
-    public CustomImageView view;                                                                          //the image view of the card, for easier code not private
+    public CustomImageView view;                                                                    //the image view of the card, for easier code not private
     private int color;                                                                              //1=clubs 2=hearts 3=Spades 4=diamonds
     private int value;                                                                              //1=ace 2,3,4,5,6,7,8,9,10, 11=joker 12=queen 13=king
     private Stack stack;                                                                            //saves the stack where the card is placed
-    private int ID;                                                                                 //internal id
+    private int id;                                                                                 //internal id
     private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
     private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
 
-    public Card(int ID) {
-        /*
-         *  set ID color and value. color depends on the cardDrawableOrder. But by default the
-         *  order is 1,2,3,4. Value is calculated like that because the IDs are in the right order:
-         *  from ace to king, then again with the next color
-         */
-        this.ID = ID;
-        color = currentGame.cardDrawablesOrder[(ID % 52) / 13];
-        value = (ID % 13) + 1;
+    /**
+     * Sets id, color and value. The cards are initialized at game start with a for loop.
+     *
+     * The color range is 1 to 4 and depends on the cardDrawableOrder, which is set to
+     * 1 for the first 13 cards, 2 for the following 13 cards and so on.
+     * After 52 cards (= one deck) it repeats. The value range is from 1 to 13 (= Ace to King).
+     *
+     * @param id The position in the cards array
+     */
+    public Card(int id) {
+        this.id = id;
+        color = currentGame.cardDrawablesOrder[(id % 52) / 13];
+        value = (id % 13) + 1;
     }
 
+    /**
+     * Sets the card drawables according to set preferences. Each card theme has one drawable file
+     * with 52 cards in it. These will be loaded in bitmaps and applied to the cards. The bitmap array
+     * has the same order like the cards array. If the fourColor theme is enabled, Clubs and Diamonds
+     * use another row in the bitmap file.
+     */
     public static void updateCardDrawableChoice() {
         boolean fourColors = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE);
 
@@ -65,12 +75,17 @@ public class Card {
         }
 
         if (cards != null) {
-            for (Card card : cards)
-                if (card.isUp())
+            for (Card card : cards) {
+                if (card.isUp()) {
                     card.setCardFront();
+                }
+            }
         }
     }
 
+    /**
+     * Loads the card backgrounds for the bitmap file and applies them.
+     */
     public static void updateCardBackgroundChoice() {
 
         int position = getSharedInt(CARD_BACKGROUND, DEFAULt_CARD_BACKGROUND) - 1;
@@ -83,6 +98,9 @@ public class Card {
         }
     }
 
+    /**
+     * Save the card direction (up/down) as a string list.
+     */
     public static void save() {
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -92,6 +110,9 @@ public class Card {
         putIntList(CARDS, list);
     }
 
+    /**
+     * Load the card direction (up/down) from a string list and applies the data.
+     */
     public static void load() {
         ArrayList<Integer> list = getIntList(CARDS);
 
@@ -104,67 +125,89 @@ public class Card {
         }
     }
 
+    /**
+     * Sets the card front side from the bitmap array. The position is calculated with the card
+     * color and value.
+     */
     public void setCardFront() {
         view.setImageBitmap(drawables[(color - 1) * 13 + value - 1]);
     }
 
+    /**
+     * Sets the card background, there is only one background for all cards.
+     */
     public void setCardBack() {
         view.setImageBitmap(background);
     }
 
+    /**
+     * Updates the color of the card. It is only used when a custom color order is set up
+     * (like in Spider for different difficulties).
+     */
     public void setColor() {
-        //update the color, used in Spider after loading the preference
-        color = currentGame.cardDrawablesOrder[(ID % 52) / 13];
+        color = currentGame.cardDrawablesOrder[(id % 52) / 13];
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public Stack getStack() {
-        return stack;
-    }
-
-    public void setStack(Stack stack) {
-        this.stack = stack;
-    }
-
+    /**
+     * Moves a card to the given coordinates (if not already there). This will use a translate
+     * Animation and no interaction with cards/buttons is possible during the movement.
+     *
+     * @param pX The x-coordinate of the destination
+     * @param pY The y-coordinate of the destination
+     */
     public void setLocation(float pX, float pY) {
-        //if not already there, animate the moving
         if (view.getX() != pX || view.getY() != pY)
             animate.moveCard(this, pX, pY);
     }
 
+    /**
+     * Sets the location instantly WITHOUT a movement.
+     *
+     * @param pX The x-coordinate of the destination
+     * @param pY The y-coordinate of the destination
+     */
     public void setLocationWithoutMovement(float pX, float pY) {
         view.bringToFront();
         view.setX(pX);
         view.setY(pY);
     }
 
+    /**
+     * Saves the current location of the card as the old location, so it can be reverted if
+     * necessary.
+     */
     public void saveOldLocation() {
         oldLocation.x = view.getX();
         oldLocation.y = view.getY();
     }
 
+    /**
+     * reverts the current location to the saved one.
+     */
     public void returnToOldLocation() {
         view.setX(oldLocation.x);
         view.setY(oldLocation.y);
     }
 
+    /**
+     * Sets the direction to up and updates the drawable.
+     */
     public void flipUp() {
         isUp = true;
         setCardFront();
     }
 
+    /**
+     * Sets the direction to down and updates the drawable.
+     */
     public void flipDown() {
         isUp = false;
         setCardBack();
     }
 
+    /**
+     * Sets the direction to the opposite of the current direction.
+     */
     public void flip() {
         if (isUp())
             flipDown();
@@ -172,6 +215,11 @@ public class Card {
             flipUp();
     }
 
+    /**
+     * Sets the direction to the opposite of the current direction, but with an animation.
+     * This also updates the score (movement from the current stack to the same stack is counted
+     * as a flip) and sets a new record in the record list.
+     */
     public void flipWithAnim() {
         if (isUp()) {
             isUp = false;
@@ -185,20 +233,16 @@ public class Card {
         }
     }
 
-    public boolean isUp() {                                                                         //returns if the card is up
-        return isUp;
-    }
-
-    public boolean test(Stack stack) {
-        /*
-         *  test if this card can be placed on a stack:
-         *  Not possible when:
-         *  the card is not faced up OR the top card on the stack is not faced up OR Autocomplete is running
-         *  Possible when:
-         *  cardTest() from the current game returns true
-         */
-        return !((!isUp() || (stack.getSize() != 0 && !stack.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(stack, this);
-
+    /**
+     * Tests if this card can be placed on a stack:
+     * Only possible if: the cardTest returns true, the card and the top card on the destination are
+     * up, and no auto complete is running.
+     *
+     * @param destination The destination stack to test the card on
+     * @return  True if movement is possible, false otherwise
+     */
+    public boolean test(Stack destination) {
+        return currentGame.cardTest(destination, this) && isUp && destination.topCardIsUp();
     }
 
     public int getColor() {
@@ -215,5 +259,25 @@ public class Card {
 
     public int getIndexOnStack() {
         return getStack().getIndexOfCard(this);
+    }
+
+    public boolean isUp() {                                                                         //returns if the card is up
+        return isUp;
+    }
+
+    public int getID() {
+        return id;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public Stack getStack() {
+        return stack;
+    }
+
+    public void setStack(Stack stack) {
+        this.stack = stack;
     }
 }

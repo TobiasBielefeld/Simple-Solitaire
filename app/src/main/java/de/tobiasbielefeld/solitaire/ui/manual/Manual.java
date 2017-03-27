@@ -35,7 +35,7 @@ import android.widget.ListView;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
-/*
+/**
  *  Manual Activity: Uses some fragments to show the manual pages.
  *
  *  Phones use a navigation drawer, and tablets (devices with xlarge displays) uses an another layout

@@ -45,7 +45,7 @@ import de.tobiasbielefeld.solitaire.games.Pyramid;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  *  Settings activity created with the "Create settings activity" tool from Android Studio.
  */
 
@@ -354,9 +354,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     private void setLocale() {
-        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(i);
+        Intent intent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     public static class CustomizationPreferenceFragment extends PreferenceFragment {

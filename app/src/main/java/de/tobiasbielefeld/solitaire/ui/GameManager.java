@@ -55,8 +55,10 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.DOWN;
+import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.NONE;
 
-/*
+/**
  * This is like the main activity, handles game input, controls the timer, loads and saves everything
  */
 
@@ -135,19 +137,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 currentGame.setStacks(layoutGame, isLandscape);
 
                 //if left handed mode is true, mirror all stacks
-                if (getSharedBoolean(getString(R.string.pref_key_left_handed_mode), DEFAULT_LEFT_HANDED_MODE)) {
+                if (getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, DEFAULT_LEFT_HANDED_MODE)) {
                     for (Stack stack : stacks)
                         stack.view.setX(layoutGame.getWidth() - stack.view.getX() - Card.width);
 
                     if (currentGame.hasArrow()) {
                         for (Stack stack : stacks) {
-                            if (stack.hasArrow() > 0) {
-                                if (stack.hasArrow() == 1) {
-                                    stack.view.setImageBitmap(Stack.arrowRight);
-                                } else {
-                                    stack.view.setImageBitmap(Stack.arrowLeft);
-                                }
-                            }
+                            stack.applyArrow();
                         }
                     }
                 }
@@ -160,13 +156,24 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 //all other stacks don't have a visible offset
                 //use setDirections() in a game to change that
                 if (currentGame.directions == null) {
-                    for (int i = 0; i <= currentGame.getLastTableauID(); i++) {
-                        stacks[i].setSpacingDirection(1);
+                    for (Stack stack : stacks){
+                        if (stack.getID() <= currentGame.getLastTableauID()){
+                            stack.setSpacingDirection(DOWN);
+                        } else {
+                            stack.setSpacingDirection(NONE);
+                        }
                     }
                 } else {
-                    for (int i = 0; i < currentGame.directions.length; i++) {
-                        stacks[i].setSpacingDirection(currentGame.directions[i]);
+                    for (int i = 0; i < stacks.length; i++) {
+                        if (currentGame.directions.length>i) {
+                            stacks[i].setSpacingDirection(currentGame.directions[i]);
+                        } else {
+                            stacks[i].setSpacingDirection(NONE);
+                        }
                     }
+
+
+
                 }
                 //if there are direction borders set (when cards should'nt overlap another stack)  use it.
                 //else set the layout height/widht as maximum

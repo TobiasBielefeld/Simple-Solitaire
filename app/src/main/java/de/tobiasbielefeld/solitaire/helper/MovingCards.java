@@ -26,7 +26,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static java.lang.Math.abs;
 
-/*
+/**
  *  Handles the input of cards to move around. When a card was touched, it adds all cards
  *  up to the stack top card. It moves the cards and also returns the cards to their old location
  *  if they can't be placed on another stack
@@ -42,12 +42,15 @@ public class MovingCards {
         currentCards.clear();
     }
 
+    /**
+     * Adds a card and every card above it to the movement.  Also sets up the little offset from the
+     * touch position to the card coordinates, for smother movements
+     *
+     * @param card The card to add.
+     * @param offsetX X-coordinate of the offset from card coordinates and touch coordinates
+     * @param offsetY Y-coordinate of the offset from card coordinates and touch coordinates
+     */
     public void add(Card card, float offsetX, float offsetY) {
-        /*
-         *  add the card and every card above it, also set up the little offset from the
-         *  touch position to the card coordinates, for smother movements
-         */
-
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         Stack stack = card.getStack();
@@ -59,8 +62,11 @@ public class MovingCards {
         }
     }
 
-    /*
-     * Move card to new location, but only if its moved out a little radius from the touch-point.
+    /**
+     * Moves the cards to the new location
+     *
+     * @param X X-coordinate of the destination
+     * @param Y Y-coordinate of the destination
      */
     public void move(float X, float Y) {
         if (moveStarted || didMoveStart(X,Y)) {
@@ -70,6 +76,13 @@ public class MovingCards {
         }
     }
 
+    /**
+     * checks if the current touch point of the movement left the little area around the starting point.
+     *
+     * @param X X-coordinate of the point
+     * @param Y Y-coordinate of the point
+     * @return True if the raidius was left, false otherwise
+     */
     private boolean didMoveStart(float X, float Y){
         if (abs(currentCards.get(0).view.getX() + offsetX-X)>Card.width/4 || abs(currentCards.get(0).view.getY() +offsetY-Y)>Card.height/4){
             moveStarted = true;
@@ -79,6 +92,11 @@ public class MovingCards {
         return false;
     }
 
+    /**
+     * Moves the current cards to the new destination.
+     *
+     * @param destination The destination stack
+     */
     public void moveToDestination(Stack destination) {
         gameLogic.checkFirstMovement();
 
@@ -96,11 +114,24 @@ public class MovingCards {
         }
     }
 
+    /**
+     * return the cards to the old location, in case the movement to the new stack isn't working
+     */
     public void returnToPos() {
         for (Card card : currentCards)
             card.returnToOldLocation();
 
         currentCards.clear();
+    }
+
+    /**
+     * Checks if only one card is moving. But the size is for example hints still zero, so return
+     * true if < 2 cards are moving.
+     *
+     * @return True if a single card is moving, False otherwise
+     */
+    public boolean hasSingleCard() {
+        return movingCards.getSize() < 2;
     }
 
     public Card first() {
@@ -113,11 +144,5 @@ public class MovingCards {
 
     public boolean hasCards() {
         return !currentCards.isEmpty();
-    }
-
-    public boolean hasSingleCard() {
-        //size can be 1 or zero, because it should return true when using hint tests.
-        // In that case  the size is zero
-        return movingCards.getSize() < 2;
     }
 }

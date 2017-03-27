@@ -47,6 +47,9 @@ public class GameLogic {
         this.gm = gm;
     }
 
+    /**
+     * checks if the first card of a game has been moved, if so, increment the number of played games
+     */
     public void checkFirstMovement() {
         if (!movedFirstCard) {
             incrementPlayedGames();
@@ -54,17 +57,17 @@ public class GameLogic {
         }
     }
 
+    /**
+     * saves all relevant data of the current game in shared preferences, so it can be loaded
+     * when resuming the game, called in onPause() of the GameManager
+     */
     public void save() {
-        /*
-         * save the current game (called in onPause, because onDestroy is not always called
-         * when the app closes for some reason
-         */
         scores.save();
         recordList.save();
         putBoolean(GAME_WON, won);
         putBoolean(GAME_MOVED_FIRST_CARD, movedFirstCard);
         putInt(GAME_NUMBER_OF_WON_GAMES, numberWonGames);
-        /* Timer will be saved in onPause() */
+        // Timer will be saved in onPause()
         for (Stack stack : stacks)
             stack.save();
 
@@ -74,13 +77,14 @@ public class GameLogic {
         currentGame.saveRedealCount();
     }
 
+    /**
+     * load everything saved on start of a game. If the last game has been won put every card
+     * outside the screen.
+     * The main loading part is put in a try catch block, so when there goes something wrong
+     * on saving/loading, it won't crash the game. (in that case, it loads a new game)
+     */
     public void load() {
-        /*
-         * load everything saved on start of a game. If the last game has been won put every card
-         * outside the screen.
-         * The main loading part is put in a try catch block, so when there goes something wrong
-         * on saving/loading, it won't crash the game. (in that case, it loads a new game
-         */
+
         boolean first_run = getBoolean(GAME_FIRST_RUN, DEFAULT_FIRST_RUN);
         numberWonGames = getInt(GAME_NUMBER_OF_WON_GAMES, 0);
         won = getBoolean(GAME_WON, DEFAULT_WON);
@@ -129,14 +133,19 @@ public class GameLogic {
         }
     }
 
+    /**
+     * starts a new game. The only difference to a re-deal is the shuffling of the cards
+     */
     public void newGame() {
-        //new game is like a re-deal, but with randomized cards
         randomCards = cards.clone();
         randomize(randomCards);
 
         redeal();
     }
 
+    /**
+     * starts a new game, but with the same deal.
+     */
     public void redeal() {
         //reset EVERYTHING
         if (!won) {                                                                                 //if the game has been won, the score was already saved
@@ -168,6 +177,10 @@ public class GameLogic {
         currentGame.dealCards();
     }
 
+    /**
+     * in case the current game is won: save the score and start the win animation. The record list
+     * is reseted, so the player can't revert card movements after the animation
+     */
     public void testIfWon() {
         if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
             won = true;
@@ -177,14 +190,16 @@ public class GameLogic {
             scores.addNewHighScore();
             recordList.reset();
             autoComplete.hideButton();
-            animate.wonAnimation();
+            animate.winAnimation();
         }
     }
 
+    /**
+     * Randomizes a given card array using the Fisher–Yates shuffle
+     *
+     * @param Array The array to randomize
+     */
     private void randomize(Card[] Array) {
-        /*
-         * Fisher–Yates shuffle
-         */
         int index;
         Card dummy;
         Random rand = new Random();
@@ -198,11 +213,12 @@ public class GameLogic {
         }
     }
 
+    /**
+     * for left handed mode: mirrors the stacks to the other side and then updates the card
+     * positions.
+     */
     public void mirrorStacks() {
-        /*
-         * for left handed mode: mirrors the stacks to the other side and then updates the card
-         * positions.
-         */
+
 
         if (stacks != null) {
             for (Stack stack : stacks) {
@@ -219,20 +235,30 @@ public class GameLogic {
         //change the arrow direction
         if (currentGame.hasArrow()) {
             for (Stack stack : stacks) {
-                if (stack.hasArrow() > 0) {
-                    if (stack.hasArrow() == 1) {
-                        if (getSharedBoolean(gm.getString(R.string.pref_key_left_handed_mode), false))
-                            stack.view.setImageBitmap(Stack.arrowRight);
-                        else
-                            stack.view.setImageBitmap(Stack.arrowLeft);
-                    } else {
-                        if (getSharedBoolean(gm.getString(R.string.pref_key_left_handed_mode), false))
-                            stack.view.setImageBitmap(Stack.arrowLeft);
-                        else
-                            stack.view.setImageBitmap(Stack.arrowRight);
-                    }
-                }
+                stack.applyArrow();
             }
+        }
+    }
+
+    /**
+     * toggle the redeal counter: From enabled to disabled and vice versa. When enabeld, the location
+     * is also updated.
+     */
+    public void toggleNumberOfRedeals() {
+
+        if (currentGame == null)
+            return;
+
+        currentGame.toggleRedeals();
+
+        if (currentGame.hasLimitedRedeals()) {
+
+            gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
+            gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
+            gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
+
+        } else {
+            gm.mainTextViewRedeals.setVisibility(View.GONE);
         }
     }
 
@@ -272,24 +298,6 @@ public class GameLogic {
 
     public int getNumberOfPlayedGames() {
         return getInt(GAME_NUMBER_OF_PLAYED_GAMES, numberWonGames);
-    }
-
-    public void toggleNumberOfRedeals() {
-
-        if (currentGame == null)
-            return;
-
-        currentGame.toggleRedeals();
-
-        if (currentGame.hasLimitedRedeals()) {
-
-            gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
-            gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
-            gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
-
-        } else {
-            gm.mainTextViewRedeals.setVisibility(View.GONE);
-        }
     }
 
     public void updateIcons() {

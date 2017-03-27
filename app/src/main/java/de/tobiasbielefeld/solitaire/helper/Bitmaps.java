@@ -27,8 +27,9 @@ import de.tobiasbielefeld.solitaire.R;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Here is the code to load the individual pictures from the sets located in drawable-nodpi.
- * This way, i have a lot less picture files.
+ * Here is the code to load the individual pictures from the bitmaps located in drawables-nodpi.
+ * The bitmaps will first be decoded and the width/height of each individual card of the packets
+ * will be set.
  */
 
 public class Bitmaps {
@@ -47,6 +48,13 @@ public class Bitmaps {
         this.res = res;
     }
 
+    /**
+     * Gets the menu previews
+     *
+     * @param posX X-coordinate of the preview in the file
+     * @param posY Y-coordinate of the preview in the file
+     * @return a single bitmap
+     */
     public Bitmap getMenu(int posX, int posY) {
 
         if (menu == null) {
@@ -58,6 +66,13 @@ public class Bitmaps {
         return Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
     }
 
+    /**
+     * Gets the stack backgrounds
+     *
+     * @param posX X-coordinate of the background in the file
+     * @param posY Y-coordinate of the background in the file
+     * @return a single bitmap
+     */
     public Bitmap getStackBackground(int posX, int posY) {
 
         if (stackBackground == null) {
@@ -66,9 +81,17 @@ public class Bitmaps {
             stackBackgroundHeight = stackBackground.getHeight() / 2;
         }
 
-        return Bitmap.createBitmap(stackBackground, posX * stackBackgroundWidth, posY * stackBackgroundHeight, stackBackgroundWidth, stackBackgroundHeight);
+        return Bitmap.createBitmap(stackBackground, posX * stackBackgroundWidth,
+                posY * stackBackgroundHeight, stackBackgroundWidth, stackBackgroundHeight);
     }
 
+    /**
+     * Gets the card themes, according to the preference
+     *
+     * @param posX X-coordinate of the card in the file
+     * @param posY Y-coordinate of the card in the file
+     * @return a single bitmap of the card
+     */
     public Bitmap getCardFront(int posX, int posY) {
 
         if (cardFront == null || savedCardTheme != getSharedInt(CARD_DRAWABLES, 1)) {
@@ -77,8 +100,8 @@ public class Bitmaps {
             int resID;
 
             switch (savedCardTheme) {
-                case 1:
                 default:
+                case 1:
                     resID = R.drawable.cards_basic;
                     break;
                 case 2:
@@ -109,9 +132,17 @@ public class Bitmaps {
             cardFrontHeight = cardFront.getHeight() / 6;
         }
 
-        return Bitmap.createBitmap(cardFront, posX * cardFrontWidth, posY * cardFrontHeight, cardFrontWidth, cardFrontHeight);
+        return Bitmap.createBitmap(cardFront, posX * cardFrontWidth,
+                posY * cardFrontHeight, cardFrontWidth, cardFrontHeight);
     }
 
+    /**
+     * Gets the card backgrounds
+     *
+     * @param posX X-coordinate of the background in the file
+     * @param posY Y-coordinate of the background in the file
+     * @return a single bitmap
+     */
     public Bitmap getCardBack(int posX, int posY) {
 
         if (cardBack == null) {
@@ -120,9 +151,17 @@ public class Bitmaps {
             cardBackHeight = cardBack.getHeight() / 3;
         }
 
-        return Bitmap.createBitmap(cardBack, posX * cardBackWidth, posY * cardBackHeight, cardBackWidth, cardBackHeight);
+        return Bitmap.createBitmap(cardBack, posX * cardBackWidth,
+                posY * cardBackHeight, cardBackWidth, cardBackHeight);
     }
 
+    /**
+     * Gets the preview of the card themes.
+     *
+     * @param posX X-coordinate of the preview in the file
+     * @param posY Y-coordinate of the preview in the file
+     * @return a single bitmap
+     */
     public Bitmap getCardPreview(int posX, int posY) {
 
         if (cardPreview == null) {
@@ -131,9 +170,18 @@ public class Bitmaps {
             cardPreviewHeight = cardPreview.getHeight() / 2;
         }
 
-        return Bitmap.createBitmap(cardPreview, posX * cardPreviewWidth, posY * cardPreviewHeight, cardPreviewWidth, cardPreviewHeight);
+        return Bitmap.createBitmap(cardPreview, posX * cardPreviewWidth,
+                posY * cardPreviewHeight, cardPreviewWidth, cardPreviewHeight);
     }
 
+    /**
+     * Gets the card preview shown in the preference screen. It uses the same file as getCardPreview
+     * put it only returns the King-image.
+     *
+     * @param posX X-coordinate of the preview in the file
+     * @param posY Y-coordinate of the preview in the file
+     * @return a single bitmap
+     */
     public Bitmap getCardPreview2(int posX, int posY) {
 
         posX = posX*2 + 1;
@@ -144,6 +192,7 @@ public class Bitmaps {
             cardPreview2Height = cardPreview2.getHeight() / 2;
         }
 
-        return Bitmap.createBitmap(cardPreview2, posX * cardPreview2Width, posY * cardPreview2Height, cardPreview2Width, cardPreview2Height);
+        return Bitmap.createBitmap(cardPreview2, posX * cardPreview2Width,
+                posY * cardPreview2Height, cardPreview2Width, cardPreview2Height);
     }
 }

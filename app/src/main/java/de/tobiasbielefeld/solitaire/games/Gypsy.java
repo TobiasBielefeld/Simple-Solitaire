@@ -28,7 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  * Gypsy Solitaire! (Maybe needs another name)
  */
 
@@ -44,7 +44,6 @@ public class Gypsy extends Game {
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
         setUpCardWidth(layoutGame, isLandscape, 9 + 1, 9 + 3);
-
         int spacing = setUpSpacing(layoutGame, 9, 10);
         int verticalSpacing = (isLandscape ? Card.width / 4 : Card.width / 2) + 1;
         int startPos = (int) (layoutGame.getWidth() / 2 - 4.5 * Card.width - 4 * spacing);

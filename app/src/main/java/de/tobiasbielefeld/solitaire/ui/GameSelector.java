@@ -39,7 +39,7 @@ import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
- /*
+ /**
   * This is the main menu with the buttons to load a game
   */
 

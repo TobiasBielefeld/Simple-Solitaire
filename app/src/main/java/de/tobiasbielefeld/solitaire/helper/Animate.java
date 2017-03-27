@@ -38,7 +38,7 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  * class for all card animations. Like moving cards and fading them out and in for hints.
  * The win animation is split up in two parts: First move every card to the middle of the screen,
  * then move them out the screen borders
@@ -46,7 +46,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Animate {
 
-    private static final int minAnimatingTime = 10; //in ms, set to prevent bugs
     public AfterWonHandler afterWonHandler;
     private GameManager gm;
 
@@ -55,7 +54,11 @@ public class Animate {
         afterWonHandler = new AfterWonHandler(gm);
     }
 
-    public void wonAnimation() {
+    /**
+     * Shows the win animation: Every card will move to the center of the screen. In the handler
+     * after that the phase2 will be called and move every card out the screen.
+     */
+    public void winAnimation() {
         for (Card card : cards) {
             card.setLocation(gm.layoutGame.getWidth() / 2 - Card.width / 2, gm.layoutGame.getHeight() / 2 - Card.height / 2);
         }
@@ -63,7 +66,10 @@ public class Animate {
         afterWonHandler.sendEmptyMessageDelayed(0, 100);
     }
 
-    public void wonAnimationPhase1() {
+    /**
+     * Moves every card out the screen as phase2 of the win animation
+     */
+    public void wonAnimationPhase2() {
         int direction = 0;
         int counter = 0;
         Random rand = new Random();
@@ -113,23 +119,30 @@ public class Animate {
         }
     }
 
-    public void cardHint(final Card card, final int offset, final Stack stack) {
+    /**
+     * Moves a card to another stack, fades the card out and fades it in on the origin as a hint
+     *
+     * @param card The card to move as the hint
+     * @param offset The position of the card above the top card of the destination
+     * @param destination The destination of the movement
+     */
+    public void cardHint(final Card card, final int offset, final Stack destination) {
         card.view.bringToFront();
         card.saveOldLocation();
-        PointF pointAtStack = stack.getPosition(offset);
+        PointF pointAtStack = destination.getPosition(offset);
         float dist_x = pointAtStack.x - card.view.getX();
         float dist_y = pointAtStack.y - card.view.getY();
         int distance = (int) Math.sqrt((double) ((dist_x * dist_x) + (dist_y * dist_y)));
 
         TranslateAnimation animation = new TranslateAnimation(0, dist_x, 0, dist_y);
 
-        animation.setDuration(max((distance * 100 / Card.width), minAnimatingTime));
+        animation.setDuration(distance * 100 / Card.width);
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
             }
 
             public void onAnimationEnd(Animation animation) {
-                PointF pointAtStack = stack.getPosition(offset);
+                PointF pointAtStack = destination.getPosition(offset);
                 card.view.setX(pointAtStack.x);
                 card.view.setY(pointAtStack.y);
                 hideCard(card);
@@ -142,6 +155,10 @@ public class Animate {
         card.view.startAnimation(animation);
     }
 
+    /**
+     * is the second part from the hint: fade the card out the screen
+     * @param card The card to fade out
+     */
     private void hideCard(final Card card) {
         Animation card_fade_out = AnimationUtils.loadAnimation(
                 gm.getApplicationContext(), R.anim.card_fade_out);
@@ -162,6 +179,10 @@ public class Animate {
         card.view.startAnimation(card_fade_out);
     }
 
+    /**
+     * is the third part from the hint: fade the card back in at the original destination
+     * @param card The card to fade in
+     */
     private void showCard(final Card card) {
         Animation card_fade_in = AnimationUtils.loadAnimation(
                 gm.getApplicationContext(), R.anim.card_fade_in);
@@ -182,13 +203,22 @@ public class Animate {
         card.view.startAnimation(card_fade_in);
     }
 
+    /**
+     * Moves a card to a new destination. FillEnabled is necessary, or else flickering will occur.
+     * The location is updated when the animation finishes, which happens in the onAnimationEnd()
+     * method of the custom image view.
+     *
+     * @param card The card to move
+     * @param pX X-coordinate of the destination
+     * @param pY Y-coordinate of the destination
+     */
     public void moveCard(final Card card, final float pX, final float pY) {
         final CustomImageView view = card.view;
         int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
 
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
-        animation.setDuration(max((distance * 100 / Card.width), minAnimatingTime));
+        animation.setDuration(distance * 100 / Card.width);
         animation.setFillEnabled(true);
 
         view.setDestination(pX,pY);
@@ -196,7 +226,6 @@ public class Animate {
     }
 
     public boolean cardIsAnimating() {
-
         for (Card card : cards) {
             if (card.view.isAnimating()) {
                 return true;
@@ -212,6 +241,13 @@ public class Animate {
         }
     }
 
+    /**
+     * is the first part of the flip animation: The drawable will shrink to its center, then grow
+     * back to normal size with the new drawable
+     *
+     * @param card The card to animate
+     * @param mode True for flipUp, false otherwise
+     */
     public void flipCard(final Card card, final boolean mode) {
         AnimatorSet shrinkSet = (AnimatorSet) AnimatorInflater.loadAnimator(
                 gm, R.animator.card_to_middle);
@@ -234,6 +270,12 @@ public class Animate {
         shrinkSet.start();
     }
 
+    /**
+     * is the second part of the flip animation. Grows back to normal size.
+     *
+     * @param card The card to animate
+     * @param mode True for flipUp, false otherwise
+     */
     private void flipCard2(final Card card, final boolean mode) {
         AnimatorSet growSet = (AnimatorSet) AnimatorInflater.loadAnimator(
                 gm, R.animator.card_from_middle);
@@ -259,6 +301,9 @@ public class Animate {
         growSet.start();
     }
 
+    /**
+     * shows the auto complete button with a nice fade in animation
+     */
     public void showAutoCompleteButton() {
         Animation fade_in = AnimationUtils.loadAnimation(
                 gm.getApplicationContext(), R.anim.button_fade_in);

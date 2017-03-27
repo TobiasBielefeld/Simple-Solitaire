@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
-/*
+/**
  * A {@link android.preference.PreferenceActivity} which implements and proxies the necessary calls
  * to be used with AppCompat.
  *

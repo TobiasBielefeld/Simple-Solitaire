@@ -43,11 +43,8 @@ public abstract class Game {
     final static protected int SAME_VALUE_AND_COLOR = 0;
     final static protected int SAME_VALUE_AND_FAMILY = 1;
 
-    final static protected int LEFT = 1;
-    final static protected int RIGHT = 2;
-
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
-    public int[] directions;
+    public Stack.SpacingDirection[] directions;
     public int[] directionBorders;
     private boolean hasMainStack = false;
     private int dealFromID = -1;
@@ -272,38 +269,57 @@ public abstract class Game {
         stacks = new Stack[number];
     }
 
-    protected void setFirstMainStackID(int ID) {
+    protected void setFirstMainStackID(int id) {
         hasMainStack = true;
-        mainStackID = ID;
-        dealFromID = ID;
+        mainStackID = id;
+        dealFromID = id;
     }
 
-    protected void setFirstDiscardStackID(int ID) {
+    protected void setFirstDiscardStackID(int id) {
         hasDiscardStack = true;
-        discardStackID = ID;
+        discardStackID = id;
     }
 
-    protected void setDealFromID(int ID) {
-        dealFromID = ID;
+    protected void setDealFromID(int id) {
+        dealFromID = id;
     }
 
-    protected void setDirections(int[] directions) {
-        this.directions = directions;
+    /**
+     * Set the direction, in which the cards on the stack should be stacked. The parameter is an
+     * int list to have shorter call of the method
+     * @param newDirections The list of directions to be applied
+     */
+    protected void setDirections(int... newDirections) {
+        directions = new Stack.SpacingDirection[newDirections.length];
+
+        for (int i=0;i<newDirections.length;i++){
+            switch (newDirections[i]){
+                case 0:default:
+                    directions[i] = Stack.SpacingDirection.NONE;
+                    break;
+                case 1:
+                    directions[i] = Stack.SpacingDirection.DOWN;
+                    break;
+                case 2:
+                    directions[i] = Stack.SpacingDirection.UP;
+                    break;
+                case 3:
+                    directions[i] = Stack.SpacingDirection.LEFT;
+                    break;
+                case 4:
+                    directions[i] = Stack.SpacingDirection.RIGHT;
+                    break;
+            }
+        }
     }
 
-    protected void setDirectionBorders(int[] stackIDs) {
+    protected void setDirectionBorders(int... stackIDs) {
         directionBorders = stackIDs;
     }
 
-    protected void setArrow(Stack stack, int direction) {
+    protected void setArrow(Stack stack, Stack.ArrowDirection direction) {
         hasArrow = true;
         stack.setArrow(direction);
-
-        if (direction == LEFT) {
-            stack.view.setImageBitmap(Stack.arrowLeft);
-        } else if (direction == RIGHT) {
-            stack.view.setImageBitmap(Stack.arrowRight);
-        }
     }
 
     /*
@@ -331,8 +347,8 @@ public abstract class Game {
         return stacks[lastTableauID];
     }
 
-    protected void setLastTableauID(int ID) {
-        lastTableauID = ID;
+    protected void setLastTableauID(int id) {
+        lastTableauID = id;
     }
 
     protected void ignoreEmptyTableauStacks() {

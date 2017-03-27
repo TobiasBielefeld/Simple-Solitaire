@@ -29,6 +29,8 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
+
 /**
  * Dummy Game, so you can see what to do if you want to add more games
  * <p>
@@ -51,7 +53,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * <p>
  * because I use the ids to determinate if cards should flip
  * for example: Because the main stacks are always the last ones,
- * every card added to a stack with an ID >= the firstMainStack ID will be flipped down
+ * every card added to a stack with an id >= the firstMainStack id will be flipped down
  */
 
 @SuppressWarnings("all")
@@ -67,10 +69,10 @@ public class DummyGame extends Game {
         //set how many stacks you have, the array will be initialized with the given value
         setNumberOfStacks(13);
 
-        //if you game has a main stack, set its ID here. Cards will be automatically dealt from there.
+        //if you game has a main stack, set its id here. Cards will be automatically dealt from there.
         setFirstMainStackID(12);
 
-        //if there is a discard stack, set it's ID, because I need the ID for the undo movement
+        //if there is a discard stack, set it's id, because I need the id for the undo movement
         //(cards should be faced up when returning to discard)
         setFirstDiscardStackID(11);
 
@@ -79,7 +81,7 @@ public class DummyGame extends Game {
 
         //set the tableau. All cards from stacks 0 to the last tableau stack
         //are stacked with an offset, so you can see every card on it.
-        //Every card on a stack with a higher ID will be put exactly on the stacks coordinates,
+        //Every card on a stack with a higher id will be put exactly on the stacks coordinates,
         //without an offset.
         setLastTableauID(6);
 
@@ -371,7 +373,7 @@ public class DummyGame extends Game {
      *  (or any field with visible spacing). Else the counter in animation isn't set right and the
      *  game doesn't respond anymore.
      *
-     *  Return the card and the stack (or the ID's of them) as a new 'CardAndStack'.
+     *  Return the card and the stack (or the id's of them) as a new 'CardAndStack'.
      *  This will move every card from the returned card up to the origin stack top
      *
      *  If you have a phase one movement, override it. else it returns null by default
@@ -392,7 +394,7 @@ public class DummyGame extends Game {
      * AutoComplete Phase Two: Move cards to the foundation field (or stacks with no visible spacing)
      * The speed will increase with each movement (as a nice effect). So this is incompatible with tableau stacks
      *
-     *  Return the card and the stack (or the ID's of them) as a new 'CardAndStack'.
+     *  Return the card and the stack (or the id's of them) as a new 'CardAndStack'.
      *  This will only move the returned card to the destination
      *
      *  If you have a phase two movement, override it. else it returns null by default

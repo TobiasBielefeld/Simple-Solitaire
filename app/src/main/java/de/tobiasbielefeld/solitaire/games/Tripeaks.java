@@ -28,7 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  *  Tripeaks is nearly the same as Golf, but with a different field layout
  */
 
@@ -46,7 +46,7 @@ public class Tripeaks extends Game {
         setLastTableauID(27);
         setFirstDiscardStackID(28);
         setFirstMainStackID(29);
-        setDirections(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+        setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

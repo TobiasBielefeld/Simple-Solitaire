@@ -32,7 +32,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class AfterWonHandler extends Handler {
 
     GameManager gm;
-    int phase = 1;
+    int phase = 2;
 
     public AfterWonHandler(GameManager gm) {
         this.gm = gm;
@@ -44,13 +44,12 @@ public class AfterWonHandler extends Handler {
         if (animate.cardIsAnimating())
             animate.afterWonHandler.sendEmptyMessageDelayed(0, 100);
         else {
-            if (phase == 1) {
-                animate.wonAnimationPhase1();
-
-                phase = 2;
+            if (phase == 2) {
+                animate.wonAnimationPhase2();
+                phase = 3;
                 animate.afterWonHandler.sendEmptyMessageDelayed(0, 100);
             } else {
-                phase = 1;
+                phase = 2;
                 gm.showRestartDialog();
             }
         }

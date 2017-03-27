@@ -43,7 +43,7 @@ public class Golf extends Game {
         setFirstMainStackID(8);
         setFirstDiscardStackID(7);
         setLastTableauID(6);
-        setDirections(new int[]{1, 1, 1, 1, 1, 1, 1, 3});
+        setDirections(1, 1, 1, 1, 1, 1, 1, 3);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

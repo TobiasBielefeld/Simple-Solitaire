@@ -27,8 +27,8 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
- *  Handles scoring. It has two functions which tests movements and update the score.
+/**
+ *  Handles scoring. It has two methods which tests movements and update the score.
  *  Also high scores are saved and updated
  */
 
@@ -44,6 +44,13 @@ public class Scores {
         this.gm = gm;
     }
 
+    /**
+     * Adds scores of the given movement to the scores.
+     * The origin of the cards is their current stack.
+     *
+     * @param card The card of the movement
+     * @param stack The destination of the movement
+     */
     public void move(Card card, Stack stack) {
         ArrayList<Card> cardArray = new ArrayList<>();
         cardArray.add(card);
@@ -53,6 +60,13 @@ public class Scores {
         move(cardArray, stackArray);
     }
 
+    /**
+     * Adds scores of the given movement to the scores.
+     * The origins of the cards are their current stacks
+     *
+     * @param cards The cards of the movement
+     * @param stacks The destinations of the movement
+     */
     public void move(ArrayList<Card> cards, ArrayList<Stack> stacks) {
         int[] originIDs = new int[cards.size()];
         int[] destinationIDs = new int[stacks.size()];
@@ -67,6 +81,13 @@ public class Scores {
         update(points);
     }
 
+    /**
+     * Reverts scores of the given movement from the scores.
+     * It uses the move() method, but destination and origin are changed and the result is negated.
+     *
+     * @param card The card of the movement
+     * @param stack The destination of the movement
+     */
     public void undo(Card card, Stack stack) {
         ArrayList<Card> cardArray = new ArrayList<>();
         cardArray.add(card);
@@ -76,12 +97,14 @@ public class Scores {
         undo(cardArray, stackArray);
     }
 
+    /**
+     * Reverts scores of the given movement from the scores.
+     * It uses the move() method, but destination and origin are changed and the result is negated.
+     *
+     * @param cards The cards of the movement
+     * @param stacks The destinations of the movement
+     */
     public void undo(ArrayList<Card> cards, ArrayList<Stack> stacks) {
-        /*
-         *  undo is the same as move, but the destinationIDs and originIDs are reversed and the
-         *  result is negated
-         */
-
         int[] originIDs = new int[cards.size()];
         int[] destinationIDs = new int[stacks.size()];
 
@@ -95,6 +118,11 @@ public class Scores {
         update(points);
     }
 
+    /**
+     * Updates the current score, but only if the game hasn't been won.
+     *
+     * @param points The points to add
+     */
     public void update(int points) {
         if (gameLogic.hasWon())
             return;
@@ -103,8 +131,11 @@ public class Scores {
         output();
     }
 
+    /**
+     * Adds a bonus to the score, used after a game has been won
+     */
     public void updateBonus() {
-        int bonus = max((int) (2 * score - (10 * timer.getCurrentTime() / 1000)), 0);
+        int bonus = max((int) (2 * score - (5 * timer.getCurrentTime() / 1000)), 0);
 
         update(bonus);
     }
@@ -113,6 +144,9 @@ public class Scores {
         putLong(SCORE, score);
     }
 
+    /**
+     * Save the high score list.
+     */
     private void saveHighScore() {
         ArrayList<Long> listScores = new ArrayList<>();
         ArrayList<Long> listTimes = new ArrayList<>();
@@ -129,12 +163,11 @@ public class Scores {
         putLongList(SAVED_SCORES + 2, listDates);
     }
 
+    /**
+     * Adds a new high score to the list. New score will be inserted at the last position
+     * and moved left until it is in the right position
+     */
     public void addNewHighScore() {
-        /*
-         * new score will be inserted at the last position
-         * and moved left until it is in the right position
-         */
-
         if (score < 0)
             return;
 
@@ -159,6 +192,9 @@ public class Scores {
         }
     }
 
+    /**
+     * Loads the saved high score list
+     */
     public void load() {
         score = getLong(SCORE, 0);
         output();
@@ -174,21 +210,30 @@ public class Scores {
         }
     }
 
+    /**
+     * Resets the current score and updates the shown number
+     */
     public void reset() {
         score = 0;
         output();
     }
 
+    /**
+     * Deletes the high scores by just creating a new empty array and save it
+     */
     public void deleteHighScores() {
-        /*
-         * delete the high scores by just creating a new empty array and save it
-         */
-
         savedScores = new long[MAX_SAVED_SCORES][3];
-
         saveHighScore();
     }
 
+    /**
+     * Gets the score
+     *
+     * @param i The index of the record
+     * @param j THe part of the record:
+     *          0 = score, 1 = time taken, 2 = date
+     * @return The requested value
+     */
     public long get(int i, int j) {
         //get the score/time from the array
         return savedScores[i][j];

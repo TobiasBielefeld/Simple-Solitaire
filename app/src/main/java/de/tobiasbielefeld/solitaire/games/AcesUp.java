@@ -28,7 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  *  Aces Up! Just 6 stacks and pretty easy rules
  */
 
@@ -40,7 +40,7 @@ public class AcesUp extends Game {
         setFirstMainStackID(5);
         setFirstDiscardStackID(4);
         setLastTableauID(3);
-        setDirections(new int[]{1, 1, 1, 1, 0, 0});
+        setDirections(1, 1, 1, 1, 0, 0);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
