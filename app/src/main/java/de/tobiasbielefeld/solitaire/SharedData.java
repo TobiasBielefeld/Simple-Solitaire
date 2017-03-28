@@ -69,9 +69,9 @@ public class SharedData {
     public static String CARD;
     public static String CARDS;
     public static String STACK;
-    public static String TIMER_CURRENT_TIME;
+    public static String TIMER_END_TIME;
     public static String TIMER_START_TIME;
-    public static String TIMER_SHOWN_TIME;
+    public static String TIMER_WINNING_TIME;
     public static String CARD_DRAWABLES;
     public static String CARD_BACKGROUND;
     public static String MENU_COLUMNS_PORTRAIT;
@@ -112,7 +112,8 @@ public class SharedData {
     public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
     public static String DEFAULT_ORIENTATION;
     public static int DEFAULT_CURRENT_GAME;
-    public static int DEFAULt_CARD_BACKGROUND;
+    public static int DEFAULT_CARD_BACKGROUND;
+    public static int DEFAULT_WINNING_TIME;
     public static boolean DEFAULT_PYRAMID_LIMITED_REDEALS;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
@@ -224,7 +225,8 @@ public class SharedData {
         DEFAULT_WON = res.getBoolean(R.bool.default_won);
         DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
         DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
-        DEFAULt_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
+        DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
+        DEFAULT_WINNING_TIME = res.getInteger(R.integer.default_winning_time);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];
@@ -253,9 +255,9 @@ public class SharedData {
         CARDS = res.getString(R.string.cards);
         STACK = res.getString(R.string.stack);
 
-        TIMER_CURRENT_TIME = res.getString(R.string.saved_current_time);
+        TIMER_END_TIME = res.getString(R.string.saved_current_time);
         TIMER_START_TIME = res.getString(R.string.saved_start_time);
-        TIMER_SHOWN_TIME = res.getString(R.string.saved_shown_time);
+        TIMER_WINNING_TIME = res.getString(R.string.saved_shown_time);
 
         CARD_DRAWABLES = res.getString(R.string.pref_key_card_drawables);
         CARD_BACKGROUND = res.getString(R.string.pref_key_card_background);

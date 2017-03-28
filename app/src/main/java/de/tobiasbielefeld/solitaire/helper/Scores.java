@@ -136,7 +136,6 @@ public class Scores {
      */
     public void updateBonus() {
         int bonus = max((int) (2 * score - (5 * timer.getCurrentTime() / 1000)), 0);
-
         update(bonus);
     }
 

@@ -88,7 +88,7 @@ public class Card {
      */
     public static void updateCardBackgroundChoice() {
 
-        int position = getSharedInt(CARD_BACKGROUND, DEFAULt_CARD_BACKGROUND) - 1;
+        int position = getSharedInt(CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND) - 1;
         background = bitmaps.getCardBack(position % 8, position / 8);
 
         if (cards != null) {

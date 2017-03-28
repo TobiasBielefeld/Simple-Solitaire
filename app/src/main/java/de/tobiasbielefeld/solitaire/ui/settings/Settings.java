@@ -28,7 +28,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -129,8 +128,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             setOrientation();
 
         } else if (key.equals(getString(R.string.pref_key_left_handed_mode))) {
-            if (gameLogic != null)
+            if (gameLogic != null) {
                 gameLogic.mirrorStacks();
+            }
 
         } else if (key.equals(getString(R.string.pref_key_klondike_draw))) {
             showToast(getString(R.string.settings_restart_klondike));
@@ -150,17 +150,26 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(getString(R.string.pref_key_language))) {
             setLocale();
 
-        } else if (key.equals(getString(R.string.pref_key_forty_eight_limited_redeals)) || key.equals(getString(R.string.pref_key_pyramid_limited_redeals))) {
-            if (currentGame instanceof FortyEight || currentGame instanceof Pyramid)
+        } else if (key.equals(getString(R.string.pref_key_forty_eight_limited_redeals))){
+            if (currentGame instanceof FortyEight) {
                 gameLogic.toggleNumberOfRedeals();
+            }
+
+        } else if(key.equals(getString(R.string.pref_key_pyramid_limited_redeals))) {
+            if (currentGame instanceof Pyramid) {
+                gameLogic.toggleNumberOfRedeals();
+            }
+
         } else if (key.equals(getString(R.string.pref_key_icon_theme))) {
-            if (gameLogic != null)
+            if (gameLogic != null) {
                 gameLogic.updateIcons();
+            }
 
         } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
             updatePreferenceMenuBarPositionSummary();
-            if (gameLogic != null)
+            if (gameLogic != null) {
                 gameLogic.updateMenuBar();
+            }
 
         } else if (key.equals(getString(R.string.pref_key_4_color_mode))) {
             Card.updateCardDrawableChoice();
@@ -174,7 +183,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      */
     private void updatePreferenceCardsBackgroundSummary() {
         Bitmap cardBack;
-        int selectedBackground = getSharedInt(CARD_BACKGROUND, DEFAULt_CARD_BACKGROUND);
+        int selectedBackground = getSharedInt(CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
         preferenceCardsBackground.setSummary(String.format(Locale.getDefault(), "%s %s",
                 getString(R.string.settings_background), selectedBackground));
 

@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.handler;
 
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 
 import java.util.Locale;
 
@@ -43,6 +44,8 @@ public class TimerHandler extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
+        //is always called at least once a game started, because this gets executed before the
+        //won variable in gameLogic was loaded
         if (timer.isRunning() && !gameLogic.hasWon()) {
             timer.setCurrentTime((System.currentTimeMillis() - timer.getStartTime()) / 1000);
             timer.timerHandler.sendEmptyMessageDelayed(0, 1000);

@@ -114,8 +114,8 @@ public class GameLogic {
 
                 scores.load();
                 recordList.load();
-                timer.setCurrentTime(getLong(TIMER_CURRENT_TIME, 0));
-                //timer will be loaded in onResume()
+                timer.setCurrentTime(getLong(TIMER_END_TIME, 0));
+                //timer will be loaded in onResume() of the game manager
                 for (Stack stack : stacks)
                     stack.load();
 
@@ -183,14 +183,14 @@ public class GameLogic {
      */
     public void testIfWon() {
         if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
-            won = true;
             numberWonGames++;
-
             scores.updateBonus();
             scores.addNewHighScore();
             recordList.reset();
             autoComplete.hideButton();
             animate.winAnimation();
+            timer.setWinningTime();
+            won = true;
         }
     }
 
@@ -241,7 +241,7 @@ public class GameLogic {
     }
 
     /**
-     * toggle the redeal counter: From enabled to disabled and vice versa. When enabeld, the location
+     * toggle the redeal counter: From enabled to disabled and vice versa. When enabled, the location
      * is also updated.
      */
     public void toggleNumberOfRedeals() {
@@ -252,11 +252,9 @@ public class GameLogic {
         currentGame.toggleRedeals();
 
         if (currentGame.hasLimitedRedeals()) {
-
             gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
             gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
             gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
-
         } else {
             gm.mainTextViewRedeals.setVisibility(View.GONE);
         }
