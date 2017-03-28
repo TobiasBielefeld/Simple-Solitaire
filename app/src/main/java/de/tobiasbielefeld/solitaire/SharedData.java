@@ -21,7 +21,6 @@ package de.tobiasbielefeld.solitaire;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -124,6 +123,7 @@ public class SharedData {
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
     public static boolean DEFAULT_4_COLOR_MODE;
+
     public static Card[] cards;
     public static Stack[] stacks;
     public static RecordList recordList;
@@ -147,7 +147,13 @@ public class SharedData {
     public static int NUMBER_OF_CARD_BACKGROUNDS;
     public static int NUMBER_OF_CARD_THEMES;
 
-    //load the values from the xml files
+    /**
+     * Reload the needed data. Because if the android device runns out of memory, the app gets
+     * killed. If the user restarts the app and it loads  for example the settings activity, all
+     * the strings and the shared preferences need to be reinitialized.
+     *
+     * @param context Used to get the resources
+     */
     public static void reinitializeData(Context context){
         //Strings
         if (GAME==null) {
@@ -169,6 +175,12 @@ public class SharedData {
         }
     }
 
+    /**
+     * Load the static strings, so i can use them in every file instead of writing the string itself,
+     * which would be susceptible for errors. TODO manage this in a better way.
+     *
+     * @param res Used to load the strings
+     */
     public static void loadStrings(Resources res) {
         GAME = res.getString(R.string.game);
 
@@ -254,18 +266,24 @@ public class SharedData {
         NUMBER_OF_CARD_THEMES = res.getInteger(R.integer.number_of_card_themes);
     }
 
-    /*
-     * a lot of overloaded versions for moveToStack(), because it can be called with one card, card
-     * array, destination stack, destination stack array, option, no option and a combination
-     * of everything
-     *
-     * But everyone uses the "main" version of moveToStack(), the last method
-     */
 
+    /**
+     * Moves a card to a stack.
+     *
+     * @param card The card to move
+     * @param destination The destination of the movement
+     */
     public static void moveToStack(Card card, Stack destination) {
         moveToStack(card, destination, 0);
     }
 
+    /**
+     * Moves a card to a stack. but with an additional option
+     *
+     * @param card The card to move
+     * @param destination The destination of the movement
+     * @param option The option to apply
+     */
     public static void moveToStack(Card card, Stack destination, int option) {
         ArrayList<Card> cards = new ArrayList<>();
         cards.add(card);
@@ -276,10 +294,23 @@ public class SharedData {
         moveToStack(cards, destinations, option);
     }
 
+    /**
+     * Moves multiple cards to a destination
+     *
+     * @param cards The cards to move
+     * @param destination The destination of the movement
+     */
     public static void moveToStack(ArrayList<Card> cards, Stack destination) {
         moveToStack(cards, destination, 0);
     }
 
+    /**
+     * Moves multiple cards to a destination, with an additional option
+     *
+     * @param cards The cards to move
+     * @param destination The destination of the movement
+     * @param option The option to apply
+     */
     public static void moveToStack(ArrayList<Card> cards, Stack destination, int option) {
         ArrayList<Stack> destinations = new ArrayList<>();
 
@@ -293,15 +324,21 @@ public class SharedData {
         moveToStack(cards, destinations, 0);
     }
 
+     /**
+      * Moves multiple cards to multiple destinations, with an additional option
+      *
+      * moves a card to a stack by doing this:
+      * - change the score according to the cards
+      * - add the cards to the record list
+      * - move every card one by one
+      * - bring the moving cards to front
+      * - and start handlers to call some methods
+      *
+      * @param cards The cards to move
+      * @param destinations The destinations of the movements
+      * @param option The option to apply
+      */
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
-        /*
-         * moves a card to a stack by doing this:
-         * - change the score according to the cards
-         * - add the cards to the record list
-         * - move every card one by one
-         * - bring the moving cards to front
-         * - and start handlers to call some methods
-         */
 
         if (option == OPTION_UNDO)
             scores.undo(cards, destinations);
@@ -332,23 +369,22 @@ public class SharedData {
             card.view.bringToFront();
         }
 
-        /*
-         * following stuff in handlers, because they should wait until possible card
-         * movements are over.
-         */
+        //following stuff in handlers, because they should wait until possible card movements are over.
         if (option == 0) {
             testAfterMoveHandler.sendEmptyMessageDelayed(0, 100);
             testIfWonHandler.sendEmptyMessageDelayed(0, 200);
         }
     }
 
-    /*
-     * some getters and setters for saving and loading stuff in the games.
-     * "savedGameData" is a different sharedPreference for every game
+    /**
+     * Saves data for games individually
+     * Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     * @param list The integer list to save
      */
-
     public static void putIntList(String name, List<Integer> list) {
-        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+
         String s = "";
         for (int i : list) {
             s += i + ",";
@@ -356,8 +392,13 @@ public class SharedData {
         savedGameData.edit().putString(name, s).apply();
     }
 
+    /**
+     * Gets data for games individually
+     * Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     */
     public static ArrayList<Integer> getIntList(String name) {
-        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
         String s = savedGameData.getString(name, "");
         StringTokenizer st = new StringTokenizer(s, ",");
         ArrayList<Integer> result = new ArrayList<>();
@@ -369,8 +410,14 @@ public class SharedData {
         return result;
     }
 
+    /**
+     * Saves data for games individually
+     * Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     * @param list The long list to save
+     */
     public static void putLongList(String name, List<Long> list) {
-        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
         String s = "";
         for (long i : list) {
             s += i + ",";
@@ -378,8 +425,13 @@ public class SharedData {
         savedGameData.edit().putString(name, s).apply();
     }
 
+    /**
+     * Gets data for games individually
+     * Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     */
     public static ArrayList<Long> getLongList(String name) {
-        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
         String s = savedGameData.getString(name, "");
         StringTokenizer st = new StringTokenizer(s, ",");
         ArrayList<Long> result = new ArrayList<>();
@@ -391,71 +443,135 @@ public class SharedData {
         return result;
     }
 
+    /**
+     * Gets data for games individually
+     *
+     * @param name The name in the shared pref
+     * @param defaultValue The default to apply, if not found
+     */
     public static Long getLong(String name, long defaultValue) {
         return savedGameData.getLong(name, defaultValue);
     }
 
+    /**
+     * Gets data for games individually
+     *
+     * @param name The name in the shared pref
+     * @param defaultValue The default to apply, if not found
+     */
     public static int getInt(String name, int defaultValue) {
         return savedGameData.getInt(name, defaultValue);
     }
 
+    /**
+     * Gets data for games individually
+     *
+     * @param name The name in the shared pref
+     * @param defaultValue The default to apply, if not found
+     */
     public static boolean getBoolean(String name, boolean defaultValue) {
         return savedGameData.getBoolean(name, defaultValue);
     }
 
+    /**
+     * Gets data for games individually
+     *
+     * @param name The name in the shared pref
+     * @param defaultValue The default to apply, if not found
+     */
     public static String getString(String name, String defaultValue) {
         return savedGameData.getString(name, defaultValue);
     }
 
+    /**
+     * Saves data for games individually
+     *
+     * @param name The name in the shared pref
+     * @param value The value to save
+     */
     public static void putLong(String name, long value) {
         savedGameData.edit().putLong(name, value).apply();
     }
 
+    /**
+     * Saves data for games individually
+     *
+     * @param name The name in the shared pref
+     * @param value The value to save
+     */
     public static void putInt(String name, int value) {
         savedGameData.edit().putInt(name, value).apply();
     }
 
+    /**
+     * Saves data for games individually
+     *
+     * @param name The name in the shared pref
+     * @param value The value to save
+     */
     public static void putBoolean(String name, boolean value) {
         savedGameData.edit().putBoolean(name, value).apply();
     }
 
-    public static void putString(String name, String value) {
-        savedGameData.edit().putString(name, value).apply();
-    }
-
-    /*
-     * getters and setters for shared settings, which are used in every game
-     * like the orientation setting
+    /**
+     * Gets data for shared data (same for every game)
+     *
+     * @param name The name in the shared pref
+     * @param defaultValue The default to apply, if not found
      */
-
     public static int getSharedInt(String name, int defaultValue) {
         return savedSharedData.getInt(name, defaultValue);
     }
 
-    //test if saved value equals the default value
-    public static boolean sharedStringEquals(String name, String defaultValue) {
-        return savedSharedData.getString(name, defaultValue).equals(defaultValue);
-    }
-
+    /**
+     * Gets data for shared data (same for every game)
+     *
+     * @param name The name in the shared pref
+     * @param defaultValue The default to apply, if not found
+     */
     public static String getSharedString(String name, String defaultValue) {
         return savedSharedData.getString(name, defaultValue);
     }
 
+    /**
+     * Gets data for shared data (same for every game)
+     *
+     * @param name The name in the shared pref
+     * @param defaultValue The default to apply, if not found
+     */
     public static boolean getSharedBoolean(String name, boolean defaultValue) {
         return savedSharedData.getBoolean(name, defaultValue);
     }
 
+    /**
+     * Saves shared data (same for every game)
+     *
+     * @param name The name in the shared pref
+     * @param value The value to save
+     */
     public static void putSharedInt(String name, int value) {
         savedSharedData.edit().putInt(name, value).apply();
     }
 
+    /**
+     * Saves shared data (same for every game)
+     *
+     * @param name The name in the shared pref
+     * @param value The value to save
+     */
     public static void putSharedString(String name, String value) {
         savedSharedData.edit().putString(name, value).apply();
     }
 
-
+    /**
+     * Saves shared data (same for every game)
+     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     * @param list The default tos ave
+     */
     public static void putSharedIntList(String name, List<Integer> list) {
-        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+        //
         String s = "";
         for (int i : list) {
             s += i + ",";
@@ -463,8 +579,13 @@ public class SharedData {
         savedSharedData.edit().putString(name, s).apply();
     }
 
+    /**
+     * Gets shared data (same for every game)
+     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     */
     public static ArrayList<Integer> getSharedIntList(String name) {
-        //thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
         String s = savedSharedData.getString(name, "");
         StringTokenizer st = new StringTokenizer(s, ",");
         ArrayList<Integer> result = new ArrayList<>();
@@ -476,12 +597,23 @@ public class SharedData {
         return result;
     }
 
-    /*
-     *  Some methods I use in a lot of different files
+    /**
+     * Little method I use to test if my code reaches some point
+     * @param text The text to show
      */
-
     public static void logText(String text) {
         Log.e("hey", text);
+    }
+
+    /**
+     * Tests if the saved value equals the given default value
+     *
+     * @param name The name of the key
+     * @param defaultValue The default value of it
+     * @return True if the current value saved is the default value
+     */
+    public static boolean sharedStringEquals(String name, String defaultValue) {
+        return savedSharedData.getString(name, defaultValue).equals(defaultValue);
     }
 
     public static int min(int value1, int value2) {
@@ -499,4 +631,7 @@ public class SharedData {
     public static float max(float value1, float value2) {
         return value1 > value2 ? value1 : value2;
     }
+
+
+
 }

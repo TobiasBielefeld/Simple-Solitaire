@@ -5,18 +5,15 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
-        vectorDrawables.useSupportLibrary = true
-
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
         applicationId "de.tobiasbielefeld.solitaire"
         minSdkVersion 11
         targetSdkVersion 25
-        versionCode 37
+        versionCode 38
         versionName "3.4"
     }
     buildTypes {
         release {
-            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

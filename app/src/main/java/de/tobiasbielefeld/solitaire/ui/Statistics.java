@@ -48,6 +48,9 @@ public class Statistics extends CustomAppCompatActivity {
     private Toast toast;
 
 
+    /**
+     * Loads the high score list
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,12 +119,26 @@ public class Statistics extends CustomAppCompatActivity {
         }
     }
 
+    /**
+     * loads the other shown data
+     */
     private void loadData() {
         int wonGames = gameLogic.getNumberWonGames();
         int totalGames = gameLogic.getNumberOfPlayedGames();
 
         textWonGames.setText(String.format(Locale.getDefault(), getString(R.string.statistics_text_won_games), wonGames, totalGames));
         textWinPercentage.setText(String.format(Locale.getDefault(), getString(R.string.statistics_win_percentage), totalGames > 0 ? ((float) wonGames * 100 / totalGames) : 0.0));
+    }
+
+    /**
+     * deletes the data, reloads it and hides the high score list (easier way to "delete" it)
+     */
+    public void deleteHighScores() {
+        scores.deleteHighScores();
+        gameLogic.deleteStatistics();
+        loadData();
+        tableLayout.setVisibility(GONE);
+        showToast(getString(R.string.statistics_button_deleted_all_entries));
     }
 
     @Override
@@ -143,14 +160,6 @@ public class Statistics extends CustomAppCompatActivity {
         }
 
         return true;
-    }
-
-    public void deleteHighScores() {
-        scores.deleteHighScores();
-        gameLogic.deleteStatistics();
-        loadData();
-        tableLayout.setVisibility(GONE);
-        showToast(getString(R.string.statistics_button_deleted_all_entries));
     }
 
     private void showToast(String text) {

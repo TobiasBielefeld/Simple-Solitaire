@@ -64,17 +64,24 @@ import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.NONE;
 
 public class GameManager extends CustomAppCompatActivity implements View.OnTouchListener {
 
-    public static int loadCounter = 0;                                                                //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
+    public static int loadCounter = 0;                                                              //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
     public boolean hasLoaded = false;                                                               //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRedeals;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
     public Toast toast;                                                                             //a delicious toast!
-    public long doubleTapSpeed = 500;      //time delta between two taps in miliseconds
-    public Stack tappedStack = null;
-    public long firstTapTime;              //stores the time of first tapping on a card
+    public long doubleTapSpeed = 500;                                                               //time delta between two taps in milliseconds
+    public Stack tappedStack = null;                                                                //the stack which is tapped for double tap movement
+    public long firstTapTime;                                                                       //stores the time of first tapping on a card
 
 
+    /**
+     * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
+     * Some of them need references to this activity to update ui things. After that, the card and
+     * stack array will be initialized. Then the layout of the stacks will be set, but the layout
+     * of the relativeLayout of the game needs to be loaded first, so everything of the loading
+     * happens in the layout.post() method.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -190,7 +197,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     }
                 }
 
-                //load the game
+                //load the game, to prevent multiple loadings, check the counter first. Load the game
+                //only if its the last attempt to load
                 loadCounter--;
                 if (loadCounter < 1) {
                     scores.load();
@@ -219,6 +227,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         loadBackgroundColor();
     }
 
+    /**
+     * Handles key presses. The game shouldn't close when the back button is clicked, so show
+     * the restart dialog instead.
+     */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -231,11 +243,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * Is the main input handler. Tracks the input position and moves cards according to that.
+     *
+     * @param v The touched view (cards and stacks)
+     * @param event What happened to it
+     * @return  True if successful, false otherwise
+     */
     public boolean onTouch(View v, MotionEvent event) {
-        /*
-         * handle input like touching cards and stacks and moving cards around
-         */
-
         //if something important happens don't accept input
         if (stopConditions())
             return true;
@@ -248,21 +263,25 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             return true;
         }
 
+        //position of the event on the screen
         float X = event.getX() + v.getX(), Y = event.getY() + v.getY();
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            //if the main stack got touched
             if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
-
+                //test if the redeal counter needs to be updated
                 if (currentGame.hasLimitedRedeals() && currentGame.getDealStack().isEmpty()) {
-                    if (currentGame.getRemainingNumberOfRedeals() == 0)
+                    if (currentGame.getRemainingNumberOfRedeals() == 0) {
                         return true;
-                    else
+                    }
+                    else {
                         currentGame.incrementRedealCounter(this);
+                    }
                 }
-
+                //do what the game wants to be done on a main stack press
                 currentGame.onMainStackTouch();
-            } else if (cards[v.getId()].isUp()) {//&& currentGame.addCardToMovementTest(cards[v.getId()])) {
-
+            } else if (cards[v.getId()].isUp()) {
+                //double tap stuff
                 if (getSharedBoolean(getString(R.string.pref_key_double_tap_enable), DEFAULT_DOUBLE_TAP_ENABLE)) {
                     if (tappedStack != null && tappedStack == cards[v.getId()].getStack() && System.currentTimeMillis() - firstTapTime < doubleTapSpeed) {
 
@@ -280,8 +299,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                             tappedStack = null;
                             return true;
                         }
-
-
                     } else {
                         tappedStack = cards[v.getId()].getStack();
                         firstTapTime = System.currentTimeMillis();
@@ -311,11 +328,16 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
 
+    /**
+     * Use the rectangles of the card and the stacks to determinate if they intersect. If so,
+     * calculate the amount of intersection. Return the stack with the highest intersection rate.
+     *
+     * It takes one card and tests every stack
+     *
+     * @param card The card to test
+     * @return The stack with the highest intersection
+     */
     private Stack getIntersectingStack(Card card) {
-        /*
-         * Use the rectangles of the card and the stacks to determinate if they intersect. If so,
-         * calculate the amount of intersection. Return the stack with the highest intersection rate.
-         */
 
         RectF cardRect = new RectF(card.view.getX(), card.view.getY(), card.view.getX() + card.view.getWidth(), card.view.getY() + card.view.getHeight());
 
@@ -346,6 +368,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         return returnStack;
     }
 
+    /**
+     * Handle the menu clicks.
+     *
+     * @param view The menu button which was clicked
+     */
     public void menuClick(View view) {
         //if something important happens don't accept input
         if (stopConditions())
@@ -356,27 +383,30 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             movingCards.returnToPos();
 
         switch (view.getId()) {
-            case R.id.mainButtonScores:
-                startActivity(new Intent(getApplicationContext(), Statistics.class));               //open high scores activity
+            case R.id.mainButtonScores:         //open high scores activity
+                startActivity(new Intent(getApplicationContext(), Statistics.class));
                 break;
-            case R.id.mainButtonUndo:
-                recordList.undo();                                                                  //undo last movement
+            case R.id.mainButtonUndo:           //undo last movement
+                recordList.undo();
                 break;
-            case R.id.mainButtonHint:
-                hint.showHint();                                                                    //show a hint
+            case R.id.mainButtonHint:           //show a hint
+                hint.showHint();
                 break;
-            case R.id.mainButtonRestart:                                                            //show restart dialog
+            case R.id.mainButtonRestart:        //show restart dialog
                 showRestartDialog();
                 break;
-            case R.id.mainButtonSettings:                                                           //open Settings activity
+            case R.id.mainButtonSettings:       //open Settings activity
                 startActivity(new Intent(getApplicationContext(), Settings.class));
                 break;
-            case R.id.buttonMainAutoComplete:
-                autoComplete.start();                                                               //start auto complete
+            case R.id.buttonMainAutoComplete:   //start auto complete
+                autoComplete.start();
                 break;
         }
     }
 
+    /**
+     * Loads the background color, loaded in onResume().
+     */
     private void loadBackgroundColor() {
         RelativeLayout layout_background = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
 
@@ -404,6 +434,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
+    /**
+     * Tests if movements shouldn't be allowed. For example. If a hint is currently shown, don't
+     * accept input, or otherwise something will go wrong
+     *
+     * @return True if no movement is allowed, false otherwise
+     */
     private boolean stopConditions() {
         /*
          *  returns if the player should't be able to do actions (while animating for example)
@@ -411,6 +447,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking());
     }
 
+    /**
+     * Shows a text as a toast, on ui thread, because some of my static helper stuff use this too.
+     *
+     * @param text The text to show
+     */
     public void showToast(final String text) {
         final GameManager gm = this;
         runOnUiThread(new Runnable() {
@@ -426,15 +467,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     }
 
-    public void updateNumberOfRedeals() {
-        mainTextViewRedeals.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRedeals()));
-    }
 
-    public void showRestartDialog() {
-        RestartDialog restartDialog = new RestartDialog();
-        restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
-    }
 
+    /**
+     * Updates the menu icon according to the user settings
+     */
     public void updateIcons() {
         ImageView scores, hint, menu, undo, settings;
 
@@ -463,6 +500,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     }
 
+    /**
+     * Updates the menu bar position according to the user settings
+     */
     public void updateMenuBar() {
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
@@ -499,5 +539,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         menu.setLayoutParams(params1);
         gameWindow.setLayoutParams(params2);
         gameOverlay.setLayoutParams(params2);
+    }
+
+    public void updateNumberOfRedeals() {
+        mainTextViewRedeals.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRedeals()));
+    }
+
+    public void showRestartDialog() {
+        RestartDialog restartDialog = new RestartDialog();
+        restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
     }
 }

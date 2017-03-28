@@ -48,11 +48,11 @@ public class GameSelector extends CustomAppCompatActivity {
     ArrayList<LinearLayout> gameLayouts;
     TableLayout tableLayout;
 
+     /**
+      * initialize stuff and if the corresponding setting is set to true, load the last played game
+      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*
-         * initialize stuff and if the corresponding setting is set to true, load the last played game
-         */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_selector_main);
 
@@ -66,7 +66,7 @@ public class GameSelector extends CustomAppCompatActivity {
 
             try {
                 savedGame = getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
-            } catch (Exception e) {
+            } catch (Exception e) { //old version of saving the game
                 savedSharedData.edit().remove(PREF_KEY_CURRENT_GAME).apply();
                 savedGame = 0;
             }
@@ -81,6 +81,10 @@ public class GameSelector extends CustomAppCompatActivity {
         }
     }
 
+     /**
+      * load the game list of the menu. First clear everything and then add each game, if they aren't
+      * set to be hidden. Add the end, add some dummies, so the last row doesn't have less entries.
+      */
     private void loadGameList() {
         ArrayList<Integer> result;
 
@@ -106,7 +110,7 @@ public class GameSelector extends CustomAppCompatActivity {
         }
 
         //add games to list for older versions of the app
-        if (result.size() == 12) {                                                                     //new canfield
+        if (result.size() == 12) { //new canfield game
             result.add(1, 1);
         }
 
@@ -137,29 +141,25 @@ public class GameSelector extends CustomAppCompatActivity {
         }
     }
 
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        //if the player returns from a game to the main menu, save it.
-        putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
-    }
-
+     /**
+      * load a game when clicking a button. This activity puts the view id in the intent, so the
+      * game manager can check which game was clicked
+      */
     public void onClick(View view) {
-        /*
-         *  load a game when clicking a button
-         */
+
         //avoid loading two games at once when pressing two buttons at once
         if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0)
             return;
 
-        //prepare the sharedPreferences and start the GameManager with the game name as a intent
         putSharedInt(PREF_KEY_CURRENT_GAME, view.getId());
         Intent intent = new Intent(getApplicationContext(), GameManager.class);
         intent.putExtra(GAME, view.getId());
-        startActivityForResult(intent, 0);//*/
+        startActivityForResult(intent, 0);
     }
 
+     /**
+      * Handles clicks of the menu bar at the bottom
+      */
     public void onClick2(View view) {
         if (view.getId() == R.id.buttonStartSettings)
             startActivity(new Intent(getApplicationContext(), Settings.class));
@@ -167,12 +167,9 @@ public class GameSelector extends CustomAppCompatActivity {
             startActivity(new Intent(getApplicationContext(), Manual.class));
     }
 
-    public void onResume() {
-        super.onResume();
-        loadGameList();
-        updateIcons();
-    }
-
+     /**
+      * Updates the menu icon according to the user settings
+      */
     public void updateIcons() {
         ImageView manual, settings;
 
@@ -189,6 +186,18 @@ public class GameSelector extends CustomAppCompatActivity {
                 settings.setImageResource(R.drawable.icon_old_settings);
                 break;
         }
-
     }
+
+     @Override
+     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+         super.onActivityResult(requestCode, resultCode, data);
+         //if the player returns from a game to the main menu, save it.
+         putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
+     }
+
+     public void onResume() {
+         super.onResume();
+         loadGameList();
+         updateIcons();
+     }
 }

@@ -53,12 +53,16 @@ public class LoadGame {
     private String gameName;
     private String sharedPrefName;
 
+    /**
+     * load the game class and set the shown name and the name used for the sharedPref of the
+     * current game. These names can be the same, but i used different ones and i don't want
+     * to loose the saved data, if I changed that.
+     *
+     * @param activity The activity to get the strings from the xml file
+     * @param buttonID The pressed button
+     */
+
     public Game loadClass(Activity activity, int buttonID) {
-        /*
-         * load the game class and set the shown name and the name used for the sharedPref of the
-         * current game. These names can be the same, but i used different ones and i don't want
-         * to loose the saved data, if i changed that.
-         */
 
         Game game;
 
@@ -70,6 +74,7 @@ public class LoadGame {
                 gameName = activity.getString(R.string.games_acesup);
                 game = new AcesUp();
                 break;
+                //fall through
             case R.id.buttonStartCanfield:
                 sharedPrefName = "Canfield";
                 gameName = activity.getString(R.string.games_canfield);
@@ -135,6 +140,12 @@ public class LoadGame {
         return game;
     }
 
+    /**
+     * Loads the game list for the game selector.
+     *
+     * @param activity Activity to get the id's
+     * @return An array list with each layout
+     */
     public ArrayList<LinearLayout> loadLayouts(Activity activity) {
         ArrayList<LinearLayout> layouts = new ArrayList<>();
 
@@ -156,12 +167,13 @@ public class LoadGame {
         return layouts;
     }
 
+    /**
+     * Loads the buttons for the manual and applies the onClickListener.
+     *
+     * @param view The view, where to search the buttons
+     * @param listener The listener to apply
+     */
     public void loadManualButtons(View view, View.OnClickListener listener) {
-
-        /*
-         *  Load Buttons for the manual and sets the click listener
-         */
-
         ArrayList<Button> gameButtons = new ArrayList<>();
 
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_acesup));
@@ -183,6 +195,12 @@ public class LoadGame {
         }
     }
 
+    /**
+     * Loads the game list for the Show/Hide games preference.
+     *
+     * @param view The view, where to search the layouts
+     * @return The array list of the entries
+     */
     public ArrayList<LinearLayout> loadMenuPreferenceViews(View view) {
         ArrayList<LinearLayout> linearLayouts = new ArrayList<>();
 
@@ -203,6 +221,12 @@ public class LoadGame {
         return linearLayouts;
     }
 
+    /**
+     * Loads the game list for the Show/Hide games preference, but only the checkboxes.
+     *
+     * @param view The view, where to search the layouts
+     * @return The array list of the checkboxes
+     */
     public ArrayList<CheckBox> loadMenuPreferenceCheckBoxes(View view) {
         ArrayList<CheckBox> checkBoxes = new ArrayList<>();
 
@@ -223,13 +247,14 @@ public class LoadGame {
         return checkBoxes;
     }
 
+    /**
+     * returns the prefix of the manual entries for the games. The strings have the following structure:
+     * manual_<game name>_rules , manual_<game name>_points and so on.
+     *
+     * @param id The clicked manual entry
+     * @return The prefix for the strings
+     */
     public String manualClick(int id) {
-
-        /*
-         * returns the prefix of the manual entries for the games. The strings have the following structure:
-         * manual_<game name>_rules , manual_<game name>_points and so on.
-         */
-
         switch (id) {
             default:
                 Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");
