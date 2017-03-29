@@ -44,6 +44,7 @@ public class Golf extends Game {
         setFirstDiscardStackID(7);
         setLastTableauID(6);
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
+        setSingleTapeEnabled(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

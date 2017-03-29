@@ -47,6 +47,7 @@ public class Tripeaks extends Game {
         setFirstDiscardStackID(28);
         setFirstMainStackID(29);
         setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        setSingleTapeEnabled(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

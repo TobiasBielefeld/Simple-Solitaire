@@ -41,7 +41,7 @@ public class Stack {
     public static Bitmap backgroundDefault, backgroundTalon, background1, background2, background3, //bitmaps for the stack background images
             background4, background5, background6, background7, background8, background9, background10,
             background11, background12, background13, arrowLeft, arrowRight, backgroundTransparent;
-    public ImageView view;                                                                          //Background of the stack
+    public CustomImageView view;                                                                          //Background of the stack
     public ArrayList<Card> currentCards = new ArrayList<>();                                        //the array of cards on the stack
     private int id;                                                                                 //id: 0 to 6 tableau. 7 to 10 foundations. 11 and 12 discard and Main stack
     private float spacing;                                                                          //direction in which the cards on the stacks are ordered (top, down, left, right)

@@ -39,8 +39,33 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
     private boolean animating, moveAtEnd;
     private float destX, destY;
 
+    private boolean isCard, isStack;
+
+    public enum Object{
+        CARD, STACK
+    }
+
     public CustomImageView(Context context) {
         super(context);
+    }
+
+    /*
+     * Sets the necessery data to this object. The ontouchListener is set to all image Views, because
+     * the tap-to-select movement needs that.
+     */
+    public CustomImageView(Context context, OnTouchListener listener, Object object, int ID) {
+        super(context);
+
+        setOnTouchListener(listener);
+        setId(ID);
+
+        switch (object){
+            case CARD:
+                isCard = true;
+                break;
+            case STACK:
+                isStack = true;
+        }
     }
 
     @Override
@@ -84,5 +109,13 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
 
     public boolean isAnimating(){
         return animating;
+    }
+
+    public boolean belongsToCard(){
+        return isCard;
+    }
+
+    public boolean belongsToStack(){
+        return isStack;
     }
 }

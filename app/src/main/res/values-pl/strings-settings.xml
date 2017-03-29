@@ -48,12 +48,6 @@
     <string name="settings_show_manual_in_menu_description">Pokaż przycisk otwierający stronę dotyczącą gry w podręczniku</string>
     <string name="settings_change_language">Zmień język</string>
 
-    <string name="settings_double_tap">Podwójne stuknięcie</string>
-    <string name="settings_double_tap_description">Ustawienia ruchów dla podwójnego stuknięcia</string>
-    <string name="settings_double_tap_enable">Włącz ruchy przy podwójnym stuknięciu</string>
-    <string name="settings_double_tap_all_cards">Przenoś wszystkie możliwe karty</string>
-    <string name="settings_double_tap_all_cards_text">Przenoś jak najwięcej kart ze stosu, nie tylko dotykaną kartę</string>
-
     <string name="settings_forty_eight_limted_redeals">Limituj liczbę ponownych rozdań</string>
     <string name="settings_forty_eight_limted_redeals_text">Ponowne rozdanie jest dozwolone tylko jeden raz podczas gry, odznacz aby wyłączyć</string>
     <string name="settings_pyramid_limted_redeals">Limituj liczbę ponownych rozdań</string>
@@ -74,5 +68,22 @@
     <string name="settings_oxygen_dark">Oxygen Ciemne</string>
     <string name="settings_oxygen_light">Oxygen Lekki</string>
     <string name="settings_poker">Poker</string>
+
+    <string name="settings_additional_movements">Additional card movements</string>
+    <string name="settings_additional_movements_description">Enable and disable double-tap and other movement methods</string>
+
+    <string name="settings_double_tap">Podwójne stuknięcie</string>
+    <string name="settings_double_tap_enable">Włącz ruchy przy podwójnym stuknięciu</string>
+    <string name="settings_double_tap_enable_text">Press a card twice to move it to the next possible stack</string>
+    <string name="settings_double_tap_all_cards">Przenoś wszystkie możliwe karty</string>
+    <string name="settings_double_tap_all_cards_text">Przenoś jak najwięcej kart ze stosu, nie tylko dotykaną kartę</string>
+
+    <string name="settings_tap_to_select">Tap-To-Select</string>
+    <string name="settings_tap_to_select_enable">Enable Tap-To-Select movements</string>
+    <string name="settings_tap_to_select_enable_text">Tap on a card to select it, then tap the destination stack to move it there</string>
+
+    <string name="settings_single_tap">Single-Tap</string>
+    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
+    <string name="settings_single_tap_enable_text">Only for Golf and Tripeaks: Press a card once to move it to the discard stack</string>
 
 </resources>

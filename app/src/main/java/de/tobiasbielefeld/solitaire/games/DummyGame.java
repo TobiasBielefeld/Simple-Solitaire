@@ -125,9 +125,6 @@ public class DummyGame extends Game {
         //from the settings
         if (!getSharedBoolean("your_pref_key_for_limited_redeals", false))
             toggleRedeals();
-
-        //this is used in Pyramid, to ignore empty tableau stacks in the MovingCards methods.
-        ignoreEmptyTableauStacks();
     }
 
     /*
@@ -507,17 +504,6 @@ public class DummyGame extends Game {
 
         return null;
     }
-
-    /*
-     * set OnTouchListener to some stacks. By default, it will use the main stack for the listener
-     * (so you can press on the empty stack). But for example Pyramid has two stacks which should be touchable:
-     * The main stack and the stack with the arrow, so set it using this method.
-     */
-    public void addOnTouchListener(View.OnTouchListener listener) {
-        super.addOnTouchListener(listener);                                                         //sets the main stack (in Pyramid it's the stack with the arrow, so the redeal counter will be shown there)
-        getDealStack().view.setOnTouchListener(listener);                                           //and the stack with the cards
-    }
-
 
     /*
      * save and load values, to save custom stuff. save will be called in every onPause().

@@ -48,12 +48,6 @@
     <string name="settings_show_manual_in_menu_description">Affiche un bouton pour ouvrir le manuel du jeu de carte en cours</string>
     <string name="settings_change_language">Changer la langue</string>
 
-    <string name="settings_double_tap">Double Tap</string>
-    <string name="settings_double_tap_description">Préférences sur les mouvements lorsque l\'on tappe deux fois rapidement</string>
-    <string name="settings_double_tap_enable">Activer le double tap</string>
-    <string name="settings_double_tap_all_cards">Déplacer toutes les cartes possibles</string>
-    <string name="settings_double_tap_all_cards_text">Déplacer autant de cartes que possible depuis une pile, pas seulement celle touchée</string>
-
     <string name="settings_forty_eight_limted_redeals">Limitation du nombre de donnes</string>
     <string name="settings_forty_eight_limted_redeals_text">Le retour des cartes de la défausse dans le talon est limité à une fois par partie, décochez pour désactiver</string>
     <string name="settings_pyramid_limted_redeals">Limitation du nombre de donnes</string>
@@ -66,12 +60,29 @@
     <string name="settings_menu_bar_position_left">Gauche</string>
     <string name="settings_menu_bar_position_right">Droite</string>
 
-    <!-- the following strings are translated using an online translator -->
+    <!-- the following values are translated using an online translator -->
     <string name="settings_yukon_rules">Placez les cartes sur…</string>
     <string name="settings_4_color_mode_title">4 ponts de couleurs</string>
     <string name="settings_4_color_mode_text">Changer les couleurs de Trèfle au vert et de Carreau au bleu</string>
     <string name="settings_oxygen_dark">Oxygen Sombre</string>
     <string name="settings_oxygen_light">Oxygen Lumière</string>
     <string name="settings_poker">Poker</string>
+
+    <string name="settings_additional_movements">Autres mouvements de carte</string>
+    <string name="settings_additional_movements_description">Activer et désactiver le double-tap et d\'autres méthodes de déplacement</string>
+
+    <string name="settings_double_tap">Double-Tap</string>
+    <string name="settings_double_tap_enable">Activer le double tap</string>
+    <string name="settings_double_tap_enable_text">Appuyez deux fois sur une carte pour la déplacer vers la pile possible suivante</string>
+    <string name="settings_double_tap_all_cards">Déplacer toutes les cartes possibles</string>
+    <string name="settings_double_tap_all_cards_text">Déplacer autant de cartes que possible depuis une pile, pas seulement celle touchée</string>
+
+    <string name="settings_tap_to_select">Appuyez pour sélectionner</string>
+    <string name="settings_tap_to_select_enable">>Activer le Appuyez pour sélectionner</string>
+    <string name="settings_tap_to_select_enable_text">Appuyez sur une carte pour la sélectionner, puis appuyez sur la pile de destination pour la déplacer</string>
+
+    <string name="settings_single_tap">Un seul clic</string>
+    <string name="settings_single_tap_enable">Activer le seul clic</string>
+    <string name="settings_single_tap_enable_text">Seulement pour Golf et Tripeaks: Appuyez une fois sur une carte pour la déplacer vers la pile de défausse</string>
 
 </resources>

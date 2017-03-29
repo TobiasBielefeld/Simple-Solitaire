@@ -306,7 +306,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 || OtherPreferenceFragment.class.getName().equals(fragmentName)
                 || GamesPreferenceFragment.class.getName().equals(fragmentName)
                 || MenuPreferenceFragment.class.getName().equals(fragmentName)
-                || DoubleTapPreferenceFragment.class.getName().equals(fragmentName);
+                || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName);
     }
 
     /**
@@ -448,12 +448,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
     }
 
-    public static class DoubleTapPreferenceFragment extends PreferenceFragment {
+    public static class AdditionalMovementsPreferenceFragment extends PreferenceFragment {
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_double_tap);
+            addPreferencesFromResource(R.xml.pref_movement_methods);
             setHasOptionsMenu(true);
         }
     }

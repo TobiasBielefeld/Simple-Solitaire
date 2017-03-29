@@ -50,13 +50,7 @@
     <string name="settings_show_manual_in_menu">Manual page in game menu</string>
     <string name="settings_show_manual_in_menu_description">Show an item to open the current game in the manual</string>
     <string name="settings_change_language">Change language</string>
-    <string name="settings_double_tap">Double Tap</string>
-    <string name="settings_double_tap_description">Preferences for double tap movements</string>
-    <string name="settings_double_tap_enable">Enable double tap movements</string>
-    <string name="settings_double_tap_all_cards">Move all possible cards</string>
-    <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
     <string name="settings_yukon_rules">Place cards on…</string>
-
     <string name="settings_forty_eight_limted_redeals">Limit number of Re-deals</string>
     <string name="settings_forty_eight_limted_redeals_text">Re-dealing is allowed only once a game, uncheck to deactivate</string>
     <string name="settings_pyramid_limted_redeals">Limit number of Re-deals</string>
@@ -69,6 +63,19 @@
     <string name="settings_menu_bar_position_right">Right</string>
     <string name="settings_4_color_mode_title">4 color decks</string>
     <string name="settings_4_color_mode_text">Change the colors from Clubs to green and from diamonds to blue</string>
+    <string name="settings_additional_movements">Additional card movements</string>
+    <string name="settings_additional_movements_description">Enable and disable double-tap and other movement methods</string>
+    <string name="settings_double_tap">Double-Tap</string>
+    <string name="settings_double_tap_enable">Enable double tap movements</string>
+    <string name="settings_double_tap_enable_text">Press a card twice to move it to the next possible stack</string>
+    <string name="settings_double_tap_all_cards">Move all possible cards</string>
+    <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
+    <string name="settings_tap_to_select">Tap-To-Select</string>
+    <string name="settings_tap_to_select_enable">Enable Tap-To-Select movements</string>
+    <string name="settings_tap_to_select_enable_text">Tap on a card to select it, then tap the destination stack to move it there</string>
+    <string name="settings_single_tap">Single-Tap</string>
+    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
+    <string name="settings_single_tap_enable_text">Only for Golf and Tripeaks: Press a card once to move it to the discard stack</string>
 
     <!-- Preference Keys -->
     <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
@@ -107,5 +114,8 @@
     <string name="pref_key_card_background" translatable="false">CardBackground</string>
     <string name="pref_key_card_drawables" translatable="false">CardDrawables</string>
     <string name="pref_key_4_color_mode" translatable="false">pref_key_4_color_mode</string>
+    <string name="pref_key_tap_to_select_enable" translatable="false">pref_key_tap_to_select_enable</string>
+    <string name="pref_key_tap_to_select_all_cards" translatable="false">pref_key_tap_to_select_all_cards</string>
+    <string name="pref_key_single_tap_enable" translatable="false">pref_key_single_tap_enable</string>
 
 </resources>

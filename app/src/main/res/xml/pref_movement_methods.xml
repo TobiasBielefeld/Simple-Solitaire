@@ -1,0 +1,38 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_double_tap">
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_key_double_tap_enable"
+        android:summary="@string/settings_double_tap_enable_text"
+        android:title="@string/settings_double_tap_enable" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:dependency="@string/pref_key_double_tap_enable"
+        android:key="@string/pref_key_double_tap_all_cards"
+        android:summary="@string/settings_double_tap_all_cards_text"
+        android:title="@string/settings_double_tap_all_cards" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/settings_tap_to_select">
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_key_tap_to_select_enable"
+        android:title="@string/settings_tap_to_select_enable"
+        android:summary="@string/settings_tap_to_select_enable_text"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_single_tap">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_single_tap_enable"
+            android:title="@string/settings_single_tap_enable"
+            android:summary="@string/settings_single_tap_enable_text"/>
+        </PreferenceCategory>
+
+
+</PreferenceScreen>

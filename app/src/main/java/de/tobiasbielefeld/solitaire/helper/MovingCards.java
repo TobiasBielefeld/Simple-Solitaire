@@ -69,11 +69,15 @@ public class MovingCards {
      * @param Y Y-coordinate of the destination
      */
     public void move(float X, float Y) {
-        if (moveStarted || didMoveStart(X,Y)) {
-            for (Card card : currentCards)
-                card.setLocationWithoutMovement(X - offsetX, (Y - offsetY)
-                        + currentCards.indexOf(card) * Stack.defaultSpacing / 2);
+        for (Card card : currentCards) {
+            card.setLocationWithoutMovement(X - offsetX, (Y - offsetY)
+                    + currentCards.indexOf(card) * Stack.defaultSpacing / 2);
         }
+
+    }
+
+    public boolean moveStarted(float X, float Y){
+        return moveStarted || didMoveStart(X,Y);
     }
 
     /**
@@ -81,7 +85,7 @@ public class MovingCards {
      *
      * @param X X-coordinate of the point
      * @param Y Y-coordinate of the point
-     * @return True if the raidius was left, false otherwise
+     * @return True if the area was left, false otherwise
      */
     private boolean didMoveStart(float X, float Y){
         if (abs(currentCards.get(0).view.getX() + offsetX-X)>Card.width/4 || abs(currentCards.get(0).view.getY() +offsetY-Y)>Card.height/4){

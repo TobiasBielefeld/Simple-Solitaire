@@ -50,12 +50,6 @@
     <string name="settings_show_manual_in_menu">Ohjesivu pelivalikossa</string>
     <string name="settings_show_manual_in_menu_description">Näytä painike jolla avata kyseisen pelin ohje</string>
     <string name="settings_change_language">Vaihda kieli</string>
-    <string name="settings_double_tap">Kaksoisnapautus</string>
-    <string name="settings_double_tap_description">Valinnat siirroille kaksoinapautuksella</string>
-    <string name="settings_double_tap_enable">Mahdollista siirrot kaksoisnapautuksella</string>
-    <string name="settings_double_tap_all_cards">Siirrä kaikki mahdolliset kortit</string>
-    <string name="settings_double_tap_all_cards_text">Siirrä niin monta korttia pinosta kuin mahdollista,
-        eikä ainoastaan korttia johon on koskettu</string>
     <string name="settings_yukon_rules">Aseta kortit…</string>
 
     <string name="settings_forty_eight_limted_redeals">Rajoita uudelleen jakojen määrää</string>
@@ -70,5 +64,24 @@
     <string name="settings_menu_bar_position_right">Oikealla</string>
     <string name="settings_4_color_mode_title">Neliväri pakat</string>
     <string name="settings_4_color_mode_text">Muuta ristit vihreiksi ja ruudut sinisiksi</string>
+
+    <!-- the following values are translated using an online translator -->
+    <string name="settings_additional_movements">Lisäkartat liikkeet</string>
+    <string name="settings_additional_movements_description">Sallia tai estää Kaksoisnapautus ja muita liikkeen menetelmiä</string>
+
+    <string name="settings_double_tap">Kaksoisnapautus</string>
+    <string name="settings_double_tap_enable">Mahdollista siirrot kaksoisnapautuksella</string>
+    <string name="settings_double_tap_enable_text">Paina kortti kahdesti siirtää sen seuraavaan mahdolliseen pinon</string>
+    <string name="settings_double_tap_all_cards">Siirrä kaikki mahdolliset kortit</string>
+    <string name="settings_double_tap_all_cards_text">Siirrä niin monta korttia pinosta kuin mahdollista,
+        eikä ainoastaan korttia johon on koskettu</string>
+
+    <string name="settings_tap_to_select">Klikkaa valintaa varten</string>
+    <string name="settings_tap_to_select_enable">Mahdollista siirrot liikkeitä</string>
+    <string name="settings_tap_to_select_enable_text">Kosketa kortin valitse se sitten napauttamalla määränpään pinon siirtää sen sinne</string>
+
+    <string name="settings_single_tap">Yhdellä kosketuksella</string>
+    <string name="settings_single_tap_enable">Mahdollista siirrot yhdellä kosketuksella</string>
+    <string name="settings_single_tap_enable_text">Vain Golf ja Tripeaks: Paina kortti kerran siirtää sen Hylkää pinoon</string>
 
 </resources>

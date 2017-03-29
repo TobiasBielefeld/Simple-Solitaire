@@ -36,6 +36,7 @@ import de.tobiasbielefeld.solitaire.handler.TestIfWonHandler;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
+import de.tobiasbielefeld.solitaire.helper.CardHighlight;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
@@ -99,6 +100,10 @@ public class SharedData {
     public static String PREF_KEY_LEFT_HANDED_MODE;
     public static String PREF_KEY_MENU_BAR_POS_PORTRAIT;
     public static String PREF_KEY_MENU_BAR_POS_LANDSCAPE;
+    public static String PREF_KEY_DOUBLE_TAP_ENABLED;
+    public static String PREF_KEY_DOUBLE_TAP_ALL_CARDS;
+    public static String PREF_KEY_TAP_TO_SELECT_ENABLED;
+    public static String PREF_KEY_SINGLE_TAP_ENABLE;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
@@ -124,6 +129,8 @@ public class SharedData {
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
     public static boolean DEFAULT_4_COLOR_MODE;
+    public static boolean DEFAULT_TAP_TO_SELECT_ENABLED;
+    public static boolean DEFAULT_SINGLE_TAP_ENABLED;
 
     public static Card[] cards;
     public static Stack[] stacks;
@@ -137,6 +144,7 @@ public class SharedData {
     public static Timer timer;
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
+    public static CardHighlight cardHighlight;
 
     public static SharedPreferences savedSharedData;
     public static SharedPreferences savedGameData;
@@ -205,6 +213,10 @@ public class SharedData {
         PREF_KEY_LEFT_HANDED_MODE =  res.getString(R.string.pref_key_left_handed_mode);
         PREF_KEY_MENU_BAR_POS_PORTRAIT = res.getString(R.string.pref_key_menu_bar_position_portrait);
         PREF_KEY_MENU_BAR_POS_LANDSCAPE = res.getString(R.string.pref_key_menu_bar_position_landscape);
+        PREF_KEY_DOUBLE_TAP_ENABLED = res.getString(R.string.pref_key_double_tap_enable);
+        PREF_KEY_DOUBLE_TAP_ALL_CARDS = res.getString(R.string.pref_key_double_tap_all_cards);
+        PREF_KEY_TAP_TO_SELECT_ENABLED = res.getString(R.string.pref_key_tap_to_select_enable);
+        PREF_KEY_SINGLE_TAP_ENABLE = res.getString(R.string.pref_key_single_tap_enable);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -216,6 +228,8 @@ public class SharedData {
         DEFAULT_PYRAMID_LIMITED_REDEALS = res.getBoolean(R.bool.default_pyramid_limited_redeals);
         DEFAULT_GOLF_CYCLIC = res.getBoolean(R.bool.default_golf_cyclic);
         DEFAULT_FORTY_EIGHT_LIMITED_REDEALS = res.getBoolean(R.bool.default_forty_eight_limited_redeals);
+        DEFAULT_TAP_TO_SELECT_ENABLED = res.getBoolean(R.bool.default_tap_to_select_enable);
+        DEFAULT_SINGLE_TAP_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);

@@ -47,13 +47,7 @@
     <string name="settings_show_manual_in_menu_description">マニュアルに現在のゲームを開くためのアイテムを表示します</string>
     <string name="settings_change_language">言語の変更</string>
 
-    <!-- following are translated with an online translator -->
-    <string name="settings_double_tap">ダブルタップ</string>
-    <string name="settings_double_tap_description">ダブルタップ移動の設定</string>
-    <string name="settings_double_tap_enable">ダブルタップ移動を有効にする</string>
-    <string name="settings_double_tap_all_cards">すべての可能なカードを移動する</string>
-    <string name="settings_double_tap_all_cards_text">スタックからできるだけ多くのカードを移動します。 タッチされたカードだけでなく</string>
-
+    <!-- following values are translated with an online translator -->
     <string name="settings_forty_eight_limted_redeals">再取引の数を制限する</string>
     <string name="settings_forty_eight_limted_redeals_text">再処理はゲームで1回だけ許可され、無効にするにはチェックを外す</string>
     <string name="settings_pyramid_limted_redeals">再取引の数を制限する</string>
@@ -66,7 +60,6 @@
     <string name="settings_menu_bar_position_left">左</string>
     <string name="settings_menu_bar_position_right">右</string>
 
-    <!-- the following strings are translated using an online translator -->
     <string name="settings_restart_yukon">変更を適用するために新しいユーコンゲームを開始します</string>
     <string name="settings_yukon_rules">カードを置く…</string>
     <string name="settings_4_color_mode_title">4色デッキ</string>
@@ -74,5 +67,22 @@
     <string name="settings_oxygen_dark">酸素ダーク</string>
     <string name="settings_oxygen_light">酸素ライト</string>
     <string name="settings_poker">ポーカー</string>
+
+    <string name="settings_additional_movements">追加カードの動き</string>
+    <string name="settings_additional_movements_description">ダブルタップなどの移動方法を有効または無効にする</string>
+
+    <string name="settings_double_tap">ダブルタップ</string>
+    <string name="settings_double_tap_enable">ダブルタップ移動を有効にする</string>
+    <string name="settings_double_tap_enable_text">カードを2回押すと、次のスタックに移動します</string>
+    <string name="settings_double_tap_all_cards">すべての可能なカードを移動する</string>
+    <string name="settings_double_tap_all_cards_text">スタックからできるだけ多くのカードを移動します。 タッチされたカードだけでなく</string>
+
+    <string name="settings_tap_to_select">タップ・ツー・セレクト</string>
+    <string name="settings_tap_to_select_enable">タップを有効にしてムーブメントを選択する</string>
+    <string name="settings_tap_to_select_enable_text">カードをタップして選択し、目的のスタックをタップして移動します</string>
+
+    <string name="settings_single_tap">シングルタップ</string>
+    <string name="settings_single_tap_enable">シングルタップムーブを有効にする</string>
+    <string name="settings_single_tap_enable_text">ゴルフとトリックのみ：カードを一度押して、それを廃棄スタックに移動する</string>
 
 </resources>

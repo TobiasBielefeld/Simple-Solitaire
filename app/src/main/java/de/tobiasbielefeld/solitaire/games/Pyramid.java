@@ -18,7 +18,6 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
-import android.view.View;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -49,7 +48,6 @@ public class Pyramid extends Game {
         setLastTableauID(27);
         setDealFromID(30);
         setDirections();                                                                              //empty so all stacks have no spacing direction
-        ignoreEmptyTableauStacks();
 
         setLimitedRedeals(2);
 
@@ -266,11 +264,6 @@ public class Pyramid extends Game {
 
             testIfWonHandler.sendEmptyMessageDelayed(0, 200);
         }
-    }
-
-    public void addOnTouchListener(View.OnTouchListener listener) {
-        super.addOnTouchListener(listener);
-        getDealStack().view.setOnTouchListener(listener);
     }
 
     private boolean stackIsFree(Stack stack) {

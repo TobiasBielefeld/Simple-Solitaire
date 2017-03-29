@@ -10,5 +10,7 @@
     <bool name="default_won">false</bool>
     <bool name="default_moved_first_card">false</bool>
     <bool name="default_4_color_mode">false</bool>
+    <bool name="default_tap_to_select_enable">true</bool>
+    <bool name="default_single_tap_enable">true</bool>
 </resources>
 
