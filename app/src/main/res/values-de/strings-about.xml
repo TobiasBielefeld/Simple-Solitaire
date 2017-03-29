@@ -16,14 +16,15 @@
     <string name="about_translations_esperanto_polish">Esperanto und Polnisch: Von GitHub Nutzer verdulo</string>
     <string name="about_translations_french">Französisch: Von GitHub Nutzer romainhk</string>
     <string name="about_translations_finnish">Finnisch: Von GitHub Nutzer winjar</string>
-
     <string name="about_material_icons_text">Die Material Design Symbole wurden von Google Inc erstellt
         und unter der <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 Lizenz</a> veröffentlicht</string>
-
-    <string name="about_poker_theme_license">Das Poker Kartenthema wurde auf <a href=" https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> unter der
-        <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPLv3 Lizenz</a> veröffentlicht</string>
     <string name="about_pixa_bay_license_text">Die anderen Kartenthemen und das alte Symbolthema wurden auf <a href="www.pixabay.com">pixabay.com</a> unter der
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 Lizenz</a> veröffentlicht</string>
     <string name="about_third_party_licenses">Drittanbieter Lizenzen</string>
+
+    <!-- i think this should stay like this, not fully translated -->
+    <string name="about_poker_theme">Poker Kartenthema: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
+        Copyright 2015 - Chris Aguilar - conjurenation@gmail.com -
+        Licensed under <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
 
 </resources>

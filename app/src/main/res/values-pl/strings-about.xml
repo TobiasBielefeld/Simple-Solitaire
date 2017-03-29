@@ -20,9 +20,11 @@
     <string name="about_translations_finnish">Fiński: użytkownik GitHuba winjar</string>
 
     <string name="about_material_icons_text">Ikony \'Material design\' autorstwa Google Inc i wydane na <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">licencji Apache 2.0</a></string>
-
-    <string name="about_poker_theme_license">Pokerowy styl kart oryginalnie opublikowany na <a href=" https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> na <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">licencji LGPLv3</a></string>
     <string name="about_pixa_bay_license_text">Inne tematy kart i stara skórka oryginalnie opublikowano na <a href="www.pixabay.com">pixabay.com</a> na <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.pl">licencji CC0</a></string>
     <string name="about_third_party_licenses">Licencje stron trzecich</string>
+
+    <!-- i think this should stay like this, not fully translated -->
+    <string name="about_poker_theme">Pokerowy styl kart: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
+        Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - Licensed under <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
 
 </resources>

@@ -147,7 +147,7 @@
             android:layout_marginTop="10dp"
             android:focusable="false"
             android:gravity="center"
-            android:text="@string/about_poker_theme_license"
+            android:text="@string/about_poker_theme"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
