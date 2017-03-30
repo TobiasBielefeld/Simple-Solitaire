@@ -70,7 +70,7 @@
     <string name="settings_poker">Poker</string>
 
     <string name="settings_additional_movements">Dodatkowe ruchy kart</string>
-    <string name="settings_additional_movements_description">Enable and disable double-tap and other movement methods</string>
+    <string name="settings_additional_movements_description">Włącza lub wyłącza podwójne stuknięcia i inne ruchy</string>
 
     <string name="settings_double_tap">Podwójne stuknięcie</string>
     <string name="settings_double_tap_enable">Włącz ruchy przy podwójnym stuknięciu</string>
