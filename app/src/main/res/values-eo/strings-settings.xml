@@ -65,25 +65,25 @@
     <string name="settings_4_color_mode_text">Kolorigi trefojn verde kaj karoojn blue</string>
 
     <!-- new values -->
-    <string name="settings_oxygen_dark">Oxygen Mallumaj</string>
-    <string name="settings_oxygen_light">Oxygen Lumo</string>
+    <string name="settings_oxygen_dark">Oxygen Malhela</string>
+    <string name="settings_oxygen_light">Oxygen Hela</string>
     <string name="settings_poker">Pokero</string>
 
-    <string name="settings_additional_movements">Additional card movements</string>
-    <string name="settings_additional_movements_description">Enable and disable double-tap and other movement methods</string>
+    <string name="settings_additional_movements">Ekstraj kart-movoj</string>
+    <string name="settings_additional_movements_description">Aktivigas aŭ malaktivigas eblon por movi per doubla frapeto kaj aliaj</string>
 
     <string name="settings_double_tap">Duobla frapeto</string>
     <string name="settings_double_tap_enable">Aktivigi agojn pri duoblaj frapetoj</string>
-    <string name="settings_double_tap_enable_text">Press a card twice to move it to the next possible stack</string>
+    <string name="settings_double_tap_enable_text">Duoble frapetu karton por movi ĝin sur la sekvan eblan stakon</string>
     <string name="settings_double_tap_all_cards">Movi ĉiujn eblajn kartojn</string>
     <string name="settings_double_tap_all_cards_text">Movas kiel eble plej kartojn de stako, ne nur tuŝatan karton</string>
 
-    <string name="settings_tap_to_select">Tap-To-Select</string>
-    <string name="settings_tap_to_select_enable">Enable Tap-To-Select movements</string>
-    <string name="settings_tap_to_select_enable_text">Tap on a card to select it, then tap the destination stack to move it there</string>
+    <string name="settings_tap_to_select">Elekti-per-frapeto</string>
+    <string name="settings_tap_to_select_enable">Aktivigi movojn elekti-per-frapeto</string>
+    <string name="settings_tap_to_select_enable_text">Frapetu karton por ĝin elekti, kaj sekve frapetu alcelan stakon por movi ĝin tien</string>
 
-    <string name="settings_single_tap">Single-Tap</string>
-    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
-    <string name="settings_single_tap_enable_text">Only for Golf and Tripeaks: Press a card once to move it to the discard stack</string>
+    <string name="settings_single_tap">Unuobla frapeto</string>
+    <string name="settings_single_tap_enable">Aktivigi agojn pri unuoblaj frapetoj</string>
+    <string name="settings_single_tap_enable_text">Nur por Golfo kaj TriPintoj: unuoble frapetu karton por movi ĝin sur forĵetan stakon</string>
 
 </resources>
