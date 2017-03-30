@@ -72,8 +72,8 @@
 
     <!-- New values -->
     <string-array name="pref_yukon_rules_titles">
-        <item>różne kolory (domyślnie)</item>
-        <item>ten sam kolor (ruski pasjans)</item>
+        <item>Różne kolory (domyślnie)</item>
+        <item>Ten sam kolor (ruski pasjans)</item>
     </string-array>
 
 </resources>
