@@ -58,7 +58,7 @@
         <item>Implicita</item>
         <item>Angla</item>
         <item>Esperanto</item>
-        <item>Finna</item>
+        <item>Suoma</item>
         <item>Franca</item>
         <item>Germana</item>
         <item>Japana</item>
@@ -72,8 +72,8 @@
 
     <!-- New values -->
     <string-array name="pref_yukon_rules_titles">
-        <item>diferencaj koloroj (implicite)</item>
-        <item>sama emblemo (rusa paciencoludo)</item>
+        <item>Diferencaj koloroj (implicite)</item>
+        <item>Sama emblemo (rusa paciencoludo)</item>
     </string-array>
 
 </resources>
