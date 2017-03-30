@@ -32,8 +32,10 @@ Cards Simple:
     Downloaded from pixabay, under the CC0 license. 4 color theme was added by me.
 
 Cards Poker:
-    https://sourceforge.net/projects/vector-cards/
-
+    Vectorized Playing Cards 2.0 - http://sourceforge.net/projects/vector-cards/
+    Copyright 2015 - Chris Aguilar - conjurenation@gmail.com
+    Licensed under LGPL 3 - www.gnu.org/copyleft/lesser.html
+    
     Downloaded from sourceforge, under the LGPLv3 license. 4 color theme was added by me.
 
 Cards Basic:

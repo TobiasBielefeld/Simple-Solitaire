@@ -4,7 +4,7 @@
 
 [<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire)
 
-####Now contains 13 different Solitaire games!
+#### Now contains 13 different Solitaire games!
 AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks and Yukon!
 
 ## To-Do List
@@ -23,7 +23,7 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [X] Add a option to Yukon to play on same suits, instead of different color (like Russian Solitaire)
 - [X] Also save high scores when canceling a game
 - [ ] Add an option to set up appearance for each game indivially
-- [ ] implement "Tap to select/move cards"
+- [X] Implement "Tap to select/move cards"
 
 ## Translations
 Thanks to the following persons for providing translations :D
@@ -32,7 +32,7 @@ Thanks to the following persons for providing translations :D
 - Japanese: naofum
 - Finnish: winjar
 
-#Simple Solitaire
+# Simple Solitaire
 You can find screenshots for phones and tablets and the uses card themes as .svg files [here](./pictures/screenshots)
 
 There is a DummyGame class with a lot of comments, if you want to add a new game. I hope it's good enough for that!
@@ -65,9 +65,12 @@ This game is completely free without ads, tracking or something else. Just have 
 Landscape and tablet support: 
 You can switch to landscape mode, this is better for larger screens. It is also possible to lock the orientation in the settings
 
-##License
+## License
 
-The Poker card theme was originally pulbished on https://sourceforge.net/projects/vector-cards/ under the [LGPLv3 license!](https://www.gnu.org/licenses/lgpl-3.0.en.html)
+Poker card theme: Vectorized Playing Cards 2.0 - http://sourceforge.net/projects/vector-cards/
+Copyright 2015 - Chris Aguilar - conjurenation@gmail.com
+Licensed under LGPL 3 - www.gnu.org/copyleft/lesser.html
+
 The other card themes used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
 You can download the used pictures as .svg files from my [pictures directory](./pictures/cards)
