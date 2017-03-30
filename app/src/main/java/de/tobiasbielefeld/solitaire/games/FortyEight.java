@@ -228,47 +228,6 @@ public class FortyEight extends Game {
         }
 
         return null;
-
-        /*for (int i=0;i<8;i++){
-            if (stacks[i].isEmpty() || hint.hasVisited(stacks[i].getTopCard()))
-                continue;
-
-            Card cardToTest = stacks[i].getTopCard();
-
-            for (int j=0;j<8;j++){
-                if (i==j)
-                    continue;
-
-                if (stacks[j].isEmpty() &&  cardToTest.getValue()==13)
-                    return new CardAndStack(cardToTest,stacks[j]);
-                else if (cardTest(stacks[j],cardToTest) && cardToTest.getValue()!=1)
-                    return new CardAndStack(cardToTest,stacks[j]);
-            }
-
-            for (int j=0;j<8;j++){
-                if (cardTest(stacks[8+j],cardToTest))
-                    return new CardAndStack(cardToTest,stacks[8+j]);
-            }
-        }
-
-        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard())){
-            Card cardToTest = getDiscardStack().getTopCard();
-
-            for (int j=0;j<8;j++){
-                if (stacks[j].isEmpty() &&  cardToTest.getValue()==13)
-                    return new CardAndStack(cardToTest,stacks[j]);
-                else if (cardTest(stacks[j],cardToTest) && cardToTest.getValue()!=1)
-                    return new CardAndStack(cardToTest,stacks[j]);
-            }
-
-            for (int j=0;j<8;j++){
-                if (cardTest(stacks[8+j],cardToTest))
-                    return new CardAndStack(cardToTest,stacks[8+j]);
-            }
-        }
-
-
-        return null;*/
     }
 
     @Override
@@ -305,7 +264,7 @@ public class FortyEight extends Game {
         for (int i = 0; i < 8; i++) {
             Stack stack = stacks[i];
 
-            if (stack.isEmpty() || !stack.getCard(0).isUp() || !testCardsUpToTop(stack, 0, SAME_COLOR))
+            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, SAME_COLOR))
                 return false;
         }
 

@@ -484,7 +484,6 @@ public abstract class Game {
         cardDrawablesOrder = new int[]{p1, p2, p3, p4};
     }
 
-
     /**
      * Tests if the given card is above the same card as the top card on the other stack.
      * "Same card" means same value and depending on the mode: Same color or same family.

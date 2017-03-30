@@ -103,14 +103,12 @@ public class Canfield extends Game {
     }
 
     public boolean winTest() {
-        scores.update(500);
-        return true;
         //if the foundation stacks aren't full, not won. Else won
-        /*for (int i = 5; i <= 8; i++)
+        for (int i = 5; i <= 8; i++)
             if (stacks[i].getSize() != 13)
                 return false;
 
-        return true;*/
+        return true;
     }
 
     private void setFoundationBackgrounds() {

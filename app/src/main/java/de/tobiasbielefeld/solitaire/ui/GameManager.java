@@ -74,6 +74,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private final static long DOUBLE_TAP_SPEED = 300;                                               //time delta between two taps in milliseconds
     private long firstTapTime;                                                                       //stores the time of first tapping on a card
     private CardAndStack tapped = null;
+    private RelativeLayout mainRelativeLayoutBackground;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -93,6 +94,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         mainTextViewScore = (TextView) findViewById(R.id.mainTextViewScore);
         mainTextViewRedeals = (TextView) findViewById(R.id.textViewRedeals);
         buttonAutoComplete = (Button) findViewById(R.id.buttonMainAutoComplete);
+        mainRelativeLayoutBackground = (RelativeLayout) findViewById(R.id.mainRelativeLayoutBackground);
+        mainRelativeLayoutBackground.setOnTouchListener(this);
 
         //initialize my static helper stuff
         final GameManager gm = this;
@@ -173,9 +176,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                             stacks[i].setSpacingDirection(NONE);
                         }
                     }
-
-
-
                 }
                 //if there are direction borders set (when cards should'nt overlap another stack)  use it.
                 //else set the layout height/widht as maximum
@@ -243,6 +243,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * The motion events are put in extra methods, because before it got a bit unclear
      */
     public boolean onTouch(View view, MotionEvent event) {
+        if (view.getId() == R.id.mainRelativeLayoutBackground){
+            return true;
+        }
+
         CustomImageView v = (CustomImageView) view;
         //if something important happens don't accept input
         if (stopConditions())
@@ -444,27 +448,26 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * Loads the background color, loaded in onResume().
      */
     private void loadBackgroundColor() {
-        RelativeLayout layout_background = (RelativeLayout) findViewById(R.id.mainRelativeLayoutBackground);
 
-        if (layout_background != null) {
+        if (mainRelativeLayoutBackground != null) {
             switch (getSharedString(getString(R.string.pref_key_background_color), BACKGROUND_COLOR_DEFAULT)) {
                 case "1":
-                    layout_background.setBackgroundResource(R.drawable.background_color_blue);
+                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_blue);
                     break;
                 case "2":
-                    layout_background.setBackgroundResource(R.drawable.background_color_green);
+                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_green);
                     break;
                 case "3":
-                    layout_background.setBackgroundResource(R.drawable.background_color_red);
+                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_red);
                     break;
                 case "4":
-                    layout_background.setBackgroundResource(R.drawable.background_color_yellow);
+                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_yellow);
                     break;
                 case "5":
-                    layout_background.setBackgroundResource(R.drawable.background_color_orange);
+                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_orange);
                     break;
                 case "6":
-                    layout_background.setBackgroundResource(R.drawable.background_color_purple);
+                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_purple);
                     break;
             }
         }
