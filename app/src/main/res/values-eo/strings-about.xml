@@ -18,13 +18,9 @@
     <string name="about_translations_esperanto_polish">Esperanto kaj Pola: de GitHub-uzanto verdulo</string>
     <string name="about_translations_french">Franca: de GitHub-uzanto romainhk</string>
     <string name="about_translations_finnish">Suoma: de GitHub-uzanto winjar</string>
-
     <string name="about_material_icons_text">Piktogramoj \'Material design\' estas faritaj de Google Inc kaj eldonitaj laŭ la <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">permesilo Apache 2.0</a></string>
-
     <string name="about_pixa_bay_license_text">Aliaj kart-stiloj kaj la eksa etoso estis origine publikigitaj en <a href="www.pixabay.com">pixabay.com</a> laŭ la <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">permesilo CC0</a></string>
     <string name="about_third_party_licenses">Permesiloj de eksteraj partioj</string>
-
-    <!-- i think this should stay like this, not fully translated -->
     <string name="about_poker_theme">Pokera kart-stilo: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
         Kopirajto 2015 - Chris AGUILAR - conjurenation@gmail.com - laŭ la permesilo <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
 </resources>
