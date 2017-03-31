@@ -65,25 +65,25 @@
     <string name="settings_4_color_mode_text">Pokoloruj trefle na zielono i karo na niebiesko</string>
 
     <!-- new values -->
-    <string name="settings_oxygen_dark">Oxygen Ciemne</string>
-    <string name="settings_oxygen_light">Oxygen Lekki</string>
+    <string name="settings_oxygen_dark">Oxygen Ciemny</string>
+    <string name="settings_oxygen_light">Oxygen Jasny</string>
     <string name="settings_poker">Poker</string>
 
-    <string name="settings_additional_movements">Additional card movements</string>
-    <string name="settings_additional_movements_description">Enable and disable double-tap and other movement methods</string>
+    <string name="settings_additional_movements">Dodatkowe ruchy kart</string>
+    <string name="settings_additional_movements_description">Włącza lub wyłącza podwójne stuknięcia i inne ruchy</string>
 
     <string name="settings_double_tap">Podwójne stuknięcie</string>
     <string name="settings_double_tap_enable">Włącz ruchy przy podwójnym stuknięciu</string>
-    <string name="settings_double_tap_enable_text">Press a card twice to move it to the next possible stack</string>
+    <string name="settings_double_tap_enable_text">Podwójnie stuknij w kartę, aby przenieść ją na najbliższy możliwy stos</string>
     <string name="settings_double_tap_all_cards">Przenoś wszystkie możliwe karty</string>
     <string name="settings_double_tap_all_cards_text">Przenoś jak najwięcej kart ze stosu, nie tylko dotykaną kartę</string>
 
-    <string name="settings_tap_to_select">Tap-To-Select</string>
-    <string name="settings_tap_to_select_enable">Enable Tap-To-Select movements</string>
-    <string name="settings_tap_to_select_enable_text">Tap on a card to select it, then tap the destination stack to move it there</string>
+    <string name="settings_tap_to_select">Wybierz przez stuknięcie</string>
+    <string name="settings_tap_to_select_enable">Włącz możliwość wyboru karty poprzez stuknięcie</string>
+    <string name="settings_tap_to_select_enable_text">Stuknij w kartę, aby ją wybrać, a następnie stuknij w stos docelowy, aby ją tam przenieść</string>
 
-    <string name="settings_single_tap">Single-Tap</string>
-    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
-    <string name="settings_single_tap_enable_text">Only for Golf and Tripeaks: Press a card once to move it to the discard stack</string>
+    <string name="settings_single_tap">Pojedyncze stuknięcie</string>
+    <string name="settings_single_tap_enable">Włącz ruchy przy pojedynczym stuknięciu</string>
+    <string name="settings_single_tap_enable_text">Tylko w grach Golf i TrzyWieże: stuknij pojedynczo w kartę, aby przenieść ją na stos odrzutów</string>
 
 </resources>

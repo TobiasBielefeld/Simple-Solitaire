@@ -20,7 +20,7 @@
     <string name="manual_open_github">Malfermi paĝon je GitHub</string>
     <!-- Games -->
     <string name="manual_games_text1">Elektu ludon por montri ĝian strukturon, celon, regulojn kaj poentadon.</string>
-    <string name="manual_startpage_text">Bonvenon al manlibro de tiu ĉi kolekto de ludoj! Mi esperas, ke ĝi eksplikos ĉion.
+    <string name="manual_startpage_text">Bonvenon al manlibro de tiu ĉi kolekto de ludoj! Mi esperas, ke ĝi klarigos ĉion.
 	\n\nUzu menuon ĉe maldekstre por atingi aliajn paĝojn de manlibro.</string>
     <string name="manual_general_main_menu">Uzado de la ĉefmenuo estas eĉ facila. Simple frapetu ludon por komenci ĝin.
 	\n\nLa aplikaĵo aŭtomate ŝargos laste luditan ludon post restarto, se la aplikaĵo estis paŭzigita kun ĝi. Tiu ĉi agmaniero povas esti malaktivigita per agordoj en \"Ĝeneralaj\".
