@@ -24,6 +24,7 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [X] Also save high scores when canceling a game
 - [ ] Add an option to set up appearance for each game indivially
 - [X] Implement "Tap to select/move cards"
+- [ ] Add custom images for backgrounds
 
 ## Translations
 Thanks to the following persons for providing translations :D
