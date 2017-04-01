@@ -34,6 +34,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.azeesoft.lib.colorpicker.ColorPickerDialog;
+
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;

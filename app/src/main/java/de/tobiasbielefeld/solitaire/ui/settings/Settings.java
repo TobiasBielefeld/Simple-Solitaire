@@ -52,7 +52,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     Toast toast;
     private Preference preferenceCards, preferenceCardsBackground, preferenceMenuBarPosition;
-    private Preference preferenceMenuColumns;
+    private Preference preferenceMenuColumns, preferenceBackgroundColor;
 
     private static boolean isXLargeTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
@@ -175,6 +175,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             Card.updateCardDrawableChoice();
             updatePreferenceCardsSummary();
 
+        } else if (key.equals(getString(R.string.pref_key_new_background_color))){
+            updatePreferenceBackgroundColorSummary();
+
         }
     }
 
@@ -294,6 +297,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceCards.setIcon(new BitmapDrawable(getResources(), cardPreview));
     }
 
+    private void updatePreferenceBackgroundColorSummary(){
+
+    }
+
     /**
      * Tests if a fragment loaded is valid
      *
@@ -406,10 +413,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             settings.preferenceCards = findPreference(getString(R.string.pref_key_cards));
             settings.preferenceCardsBackground = findPreference(getString(R.string.pref_key_cards_background));
             settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
+            settings.preferenceBackgroundColor = findPreference(getString(R.string.pref_key_new_background_color));
 
             settings.updatePreferenceCardsSummary();
             settings.updatePreferenceCardsBackgroundSummary();
             settings.updatePreferenceMenuBarPositionSummary();
+            settings.updatePreferenceBackgroundColorSummary();
         }
     }
 
