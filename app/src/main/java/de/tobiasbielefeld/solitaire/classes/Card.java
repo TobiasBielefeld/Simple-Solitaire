@@ -242,7 +242,8 @@ public class Card {
      * @return  True if movement is possible, false otherwise
      */
     public boolean test(Stack destination) {
-        return currentGame.cardTest(destination, this) && isUp && destination.topCardIsUp();
+        return !((!isUp() || (destination.getSize() != 0 && !destination.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(destination, this);
+        //return currentGame.cardTest(destination, this) && destination.topCardIsUp();
     }
 
     public int getColor() {
