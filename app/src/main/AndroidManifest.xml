@@ -3,6 +3,7 @@
     package="de.tobiasbielefeld.solitaire">
 
     <application
+        android:installLocation="auto"
         android:name="de.tobiasbielefeld.solitaire.MainApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/my_backup_rules"

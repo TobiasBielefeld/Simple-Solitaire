@@ -123,7 +123,7 @@ public class AcesUp extends Game {
     }
 
     public boolean addCardToMovementTest(Card card) {
-        return card.isTopCard();
+        return card.isTopCard() && card.getStack() != getDiscardStack();
     }
 
     public CardAndStack hintTest() {

@@ -71,7 +71,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRedeals;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
     public Toast toast;                                                                             //a delicious toast!
-    private final static long DOUBLE_TAP_SPEED = 300;                                               //time delta between two taps in milliseconds
+    private final static long DOUBLE_TAP_SPEED = 400;                                               //time delta between two taps in milliseconds
     private long firstTapTime;                                                                       //stores the time of first tapping on a card
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
@@ -393,17 +393,20 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
             if (stack != null) {    //the card.test() method is already called in getIntersectingStack()
                 movingCards.moveToDestination(stack);
-                return true;
+            } else {
+                movingCards.returnToPos();
             }
+
+            return resetTappedCard();
         } else if (currentGame.isSingleTapEnabled() && tapped.getCard().test(currentGame.getDiscardStack())
                 && getSharedBoolean(PREF_KEY_SINGLE_TAP_ENABLE,DEFAULT_SINGLE_TAP_ENABLED)) {
 
             movingCards.moveToDestination(currentGame.getDiscardStack());
             return resetTappedCard();
+        } else {
+            movingCards.returnToPos();
+            return true;
         }
-
-        movingCards.returnToPos();
-        return true;
     }
 
     /**

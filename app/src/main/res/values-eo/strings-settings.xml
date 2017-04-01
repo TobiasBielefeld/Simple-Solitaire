@@ -64,7 +64,6 @@
     <string name="settings_4_color_mode_title">4 ludkartaj emblemoj</string>
     <string name="settings_4_color_mode_text">Kolorigi trefojn verde kaj karoojn blue</string>
 
-    <!-- new values -->
     <string name="settings_oxygen_dark">Oxygen Malhela</string>
     <string name="settings_oxygen_light">Oxygen Hela</string>
     <string name="settings_poker">Pokero</string>
