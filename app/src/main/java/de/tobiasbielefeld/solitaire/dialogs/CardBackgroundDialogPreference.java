@@ -19,29 +19,38 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * dialog for picking the card background drawable. Clicks on it are handled here and the
- * sharedPrefChanged listener in Settings will update the cards.
+ * dialog for picking the card background drawable. It uses a custom layout, so I can dynamically update
+ * the widget icon of the preference.
  */
 
 public class CardBackgroundDialogPreference extends DialogPreference implements View.OnClickListener {
 
     private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_BACKGROUNDS];
+    private Context context;
+    private ImageView image;
 
     public CardBackgroundDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards_background);
         setDialogIcon(null);
+        this.context = context;
     }
 
     @Override
@@ -137,6 +146,41 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
         }
 
         putSharedInt(CARD_BACKGROUND, choice);
+        updateSummary();
         getDialog().dismiss();
     }
+
+    /*
+     * Applies a custom layout, so I can get the widget image from it, to update the background choice
+     */
+    @Override
+    protected View onCreateView(ViewGroup parent) {
+        super.onCreateView(parent);
+
+        LayoutInflater inflater = (LayoutInflater) getContext()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View view = inflater.inflate(R.layout.preference_cards_background, parent, false);
+        image = (ImageView) view.findViewById(R.id.preference_cards_background_imageView);
+        updateSummary();
+
+        return view;
+    }
+
+    /**
+     * Gets the bitmap for the card background preference icon and also set its summary
+     */
+    private void updateSummary() {
+        Bitmap cardBack;
+
+        int selectedBackground = getSharedInt(CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
+
+        cardBack = bitmaps.getCardBack((selectedBackground-1)%8,(selectedBackground-1)/8);
+
+        image.setImageBitmap(cardBack);
+        setSummary(String.format(Locale.getDefault(), "%s %s",
+                context.getString(R.string.settings_background), selectedBackground));
+    }
+
+
 }

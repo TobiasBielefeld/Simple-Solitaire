@@ -18,113 +18,186 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.os.Build;
+import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
+import android.widget.TextView;
 
-import com.azeesoft.lib.colorpicker.ColorPickerDialog;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import yuku.ambilwarna.AmbilWarnaDialog;
 
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_GAMES;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Dialog for hiding games in the main menu.
- *  It is NOT a multiSelection list, because it was buggy on tested Android 6 phones. So I
- *  just use a linearLayout with a button and a textView for each game
+ * Dialog for changing the background color. It uses a custom layout, so I can dynamically update
+ * the widget icon of the preference. The user can choose between 6 pre defined colors or set a custom
+ * color. The custom color chooser uses this library: https://github.com/yukuku/ambilwarna
+ *
+ * To distinguish between the pre defined and custom colors, I use another entry in the sharedPref.
+ * I also planned to add a "Add background from gallery" option, but it would require the
+ * permission to the external storage, and i wanted my app to use no permissions.
  */
 
 public class BackgroundColorPreference extends DialogPreference implements View.OnClickListener {
 
-    ArrayList<RadioButton> radioButtons;
-    Button buttonCustom;
-    Context context;
-    Resources res;
+    private ArrayList<LinearLayout> linearLayouts;
+
+    private Context context;
+    private ImageView image;
+
+    int backgroundType;
+    int backgroundValue;
+    int savedCustomColor;
 
     public BackgroundColorPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_background_color);
         setDialogIcon(null);
         this.context = context;
-        res = context.getResources();
     }
 
     @Override
     protected void onBindDialogView(View view) {
-        radioButtons = new ArrayList<>();
 
-        radioButtons.add((RadioButton) view.findViewById(R.id.dialogBackgroundColorButton1));
-        radioButtons.add((RadioButton) view.findViewById(R.id.dialogBackgroundColorButton2));
-        radioButtons.add((RadioButton) view.findViewById(R.id.dialogBackgroundColorButton3));
-        radioButtons.add((RadioButton) view.findViewById(R.id.dialogBackgroundColorButton4));
-        radioButtons.add((RadioButton) view.findViewById(R.id.dialogBackgroundColorButton5));
-        radioButtons.add((RadioButton) view.findViewById(R.id.dialogBackgroundColorButton6));
+        backgroundType = getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,DEFAULT_BACKGROUND_COLOR_TYPE);
+        backgroundValue = Integer.parseInt(getSharedString(PREF_KEY_BACKGROUND_COLOR,DEFAULT_BACKGROUND_COLOR));
+        savedCustomColor = getSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM);
 
-        buttonCustom = (Button) view.findViewById(R.id.dialogBackgroundColorButton7);
-        buttonCustom.setOnClickListener(this);
+        linearLayouts = new ArrayList<>();
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorBlue));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorGreen));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorRed));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorYellow));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorOrange));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorPurple));
 
-        for (int i=0; i< radioButtons.size();i++){
-            radioButtons.get(i).setText(res.getStringArray(R.array.pref_background_colors_titles)[i]);
-        }
-
-        /*linearLayouts = lg.loadMenuPreferenceViews(view);
-        checkBoxes = lg.loadMenuPreferenceCheckBoxes(view);
-
-        for (LinearLayout linearLayout : linearLayouts) {
+        for (LinearLayout linearLayout : linearLayouts){
             linearLayout.setOnClickListener(this);
         }
-
-        ArrayList<Integer> result = getSharedIntList(PREF_KEY_MENU_GAMES);
-
-        for (int i = 0; i < checkBoxes.size(); i++) {
-            if (result.size() - 1 < i) {
-                checkBoxes.get(i).setChecked(true);
-            } else {
-                checkBoxes.get(i).setChecked(result.get(i) == 1);
-            }
-        }*/
 
         super.onBindDialogView(view);
     }
 
+
     @SuppressWarnings("SuspiciousMethodCalls")
     public void onClick(View view) {
-        if (view.getId() == R.id.dialogBackgroundColorButton7){
-            ColorPickerDialog colorPickerDialog= ColorPickerDialog.createColorPickerDialog(context);
-            colorPickerDialog.setOnColorPickedListener(new ColorPickerDialog.OnColorPickedListener() {
+        if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE)){
+            AmbilWarnaDialog dialog = new AmbilWarnaDialog(context, savedCustomColor, new AmbilWarnaDialog.OnAmbilWarnaListener() {
                 @Override
-                public void onColorPicked(int color, String hexVal) {
-                    //Your code here
+                public void onOk(AmbilWarnaDialog dialog, int color) {
+                    backgroundType = 2;
+                    backgroundValue = savedCustomColor = color;
+
+                    putSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,backgroundType);
+                    putSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM,backgroundValue);
+                    updateSummary();
+                    getDialog().dismiss();
+                }
+
+                @Override
+                public void onCancel(AmbilWarnaDialog dialog) {
+                    // cancel was selected by the user
                 }
             });
-            colorPickerDialog.show();
-        }
+            dialog.show();
+        } else if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE)){
+            getDialog().dismiss();
+        } else {
+            backgroundValue = linearLayouts.indexOf(view) + 1;
+            backgroundType = 1;
 
+            putSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,backgroundType);
+            putSharedString(PREF_KEY_BACKGROUND_COLOR,Integer.toString(backgroundValue));
+            updateSummary();
+            getDialog().dismiss();
+        }
     }
 
     @Override
-    protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
+    protected void showDialog(Bundle state) {
+        super.showDialog(state);
 
-        if (positiveResult) {
-           /* ArrayList<Integer> list = new ArrayList<>();
+        ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(this);
+        ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(this);
+    }
 
-            for (CheckBox checkBox : checkBoxes) {
-                list.add(checkBox.isChecked() ? 1 : 0);
+    /*
+     * Applies a custom layout, so I can get the widget image from it, to update the color choice
+     */
+    @Override
+    protected View onCreateView(ViewGroup parent) {
+        super.onCreateView(parent);
+
+        LayoutInflater layoutInflater =
+                (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View view = layoutInflater.inflate(R.layout.preference_background_color, parent, false);
+
+        image = (ImageView) view.findViewById(R.id.preference_background_color_imageView);
+
+        updateSummary();
+
+        return view;
+    }
+
+    /**
+     * Gets the saved data and updates the summary according to it
+     */
+    private void updateSummary(){
+
+        if (getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,DEFAULT_BACKGROUND_COLOR_TYPE)==1){
+            int drawableID;
+            int stringID;
+            switch (getSharedString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR)) {
+                case "1":default:
+                    stringID = R.string.blue;
+                    drawableID = R.drawable.background_color_blue;
+                    break;
+                case "2":
+                    stringID = R.string.green;
+                    drawableID = R.drawable.background_color_green;
+                    break;
+                case "3":
+                    stringID = R.string.red;
+                    drawableID = R.drawable.background_color_red;
+                    break;
+                case "4":
+                    stringID = R.string.yellow;
+                    drawableID = R.drawable.background_color_yellow;
+                    break;
+                case "5":
+                    stringID = R.string.orange;
+                    drawableID = R.drawable.background_color_orange;
+                    break;
+                case "6":
+                    stringID = R.string.purple;
+                    drawableID = R.drawable.background_color_purple;
+                    break;
             }
 
-            putSharedIntList(PREF_KEY_MENU_GAMES, list);*/
+            image.setImageResource(drawableID);
+            setSummary(context.getString(stringID));
+        } else {
+            setSummary("");                                                                         //this forces redrawing of the color preview
+            setSummary(context.getString(R.string.settings_background_color_custom));
+
+            image.setImageResource(0);
+            image.setBackgroundColor(getSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM));
         }
     }
 }

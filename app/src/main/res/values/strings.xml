@@ -39,6 +39,14 @@
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">Canfield</string>
 
+    <!-- colors -->
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="red">Red</string>
+    <string name="yellow">Yellow</string>
+    <string name="orange">Orange</string>
+    <string name="purple">Purple</string>
+
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>
     <string name="loading_data_failed" translatable="false">Loading data failed</string>
@@ -77,6 +85,5 @@
     <string name="saved_scores" translatable="false">SavedScores</string>
     <string name="score" translatable="false">Score</string>
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
-
 
 </resources>

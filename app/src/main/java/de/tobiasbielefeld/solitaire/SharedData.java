@@ -78,7 +78,6 @@ public class SharedData {
     public static String MENU_COLUMNS_PORTRAIT;
     public static String MENU_COLUMNS_LANDSCAPE;
     public static String CANFIELD_START_CARD_VALUE;
-    public static String BACKGROUND_COLOR_DEFAULT;
     public static String RESTART_DIALOG;
     public static String PREF_KEY_YUKON_RULES;
     public static String PREF_KEY_YUKON_RULES_OLD;
@@ -104,6 +103,9 @@ public class SharedData {
     public static String PREF_KEY_DOUBLE_TAP_ALL_CARDS;
     public static String PREF_KEY_TAP_TO_SELECT_ENABLED;
     public static String PREF_KEY_SINGLE_TAP_ENABLE;
+    public static String PREF_KEY_BACKGROUND_COLOR_TYPE;
+    public static String PREF_KEY_BACKGROUND_COLOR;
+    public static String PREF_KEY_BACKGROUND_COLOR_CUSTOM;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
@@ -116,9 +118,12 @@ public class SharedData {
     public static String DEFAULT_MENU_COLUMNS_LANDSCAPE;
     public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
     public static String DEFAULT_ORIENTATION;
+    public static String DEFAULT_BACKGROUND_COLOR;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_WINNING_TIME;
+    public static int DEFAULT_BACKGROUND_COLOR_TYPE;
+    public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
     public static boolean DEFAULT_PYRAMID_LIMITED_REDEALS;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
@@ -217,6 +222,9 @@ public class SharedData {
         PREF_KEY_DOUBLE_TAP_ALL_CARDS = res.getString(R.string.pref_key_double_tap_all_cards);
         PREF_KEY_TAP_TO_SELECT_ENABLED = res.getString(R.string.pref_key_tap_to_select_enable);
         PREF_KEY_SINGLE_TAP_ENABLE = res.getString(R.string.pref_key_single_tap_enable);
+        PREF_KEY_BACKGROUND_COLOR_TYPE = res.getString(R.string.pref_key_background_color_type);
+        PREF_KEY_BACKGROUND_COLOR = res.getString(R.string.pref_key_background_color);
+        PREF_KEY_BACKGROUND_COLOR_CUSTOM = res.getString(R.string.pref_key_background_color_custom);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -241,6 +249,9 @@ public class SharedData {
         DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
         DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
         DEFAULT_WINNING_TIME = res.getInteger(R.integer.default_winning_time);
+        DEFAULT_BACKGROUND_COLOR_TYPE = res.getInteger(R.integer.default_background_color_type);
+        DEFAULT_BACKGROUND_COLOR = res.getString(R.string.default_background_color);
+        DEFAULT_BACKGROUND_COLOR_CUSTOM = res.getInteger(R.integer.default_background_color_custom);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];
@@ -255,7 +266,6 @@ public class SharedData {
         GAME_FIRST_RUN = res.getString(R.string.game_first_run);
         GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
 
-        BACKGROUND_COLOR_DEFAULT = res.getStringArray(R.array.pref_background_colors_values)[1];
         RESTART_DIALOG = res.getString(R.string.restart_dialog);
         CANFIELD_START_CARD_VALUE = res.getString(R.string.canfield_start_value);
         SCORE = res.getString(R.string.score);

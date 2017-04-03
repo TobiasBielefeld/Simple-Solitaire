@@ -34,8 +34,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.azeesoft.lib.colorpicker.ColorPickerDialog;
-
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -77,6 +75,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private long firstTapTime;                                                                       //stores the time of first tapping on a card
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
+    public View highlight;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -91,6 +90,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         setContentView(R.layout.activity_game_manager);
 
         // load stuff
+        highlight = findViewById(R.id.card_highlight);
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
         mainTextViewTime = (TextView) findViewById(R.id.mainTextViewTime);
         mainTextViewScore = (TextView) findViewById(R.id.mainTextViewScore);
@@ -455,25 +455,30 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private void loadBackgroundColor() {
 
         if (mainRelativeLayoutBackground != null) {
-            switch (getSharedString(getString(R.string.pref_key_background_color), BACKGROUND_COLOR_DEFAULT)) {
-                case "1":
-                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_blue);
-                    break;
-                case "2":
-                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_green);
-                    break;
-                case "3":
-                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_red);
-                    break;
-                case "4":
-                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_yellow);
-                    break;
-                case "5":
-                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_orange);
-                    break;
-                case "6":
-                    mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_purple);
-                    break;
+            if (getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,DEFAULT_BACKGROUND_COLOR_TYPE) == 1) {
+                switch (getSharedString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR)) {
+                    case "1":
+                        mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_blue);
+                        break;
+                    case "2":
+                        mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_green);
+                        break;
+                    case "3":
+                        mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_red);
+                        break;
+                    case "4":
+                        mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_yellow);
+                        break;
+                    case "5":
+                        mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_orange);
+                        break;
+                    case "6":
+                        mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_purple);
+                        break;
+                }
+            } else {
+                mainRelativeLayoutBackground.setBackgroundResource(0);
+                mainRelativeLayoutBackground.setBackgroundColor(getSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM));
             }
         }
     }
@@ -485,9 +490,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * @return True if no movement is allowed, false otherwise
      */
     private boolean stopConditions() {
-        /*
-         *  returns if the player should't be able to do actions (while animating for example)
-         */
         return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking());
     }
 

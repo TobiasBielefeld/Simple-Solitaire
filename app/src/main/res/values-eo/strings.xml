@@ -37,4 +37,12 @@
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">Canfield</string>
 
+    <!-- colors -->
+    <string name="blue">Blua</string>
+    <string name="green">Verda</string>
+    <string name="red">Ruĝa</string>
+    <string name="yellow">Flava</string>
+    <string name="orange">Oranĝkolora</string>
+    <string name="purple">Purpura</string>
+
 </resources>

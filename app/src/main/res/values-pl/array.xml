@@ -6,15 +6,6 @@
         <item>Powrót do menu głównego</item>
     </string-array>
 
-    <string-array name="pref_background_colors_titles">
-        <item>Niebieski</item>
-        <item>Zielony</item>
-        <item>Czerwony</item>
-        <item>Żółty</item>
-        <item>Pomarańczowy</item>
-        <item>Purpurowy</item>
-    </string-array>
-
     <string-array name="pref_orientation_titles">
         <item>Ustawienia systemu</item>
         <item>Pionowa</item>

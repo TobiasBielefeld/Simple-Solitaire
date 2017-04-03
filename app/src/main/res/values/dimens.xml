@@ -9,4 +9,6 @@
     <dimen name="statistics_table_padding">5dp</dimen>
     <dimen name="menuBarHeight">56dp</dimen>
     <dimen name="menuBarWidht">50dp</dimen>
+    <dimen name="dialogBackgroundColorBoxWidth">50dp</dimen>
+    <dimen name="dialogBackgroundColorBoxWidthPreference">40dp</dimen>
 </resources>

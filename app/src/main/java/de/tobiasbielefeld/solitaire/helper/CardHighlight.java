@@ -35,12 +35,13 @@ import static android.view.View.GONE;
 
 public class CardHighlight {
 
-    private View view;
+
     private boolean moveStarted;
     int padding, width, height;
+    private GameManager gm;
 
     public CardHighlight(GameManager gm){
-        view = gm.findViewById(R.id.card_highlight);
+       this.gm = gm;
     }
 
     /**
@@ -55,11 +56,11 @@ public class CardHighlight {
         width = Card.width + padding;
         height = (int) (stack.getTopCard().view.getY() + Card.height - card.view.getY() + padding);
 
-        view.setLayoutParams(new RelativeLayout.LayoutParams(width,height));
-        view.setX(card.view.getX()- padding/2);
-        view.setY(card.view.getY()- padding/2);
-        view.setVisibility(View.VISIBLE);
-        view.bringToFront();
+        gm.highlight.setLayoutParams(new RelativeLayout.LayoutParams(width,height));
+        gm.highlight.setX(card.view.getX()- padding/2);
+        gm.highlight.setY(card.view.getY()- padding/2);
+        gm.highlight.setVisibility(View.VISIBLE);
+        gm.highlight.bringToFront();
 
         for (int i= card.getIndexOnStack();i<stack.getSize();i++){
             stack.getCard(i).view.bringToFront();
@@ -80,14 +81,14 @@ public class CardHighlight {
             moveStarted = true;
 
             height = (int) (card.getStack().getTopCard().view.getY() + Card.height - card.view.getY() + padding);
-            view.setLayoutParams(new RelativeLayout.LayoutParams(width,height));
+            gm.highlight.setLayoutParams(new RelativeLayout.LayoutParams(width,height));
         }
 
-        view.setX(card.view.getX() - padding/2);
-        view.setY(card.view.getY() - padding/2);
+        gm.highlight.setX(card.view.getX() - padding/2);
+        gm.highlight.setY(card.view.getY() - padding/2);
     }
 
     public void hide(){
-        view.setVisibility(GONE);
+        gm.highlight.setVisibility(GONE);
     }
 }

@@ -19,9 +19,12 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -30,18 +33,21 @@ import de.tobiasbielefeld.solitaire.R;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * dialog for picking the card front drawable. Clicks on it are handled here and the
- * sharedPrefChanged listener in Settings will update the cards.
+ * dialog for picking the card front drawable. It uses a custom layout, so I can dynamically update
+ * the widget icon of the preference.
  */
 
 public class CardDialogPreference extends DialogPreference implements View.OnClickListener {
 
     private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_THEMES];
+    private Context context;
+    private ImageView image;
 
     public CardDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards);
         setDialogIcon(null);
+        this.context = context;
     }
 
     @Override
@@ -67,10 +73,10 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
     }
 
     public void onClick(View v) {
-        int choice = 1;
+        int choice;
 
         switch (v.getId()) {
-            case R.id.settingsLinearLayoutCardsBasic:
+            case R.id.settingsLinearLayoutCardsBasic: default:
                 choice = 1;
                 break;
             case R.id.settingsLinearLayoutCardsClassic:
@@ -98,6 +104,66 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
         }
 
         putSharedInt(CARD_DRAWABLES, choice);
+        updateSummary();
         getDialog().dismiss();
+    }
+
+    /*
+     * Applies a custom layout, so I can get the widget image from it, to update the theme choice
+     */
+    @Override
+    protected View onCreateView(ViewGroup parent) {
+        super.onCreateView(parent);
+
+        LayoutInflater inflater = (LayoutInflater) getContext()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View view = inflater.inflate(R.layout.preference_cards, parent, false);
+        image = (ImageView) view.findViewById(R.id.preference_cards_imageView);
+        updateSummary();
+
+        return view;
+    }
+
+    /**
+     * Gets the bitmap for the card theme preference icon and also set its summary
+     */
+    private void updateSummary() {
+        String text;
+        Bitmap cardPreview;
+        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE) ? 1 : 0;
+        int selectedTheme = getSharedInt(CARD_DRAWABLES, 1);
+
+        switch (selectedTheme) {
+            case 1: default:
+                text = context.getString(R.string.settings_basic);
+                break;
+            case 2:
+                text = context.getString(R.string.settings_classic);
+                break;
+            case 3:
+                text = context.getString(R.string.settings_abstract);
+                break;
+            case 4:
+                text = context.getString(R.string.settings_simple);
+                break;
+            case 5:
+                text = context.getString(R.string.settings_modern);
+                break;
+            case 6:
+                text = context.getString(R.string.settings_oxygen_dark);
+                break;
+            case 7:
+                text = context.getString(R.string.settings_oxygen_light);
+                break;
+            case 8:
+                text = context.getString(R.string.settings_poker);
+                break;
+        }
+
+        cardPreview = bitmaps.getCardPreview2(selectedTheme - 1, row);
+
+        image.setImageBitmap(cardPreview);
+        setSummary(text);
     }
 }

@@ -6,15 +6,6 @@
         <item>Revenir au menu principal</item>
     </string-array>
 
-    <string-array name="pref_background_colors_titles">
-        <item>Bleu</item>
-        <item>Vert</item>
-        <item>Rouge</item>
-        <item>Jaune</item>
-        <item>Orange</item>
-        <item>Violet</item>
-    </string-array>
-
     <string-array name="pref_orientation_titles">
         <item>Suivre les préférences système</item>
         <item>Portrait</item>
