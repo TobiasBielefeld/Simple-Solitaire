@@ -13,7 +13,7 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [X] Improve the settings to use fragments
 - [X] Add even more games (Simple Simon, Golf, etc)
 - [ ] Add the card themes from Kpatience, if their license is compatible to mine.
-- [ ] Add a color chooser for background color
+- [X] Add a color chooser for background color
 - [X] Improve the Highscores to a Statistics Activity (including date stamps)
 - [ ] Find the reason why the game activity gets created two times when changing the screen orientation in game
 - [ ] Add a button to mix the cards if no movement can be done
@@ -66,7 +66,7 @@ This game is completely free without ads, tracking or something else. Just have 
 Landscape and tablet support: 
 You can switch to landscape mode, this is better for larger screens. It is also possible to lock the orientation in the settings
 
-## License
+## Licenses
 
 Poker card theme: Vectorized Playing Cards 2.0 - http://sourceforge.net/projects/vector-cards/
 Copyright 2015 - Chris Aguilar - conjurenation@gmail.com
@@ -77,6 +77,8 @@ The other card themes used in this project were originally published on https://
 You can download the used pictures as .svg files from my [pictures directory](./pictures/cards)
 
 The Material Design Symbols used for the menu icons are made by Google Inc and are published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+Custom color picker: Uses the [AmbilWarna library](https://github.com/yukuku/ambilwarna) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 This project is licensed under the GPLv3+ license! Full license text can be found [here](./LICENSE.txt)
 ```

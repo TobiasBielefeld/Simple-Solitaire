@@ -27,6 +27,6 @@
 
     <!-- new values -->
     <string name="about_custom_color_picker">Custom color picker: Uses the <a href="https://github.com/yukuku/ambilwarna">AmbilWarna library</a>
-        published under the <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 license</a></string>
+        published under the <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0 license</a></string>
 
 </resources>
