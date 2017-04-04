@@ -17,6 +17,8 @@
     <string name="settings_modern">Moderne</string>
     <string name="settings_abstract">Abstrait</string>
     <string name="settings_basic">Basique</string>
+    <string name="settings_cauchy">Cauchy</string>
+    <string name="settings_tigullio">Tigullio</string>
 
     <string name="settings_background">Fond numéro</string>
     <string name="settings_customization">Apparence</string>

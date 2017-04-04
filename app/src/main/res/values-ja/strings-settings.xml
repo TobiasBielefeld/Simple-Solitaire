@@ -17,6 +17,8 @@
     <string name="settings_modern">モダン</string>
     <string name="settings_abstract">無地</string>
     <string name="settings_basic">基本</string>
+    <string name="settings_cauchy">Cauchy</string>
+    <string name="settings_tigullio">Tigullio</string>
 
     <string name="settings_background">背景の番号</string>
     <string name="settings_customization">外観</string>
