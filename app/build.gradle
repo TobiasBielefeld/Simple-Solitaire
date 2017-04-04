@@ -11,6 +11,7 @@ android {
         targetSdkVersion 25
         versionCode 41
         versionName "3.6"
+
     }
     buildTypes {
         release {
