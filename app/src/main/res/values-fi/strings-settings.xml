@@ -20,8 +20,6 @@
     <string name="settings_oxygen_light">Oxygen Vaalea</string>
     <string name="settings_basic">Perus</string>
     <string name="settings_poker">Pokeri</string>
-    <string name="settings_cauchy">Cauchy</string>
-    <string name="settings_tigullio">Tigullio</string>
 
     <string name="settings_background">Taustanumero</string>
     <string name="settings_customization">Ulkoasu</string>

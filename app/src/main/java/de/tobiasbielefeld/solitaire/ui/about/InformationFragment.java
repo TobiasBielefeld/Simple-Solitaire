@@ -51,7 +51,6 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         TextView textViewGitHubLink = (TextView) view.findViewById(R.id.aboutTextViewGitHubLink);   //link for the gitHub repo
         TextView textViewApacheLicense = (TextView) view.findViewById(R.id.aboutTextViewApacheLicense); //apache2.0
         TextView textViewCustomColorPicker = (TextView) view.findViewById(R.id.aboutTextViewCustomColorPicker);
-        TextView textViewKdeThemes = (TextView) view.findViewById(R.id.aboutTextViewKDEThemes);
 
         String buildDate = DateFormat.getDateInstance().format(BuildConfig.TIMESTAMP);             //get the build date in locale time format
 
@@ -63,7 +62,6 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         textViewGitHubLink.setMovementMethod(LinkMovementMethod.getInstance());
         textViewApacheLicense.setMovementMethod(LinkMovementMethod.getInstance());
         textViewCustomColorPicker.setMovementMethod(LinkMovementMethod.getInstance());
-        textViewKdeThemes.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }
