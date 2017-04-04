@@ -23,8 +23,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -50,8 +48,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    Toast toast;
-    private Preference preferenceCards, preferenceCardsBackground, preferenceMenuBarPosition;
+    private Toast toast;
+    private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
 
     private static boolean isXLargeTablet(Context context) {
@@ -113,13 +111,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      * @param key The key with the changed value
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(getString(R.string.pref_key_card_drawables))) {
+        if (key.equals(CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
-            updatePreferenceCardsSummary();
 
-        } else if (key.equals(getString(R.string.pref_key_card_background))) {
+        } else if (key.equals(CARD_BACKGROUND)) {
             Card.updateCardBackgroundChoice();
-            updatePreferenceCardsBackgroundSummary();
 
         } else if (key.equals(getString(R.string.pref_key_hide_status_bar))) {
             showOrHideStatusBar();
@@ -127,35 +123,35 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(getString(R.string.pref_key_orientation))) {
             setOrientation();
 
-        } else if (key.equals(getString(R.string.pref_key_left_handed_mode))) {
+        } else if (key.equals(PREF_KEY_LEFT_HANDED_MODE)) {
             if (gameLogic != null) {
                 gameLogic.mirrorStacks();
             }
 
-        } else if (key.equals(getString(R.string.pref_key_klondike_draw))) {
+        } else if (key.equals(PREF_KEY_KLONDIKE_DRAW)) {
             showToast(getString(R.string.settings_restart_klondike));
 
-        } else if (key.equals(getString(R.string.pref_key_canfield_draw))) {
+        } else if (key.equals(PREF_KEY_CANFIELD_DRAW)) {
             showToast(getString(R.string.settings_restart_canfield));
 
-        } else if (key.equals(getString(R.string.pref_key_spider_difficulty))) {
+        } else if (key.equals(PREF_KEY_SPIDER_DIFFICULTY)) {
             showToast(getString(R.string.settings_restart_spider));
 
-        } else if (key.equals(getString(R.string.pref_key_yukon_rules))) {
+        } else if (key.equals(PREF_KEY_YUKON_RULES)) {
             showToast(getString(R.string.settings_restart_yukon));
 
-        } else if (key.equals(getString(R.string.pref_key_menu_columns_portrait)) || key.equals(getString(R.string.pref_key_menu_columns_landscape))) {
+        } else if (key.equals(MENU_COLUMNS_PORTRAIT) || key.equals(MENU_COLUMNS_LANDSCAPE)) {
             updatePreferenceMenuColumnsSummary();
 
-        } else if (key.equals(getString(R.string.pref_key_language))) {
+        } else if (key.equals(PREF_KEY_LANGUAGE)) {
             setLocale();
 
-        } else if (key.equals(getString(R.string.pref_key_forty_eight_limited_redeals))){
+        } else if (key.equals(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS)){
             if (currentGame instanceof FortyEight) {
                 gameLogic.toggleNumberOfRedeals();
             }
 
-        } else if(key.equals(getString(R.string.pref_key_pyramid_limited_redeals))) {
+        } else if(key.equals(PREF_KEY_PYRAMID_DIFFICULTY)) {
             if (currentGame instanceof Pyramid) {
                 gameLogic.toggleNumberOfRedeals();
             }
@@ -171,133 +167,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 gameLogic.updateMenuBar();
             }
 
-        } else if (key.equals(getString(R.string.pref_key_4_color_mode))) {
+        } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
-            updatePreferenceCardsSummary();
 
         }
     }
 
     /**
-     * Gets the bitmap for the card background preference icon and also set its summary
-     */
-    private void updatePreferenceCardsBackgroundSummary() {
-        Bitmap cardBack;
-        int selectedBackground = getSharedInt(CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
-        preferenceCardsBackground.setSummary(String.format(Locale.getDefault(), "%s %s",
-                getString(R.string.settings_background), selectedBackground));
-
-        switch (selectedBackground) {
-            case 1:default:
-                cardBack = bitmaps.getCardBack(0, 0);
-                break;
-            case 2:
-                cardBack = bitmaps.getCardBack(1, 0);
-                break;
-            case 3:
-                cardBack = bitmaps.getCardBack(2, 0);
-                break;
-            case 4:
-                cardBack = bitmaps.getCardBack(3, 0);
-                break;
-            case 5:
-                cardBack = bitmaps.getCardBack(4, 0);
-                break;
-            case 6:
-                cardBack = bitmaps.getCardBack(5, 0);
-                break;
-            case 7:
-                cardBack = bitmaps.getCardBack(6, 0);
-                break;
-            case 8:
-                cardBack = bitmaps.getCardBack(7, 0);
-                break;
-            case 9:
-                cardBack = bitmaps.getCardBack(0, 1);
-                break;
-            case 10:
-                cardBack = bitmaps.getCardBack(1, 1);
-                break;
-            case 11:
-                cardBack = bitmaps.getCardBack(2, 1);
-                break;
-            case 12:
-                cardBack = bitmaps.getCardBack(3, 1);
-                break;
-            case 13:
-                cardBack = bitmaps.getCardBack(4, 1);
-                break;
-            case 14:
-                cardBack = bitmaps.getCardBack(5, 1);
-                break;
-            case 15:
-                cardBack = bitmaps.getCardBack(6, 1);
-                break;
-            case 16:
-                cardBack = bitmaps.getCardBack(7, 1);
-                break;
-            case 17:
-                cardBack = bitmaps.getCardBack(0, 2);
-                break;
-            case 18:
-                cardBack = bitmaps.getCardBack(1, 2);
-                break;
-        }
-
-        preferenceCardsBackground.setIcon(new BitmapDrawable(getResources(), cardBack));
-    }
-
-    /**
-     * Gets the bitmap for the card preference icon and also set its summary
-     */
-    private void updatePreferenceCardsSummary() {
-        String text;
-        Bitmap cardPreview;
-        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE) ? 1 : 0;
-
-        switch (getSharedInt(CARD_DRAWABLES, 1)) {
-            case 1: default:
-                text = getString(R.string.settings_basic);
-                cardPreview = bitmaps.getCardPreview2(0, row);
-                break;
-            case 2:
-                text = getString(R.string.settings_classic);
-                cardPreview = bitmaps.getCardPreview2(1, row);
-                break;
-            case 3:
-                text = getString(R.string.settings_abstract);
-                cardPreview = bitmaps.getCardPreview2(2, row);
-                break;
-            case 4:
-                text = getString(R.string.settings_simple);
-                cardPreview = bitmaps.getCardPreview2(3, row);
-                break;
-            case 5:
-                text = getString(R.string.settings_modern);
-                cardPreview = bitmaps.getCardPreview2(4, row);
-                break;
-            case 6:
-                text = getString(R.string.settings_oxygen_dark);
-                cardPreview = bitmaps.getCardPreview2(5, row);
-                break;
-            case 7:
-                text = getString(R.string.settings_oxygen_light);
-                cardPreview = bitmaps.getCardPreview2(6, row);
-                break;
-            case 8:
-                text = getString(R.string.settings_poker);
-                cardPreview = bitmaps.getCardPreview2(7, row);
-                break;
-        }
-
-        preferenceCards.setSummary(text);
-        preferenceCards.setIcon(new BitmapDrawable(getResources(), cardPreview));
-    }
-
-    /**
-     * Tests if a fragment loaded is valid
+     * Tests if a loaded fragment is valid
      *
-     * @param fragmentName THe name of the fragment to test
+     * @param fragmentName The name of the fragment to test
      * @return True if it's valid, false otherwise
      */
     protected boolean isValidFragment(String fragmentName) {
@@ -403,12 +282,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
             Settings settings = (Settings) getActivity();
 
-            settings.preferenceCards = findPreference(getString(R.string.pref_key_cards));
-            settings.preferenceCardsBackground = findPreference(getString(R.string.pref_key_cards_background));
             settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
 
-            settings.updatePreferenceCardsSummary();
-            settings.updatePreferenceCardsBackgroundSummary();
             settings.updatePreferenceMenuBarPositionSummary();
         }
     }

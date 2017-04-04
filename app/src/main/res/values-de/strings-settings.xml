@@ -64,24 +64,19 @@
     <string name="settings_oxygen_dark">Oxygen Dark</string>
     <string name="settings_oxygen_light">Oxygen Light</string>
     <string name="settings_poker">Poker</string>
-
-
     <string name="settings_additional_movements">Weitere Karten Bewegungen</string>
     <string name="settings_additional_movements_description">Aktiviere und deaktivere Doppeltipp- und weitere Bewegungsmöglichkeiten</string>
-
     <string name="settings_double_tap">Doppeltippen</string>
     <string name="settings_double_tap_enable">Erlaube Doppeltipp-Bewegungen</string>
     <string name="settings_double_tap_enable_text">Tippe eine Karte zweimal an, um sie zum nächstbesten Stapel zu bewegen</string>
     <string name="settings_double_tap_all_cards">Bewege alle Karten</string>
     <string name="settings_double_tap_all_cards_text">Bewege so viele Karten wie möglich vom Stapel, nicht nur die berührte Karte</string>
-
-
     <string name="settings_tap_to_select">Zur Auswahl antippen</string>
     <string name="settings_tap_to_select_enable">Erlaube Auswahl-Bewegungen</string>
     <string name="settings_tap_to_select_enable_text">Tippe eine Karte an um sie auszuwählen. Anschließend tippe auf einen Stapel um sie dorthin zu bewegen.</string>
-
     <string name="settings_single_tap">Einmaltippen</string>
     <string name="settings_single_tap_enable">Erlaube Einmaltipp-Bewegungen</string>
     <string name="settings_single_tap_enable_text">Nur für Golf und Tripeaks: Tippe Karten einmal an, um sie zum Ablagestapel zu bewegen.</string>
+    <string name="settings_background_color_custom">Benutzerdefiniert</string>
 
 </resources>

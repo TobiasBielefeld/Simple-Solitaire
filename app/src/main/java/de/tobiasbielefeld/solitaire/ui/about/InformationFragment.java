@@ -26,6 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.text.DateFormat;
 import java.util.Locale;
 
@@ -48,6 +50,7 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         TextView textViewPokerTheme = (TextView) view.findViewById(R.id.aboutTextViewPokerThemeLicense);      //cc0 license from the pictures
         TextView textViewGitHubLink = (TextView) view.findViewById(R.id.aboutTextViewGitHubLink);   //link for the gitHub repo
         TextView textViewApacheLicense = (TextView) view.findViewById(R.id.aboutTextViewApacheLicense); //apache2.0
+        TextView textViewCustomColorPicker = (TextView) view.findViewById(R.id.aboutTextViewCustomColorPicker);
 
         String buildDate = DateFormat.getDateInstance().format(BuildConfig.TIMESTAMP);             //get the build date in locale time format
 
@@ -58,6 +61,7 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         textViewPokerTheme.setMovementMethod(LinkMovementMethod.getInstance());
         textViewGitHubLink.setMovementMethod(LinkMovementMethod.getInstance());
         textViewApacheLicense.setMovementMethod(LinkMovementMethod.getInstance());
+        textViewCustomColorPicker.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }

@@ -34,4 +34,12 @@
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">カンフィールド</string>
 
+    <!-- colors -->
+    <string name="blue">青</string>
+    <string name="green">緑</string>
+    <string name="red">赤</string>
+    <string name="yellow">黄</string>
+    <string name="orange">オレンジ</string>
+    <string name="purple">紫</string>
+
 </resources>

@@ -75,7 +75,6 @@ public class MenuHideGamesPreference extends DialogPreference implements View.On
         int index = linearLayouts.indexOf(view);
         boolean checked = checkBoxes.get(index).isChecked();
         checkBoxes.get(index).setChecked(!checked);
-
     }
 
     @Override

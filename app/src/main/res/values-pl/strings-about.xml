@@ -22,8 +22,11 @@
     <string name="about_material_icons_text">Ikony \'Material design\' autorstwa Google Inc i wydane na <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">licencji Apache 2.0</a></string>
     <string name="about_pixa_bay_license_text">Inne tematy kart i stara skórka oryginalnie opublikowano na <a href="www.pixabay.com">pixabay.com</a> na <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.pl">licencji CC0</a></string>
     <string name="about_third_party_licenses">Licencje stron trzecich</string>
-
     <string name="about_poker_theme">Pokerowy styl kart: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
         Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - na licencji <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
+
+    <!-- new values -->
+    <string name="about_custom_color_picker">Custom color picker: Uses the <a href="https://github.com/yukuku/ambilwarna">AmbilWarna library</a>
+        published under the <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0 license</a></string>
 
 </resources>

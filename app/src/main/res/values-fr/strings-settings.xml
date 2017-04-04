@@ -85,4 +85,7 @@
     <string name="settings_single_tap_enable">Activer le seul clic</string>
     <string name="settings_single_tap_enable_text">Seulement pour Golf et Tripeaks: Appuyez une fois sur une carte pour la déplacer vers la pile de défausse</string>
 
+    <string name="settings_background_color_custom">Coutume</string>
+
+
 </resources>

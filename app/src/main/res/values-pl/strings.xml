@@ -37,4 +37,12 @@
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">Canfield</string>
 
+    <!-- colors -->
+    <string name="blue">Niebieski</string>
+    <string name="green">Zielony</string>
+    <string name="red">Czerwony</string>
+    <string name="yellow">Żółty</string>
+    <string name="orange">Pomarańczowy</string>
+    <string name="purple">Purpurowy</string>
+
 </resources>

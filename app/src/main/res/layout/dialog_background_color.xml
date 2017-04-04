@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/layout_padding">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/dialogBackgroundColorBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="@dimen/dialogBackgroundColorBoxWidth"
+                android:layout_height="@dimen/dialogBackgroundColorBoxWidth"
+                android:background="@drawable/image_border"
+                app:srcCompat="@drawable/background_color_blue" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/blue" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dialogBackgroundColorGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="@dimen/dialogBackgroundColorBoxWidth"
+                android:layout_height="@dimen/dialogBackgroundColorBoxWidth"
+                android:background="@drawable/image_border"
+                app:srcCompat="@drawable/background_color_green" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/green" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dialogBackgroundColorRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="@dimen/dialogBackgroundColorBoxWidth"
+                android:layout_height="@dimen/dialogBackgroundColorBoxWidth"
+                android:background="@drawable/image_border"
+                app:srcCompat="@drawable/background_color_red" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/red" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dialogBackgroundColorYellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="@dimen/dialogBackgroundColorBoxWidth"
+                android:layout_height="@dimen/dialogBackgroundColorBoxWidth"
+                android:background="@drawable/image_border"
+                app:srcCompat="@drawable/background_color_yellow" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/yellow" />
+        </LinearLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/dialogBackgroundColorOrange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="@dimen/dialogBackgroundColorBoxWidth"
+                android:layout_height="@dimen/dialogBackgroundColorBoxWidth"
+                android:background="@drawable/image_border"
+                app:srcCompat="@drawable/background_color_orange" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/orange" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dialogBackgroundColorPurple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="@dimen/dialogBackgroundColorBoxWidth"
+                android:layout_height="@dimen/dialogBackgroundColorBoxWidth"
+                android:background="@drawable/image_border"
+                app:srcCompat="@drawable/background_color_purple" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/purple" />
+        </LinearLayout>
+
+    </TableRow>
+
+</TableLayout>

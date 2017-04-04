@@ -36,4 +36,12 @@
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">Canfield</string>
 
+    <!-- colors -->
+    <string name="blue">Sininen</string>
+    <string name="green">Vihreä</string>
+    <string name="red">Punainen</string>
+    <string name="yellow">Keltainen</string>
+    <string name="orange">Oranssi</string>
+    <string name="purple">Purppura</string>
+
 </resources>
