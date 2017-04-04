@@ -85,4 +85,7 @@
     <string name="settings_single_tap_enable">シングルタップムーブを有効にする</string>
     <string name="settings_single_tap_enable_text">ゴルフとトリックのみ：カードを一度押して、それを廃棄スタックに移動する</string>
 
+    <string name="settings_background_color_custom">カスタム</string>
+
+
 </resources>

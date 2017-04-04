@@ -85,4 +85,7 @@
     <string name="settings_single_tap_enable">Włącz ruchy przy pojedynczym stuknięciu</string>
     <string name="settings_single_tap_enable_text">Tylko w grach Golf i TrzyWieże: stuknij pojedynczo w kartę, aby przenieść ją na stos odrzutów</string>
 
+    <!-- new values -->
+    <string name="settings_background_color_custom">Custom</string>
+
 </resources>

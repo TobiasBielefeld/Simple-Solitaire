@@ -84,4 +84,6 @@
     <string name="settings_single_tap_enable">Mahdollista siirrot yhdellä kosketuksella</string>
     <string name="settings_single_tap_enable_text">Vain Golf ja Tripeaks: Paina kortti kerran siirtää sen Hylkää pinoon</string>
 
+    <string name="settings_background_color_custom">Asiakassuhde</string>
+
 </resources>

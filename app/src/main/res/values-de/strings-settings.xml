@@ -77,7 +77,6 @@
     <string name="settings_single_tap">Einmaltippen</string>
     <string name="settings_single_tap_enable">Erlaube Einmaltipp-Bewegungen</string>
     <string name="settings_single_tap_enable_text">Nur für Golf und Tripeaks: Tippe Karten einmal an, um sie zum Ablagestapel zu bewegen.</string>
-
     <string name="settings_background_color_custom">Benutzerdefiniert</string>
 
 </resources>
