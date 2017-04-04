@@ -151,16 +151,12 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
     }
 
     /*
-     * Applies a custom layout, so I can get the widget image from it, to update the background choice
+     * Get the layout from the preference, so I can get the imageView from the widgetLayout
      */
     @Override
     protected View onCreateView(ViewGroup parent) {
-        super.onCreateView(parent);
+        View view = super.onCreateView(parent);
 
-        LayoutInflater inflater = (LayoutInflater) getContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View view = inflater.inflate(R.layout.preference_cards_background, parent, false);
         image = (ImageView) view.findViewById(R.id.preference_cards_background_imageView);
         updateSummary();
 

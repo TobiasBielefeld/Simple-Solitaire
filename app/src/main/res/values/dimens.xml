@@ -10,5 +10,5 @@
     <dimen name="menuBarHeight">56dp</dimen>
     <dimen name="menuBarWidht">50dp</dimen>
     <dimen name="dialogBackgroundColorBoxWidth">50dp</dimen>
-    <dimen name="dialogBackgroundColorBoxWidthPreference">40dp</dimen>
+    <dimen name="preference_widget_height">40dp</dimen>
 </resources>

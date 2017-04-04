@@ -5,7 +5,8 @@
         android:negativeButtonText="@string/settings_background_color_custom"
         android:positiveButtonText="@string/game_cancel"
         android:summary="%s"
-        android:title="@string/settings_background_color" />
+        android:title="@string/settings_background_color"
+        android:widgetLayout="@layout/preference_widget_layout_background_color"/>
 
     <ListPreference
         android:defaultValue="Material"
@@ -29,14 +30,16 @@
         android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@null"
         android:summary=""
-        android:title="@string/settings_cards"/>
+        android:title="@string/settings_cards"
+        android:widgetLayout="@layout/preference_widget_layout_cards"/>
 
     <de.tobiasbielefeld.solitaire.dialogs.CardBackgroundDialogPreference
         android:key="@string/pref_key_cards_background"
         android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@null"
         android:summary=""
-        android:title="@string/settings_cards_back" />
+        android:title="@string/settings_cards_back"
+        android:widgetLayout="@layout/preference_widget_layout_cards_background"/>
 
     <CheckBoxPreference
         android:defaultValue="@bool/default_4_color_mode"

@@ -137,19 +137,13 @@ public class BackgroundColorPreference extends DialogPreference implements View.
     }
 
     /*
-     * Applies a custom layout, so I can get the widget image from it, to update the color choice
+     * Get the layout from the preference, so I can get the imageView from the widgetLayout
      */
     @Override
     protected View onCreateView(ViewGroup parent) {
-        super.onCreateView(parent);
-
-        LayoutInflater layoutInflater =
-                (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View view = layoutInflater.inflate(R.layout.preference_background_color, parent, false);
+        View view = super.onCreateView(parent);
 
         image = (ImageView) view.findViewById(R.id.preference_background_color_imageView);
-
         updateSummary();
 
         return view;
