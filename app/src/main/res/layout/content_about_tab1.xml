@@ -151,18 +151,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/aboutTextViewKDEThemes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:focusable="false"
-            android:gravity="center"
-            android:text="@string/about_cards_from_kpat"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
             android:id="@+id/aboutTextViewCC0License"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
