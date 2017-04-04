@@ -64,6 +64,8 @@
     <string name="settings_oxygen_dark">Oxygen Dark</string>
     <string name="settings_oxygen_light">Oxygen Light</string>
     <string name="settings_poker">Poker</string>
+    <string name="settings_cauchy">Cauchy</string>
+    <string name="settings_tigullio">Tigullio</string>
 
     <string name="settings_background">Background number</string>
     <string name="settings_customization">Appearance</string>

@@ -88,4 +88,9 @@
     <!-- new values -->
     <string name="settings_background_color_custom">Custom</string>
 
+    <!-- names for the new card themes -->
+    <string name="settings_cauchy">Cauchy</string>
+    <string name="settings_tigullio">Tigullio</string>
+
+
 </resources>

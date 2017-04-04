@@ -12,6 +12,8 @@
     <string name="settings_modern">Modern</string>
     <string name="settings_simple">Einfach</string>
     <string name="settings_abstract">Abstrakt</string>
+    <string name="settings_cauchy">Cauchy</string>
+    <string name="settings_tigullio">Tigullio</string>
     <string name="settings_customization">Aussehen</string>
     <string name="settings_other">Allgemein</string>
     <string name="settings_back_press_description">Zum Beenden Zurück Taste zwei mal drücken</string>
