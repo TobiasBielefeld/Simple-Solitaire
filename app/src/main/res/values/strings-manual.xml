@@ -238,4 +238,20 @@
     <string name="manual_canfield_scoring">From tableau to foundation: +60\n\nFrom discard stack to
         foundation: +45\n\nFrom foundation to tableau: -75\n\nTurn a card over: +25\n\nReturn all cards
         from discard stack to main stack: -200</string>
+
+    <!-- GrandfathersClock -->
+    <string name="manual_grandfathersClock_structure">1 deck of 52 cards.\n\n8 tableau stacks, 12 foundation
+        stacks in the form of a clock. Each foundation stack already contains one card</string>
+    <string name="manual_grandfathersClock_objective">Order every card in real families in ascending order on
+        the foundation. At the end, the card values on the foundation match the values on a clock.</string>
+    <string name="manual_grandfathersClock_rules">Cards can be placed on the tableau in descending order, the color doesn\'t matter.
+        On the foundation, cards can be placed only in ascending order on the corresponding family. But Aces can be placed on top of kings.
+
+        \n\nYou can move as many cards (which are in a correct sequence) at once on the tableau, as
+        there are free stacks available. This corresponds to the rule, that only one card can be moved at once,
+        but when there are free stacks available, the cards can be moved on the free stacks first and then
+        to the destination stack.
+       </string>
+    <string name="manual_grandfathersClock_scoring">From tableau to foundation: +50</string>
+
 </resources>

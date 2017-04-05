@@ -27,6 +27,8 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Spider Solitaire! A bit special game, because it has 2 card decks, the card families depend
@@ -45,25 +47,25 @@ public class Spider extends Game {
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 11, 12);
-        int spacing = setUpSpacing(layoutGame, 10, 11);
+        int spacing = setUpHorizontalSpacing(layoutGame, 10, 11);
         int startPos = layoutGame.getWidth() - Card.width - 5 * Card.width / 2;
         //main stacks
         for (int i = 0; i < 5; i++) {
-            stacks[18 + i].view.setX(startPos + i * Card.width / 2);
+            stacks[18 + i].setX(startPos + i * Card.width / 2);
             stacks[18 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
             stacks[18 + i].view.setImageBitmap(Stack.backgroundTransparent);
         }
         //foundation stacks
         for (int i = 0; i < 8; i++) {
-            stacks[10 + i].view.setX(Card.width / 2 + i * Card.width / 2);
+            stacks[10 + i].setX(Card.width / 2 + i * Card.width / 2);
             stacks[10 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
             stacks[10 + i].view.setImageBitmap(Stack.backgroundTransparent);
         }
         //tableau stacks
         startPos = layoutGame.getWidth() / 2 - 5 * Card.width - 4 * spacing - spacing / 2;
         for (int i = 0; i < 10; i++) {
-            stacks[i].view.setX(startPos + spacing * i + Card.width * i);
-            stacks[i].view.setY(stacks[18].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) + 1);
+            stacks[i].setX(startPos + spacing * i + Card.width * i);
+            stacks[i].setY(stacks[18].getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
         //set card families depending on settings
         loadCards();
@@ -119,7 +121,7 @@ public class Spider extends Game {
             currentMainStackID--;
 
         //id below 18 means all main stacks are empty
-        if (stacks[currentMainStackID].getID() >= 18) {
+        if (stacks[currentMainStackID].getId() >= 18) {
 
             ArrayList<Card> cards = new ArrayList<>();
             ArrayList<Stack> destinations = new ArrayList<>();
@@ -138,7 +140,7 @@ public class Spider extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
         //can always place a card on an empty field, or the value of the card on the other stack is +1
-        if (stack.getID() < 10) {
+        if (stack.getId() < 10) {
             if (stack.isEmpty() || (stack.getSize() > 0 && stack.getTopCard().getValue() == card.getValue() + 1))
                 return true;
         }
@@ -148,7 +150,7 @@ public class Spider extends Game {
 
     public boolean addCardToMovementTest(Card card) {
         //do not accept cards from foundation and test if the cards are in the right order.
-        return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_COLOR);
+        return card.getStackId() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_COLOR);
     }
 
     public CardAndStack hintTest() {
@@ -197,7 +199,7 @@ public class Spider extends Game {
         //tableau stacks
         for (int k = 0; k < 10; k++) {
             Stack destStack = stacks[k];
-            if (card.getStack().getID() == k || destStack.isEmpty())
+            if (card.getStackId() == k || destStack.isEmpty())
                 continue;
 
             if (cardBelow != null && cardBelow.isUp() && cardBelow.getValue() == card.getValue() + 1 && destStack.getTopCard().getColor() != card.getColor())
@@ -265,7 +267,7 @@ public class Spider extends Game {
                     Stack foundationStack = stacks[10];
 
                     while (!foundationStack.isEmpty())
-                        foundationStack = stacks[foundationStack.getID() + 1];
+                        foundationStack = stacks[foundationStack.getId() + 1];
 
                     ArrayList<Card> cards = new ArrayList<>();
                     ArrayList<Stack> origins = new ArrayList<>();

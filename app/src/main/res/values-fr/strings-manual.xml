@@ -262,4 +262,21 @@
         \n\nD\'une pile de base au tableau : -75
         \n\nPiocher une carte : +25
         \n\nDéplacer les cartes de la défausse à la pioche : -200</string>
+
+    <!-- the following values are translated using an online translator -->
+
+    <!-- GrandfathersClock -->
+    <string name="manual_grandfathersClock_structure">1 jeu de 52 cartes.\n\n8 colonnes sur le tableau, 12 piles de bases
+        sous la forme d\'une horloge. Chaque colonne de bases contient déjà une carte</string>
+    <string name="manual_grandfathersClock_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.
+        À la fin, les valeurs de la carte sur la base correspondent aux valeurs d\'une horloge.</string>
+    <string name="manual_grandfathersClock_rules">Les cartes doivent être placées sur le tableau par ordre décroissant, la couleur n\'a pas d\'importance.
+        Sur les bases, les cartes peuvent être placées uniquement par ordre croissant et dans la même famille. Mais les As peuvent être placés sur les rois.
+
+         \n\nVous pouvez déplacer autant de cartes en une fois (si elles sont placées dans le bon ordre),
+        qu\'il y a d\'emplacements libres sur le tableau. Cela suis la règle qu\'une seule carte peut
+        être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n\'importe quelle carte,
+        celles-ci servent d\'intermédiaire.
+       </string>
+    <string name="manual_grandfathersClock_scoring">Du tableau à une pile de base : +50</string>
 </resources>

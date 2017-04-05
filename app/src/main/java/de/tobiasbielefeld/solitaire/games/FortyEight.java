@@ -27,6 +27,8 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Forty&Eight game! it's pretty hard to win
@@ -54,25 +56,25 @@ public class FortyEight extends Game {
 
         setUpCardWidth(layoutGame, isLandscape, 8 + 1, 8 + 4);
 
-        int spacing = setUpSpacing(layoutGame, 8, 9);
+        int spacing = setUpHorizontalSpacing(layoutGame, 8, 9);
         int startPos = (int) (layoutGame.getWidth() / 2 - 4 * Card.width - 3.5 * spacing);
 
         stacks[17].view.setX((int) (layoutGame.getWidth() / 2 + 3 * Card.width + 3.5 * spacing));
         stacks[17].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         stacks[17].view.setImageBitmap(Stack.backgroundTalon);
 
-        stacks[16].view.setX(stacks[17].view.getX() - spacing - Card.width);
-        stacks[16].view.setY(stacks[17].view.getY());
+        stacks[16].setX(stacks[17].getX() - spacing - Card.width);
+        stacks[16].setY(stacks[17].getY());
 
         for (int i = 0; i < 8; i++) {
-            stacks[8 + i].view.setX(startPos + i * (spacing + Card.width));
-            stacks[8 + i].view.setY(stacks[17].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
+            stacks[8 + i].setX(startPos + i * (spacing + Card.width));
+            stacks[8 + i].setY(stacks[17].getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
             stacks[8 + i].view.setImageBitmap(Stack.background1);
         }
 
         for (int i = 0; i < 8; i++) {
-            stacks[i].view.setX(startPos + i * (spacing + Card.width));
-            stacks[i].view.setY(stacks[8].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
+            stacks[i].setX(startPos + i * (spacing + Card.width));
+            stacks[i].setY(stacks[8].getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
         }
 
     }
@@ -115,9 +117,9 @@ public class FortyEight extends Game {
 
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getID() < 8) {
+        if (stack.getId() < 8) {
 
-            //if there are as many cards moving as free stacks, and one of the free stacks was choosen, dont move
+            //if there are as many cards moving as free stacks, and one of the free stacks was chosen, don't move
             int numberOfFreeStacks = 0;
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
@@ -132,7 +134,7 @@ public class FortyEight extends Game {
 
             return stack.isEmpty() || (stack.getTopCard().getColor() == card.getColor())
                     && (stack.getTopCard().getValue() == card.getValue() + 1);
-        } else if (stack.getID() < 16 && movingCards.hasSingleCard()) {
+        } else if (stack.getId() < 16 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
@@ -156,7 +158,7 @@ public class FortyEight extends Game {
 
         startPos = max(sourceStack.getSize() - numberOfFreeStacks - 1, card.getStack().getIndexOfCard(card));
 
-        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, SAME_COLOR);
+        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, ALTERNATING_COLOR);
     }
 
     public CardAndStack hintTest() {
@@ -244,7 +246,7 @@ public class FortyEight extends Game {
         //then non empty fields
         for (int j = 0; j < 8; j++) {
             if (cardTest(stacks[j], card) && !stacks[j].isEmpty()
-                    && !(card.getStack().getID() <= getLastTableauID() && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))) {
+                    && !(card.getStackId() <= getLastTableauId() && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_FAMILY))) {
                 return stacks[j];
             }
         }
@@ -296,10 +298,10 @@ public class FortyEight extends Game {
         if (originIDs[0] >= 8 && originIDs[0] < 16 && destinationIDs[0] < 8)
             return -60;
         //discard to tableau
-        if (originIDs[0] == getDiscardStack().getID() && destinationIDs[0] < 8)
+        if (originIDs[0] == getDiscardStack().getId() && destinationIDs[0] < 8)
             return 60;
         //redeal cards from discard to main stack
-        if (originIDs[0] == getDiscardStack().getID() && destinationIDs[0] == getMainStack().getID() && originIDs.length > 0)
+        if (originIDs[0] == getDiscardStack().getId() && destinationIDs[0] == getMainStack().getId() && originIDs.length > 0)
             return -200;
 
         return 0;

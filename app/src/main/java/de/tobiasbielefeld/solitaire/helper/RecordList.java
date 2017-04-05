@@ -275,8 +275,8 @@ public class RecordList {
             ArrayList<Integer> listOrigins = new ArrayList<>();
 
             for (int i = 0; i < currentCards.size(); i++) {
-                listCards.add(currentCards.get(i).getID());
-                listOrigins.add(currentOrigins.get(i).getID());
+                listCards.add(currentCards.get(i).getId());
+                listOrigins.add(currentOrigins.get(i).getId());
 
             }
 
@@ -284,7 +284,7 @@ public class RecordList {
             putIntList(RECORD_LIST_ENTRY + pos + ORIGIN, listOrigins);
 
             for (Card card : flipCards) {
-                listFlipCards.add(card.getID());
+                listFlipCards.add(card.getId());
             }
 
             putIntList(RECORD_LIST_ENTRY + pos + FLIP_CARD, listFlipCards);

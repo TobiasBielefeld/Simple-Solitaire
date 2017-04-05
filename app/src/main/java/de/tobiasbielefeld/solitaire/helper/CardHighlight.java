@@ -54,11 +54,11 @@ public class CardHighlight {
 
         padding = (int) (Card.width*0.25);
         width = Card.width + padding;
-        height = (int) (stack.getTopCard().view.getY() + Card.height - card.view.getY() + padding);
+        height = (int) (stack.getTopCard().getY() + Card.height - card.getY() + padding);
 
         gm.highlight.setLayoutParams(new RelativeLayout.LayoutParams(width,height));
-        gm.highlight.setX(card.view.getX()- padding/2);
-        gm.highlight.setY(card.view.getY()- padding/2);
+        gm.highlight.setX(card.getX()- padding/2);
+        gm.highlight.setY(card.getY()- padding/2);
         gm.highlight.setVisibility(View.VISIBLE);
         gm.highlight.bringToFront();
 
@@ -80,12 +80,12 @@ public class CardHighlight {
         if (!moveStarted){
             moveStarted = true;
 
-            height = (int) (card.getStack().getTopCard().view.getY() + Card.height - card.view.getY() + padding);
+            height = (int) (card.getStack().getTopCard().getY() + Card.height - card.getY() + padding);
             gm.highlight.setLayoutParams(new RelativeLayout.LayoutParams(width,height));
         }
 
-        gm.highlight.setX(card.view.getX() - padding/2);
-        gm.highlight.setY(card.view.getY() - padding/2);
+        gm.highlight.setX(card.getX() - padding/2);
+        gm.highlight.setY(card.getY() - padding/2);
     }
 
     public void hide(){

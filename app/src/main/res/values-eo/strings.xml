@@ -45,4 +45,7 @@
     <string name="orange">Oranĝkolora</string>
     <string name="purple">Purpura</string>
 
+    <!-- new values -->
+    <string name="games_grandfathersClock">GrandfathersClock</string>
+
 </resources>

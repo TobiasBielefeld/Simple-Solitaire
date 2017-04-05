@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.support.annotation.CallSuper;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Abstract class for all the games. See the DUMMY GAME for detailed explanation of everything!
@@ -36,11 +39,13 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public abstract class Game {
 
-    final static protected boolean SAME_COLOR = false;
-    final static protected boolean ALTERNATING_COLOR = true;
+    protected enum testMode{
+        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER
+    }
 
-    final static protected int SAME_VALUE_AND_COLOR = 0;
-    final static protected int SAME_VALUE_AND_FAMILY = 1;
+    protected enum testMode2{
+        SAME_VALUE_AND_COLOR, SAME_VALUE_AND_FAMILY, SAME_VALUE
+    }
 
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
     public Stack.SpacingDirection[] directions;
@@ -225,11 +230,12 @@ public abstract class Game {
     }
 
     /**
-     * Does stuff on game reset. By default, it resetes the redeal counter (if there is one).
+     * Does stuff on game reset. By default, it resets the redeal counter (if there is one).
      * If games need to reset additional stuff, put it here
      *
      * @param gm A reference to the game manager, to update the ui redeal counter
      */
+    @CallSuper
     public void reset(GameManager gm) {
         if (hasLimitedRedeals) {
             redealCounter = 0;
@@ -265,21 +271,24 @@ public abstract class Game {
      *
      * @param stack The stack to test
      * @param startPos The start index of the cards to test
-     * @param mode True means alternating color, false means same color
-     * @return True if the cards are in the correct order, false otherwiese
+     * @param mode Shows which order the colors should have
+     * @return True if the cards are in the correct order, false otherwise
      */
-    protected boolean testCardsUpToTop(Stack stack, int startPos, boolean mode) {
+    protected boolean testCardsUpToTop(Stack stack, int startPos, testMode mode) {
 
 
         for (int i = startPos; i < stack.getSize() - 1; i++) {
             Card bottomCard = stack.getCard(i);
             Card upperCard = stack.getCard(i + 1);
 
-            if (mode == ALTERNATING_COLOR) {  //alternating color
+            if (mode == ALTERNATING_COLOR){
                 if ((bottomCard.getColor() % 2 == upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1))
                     return false;
-            } else {    //same color
+            } else if (mode == SAME_COLOR){
                 if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue() + 1))
+                    return false;
+            } else if (mode == DOESNT_MATTER){
+                if (bottomCard.getValue() != upperCard.getValue() + 1)
                     return false;
             }
 
@@ -330,17 +339,17 @@ public abstract class Game {
      * these values to calculate the right dimensions for the cards, so everything fits fine on the screen
      *
      * @param layoutGame The layout, where the cards are located in
-     * @param portraitValue The limiting number of card in the biggest row of the layout
-     * @param landscapeValue The limiting number of cards in the biggest column of the layout
+     * @param cardsInRow The limiting number of card in the biggest row of the layout
+     * @param cardsInColumn The limiting number of cards in the biggest column of the layout
      */
-    protected void setUpCardDimensions(RelativeLayout layoutGame, int portraitValue, int landscapeValue) {
+    protected void setUpCardDimensions(RelativeLayout layoutGame, int cardsInRow, int cardsInColumn) {
 
         int testWidth1, testHeight1, testWidth2, testHeight2;
 
-        testWidth1 = layoutGame.getWidth() / portraitValue;
+        testWidth1 = layoutGame.getWidth() / cardsInRow;
         testHeight1 = (int) (testWidth1 * 1.5);
 
-        testHeight2 = layoutGame.getHeight() / landscapeValue;
+        testHeight2 = layoutGame.getHeight() / cardsInColumn;
         testWidth2 = (int) (testHeight2 / 1.5);
 
         if (testHeight1 < testHeight2) {
@@ -351,14 +360,13 @@ public abstract class Game {
             Card.height = testHeight2;
         }
 
-
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
         for (Card card : cards) card.view.setLayoutParams(params);
         for (Stack stack : stacks) stack.view.setLayoutParams(params);
     }
 
     /**
-     * Returns the calculated spacing for the layout. It takes the layout width minus the card widths,
+     * Returns the calculated horizontal spacing for the layout. It takes the layout width minus the card widths,
      * then divides the remaining space with the divider. So the game can know how big the spaces are
      * between the card stacks for a good layout.
      *
@@ -367,8 +375,22 @@ public abstract class Game {
      * @param divider The amount of spaces you want to have between the cards
      * @return The spacing value
      */
-    protected int setUpSpacing(RelativeLayout layoutGame, int numberOfCards, int divider) {
+    protected int setUpHorizontalSpacing(RelativeLayout layoutGame, int numberOfCards, int divider) {
         return min(Card.width / 2, (layoutGame.getWidth() - numberOfCards * Card.width) / (divider));
+    }
+
+    /**
+     * Returns the calculated vertical spacing for the layout. It takes the layout width minus the card widths,
+     * then divides the remaining space with the divider. So the game can know how big the spaces are
+     * between the card stacks for a good layout.
+     *
+     * @param layoutGame The layout where the cards are located in.
+     * @param numberOfCards The number of cards in a row
+     * @param divider The amount of spaces you want to have between the cards
+     * @return The spacing value
+     */
+    protected int setUpVerticalSpacing(RelativeLayout layoutGame, int numberOfCards, int divider) {
+        return min(Card.width / 2, (layoutGame.getHeight() - numberOfCards * Card.height) / (divider));
     }
 
     /**
@@ -490,25 +512,52 @@ public abstract class Game {
      *
      * @param card The card to test
      * @param otherStack The stack to test
-     * @param mode True means same value and color, False means Same value and family
+     * @param mode Shows which color the other card should have
      * @return True if it is the same card (under the given conditions), false otherwise
      */
-    protected boolean sameCardOnOtherStack(Card card, Stack otherStack, int mode) {
+    protected boolean sameCardOnOtherStack(Card card, Stack otherStack, testMode2 mode) {
         Stack origin = card.getStack();
 
         if (card.getIndexOnStack() > 0 && origin.getCard(card.getIndexOnStack() - 1).isUp() && otherStack.getSize() > 0) {
             Card cardBelow = origin.getCard(card.getIndexOnStack() - 1);
 
             if (mode == SAME_VALUE_AND_COLOR) {
-                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() % 2 == otherStack.getTopCard().getColor() % 2)
+                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() % 2 == otherStack.getTopCard().getColor() % 2) {
                     return true;
+                }
             } else if (mode == SAME_VALUE_AND_FAMILY) {
-                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() == otherStack.getTopCard().getColor())
+                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() == otherStack.getTopCard().getColor()) {
                     return true;
+                }
+            } else if (mode == SAME_VALUE) {
+                if (cardBelow.getValue() == otherStack.getTopCard().getValue()) {
+                    return true;
+                }
             }
         }
 
         return false;
+    }
+
+    /**
+     * Applies the direction borders, which were set using setDirectionBorders().
+     * This will be automatically called when a game starts.
+     *
+     * @param layoutGame Used to set the border according to the screen dimensions
+     */
+    public void applyDirectionBorders(RelativeLayout layoutGame){
+        if (directionBorders != null) {
+            for (int i = 0; i < directionBorders.length; i++) {
+                if (directionBorders[i] != -1)    //-1 means no border
+                    stacks[i].setSpacingMax(directionBorders[i]);
+                else
+                    stacks[i].setSpacingMax(layoutGame);
+            }
+        } else {
+            for (Stack stack : stacks) {
+                stack.setSpacingMax(layoutGame);
+            }
+        }
     }
 
     //some getters,setters and simple methods, games should'nt override these
@@ -521,7 +570,7 @@ public abstract class Game {
         return stacks[mainStackID];
     }
 
-    public int getLastTableauID() throws ArrayIndexOutOfBoundsException{
+    public int getLastTableauId() throws ArrayIndexOutOfBoundsException{
         if (lastTableauID == -1) {
             throw new ArrayIndexOutOfBoundsException("No last tableau stack specified");
         }
@@ -602,5 +651,10 @@ public abstract class Game {
 
     public boolean isSingleTapEnabled(){
         return singleTapeEnabled;
+    }
+
+    public void flipAllCardsUp(){
+        for (Card card : cards)
+            card.flipUp();
     }
 }

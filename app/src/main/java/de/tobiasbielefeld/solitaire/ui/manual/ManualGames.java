@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.ui.manual;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
     private void loadGameText(int id) {
         currentGameButtonID = id;
         String gameName = lg.manualClick(id);   //get prefix
+        logText(gameName);
 
         try {
             //and load everything
@@ -92,6 +94,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
         } catch (Exception e) {
             //no page available
+            Log.e("Manual page not found", e.toString());
             showToast(getString(R.string.page_load_error));
         }
 

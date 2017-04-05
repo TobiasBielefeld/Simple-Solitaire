@@ -88,7 +88,7 @@ public class MovingCards {
      * @return True if the area was left, false otherwise
      */
     private boolean didMoveStart(float X, float Y){
-        if (abs(currentCards.get(0).view.getX() + offsetX-X)>Card.width/4 || abs(currentCards.get(0).view.getY() +offsetY-Y)>Card.height/4){
+        if (abs(currentCards.get(0).getX() + offsetX-X)>Card.width/4 || abs(currentCards.get(0).getY() +offsetY-Y)>Card.height/4){
             moveStarted = true;
             return true;
         }
@@ -108,7 +108,7 @@ public class MovingCards {
 
         moveToStack(currentCards, destination);
 
-        if (origin.getSize() > 0 && origin.getID() <= currentGame.getLastTableauID() && !origin.getTopCard().isUp())
+        if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp())
             origin.getTopCard().flipWithAnim();
 
         currentCards.clear();

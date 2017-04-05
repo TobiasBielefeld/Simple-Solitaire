@@ -130,8 +130,8 @@ public class Animate {
         card.view.bringToFront();
         card.saveOldLocation();
         PointF pointAtStack = destination.getPosition(offset);
-        float dist_x = pointAtStack.x - card.view.getX();
-        float dist_y = pointAtStack.y - card.view.getY();
+        float dist_x = pointAtStack.x - card.getX();
+        float dist_y = pointAtStack.y - card.getY();
         int distance = (int) Math.sqrt((double) ((dist_x * dist_x) + (dist_y * dist_y)));
 
         TranslateAnimation animation = new TranslateAnimation(0, dist_x, 0, dist_y);

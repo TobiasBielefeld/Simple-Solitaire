@@ -54,7 +54,7 @@ public class Tripeaks extends Game {
 
         setUpCardDimensions(layoutGame, 11, 6);
 
-        int spacing = setUpSpacing(layoutGame, 10, 11);
+        int spacing = setUpHorizontalSpacing(layoutGame, 10, 11);
 
         int startPosX = (int) (layoutGame.getWidth() / 2 - 3.5 * Card.width - 3 * spacing);
         int startPosY = (int) ((layoutGame.getHeight() - Card.height * 4.25 - (isLandscape ? Card.height / 4 : Card.height / 2)) / 2);
@@ -75,8 +75,8 @@ public class Tripeaks extends Game {
             if (i > 3 && i < 9 && (i - 1) % 2 == 0)
                 startPosX += Card.width + spacing;
 
-            stacks[i].view.setX(startPosX);
-            stacks[i].view.setY(startPosY);
+            stacks[i].setX(startPosX);
+            stacks[i].setY(startPosY);
             stacks[i].view.setImageBitmap(Stack.backgroundTransparent);
 
 
@@ -86,16 +86,16 @@ public class Tripeaks extends Game {
                 startPosX += Card.width + spacing;
         }
 
-        stacks[28].view.setX(layoutGame.getWidth() / 2 - Card.width - spacing);
-        stacks[28].view.setY(stacks[18].view.getY() + Card.height + (isLandscape ? Card.height / 4 : Card.height / 2));
+        stacks[28].setX(layoutGame.getWidth() / 2 - Card.width - spacing);
+        stacks[28].setY(stacks[18].getY() + Card.height + (isLandscape ? Card.height / 4 : Card.height / 2));
 
-        stacks[29].view.setX(stacks[28].view.getX() + 2 * spacing + Card.width);
-        stacks[29].view.setY(stacks[28].view.getY());
+        stacks[29].setX(stacks[28].getX() + 2 * spacing + Card.width);
+        stacks[29].setY(stacks[28].getY());
 
     }
 
     public boolean winTest() {
-        for (int i = 0; i <= getLastTableauID(); i++) {
+        for (int i = 0; i <= getLastTableauId(); i++) {
             if (!stacks[i].isEmpty())
                 return false;
         }
@@ -141,7 +141,7 @@ public class Tripeaks extends Game {
 
     public boolean addCardToMovementTest(Card card) {
 
-        return card.getStack().getID() != getDiscardStack().getID();
+        return card.getStackId() != getDiscardStack().getId();
     }
 
     public CardAndStack hintTest() {
@@ -174,7 +174,7 @@ public class Tripeaks extends Game {
 
         if (originIDs[0] < 28 && destinationIDs[0] == 28)
             points += 50;
-        //else if (originIDs[0]==getDiscardStack().getID() && destinationIDs[0]==getMainStack().getID())
+        //else if (originIDs[0]==getDiscardStack().getId() && destinationIDs[0]==getMainStack().getId())
         //    points-=200;
 
         return points;
@@ -189,11 +189,11 @@ public class Tripeaks extends Game {
     }
 
     private boolean stackIsFree(Stack stack) {
-        if (stack.getID() > 17)
+        if (stack.getId() > 17)
             return true;
 
-        Stack stackAbove1 = stacks[stackAboveID[stack.getID()]];
-        Stack stackAbove2 = stacks[stackAboveID[stack.getID()] + 1];
+        Stack stackAbove1 = stacks[stackAboveID[stack.getId()]];
+        Stack stackAbove2 = stacks[stackAboveID[stack.getId()] + 1];
 
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
     }

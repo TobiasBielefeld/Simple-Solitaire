@@ -38,6 +38,8 @@
     <string name="games_gypsy">Gypsy</string>
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">Canfield</string>
+    <string name="games_grandfathersClock">GrandfathersClock</string>
+
 
     <!-- colors -->
     <string name="blue">Blue</string>

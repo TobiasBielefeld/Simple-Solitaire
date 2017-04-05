@@ -266,7 +266,7 @@ public class Card {
         return isUp;
     }
 
-    public int getID() {
+    public int getId() {
         return id;
     }
 
@@ -280,5 +280,25 @@ public class Card {
 
     public void setStack(Stack stack) {
         this.stack = stack;
+    }
+
+    public float getX(){
+        return view.getX();
+    }
+
+    public float getY(){
+        return view.getY();
+    }
+
+    public void setX(float X){
+        view.setX(X);
+    }
+
+    public void setY(float Y){
+        view.setY(Y);
+    }
+
+    public int getStackId(){
+        return stack.getId();
     }
 }

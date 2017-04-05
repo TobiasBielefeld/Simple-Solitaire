@@ -27,6 +27,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
@@ -50,39 +51,39 @@ public class Klondike extends Game {
         setUpCardWidth(layoutGame, isLandscape, 8, 10);
 
         //calculate spacing and startposition of cards
-        int spacing = setUpSpacing(layoutGame, 7, 8);
+        int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
         int startPos = layoutGame.getWidth() / 2 - Card.width / 2 - 3 * Card.width - 3 * spacing;
 
         //first order the foundation stacks
         for (int i = 0; i < 4; i++) {
-            stacks[7 + i].view.setX(startPos + spacing * i + Card.width * i);
+            stacks[7 + i].setX(startPos + spacing * i + Card.width * i);
             stacks[7 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
 
         //then the trash and main stacks
         startPos = layoutGame.getWidth() - 2 * spacing - 3 * Card.width;
         for (int i = 0; i < 3; i++) {
-            stacks[11 + i].view.setX(startPos + Card.width / 2 * i);
+            stacks[11 + i].setX(startPos + Card.width / 2 * i);
             stacks[11 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
-        stacks[14].view.setX(stacks[13].view.getX() + Card.width + spacing);
-        stacks[14].view.setY(stacks[13].view.getY());
+        stacks[14].setX(stacks[13].getX() + Card.width + spacing);
+        stacks[14].setY(stacks[13].getY());
 
         //now the tabluea stacks
         startPos = layoutGame.getWidth() / 2 - Card.width / 2 - 3 * Card.width - 3 * spacing;
         for (int i = 0; i < 7; i++) {
-            stacks[i].view.setX(startPos + spacing * i + Card.width * i);
-            stacks[i].view.setY(stacks[7].view.getY() + Card.height +
+            stacks[i].setX(startPos + spacing * i + Card.width * i);
+            stacks[i].setY(stacks[7].getY() + Card.height +
                     (isLandscape ? Card.width / 4 : Card.width / 2));
         }
 
         //also set backgrounds of the stacks
         for (Stack stack : stacks) {
-            if (stack.getID() > 6 && stack.getID() <= 10)
+            if (stack.getId() > 6 && stack.getId() <= 10)
                 stack.view.setImageBitmap(Stack.background1);
-            else if (stack.getID() > 10 && stack.getID() <= 13)
+            else if (stack.getId() > 10 && stack.getId() <= 13)
                 stack.view.setImageBitmap(Stack.backgroundTransparent);
-            else if (stack.getID() == 14)
+            else if (stack.getId() == 14)
                 stack.view.setImageBitmap(Stack.backgroundTalon);
         }
     }
@@ -240,14 +241,14 @@ public class Klondike extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
         //move cards according to the klondike rules
-        if (stack.getID() < 7) {
+        if (stack.getId() < 7) {
             if (stack.isEmpty())
                 return card.getValue() == 13;
             else
                 return (stack.getTopCard().getColor() % 2 != card.getColor() % 2)
                         && (stack.getTopCard().getValue() == card.getValue() + 1);
 
-        } else if (stack.getID() < 11 && movingCards.hasSingleCard()) {
+        } else if (stack.getId() < 11 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
@@ -261,8 +262,8 @@ public class Klondike extends Game {
         //don't move cards from the discard stacks if there is a card on top of them
         //for example: if touched a card on stack 11 (first discard stack) but there is a card
         //on stack 12 (second discard stack) don't move if.
-        return !(((card.getStack().getID() == 11 || card.getStack().getID() == 12) && !stacks[13].isEmpty())
-                || (card.getStack().getID() == 11 && !stacks[12].isEmpty()));
+        return !(((card.getStackId() == 11 || card.getStackId() == 12) && !stacks[13].isEmpty())
+                || (card.getStackId() == 11 && !stacks[12].isEmpty()));
     }
 
     public CardAndStack hintTest() {
@@ -333,10 +334,10 @@ public class Klondike extends Game {
         //tableau stacks
         for (int j = 0; j < 7; j++) {
 
-            if (card.getStack().getID() < 7 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
+            if (card.getStackId() < 7 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
                 continue;
 
-            if (card.getValue() == 13 && card.isFirstCard() && card.getStack().getID() <= 6)
+            if (card.getValue() == 13 && card.isFirstCard() && card.getStackId() <= 6)
                 continue;
 
             if (card.test(stacks[j])) {

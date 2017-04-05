@@ -59,7 +59,7 @@ public class Pyramid extends Game {
 
         setUpCardDimensions(layoutGame, 7 + 1, 5 + 1);
 
-        int spacing = setUpSpacing(layoutGame, 7, 8);
+        int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
 
         int index = 0;
         for (int i = 0; i < 7; i++) {
@@ -71,30 +71,30 @@ public class Pyramid extends Game {
 
                 stackAboveID[index] = ((i + 1) * (i + 2)) / 2 + j;
 
-                stacks[index].view.setX(startPosX + j * (spacing + Card.width));
-                stacks[index].view.setY(startPosY);
+                stacks[index].setX(startPosX + j * (spacing + Card.width));
+                stacks[index].setY(startPosY);
                 stacks[index].view.setImageBitmap(Stack.backgroundTransparent);
 
                 index++;
             }
         }
 
-        stacks[28].view.setX(stacks[21].view.getX() + Card.width / 2 + spacing / 2);
-        stacks[28].view.setY(stacks[21].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
+        stacks[28].setX(stacks[21].getX() + Card.width / 2 + spacing / 2);
+        stacks[28].setY(stacks[21].getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
 
-        stacks[29].view.setX(stacks[24].view.getX() + Card.width / 2);
-        stacks[29].view.setY(stacks[28].view.getY());
+        stacks[29].setX(stacks[24].getX() + Card.width / 2);
+        stacks[29].setY(stacks[28].getY());
 
-        stacks[31].view.setX(stacks[29].view.getX() + Card.width + spacing);
-        stacks[31].view.setY(stacks[28].view.getY());
+        stacks[31].setX(stacks[29].getX() + Card.width + spacing);
+        stacks[31].setY(stacks[28].getY());
         setArrow(stacks[31], LEFT);
 
-        stacks[30].view.setX(stacks[31].view.getX() + Card.width + spacing);
-        stacks[30].view.setY(stacks[28].view.getY());
+        stacks[30].setX(stacks[31].getX() + Card.width + spacing);
+        stacks[30].setY(stacks[28].getY());
     }
 
     public boolean winTest() {
-        for (int i = 0; i <= getLastTableauID(); i++)
+        for (int i = 0; i <= getLastTableauId(); i++)
             if (!stacks[i].isEmpty())
                 return false;
 
@@ -133,13 +133,13 @@ public class Pyramid extends Game {
 
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getID() == 31)
+        if (stack.getId() == 31)
             return false;
 
-        if (stack.getID() == 28 && card.getValue() == 13)
+        if (stack.getId() == 28 && card.getValue() == 13)
             return true;
 
-        if (stack.getID()!=28 && !stack.isEmpty() && stackIsFree(stack) && card.getValue() + stack.getTopCard().getValue() == 13) {
+        if (stack.getId()!=28 && !stack.isEmpty() && stackIsFree(stack) && card.getValue() + stack.getTopCard().getValue() == 13) {
 
             cardsToMove.add(stack.getTopCard());
             cardsToMove.add(card);
@@ -156,15 +156,15 @@ public class Pyramid extends Game {
 
     public boolean addCardToMovementTest(Card card) {
 
-        if (card.getStack().getID() == 28)
+        if (card.getStackId() == 28)
             return false;
 
-        if (card.getStack().getID() == getDiscardStack().getID())
+        if (card.getStackId() == getDiscardStack().getId())
             return true;
 
         Stack currentStack = card.getStack();
 
-        return currentStack.getID() > 20 || stackIsFree(currentStack);
+        return currentStack.getId() > 20 || stackIsFree(currentStack);
 
     }
 
@@ -172,7 +172,7 @@ public class Pyramid extends Game {
 
         ArrayList<Stack> freeStacks = new ArrayList<>();
 
-        for (int i = 0; i <= getLastTableauID(); i++) {
+        for (int i = 0; i <= getLastTableauId(); i++) {
             if (stackIsFree(stacks[i]) && !stacks[i].isEmpty() && !hint.hasVisited(stacks[i].getTopCard()))
                 freeStacks.add(stacks[i]);
         }
@@ -191,7 +191,7 @@ public class Pyramid extends Game {
             }
 
             for (Stack otherStack : freeStacks) {
-                if (stack.getID() == otherStack.getID())
+                if (stack.getId() == otherStack.getId())
                     continue;
 
                 if (stackIsFree(stack) && stack.getTopCard().getValue() + otherStack.getTopCard().getValue() == 13)
@@ -211,12 +211,12 @@ public class Pyramid extends Game {
             return stacks[28];
         }
 
-        for (int i = getLastTableauID(); i >= 0; i--) {
+        for (int i = getLastTableauId(); i >= 0; i--) {
 
             if (stacks[i].isEmpty())
                 continue;
 
-            if (card.getStack().getID() != i && stackIsFree(stacks[i]) && card.getValue() + stacks[i].getTopCard().getValue() == 13) {
+            if (card.getStackId() != i && stackIsFree(stacks[i]) && card.getValue() + stacks[i].getTopCard().getValue() == 13) {
                 returnStack = stacks[i];
                 break;
             }
@@ -246,7 +246,7 @@ public class Pyramid extends Game {
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
         if (destinationIDs[0] == 28)
             return 50;
-        else if (cards.size() > 1 && originIDs[0] == getDiscardStack().getID() && destinationIDs[0] == getDealStack().getID())
+        else if (cards.size() > 1 && originIDs[0] == getDiscardStack().getId() && destinationIDs[0] == getDealStack().getId())
             return -200;
         else
             return 0;
@@ -267,11 +267,11 @@ public class Pyramid extends Game {
     }
 
     private boolean stackIsFree(Stack stack) {
-        if (stack.getID() > 20)
+        if (stack.getId() > 20)
             return true;
 
-        Stack stackAbove1 = stacks[stackAboveID[stack.getID()]];
-        Stack stackAbove2 = stacks[stackAboveID[stack.getID()] + 1];
+        Stack stackAbove1 = stacks[stackAboveID[stack.getId()]];
+        Stack stackAbove2 = stacks[stackAboveID[stack.getId()] + 1];
 
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
     }

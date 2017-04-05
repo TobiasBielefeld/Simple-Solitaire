@@ -29,8 +29,8 @@ public class CardAndStack {
     private int stackID;
 
     public CardAndStack(Card card, Stack stack) {
-        cardID = card.getID();
-        stackID = stack.getID();
+        cardID = card.getId();
+        stackID = stack.getId();
     }
 
     public CardAndStack(int cardID, int stackID) {
@@ -38,11 +38,11 @@ public class CardAndStack {
         this.stackID = stackID;
     }
 
-    public int getCardID() {
+    public int getCardId() {
         return cardID;
     }
 
-    public int getStackID() {
+    public int getStackId() {
         return stackID;
     }
 

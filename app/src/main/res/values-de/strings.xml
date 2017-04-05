@@ -30,6 +30,7 @@
     <string name="app_version">Version</string>
     <string name="portrait">Hochformat</string>
     <string name="landscape">Querformat</string>
+    <string name="games_grandfathersClock">GrandfathersClock</string>
 
     <!-- colors -->
     <string name="blue">Blau</string>

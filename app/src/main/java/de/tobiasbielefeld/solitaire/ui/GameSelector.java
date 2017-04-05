@@ -113,6 +113,9 @@ public class GameSelector extends CustomAppCompatActivity {
         if (result.size() == 12) { //new canfield game
             result.add(1, 1);
         }
+        if (result.size() == 13) { //new grand fathers clock game
+            result.add(5, 1);
+        }
 
         //add the game buttons
         for (int i = 0; i < gameLayouts.size(); i++) {

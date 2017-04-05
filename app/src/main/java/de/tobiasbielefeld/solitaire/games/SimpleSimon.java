@@ -27,6 +27,8 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Simple Simon Game! It's nearly like Spider, but with less cards and all cards are
@@ -45,18 +47,18 @@ public class SimpleSimon extends Game {
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 11, 12);
-        int spacing = setUpSpacing(layoutGame, 10, 11);
+        int spacing = setUpHorizontalSpacing(layoutGame, 10, 11);
         int startPos = layoutGame.getWidth() / 2 - 2 * Card.width - (int) (1.5 * spacing);
         //foundation stacks
         for (int i = 0; i < 4; i++) {
-            stacks[10 + i].view.setX(startPos + spacing * i + Card.width * i);
+            stacks[10 + i].setX(startPos + spacing * i + Card.width * i);
             stacks[10 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
         //tableau stacks
         startPos = layoutGame.getWidth() / 2 - 5 * Card.width - 4 * spacing - spacing / 2;
         for (int i = 0; i < 10; i++) {
-            stacks[i].view.setX(startPos + spacing * i + Card.width * i);
-            stacks[i].view.setY(stacks[10].view.getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) + 1);
+            stacks[i].setX(startPos + spacing * i + Card.width * i);
+            stacks[i].setY(stacks[10].getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
     }
 
@@ -66,8 +68,7 @@ public class SimpleSimon extends Game {
 
     public void dealCards() {
 
-        for (Card card : cards)
-            card.flipUp();
+        flipAllCardsUp();
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 8; j++) {
@@ -86,7 +87,7 @@ public class SimpleSimon extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getID() < 10) {
+        if (stack.getId() < 10) {
             if (stack.isEmpty() || stack.getTopCard().getValue() == card.getValue() + 1)
                 return true;
         }
@@ -95,7 +96,7 @@ public class SimpleSimon extends Game {
     }
 
     public boolean addCardToMovementTest(Card card) {
-        return card.getStack().getID() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_COLOR);
+        return card.getStackId() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_COLOR);
     }
 
     public CardAndStack hintTest() {
@@ -144,7 +145,7 @@ public class SimpleSimon extends Game {
         //tableau stacks
         for (int k = 0; k < 10; k++) {
             Stack destStack = stacks[k];
-            if (card.getStack().getID() == k || destStack.isEmpty())
+            if (card.getStackId() == k || destStack.isEmpty())
                 continue;
 
             if (cardBelow != null && cardBelow.isUp() && cardBelow.getValue() == card.getValue() + 1 && destStack.getTopCard().getColor() != card.getColor())
@@ -198,7 +199,7 @@ public class SimpleSimon extends Game {
                     Stack foundationStack = stacks[10];
 
                     while (!foundationStack.isEmpty())
-                        foundationStack = stacks[foundationStack.getID() + 1];
+                        foundationStack = stacks[foundationStack.getId() + 1];
 
                     ArrayList<Card> cards = new ArrayList<>();
                     ArrayList<Stack> origins = new ArrayList<>();
