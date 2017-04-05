@@ -194,4 +194,19 @@
 		\n\nDe fundamenta stako al tablamaso: -75
 		\n\nMalkovri karton: +25
 		\n\nMovi ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
+
+	<!-- new values -->
+	<!-- GrandfathersClock -->
+	<string name="manual_grandfathersClock_structure">1 kartaro po 52 kartoj.
+        \n\n8 tablamasoj, 12 fundamentaj stakoj in the form of a clock. Each foundation stack already contains one card</string>
+	<string name="manual_grandfathersClock_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.
+        At the end, the card values on the foundation match the values on a clock.</string>
+	<string name="manual_grandfathersClock_rules">Cards can be placed on the tableau in descending order, the color doesn\'t matter.
+         Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo. But Aces can be placed on top of kings.
+
+        \n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj estas disponeblaj.
+		Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj
+		estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako.</string>
+	<string name="manual_grandfathersClock_scoring">From tableau to foundation: +50</string>
+
 </resources>

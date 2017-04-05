@@ -163,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_grandfathers_clock"
+                    android:text="@string/games_grandfathersClock"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 

@@ -443,7 +443,7 @@
                     android:ellipsize="end"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:text="@string/games_grandfathers_clock"
+                    android:text="@string/games_grandfathersClock"
                     android:textSize="18sp"
                     android:textStyle="normal|bold"
                     android:visibility="visible" />

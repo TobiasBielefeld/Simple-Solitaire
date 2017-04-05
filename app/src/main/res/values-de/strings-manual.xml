@@ -241,4 +241,20 @@
     <string name="manual_canfield_scoring">Vom Tableau zur Foundation: +60\n\nVom Ablage-Stapel zur
         Foundation: +45\n\nVon der Foundation zum Tableau: -75\n\nEine Karte umdrehen: +25\n\nBewege alle Karten
         vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
+
+    <!-- GrandfathersClock -->
+    <string name="manual_grandfathersClock_structure">1 Deck aus 52 Karten.\n\n8 Tableau-Stapel, 12
+        Foundation-Stapel in Form einer Uhr. Jeder Foundation-Stapel enthält bereits eine Karte</string>
+    <string name="manual_grandfathersClock_objective">Ordne jede Karte als echte Kartenfamilie auf
+        der Foundation an. Am Ende entsprechen die Kartenwerte auf der Foundation der Zahlen einer Uhr.</string>
+    <string name="manual_grandfathersClock_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        gespielt werden, die Farbe ist egal. Auf der Foundation müssen Karten in aufsteigender Reihenfolge
+        derselben Familie gespielt werden. Aber Asse können auf Könige gelegt werden.
+
+        \n\nMan kann so viele Karten einer korrekten
+        Sequenz auf einmal bewegen, wie es freie Spielfelder gibt. Dies entspricht der Regel, dass nur eine
+        Karte auf einmal bewegt werden darf, aber Karten einer Sequenz können zuerst auf die freien Felder
+        aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden.
+       </string>
+    <string name="manual_grandfathersClock_scoring">Vom Tableau zur Foundation: +50</string>
 </resources>

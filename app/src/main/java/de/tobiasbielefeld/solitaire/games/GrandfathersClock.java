@@ -31,7 +31,8 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
- * Grandfathers Clock. First game with a completely different layout for portrait and landscape
+ * Grandfathers Clock. First game with a completely different layout for portrait and landscape.
+ * It is very easy to win.
  */
 
 public class GrandfathersClock extends Game {

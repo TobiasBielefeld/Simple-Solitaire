@@ -45,4 +45,7 @@
     <string name="orange">Pomarańczowy</string>
     <string name="purple">Purpurowy</string>
 
+    <!-- new values -->
+    <string name="games_grandfathersClock">GrandfathersClock</string>
+
 </resources>

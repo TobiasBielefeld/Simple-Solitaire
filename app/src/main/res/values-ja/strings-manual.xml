@@ -220,4 +220,20 @@
     <string name="manual_canfield_scoring">場札から組札へ: +60\n\n捨て札から組札へ: +45
         \n\n組札から場札へ: -75\n\nカードをめくる: +25
         \n\n捨て札からすべてのカードを山札に戻す: -200</string>
+
+    <!-- the following values are translated using an online translator -->
+
+    <!-- GrandfathersClock -->
+    <string name="manual_grandfathersClock_structure">52枚のカードを1組。\n\n8列の場札、12列の組札時計の形で.
+        各基礎スタックには既に1枚のカードが含まれています</string>
+    <string name="manual_grandfathersClock_objective">組札に、同じマークのカードをそれぞれ昇順に並べます。
+        最後に、財団のカードの値は時計の値と一致します。</string>
+    <string name="manual_grandfathersClock_rules">カードは降順に、色を場札に置くことできます、色は関係ありません。
+         組札に、対応するマークの昇順にしかカードを置くことができません。しかし、エースは王の上に置くことができます。
+
+        \n\n利用可能な空きの山（組札とマス）に、一度に多くのカードを（正しい順序で）移動できます。
+        これは、一度に1枚のカードしか移動できないというルールに対応していますが、
+        空きの山がある場合は、最初に空きの山に移動してから目的の山に移動できます。
+       </string>
+    <string name="manual_grandfathersClock_scoring">場札から組札へ: +50</string>
 </resources>

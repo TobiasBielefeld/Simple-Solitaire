@@ -98,7 +98,7 @@ public class LoadGame {
                 break;
             case R.id.buttonStartGrandfathersClock:
                 sharedPrefName = "GrandfathersClock";
-                gameName = activity.getString(R.string.games_grandfathers_clock);
+                gameName = activity.getString(R.string.games_grandfathersClock);
                 game = new GrandfathersClock();
                 break;
             case R.id.buttonStartGypsy:
@@ -260,6 +260,8 @@ public class LoadGame {
     /**
      * returns the prefix of the manual entries for the games. The strings have the following structure:
      * manual_<game name>_rules , manual_<game name>_points and so on.
+     *
+     * The game name needs to have the same structure! games_<game name>
      *
      * @param id The clicked manual entry
      * @return The prefix for the strings
