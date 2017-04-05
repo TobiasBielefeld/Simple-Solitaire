@@ -104,6 +104,23 @@
                         android:textAllCaps="false" />
 
                     <Button
+                        android:id="@+id/manual_games_button_grandfathers_clock"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@string/games_grandfathers_clock"
+                        android:textAllCaps="false" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
                         android:id="@+id/manual_games_button_gypsy"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -113,12 +130,6 @@
                         android:maxLines="1"
                         android:text="@string/games_gypsy"
                         android:textAllCaps="false" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/manual_games_button_klondike"
@@ -142,6 +153,12 @@
                         android:text="@string/games_mod3"
                         android:textAllCaps="false" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
                     <Button
                         android:id="@+id/manual_games_button_pyramid"
                         android:layout_width="0dp"
@@ -152,12 +169,6 @@
                         android:maxLines="1"
                         android:text="@string/games_pyramid"
                         android:textAllCaps="false" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/manual_games_button_simplesimon"
@@ -181,6 +192,13 @@
                         android:text="@string/games_spider"
                         android:textAllCaps="false" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
                     <Button
                         android:id="@+id/manual_games_button_tripeaks"
                         android:layout_width="0dp"
@@ -191,13 +209,6 @@
                         android:maxLines="1"
                         android:text="@string/games_tripeaks"
                         android:textAllCaps="false" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
 
                     <Button
                         android:id="@+id/manual_games_button_yukon"

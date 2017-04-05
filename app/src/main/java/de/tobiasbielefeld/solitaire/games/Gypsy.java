@@ -27,6 +27,8 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Gypsy Solitaire! (Maybe needs another name)
@@ -44,24 +46,24 @@ public class Gypsy extends Game {
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
         setUpCardWidth(layoutGame, isLandscape, 9 + 1, 9 + 3);
-        int spacing = setUpSpacing(layoutGame, 9, 10);
+        int spacing = setUpHorizontalSpacing(layoutGame, 9, 10);
         int verticalSpacing = (isLandscape ? Card.width / 4 : Card.width / 2) + 1;
         int startPos = (int) (layoutGame.getWidth() / 2 - 4.5 * Card.width - 4 * spacing);
 
 
         for (int i = 0; i < 8; i++) {
-            stacks[8 + i].view.setX(startPos + i * (spacing + Card.width));
+            stacks[8 + i].setX(startPos + i * (spacing + Card.width));
             stacks[8 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
             stacks[8 + i].view.setImageBitmap(Stack.background1);
         }
 
         for (int i = 0; i < 8; i++) {
-            stacks[i].view.setX(startPos + i * (spacing + Card.width));
-            stacks[i].view.setY(stacks[8].view.getY() + Card.height + verticalSpacing);
+            stacks[i].setX(startPos + i * (spacing + Card.width));
+            stacks[i].setY(stacks[8].getY() + Card.height + verticalSpacing);
         }
 
-        stacks[16].view.setX(stacks[15].view.getX() + spacing + Card.width);
-        stacks[16].view.setY(stacks[15].view.getY());
+        stacks[16].setX(stacks[15].getX() + spacing + Card.width);
+        stacks[16].setY(stacks[15].getY());
     }
 
 
@@ -103,9 +105,9 @@ public class Gypsy extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
 
-        if (stack.getID() < 8) {
+        if (stack.getId() < 8) {
             return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2) && (stack.getTopCard().getValue() == card.getValue() + 1);
-        } else if (stack.getID() < 16 && movingCards.hasSingleCard()) {
+        } else if (stack.getId() < 16 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
@@ -233,7 +235,7 @@ public class Gypsy extends Game {
         if (originIDs[0] < 8 && destinationIDs[0] >= 8)
             return 75;
 
-        if (originIDs[0] >= 8 && originIDs[0] < getMainStack().getID() && destinationIDs[0] < 8)
+        if (originIDs[0] >= 8 && originIDs[0] < getMainStack().getId() && destinationIDs[0] < 8)
             return -100;
 
         return 0;

@@ -163,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_gypsy"
+                    android:text="@string/games_grandfathers_clock"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_klondike"
+                    android:text="@string/games_gypsy"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -215,7 +215,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_mod3"
+                    android:text="@string/games_klondike"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -241,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_pyramid"
+                    android:text="@string/games_mod3"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -267,7 +267,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_simplesimon"
+                    android:text="@string/games_pyramid"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -293,7 +293,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_spider"
+                    android:text="@string/games_simplesimon"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -319,7 +319,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
-                    android:text="@string/games_tripeaks"
+                    android:text="@string/games_spider"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
 
@@ -335,6 +335,32 @@
 
                 <CheckBox
                     android:id="@+id/menu_checkBox_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginStart="@dimen/layout_padding" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:text="@string/games_tripeaks"
+                    android:textSize="15sp"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_linearLayout_14"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <CheckBox
+                    android:id="@+id/menu_checkBox_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"

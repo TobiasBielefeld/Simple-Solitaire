@@ -28,6 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
@@ -63,33 +64,33 @@ public class Canfield extends Game {
         setUpCardWidth(layoutGame, isLandscape, 8, 10);
 
         //calculate spacing and startposition of cards
-        int spacing = setUpSpacing(layoutGame, 7, 8);
+        int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
         int startPos = layoutGame.getWidth() / 2 - Card.width / 2 - 3 * Card.width - 3 * spacing;
 
         //first order the foundation stacks
         for (int i = 0; i < 4; i++) {
-            stacks[5 + i].view.setX(startPos + spacing * i + Card.width * i);
+            stacks[5 + i].setX(startPos + spacing * i + Card.width * i);
             stacks[5 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
 
         //then the trash and main stacks
         startPos = layoutGame.getWidth() - 2 * spacing - 3 * Card.width;
         for (int i = 0; i < 3; i++) {
-            stacks[9 + i].view.setX(startPos + Card.width / 2 * i);
+            stacks[9 + i].setX(startPos + Card.width / 2 * i);
             stacks[9 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
-        stacks[12].view.setX(stacks[11].view.getX() + Card.width + spacing);
-        stacks[12].view.setY(stacks[11].view.getY());
+        stacks[12].setX(stacks[11].getX() + Card.width + spacing);
+        stacks[12].setY(stacks[11].getY());
 
-        stacks[4].view.setX(stacks[12].view.getX());
-        stacks[4].view.setY(stacks[12].view.getY() + Card.height +
+        stacks[4].setX(stacks[12].getX());
+        stacks[4].setY(stacks[12].getY() + Card.height +
                 (isLandscape ? Card.width / 4 : Card.width / 2));
 
         //now the tableau stacks
         startPos = layoutGame.getWidth() / 2 - Card.width / 2 - 3 * Card.width - 3 * spacing;
         for (int i = 0; i < 4; i++) {
-            stacks[i].view.setX(startPos + spacing * i + Card.width * i);
-            stacks[i].view.setY(stacks[7].view.getY() + Card.height +
+            stacks[i].setX(startPos + spacing * i + Card.width * i);
+            stacks[i].setY(stacks[7].getY() + Card.height +
                     (isLandscape ? Card.width / 4 : Card.width / 2));
         }
 
@@ -316,14 +317,14 @@ public class Canfield extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getID() == 4)
+        if (stack.getId() == 4)
             return false;
 
-        if (stack.getID() < 4) {
+        if (stack.getId() < 4) {
             return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2)
                     && ((stack.getTopCard().getValue() == card.getValue() + 1) || (stack.getTopCard().getValue() == 1 && card.getValue() == 13));
 
-        } else if (stack.getID() < 9 && movingCards.hasSingleCard()) {
+        } else if (stack.getId() < 9 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == startCardValue;
             else
@@ -336,8 +337,8 @@ public class Canfield extends Game {
         //don't move cards from the discard stacks if there is a card on top of them
         //for example: if touched a card on stack 11 (first discard stack) but there is a card
         //on stack 12 (second discard stack) don't move if.
-        return !(((card.getStack().getID() == 9 || card.getStack().getID() == 10) && !stacks[11].isEmpty())
-                || (card.getStack().getID() == 9 && !stacks[10].isEmpty()));
+        return !(((card.getStackId() == 9 || card.getStackId() == 10) && !stacks[11].isEmpty())
+                || (card.getStackId() == 9 && !stacks[10].isEmpty()));
     }
 
     public CardAndStack hintTest() {
@@ -422,7 +423,7 @@ public class Canfield extends Game {
 
         //foundation stacks
 
-        if (card.isTopCard() && !(card.getStack().getID() >= 5 && card.getStack().getID() <= 8)) {
+        if (card.isTopCard() && !(card.getStackId() >= 5 && card.getStackId() <= 8)) {
             for (int j = 5; j < 9; j++) {
                 if (card.test(stacks[j]))
                     return stacks[j];
@@ -432,10 +433,10 @@ public class Canfield extends Game {
         //tableau stacks
         for (int j = 0; j < 5; j++) {
 
-            if (card.getStack().getID() < 4 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
+            if (card.getStackId() < 4 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
                 continue;
 
-            if (card.getValue() == 13 && card.isFirstCard() && card.getStack().getID() <= 3)
+            if (card.getValue() == 13 && card.isFirstCard() && card.getStackId() <= 3)
                 continue;
 
             if (card.test(stacks[j])) {

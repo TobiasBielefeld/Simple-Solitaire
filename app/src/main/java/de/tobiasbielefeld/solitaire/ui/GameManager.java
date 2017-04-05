@@ -146,7 +146,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 //if left handed mode is true, mirror all stacks
                 if (getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, DEFAULT_LEFT_HANDED_MODE)) {
                     for (Stack stack : stacks)
-                        stack.view.setX(layoutGame.getWidth() - stack.view.getX() - Card.width);
+                        stack.view.setX(layoutGame.getWidth() - stack.getX() - Card.width);
 
                     if (currentGame.hasArrow()) {
                         for (Stack stack : stacks) {
@@ -164,7 +164,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 //use setDirections() in a game to change that
                 if (currentGame.directions == null) {
                     for (Stack stack : stacks){
-                        if (stack.getID() <= currentGame.getLastTableauID()){
+                        if (stack.getId() <= currentGame.getLastTableauId()){
                             stack.setSpacingDirection(DOWN);
                         } else {
                             stack.setSpacingDirection(NONE);
@@ -179,20 +179,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                         }
                     }
                 }
+
                 //if there are direction borders set (when cards should'nt overlap another stack)  use it.
                 //else set the layout height/widht as maximum
-                if (currentGame.directionBorders != null) {
-                    for (int i = 0; i < currentGame.directionBorders.length; i++) {
-                        if (currentGame.directionBorders[i] != -1)    //-1 means no border
-                            stacks[i].setSpacingMax(currentGame.directionBorders[i]);
-                        else
-                            stacks[i].setSpacingMax(layoutGame);
-                    }
-                } else {
-                    for (Stack stack : stacks) {
-                        stack.setSpacingMax(layoutGame);
-                    }
-                }
+                currentGame.applyDirectionBorders(layoutGame);
 
                 //load the game, to prevent multiple loadings, check the counter first. Load the game
                 //only if its the last attempt to load
@@ -324,7 +314,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
                     CardAndStack cardAndStack = null;
 
-                    if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_ALL_CARDS, DEFAULT_DOUBLE_TAP_ALL_CARDS) && tapped.getStack().getID() <= currentGame.getLastTableauID()) {
+                    if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_ALL_CARDS, DEFAULT_DOUBLE_TAP_ALL_CARDS) && tapped.getStackId() <= currentGame.getLastTableauId()) {
                         cardAndStack = currentGame.doubleTap(tapped.getStack());
                     } else if (currentGame.addCardToMovementTest(tapped.getCard())) {
                         cardAndStack = currentGame.doubleTap(tapped.getCard());
@@ -424,7 +414,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     private Stack getIntersectingStack(Card card) {
 
-        RectF cardRect = new RectF(card.view.getX(), card.view.getY(), card.view.getX() + card.view.getWidth(), card.view.getY() + card.view.getHeight());
+        RectF cardRect = new RectF(card.getX(), card.getY(), card.getX() + card.view.getWidth(), card.getY() + card.view.getHeight());
 
         Stack returnStack = null;
         float overlapArea = 0;

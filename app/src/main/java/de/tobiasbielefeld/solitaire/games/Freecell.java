@@ -27,6 +27,8 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Freecell Solitaire Game! 8 tableau, 4 free and 4 foundation stacks
@@ -46,17 +48,17 @@ public class Freecell extends Game {
         setUpCardWidth(layoutGame, isLandscape, 9, 10);
 
         //order the stacks on the screen
-        int spacing = setUpSpacing(layoutGame, 8, 9);
+        int spacing = setUpHorizontalSpacing(layoutGame, 8, 9);
         int startPos = layoutGame.getWidth() / 2 - 4 * Card.width - 3 * spacing - spacing / 2;
         //free cells and foundation stacks
         for (int i = 0; i < 8; i++) {
-            stacks[8 + i].view.setX(startPos + spacing * i + Card.width * i);
+            stacks[8 + i].setX(startPos + spacing * i + Card.width * i);
             stacks[8 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
         //tableau stacks
         for (int i = 0; i < 8; i++) {
-            stacks[i].view.setX(startPos + spacing * i + Card.width * i);
-            stacks[i].view.setY(stacks[8].view.getY() + Card.height +
+            stacks[i].setX(startPos + spacing * i + Card.width * i);
+            stacks[i].setY(stacks[8].getY() + Card.height +
                     (isLandscape ? Card.width / 4 : Card.width / 2));
         }
         //nice background for foundation stacks
@@ -92,7 +94,7 @@ public class Freecell extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getID() < 8) {
+        if (stack.getId() < 8) {
             //if there are as many cards moving as free stacks, and one of the free stacks was choosen, dont move
             int numberOfFreeCells = 0;
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
@@ -106,10 +108,9 @@ public class Freecell extends Game {
             if (movingCards > numberOfFreeCells && stack.isEmpty())
                 return false;
 
-
             return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2)
                     && (stack.getTopCard().getValue() == card.getValue() + 1);
-        } else if (stack.getID() < 12) {
+        } else if (stack.getId() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
         } else if (movingCards.hasSingleCard()) {
             if (stack.isEmpty())

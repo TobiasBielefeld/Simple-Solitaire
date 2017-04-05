@@ -44,8 +44,8 @@ public class LoadGameHandler extends Handler {
 
         if (currentGame.hasLimitedRedeals()) {
             gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
-            gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
-            gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
+            gm.mainTextViewRedeals.setX(currentGame.getMainStack().getX());
+            gm.mainTextViewRedeals.setY(currentGame.getMainStack().getY());
         }
 
         gm.hasLoaded = true;

@@ -72,8 +72,8 @@ public class Scores {
         int[] destinationIDs = new int[stacks.size()];
 
         for (int i = 0; i < originIDs.length; i++) {
-            originIDs[i] = cards.get(i).getStack().getID();
-            destinationIDs[i] = stacks.get(i).getID();
+            originIDs[i] = cards.get(i).getStackId();
+            destinationIDs[i] = stacks.get(i).getId();
         }
 
         int points = currentGame.addPointsToScore(cards, originIDs, destinationIDs);
@@ -109,8 +109,8 @@ public class Scores {
         int[] destinationIDs = new int[stacks.size()];
 
         for (int i = 0; i < originIDs.length; i++) {
-            originIDs[i] = cards.get(i).getStack().getID();
-            destinationIDs[i] = stacks.get(i).getID();
+            originIDs[i] = cards.get(i).getStackId();
+            destinationIDs[i] = stacks.get(i).getId();
         }
 
         int points = -currentGame.addPointsToScore(cards, destinationIDs, originIDs);

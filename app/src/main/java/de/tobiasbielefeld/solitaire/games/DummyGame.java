@@ -18,7 +18,6 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
-import android.view.View;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -30,6 +29,7 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Dummy Game, so you can see what to do if you want to add more games
@@ -134,7 +134,7 @@ public class DummyGame extends Game {
 
         //test the cards of a given stack from the gives index up to top if the cards are in the
         //right order. Use for the card order the constants SAME_COLOR or ALTERNATING_COLOR
-        testCardsUpToTop(stacks[5], 5, SAME_COLOR);
+        testCardsUpToTop(stacks[5], 5, testMode.SAME_COLOR);
 
         //used in movements: detect if the top card on the given stack is equal to the give card.
         //you can use this for example to test in a hint: do not show hints if the card on the other
@@ -150,7 +150,7 @@ public class DummyGame extends Game {
         getMainStack();
 
         //return the last tableau stack or it's id
-        getLastTableauID();
+        getLastTableauId();
         getLastTableauStack();
 
         //return the stack, where cards are dealt from
@@ -189,7 +189,7 @@ public class DummyGame extends Game {
         //space will be between the stacks. It just uses the layout width minus the number of stacks
         //in a row, divided with the number of spaces between the stacks (which should be the number
         //of stacks +1) It also uses a maximum value of Card.widht/2, so the cards won't be too far apart
-        int spacing = setUpSpacing(layoutGame, 7, 8);
+        int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
 
         //now get the start position to place the stacks, so they are centered around the middle of
         //the screen. I use this way: Get the half of the layout width, minus how many stacks are on the
@@ -202,12 +202,12 @@ public class DummyGame extends Game {
         //Y cor can be like in the example code. In landscape use a bit less spacing from the
         //screen edge. The +1 is only so Android Studio doesnt show an error
         for (int i = 0; i < 6; i++) {
-            stacks[i].view.setX(startPos + i * (spacing + Card.width));
+            stacks[i].setX(startPos + i * (spacing + Card.width));
             stacks[i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
         //Also set other stacks like the main pile or something
-        stacks[6].view.setX(stacks[0].view.getX());
-        stacks[6].view.setY(stacks[0].view.getY() + Card.height + spacing);
+        stacks[6].setX(stacks[0].getX());
+        stacks[6].setY(stacks[0].getY() + Card.height + spacing);
 
         //Last step: Set the drawables of the stacks. Default one is just gray.
         //So maybe show on some a big A for ace or make them transparent or something
@@ -284,14 +284,14 @@ public class DummyGame extends Game {
     public boolean cardTest(Stack stack, Card card) {
         //Example from Klondike.
 
-        if (stack.getID() < 7) {                                                                    //tableau stacks
+        if (stack.getId() < 7) {                                                                    //tableau stacks
             if (stack.isEmpty())                                                                    //if it's empty, you can place a king
                 return card.getValue() == 13;
             else
                 return (stack.getTopCard().getColor() % 2 != card.getColor() % 2)                   //else different Color. black is uneven and red even
                         && (stack.getTopCard().getValue() == card.getValue() + 1);
 
-        } else if (stack.getID() < 11 && movingCards.hasSingleCard()) {                             //if its an foundation stack and only one card is moving
+        } else if (stack.getId() < 11 && movingCards.hasSingleCard()) {                             //if its an foundation stack and only one card is moving
             if (stack.isEmpty())                                                                    //place if it's an ace
                 return card.getValue() == 1;
             else                                                                                    //else same color
@@ -485,10 +485,10 @@ public class DummyGame extends Game {
         //tableau stacks
         for (int j = 0; j < 7; j++) {
 
-            if (card.getStack().getID() < 7 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
+            if (card.getStackId() < 7 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
                 continue;
 
-            if (card.getValue() == 13 && card.isFirstCard() && card.getStack().getID() <= 6)
+            if (card.getValue() == 13 && card.isFirstCard() && card.getStackId() <= 6)
                 continue;
 
             if (card.test(stacks[j])) {

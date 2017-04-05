@@ -48,7 +48,7 @@ public class Mod3 extends Game {
 
         setUpCardDimensions(layoutGame, 10, 7);
 
-        int spacing = setUpSpacing(layoutGame, 9, 10);
+        int spacing = setUpHorizontalSpacing(layoutGame, 9, 10);
         int spacingVertical = min(Card.width, (layoutGame.getHeight() - 4 * Card.height) / (4 + 1));
 
         int startPos = (int) (layoutGame.getWidth() / 2 - 4.5 * Card.width - 4 * spacing);
@@ -56,16 +56,16 @@ public class Mod3 extends Game {
 
         for (int j = 0; j < 4; j++) {
             for (int i = 0; i < 8; i++) {
-                stacks[(j * 8) + i].view.setX(startPos + i * (spacing + Card.width));
-                stacks[(j * 8) + i].view.setY(startPosVertical + j * (spacingVertical + Card.height));
+                stacks[(j * 8) + i].setX(startPos + i * (spacing + Card.width));
+                stacks[(j * 8) + i].setY(startPosVertical + j * (spacingVertical + Card.height));
             }
         }
 
-        stacks[32].view.setX(stacks[15].view.getX() + Card.width + spacing);
-        stacks[32].view.setY(stacks[15].view.getY() - Card.height / 2);
+        stacks[32].setX(stacks[15].getX() + Card.width + spacing);
+        stacks[32].setY(stacks[15].getY() - Card.height / 2);
 
-        stacks[33].view.setX(stacks[23].view.getX() + Card.width + spacing);
-        stacks[33].view.setY(stacks[23].view.getY() + Card.height / 2);
+        stacks[33].setX(stacks[23].getX() + Card.width + spacing);
+        stacks[33].setY(stacks[23].getY() + Card.height / 2);
     }
 
     public boolean winTest() {
@@ -106,22 +106,22 @@ public class Mod3 extends Game {
             return true;
 
         if (stack.isEmpty()) {
-            if (stack.getID() < 8)
+            if (stack.getId() < 8)
                 return card.getValue() == 2;
-            else if (stack.getID() < 16)
+            else if (stack.getId() < 16)
                 return card.getValue() == 3;
-            else if (stack.getID() < 24)
+            else if (stack.getId() < 24)
                 return card.getValue() == 4;
-            else return stack.getID() < 32;
+            else return stack.getId() < 32;
         } else {
-            return stack.getID() < 24 && validOrder(stack) && card.getValue() == stack.getTopCard().getValue() + 3 && card.getColor() == stack.getTopCard().getColor();
+            return stack.getId() < 24 && validOrder(stack) && card.getValue() == stack.getTopCard().getValue() + 3 && card.getColor() == stack.getTopCard().getColor();
         }
     }
 
     private boolean validOrder(Stack stack) {
-        if (stack.getID() < 8)
+        if (stack.getId() < 8)
             return stack.getCard(0).getValue() == 2;
-        else if (stack.getID() < 16)
+        else if (stack.getId() < 16)
             return stack.getCard(0).getValue() == 3;
         else
             return stack.getCard(0).getValue() == 4;
@@ -132,7 +132,7 @@ public class Mod3 extends Game {
     }
 
     public CardAndStack hintTest() {
-        for (int i = 0; i <= getLastTableauID(); i++) {
+        for (int i = 0; i <= getLastTableauId(); i++) {
             if (stacks[i].isEmpty() || (i < 24 && stacks[i].getSize() > 1) || hint.hasVisited(stacks[i].getTopCard()))
                 continue;
 
@@ -141,7 +141,7 @@ public class Mod3 extends Game {
             if (cardToTest.getValue() == 1)
                 return new CardAndStack(cardToTest, getDiscardStack());
 
-            for (int j = 0; j <= getLastTableauID(); j++) {
+            for (int j = 0; j <= getLastTableauId(); j++) {
                 if (i == j)
                     continue;
 
@@ -163,12 +163,12 @@ public class Mod3 extends Game {
     @Override
     public Stack doubleTapTest(Card card) {
 
-        int stackID = card.getStack().getID();
+        int stackID = card.getStackId();
 
         if (card.getValue() == 1)
             return getDiscardStack();
 
-        for (int j = 0; j <= getLastTableauID(); j++) {
+        for (int j = 0; j <= getLastTableauId(); j++) {
 
             if (card.test(stacks[j])) {
                 if (stackID >= 24 && j >= 24 && stackID < 32 && j < 32)
@@ -181,7 +181,7 @@ public class Mod3 extends Game {
             }
         }
 
-        for (int j = 0; j <= getLastTableauID(); j++) {
+        for (int j = 0; j <= getLastTableauId(); j++) {
             if (card.test(stacks[j])) {
                 return stacks[j];
             }

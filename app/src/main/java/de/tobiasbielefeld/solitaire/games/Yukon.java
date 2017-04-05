@@ -27,6 +27,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Yukon Game! 7 tableau stacks, 4 foundation stacks and no main stack
@@ -47,18 +48,18 @@ public class Yukon extends Game {
         setUpCardDimensions(layoutGame, 9, 5);
 
         //order the stacks on the screen
-        int spacingHorizontal = setUpSpacing(layoutGame, 8, 9);
+        int spacingHorizontal = setUpHorizontalSpacing(layoutGame, 8, 9);
         int spacingVertical = min((layoutGame.getHeight() - 4 * Card.height) / 5, Card.width / 4);
         int startPos = (int) (layoutGame.getWidth() / 2 - 4 * Card.width - 3.5 * spacingHorizontal);
         //tableau stacks
         for (int i = 0; i <= 7; i++) {
-            stacks[i].view.setX(startPos + spacingHorizontal * i + Card.width * i);
-            stacks[i].view.setY(spacingVertical);
+            stacks[i].setX(startPos + spacingHorizontal * i + Card.width * i);
+            stacks[i].setY(spacingVertical);
         }
         //foundation stacks
         for (int i = 8; i <= 10; i++) {
-            stacks[i].view.setX(stacks[7].view.getX());
-            stacks[i].view.setY(stacks[i - 1].view.getY() + Card.height + spacingVertical);
+            stacks[i].setX(stacks[7].getX());
+            stacks[i].setY(stacks[i - 1].getY() + Card.height + spacingVertical);
         }
         //nice background for foundation stacks
         for (int i = 7; i <= 10; i++) {
@@ -100,7 +101,7 @@ public class Yukon extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
 
-        if (stack.getID() < 7) {                                                                    //tableau
+        if (stack.getId() < 7) {                                                                    //tableau
             if (stack.isEmpty())
                 return card.getValue() == 13;
             else
@@ -168,7 +169,7 @@ public class Yukon extends Game {
         //tableau fields first
         for (int j = 0; j < 7; j++) {
 
-            if (!stacks[j].isEmpty() && card.getStack().getID() != j && card.test(stacks[j]) && !sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR)) {
+            if (!stacks[j].isEmpty() && card.getStackId() != j && card.test(stacks[j]) && !sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR)) {
                 return stacks[j];
             }
         }
@@ -176,7 +177,7 @@ public class Yukon extends Game {
         //then foundation stacks
         if (card.isTopCard()) {
             for (int j = 7; j <= 10; j++) {
-                if (card.getStack().getID() != j && card.test(stacks[j])) {
+                if (card.getStackId() != j && card.test(stacks[j])) {
                     return stacks[j];
                 }
             }

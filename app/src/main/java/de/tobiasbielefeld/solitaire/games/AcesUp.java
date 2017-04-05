@@ -47,20 +47,20 @@ public class AcesUp extends Game {
 
         setUpCardWidth(layoutGame, isLandscape, 7 + 1, 7 + 2);
 
-        int spacing = setUpSpacing(layoutGame, 7, 8);
+        int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
 
         int startPos = (int) (layoutGame.getWidth() / 2 - 3.5 * Card.width - 2.5 * spacing);
 
-        stacks[4].view.setX(startPos);
+        stacks[4].setX(startPos);
         stacks[4].view.setY((isLandscape ? Card.height / 4 : Card.height / 2) + 1);
 
         for (int i = 0; i < 4; i++) {
-            stacks[i].view.setX(stacks[4].view.getX() + spacing + Card.width * 3 / 2 + i * (spacing + Card.width));
-            stacks[i].view.setY(stacks[4].view.getY());
+            stacks[i].setX(stacks[4].getX() + spacing + Card.width * 3 / 2 + i * (spacing + Card.width));
+            stacks[i].setY(stacks[4].getY());
         }
 
-        stacks[5].view.setX(stacks[3].view.getX() + Card.width + Card.width / 2 + spacing);
-        stacks[5].view.setY(stacks[4].view.getY());
+        stacks[5].setX(stacks[3].getX() + Card.width + Card.width / 2 + spacing);
+        stacks[5].setY(stacks[4].getY());
     }
 
 
@@ -103,13 +103,13 @@ public class AcesUp extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getID() < 4 && stack.isEmpty())
+        if (stack.getId() < 4 && stack.isEmpty())
             return true;
-        else if (stack.getID() == getMainStack().getID() || card.getValue() == 1)
+        else if (stack.getId() == getMainStack().getId() || card.getValue() == 1)
             return false;
-        else if (stack.getID() == getDiscardStack().getID()) {
+        else if (stack.getId() == getDiscardStack().getId()) {
             for (int i = 0; i < 4; i++) {
-                if (stacks[i].isEmpty() || i == card.getStack().getID())
+                if (stacks[i].isEmpty() || i == card.getStack().getId())
                     continue;
 
                 Card cardOnStack = stacks[i].getTopCard();
@@ -168,7 +168,7 @@ public class AcesUp extends Game {
 
         if (card.getValue() != 1) {                                                                   //do not move aces to discard stack
             for (int i = 0; i < 4; i++) {
-                if (stacks[i].isEmpty() || i == card.getStack().getID())
+                if (stacks[i].isEmpty() || i == card.getStack().getId())
                     continue;
 
                 Card cardOnStack = stacks[i].getTopCard();
@@ -183,7 +183,7 @@ public class AcesUp extends Game {
 
         if (!card.isFirstCard()) {
             for (int i = 0; i < 4; i++) {
-                if (i == card.getStack().getID() || !stacks[i].isEmpty())
+                if (i == card.getStackId() || !stacks[i].isEmpty())
                     continue;
 
                 return stacks[i];
@@ -194,7 +194,7 @@ public class AcesUp extends Game {
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
-        if (destinationIDs[0] == getDiscardStack().getID())
+        if (destinationIDs[0] == getDiscardStack().getId())
             return 50;
 
         return 0;

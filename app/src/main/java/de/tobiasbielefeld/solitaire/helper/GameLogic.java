@@ -108,7 +108,7 @@ public class GameLogic {
         } else {
             try {
                 for (Card card : cards) {
-                    card.setLocationWithoutMovement(currentGame.getDealStack().view.getX(), currentGame.getDealStack().view.getY());
+                    card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
                     card.flipDown();
                 }
 
@@ -168,7 +168,7 @@ public class GameLogic {
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
-            card.setLocationWithoutMovement(currentGame.getDealStack().view.getX(), currentGame.getDealStack().view.getY());
+            card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
             currentGame.getDealStack().addCard(card);
             card.flipDown();
         }
@@ -228,8 +228,8 @@ public class GameLogic {
 
         //move the re-deal counter too
         if (currentGame.hasLimitedRedeals()) {
-            gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
-            gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
+            gm.mainTextViewRedeals.setX(currentGame.getMainStack().getX());
+            gm.mainTextViewRedeals.setY(currentGame.getMainStack().getY());
         }
 
         //change the arrow direction
@@ -253,8 +253,8 @@ public class GameLogic {
 
         if (currentGame.hasLimitedRedeals()) {
             gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
-            gm.mainTextViewRedeals.setX(currentGame.getMainStack().view.getX());
-            gm.mainTextViewRedeals.setY(currentGame.getMainStack().view.getY());
+            gm.mainTextViewRedeals.setX(currentGame.getMainStack().getX());
+            gm.mainTextViewRedeals.setY(currentGame.getMainStack().getY());
         } else {
             gm.mainTextViewRedeals.setVisibility(View.GONE);
         }
@@ -277,7 +277,7 @@ public class GameLogic {
         ArrayList<Integer> list = new ArrayList<>();
 
         for (Card card : randomCards)
-            list.add(card.getID());
+            list.add(card.getId());
 
         putIntList(GAME_RANDOM_CARDS, list);
     }

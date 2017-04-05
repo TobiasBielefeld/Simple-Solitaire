@@ -33,6 +33,7 @@ import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Freecell;
 import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.games.Golf;
+import de.tobiasbielefeld.solitaire.games.GrandfathersClock;
 import de.tobiasbielefeld.solitaire.games.Gypsy;
 import de.tobiasbielefeld.solitaire.games.Klondike;
 import de.tobiasbielefeld.solitaire.games.Mod3;
@@ -95,6 +96,11 @@ public class LoadGame {
                 gameName = activity.getString(R.string.games_golf);
                 game = new Golf();
                 break;
+            case R.id.buttonStartGrandfathersClock:
+                sharedPrefName = "GrandfathersClock";
+                gameName = activity.getString(R.string.games_grandfathers_clock);
+                game = new GrandfathersClock();
+                break;
             case R.id.buttonStartGypsy:
                 sharedPrefName = "Gypsy";
                 gameName = activity.getString(R.string.games_gypsy);
@@ -155,6 +161,7 @@ public class LoadGame {
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_fortyeight));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_freecell));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_golf));
+        layouts.add((LinearLayout) activity.findViewById(R.id.layout_grandfathers_clock));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_gypsy));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_klondike));
         layouts.add((LinearLayout) activity.findViewById(R.id.layout_mod3));
@@ -181,6 +188,7 @@ public class LoadGame {
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_fortyeight));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_freecell));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_golf));
+        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_grandfathers_clock));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_gypsy));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_klondike));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_mod3));
@@ -217,6 +225,7 @@ public class LoadGame {
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_11));
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_12));
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_13));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_14));
 
         return linearLayouts;
     }
@@ -243,6 +252,7 @@ public class LoadGame {
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_11));
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_12));
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_13));
+        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_14));
 
         return checkBoxes;
     }
@@ -268,6 +278,8 @@ public class LoadGame {
                 return "freecell";
             case R.id.manual_games_button_golf:
                 return "golf";
+            case R.id.manual_games_button_grandfathers_clock:
+                return "grandfathersClock";
             case R.id.manual_games_button_gypsy:
                 return "gypsy";
             case R.id.manual_games_button_klondike:
