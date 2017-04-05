@@ -227,12 +227,12 @@ public class GrandfathersClock extends Game {
 
         for (int i = 0; i < foundationCardOrder.length; i++) {
             Card cardToMove = cards[foundationFamilyOrder[i] * 13 + foundationCardOrder[i] - 1];
-            moveToStack(cardToMove, stacks[8 + i]);
+            moveToStack(cardToMove, stacks[8 + i], OPTION_NO_RECORD);
         }
 
         for (int i = 0; i<8;i++){
             for (int j=0;j<5;j++){
-                moveToStack(getDealStack().getTopCard(),stacks[i]);
+                moveToStack(getDealStack().getTopCard(),stacks[i], OPTION_NO_RECORD);
             }
         }
     }
