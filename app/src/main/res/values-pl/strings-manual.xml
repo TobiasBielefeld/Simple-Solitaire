@@ -204,5 +204,5 @@
        \n\nMożesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól.
 		To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki,
 		można kartę umieścić w pustej komórce i następnie na docelowym stosie.</string>
-	<string name="manual_grandfathersClock_scoring">Ze stosu gry stos bazowy: +50</string>
+	<string name="manual_grandfathersClock_scoring">Ze stosu gry na stos bazowy: +50</string>
 </resources>
