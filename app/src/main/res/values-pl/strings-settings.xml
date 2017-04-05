@@ -4,6 +4,7 @@
     <string name="title_activity_settings">Ustawienia</string>
 
     <string name="settings_background_color">Kolor tła</string>
+    <string name="settings_background_color_custom">Własny</string>
     <string name="settings_hide_status_bar">Ukryj pasek stanu</string>
     <string name="settings_left_handed_mode">Tryb dla leworęcznych</string>
     <string name="settings_left_handed_mode_description">Odwraca pozycje kart i stosów do lewej strony</string>
@@ -84,8 +85,5 @@
     <string name="settings_single_tap">Pojedyncze stuknięcie</string>
     <string name="settings_single_tap_enable">Włącz ruchy przy pojedynczym stuknięciu</string>
     <string name="settings_single_tap_enable_text">Tylko w grach Golf i TrzyWieże: stuknij pojedynczo w kartę, aby przenieść ją na stos odrzutów</string>
-
-    <!-- new values -->
-    <string name="settings_background_color_custom">Custom</string>
-
+    
 </resources>

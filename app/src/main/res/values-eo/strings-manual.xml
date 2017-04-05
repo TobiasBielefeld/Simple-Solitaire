@@ -198,15 +198,12 @@
 	<!-- new values -->
 	<!-- GrandfathersClock -->
 	<string name="manual_grandfathersClock_structure">1 kartaro po 52 kartoj.
-        \n\n8 tablamasoj, 12 fundamentaj stakoj in the form of a clock. Each foundation stack already contains one card</string>
-	<string name="manual_grandfathersClock_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.
-        At the end, the card values on the foundation match the values on a clock.</string>
-	<string name="manual_grandfathersClock_rules">Cards can be placed on the tableau in descending order, the color doesn\'t matter.
-         Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo. But Aces can be placed on top of kings.
-
-        \n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj estas disponeblaj.
+        \n\n8 tablamasoj, 12 fundamentaj stakoj formante horloĝon. Ĉiu fundamenta stako enhavas unu karton dekomence.</string>
+	<string name="manual_grandfathersClock_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn. Finfine valoroj de kartoj devas egali valorojn de horloĝa ciferplato.</string>
+	<string name="manual_grandfathersClock_rules">Kartojn oni povas meti sur tablamasajn stakojn laŭ malkreskanta ordo, kart-emblemo ne gravas. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo. Asojn oni povas meti sur reĝojn.
+		\n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj estas disponeblaj.
 		Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj
 		estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako.</string>
-	<string name="manual_grandfathersClock_scoring">From tableau to foundation: +50</string>
+	<string name="manual_grandfathersClock_scoring">De tablamaso al fundamenta stako: +50</string>
 
 </resources>

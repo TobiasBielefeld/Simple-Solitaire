@@ -194,17 +194,15 @@
 		\n\nOdsłonięcie karty: +25
 		\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do głównego: -200</string>
 
-	<!-- new values -->
 	<!-- GrandfathersClock -->
 	<string name="manual_grandfathersClock_structure">1 talia po 52 karty.
-		\n\n8 stosy gry, 12 stosy bazowe in the form of a clock. Each foundation stack already contains one card</string>
+		\n\n8 stosów gry, 12 stosy bazowe tworzące tarczę zegara. Każdy stos bazowy już zawiera jedną kartę.</string>
 	<string name="manual_grandfathersClock_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.
-		At the end, the card values on the foundation match the values on a clock.</string>
-	<string name="manual_grandfathersClock_rules">Cards can be placed on the tableau in descending order, the color doesn\'t matter.
-        Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru. But Aces can be placed on top of kings.
-
+		Ostatecznie wartości kart powinny odpowiadać wartościom na tarczy zegara.</string>
+	<string name="manual_grandfathersClock_rules">Karty można uukładać na stosach gry w kolejności malejącej, kolor nie ma znaczenia.
+        Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru. Asy można kłaść na króli.
        \n\nMożesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól.
 		To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki,
 		można kartę umieścić w pustej komórce i następnie na docelowym stosie.</string>
-	<string name="manual_grandfathersClock_scoring">From tableau to foundation: +50</string>
+	<string name="manual_grandfathersClock_scoring">Ze stosu gry na stos bazowy: +50</string>
 </resources>
