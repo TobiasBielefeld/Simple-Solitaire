@@ -199,7 +199,7 @@
 	<!-- GrandfathersClock -->
 	<string name="manual_grandfathersClock_structure">1 kartaro po 52 kartoj.
         \n\n8 tablamasoj, 12 fundamentaj stakoj formante horloĝon. Ĉiu fundamenta stako enhavas unu karton dekomence.</string>
-	<string name="manual_grandfathersClock_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn. Finfine valoroj de kartoj devas egali valorojn horloĝa ciferplato.</string>
+	<string name="manual_grandfathersClock_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn. Finfine valoroj de kartoj devas egali valorojn de horloĝa ciferplato.</string>
 	<string name="manual_grandfathersClock_rules">Kartojn oni povas meti sur tablamasajn stakojn laŭ malkreskanta ordo, kart-emblemo ne gravas. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo. Asojn oni povas meti ssur reĝojn.
 		\n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj estas disponeblaj.
 		Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj
