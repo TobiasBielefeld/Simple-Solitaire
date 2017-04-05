@@ -4,8 +4,8 @@
 
 [<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire)
 
-#### Now contains 13 different Solitaire games!
-AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks and Yukon!
+#### Now contains 14 different Solitaire games!
+AcesUp, Canfield, Forty&Eight, FreeCell, Golf, GrandfathersClock, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks and Yukon!
 
 ## To-Do List
 
@@ -17,7 +17,7 @@ AcesUp, Canfield, Forty&Eight, FreeCell, Golf, Gypsy, Klondike, Mod3, Pyramid, S
 - [X] Improve the Highscores to a Statistics Activity (including date stamps)
 - [ ] Find the reason why the game activity gets created two times when changing the screen orientation in game
 - [ ] Add a button to mix the cards if no movement can be done
-- [ ] Add 'Grandfathers Clock'
+- [X] Add 'Grandfathers Clock'
 - [ ] Add a Custom game maker, maybe
 - [X] Add a 'poker standard' card theme and 4 color themes
 - [X] Add a option to Yukon to play on same suits, instead of different color (like Russian Solitaire)
