@@ -97,7 +97,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         mainTextViewRedeals = (TextView) findViewById(R.id.textViewRedeals);
         buttonAutoComplete = (Button) findViewById(R.id.buttonMainAutoComplete);
         mainRelativeLayoutBackground = (RelativeLayout) findViewById(R.id.mainRelativeLayoutBackground);
-        mainRelativeLayoutBackground.setOnTouchListener(this);
 
         //initialize my static helper stuff
         final GameManager gm = this;
@@ -235,9 +234,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * The motion events are put in extra methods, because before it got a bit unclear
      */
     public boolean onTouch(View view, MotionEvent event) {
-        if (view.getId() == R.id.mainRelativeLayoutBackground){
-            return true;
-        }
 
         CustomImageView v = (CustomImageView) view;
         //if something important happens don't accept input
@@ -246,8 +242,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         //also don't do anything with a second touch point
         if (event.getPointerId(0) != 0) {
-            if (movingCards.hasCards())
+            if (movingCards.hasCards()) {
                 movingCards.returnToPos();
+                resetTappedCard();
+            }
 
             return true;
         }
