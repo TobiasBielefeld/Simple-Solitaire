@@ -81,6 +81,7 @@ The Material Design Symbols used for the menu icons are made by Google Inc and a
 Custom color picker: Uses the [AmbilWarna library](https://github.com/yukuku/ambilwarna) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 This project is licensed under the GPLv3+ license! Full license text can be found [here](./LICENSE.txt)
+
 ```
 Copyright (C) 2016  Tobias Bielefeld
 This program is free software: you can redistribute it and/or modify
@@ -98,3 +99,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
 ```
+
+## Hall of shame
+
+This place is reservered for people who think "Oh nice app, better put ads in it and publish it on Google Play, but I gonna remove the GPL part, so people think I made it".
+
+First entry: https://play.google.com/store/apps/details?id=com.ronaldpinto.solitaire
