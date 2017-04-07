@@ -108,7 +108,22 @@ https://play.google.com/store/apps/details?id=com.ronaldpinto.solitaire
 
 https://play.google.com/store/apps/details?id=hk.skycat.solitaire
 
+https://play.google.com/store/apps/details?id=com.ianpinto.solitaire
+
+https://play.google.com/store/apps/details?id=com.solitaire.solitairecollections
+
+This guy has even 5 versions of my app, at least he changed some graphics:
+
+https://play.google.com/store/apps/details?id=de.seventeeen.solitairegame
+
 https://play.google.com/store/apps/details?id=de.allinone.solitairegame
 
-https://play.google.com/store/apps/details?id=com.ianpinto.solitaire
+https://play.google.com/store/apps/details?id=de.collectionof.solitairegame
+
+https://play.google.com/store/apps/details?id=de.collectionof.newsolitairegame
+
+https://play.google.com/store/apps/details?id=de.classicsolitaire.solitairegame
+
+
+
 
