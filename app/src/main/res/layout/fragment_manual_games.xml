@@ -64,6 +64,12 @@
                         android:text="@string/games_canfield"
                         android:textAllCaps="false" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
                     <Button
                         android:id="@+id/manual_games_button_fortyeight"
                         android:layout_width="0dp"
@@ -75,12 +81,6 @@
                         android:text="@string/games_fortyeight"
                         android:textAllCaps="false" />
 
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
                     <Button
                         android:id="@+id/manual_games_button_freecell"
                         android:layout_width="0dp"
@@ -91,6 +91,12 @@
                         android:maxLines="1"
                         android:text="@string/games_freecell"
                         android:textAllCaps="false" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/manual_games_button_golf"
@@ -142,6 +148,13 @@
                         android:text="@string/games_klondike"
                         android:textAllCaps="false" />
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
                     <Button
                         android:id="@+id/manual_games_button_mod3"
                         android:layout_width="0dp"
@@ -153,12 +166,6 @@
                         android:text="@string/games_mod3"
                         android:textAllCaps="false" />
 
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
                     <Button
                         android:id="@+id/manual_games_button_pyramid"
                         android:layout_width="0dp"
@@ -169,6 +176,13 @@
                         android:maxLines="1"
                         android:text="@string/games_pyramid"
                         android:textAllCaps="false" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
 
                     <Button
                         android:id="@+id/manual_games_button_simplesimon"

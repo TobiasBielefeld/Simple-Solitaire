@@ -26,8 +26,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.text.DateFormat;
 import java.util.Locale;
 
@@ -42,7 +40,7 @@ public class InformationFragment extends Fragment implements View.OnClickListene
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_about_tab1, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_tab1, container, false);
 
         TextView textViewBuildDate = (TextView) view.findViewById(R.id.aboutTextViewBuild);         //build date
         TextView textViewAppVersion = (TextView) view.findViewById(R.id.aboutTextViewVersion);      //app version

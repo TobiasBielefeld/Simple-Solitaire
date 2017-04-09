@@ -151,7 +151,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 gameLogic.toggleNumberOfRedeals();
             }
 
-        } else if(key.equals(PREF_KEY_PYRAMID_DIFFICULTY)) {
+        } else if(key.equals(PREF_KEY_PYRAMID_LIMITED_REDEALS)) {
             if (currentGame instanceof Pyramid) {
                 gameLogic.toggleNumberOfRedeals();
             }

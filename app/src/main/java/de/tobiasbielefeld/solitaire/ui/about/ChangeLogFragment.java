@@ -36,7 +36,7 @@ public class ChangeLogFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_about_tab3, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_tab3, container, false);
 
         WebView webView = (WebView) view.findViewById(R.id.about_tab3_webview);
         webView.loadUrl(getString(R.string.changelog_URL));

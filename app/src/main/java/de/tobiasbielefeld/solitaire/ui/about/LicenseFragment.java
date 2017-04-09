@@ -36,7 +36,7 @@ public class LicenseFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_about_tab2, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_tab2, container, false);
 
         WebView webView = (WebView) view.findViewById(R.id.about_tab2_webview);
         webView.loadUrl(getString(R.string.license_URL));

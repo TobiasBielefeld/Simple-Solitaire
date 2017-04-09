@@ -438,7 +438,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     /**
-     * Loads the background color, loaded in onResume().
+     * Loads the background color, loaded in onResume(). There are two types of background colors:
+     * The xml files under drawa
      */
     private void loadBackgroundColor() {
 
