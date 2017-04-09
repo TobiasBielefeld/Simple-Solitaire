@@ -506,6 +506,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * Updates the menu icon according to the user settings
      */
     public void updateIcons() {
+        stacks[5000].isEmpty();
         ImageView scores, hint, menu, undo, settings;
 
         scores = (ImageView) findViewById(R.id.button_scores);
