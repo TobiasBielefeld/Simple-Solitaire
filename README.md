@@ -102,15 +102,9 @@ If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
 
 ## Hall of shame
 
-This place is reservered for people who think "Oh nice app, better put ads in it and publish it on Google Play, but I gonna remove the GPL part, so people think I made it". Already found 4 apps.
-
-https://play.google.com/store/apps/details?id=com.ronaldpinto.solitaire
+This place is reservered for people who think "Oh nice app, better put ads in it and publish it on Google Play, but I gonna remove the GPL part, so people think I made it". Already found 4 apps, some of them got removed.
 
 https://play.google.com/store/apps/details?id=hk.skycat.solitaire
-
-https://play.google.com/store/apps/details?id=com.ianpinto.solitaire
-
-https://play.google.com/store/apps/details?id=com.solitaire.solitairecollections
 
 This guy has even 5 versions of my app, at least he changed some graphics:
 
