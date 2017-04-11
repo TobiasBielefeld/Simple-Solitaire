@@ -100,11 +100,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
 ```
 
+## Installation Guide
+
+The instructions to compile this app are very easy. Just download the project and open Android Studio. Then go to File -> Open -> Navigate to the download location -> Choose the folder -> Install all necessary dependencies and you are ready to go.
+
+Or alternatively, follow this guide to compile the app on the command line: https://developer.android.com/studio/build/building-cmdline.html
+
 ## Hall of shame
 
-This place is reservered for people who think "Oh nice app, better put ads in it and publish it on Google Play, but I gonna remove the GPL part, so people think I made it". Already found 4 apps, some of them got removed.
-
-https://play.google.com/store/apps/details?id=hk.skycat.solitaire
+This place is reservered for people who think "Oh nice app, better put ads in it and publish it on Google Play, but I gonna remove the GPL part, so people think I made it". Already found 4 apps, they got removed from the Play Store.
 
 This guy has even 5 versions of my app, at least he changed some graphics:
 
