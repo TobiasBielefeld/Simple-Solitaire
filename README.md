@@ -7,6 +7,57 @@
 #### Now contains 14 different Solitaire games!
 AcesUp, Canfield, Forty&Eight, FreeCell, Golf, GrandfathersClock, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks and Yukon!
 
+# Simple Solitaire
+You can find screenshots for phones and tablets and the uses card themes as .svg files [here](./pictures/screenshots)
+
+There is a DummyGame class with a lot of comments, if you want to add a new game. I hope it's good enough for that!
+
+I learned Android and Java by myself using e-books and browsing Stack Overflow for solutions, so please don't expect too much from my source code :D
+
+It is a very simple game, but customizable and with some neat functions like hints. Here is my Google Play description:
+
+Highly customizable:
+There are 6 different looking card sets in this game, 12 different card backgrounds and 6 different background colours. So you have a large choice to customize your experience!
+
+Set up difficulty:
+You can set up the difficulty for Klondike, Spider and Golf in the settings!
+
+Automatic saving:
+The current game will be saved every time you pause or close the app. So you can continue your game where you left it!
+
+High Score list:
+When winning a game, your score will be saved in a list of up to 10 high scores.
+
+Game features:
+This game has a undo function to take back up to 20 card movements. A hint function shows you up to 3 possible card movements at once.
+
+Left handed mode: 
+There is a option for left handed people to mirror the card positions to the left side of the screen.
+
+No ads:
+This game is completely free without ads, tracking or something else. Just have fun :)
+
+Landscape and tablet support: 
+You can switch to landscape mode, this is better for larger screens. It is also possible to lock the orientation in the settings
+
+## Installation Guide
+The instructions to compile this app are very easy. Just download the project and open Android Studio. Then go to File -> Open -> Navigate to the download location -> Choose the folder -> If you try to start the app, Android Studio should install all necessary dependencies and you are ready to go.
+
+Or alternatively, follow this guide to compile the app on the command line: https://developer.android.com/studio/build/building-cmdline.html
+
+## Usage
+If you want to use my work for your own project (which means in most cases: Put ads in it and publish on Google Play Store) YOU HAVE TO FOLLOW THE GPL LICENSE! This means, your project MUST be open source under a GPLv3+ compatible license and MUST contain attribution for the original work! I already found a lot of copies which simply removed my "About Game" screen and changed some graphics. If I see your work violating the GPL rules, I will let it get removed by Google. 
+
+So please follow the rules! Use this attribution text (or a similar one)
+
+Simple Solitaire Collection - https://github.com/TobiasBielefeld/Simple-Solitaire -
+Copyright 2016 - Tobias Bielefeld - tobias.bielefeld@gmail.com -
+Licensed under GPLv3+ https://www.gnu.org/licenses/gpl-3.0
+
+And state the changes you made! For example: "Modified to add Google Play Games and ads"
+
+Also think of the other aspects of the GPL license!
+
 ## To-Do List
 
 - [X] Add more games (frecell, spider and yukon)
@@ -33,39 +84,6 @@ Thanks to the following persons for providing translations :D
 - Japanese: naofum
 - Finnish: winjar
 
-# Simple Solitaire
-You can find screenshots for phones and tablets and the uses card themes as .svg files [here](./pictures/screenshots)
-
-There is a DummyGame class with a lot of comments, if you want to add a new game. I hope it's good enough for that!
-
-I learned Android and Java by myself using e-books and browsing Stack Overflow for solutions, so please don't expect too much from my source code :D
-
-It is a very simple game, but customizable and with some neat functions like hints. Here is my Google Play description:
-
-Highly customizable:
-There are 6 different looking card sets in this game, 12 different card backgrounds and 6 different background colours. So you have a large choice to customize your experience!
-
-Set up difficulty:
-You can set up the difficulty for Klondike, Spider and Golf in the settings!
-
-Automatic saving:
-The current game will be saved every time you pause or close the app. So you can continue your game where you left it!
-
-High Score list:
-When winning a game, your score will be saved in a list of up to 10 high scores.
-
-Game features:
-This game has a undo function to take back up to 20 card movements. A hint function shows you up to 3 possible card movements at once.
-
-Left handed mode:little changea
-There is a option for left handed people to mirror the card positions to the left side of the screen.
-
-No ads:
-This game is completely free without ads, tracking or something else. Just have fun :)
-
-Landscape and tablet support: 
-You can switch to landscape mode, this is better for larger screens. It is also possible to lock the orientation in the settings
-
 ## Licenses
 
 Poker card theme: Vectorized Playing Cards 2.0 - http://sourceforge.net/projects/vector-cards/
@@ -74,7 +92,7 @@ Licensed under LGPL 3 - www.gnu.org/copyleft/lesser.html
 
 The other card themes used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
-You can download the used pictures as .svg files from my [pictures directory](./pictures/cards)
+Every card theme was modified by me to add a four color theme! You can download the used pictures as .svg files from my [pictures directory](./pictures/cards)
 
 The Material Design Symbols used for the menu icons are made by Google Inc and are published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
@@ -99,29 +117,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
 ```
-
-## Installation Guide
-
-The instructions to compile this app are very easy. Just download the project and open Android Studio. Then go to File -> Open -> Navigate to the download location -> Choose the folder -> Install all necessary dependencies and you are ready to go.
-
-Or alternatively, follow this guide to compile the app on the command line: https://developer.android.com/studio/build/building-cmdline.html
-
-## Hall of shame
-
-This place is reservered for people who think "Oh nice app, better put ads in it and publish it on Google Play, but I gonna remove the GPL part, so people think I made it". Already found 4 apps, they got removed from the Play Store.
-
-This guy has even 5 versions of my app, at least he changed some graphics:
-
-https://play.google.com/store/apps/details?id=de.seventeeen.solitairegame
-
-https://play.google.com/store/apps/details?id=de.allinone.solitairegame
-
-https://play.google.com/store/apps/details?id=de.collectionof.solitairegame
-
-https://play.google.com/store/apps/details?id=de.collectionof.newsolitairegame
-
-https://play.google.com/store/apps/details?id=de.classicsolitaire.solitairegame
-
-
-
-
