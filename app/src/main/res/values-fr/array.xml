@@ -61,10 +61,9 @@
         <item>Ancien thème</item>
     </string-array>
 
-    <!-- following are translated with an online translator -->
     <string-array name="pref_yukon_rules_titles">
-        <item>différentes couleurs (par défaut)</item>
-        <item>même famille de cartes (Russian Solitaire)</item>
+        <item>des couleurs différentes (par défaut)</item>
+        <item>la même famille de cartes (Solitaire russe)</item>
     </string-array>
 
 </resources>
