@@ -130,7 +130,7 @@
                 android:contentDescription="@string/menu_statistics"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_material_scores" />
+                app:srcCompat="@drawable/icon_scores" />
         </FrameLayout>
 
         <FrameLayout
@@ -148,7 +148,7 @@
                 android:contentDescription="@string/menu_hint"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_material_hint" />
+                app:srcCompat="@drawable/icon_hint" />
         </FrameLayout>
 
         <FrameLayout
@@ -166,7 +166,7 @@
                 android:contentDescription="@string/menu_main_menu"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_material_menu" />
+                app:srcCompat="@drawable/icon_menu" />
         </FrameLayout>
 
         <FrameLayout
@@ -184,7 +184,7 @@
                 android:contentDescription="@string/menu_undo"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_material_undo" />
+                app:srcCompat="@drawable/icon_undo" />
         </FrameLayout>
 
         <FrameLayout
@@ -202,7 +202,7 @@
                 android:contentDescription="@string/menu_settings"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_material_settings" />
+                app:srcCompat="@drawable/icon_settings" />
         </FrameLayout>
 
     </LinearLayout>

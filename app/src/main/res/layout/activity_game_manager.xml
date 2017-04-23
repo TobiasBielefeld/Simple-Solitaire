@@ -141,7 +141,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_statistics"
-                app:srcCompat="@drawable/icon_material_scores" />
+                app:srcCompat="@drawable/icon_scores" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -171,7 +171,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_hint"
-                app:srcCompat="@drawable/icon_material_hint" />
+                app:srcCompat="@drawable/icon_hint" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -201,7 +201,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_main_menu"
-                app:srcCompat="@drawable/icon_material_menu" />
+                app:srcCompat="@drawable/icon_menu" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -232,7 +232,7 @@
                 android:layout_weight="1"
                 android:adjustViewBounds="false"
                 android:contentDescription="@string/menu_undo"
-                app:srcCompat="@drawable/icon_material_undo" />
+                app:srcCompat="@drawable/icon_undo" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -262,7 +262,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_settings"
-                app:srcCompat="@drawable/icon_material_settings" />
+                app:srcCompat="@drawable/icon_settings" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"

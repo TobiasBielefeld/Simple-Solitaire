@@ -298,10 +298,6 @@ public class GameLogic {
         return getInt(GAME_NUMBER_OF_PLAYED_GAMES, numberWonGames);
     }
 
-    public void updateIcons() {
-        gm.updateIcons();
-    }
-
     public void updateMenuBar() {
         gm.updateMenuBar();
     }

@@ -40,4 +40,8 @@
     <string name="orange">Orange</string>
     <string name="purple">Violett</string>
 
+    <string name="game_close">Spiel beenden</string>
+    <string name="game_main_menu">Hauptmenü</string>
+
+
 </resources>

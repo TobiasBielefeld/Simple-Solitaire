@@ -16,6 +16,8 @@
     <string name="game_auto_complete_text">Autocomplete</string>
     <string name="game_press_again">Press again to exit</string>
     <string name="game_load_error">Loading data failed, starting new game…</string>
+    <string name="game_close">Close game</string>
+    <string name="game_main_menu">Main menu</string>
 
     <!-- Menu -->
     <string name="menu_statistics">Scores</string>
@@ -87,5 +89,8 @@
     <string name="saved_scores" translatable="false">SavedScores</string>
     <string name="score" translatable="false">Score</string>
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>

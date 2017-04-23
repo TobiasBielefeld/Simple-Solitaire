@@ -113,7 +113,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
         Stack.loadBackgrounds();
 
-        updateIcons();
         updateMenuBar();
 
 
@@ -499,37 +498,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 toast.show();
             }
         });
-
-    }
-
-    /**
-     * Updates the menu icon according to the user settings
-     */
-    public void updateIcons() {
-        ImageView scores, hint, menu, undo, settings;
-
-        scores = (ImageView) findViewById(R.id.button_scores);
-        hint = (ImageView) findViewById(R.id.button_hint);
-        menu = (ImageView) findViewById(R.id.button_restart);
-        undo = (ImageView) findViewById(R.id.button_undo);
-        settings = (ImageView) findViewById(R.id.button_settings);
-
-        switch (getSharedString(getString(R.string.pref_key_icon_theme), DEFAULT_ICON_THEME)) {
-            case "Material":
-                scores.setImageResource(R.drawable.icon_material_scores);
-                hint.setImageResource(R.drawable.icon_material_hint);
-                menu.setImageResource(R.drawable.icon_material_menu);
-                undo.setImageResource(R.drawable.icon_material_undo);
-                settings.setImageResource(R.drawable.icon_material_settings);
-                break;
-            case "Old":
-                scores.setImageResource(R.drawable.icon_old_scores);
-                hint.setImageResource(R.drawable.icon_old_hint);
-                menu.setImageResource(R.drawable.icon_old_menu);
-                undo.setImageResource(R.drawable.icon_old_undo);
-                settings.setImageResource(R.drawable.icon_old_settings);
-                break;
-        }
 
     }
 

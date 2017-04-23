@@ -144,7 +144,7 @@ public class Statistics extends CustomAppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(android.view.Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.statistics_menu, menu);
+        inflater.inflate(R.menu.menu_statistics, menu);
         return true;
     }
 

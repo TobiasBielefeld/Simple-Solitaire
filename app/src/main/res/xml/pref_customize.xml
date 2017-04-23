@@ -1,5 +1,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <de.tobiasbielefeld.solitaire.dialogs.MenuBarPositionDialogPreference
+        android:key="@string/pref_key_menu_bar_position"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@string/game_confirm"
+        android:summary="Portrait: Bottom, Landscape: Right"
+        android:title="@string/settings_menu_bar_position" />
+
     <de.tobiasbielefeld.solitaire.dialogs.BackgroundColorPreference
         android:key="@string/pref_key_background_color"
         android:negativeButtonText="@string/settings_background_color_custom"
@@ -7,23 +14,6 @@
         android:summary="%s"
         android:title="@string/settings_background_color"
         android:widgetLayout="@layout/preference_widget_layout_background_color"/>
-
-    <ListPreference
-        android:defaultValue="Material"
-        android:entries="@array/pref_icon_theme_titles"
-        android:entryValues="@array/pref_icon_theme_values"
-        android:key="@string/pref_key_icon_theme"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@null"
-        android:summary="%s"
-        android:title="@string/settings_icon_theme" />
-
-    <de.tobiasbielefeld.solitaire.dialogs.MenuBarPositionDialogPreference
-        android:key="@string/pref_key_menu_bar_position"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@string/game_confirm"
-        android:summary="Portrait: Bottom, Landscape: Right"
-        android:title="@string/settings_menu_bar_position" />
 
     <de.tobiasbielefeld.solitaire.dialogs.CardDialogPreference
         android:key="@string/pref_key_cards"

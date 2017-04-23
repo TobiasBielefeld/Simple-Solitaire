@@ -24,12 +24,13 @@
         android:summary="@string/settings_other_description"
         android:title="@string/settings_other" />
 
+    <!--
     <header
         android:summary="@string/settings_about_description"
         android:title="@string/about_name">
         <intent
             android:targetClass="de.tobiasbielefeld.solitaire.ui.about.AboutActivity"
             android:targetPackage="de.tobiasbielefeld.solitaire" />
-    </header>
+    </header> -->
 
 </preference-headers>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_startpage"
+            android:title="@string/manual_startpage" />
+        <item
+            android:id="@+id/nav_menu"
+            android:title="@string/manual_main_menu" />
+        <item
+            android:id="@+id/nav_user_interface"
+            android:title="@string/manual_ui" />
+        <item
+            android:id="@+id/nav_games"
+            android:title="@string/manual_games" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:title="@string/manual_feedback" />
+        <item
+            android:id="@+id/nav_back_to_game"
+            android:title="@string/manual_back_to_game" />
+    </group>
+
+</menu>

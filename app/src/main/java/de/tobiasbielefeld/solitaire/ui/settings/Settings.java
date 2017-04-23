@@ -102,13 +102,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         savedSharedData.unregisterOnSharedPreferenceChangeListener(this);
     }
 
-    /**
+    /*
      * Update settings when the shared preferences get new values. It uses a lot of if/else instead
      * of switch/case because only this way i can use getString() to get the xml values, otherwise
      * I would need to write the strings manually in the cases.
-     *
-     * @param sharedPreferences Where the changes appeared
-     * @param key The key with the changed value
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(CARD_DRAWABLES)) {
@@ -154,11 +151,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if(key.equals(PREF_KEY_PYRAMID_LIMITED_REDEALS)) {
             if (currentGame instanceof Pyramid) {
                 gameLogic.toggleNumberOfRedeals();
-            }
-
-        } else if (key.equals(getString(R.string.pref_key_icon_theme))) {
-            if (gameLogic != null) {
-                gameLogic.updateIcons();
             }
 
         } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {

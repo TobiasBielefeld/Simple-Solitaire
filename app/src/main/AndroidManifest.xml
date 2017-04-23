@@ -3,11 +3,11 @@
     package="de.tobiasbielefeld.solitaire">
 
     <application
-        android:installLocation="auto"
-        android:name="de.tobiasbielefeld.solitaire.MainApplication"
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/my_backup_rules"
         android:icon="@mipmap/ic_launcher"
+        android:installLocation="auto"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppThemeNoActionBar">
@@ -24,20 +24,23 @@
             android:name=".ui.settings.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppThemeActionBar" />
-        <activity
-            android:name=".ui.GameSelector"
-            android:theme="@style/ThemeGameSelector">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
         <activity android:name=".ui.GameManager" />
         <activity
             android:name=".ui.manual.Manual"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/game_manual"
             android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".ui.GameSelector"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
