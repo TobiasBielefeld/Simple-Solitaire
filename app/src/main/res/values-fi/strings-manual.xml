@@ -263,17 +263,14 @@
         Kortin kääntäminen: +25\n\n
         Korttien palauttaminen kääntöpakasta käsipakkaan: -200</string>
 
-    <!-- the following values are translated using an online translator -->
-
     <!-- GrandfathersClock -->
     <string name="manual_grandfathersClock_structure">Yksi pakka jossa 52 kortia.\n\n
-        kahdeksan pöytäpinoa, kaksitoista peruspinoa muodossa kellon. Jokainen Foundation pino sisältää jo yhden kortin</string>
-    <string name="manual_grandfathersClock_objective">ärjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.
-        Lopussa, kortin arvojen perustalle vastaavat arvot kellon.</string>
+        Kahdeksan pöytäpinoa ja kaksitoista peruspinoa kellon muodossa. Jokainen peruspino sisältää yhden kortin</string>
+    <string name="manual_grandfathersClock_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.
+        Lopussa peruspinojen päällimmäinen kortti vastaa kellon tunteja.</string>
     <string name="manual_grandfathersClock_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä, väri ei ole väliä.
-        Peruspinoihin kortit voidaan laittaa nousevassa järjestyksessä maittain. Mutta Ässät voidaan sijoittaa päälle kuninkaiden.
-
-        \n\nKerralla voi siirtää niin monta korttia (jotka ovat oikeassa järjestyksessä) kuin on tyhjiä pinoja.
+        Peruspinoihin kortit voidaan laittaa nousevassa järjestyksessä maittain. Ässät voidaan sijoittaa kuninkaiden päälle.\n\n
+        Kerralla voi siirtää niin monta korttia (jotka ovat oikeassa järjestyksessä) kuin on tyhjiä pinoja.
         Tämä perustuu sääntöön mikä määrää, että vain yhden kortin voi siirtää kerrallaan,
         mutta kun on tyhjiä pinoja, niin silloin kortit voidaan ensiksi siirtää tyhjiin pinoihin ja
         sen jälkeen kohdepinoon.
