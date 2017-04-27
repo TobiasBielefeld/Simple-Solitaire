@@ -21,59 +21,35 @@
             android:layout_height="match_parent">
 
 
-            <LinearLayout
-                android:id="@+id/layout_klondike"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
-
-                <ImageView
-                    android:id="@+id/buttonStartKlondike"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_freecell"
+            <ImageView
+                android:id="@+id/buttonStartKlondike"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartFreecell"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_yukon"
+            <ImageView
+                android:id="@+id/buttonStartFreecell"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartYukon"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/buttonStartYukon"
+                android:padding="@dimen/game_selector_images_padding"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
         </TableRow>
 
@@ -81,60 +57,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/layout_spider"
+            <ImageView
+                android:id="@+id/buttonStartSpider"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartSpider"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_simplesimon"
+            <ImageView
+                android:id="@+id/buttonStartSimpleSimon"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartSimpleSimon"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_golf"
+            <ImageView
+                android:id="@+id/buttonStartGolf"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
-
-                <ImageView
-                    android:id="@+id/buttonStartGolf"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
+                android:adjustViewBounds="true"
+                android:longClickable="true"
+                android:scaleType="fitCenter" />
 
         </TableRow>
 
@@ -142,60 +93,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/layout_pyramid"
+            <ImageView
+                android:id="@+id/buttonStartPyramid"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartPyramid"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_tripeaks"
+            <ImageView
+                android:id="@+id/buttonStartTriPeaks"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartTriPeaks"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_fortyeight"
+            <ImageView
+                android:id="@+id/buttonStartFortyEight"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
-
-                <ImageView
-                    android:id="@+id/buttonStartFortyEight"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter"
-                    android:visibility="visible" />
-            </LinearLayout>
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
         </TableRow>
 
@@ -203,60 +129,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/layout_mod3"
+            <ImageView
+                android:id="@+id/buttonStartMod3"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartMod3"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_gypsy"
+            <ImageView
+                android:id="@+id/buttonStartGypsy"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartGypsy"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter"
-                    android:visibility="visible" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_acesup"
+            <ImageView
+                android:id="@+id/buttonStartAcesUp"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
-
-                <ImageView
-                    android:id="@+id/buttonStartAcesUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
         </TableRow>
 
@@ -264,41 +165,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/layout_canfield"
+            <ImageView
+                android:id="@+id/buttonStartCanfield"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
-                <ImageView
-                    android:id="@+id/buttonStartCanfield"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_grandfathers_clock"
+            <ImageView
+                android:id="@+id/buttonStartGrandfathersClock"
+                android:padding="@dimen/game_selector_images_padding"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/game_selector_images_padding">
-
-                <ImageView
-                    android:id="@+id/buttonStartGrandfathersClock"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:onClick="onClick"
-                    android:scaleType="fitCenter" />
-            </LinearLayout>
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:longClickable="true"/>
 
 
         </TableRow>

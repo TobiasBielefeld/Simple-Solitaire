@@ -4,6 +4,7 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
@@ -33,9 +35,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class GameSelector extends CustomAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener{
 
-    ArrayList<LinearLayout> gameLayouts;
+    ArrayList<ImageView> gameImageViews;
     TableLayout tableLayout;
-    View animatingButton;
     NavigationView navigationView;
 
     @Override
@@ -54,12 +55,10 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        findViewById(R.id.scrollViewGameChooser).setOnTouchListener(this);
-
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
-        gameLayouts = lg.loadLayouts(this);
+        gameImageViews = lg.loadImageViews(this);
 
-        loadGameList();
+        //loadGameList();
 
         if (!getSharedBoolean(getString(R.string.pref_key_start_menu), false)) {
             int savedGame;
@@ -135,7 +134,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         //clear the complete layout first
         tableLayout.removeAllViewsInLayout();
 
-        for (LinearLayout gameLayout : gameLayouts) {
+        for (ImageView gameLayout : gameImageViews) {
             TableRow parent = (TableRow) gameLayout.getParent();
 
             if (parent != null)
@@ -151,7 +150,8 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         }
 
         //add the game buttons
-        for (int i = 0; i < gameLayouts.size(); i++) {
+        for (int i = 0; i < gameImageViews.size(); i++) {
+            ImageView imageView = gameImageViews.get(i);
 
             if (counter % columns == 0) {
                 row = new TableRow(this);
@@ -159,14 +159,14 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
             }
 
             if (result.size() == 0 || result.size() < (i + 1) || result.get(i) == 1) {
-                gameLayouts.get(i).setVisibility(View.VISIBLE);
-                ImageView imageView = (ImageView) gameLayouts.get(i).getChildAt(0);
-                imageView.setImageBitmap(bitmaps.getMenu(i % 6, i / 6));
+                imageView.setVisibility(View.VISIBLE);
+
+                imageView.setImageBitmap(bitmaps.getMenu(Locale.getDefault(),i % 6, i / 6));
                 imageView.setOnTouchListener(this);
-                row.addView(gameLayouts.get(i));
+                row.addView(imageView);
                 counter++;
             } else {
-                gameLayouts.get(i).setVisibility(View.GONE);
+                imageView.setVisibility(View.GONE);
             }
         }
 
@@ -201,19 +201,6 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
      */
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-
-        if (v instanceof ScrollView){
-
-            if (event.getAction() == MotionEvent.ACTION_MOVE && animatingButton!=null) {
-               regainButtonSize(animatingButton);
-
-            }
-
-            return false;
-        }
-
-        //from here only for the game buttons
-
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
             reduzeButtonSize(v);
@@ -225,15 +212,10 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
             float X = event.getX(), Y = event.getY();
 
             if (X>0 && X < v.getWidth() && Y>0 && Y<v.getHeight()){
-                //avoid loading two games at once when pressing two buttons at once
-                if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0)
-                    return true;
-
-                putSharedInt(PREF_KEY_CURRENT_GAME, v.getId());
-                Intent intent = new Intent(getApplicationContext(), GameManager.class);
-                intent.putExtra(GAME, v.getId());
-                startActivityForResult(intent, 0);
+                startGame(v);
             }
+        } else if (event.getAction() == MotionEvent.ACTION_CANCEL) {
+            regainButtonSize(v);
         }
 
         return false;
@@ -248,7 +230,6 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         AnimatorSet reducer = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.reduce_size);
         reducer.setTarget(view);
         reducer.start();
-        animatingButton = view;
     }
 
     /**
@@ -260,7 +241,17 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         AnimatorSet reducer = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.regain_size);
         reducer.setTarget(view);
         reducer.start();
-        animatingButton = null;
+    }
+
+    public void startGame(View view){
+        //avoid loading two games at once when pressing two buttons at once
+        if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0)
+            return;
+
+        putSharedInt(PREF_KEY_CURRENT_GAME, view.getId());
+        Intent intent = new Intent(getApplicationContext(), GameManager.class);
+        intent.putExtra(GAME, view.getId());
+        startActivityForResult(intent, 0);
     }
 
 }

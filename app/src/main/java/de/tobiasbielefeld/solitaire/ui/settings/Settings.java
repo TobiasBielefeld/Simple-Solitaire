@@ -39,6 +39,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
+import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -141,6 +142,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             updatePreferenceMenuColumnsSummary();
 
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
+            bitmaps.resetMenuPreview();
             setLocale();
 
         } else if (key.equals(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS)){

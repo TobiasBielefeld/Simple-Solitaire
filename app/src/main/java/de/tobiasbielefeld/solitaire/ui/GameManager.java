@@ -337,13 +337,15 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
             }
 
-            tapped = new CardAndStack(cards[v.getId()],cards[v.getId()].getStack());
+            if (currentGame.addCardToMovementTest((cards[v.getId()]))) {
+                tapped = new CardAndStack(cards[v.getId()], cards[v.getId()].getStack());
 
-            firstTapTime = System.currentTimeMillis();
+                firstTapTime = System.currentTimeMillis();
 
-            if (currentGame.addCardToMovementTest(tapped.getCard())) {
-                movingCards.add(tapped.getCard(), event.getX(), event.getY());
-                cardHighlight.set(tapped.getCard());
+                if (currentGame.addCardToMovementTest(tapped.getCard())) {
+                    movingCards.add(tapped.getCard(), event.getX(), event.getY());
+                    cardHighlight.set(tapped.getCard());
+                }
             }
         }
         return true;

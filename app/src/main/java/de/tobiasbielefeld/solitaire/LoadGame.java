@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -152,26 +153,26 @@ public class LoadGame {
      * @param activity Activity to get the id's
      * @return An array list with each layout
      */
-    public ArrayList<LinearLayout> loadLayouts(Activity activity) {
-        ArrayList<LinearLayout> layouts = new ArrayList<>();
+    public ArrayList<ImageView> loadImageViews(Activity activity) {
+        ArrayList<ImageView> imageViews = new ArrayList<>();
 
         //This is the exact same order like the games are shown in the main menu!
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_acesup));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_canfield));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_fortyeight));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_freecell));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_golf));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_grandfathers_clock));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_gypsy));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_klondike));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_mod3));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_pyramid));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_simplesimon));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_spider));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_tripeaks));
-        layouts.add((LinearLayout) activity.findViewById(R.id.layout_yukon));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartAcesUp));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartCanfield));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartFortyEight));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartFreecell));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartGolf));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartGrandfathersClock));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartGypsy));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartKlondike));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartMod3));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartPyramid));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartSimpleSimon));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartSpider));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartTriPeaks));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartYukon));
 
-        return layouts;
+        return imageViews;
     }
 
     /**
