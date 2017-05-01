@@ -21,7 +21,7 @@
 
     <string name="about_material_icons_text">Les icônes « Material Design » sont la propriété de Google Inc et publiées sous licence
         <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>
-    <string name="about_pixa_bay_license_text">Les autres thèmes de cartes et l\'ancien thème d\'icône ont été publiés sur <a href="www.pixabay.com">pixabay.com</a> sous la license
+    <string name="about_pixa_bay_license_text">Les autres thèmes de cartes ont été publiés sur <a href="www.pixabay.com">pixabay.com</a> sous la license
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
     <string name="about_third_party_licenses">Licences tierces</string>
 

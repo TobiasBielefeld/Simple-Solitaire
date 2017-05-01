@@ -21,7 +21,7 @@
     <!-- following are translated with an online translator -->
     <string name="about_material_icons_text">材料デザインアイコンはGoogle Incによって作成され、
         <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 license</a>ライセンスで公開されています</string>
-    <string name="about_pixa_bay_license_text">他のカードのテーマと古いアイコンのテーマは、もともと
+    <string name="about_pixa_bay_license_text">他のカードとのテーマは、もともと
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a>ライセンスの下で
         <a href="www.pixabay.com">pixabay.com</a>に公開されました</string>
     <string name="about_third_party_licenses">第三者のライセンス</string>
