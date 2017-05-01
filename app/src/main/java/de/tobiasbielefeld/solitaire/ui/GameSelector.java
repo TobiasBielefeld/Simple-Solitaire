@@ -2,6 +2,7 @@ package de.tobiasbielefeld.solitaire.ui;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.Image;
@@ -202,12 +203,12 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-
-            reduzeButtonSize(v);
+            //shrink button
+            changeButtonSize(v, 0.9f);
 
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
-
-            regainButtonSize(v);
+            //regain button size
+            changeButtonSize(v, 1.0f);
 
             float X = event.getX(), Y = event.getY();
 
@@ -215,35 +216,37 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
                 startGame(v);
             }
         } else if (event.getAction() == MotionEvent.ACTION_CANCEL) {
-            regainButtonSize(v);
+            //regain button size
+            changeButtonSize(v, 1.0f);
         }
 
         return false;
     }
 
     /**
-     * Shrinks a game button, as a "pressed" animation"
+     * changes the button size, according to the second parameter.
+     * Used to shrink/expand the menu buttons.
      *
-     * @param view The button to shrink
+     * @param view The view to apply the changes
+     * @param scale The scale to apply
      */
-    public void reduzeButtonSize(View view){
-        AnimatorSet reducer = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.reduce_size);
-        reducer.setTarget(view);
-        reducer.start();
+    private void changeButtonSize(View view, float scale){
+        ObjectAnimator animX = ObjectAnimator.ofFloat(view, "scaleX", scale);
+        animX.setDuration(100);
+        ObjectAnimator animY = ObjectAnimator.ofFloat(view, "scaleY", scale);
+        animY.setDuration(100);
+        AnimatorSet animSetXY = new AnimatorSet();
+        animSetXY.playTogether(animX, animY);
+
+        if (scale == 1.0) { //expand button with a little delay
+            animSetXY.setStartDelay(getResources().getInteger(R.integer.expand_button_anim_delay_ms));
+        }
+
+        animSetXY.start();
+
     }
 
-    /**
-     * Expands a game button to normal size
-     *
-     * @param view The view to expand
-     */
-    public void regainButtonSize(View view){
-        AnimatorSet reducer = (AnimatorSet) AnimatorInflater.loadAnimator(this,R.animator.regain_size);
-        reducer.setTarget(view);
-        reducer.start();
-    }
-
-    public void startGame(View view){
+    private void startGame(View view){
         //avoid loading two games at once when pressing two buttons at once
         if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0)
             return;

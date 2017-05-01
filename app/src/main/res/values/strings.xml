@@ -89,8 +89,5 @@
     <string name="saved_scores" translatable="false">SavedScores</string>
     <string name="score" translatable="false">Score</string>
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
-    <string name="title_activity_main">MainActivity</string>
-
-    <string name="action_settings">Settings</string>
 
 </resources>

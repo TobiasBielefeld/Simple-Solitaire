@@ -8,6 +8,7 @@
     <integer name="default_winning_time">0</integer>
     <integer name="default_background_color_type">1</integer>
     <integer name="default_background_color_custom">0xffe5e5e5</integer>
+    <integer name="expand_button_anim_delay_ms">100</integer>
 
     <!-- changing these to integers would cause problems with already saved values -->
     <string name="default_menu_columns_landscape" translatable="false">5</string>

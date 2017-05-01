@@ -14,8 +14,8 @@
     <string name="game_auto_complete_text">Mem-kompletiĝo</string>
     <string name="game_press_again">Repremu por eliri</string>
     <string name="game_load_error">Malsukcesis ŝargi lud-datumojn, ekigante novan ludon…</string>
-    <string name="game_close">Fermu la ludo</string>
-    <string name="game_main_menu">Ĉefa menuo</string>
+    <string name="game_close">Fermi la ludon</string>
+    <string name="game_main_menu">Ĉefmenuo</string>
 
     <!-- Menu -->
     <string name="menu_statistics">Poentaro</string>
