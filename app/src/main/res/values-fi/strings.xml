@@ -13,6 +13,8 @@
     <string name="game_auto_complete_text">Automaattinen lopetus</string>
     <string name="game_press_again">Poistu painamalla uudestaan</string>
     <string name="game_load_error">Tietojen lataus epäonnistui, uusi peli aloitetaan…</string>
+    <string name="game_close">Sulje peli</string>
+    <string name="game_main_menu">Päävalikko</string>
 
     <!-- Menu -->
     <string name="menu_statistics">Tulokset</string>

@@ -14,6 +14,9 @@
     <string name="game_auto_complete_text">Autouzupełnianie</string>
     <string name="game_press_again">Naciśnij ponownie aby wyjść</string>
     <string name="game_load_error">Wczytywanie danych nie powiodło się, zaczynam nową grę…</string>
+    <string name="game_close">Zamknij grę</string>
+    <string name="game_main_menu">Menu główne</string>
+
 
     <!-- Menu -->
     <string name="menu_statistics">Punkty</string>

@@ -43,4 +43,9 @@
     <string name="orange">オレンジ</string>
     <string name="purple">紫</string>
 
+    <!-- translated using an online translator -->
+    <string name="game_close">ゲームを閉じる</string>
+    <string name="game_main_menu">メインメニュー</string>
+
+
 </resources>

@@ -31,6 +31,9 @@
     <string name="portrait">Hochformat</string>
     <string name="landscape">Querformat</string>
     <string name="games_grandfathersClock">GrandfathersClock</string>
+    <string name="game_close">Spiel beenden</string>
+    <string name="game_main_menu">Hauptmenü</string>
+
 
     <!-- colors -->
     <string name="blue">Blau</string>
@@ -39,9 +42,5 @@
     <string name="yellow">Gelb</string>
     <string name="orange">Orange</string>
     <string name="purple">Violett</string>
-
-    <string name="game_close">Spiel beenden</string>
-    <string name="game_main_menu">Hauptmenü</string>
-
 
 </resources>
