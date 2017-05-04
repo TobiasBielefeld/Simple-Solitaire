@@ -142,7 +142,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             updatePreferenceMenuColumnsSummary();
 
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
-            bitmaps.resetMenuPreview();
             setLocale();
 
         } else if (key.equals(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS)){

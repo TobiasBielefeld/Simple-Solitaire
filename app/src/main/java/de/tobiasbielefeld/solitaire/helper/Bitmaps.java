@@ -57,31 +57,10 @@ public class Bitmaps {
      * @param posY Y-coordinate of the preview in the file
      * @return a single bitmap
      */
-    public Bitmap getMenu(Locale locale, int posX, int posY) {
+    public Bitmap getMenu(int posX, int posY) {
 
         if (menu == null) {
-
-            int resID;
-
-            switch(locale.getLanguage()){
-                default:
-                    resID = R.drawable.backgrounds_menu_default;
-                    break;
-                case "fr":
-                    resID = R.drawable.backgrounds_menu_fr;
-                    break;
-                case "eo":
-                    resID = R.drawable.backgrounds_menu_eo;
-                    break;
-                case "pl":
-                    resID = R.drawable.backgrounds_menu_pl;
-                    break;
-                case "ja":
-                    resID = R.drawable.backgrounds_menu_ja;
-                    break;
-
-            }
-            menu = BitmapFactory.decodeResource(res, resID);
+            menu = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu);
             menuWidth = menu.getWidth() / 6;
             menuHeight = menu.getHeight() / 3;
         }

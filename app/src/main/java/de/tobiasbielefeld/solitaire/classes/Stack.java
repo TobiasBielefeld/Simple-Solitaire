@@ -237,8 +237,17 @@ public class Stack {
                 break;
             case DOWN:
                 spacing = min((spacingMax - view.getY()) / (currentCards.size() + 1), defaultSpacing);
-                for (int i = 0; i < currentCards.size(); i++)
+
+                //PointF currentPos = new PointF(view.getX(), view.getY());
+                for (int i = 0; i < currentCards.size(); i++) {
+
                     currentCards.get(i).setLocation(view.getX(), view.getY() + spacing * i);
+                    /*currentCards.get(i).setLocation(currentPos.x, currentPos.y);
+
+
+                    currentPos.y+=currentCards.get(i).isUp() ? spacing : defaultSpacing/2;*/
+                }
+
                 break;
             case UP:
                 spacing = min((view.getY() - spacingMax) / (currentCards.size() + 1), defaultSpacing);

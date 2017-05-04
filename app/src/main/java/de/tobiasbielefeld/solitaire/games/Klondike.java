@@ -48,10 +48,10 @@ public class Klondike extends Game {
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
         // initialize the dimensions
-        setUpCardWidth(layoutGame, isLandscape, 8, 10);
+        setUpCardWidth(layoutGame, isLandscape, 13, 14);
 
         //calculate spacing and startposition of cards
-        int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
+        int spacing = setUpHorizontalSpacing(layoutGame, 12, 13);
         int startPos = layoutGame.getWidth() / 2 - Card.width / 2 - 3 * Card.width - 3 * spacing;
 
         //first order the foundation stacks
