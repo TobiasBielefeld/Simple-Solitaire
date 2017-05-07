@@ -158,7 +158,7 @@ public class FortyEight extends Game {
 
         startPos = max(sourceStack.getSize() - numberOfFreeStacks - 1, card.getStack().getIndexOfCard(card));
 
-        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, ALTERNATING_COLOR);
+        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, SAME_COLOR);
     }
 
     public CardAndStack hintTest() {
