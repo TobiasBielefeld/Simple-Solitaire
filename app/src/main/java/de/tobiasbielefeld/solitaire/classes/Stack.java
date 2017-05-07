@@ -45,7 +45,7 @@ public class Stack {
     public ArrayList<Card> currentCards = new ArrayList<>();                                        //the array of cards on the stack
     private int id;                                                                                 //id: 0 to 6 tableau. 7 to 10 foundations. 11 and 12 discard and Main stack
     private float spacing;                                                                          //direction in which the cards on the stacks are ordered (top, down, left, right)
-    private SpacingDirection spacingDirection;
+    private SpacingDirection spacingDirection = SpacingDirection.NONE;
     private ArrowDirection arrowDirection;
     private float spacingMax;
 
