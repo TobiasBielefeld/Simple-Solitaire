@@ -161,7 +161,7 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
     }
 
     /**
-     *
+     * Update the "selection shadow" and the pictures of the dialog
      */
     private void updateDialog(){
         for (int i = 0; i < NUMBER_OF_CARD_BACKGROUNDS; i++) {
@@ -178,7 +178,7 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
     }
 
     /**
-     *
+     * save the selected background and update the summary
      */
     private void save(){
         putSharedInt(CARD_BACKGROUND, selectedBackground);
@@ -203,6 +203,9 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
                 context.getString(R.string.settings_background), selectedBackground+1));
     }
 
+    /*
+     * only save when result is positive
+     */
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
