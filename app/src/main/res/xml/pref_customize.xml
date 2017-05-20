@@ -26,7 +26,7 @@
     <de.tobiasbielefeld.solitaire.dialogs.CardBackgroundDialogPreference
         android:key="@string/pref_key_cards_background"
         android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@null"
+        android:positiveButtonText="@string/game_confirm"
         android:summary=""
         android:title="@string/settings_cards_back"
         android:widgetLayout="@layout/preference_widget_layout_cards_background"/>

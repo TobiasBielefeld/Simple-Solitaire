@@ -75,6 +75,7 @@ public class SharedData {
     public static String TIMER_WINNING_TIME;
     public static String CARD_DRAWABLES;
     public static String CARD_BACKGROUND;
+    public static String CARD_BACKGROUND_COLOR;
     public static String MENU_COLUMNS_PORTRAIT;
     public static String MENU_COLUMNS_LANDSCAPE;
     public static String CANFIELD_START_CARD_VALUE;
@@ -121,6 +122,7 @@ public class SharedData {
     public static String DEFAULT_BACKGROUND_COLOR;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
+    public static int DEFAULT_CARD_BACKGROUND_COLOR;
     public static int DEFAULT_WINNING_TIME;
     public static int DEFAULT_BACKGROUND_COLOR_TYPE;
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
@@ -136,6 +138,7 @@ public class SharedData {
     public static boolean DEFAULT_4_COLOR_MODE;
     public static boolean DEFAULT_TAP_TO_SELECT_ENABLED;
     public static boolean DEFAULT_SINGLE_TAP_ENABLED;
+
 
     public static Card[] cards;
     public static Stack[] stacks;
@@ -248,6 +251,7 @@ public class SharedData {
         DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
         DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
         DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
+        DEFAULT_CARD_BACKGROUND_COLOR = res.getInteger(R.integer.default_card_background_color);
         DEFAULT_WINNING_TIME = res.getInteger(R.integer.default_winning_time);
         DEFAULT_BACKGROUND_COLOR_TYPE = res.getInteger(R.integer.default_background_color_type);
         DEFAULT_BACKGROUND_COLOR = res.getString(R.string.default_background_color);
@@ -285,6 +289,7 @@ public class SharedData {
 
         CARD_DRAWABLES = res.getString(R.string.pref_key_card_drawables);
         CARD_BACKGROUND = res.getString(R.string.pref_key_card_background);
+        CARD_BACKGROUND_COLOR = res.getString(R.string.pref_key_cards_background_color);
         MENU_COLUMNS_PORTRAIT = res.getString(R.string.pref_key_menu_columns_portrait);
         MENU_COLUMNS_LANDSCAPE = res.getString(R.string.pref_key_menu_columns_landscape);
 

@@ -40,7 +40,7 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 public abstract class Game {
 
     protected enum testMode{
-        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER
+        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER, SAME_FAMILY
     }
 
     protected enum testMode2{
@@ -281,15 +281,22 @@ public abstract class Game {
             Card bottomCard = stack.getCard(i);
             Card upperCard = stack.getCard(i + 1);
 
-            if (mode == ALTERNATING_COLOR){
-                if ((bottomCard.getColor() % 2 == upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1))
-                    return false;
-            } else if (mode == SAME_COLOR){
-                if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue() + 1))
-                    return false;
-            } else if (mode == DOESNT_MATTER){
-                if (bottomCard.getValue() != upperCard.getValue() + 1)
-                    return false;
+            switch (mode) {
+                case ALTERNATING_COLOR:
+                    if ((bottomCard.getColor() % 2 == upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
+                        return false;
+                    }
+                    break;
+                case SAME_COLOR:
+                    if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
+                        return false;
+                    }
+                    break;
+                case DOESNT_MATTER:
+                    if (bottomCard.getValue() != upperCard.getValue() + 1) {
+                        return false;
+                    }
+                    break;
             }
 
         }
