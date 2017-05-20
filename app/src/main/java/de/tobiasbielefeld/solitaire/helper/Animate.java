@@ -74,11 +74,14 @@ public class Animate {
         int counter = 0;
         Random rand = new Random();
 
-        for (Card card : cards) {
+        PointF newPositions[] = new PointF[cards.length];
+
+        for (int i=0;i<cards.length;i++) {
             switch (direction) {
                 case 0:
                 default://right side
-                    card.setLocation(gm.layoutGame.getWidth(), counter);
+                    newPositions[i] = new PointF(gm.layoutGame.getWidth(), counter);
+                    //card.setLocation(gm.layoutGame.getWidth(), counter);
                     counter += Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
@@ -88,7 +91,8 @@ public class Animate {
 
                     break;
                 case 1://bottom side
-                    card.setLocation(counter, gm.layoutGame.getHeight() + Card.height);
+                    newPositions[i] = new PointF(counter, gm.layoutGame.getHeight() + Card.height);
+                    //card.setLocation(counter, gm.layoutGame.getHeight() + Card.height);
                     counter += Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {
@@ -98,7 +102,8 @@ public class Animate {
 
                     break;
                 case 2://left side
-                    card.setLocation(-Card.width, counter);
+                    newPositions[i] = new PointF(-Card.width, counter);
+                    //card.setLocation(-Card.width, counter);
                     counter += Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
@@ -107,7 +112,8 @@ public class Animate {
                     }
                     break;
                 case 3://top side
-                    card.setLocation(counter, -Card.height);
+                    newPositions[i] = new PointF(counter, -Card.height);
+                    //card.setLocation(counter, -Card.height);
                     counter += Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {
@@ -116,6 +122,10 @@ public class Animate {
                     }
                     break;
             }
+        }
+
+        for (int i=0;i<cards.length;i++) {
+            cards[i].setLocation(newPositions[i].x,newPositions[i].y);
         }
     }
 

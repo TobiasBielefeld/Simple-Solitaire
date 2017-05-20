@@ -166,12 +166,17 @@ public abstract class Game {
     /**
      * Uses the given card and the movement (given as the stack id's) to update the current score.
      *
+     * CAUTION: If you only want to handle scoring, you don't need to think of the undo case. Undo movement
+     * will this call normally but subtract the result from the current score. isUndoMovement is only useful
+     * if you need to take care of other stuff
+     *
      * @param cards The moved cards
      * @param originIDs The id's of the origin stacks
      * @param destinationIDs The id's of the destination stacks
+     * @param isUndoMovement if set to true, the movement is called from a undo
      * @return The points to be added to the current score
      */
-    abstract public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs);
+    abstract public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement);
 
     /**
      * Put what happens on a main stack touch here, for example move a card to the discard stack.

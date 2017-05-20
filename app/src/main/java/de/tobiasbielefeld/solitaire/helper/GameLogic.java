@@ -188,8 +188,8 @@ public class GameLogic {
             scores.addNewHighScore();
             recordList.reset();
             autoComplete.hideButton();
-            animate.winAnimation();
             timer.setWinningTime();
+            animate.winAnimation();
             won = true;
         }
     }

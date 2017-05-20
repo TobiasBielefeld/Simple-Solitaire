@@ -121,7 +121,7 @@ public class Golf extends Game {
         return card.test(getDiscardStack()) ? getDiscardStack() : null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         if (destinationIDs[0] == getDiscardStack().getId() && originIDs[0] < 7)
             return 50;
         else

@@ -289,7 +289,7 @@ public class FortyEight extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
 
         //anywhere to foundation
         if (destinationIDs[0] >= 8 && destinationIDs[0] < 16)

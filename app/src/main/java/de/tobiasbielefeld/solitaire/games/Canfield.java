@@ -485,7 +485,7 @@ public class Canfield extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 

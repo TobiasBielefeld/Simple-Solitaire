@@ -237,7 +237,7 @@ public class Yukon extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         if (originIDs[0] < 7 && destinationIDs[0] >= 7)                                         //from tableau to foundations
             return 60;
         if (destinationIDs[0] < 7 && originIDs[0] >= 7)                                        //foundations to tableau

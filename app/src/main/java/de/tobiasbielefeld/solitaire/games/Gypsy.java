@@ -229,7 +229,7 @@ public class Gypsy extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         if (originIDs[0] == destinationIDs[0])
             return 50;
 

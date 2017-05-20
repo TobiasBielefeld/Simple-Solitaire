@@ -166,7 +166,7 @@ public class SimpleSimon extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         if (destinationIDs[0] >= 10 && destinationIDs[0] < 14)
             return 200;
         else

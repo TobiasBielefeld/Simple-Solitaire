@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -37,6 +38,7 @@ public class Tripeaks extends Game {
     //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
     //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28
+    int runCounter; //to count how many cards are moved in one "run"
 
     public Tripeaks() {
 
@@ -48,6 +50,23 @@ public class Tripeaks extends Game {
         setFirstMainStackID(29);
         setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         setSingleTapeEnabled(true);
+    }
+
+    @Override
+    public void reset(GameManager gm) {
+        super.reset(gm);
+        runCounter = 0;
+    }
+
+    @Override
+    public void save() {
+        putInt("run_counter",runCounter);
+    }
+
+    @Override
+    public void load() {
+        runCounter = getInt("run_counter",0);
+
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -119,6 +138,7 @@ public class Tripeaks extends Game {
 
         if (getMainStack().getSize() > 0) {
             moveToStack(getMainStack().getTopCard(), getDiscardStack());
+            runCounter = 0;
         } /*else if (!getDiscardStack().isEmpty()){
             recordList.add(getDiscardStack().currentCards);
 
@@ -165,15 +185,25 @@ public class Tripeaks extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int points = 0;
 
-        for (int i = 0; i < originIDs.length; i++)
-            if (originIDs[i] == destinationIDs[i])
+        for (int i = 0; i < originIDs.length; i++) {
+            if (originIDs[i] == destinationIDs[i]) {
                 points += 25;
+            }
+        }
 
-        if (originIDs[0] < 28 && destinationIDs[0] == 28)
-            points += 50;
+        if (originIDs[0] < 28 && destinationIDs[0] == 28) {
+
+            if (!isUndoMovement) {
+                runCounter++;
+                points += runCounter*50;
+            } else {
+                points += runCounter*50;
+                runCounter--;
+            }
+        }
         //else if (originIDs[0]==getDiscardStack().getId() && destinationIDs[0]==getMainStack().getId())
         //    points-=200;
 

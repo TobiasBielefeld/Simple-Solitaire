@@ -430,7 +430,7 @@ public class DummyGame extends Game {
      *
      * Undo movements will invert the points, but also set -25 points for using undo
      */
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
