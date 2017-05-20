@@ -41,6 +41,7 @@ public class AcesUp extends Game {
         setFirstDiscardStackID(4);
         setLastTableauID(3);
         setDirections(1, 1, 1, 1, 0, 0);
+        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

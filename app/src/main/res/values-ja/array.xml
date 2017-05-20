@@ -57,11 +57,6 @@
     </string-array>
 
     <!-- following are translated with an online translator -->
-    <string-array name="pref_icon_theme_titles">
-        <item>材料</item>
-        <item>古い</item>
-    </string-array>
-
     <string-array name="pref_yukon_rules_titles">
         <item>異なる色（デフォルト）</item>
         <item>同じカードファミリー（ロシアソリティア）</item>

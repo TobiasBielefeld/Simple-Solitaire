@@ -4,18 +4,18 @@
 
     <!-- Preference Keys -->
     <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
-    <string name="pref_key_icon_theme" translatable="false">pref_key_icon_theme</string>
     <string name="pref_key_menu_bar_position" translatable="false">pref_key_menu_bar_position</string>
     <string name="pref_key_menu_bar_position_portrait" translatable="false">pref_key_menu_bar_position_portrait</string>
     <string name="pref_key_menu_bar_position_landscape" translatable="false">pref_key_menu_bar_position_landscape</string>
     <string name="pref_key_double_tap_enable" translatable="false">pref_key_double_tap_enable</string>
     <string name="pref_key_double_tap_all_cards" translatable="false">pref_key_double_tap_all_cards</string>
+    <string name="pref_key_double_tap_foundation_first" translatable="false">pref_key_double_tap_foundation_first</string>
     <string name="pref_key_pyramid_limited_redeals" translatable="false">pref_key_pyramid_limited_redeals</string>
     <string name="pref_key_forty_eight_limited_redeals" translatable="false">pref_key_forty_eight_limited_redeals</string>
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>
     <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
     <string name="pref_key_cards" translatable="false">pref_key_cards</string>
-    <string name="pref_key_cards_background" translatable="false">pref_key_cards_background</string>
+    <string name="pref_key_cards_background" translatable="false">pref_key_cards_background_new</string>
     <string name="pref_key_cards_background_color" translatable="false">pref_key_cards_background_color</string>
     <string name="pref_key_other" translatable="false">pref_key_other</string>
     <string name="pref_key_hide_status_bar" translatable="false">pref_key_hide_status_bar</string>

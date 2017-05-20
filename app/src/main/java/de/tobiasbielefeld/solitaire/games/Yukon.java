@@ -40,7 +40,7 @@ public class Yukon extends Game {
         setNumberOfStacks(11);
         setDealFromID(0);
         setLastTableauID(6);
-
+        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

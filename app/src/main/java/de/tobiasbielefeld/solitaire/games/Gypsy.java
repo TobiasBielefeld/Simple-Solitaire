@@ -41,6 +41,7 @@ public class Gypsy extends Game {
         setNumberOfStacks(17);
         setFirstMainStackID(16);
         setLastTableauID(7);
+        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

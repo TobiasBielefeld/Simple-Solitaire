@@ -56,11 +56,6 @@
         <item>pl</item>
     </string-array>
 
-    <string-array name="pref_icon_theme_titles">
-        <item>Thème Material Design</item>
-        <item>Ancien thème</item>
-    </string-array>
-
     <string-array name="pref_yukon_rules_titles">
         <item>des couleurs différentes (par défaut)</item>
         <item>la même famille de cartes (Solitaire russe)</item>

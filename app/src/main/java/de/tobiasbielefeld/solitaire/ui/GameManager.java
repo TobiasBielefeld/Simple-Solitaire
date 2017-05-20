@@ -311,8 +311,16 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
                     CardAndStack cardAndStack = null;
 
+
+
                     if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_ALL_CARDS, DEFAULT_DOUBLE_TAP_ALL_CARDS) && tapped.getStackId() <= currentGame.getLastTableauId()) {
-                        cardAndStack = currentGame.doubleTap(tapped.getStack());
+                        if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST,DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST) && currentGame.hasFoundationStacks()) {
+                            cardAndStack = currentGame.doubleTap(tapped.getStack().getTopCard());
+                        }
+
+                        if (cardAndStack == null) {
+                            cardAndStack = currentGame.doubleTap(tapped.getStack());
+                        }
                     } else if (currentGame.addCardToMovementTest(tapped.getCard())) {
                         cardAndStack = currentGame.doubleTap(tapped.getCard());
                     }

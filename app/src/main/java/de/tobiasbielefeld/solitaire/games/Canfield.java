@@ -46,6 +46,7 @@ public class Canfield extends Game {
         setFirstMainStackID(12);
         setFirstDiscardStackID(9);
         setLastTableauID(4);
+        setHasFoundationStacks(true);
     }
 
     @Override

@@ -43,7 +43,7 @@ public class FortyEight extends Game {
         setFirstMainStackID(17);
         setFirstDiscardStackID(16);
         setLastTableauID(7);
-
+        setHasFoundationStacks(true);
         setLimitedRedeals(1);
 
         if (!getSharedBoolean(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS, DEFAULT_FORTY_EIGHT_LIMITED_REDEALS))

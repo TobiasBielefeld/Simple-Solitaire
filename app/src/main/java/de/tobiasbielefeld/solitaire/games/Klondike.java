@@ -43,6 +43,7 @@ public class Klondike extends Game {
         setFirstMainStackID(14);
         setFirstDiscardStackID(11);
         setLastTableauID(6);
+        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

@@ -2,7 +2,7 @@
 
     <string-array name="restart_menu">
         <item>Neues Spiel starten</item>
-        <item>Karten erneut geben</item>
+        <item>Spiel wiederholen</item>
         <item>Zurück zum Hauptmenü</item>
     </string-array>
 
@@ -54,11 +54,6 @@
         <item>fr</item>
         <item>ja</item>
         <item>pl</item>
-    </string-array>
-
-    <string-array name="pref_icon_theme_titles">
-        <item>Material</item>
-        <item>Altes Thema</item>
     </string-array>
 
     <string-array name="pref_yukon_rules_titles">

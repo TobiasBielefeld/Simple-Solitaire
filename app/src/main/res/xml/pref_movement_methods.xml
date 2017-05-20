@@ -14,7 +14,14 @@
         android:summary="@string/settings_double_tap_all_cards_text"
         android:title="@string/settings_double_tap_all_cards" />
 
-    </PreferenceCategory>
+    <CheckBoxPreference
+        android:defaultValue="@bool/default_double_tap_foundation_first"
+        android:dependency="@string/pref_key_double_tap_all_cards"
+        android:key="@string/pref_key_double_tap_foundation_first"
+        android:summary="@string/settings_double_tap_foundation_first_text"
+        android:title="@string/settings_double_tap_foundation_first" />
+
+</PreferenceCategory>
 
 
     <PreferenceCategory android:title="@string/settings_tap_to_select">

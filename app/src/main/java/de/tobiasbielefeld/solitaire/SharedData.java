@@ -102,6 +102,7 @@ public class SharedData {
     public static String PREF_KEY_MENU_BAR_POS_LANDSCAPE;
     public static String PREF_KEY_DOUBLE_TAP_ENABLED;
     public static String PREF_KEY_DOUBLE_TAP_ALL_CARDS;
+    public static String PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST;
     public static String PREF_KEY_TAP_TO_SELECT_ENABLED;
     public static String PREF_KEY_SINGLE_TAP_ENABLE;
     public static String PREF_KEY_BACKGROUND_COLOR_TYPE;
@@ -112,7 +113,6 @@ public class SharedData {
     public static String DEFAULT_YUKON_RULES;
     public static String DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
     public static String DEFAULT_MENU_BAR_POSITION_PORTRAIT;
-    public static String DEFAULT_ICON_THEME;
     public static String DEFAULT_PYRAMID_DIFFICULTY;
     public static String DEFAULT_SPIDER_DIFFICULTY;
     public static String DEFAULT_LANGUAGE;
@@ -132,6 +132,7 @@ public class SharedData {
     public static boolean DEFAULT_LEFT_HANDED_MODE;
     public static boolean DEFAULT_DOUBLE_TAP_ENABLE;
     public static boolean DEFAULT_DOUBLE_TAP_ALL_CARDS;
+    public static boolean DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST;
     public static boolean DEFAULT_WON;
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
@@ -223,6 +224,7 @@ public class SharedData {
         PREF_KEY_MENU_BAR_POS_LANDSCAPE = res.getString(R.string.pref_key_menu_bar_position_landscape);
         PREF_KEY_DOUBLE_TAP_ENABLED = res.getString(R.string.pref_key_double_tap_enable);
         PREF_KEY_DOUBLE_TAP_ALL_CARDS = res.getString(R.string.pref_key_double_tap_all_cards);
+        PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST = res.getString(R.string.pref_key_double_tap_foundation_first);
         PREF_KEY_TAP_TO_SELECT_ENABLED = res.getString(R.string.pref_key_tap_to_select_enable);
         PREF_KEY_SINGLE_TAP_ENABLE = res.getString(R.string.pref_key_single_tap_enable);
         PREF_KEY_BACKGROUND_COLOR_TYPE = res.getString(R.string.pref_key_background_color_type);
@@ -235,6 +237,7 @@ public class SharedData {
         DEFAULT_ORIENTATION = res.getStringArray(R.array.pref_orientation_values)[0];
         DEFAULT_DOUBLE_TAP_ALL_CARDS = res.getBoolean(R.bool.default_double_tap_all_cards);
         DEFAULT_DOUBLE_TAP_ENABLE = res.getBoolean(R.bool.default_double_tap_enable);
+        DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST = res.getBoolean(R.bool.default_double_tap_foundation_first);
         DEFAULT_LEFT_HANDED_MODE = res.getBoolean(R.bool.default_left_handed_mode);
         DEFAULT_PYRAMID_LIMITED_REDEALS = res.getBoolean(R.bool.default_pyramid_limited_redeals);
         DEFAULT_GOLF_CYCLIC = res.getBoolean(R.bool.default_golf_cyclic);
@@ -260,8 +263,6 @@ public class SharedData {
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];
         DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_canfield_draw_values)[1];
-        DEFAULT_ICON_THEME = res.getStringArray(R.array.pref_icon_theme_values)[0];
-
         GAME_REDEAL_COUNT = res.getString(R.string.game_redeal_count);
         GAME_WON = res.getString(R.string.game_won);
         GAME_NUMBER_OF_WON_GAMES = res.getString(R.string.game_number_of_won_games);

@@ -55,6 +55,7 @@ public abstract class Game {
     private int mainStackID = -1;
     private boolean hasDiscardStack = false;
     private boolean hasLimitedRedeals = false;
+    private boolean hasFoundationStacks = false;
     private int discardStackID = -1;
     private int lastTableauID = -1;
     private int redealCounter = 0;
@@ -567,6 +568,17 @@ public abstract class Game {
         }
     }
 
+    /**
+     * Tell that this game has foundation stacks. Used for double tap, to move to the foundation
+     * first. Games like Spider and SimpleSimon, where the player can't move directly to the foundation,
+     * don't need this
+     * @param value The value to apply
+     */
+    protected void setHasFoundationStacks(boolean value){
+        hasFoundationStacks = value;
+    }
+
+
     //some getters,setters and simple methods, games should'nt override these
 
     public Stack getMainStack() throws ArrayIndexOutOfBoundsException{
@@ -619,6 +631,10 @@ public abstract class Game {
 
     public boolean hasLimitedRedeals() {
         return hasLimitedRedeals;
+    }
+
+    public boolean hasFoundationStacks(){
+        return hasFoundationStacks;
     }
 
     public int getRemainingNumberOfRedeals() {

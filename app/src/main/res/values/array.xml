@@ -7,11 +7,6 @@
         <item>4</item>
     </string-array>
 
-    <string-array name="pref_icon_theme_values" translatable="false">
-        <item>Material</item>
-        <item>Old</item>
-    </string-array>
-
     <string-array name="pref_spider_difficulty_values" translatable="false">
         <item>1</item>
         <item>2</item>
@@ -114,11 +109,6 @@
         <item>de</item>
         <item>ja</item>
         <item>pl</item>
-    </string-array>
-
-    <string-array name="pref_icon_theme_titles">
-        <item>Material</item>
-        <item>Old theme</item>
     </string-array>
 
     <string-array name="pref_yukon_rules_titles">

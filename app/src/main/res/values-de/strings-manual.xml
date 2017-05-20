@@ -38,7 +38,7 @@
         oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis
         angezeigt wird, wird auch die Punktzahl nicht reduziert.\n\nDer \"Menü\" Punkt zeigt drei mögliche
         Aktionen an: Starte ein neues Spiel, indem die Karten gemischt werden und neu ausgegeben werden.
-        Karten erneut geben hat denselben Effekt, aber die Karten werden nicht gemischt. Das entspricht
+        Spiel wiederholen geben hat denselben Effekt, aber die Karten werden nicht gemischt. Das entspricht
         einem Neustart des aktuellen Spiels. Der letzte Punkt wird das aktuelle Spiel beenden und zurück
         zum Hauptmenü versetzen.\n\nDer \"Zurück\" Punkt wird die letzte Kartenbewegung rückgängig machen,
         aber dies wird 25 Punkte kosten. Diese Aktion kann für die letzten 20 Kartenbewegungen genutzt

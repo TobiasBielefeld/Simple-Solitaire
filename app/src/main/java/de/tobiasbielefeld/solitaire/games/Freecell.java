@@ -41,6 +41,7 @@ public class Freecell extends Game {
         setNumberOfStacks(16);
         setDealFromID(0);
         setLastTableauID(7);
+        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

@@ -4,7 +4,7 @@
     <integer name="statistics_text_size">18</integer>
     <integer name="number_of_card_backgrounds">9</integer>
     <integer name="number_of_card_themes">8</integer>
-    <integer name="default_card_background">7</integer>
+    <integer name="default_card_background">0</integer>
     <integer name="default_card_background_color">0</integer>
     <integer name="default_winning_time">0</integer>
     <integer name="default_background_color_type">1</integer>
