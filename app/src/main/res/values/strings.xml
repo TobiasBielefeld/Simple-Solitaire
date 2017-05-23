@@ -52,6 +52,6 @@
     <string name="purple">Purple</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Longest stacking sequence:</string> <!-- also used by golf -->
+    <string name="canfield_longest_run">Longest sequence:</string> <!-- also used by golf -->
 
 </resources>

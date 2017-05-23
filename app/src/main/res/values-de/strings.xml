@@ -44,6 +44,6 @@
     <string name="purple">Violett</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Längste Ablagefolge:</string> <!-- also used by golf -->
+    <string name="canfield_longest_run">Längste Abfolge:</string> <!-- also used by golf -->
 
 </resources>
