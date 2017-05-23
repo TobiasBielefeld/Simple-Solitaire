@@ -91,9 +91,11 @@ public class Klondike extends Game {
 
     public boolean winTest() {
         //if the foundation stacks aren't full, not won. Else won
-        for (int i = 7; i <= 10; i++)
-            if (stacks[i].getSize() != 13)
+        for (int i = 7; i <= 10; i++) {
+            if (stacks[i].getSize() != 13) {
                 return false;
+            }
+        }
 
         return true;
     }

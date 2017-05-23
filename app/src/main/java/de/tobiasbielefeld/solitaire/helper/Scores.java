@@ -239,7 +239,11 @@ public class Scores {
     }
 
     public void output() {
-        gm.mainTextViewScore.setText(String.format("%s: %s",
-                gm.getString(R.string.game_score), score));
+        gm.mainTextViewScore.post(new Runnable() {
+            public void run() {
+                gm.mainTextViewScore.setText(String.format("%s: %s",
+                        gm.getString(R.string.game_score), score));
+            }
+        });
     }
 }

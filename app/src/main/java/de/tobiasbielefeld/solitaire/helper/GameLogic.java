@@ -183,12 +183,18 @@ public class GameLogic {
      */
     public void testIfWon() {
         if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
-            numberWonGames++;
-            scores.updateBonus();
-            scores.addNewHighScore();
-            recordList.reset();
+
+            new Thread(new Runnable() {
+                public void run() {
+                    numberWonGames++;
+                    scores.updateBonus();
+                    scores.addNewHighScore();
+                    recordList.reset();
+                    timer.setWinningTime();
+                }
+            }).start();
+
             autoComplete.hideButton();
-            timer.setWinningTime();
             animate.winAnimation();
             won = true;
         }

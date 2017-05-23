@@ -59,8 +59,11 @@ public class Animate {
      * after that the phase2 will be called and move every card out the screen.
      */
     public void winAnimation() {
+        float posX = gm.layoutGame.getWidth() / 2 - Card.width / 2;
+        float posY = gm.layoutGame.getHeight() / 2 - Card.height / 2;
+
         for (Card card : cards) {
-            card.setLocation(gm.layoutGame.getWidth() / 2 - Card.width / 2, gm.layoutGame.getHeight() / 2 - Card.height / 2);
+            card.setLocation(posX, posY);
         }
 
         afterWonHandler.sendEmptyMessageDelayed(0, 100);
@@ -81,7 +84,6 @@ public class Animate {
                 case 0:
                 default://right side
                     newPositions[i] = new PointF(gm.layoutGame.getWidth(), counter);
-                    //card.setLocation(gm.layoutGame.getWidth(), counter);
                     counter += Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
@@ -92,7 +94,6 @@ public class Animate {
                     break;
                 case 1://bottom side
                     newPositions[i] = new PointF(counter, gm.layoutGame.getHeight() + Card.height);
-                    //card.setLocation(counter, gm.layoutGame.getHeight() + Card.height);
                     counter += Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {
@@ -103,7 +104,6 @@ public class Animate {
                     break;
                 case 2://left side
                     newPositions[i] = new PointF(-Card.width, counter);
-                    //card.setLocation(-Card.width, counter);
                     counter += Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
@@ -113,7 +113,6 @@ public class Animate {
                     break;
                 case 3://top side
                     newPositions[i] = new PointF(counter, -Card.height);
-                    //card.setLocation(counter, -Card.height);
                     counter += Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {

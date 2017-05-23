@@ -71,6 +71,8 @@ public class AutoComplete {
 
     public void hideButton() {
         buttonShown = false;
-        gm.buttonAutoComplete.setVisibility(View.GONE);
+        if (gm.buttonAutoComplete.getVisibility() == View.VISIBLE) {
+            gm.buttonAutoComplete.setVisibility(View.GONE);
+        }
     }
 }
