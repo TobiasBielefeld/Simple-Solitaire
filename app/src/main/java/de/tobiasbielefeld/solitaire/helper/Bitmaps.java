@@ -147,10 +147,6 @@ public class Bitmaps {
      */
     public Bitmap getCardBack(int posX, int posY) {
 
-        if (posX > 8) {
-            posX = 0;
-        }
-
         if (cardBack == null) {
             cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards_2);
             cardBackWidth = cardBack.getWidth() / 9;

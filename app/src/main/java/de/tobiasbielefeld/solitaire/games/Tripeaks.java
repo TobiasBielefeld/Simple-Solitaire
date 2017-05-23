@@ -18,10 +18,12 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.res.Resources;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -39,6 +41,9 @@ public class Tripeaks extends Game {
     //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28
     int runCounter; //to count how many cards are moved in one "run"
+
+    static String RUN_COUNTER = "run_counter";
+    static String LONGEST_RUN = "longest_run";
 
     public Tripeaks() {
 
@@ -60,12 +65,12 @@ public class Tripeaks extends Game {
 
     @Override
     public void save() {
-        putInt("run_counter",runCounter);
+        putInt(RUN_COUNTER,runCounter);
     }
 
     @Override
     public void load() {
-        runCounter = getInt("run_counter",0);
+        runCounter = getInt(RUN_COUNTER,0);
 
     }
 
@@ -133,22 +138,12 @@ public class Tripeaks extends Game {
         moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
-
     public void onMainStackTouch() {
-
         if (getMainStack().getSize() > 0) {
             moveToStack(getMainStack().getTopCard(), getDiscardStack());
             runCounter = 0;
-        } /*else if (!getDiscardStack().isEmpty()){
-            recordList.add(getDiscardStack().currentCards);
-
-            while (getDiscardStack().getSize() > 0)
-                moveToStack(getDiscardStack().getTopCard(), getMainStack(), OPTION_NO_RECORD);
-
-            scores.update(-200);    //because of no record, it isnt updated automatically
-        }//*/
+        }
     }
-
 
     public boolean cardTest(Stack stack, Card card) {
         return stack == getDiscardStack() &&
@@ -157,7 +152,6 @@ public class Tripeaks extends Game {
                         || (card.getValue() == stack.getTopCard().getValue() + 1
                         || card.getValue() == stack.getTopCard().getValue() - 1));
     }
-
 
     public boolean addCardToMovementTest(Card card) {
 
@@ -198,14 +192,13 @@ public class Tripeaks extends Game {
 
             if (!isUndoMovement) {
                 runCounter++;
+                updateLongestRun(runCounter);
                 points += runCounter*50;
             } else {
                 points += runCounter*50;
                 runCounter--;
             }
         }
-        //else if (originIDs[0]==getDiscardStack().getId() && destinationIDs[0]==getMainStack().getId())
-        //    points-=200;
 
         return points;
     }
@@ -218,6 +211,16 @@ public class Tripeaks extends Game {
         }
     }
 
+    @Override
+    public String getAdditionalStatisticsData(Resources res) {
+        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN,0);
+    }
+
+    @Override
+    public void deleteAdditionalStatisticsData() {
+        putInt(LONGEST_RUN,0);
+    }
+
     private boolean stackIsFree(Stack stack) {
         if (stack.getId() > 17)
             return true;
@@ -226,6 +229,12 @@ public class Tripeaks extends Game {
         Stack stackAbove2 = stacks[stackAboveID[stack.getId()] + 1];
 
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
+    }
+
+    private void updateLongestRun(int currentRunCount){
+        if (currentRunCount> getInt(LONGEST_RUN,0)){
+            putInt(LONGEST_RUN,currentRunCount);
+        }
     }
 
 }

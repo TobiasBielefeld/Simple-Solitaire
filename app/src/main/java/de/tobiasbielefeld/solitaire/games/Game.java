@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.res.Resources;
 import android.support.annotation.CallSuper;
 import android.widget.RelativeLayout;
 
@@ -266,6 +267,26 @@ public abstract class Game {
      * If the game needs to execute code after every card movement, write it here
      */
     public void testAfterMove() {
+    }
+
+    /**
+     *  Use this to add stuff to the statistics screen of the game, like longest run.
+     *  Save and load the data withing the game. It will be shown in a textView under the
+     *  "your win rate" text
+     *
+     *  IMPORTANT: Also implement deleteAdditionalStatisticsData() for reseting the data!
+     *
+     *  @return the text to show
+     */
+    public String getAdditionalStatisticsData(Resources res){
+        return null;
+    }
+
+    /**
+     * Reset the additional statistics data, if there are any
+     */
+    public void deleteAdditionalStatisticsData(){
+
     }
 
     // stuff that the games should use to set up other stuff
