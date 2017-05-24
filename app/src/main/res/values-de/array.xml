@@ -61,4 +61,10 @@
         <item>selbe Familie (Russian Solitare)</item>
     </string-array>
 
+    <string-array name="pref_movement_speed_titles">
+        <item>Langsam</item>
+        <item>Normal</item>
+        <item>Schnell</item>
+    </string-array>
+
 </resources>

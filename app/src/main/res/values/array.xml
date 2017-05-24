@@ -55,6 +55,12 @@
         <item>@string/manual_back_to_game</item>
     </string-array>
 
+    <string-array name="pref_movement_speed_values" translateable="false">
+        <item>0.5</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="restart_menu">
         <item>Start new game</item>
         <item>Give cards again</item>
@@ -114,6 +120,12 @@
     <string-array name="pref_yukon_rules_titles">
         <item>different colors (Default)</item>
         <item>same suit (Russian Solitaire)</item>
+    </string-array>
+
+    <string-array name="pref_movement_speed_titles">
+        <item>Slow</item>
+        <item>Normal</item>
+        <item>Fast</item>
     </string-array>
 
 </resources>

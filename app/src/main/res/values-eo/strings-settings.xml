@@ -84,8 +84,11 @@
     <string name="settings_single_tap">Unuobla frapeto</string>
     <string name="settings_single_tap_enable">Aktivigi agojn pri unuoblaj frapetoj</string>
     <string name="settings_single_tap_enable_text">Nur por Golfo kaj TriPintoj: unuoble frapetu karton por movi ĝin sur forĵetan stakon</string>
+    <string name="settings_background_color_custom">Propra</string>
 
     <!-- new values -->
-    <string name="settings_background_color_custom">Propra</string>
+    <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
+    <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
+    <string name="settings_movement_speed">Card movement speed</string>
 
 </resources>

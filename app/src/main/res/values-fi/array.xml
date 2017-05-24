@@ -61,4 +61,11 @@
         <item>Samaa maata (Venäläinen pasianssi)</item>
     </string-array>
 
+    <!-- new values -->
+    <string-array name="pref_movement_speed_titles">
+        <item>Slow</item>
+        <item>Normal</item>
+        <item>Fast</item>
+    </string-array>
+
 </resources>

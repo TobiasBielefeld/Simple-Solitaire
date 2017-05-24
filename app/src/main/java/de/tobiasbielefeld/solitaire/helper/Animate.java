@@ -48,10 +48,16 @@ public class Animate {
 
     public AfterWonHandler afterWonHandler;
     private GameManager gm;
+    private float speedFactor;
 
     public Animate(GameManager gm) {
         this.gm = gm;
         afterWonHandler = new AfterWonHandler(gm);
+        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED,DEFAULT_MOVEMENT_SPEED));
+    }
+
+    public void updateMovementSpeed(){
+        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED,DEFAULT_MOVEMENT_SPEED));
     }
 
     /**
@@ -145,7 +151,7 @@ public class Animate {
 
         TranslateAnimation animation = new TranslateAnimation(0, dist_x, 0, dist_y);
 
-        animation.setDuration(distance * 100 / Card.width);
+        animation.setDuration((long)(distance * 100 / Card.width / speedFactor));
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
             }
@@ -227,7 +233,7 @@ public class Animate {
 
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
-        animation.setDuration(distance * 100 / Card.width);
+        animation.setDuration((long) (distance * 100 / Card.width /speedFactor));
         animation.setFillEnabled(true);
 
         view.setDestination(pX,pY);

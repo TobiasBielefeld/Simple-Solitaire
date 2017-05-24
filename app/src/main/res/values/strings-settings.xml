@@ -79,6 +79,7 @@
     <string name="settings_single_tap_enable_text">Only for Golf and Tripeaks: Press a card once to move it to the discard stack</string>
     <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
     <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
+    <string name="settings_movement_speed">Card movement speed</string>
 
     <string name="settings_background_color_custom">Custom</string>
 

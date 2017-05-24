@@ -108,6 +108,7 @@ public class SharedData {
     public static String PREF_KEY_BACKGROUND_COLOR_TYPE;
     public static String PREF_KEY_BACKGROUND_COLOR;
     public static String PREF_KEY_BACKGROUND_COLOR_CUSTOM;
+    public static String PREF_KEY_MOVEMENT_SPEED;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
@@ -126,6 +127,7 @@ public class SharedData {
     public static int DEFAULT_WINNING_TIME;
     public static int DEFAULT_BACKGROUND_COLOR_TYPE;
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
+    public static String DEFAULT_MOVEMENT_SPEED;
     public static boolean DEFAULT_PYRAMID_LIMITED_REDEALS;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
@@ -230,6 +232,7 @@ public class SharedData {
         PREF_KEY_BACKGROUND_COLOR_TYPE = res.getString(R.string.pref_key_background_color_type);
         PREF_KEY_BACKGROUND_COLOR = res.getString(R.string.pref_key_background_color);
         PREF_KEY_BACKGROUND_COLOR_CUSTOM = res.getString(R.string.pref_key_background_color_custom);
+        PREF_KEY_MOVEMENT_SPEED = res.getString(R.string.pref_key_movement_speed);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -259,6 +262,7 @@ public class SharedData {
         DEFAULT_BACKGROUND_COLOR_TYPE = res.getInteger(R.integer.default_background_color_type);
         DEFAULT_BACKGROUND_COLOR = res.getString(R.string.default_background_color);
         DEFAULT_BACKGROUND_COLOR_CUSTOM = res.getInteger(R.integer.default_background_color_custom);
+        DEFAULT_MOVEMENT_SPEED = res.getString(R.string.default_movement_speed);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];

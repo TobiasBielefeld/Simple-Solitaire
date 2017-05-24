@@ -80,5 +80,6 @@
     <string name="settings_background_color_custom">Benutzerdefiniert</string>
     <string name="settings_double_tap_foundation_first">Zuerst zur Foundation bewegen</string>
     <string name="settings_double_tap_foundation_first_text">Versuche die oberste Karte des angetippten Stapels zur Foundation zu bewegen, bevor die anderen Karten bewegt werden</string>
+    <string name="settings_movement_speed">Kartenbewegungsgeschwindigkeit</string>
 
 </resources>

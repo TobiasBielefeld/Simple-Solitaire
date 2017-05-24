@@ -47,4 +47,8 @@
     <string name="orange">Orange</string>
     <string name="purple">Violet</string>
 
+    <!-- new values -->
+    <!-- game stuff -->
+    <string name="canfield_longest_run">Longest sequence:</string> <!-- also used by golf -->
+
 </resources>
