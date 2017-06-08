@@ -87,10 +87,9 @@
 
     <string name="settings_background_color_custom">カスタム</string>
 
-    <!-- new values -->
-    <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
-    <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
-    <string name="settings_movement_speed">Card movement speed</string>
+    <string name="settings_double_tap_foundation_first">最初に基礎スタックに移動する</string>
+    <string name="settings_double_tap_foundation_first_text">他のカードを移動する前に、タップされたスタックの一番上のカードを土台に移動してみてください</string>
+    <string name="settings_movement_speed">カードの移動速度</string>
 
 
 </resources>
