@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.res.Resources;
 import android.support.annotation.CallSuper;
 import android.widget.RelativeLayout;
 
@@ -40,11 +41,15 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 public abstract class Game {
 
     protected enum testMode{
-        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER
+        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER, SAME_FAMILY
     }
 
     protected enum testMode2{
         SAME_VALUE_AND_COLOR, SAME_VALUE_AND_FAMILY, SAME_VALUE
+    }
+
+    protected enum testMode3{
+        ASCENDING, DESCENDING
     }
 
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
@@ -55,6 +60,7 @@ public abstract class Game {
     private int mainStackID = -1;
     private boolean hasDiscardStack = false;
     private boolean hasLimitedRedeals = false;
+    private boolean hasFoundationStacks = false;
     private int discardStackID = -1;
     private int lastTableauID = -1;
     private int redealCounter = 0;
@@ -165,12 +171,17 @@ public abstract class Game {
     /**
      * Uses the given card and the movement (given as the stack id's) to update the current score.
      *
+     * CAUTION: If you only want to handle scoring, you don't need to think of the undo case. Undo movement
+     * will this call normally but subtract the result from the current score. isUndoMovement is only useful
+     * if you need to take care of other stuff
+     *
      * @param cards The moved cards
      * @param originIDs The id's of the origin stacks
      * @param destinationIDs The id's of the destination stacks
+     * @param isUndoMovement if set to true, the movement is called from a undo
      * @return The points to be added to the current score
      */
-    abstract public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs);
+    abstract public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement);
 
     /**
      * Put what happens on a main stack touch here, for example move a card to the discard stack.
@@ -262,6 +273,26 @@ public abstract class Game {
     public void testAfterMove() {
     }
 
+    /**
+     *  Use this to add stuff to the statistics screen of the game, like longest run.
+     *  Save and load the data withing the game. It will be shown in a textView under the
+     *  "your win rate" text
+     *
+     *  IMPORTANT: Also implement deleteAdditionalStatisticsData() for reseting the data!
+     *
+     *  @return the text to show
+     */
+    public String getAdditionalStatisticsData(Resources res){
+        return null;
+    }
+
+    /**
+     * Reset the additional statistics data, if there are any
+     */
+    public void deleteAdditionalStatisticsData(){
+
+    }
+
     // stuff that the games should use to set up other stuff
 
     /**
@@ -281,15 +312,27 @@ public abstract class Game {
             Card bottomCard = stack.getCard(i);
             Card upperCard = stack.getCard(i + 1);
 
-            if (mode == ALTERNATING_COLOR){
-                if ((bottomCard.getColor() % 2 == upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1))
-                    return false;
-            } else if (mode == SAME_COLOR){
-                if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue() + 1))
-                    return false;
-            } else if (mode == DOESNT_MATTER){
-                if (bottomCard.getValue() != upperCard.getValue() + 1)
-                    return false;
+            switch (mode) {
+                case ALTERNATING_COLOR:     //eg. black on red
+                    if ((bottomCard.getColor() % 2 == upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
+                        return false;
+                    }
+                    break;
+                case SAME_COLOR:            //eg. black on black
+                    if ((bottomCard.getColor() % 2 != upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
+                        return false;
+                    }
+                    break;
+                case SAME_FAMILY:           //eg spades on spades
+                    if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
+                        return false;
+                    }
+                    break;
+                case DOESNT_MATTER:
+                    if (bottomCard.getValue() != upperCard.getValue() + 1) {
+                        return false;
+                    }
+                    break;
             }
 
         }
@@ -560,6 +603,80 @@ public abstract class Game {
         }
     }
 
+    /**
+     * Tell that this game has foundation stacks. Used for double tap, to move to the foundation
+     * first. Games like Spider and SimpleSimon, where the player can't move directly to the foundation,
+     * don't need this
+     * @param value The value to apply
+     */
+    protected void setHasFoundationStacks(boolean value){
+        hasFoundationStacks = value;
+    }
+
+
+    /**
+     * Little overload method to not need to specify wrap, so it's set to false.
+     *
+     * See the other canCardBePlaced() method below this one.
+     */
+    protected boolean canCardBePlaced(Stack stack, Card card, testMode mode , testMode3 direction){
+        return canCardBePlaced(stack, card, mode , direction, false);
+    }
+
+    /**
+     * Little method to test if a given card can be placed on the given stack.
+     *
+     * Use the other canCardBePlaced() method to not explicitly specify wrap, so it's default set to false
+     *
+     * @param stack The destination stack
+     * @param card The card to move
+     * @param mode Which color the cards should have
+     * @param direction which direction the cards are played
+     * @param wrap set to true if an ace can be placed on a king (ascending) or vice versa(descending)
+     * @return true if the card can be placed on the stack, false otherwise
+     */
+    protected boolean canCardBePlaced(Stack stack, Card card, testMode mode , testMode3 direction, boolean wrap){
+
+        if (stack.isEmpty()) {
+            return true;
+        }
+
+        if (direction==testMode3.DESCENDING) {   //example move a 8 on top of a 9
+            switch (mode) {
+                case SAME_COLOR:
+                    return stack.getTopCard().getColor() % 2 == card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() + 1
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                case ALTERNATING_COLOR:
+                    return stack.getTopCard().getColor() % 2 != card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() + 1
+                             || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                case SAME_FAMILY:
+                    return stack.getTopCard().getColor() == card.getColor() && (stack.getTopCard().getValue() == card.getValue() + 1
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                case DOESNT_MATTER:
+                    return stack.getTopCard().getValue() == card.getValue() + 1
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13);
+            }
+        } else {                                //example move a 9 on top of a 8
+            switch (mode) {
+                case SAME_COLOR:
+                    return stack.getTopCard().getColor() % 2 == card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() - 1
+                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                case ALTERNATING_COLOR:
+                    return stack.getTopCard().getColor() % 2 != card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() - 1
+                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                case SAME_FAMILY:
+                    return stack.getTopCard().getColor() == card.getColor() && (stack.getTopCard().getValue() == card.getValue() - 1
+                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                case DOESNT_MATTER:
+                    return stack.getTopCard().getValue() == card.getValue() - 1
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13);
+            }
+        }
+
+        return false; //can't be reached
+    }
+
+
     //some getters,setters and simple methods, games should'nt override these
 
     public Stack getMainStack() throws ArrayIndexOutOfBoundsException{
@@ -612,6 +729,10 @@ public abstract class Game {
 
     public boolean hasLimitedRedeals() {
         return hasLimitedRedeals;
+    }
+
+    public boolean hasFoundationStacks(){
+        return hasFoundationStacks;
     }
 
     public int getRemainingNumberOfRedeals() {

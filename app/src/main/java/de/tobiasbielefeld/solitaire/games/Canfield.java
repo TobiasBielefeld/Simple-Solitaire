@@ -28,7 +28,10 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
+
 
 /**
  * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
@@ -46,6 +49,7 @@ public class Canfield extends Game {
         setFirstMainStackID(12);
         setFirstDiscardStackID(9);
         setLastTableauID(4);
+        setHasFoundationStacks(true);
     }
 
     @Override
@@ -95,8 +99,9 @@ public class Canfield extends Game {
         }
 
         //also set backgrounds of the stacks
-        for (int i = 9; i < 12; i++)
+        for (int i = 9; i < 12; i++) {
             stacks[i].view.setImageBitmap(Stack.backgroundTransparent);
+        }
 
         stacks[12].view.setImageBitmap(Stack.backgroundTalon);
         load();
@@ -105,9 +110,11 @@ public class Canfield extends Game {
 
     public boolean winTest() {
         //if the foundation stacks aren't full, not won. Else won
-        for (int i = 5; i <= 8; i++)
-            if (stacks[i].getSize() != 13)
+        for (int i = 5; i <= 8; i++) {
+            if (stacks[i].getSize() != 13) {
                 return false;
+            }
+        }
 
         return true;
     }
@@ -249,6 +256,7 @@ public class Canfield extends Game {
                 size = stacks[9].getSize();
                 if (size > 1) {
                     moveToStack(stacks[9].getCardFromTop(1), stacks[10], OPTION_NO_RECORD);
+
                     if (!cards.contains(stacks[10].getTopCard())) {
                         cards.add(stacks[10].getTopCard());
                         origin.add(stacks[9]);
@@ -256,6 +264,7 @@ public class Canfield extends Game {
                 }
                 if (size > 0) {
                     moveToStack(stacks[9].getTopCard(), stacks[11], OPTION_NO_RECORD);
+
                     if (!cards.contains(stacks[11].getTopCard())) {
                         cards.add(stacks[11].getTopCard());
                         origin.add(stacks[9]);
@@ -263,11 +272,13 @@ public class Canfield extends Game {
                 }
 
                 //now bring the cards to front
-                if (!stacks[10].isEmpty())
+                if (!stacks[10].isEmpty()) {
                     stacks[10].getTopCard().view.bringToFront();
+                }
 
-                if (!stacks[11].isEmpty())
+                if (!stacks[11].isEmpty()) {
                     stacks[11].getTopCard().view.bringToFront();
+                }
 
                 //reverse everything so the cards on the stack will be in the right order when using an undo
                 //the cards from 2. and 3 trash stack are in the right order again
@@ -290,45 +301,57 @@ public class Canfield extends Game {
         else if (stacks[9].getSize() != 0 || stacks[10].getSize() != 0 || stacks[11].getSize() != 0) {
             ArrayList<Card> cards = new ArrayList<>();
 
-            for (int i = 0; i < stacks[9].getSize(); i++)
+            for (int i = 0; i < stacks[9].getSize(); i++) {
                 cards.add(stacks[9].getCard(i));
+            }
 
-            for (int i = 0; i < stacks[10].getSize(); i++)
+            for (int i = 0; i < stacks[10].getSize(); i++) {
                 cards.add(stacks[10].getCard(i));
+            }
 
-            for (int i = 0; i < stacks[11].getSize(); i++)
+            for (int i = 0; i < stacks[11].getSize(); i++) {
                 cards.add(stacks[11].getCard(i));
+            }
 
             ArrayList<Card> cardsReversed = new ArrayList<>();
-            for (int i = 0; i < cards.size(); i++)
+
+            for (int i = 0; i < cards.size(); i++) {
                 cardsReversed.add(cards.get(cards.size() - 1 - i));
+            }
 
             moveToStack(cardsReversed, getMainStack(), OPTION_REVERSED_RECORD);
         }
     }
 
     public boolean autoCompleteStartTest() {
-        //if every card is faced up, show the auto complete button
-        /*for (int i = 0; i < 7; i++)
-            if (stacks[i].getSize() > 0 && !stacks[i].getCard(0).isUp())
-                return false;*/
+        for (int i=9;i<13;i++){
+            if (!stacks[i].isEmpty()){
+                return false;
+            }
+        }
 
-        return false;
+        for (int i=0;i<4;i++){
+            if (stacks[i].isEmpty() || stacks[i].getCard(0).getValue() != startCardValue -1){
+                return false;
+            }
+        }
+
+        return stacks[4].isEmpty();
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getId() == 4)
+        if (stack.getId() == 4) {
             return false;
+        }
 
         if (stack.getId() < 4) {
-            return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2)
-                    && ((stack.getTopCard().getValue() == card.getValue() + 1) || (stack.getTopCard().getValue() == 1 && card.getValue() == 13));
-
+            return canCardBePlaced(stack,card,ALTERNATING_COLOR,DESCENDING,true);
         } else if (stack.getId() < 9 && movingCards.hasSingleCard()) {
-            if (stack.isEmpty())
+            if (stack.isEmpty()) {
                 return card.getValue() == startCardValue;
-            else
-                return (stack.getTopCard().getColor() == card.getColor() && ((stack.getTopCard().getValue() == 13 && card.getValue() == 1) || (stack.getTopCard().getValue() == card.getValue() - 1)));
+            } else {
+                return canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING,true);
+            }
         } else
             return false;
     }
@@ -348,16 +371,18 @@ public class Canfield extends Game {
 
             Stack origin = stacks[i];
 
-            if (origin.isEmpty())
+            if (origin.isEmpty()) {
                 continue;
+            }
 
             /* complete visible part of a stack to move on the tableau */
             card = origin.getCard(0);
 
             if (!hint.hasVisited(card) && card.getValue() != startCardValue) {
                 for (int j = 0; j <= 3; j++) {
-                    if (j == i)
+                    if (j == i) {
                         continue;
+                    }
 
                     if (card.test(stacks[j])) {
                         return new CardAndStack(card, stacks[j]);
@@ -370,21 +395,22 @@ public class Canfield extends Game {
 
             if (!hint.hasVisited(card)) {
                 for (int j = 5; j <= 8; j++) {
-                    if (card.test(stacks[j]))
+                    if (card.test(stacks[j])) {
                         return new CardAndStack(card, stacks[j]);
+                    }
                 }
             }
 
         }
 
-        for (int i = 5; i <= 8; i++) {
+        /*for (int i = 5; i <= 8; i++) {
 
             Stack origin = stacks[i];
 
             if (origin.isEmpty())
                 continue;
 
-            /* last card of a stack to move to the foundation */
+            // last card of a stack to move to the foundation
             card = origin.getTopCard();
 
             if (!hint.hasVisited(card)) {
@@ -394,12 +420,13 @@ public class Canfield extends Game {
                 }
             }
 
-        }
+        }*/
 
         /* card from trash of stock to every other stack*/
         for (int i = 0; i < 3; i++) {
-            if ((i < 2 && !stacks[11].isEmpty()) || (i == 0 && !stacks[10].isEmpty()))
+            if ((i < 2 && !stacks[11].isEmpty()) || (i == 0 && !stacks[10].isEmpty())) {
                 continue;
+            }
 
             if (stacks[9 + i].getSize() > 0 && !hint.hasVisited(stacks[9 + i].getTopCard())) {
                 for (int j = 0; j <= 3; j++) {
@@ -425,19 +452,22 @@ public class Canfield extends Game {
 
         if (card.isTopCard() && !(card.getStackId() >= 5 && card.getStackId() <= 8)) {
             for (int j = 5; j < 9; j++) {
-                if (card.test(stacks[j]))
+                if (card.test(stacks[j])) {
                     return stacks[j];
+                }
             }
         }
 
         //tableau stacks
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < 4; j++) {
 
-            if (card.getStackId() < 4 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR))
+            if (stacks[j].isEmpty()) {
                 continue;
+            }
 
-            if (card.getValue() == 13 && card.isFirstCard() && card.getStackId() <= 3)
+            if (card.getStackId() < 4 && sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR)) {
                 continue;
+            }
 
             if (card.test(stacks[j])) {
                 return stacks[j];
@@ -445,8 +475,9 @@ public class Canfield extends Game {
         }
 
         for (int j = 0; j < 4; j++) {
-            if (stacks[j].isEmpty() && card.test(stacks[j]))
+            if (stacks[j].isEmpty() && card.test(stacks[j])) {
                 return stacks[j];
+            }
         }
 
         return null;
@@ -484,22 +515,23 @@ public class Canfield extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
-        if (originID >= 9 && originID <= 11 && destinationID >= 9 && destinationID <= 11)            //used for from stock to tabaleau/foundation
+        if (originID >= 9 && originID <= 11 && destinationID >= 9 && destinationID <= 11) {           //used for from stock to tabaleau/foundation
             return 45;
-        if ((originID < 5 || originID == 12) && destinationID >= 5 && destinationID <= 8)          //transfer from tableau to foundations
+        } if ((originID < 5 || originID == 12) && destinationID >= 5 && destinationID <= 8) {         //transfer from tableau to foundations
             return 60;
-        if ((originID == 9 || originID == 10 || originID == 11) && destinationID < 9)              //stock to tableau
+        } if ((originID == 9 || originID == 10 || originID == 11) && destinationID < 9) {             //stock to tableau
             return 45;
-        if (destinationID < 5 && originID >= 5 && originID <= 8)                                   //foundation to tableau
+        } if (destinationID < 5 && originID >= 5 && originID <= 8) {                                  //foundation to tableau
             return -75;
-        if (originID == destinationID)                                                              //turn a card over
+        } if (originID == destinationID) {                                                              //turn a card over
             return 25;
-        if (originID >= 9 && originID < 12 && destinationID == 12)                                 //returning cards to stock
+        } if (originID >= 9 && originID < 12 && destinationID == 12) {                                //returning cards to stock
             return -200;
+        }
 
         return 0;
     }
@@ -524,20 +556,6 @@ public class Canfield extends Game {
                     if (!stacks[4].isEmpty()) {
                         stacks[4].getTopCard().flipWithAnim();
                     }
-
-                } else if (!stacks[11].isEmpty()) {
-                    moveToStack(stacks[11].getTopCard(), stacks[i], OPTION_NO_RECORD);
-                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[11]);
-                } else if (!stacks[10].isEmpty()) {
-                    moveToStack(stacks[10].getTopCard(), stacks[i], OPTION_NO_RECORD);
-                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[10]);
-                } else if (!stacks[9].isEmpty()) {
-                    moveToStack(stacks[9].getTopCard(), stacks[i], OPTION_NO_RECORD);
-                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[9]);
-                } else if (!getMainStack().isEmpty()) {
-                    getMainStack().getTopCard().flipUp();
-                    moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), getMainStack());
                 }
             }
         }
@@ -580,11 +598,13 @@ public class Canfield extends Game {
                 originReversed.add(origin.get(cards.size() - 1 - i));
             }
 
-            if (!stacks[10].isEmpty())
+            if (!stacks[10].isEmpty()) {
                 stacks[10].getTopCard().view.bringToFront();
+            }
 
-            if (!stacks[11].isEmpty())
+            if (!stacks[11].isEmpty()) {
                 stacks[11].getTopCard().view.bringToFront();
+            }
 
             //and add it IN FRONT of the last entry
             recordList.addInFrontOfLastEntry(cardsReversed, originReversed);

@@ -48,5 +48,9 @@
     <string name="yellow">Żółty</string>
     <string name="orange">Pomarańczowy</string>
     <string name="purple">Purpurowy</string>
+
+    <!-- new values -->
+    <!-- game stuff -->
+    <string name="canfield_longest_run">Longest sequence:</string> <!-- also used by golf -->
     
 </resources>

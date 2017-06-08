@@ -2,17 +2,20 @@
 <resources>
     <integer name="default_current_game">0</integer>
     <integer name="statistics_text_size">18</integer>
-    <integer name="number_of_card_backgrounds">18</integer>
+    <integer name="number_of_card_backgrounds">9</integer>
     <integer name="number_of_card_themes">8</integer>
-    <integer name="default_card_background">15</integer>
+    <integer name="default_card_background">0</integer>
+    <integer name="default_card_background_color">0</integer>
     <integer name="default_winning_time">0</integer>
     <integer name="default_background_color_type">1</integer>
     <integer name="default_background_color_custom">0xffe5e5e5</integer>
+
     <integer name="expand_button_anim_delay_ms">100</integer>
 
     <!-- changing these to integers would cause problems with already saved values -->
     <string name="default_menu_columns_landscape" translatable="false">5</string>
     <string name="default_menu_columns_portrait" translatable="false">3</string>
     <string name="default_background_color" translatable="false">2</string>
+    <string name="default_movement_speed" translatable="false">1</string>
 
 </resources>

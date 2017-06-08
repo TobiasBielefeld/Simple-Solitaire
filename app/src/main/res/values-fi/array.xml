@@ -56,14 +56,16 @@
         <item>fi</item>
     </string-array>
 
-    <string-array name="pref_icon_theme_titles">
-        <item>Material Design teema</item>
-        <item>Vanha teema</item>
-    </string-array>
-
     <string-array name="pref_yukon_rules_titles">
         <item>Eri värit (Oletus)</item>
         <item>Samaa maata (Venäläinen pasianssi)</item>
+    </string-array>
+
+    <!-- new values -->
+    <string-array name="pref_movement_speed_titles">
+        <item>Slow</item>
+        <item>Normal</item>
+        <item>Fast</item>
     </string-array>
 
 </resources>

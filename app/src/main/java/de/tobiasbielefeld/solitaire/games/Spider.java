@@ -29,7 +29,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
-
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 /**
  * Spider Solitaire! A bit special game, because it has 2 card decks, the card families depend
  * on the chosen difficulty. The game has 10 tableau stacks, 8 foundation stacks and 4 main stacks
@@ -139,88 +139,23 @@ public class Spider extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        //can always place a card on an empty field, or the value of the card on the other stack is +1
-        if (stack.getId() < 10) {
-            if (stack.isEmpty() || (stack.getSize() > 0 && stack.getTopCard().getValue() == card.getValue() + 1))
-                return true;
-        }
-
-        return false;
+        return cardTestStatic(stack,card);
     }
 
     public boolean addCardToMovementTest(Card card) {
-        //do not accept cards from foundation and test if the cards are in the right order.
-        return card.getStackId() < 10 && testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_COLOR);
+        return addCardToMovementTestStatic(card);
     }
 
     public CardAndStack hintTest() {
-        for (int i = 0; i < 10; i++) {
-            Stack sourceStack = stacks[i];
-
-            if (sourceStack.isEmpty())
-                continue;
-
-            for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
-                Card cardToMove = sourceStack.getCard(j);
-
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_COLOR))
-                    continue;
-
-                for (int k = 0; k < 10; k++) {
-                    Stack destStack = stacks[k];
-                    if (i == k || destStack.isEmpty())
-                        continue;
-
-                    if (cardToMove.test(destStack)) {
-                        //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
-                        if (j > 0 && sourceStack.getCard(j - 1).isUp() && sourceStack.getCard(j - 1).getValue() == cardToMove.getValue() + 1
-                                && destStack.getTopCard().getColor() != cardToMove.getColor())
-                            continue;
-                        //if the card is already on the same card as on the other stack, don't return it
-                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY))
-                            continue;
-
-                        return new CardAndStack(cardToMove, destStack);
-                    }
-                }
-            }
-        }
-
-        return null;
+        return hintTestStatic();
     }
 
     @Override
     public Stack doubleTapTest(Card card) {
-        Card cardBelow = null;
-
-        if (card.getIndexOnStack() > 0)
-            cardBelow = card.getStack().getCard(card.getIndexOnStack() - 1);
-
-        //tableau stacks
-        for (int k = 0; k < 10; k++) {
-            Stack destStack = stacks[k];
-            if (card.getStackId() == k || destStack.isEmpty())
-                continue;
-
-            if (cardBelow != null && cardBelow.isUp() && cardBelow.getValue() == card.getValue() + 1 && destStack.getTopCard().getColor() != card.getColor())
-                continue;
-
-            if (card.test(destStack) && !sameCardOnOtherStack(card, destStack, SAME_VALUE_AND_FAMILY)) {
-                return destStack;
-            }
-        }
-
-        //empty stacks
-        for (int k = 0; k < 10; k++) {
-            if (stacks[k].isEmpty() && card.test(stacks[k])) {
-                return stacks[k];
-            }
-        }
-
-        return null;
+        return doubleTapTestStatic(card);
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int points = 0;
         boolean foundation = false;
 
@@ -248,49 +183,7 @@ public class Spider extends Game {
 
     @Override
     public void testAfterMove() {
-        /*
-         * after a move, test if somewhere is a complete card family, if so, move it to foundations
-         */
-        for (int i = 0; i < 10; i++) {
-            Stack currentStack = stacks[i];
-
-            if (currentStack.isEmpty() || currentStack.getTopCard().getValue() != 1)
-                continue;
-
-            for (int j = currentStack.getFirstUpCardPos(); j < currentStack.getSize(); j++) {
-                if (j == -1)
-                    break;
-
-                Card cardToTest = currentStack.getCard(j);
-
-                if (cardToTest.getValue() == 13 && testCardsUpToTop(currentStack, j, SAME_COLOR)) {
-                    Stack foundationStack = stacks[10];
-
-                    while (!foundationStack.isEmpty())
-                        foundationStack = stacks[foundationStack.getId() + 1];
-
-                    ArrayList<Card> cards = new ArrayList<>();
-                    ArrayList<Stack> origins = new ArrayList<>();
-
-                    for (int k = j; k < currentStack.getSize(); k++) {
-                        cards.add(currentStack.getCard(k));
-                        origins.add(currentStack);
-                    }
-
-                    recordList.addAtEndOfLastEntry(cards, origins);
-                    moveToStack(cards, foundationStack, OPTION_NO_RECORD);
-                    scores.update(200);
-
-                    //turn the card below up, if there is one
-                    if (!currentStack.isEmpty() && !currentStack.getTopCard().isUp()) {
-                        currentStack.getTopCard().flipWithAnim();
-                    }
-
-                    testIfWonHandler.sendEmptyMessageDelayed(0, 200);
-                    break;
-                }
-            }
-        }
+        testAfterMoveStatic();
     }
 
     private void loadCards() {
@@ -323,7 +216,7 @@ public class Spider extends Game {
                 return false;
 
         for (int i = 0; i < 10; i++)
-            if (stacks[i].getSize() > 0 && (stacks[i].getFirstUpCardPos() != 0 || !testCardsUpToTop(stacks[i], 0, SAME_COLOR)))
+            if (stacks[i].getSize() > 0 && (stacks[i].getFirstUpCardPos() != 0 || !testCardsUpToTop(stacks[i], 0, SAME_FAMILY)))
                 return false;
 
         return true;
@@ -352,5 +245,168 @@ public class Spider extends Game {
         }
 
         return null;
+    }
+
+    /*
+     * some static versions of the methods, so i can use them in SimpleSimon too.
+     * (The rules are nearly identical)
+     */
+
+    static public CardAndStack hintTestStatic() {
+        for (int i = 0; i < 10; i++) {
+            Stack sourceStack = stacks[i];
+
+            if (sourceStack.isEmpty()) {
+                continue;
+            }
+
+            for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
+                Card cardToMove = sourceStack.getCard(j);
+
+                if (hint.hasVisited(cardToMove) || !currentGame.testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
+                    continue;
+                }
+
+                Stack returnStack = null;
+
+                for (int k = 0; k < 10; k++) {
+                    Stack destStack = stacks[k];
+
+                    if (i == k || destStack.isEmpty()) {
+                        continue;
+                    }
+
+                    if (cardToMove.test(destStack)) {
+                        //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
+                        if (j > 0 && sourceStack.getCard(j - 1).isUp() && sourceStack.getCard(j - 1).getValue() == cardToMove.getValue() + 1
+                                && destStack.getTopCard().getColor() != cardToMove.getColor()) {
+                            continue;
+                        }
+
+                        //if the card is already on the same card as on the other stack, don't return it
+                        if (currentGame.sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
+                            continue;
+                        }
+
+                        if (cardToMove.test(destStack) && !currentGame.sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
+
+                            //try to prefer stacks with a top card of the same family as the moving card
+                            if (returnStack==null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor()) ) {
+                                returnStack = destStack;
+                            }
+                        }
+
+                        //return new CardAndStack(cardToMove, destStack);
+                    }
+                }
+
+                if (returnStack!=null){
+                    return new CardAndStack(cardToMove, returnStack);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    static public Stack doubleTapTestStatic(Card card) {
+        Card cardBelow = null;
+
+        if (card.getIndexOnStack() > 0) {
+            cardBelow = card.getStack().getCard(card.getIndexOnStack() - 1);
+        }
+
+        Stack returnStack = null;
+        //tableau stacks
+        for (int k = 0; k < 10; k++) {
+            Stack destStack = stacks[k];
+
+            if (card.getStackId() == k || destStack.isEmpty()) {
+                continue;
+            }
+
+            if (cardBelow != null && cardBelow.isUp() && cardBelow.getValue() == card.getValue() + 1 && destStack.getTopCard().getColor() != card.getColor()) {
+                continue;
+            }
+
+            if (card.test(destStack) && !currentGame.sameCardOnOtherStack(card, destStack, SAME_VALUE_AND_FAMILY)) {
+
+                //try to prefer stacks with a top card of the same family as the moving card
+                if (returnStack==null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == card.getColor()) ) {
+                    returnStack = destStack;
+                }
+            }
+        }
+
+        if (returnStack!=null){
+            return returnStack;
+        }
+
+        //empty stacks
+        for (int k = 0; k < 10; k++) {
+            if (stacks[k].isEmpty() && card.test(stacks[k])) {
+                return stacks[k];
+            }
+        }
+
+        return null;
+    }
+
+    static public void testAfterMoveStatic() {
+        /*
+         * after a move, test if somewhere is a complete card family, if so, move it to foundations
+         */
+        for (int i = 0; i < 10; i++) {
+            Stack currentStack = stacks[i];
+
+            if (currentStack.isEmpty() || currentStack.getTopCard().getValue() != 1) {
+                continue;
+            }
+
+            for (int j = currentStack.getFirstUpCardPos(); j < currentStack.getSize(); j++) {
+                if (j == -1) {
+                    break;
+                }
+
+                Card cardToTest = currentStack.getCard(j);
+
+                if (cardToTest.getValue() == 13 && currentGame.testCardsUpToTop(currentStack, j, SAME_FAMILY)) {
+                    Stack foundationStack = stacks[10];
+
+                    while (!foundationStack.isEmpty()) {
+                        foundationStack = stacks[foundationStack.getId() + 1];
+                    }
+
+                    ArrayList<Card> cards = new ArrayList<>();
+                    ArrayList<Stack> origins = new ArrayList<>();
+
+                    for (int k = j; k < currentStack.getSize(); k++) {
+                        cards.add(currentStack.getCard(k));
+                        origins.add(currentStack);
+                    }
+
+                    recordList.addAtEndOfLastEntry(cards, origins);
+                    moveToStack(cards, foundationStack, OPTION_NO_RECORD);
+
+                    //turn the card below up, if there is one
+                    if (!currentStack.isEmpty() && !currentStack.getTopCard().isUp()) {
+                        currentStack.getTopCard().flipWithAnim();
+                    }
+
+                    testIfWonHandler.sendEmptyMessageDelayed(0, 200);
+                    scores.update(200);
+                    break;
+                }
+            }
+        }
+    }
+
+    static public boolean addCardToMovementTestStatic(Card card) {
+        //do not accept cards from foundation and test if the cards are in the right order.
+        return card.getStackId() < 10 && currentGame.testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_FAMILY);
+    }
+
+    static public boolean cardTestStatic(Stack stack, Card card) {
+        return stack.getId() < 10 && currentGame.canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
     }
 }

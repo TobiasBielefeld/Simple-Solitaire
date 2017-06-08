@@ -169,8 +169,7 @@
         Kortit voidaan asettaa nousevassa ja alenemassa järjestyksessä maasta välittämättä.\n\n
         Asetuksista riippuen kuningas voidaan asettaa ässän päälle ja päinvastoin.\n\n
         Mikäli mitään korttia ei voida siirtää, uusi kortti käännetään kääntöpakkaan painamalla käsipakasta.</string>
-    <string name="manual_tripeaks_scoring">Kortin siirto kaatopakkaan: +50\n\n
-        Korttien palauttaminen kääntöpakasta käsipakkaan: -200</string>
+    <string name="manual_tripeaks_scoring">Kortin siirto kaatopakkaan: +50</string>
 
     <!-- Forty&Eight -->
     <string name="manual_fortyeight_structure">Kaksi pakkaa joissa 52 kortia.\n\n

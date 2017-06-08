@@ -75,6 +75,7 @@ public class SharedData {
     public static String TIMER_WINNING_TIME;
     public static String CARD_DRAWABLES;
     public static String CARD_BACKGROUND;
+    public static String CARD_BACKGROUND_COLOR;
     public static String MENU_COLUMNS_PORTRAIT;
     public static String MENU_COLUMNS_LANDSCAPE;
     public static String CANFIELD_START_CARD_VALUE;
@@ -101,17 +102,18 @@ public class SharedData {
     public static String PREF_KEY_MENU_BAR_POS_LANDSCAPE;
     public static String PREF_KEY_DOUBLE_TAP_ENABLED;
     public static String PREF_KEY_DOUBLE_TAP_ALL_CARDS;
+    public static String PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST;
     public static String PREF_KEY_TAP_TO_SELECT_ENABLED;
     public static String PREF_KEY_SINGLE_TAP_ENABLE;
     public static String PREF_KEY_BACKGROUND_COLOR_TYPE;
     public static String PREF_KEY_BACKGROUND_COLOR;
     public static String PREF_KEY_BACKGROUND_COLOR_CUSTOM;
+    public static String PREF_KEY_MOVEMENT_SPEED;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
     public static String DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
     public static String DEFAULT_MENU_BAR_POSITION_PORTRAIT;
-    public static String DEFAULT_ICON_THEME;
     public static String DEFAULT_PYRAMID_DIFFICULTY;
     public static String DEFAULT_SPIDER_DIFFICULTY;
     public static String DEFAULT_LANGUAGE;
@@ -121,21 +123,25 @@ public class SharedData {
     public static String DEFAULT_BACKGROUND_COLOR;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
+    public static int DEFAULT_CARD_BACKGROUND_COLOR;
     public static int DEFAULT_WINNING_TIME;
     public static int DEFAULT_BACKGROUND_COLOR_TYPE;
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
+    public static String DEFAULT_MOVEMENT_SPEED;
     public static boolean DEFAULT_PYRAMID_LIMITED_REDEALS;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
     public static boolean DEFAULT_LEFT_HANDED_MODE;
     public static boolean DEFAULT_DOUBLE_TAP_ENABLE;
     public static boolean DEFAULT_DOUBLE_TAP_ALL_CARDS;
+    public static boolean DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST;
     public static boolean DEFAULT_WON;
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
     public static boolean DEFAULT_4_COLOR_MODE;
     public static boolean DEFAULT_TAP_TO_SELECT_ENABLED;
     public static boolean DEFAULT_SINGLE_TAP_ENABLED;
+
 
     public static Card[] cards;
     public static Stack[] stacks;
@@ -220,11 +226,13 @@ public class SharedData {
         PREF_KEY_MENU_BAR_POS_LANDSCAPE = res.getString(R.string.pref_key_menu_bar_position_landscape);
         PREF_KEY_DOUBLE_TAP_ENABLED = res.getString(R.string.pref_key_double_tap_enable);
         PREF_KEY_DOUBLE_TAP_ALL_CARDS = res.getString(R.string.pref_key_double_tap_all_cards);
+        PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST = res.getString(R.string.pref_key_double_tap_foundation_first);
         PREF_KEY_TAP_TO_SELECT_ENABLED = res.getString(R.string.pref_key_tap_to_select_enable);
         PREF_KEY_SINGLE_TAP_ENABLE = res.getString(R.string.pref_key_single_tap_enable);
         PREF_KEY_BACKGROUND_COLOR_TYPE = res.getString(R.string.pref_key_background_color_type);
         PREF_KEY_BACKGROUND_COLOR = res.getString(R.string.pref_key_background_color);
         PREF_KEY_BACKGROUND_COLOR_CUSTOM = res.getString(R.string.pref_key_background_color_custom);
+        PREF_KEY_MOVEMENT_SPEED = res.getString(R.string.pref_key_movement_speed);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -232,6 +240,7 @@ public class SharedData {
         DEFAULT_ORIENTATION = res.getStringArray(R.array.pref_orientation_values)[0];
         DEFAULT_DOUBLE_TAP_ALL_CARDS = res.getBoolean(R.bool.default_double_tap_all_cards);
         DEFAULT_DOUBLE_TAP_ENABLE = res.getBoolean(R.bool.default_double_tap_enable);
+        DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST = res.getBoolean(R.bool.default_double_tap_foundation_first);
         DEFAULT_LEFT_HANDED_MODE = res.getBoolean(R.bool.default_left_handed_mode);
         DEFAULT_PYRAMID_LIMITED_REDEALS = res.getBoolean(R.bool.default_pyramid_limited_redeals);
         DEFAULT_GOLF_CYCLIC = res.getBoolean(R.bool.default_golf_cyclic);
@@ -248,16 +257,16 @@ public class SharedData {
         DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
         DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
         DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
+        DEFAULT_CARD_BACKGROUND_COLOR = res.getInteger(R.integer.default_card_background_color);
         DEFAULT_WINNING_TIME = res.getInteger(R.integer.default_winning_time);
         DEFAULT_BACKGROUND_COLOR_TYPE = res.getInteger(R.integer.default_background_color_type);
         DEFAULT_BACKGROUND_COLOR = res.getString(R.string.default_background_color);
         DEFAULT_BACKGROUND_COLOR_CUSTOM = res.getInteger(R.integer.default_background_color_custom);
+        DEFAULT_MOVEMENT_SPEED = res.getString(R.string.default_movement_speed);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];
         DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_canfield_draw_values)[1];
-        DEFAULT_ICON_THEME = res.getStringArray(R.array.pref_icon_theme_values)[0];
-
         GAME_REDEAL_COUNT = res.getString(R.string.game_redeal_count);
         GAME_WON = res.getString(R.string.game_won);
         GAME_NUMBER_OF_WON_GAMES = res.getString(R.string.game_number_of_won_games);
@@ -285,6 +294,7 @@ public class SharedData {
 
         CARD_DRAWABLES = res.getString(R.string.pref_key_card_drawables);
         CARD_BACKGROUND = res.getString(R.string.pref_key_card_background);
+        CARD_BACKGROUND_COLOR = res.getString(R.string.pref_key_cards_background_color);
         MENU_COLUMNS_PORTRAIT = res.getString(R.string.pref_key_menu_columns_portrait);
         MENU_COLUMNS_LANDSCAPE = res.getString(R.string.pref_key_menu_columns_landscape);
 
@@ -366,26 +376,31 @@ public class SharedData {
       */
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
 
-        if (option == OPTION_UNDO)
+        if (option == OPTION_UNDO) {
             scores.undo(cards, destinations);
-        else if (option == 0) {
+        } else if (option == 0) {
             scores.move(cards, destinations);
             recordList.add(cards);
         } else if (option == OPTION_REVERSED_RECORD) {
             //reverse the cards and add the reversed list to the record
             ArrayList<Card> cardsReversed = new ArrayList<>();
 
-            for (int i = 0; i < cards.size(); i++)
+            for (int i = 0; i < cards.size(); i++) {
                 cardsReversed.add(cards.get(cards.size() - 1 - i));
+            }
 
             recordList.add(cardsReversed);
             scores.move(cards, destinations);
         }
 
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).getStack() == destinations.get(i))                                     //this means to flip a card
+            if (cards.get(i).getStack() == destinations.get(i)) {                                     //this means to flip a card
                 cards.get(i).flip();
-            else {
+            }
+        }
+
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).getStack() != destinations.get(i)) {                                   //this means to flip a card
                 cards.get(i).getStack().removeCard(cards.get(i));
                 destinations.get(i).addCard(cards.get(i));
             }
@@ -658,6 +673,7 @@ public class SharedData {
         return value1 > value2 ? value1 : value2;
     }
 
-
-
+    public static boolean leftHandedModeEnabled(){
+        return getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, false);
+    }
 }

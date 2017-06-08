@@ -27,7 +27,9 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 
 /**
  * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
@@ -43,6 +45,7 @@ public class Klondike extends Game {
         setFirstMainStackID(14);
         setFirstDiscardStackID(11);
         setLastTableauID(6);
+        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -90,9 +93,11 @@ public class Klondike extends Game {
 
     public boolean winTest() {
         //if the foundation stacks aren't full, not won. Else won
-        for (int i = 7; i <= 10; i++)
-            if (stacks[i].getSize() != 13)
+        for (int i = 7; i <= 10; i++) {
+            if (stacks[i].getSize() != 13) {
                 return false;
+            }
+        }
 
         return true;
     }
@@ -242,18 +247,17 @@ public class Klondike extends Game {
     public boolean cardTest(Stack stack, Card card) {
         //move cards according to the klondike rules
         if (stack.getId() < 7) {
-            if (stack.isEmpty())
+            if (stack.isEmpty()) {
                 return card.getValue() == 13;
-            else
-                return (stack.getTopCard().getColor() % 2 != card.getColor() % 2)
-                        && (stack.getTopCard().getValue() == card.getValue() + 1);
-
+            } else {
+                return canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
+            }
         } else if (stack.getId() < 11 && movingCards.hasSingleCard()) {
-            if (stack.isEmpty())
+            if (stack.isEmpty()) {
                 return card.getValue() == 1;
-            else
-                return (stack.getTopCard().getColor() == card.getColor())
-                        && (stack.getTopCard().getValue() == card.getValue() - 1);
+            } else {
+                return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);
+            }
         } else
             return false;
     }
@@ -386,7 +390,7 @@ public class Klondike extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 

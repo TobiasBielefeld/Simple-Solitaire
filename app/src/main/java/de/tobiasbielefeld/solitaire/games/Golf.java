@@ -18,13 +18,17 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.res.Resources;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.helper.RecordList;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -36,6 +40,30 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  */
 
 public class Golf extends Game {
+
+    static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
+
+    int runCounter; //to count how many cards are moved in one "run"
+    ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
+    static String RUN_COUNTER = "run_counter";
+    static String LONGEST_RUN = "longest_run";
+
+    @Override
+    public void reset(GameManager gm) {
+        super.reset(gm);
+        runCounter = 0;
+    }
+
+    @Override
+    public void save() {
+        putInt(RUN_COUNTER,runCounter);
+    }
+
+    @Override
+    public void load() {
+        runCounter = getInt(RUN_COUNTER,0);
+
+    }
 
     public Golf() {
         setNumberOfDecks(1);
@@ -69,9 +97,11 @@ public class Golf extends Game {
 
     public boolean winTest() {
         //game is won if tableau is empty
-        for (int i = 0; i <= getLastTableauId(); i++)
-            if (!stacks[i].isEmpty())
+        for (int i = 0; i <= getLastTableauId(); i++) {
+            if (!stacks[i].isEmpty()) {
                 return false;
+            }
+        }
 
         return true;
     }
@@ -106,11 +136,13 @@ public class Golf extends Game {
 
     public CardAndStack hintTest() {
         for (int i = 0; i < 7; i++) {
-            if (stacks[i].isEmpty())
+            if (stacks[i].isEmpty()) {
                 continue;
+            }
 
-            if (!hint.hasVisited(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack()))
+            if (!hint.hasVisited(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack())) {
                 return new CardAndStack(stacks[i].getTopCard(), getDiscardStack());
+            }
         }
 
         return null;
@@ -121,15 +153,54 @@ public class Golf extends Game {
         return card.test(getDiscardStack()) ? getDiscardStack() : null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
-        if (destinationIDs[0] == getDiscardStack().getId() && originIDs[0] < 7)
-            return 50;
-        else
-            return 0;
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
+        int points = 0;
+
+        if (destinationIDs[0] == getDiscardStack().getId() && originIDs[0] < 7) {
+
+            if (!isUndoMovement) {
+                runCounter++;
+                updateLongestRun(runCounter);
+
+                if (savedRunRecords.size()== MAX_SAVED_RUN_RECORDS){
+                    savedRunRecords.remove(0);
+                }
+
+                savedRunRecords.add(runCounter*50);
+                points += runCounter*50;
+            } else {
+                points += savedRunRecords.get(savedRunRecords.size()-1);                            //get last entry
+                savedRunRecords.remove(savedRunRecords.size()-1);                                   //and remove it
+
+                if (runCounter>0) {
+                    runCounter--;
+                }
+            }
+        }
+
+        return points;
     }
 
     public void onMainStackTouch() {
-        if (getMainStack().getSize() > 0)
+        if (getMainStack().getSize() > 0) {
             moveToStack(getMainStack().getTopCard(), getDiscardStack());
+            runCounter = 0;
+        }
+    }
+
+    @Override
+    public String getAdditionalStatisticsData(Resources res) {
+        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN,0);
+    }
+
+    @Override
+    public void deleteAdditionalStatisticsData() {
+        putInt(LONGEST_RUN,0);
+    }
+
+    private void updateLongestRun(int currentRunCount){
+        if (currentRunCount> getInt(LONGEST_RUN,0)){
+            putInt(LONGEST_RUN,currentRunCount);
+        }
     }
 }

@@ -292,12 +292,15 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         if (v.belongsToStack() && getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED,DEFAULT_TAP_TO_SELECT_ENABLED) ) {
-            if (tapped!=null && tapped.getStack()!= stacks[v.getId()]
-                    && tapped.getCard().test(stacks[v.getId()])
-                    && currentGame.addCardToMovementTest(tapped.getCard())) {
+            if (tapped!=null && tapped.getStack()!= stacks[v.getId()] && currentGame.addCardToMovementTest(tapped.getCard())) {
 
                 movingCards.add(tapped.getCard(), event.getX(), event.getY());
-                movingCards.moveToDestination(stacks[v.getId()]);
+
+                if (tapped.getCard().test(stacks[v.getId()])) {
+                    movingCards.moveToDestination(stacks[v.getId()]);
+                } else {
+                    movingCards.reset();
+                }
             }
 
             return resetTappedCard();
@@ -312,7 +315,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     CardAndStack cardAndStack = null;
 
                     if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_ALL_CARDS, DEFAULT_DOUBLE_TAP_ALL_CARDS) && tapped.getStackId() <= currentGame.getLastTableauId()) {
-                        cardAndStack = currentGame.doubleTap(tapped.getStack());
+                        if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST,DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST) && currentGame.hasFoundationStacks()) {
+                            cardAndStack = currentGame.doubleTap(tapped.getStack().getTopCard());
+                        }
+
+                        if (cardAndStack == null || cardAndStack.getStackId() <= currentGame.getLastTableauStack().getId()) {
+                            cardAndStack = currentGame.doubleTap(tapped.getStack());
+                        }
                     } else if (currentGame.addCardToMovementTest(tapped.getCard())) {
                         cardAndStack = currentGame.doubleTap(tapped.getCard());
                     }
@@ -326,14 +335,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
                 //tap to select
                 else if (getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED,DEFAULT_TAP_TO_SELECT_ENABLED)
-                        && tapped.getStack() != cards[v.getId()].getStack()
-                        && tapped.getCard().test(cards[v.getId()].getStack())
-                        && currentGame.addCardToMovementTest(tapped.getCard())) {
+                        && tapped.getStack() != cards[v.getId()].getStack() && currentGame.addCardToMovementTest(tapped.getCard())) {
 
                     movingCards.add(tapped.getCard(), event.getX(), event.getY());
-                    movingCards.moveToDestination(cards[v.getId()].getStack());
 
-                    return resetTappedCard();
+                    if (tapped.getCard().test(cards[v.getId()].getStack())) {
+                        movingCards.moveToDestination(cards[v.getId()].getStack());
+                        return resetTappedCard();
+                    } else {
+                        movingCards.reset();
+                    }
+
+
                 }
             }
 
@@ -560,10 +573,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 startActivity(new Intent(getApplicationContext(), Statistics.class));
                 break;
             case R.id.mainButtonUndo:           //undo last movement
-                recordList.undo();
+                if (!gameLogic.hasWon()) {
+                    recordList.undo();
+                }
                 break;
             case R.id.mainButtonHint:           //show a hint
-                hint.showHint();
+                if (!gameLogic.hasWon()) {
+                    hint.showHint();
+                }
                 break;
             case R.id.mainButtonRestart:        //show restart dialog
                 showRestartDialog();

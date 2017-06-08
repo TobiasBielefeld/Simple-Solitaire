@@ -43,4 +43,7 @@
     <string name="orange">Orange</string>
     <string name="purple">Violett</string>
 
+    <!-- game stuff -->
+    <string name="canfield_longest_run">Längste Kartenfolge:</string> <!-- also used by golf -->
+
 </resources>

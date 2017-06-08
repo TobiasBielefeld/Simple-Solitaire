@@ -21,6 +21,16 @@
         android:summary="%s"
         android:title="@string/settings_change_language" />
 
+    <ListPreference
+        android:defaultValue="@string/default_movement_speed"
+        android:entries="@array/pref_movement_speed_titles"
+        android:entryValues="@array/pref_movement_speed_values"
+        android:key="@string/pref_key_movement_speed"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@null"
+        android:summary="%s"
+        android:title="@string/settings_movement_speed" />
+
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="@string/pref_key_hide_status_bar"

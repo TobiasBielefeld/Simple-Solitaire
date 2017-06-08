@@ -148,9 +148,9 @@ public class Bitmaps {
     public Bitmap getCardBack(int posX, int posY) {
 
         if (cardBack == null) {
-            cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
-            cardBackWidth = cardBack.getWidth() / 8;
-            cardBackHeight = cardBack.getHeight() / 3;
+            cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards_2);
+            cardBackWidth = cardBack.getWidth() / 9;
+            cardBackHeight = cardBack.getHeight() / 4;
         }
 
         return Bitmap.createBitmap(cardBack, posX * cardBackWidth,

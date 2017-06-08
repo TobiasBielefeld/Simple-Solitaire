@@ -33,7 +33,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class RecordList {
 
-    private final static int MAX_RECORDS = 20;
+    public final static int MAX_RECORDS = 20;
     private ArrayList<Entry> entries = new ArrayList<>();
     private GameManager gm;
 
@@ -302,12 +302,12 @@ public class RecordList {
                 currentGame.decrementRedealCounter(gm);
             }
 
-            //Use option undo to revert the scores made with this movement
-            moveToStack(currentCards, currentOrigins, OPTION_UNDO);
-
             for (Card card : flipCards) {
                 card.flipWithAnim();
             }
+
+            //Use option undo to revert the scores made with this movement
+            moveToStack(currentCards, currentOrigins, OPTION_UNDO);
         }
 
         /**

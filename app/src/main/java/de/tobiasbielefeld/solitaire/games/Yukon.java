@@ -27,7 +27,9 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 
 /**
  * Yukon Game! 7 tableau stacks, 4 foundation stacks and no main stack
@@ -40,7 +42,7 @@ public class Yukon extends Game {
         setNumberOfStacks(11);
         setDealFromID(0);
         setLastTableauID(6);
-
+        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -102,16 +104,17 @@ public class Yukon extends Game {
     public boolean cardTest(Stack stack, Card card) {
 
         if (stack.getId() < 7) {                                                                    //tableau
-            if (stack.isEmpty())
+            if (stack.isEmpty()) {
                 return card.getValue() == 13;
-            else
+            } else {
                 return checkRules(stack, card) && (stack.getTopCard().getValue() == card.getValue() + 1);
+            }
         } else if (movingCards.hasSingleCard()) {                                                     //foundation
-            if (stack.isEmpty())
+            if (stack.isEmpty()) {
                 return card.getValue() == 1;
-            else
-                return (stack.getTopCard().getColor() == card.getColor())
-                        && (stack.getTopCard().getValue() == card.getValue() - 1);
+            } else {
+                return canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING);
+            }
         } else {
             return false;
         }
@@ -120,8 +123,8 @@ public class Yukon extends Game {
     boolean checkRules(Stack stack, Card card) {
         boolean defaultRules = sharedStringEquals(PREF_KEY_YUKON_RULES_OLD, DEFAULT_YUKON_RULES);
 
-        return (defaultRules && (stack.getTopCard().getColor() % 2 != card.getColor() % 2)) ||
-                (!defaultRules && (stack.getTopCard().getColor() == card.getColor()));
+        return defaultRules ? canCardBePlaced(stack,card,ALTERNATING_COLOR,DESCENDING) :
+                canCardBePlaced(stack,card,SAME_FAMILY,DESCENDING);
     }
 
     public boolean addCardToMovementTest(Card card) {
@@ -131,18 +134,21 @@ public class Yukon extends Game {
 
     public CardAndStack hintTest() {
         for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 11; j++) {
-                if (stacks[i].isEmpty() || i == j)
-                    continue;
+            Stack sourceStack = stacks[i];
 
-                for (int k = 0; k < stacks[i].getSize(); k++) {
+            for (int k = 0; k < sourceStack.getSize(); k++) {
+                Card cardToMove = sourceStack.getCard(k);
 
-                    Card cardToMove = stacks[i].getCard(k);
+                for (int j = 0; j < 11; j++) {
+                    Stack otherStack = stacks[j];
+
+                    if (sourceStack.isEmpty() || i == j)
+                        continue;
 
                     if (j >= 7 && !cardToMove.isTopCard())
                         continue;
 
-                    if (cardToMove.isUp() && !hint.hasVisited(cardToMove) && cardToMove.test(stacks[j])) {
+                    if (cardToMove.isUp() && !hint.hasVisited(cardToMove) && cardToMove.test(otherStack)) {
                         //don't move if it's an ace and not a top card and also not if the stack id is below 7
                         //so only move single aces to the foundation stacks
                         if (cardToMove.getValue() == 1 && j < 7)
@@ -152,10 +158,10 @@ public class Yukon extends Game {
                         if (cardToMove.getValue() == 13 && cardToMove.isFirstCard())
                             continue;
                         //example: i don't want to move a hearts 5 to a clubs 6 if the hearts card is already lying on a (faced up) spades 6.
-                        if (sameCardOnOtherStack(cardToMove, stacks[j], SAME_VALUE_AND_COLOR))
+                        if (sameCardOnOtherStack(cardToMove, otherStack, SAME_VALUE_AND_COLOR))
                             continue;
 
-                        return new CardAndStack(cardToMove, stacks[j]);
+                        return new CardAndStack(cardToMove, otherStack);
                     }
                 }
             }
@@ -166,20 +172,20 @@ public class Yukon extends Game {
 
     @Override
     public Stack doubleTapTest(Card card) {
-        //tableau fields first
-        for (int j = 0; j < 7; j++) {
-
-            if (!stacks[j].isEmpty() && card.getStackId() != j && card.test(stacks[j]) && !sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR)) {
-                return stacks[j];
-            }
-        }
-
         //then foundation stacks
         if (card.isTopCard()) {
             for (int j = 7; j <= 10; j++) {
                 if (card.getStackId() != j && card.test(stacks[j])) {
                     return stacks[j];
                 }
+            }
+        }
+
+        //tableau fields first
+        for (int j = 0; j < 7; j++) {
+
+            if (!stacks[j].isEmpty() && card.getStackId() != j && card.test(stacks[j]) && !sameCardOnOtherStack(card, stacks[j], SAME_VALUE_AND_COLOR)) {
+                return stacks[j];
             }
         }
 
@@ -237,7 +243,7 @@ public class Yukon extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         if (originIDs[0] < 7 && destinationIDs[0] >= 7)                                         //from tableau to foundations
             return 60;
         if (destinationIDs[0] < 7 && originIDs[0] >= 7)                                        //foundations to tableau

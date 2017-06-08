@@ -23,6 +23,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -38,13 +39,14 @@ import de.tobiasbielefeld.solitaire.dialogs.HighScoreDeleteDialog;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 
 import static android.view.View.GONE;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 public class Statistics extends CustomAppCompatActivity {
 
     private TableLayout tableLayout;
-    private TextView textWonGames, textWinPercentage;
+    private TextView textWonGames, textWinPercentage, textAdditonalStatistics;
     private Toast toast;
 
 
@@ -67,6 +69,7 @@ public class Statistics extends CustomAppCompatActivity {
         tableLayout = (TableLayout) findViewById(R.id.statisticsTableHighScores);
         textWonGames = (TextView) findViewById(R.id.statisticsTextViewGamesWon);
         textWinPercentage = (TextView) findViewById(R.id.statisticsTextViewWinPercentage);
+        textAdditonalStatistics = (TextView) findViewById(R.id.statisticsAdditionalText);
 
         loadData();
 
@@ -128,6 +131,13 @@ public class Statistics extends CustomAppCompatActivity {
 
         textWonGames.setText(String.format(Locale.getDefault(), getString(R.string.statistics_text_won_games), wonGames, totalGames));
         textWinPercentage.setText(String.format(Locale.getDefault(), getString(R.string.statistics_win_percentage), totalGames > 0 ? ((float) wonGames * 100 / totalGames) : 0.0));
+
+        String additionalText = currentGame.getAdditionalStatisticsData(getResources());
+
+        if (additionalText!=null){
+            textAdditonalStatistics.setText(additionalText);
+            textAdditonalStatistics.setVisibility(View.VISIBLE);
+        }
     }
 
     /**
@@ -136,6 +146,7 @@ public class Statistics extends CustomAppCompatActivity {
     public void deleteHighScores() {
         scores.deleteHighScores();
         gameLogic.deleteStatistics();
+        currentGame.deleteAdditionalStatisticsData();
         loadData();
         tableLayout.setVisibility(GONE);
         showToast(getString(R.string.statistics_button_deleted_all_entries));

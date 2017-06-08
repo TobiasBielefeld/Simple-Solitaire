@@ -48,10 +48,16 @@ public class Animate {
 
     public AfterWonHandler afterWonHandler;
     private GameManager gm;
+    private float speedFactor;
 
     public Animate(GameManager gm) {
         this.gm = gm;
         afterWonHandler = new AfterWonHandler(gm);
+        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED,DEFAULT_MOVEMENT_SPEED));
+    }
+
+    public void updateMovementSpeed(){
+        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED,DEFAULT_MOVEMENT_SPEED));
     }
 
     /**
@@ -59,8 +65,11 @@ public class Animate {
      * after that the phase2 will be called and move every card out the screen.
      */
     public void winAnimation() {
+        float posX = gm.layoutGame.getWidth() / 2 - Card.width / 2;
+        float posY = gm.layoutGame.getHeight() / 2 - Card.height / 2;
+
         for (Card card : cards) {
-            card.setLocation(gm.layoutGame.getWidth() / 2 - Card.width / 2, gm.layoutGame.getHeight() / 2 - Card.height / 2);
+            moveCardSlow(card,posX, posY);
         }
 
         afterWonHandler.sendEmptyMessageDelayed(0, 100);
@@ -74,11 +83,13 @@ public class Animate {
         int counter = 0;
         Random rand = new Random();
 
-        for (Card card : cards) {
+        PointF newPositions[] = new PointF[cards.length];
+
+        for (int i=0;i<cards.length;i++) {
             switch (direction) {
                 case 0:
                 default://right side
-                    card.setLocation(gm.layoutGame.getWidth(), counter);
+                    newPositions[i] = new PointF(gm.layoutGame.getWidth(), counter);
                     counter += Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
@@ -88,7 +99,7 @@ public class Animate {
 
                     break;
                 case 1://bottom side
-                    card.setLocation(counter, gm.layoutGame.getHeight() + Card.height);
+                    newPositions[i] = new PointF(counter, gm.layoutGame.getHeight() + Card.height);
                     counter += Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {
@@ -98,7 +109,7 @@ public class Animate {
 
                     break;
                 case 2://left side
-                    card.setLocation(-Card.width, counter);
+                    newPositions[i] = new PointF(-Card.width, counter);
                     counter += Card.height;
 
                     if (counter >= gm.layoutGame.getHeight()) {
@@ -107,7 +118,7 @@ public class Animate {
                     }
                     break;
                 case 3://top side
-                    card.setLocation(counter, -Card.height);
+                    newPositions[i] = new PointF(counter, -Card.height);
                     counter += Card.width;
 
                     if (counter >= gm.layoutGame.getWidth()) {
@@ -116,6 +127,10 @@ public class Animate {
                     }
                     break;
             }
+        }
+
+        for (int i=0;i<cards.length;i++) {
+            moveCardSlow(cards[i],newPositions[i].x,newPositions[i].y);
         }
     }
 
@@ -136,7 +151,7 @@ public class Animate {
 
         TranslateAnimation animation = new TranslateAnimation(0, dist_x, 0, dist_y);
 
-        animation.setDuration(distance * 100 / Card.width);
+        animation.setDuration((long)(distance * 100 / Card.width / speedFactor));
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
             }
@@ -204,6 +219,26 @@ public class Animate {
     }
 
     /**
+     * Same as moveCard, but without the user specified speed factor. Used for the win animation.
+     *
+     * @param card The card to move
+     * @param pX X-coordinate of the destination
+     * @param pY Y-coordinate of the destination
+     */
+    public void moveCardSlow(final Card card, final float pX, final float pY) {
+        final CustomImageView view = card.view;
+        int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
+
+        TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
+
+        animation.setDuration((long) (distance * 100 / Card.width));
+        animation.setFillEnabled(true);
+
+        view.setDestination(pX,pY);
+        view.startAnimation(animation);
+    }
+
+    /**
      * Moves a card to a new destination. FillEnabled is necessary, or else flickering will occur.
      * The location is updated when the animation finishes, which happens in the onAnimationEnd()
      * method of the custom image view.
@@ -218,7 +253,7 @@ public class Animate {
 
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
-        animation.setDuration(distance * 100 / Card.width);
+        animation.setDuration((long) (distance * 100 / Card.width /speedFactor));
         animation.setFillEnabled(true);
 
         view.setDestination(pX,pY);

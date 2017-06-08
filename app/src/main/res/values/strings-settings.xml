@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <!-- Preference Keys -->
-    <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
-    <string name="pref_key_icon_theme" translatable="false">pref_key_icon_theme</string>
-    <string name="pref_key_menu_bar_position" translatable="false">pref_key_menu_bar_position</string>
-    <string name="pref_key_menu_bar_position_portrait" translatable="false">pref_key_menu_bar_position_portrait</string>
-    <string name="pref_key_menu_bar_position_landscape" translatable="false">pref_key_menu_bar_position_landscape</string>
-    <string name="pref_key_double_tap_enable" translatable="false">pref_key_double_tap_enable</string>
-    <string name="pref_key_double_tap_all_cards" translatable="false">pref_key_double_tap_all_cards</string>
-    <string name="pref_key_pyramid_limited_redeals" translatable="false">pref_key_pyramid_limited_redeals</string>
-    <string name="pref_key_forty_eight_limited_redeals" translatable="false">pref_key_forty_eight_limited_redeals</string>
-    <string name="pref_key_customization" translatable="false">pref_key_customization</string>
-    <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
-    <string name="pref_key_cards" translatable="false">pref_key_cards</string>
-    <string name="pref_key_cards_background" translatable="false">pref_key_cards_background</string>
-    <string name="pref_key_other" translatable="false">pref_key_other</string>
-    <string name="pref_key_hide_status_bar" translatable="false">pref_key_hide_status_bar</string>
-    <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
-    <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
-    <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
-    <string name="pref_key_spider_difficulty" translatable="false">pref_key_spider_difficulty</string>
-    <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
-    <string name="pref_key_canfield_draw" translatable="false">pref_key_canfield_draw</string>
-    <string name="pref_key_current_game" translatable="false">pref_key_current_game</string>
-    <string name="pref_key_start_menu" translatable="false">pref_key_start_menu</string>
-    <string name="pref_key_golf_cyclic" translatable="false">pref_key_golf_cyclic</string>
-    <string name="pref_key_pyramid_difficulty" translatable="false">pref_key_pyramid_difficult</string>
-    <string name="pref_key_menu_columns" translatable="false">pref_key_menu_columns</string>
-    <string name="pref_key_menu_games" translatable="false">pref_key_menu_games</string>
-    <string name="pref_key_about" translatable="false">pref_key_about</string>
-    <string name="pref_key_show_manual_in_menu" translatable="false">pref_key_show_manual_in_menu</string>
-    <string name="pref_key_language" translatable="false">pref_key_language</string>
-    <string name="pref_key_yukon_rules" translatable="false">pref_key_yukon_rules</string>
-    <string name="pref_key_menu_columns_landscape" translatable="false">MenuColumnsLandscape</string>
-    <string name="pref_key_menu_columns_portrait" translatable="false">MenuColumnsPortrait</string>
-    <string name="pref_key_card_background" translatable="false">CardBackground</string>
-    <string name="pref_key_card_drawables" translatable="false">CardDrawables</string>
-    <string name="pref_key_4_color_mode" translatable="false">pref_key_4_color_mode</string>
-    <string name="pref_key_tap_to_select_enable" translatable="false">pref_key_tap_to_select_enable</string>
-    <string name="pref_key_tap_to_select_all_cards" translatable="false">pref_key_tap_to_select_all_cards</string>
-    <string name="pref_key_single_tap_enable" translatable="false">pref_key_single_tap_enable</string>
-    <string name="pref_key_background_color_type" translatable="false">pref_key_background_color_type</string>
-    <string name="pref_key_background_color_custom" translatable="false">pref_key_background_color_custom</string>
-
     <!-- -->
     <string name="title_activity_settings">Settings</string>
 
@@ -120,6 +77,9 @@
     <string name="settings_single_tap">Single-Tap</string>
     <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
     <string name="settings_single_tap_enable_text">Only for Golf and Tripeaks: Press a card once to move it to the discard stack</string>
+    <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
+    <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
+    <string name="settings_movement_speed">Card movement speed</string>
 
     <string name="settings_background_color_custom">Custom</string>
 

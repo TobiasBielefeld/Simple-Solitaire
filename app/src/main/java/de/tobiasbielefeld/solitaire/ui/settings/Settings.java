@@ -112,7 +112,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         if (key.equals(CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
 
-        } else if (key.equals(CARD_BACKGROUND)) {
+        } else if (key.equals(CARD_BACKGROUND) || key.equals(CARD_BACKGROUND_COLOR)) {
             Card.updateCardBackgroundChoice();
 
         } else if (key.equals(getString(R.string.pref_key_hide_status_bar))) {
@@ -162,6 +162,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
         } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
+
+        } else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
+            animate.updateMovementSpeed();
 
         }
     }

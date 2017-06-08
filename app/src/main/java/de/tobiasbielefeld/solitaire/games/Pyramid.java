@@ -243,7 +243,7 @@ public class Pyramid extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         if (destinationIDs[0] == 28)
             return 50;
         else if (cards.size() > 1 && originIDs[0] == getDiscardStack().getId() && destinationIDs[0] == getDealStack().getId())
