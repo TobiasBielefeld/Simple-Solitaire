@@ -37,7 +37,6 @@
     <string name="pref_key_yukon_rules" translatable="false">pref_key_yukon_rules</string>
     <string name="pref_key_menu_columns_landscape" translatable="false">MenuColumnsLandscape</string>
     <string name="pref_key_menu_columns_portrait" translatable="false">MenuColumnsPortrait</string>
-    <string name="pref_key_card_background" translatable="false">CardBackground</string>
     <string name="pref_key_card_drawables" translatable="false">CardDrawables</string>
     <string name="pref_key_4_color_mode" translatable="false">pref_key_4_color_mode</string>
     <string name="pref_key_tap_to_select_enable" translatable="false">pref_key_tap_to_select_enable</string>

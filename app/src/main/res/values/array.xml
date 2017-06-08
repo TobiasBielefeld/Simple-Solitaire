@@ -55,7 +55,7 @@
         <item>@string/manual_back_to_game</item>
     </string-array>
 
-    <string-array name="pref_movement_speed_values" translateable="false">
+    <string-array name="pref_movement_speed_values" translatable="false">
         <item>0.5</item>
         <item>1</item>
         <item>2</item>

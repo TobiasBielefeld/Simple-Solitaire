@@ -293,7 +293,7 @@ public class SharedData {
         TIMER_WINNING_TIME = res.getString(R.string.saved_shown_time);
 
         CARD_DRAWABLES = res.getString(R.string.pref_key_card_drawables);
-        CARD_BACKGROUND = res.getString(R.string.pref_key_card_background);
+        CARD_BACKGROUND = res.getString(R.string.pref_key_cards_background);
         CARD_BACKGROUND_COLOR = res.getString(R.string.pref_key_cards_background_color);
         MENU_COLUMNS_PORTRAIT = res.getString(R.string.pref_key_menu_columns_portrait);
         MENU_COLUMNS_LANDSCAPE = res.getString(R.string.pref_key_menu_columns_landscape);
