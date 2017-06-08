@@ -29,6 +29,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 
 /**
  * Forty&Eight game! it's pretty hard to win
@@ -111,7 +112,7 @@ public class FortyEight extends Game {
             while (getDiscardStack().getSize() > 0)
                 moveToStack(getDiscardStack().getTopCard(), getMainStack(), OPTION_NO_RECORD);
 
-            scores.update(-200);    //because of no record, it isnt updated automatically
+            scores.update(-200);    //because of no record, it isn't updated automatically
         }
     }
 
@@ -132,14 +133,12 @@ public class FortyEight extends Game {
                 return false;
 
 
-            return stack.isEmpty() || (stack.getTopCard().getColor() == card.getColor())
-                    && (stack.getTopCard().getValue() == card.getValue() + 1);
+            return canCardBePlaced(stack,card, SAME_FAMILY, DESCENDING);
         } else if (stack.getId() < 16 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
-                return (stack.getTopCard().getColor() == card.getColor())
-                        && (stack.getTopCard().getValue() == card.getValue() - 1);
+                return canCardBePlaced(stack,card, SAME_FAMILY, ASCENDING);
         } else
             return false;
     }
@@ -158,7 +157,7 @@ public class FortyEight extends Game {
 
         startPos = max(sourceStack.getSize() - numberOfFreeStacks - 1, card.getStack().getIndexOfCard(card));
 
-        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, SAME_COLOR);
+        return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, SAME_FAMILY);
     }
 
     public CardAndStack hintTest() {
@@ -185,7 +184,7 @@ public class FortyEight extends Game {
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_COLOR))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY))
                     continue;
 
                 if (cardToMove.isTopCard()) {
@@ -266,7 +265,7 @@ public class FortyEight extends Game {
         for (int i = 0; i < 8; i++) {
             Stack stack = stacks[i];
 
-            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, SAME_COLOR))
+            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, SAME_FAMILY))
                 return false;
         }
 

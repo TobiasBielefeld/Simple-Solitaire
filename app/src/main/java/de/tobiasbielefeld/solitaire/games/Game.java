@@ -48,6 +48,10 @@ public abstract class Game {
         SAME_VALUE_AND_COLOR, SAME_VALUE_AND_FAMILY, SAME_VALUE
     }
 
+    protected enum testMode3{
+        ASCENDING, DESCENDING
+    }
+
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
     public Stack.SpacingDirection[] directions;
     public int[] directionBorders;
@@ -309,12 +313,17 @@ public abstract class Game {
             Card upperCard = stack.getCard(i + 1);
 
             switch (mode) {
-                case ALTERNATING_COLOR:
+                case ALTERNATING_COLOR:     //eg. black on red
                     if ((bottomCard.getColor() % 2 == upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
                         return false;
                     }
                     break;
-                case SAME_COLOR:
+                case SAME_COLOR:            //eg. black on black
+                    if ((bottomCard.getColor() % 2 != upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
+                        return false;
+                    }
+                    break;
+                case SAME_FAMILY:           //eg spades on spades
                     if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
                         return false;
                     }
@@ -602,6 +611,69 @@ public abstract class Game {
      */
     protected void setHasFoundationStacks(boolean value){
         hasFoundationStacks = value;
+    }
+
+
+    /**
+     * Little overload method to not need to specify wrap, so it's set to false.
+     *
+     * See the other canCardBePlaced() method below this one.
+     */
+    protected boolean canCardBePlaced(Stack stack, Card card, testMode mode , testMode3 direction){
+        return canCardBePlaced(stack, card, mode , direction, false);
+    }
+
+    /**
+     * Little method to test if a given card can be placed on the given stack.
+     *
+     * Use the other canCardBePlaced() method to not explicitly specify wrap, so it's default set to false
+     *
+     * @param stack The destination stack
+     * @param card The card to move
+     * @param mode Which color the cards should have
+     * @param direction which direction the cards are played
+     * @param wrap set to true if an ace can be placed on a king (ascending) or vice versa(descending)
+     * @return true if the card can be placed on the stack, false otherwise
+     */
+    protected boolean canCardBePlaced(Stack stack, Card card, testMode mode , testMode3 direction, boolean wrap){
+
+        if (stack.isEmpty()) {
+            return true;
+        }
+
+        if (direction==testMode3.DESCENDING) {   //example move a 8 on top of a 9
+            switch (mode) {
+                case SAME_COLOR:
+                    return stack.getTopCard().getColor() % 2 == card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() + 1
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                case ALTERNATING_COLOR:
+                    return stack.getTopCard().getColor() % 2 != card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() + 1
+                             || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                case SAME_FAMILY:
+                    return stack.getTopCard().getColor() == card.getColor() && (stack.getTopCard().getValue() == card.getValue() + 1
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                case DOESNT_MATTER:
+                    return stack.getTopCard().getValue() == card.getValue() + 1
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13);
+            }
+        } else {                                //example move a 9 on top of a 8
+            switch (mode) {
+                case SAME_COLOR:
+                    return stack.getTopCard().getColor() % 2 == card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() - 1
+                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                case ALTERNATING_COLOR:
+                    return stack.getTopCard().getColor() % 2 != card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() - 1
+                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                case SAME_FAMILY:
+                    return stack.getTopCard().getColor() == card.getColor() && (stack.getTopCard().getValue() == card.getValue() - 1
+                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                case DOESNT_MATTER:
+                    return stack.getTopCard().getValue() == card.getValue() - 1
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13);
+            }
+        }
+
+        return false; //can't be reached
     }
 
 

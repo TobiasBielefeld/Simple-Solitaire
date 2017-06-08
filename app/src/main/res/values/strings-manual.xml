@@ -150,8 +150,7 @@
         discard stack in ascending and descending order regardless of color.\n\nIt is also possible
         to play kings on aces and vice versa.\n\nIf no card can be moved, press on the main stack to
         deal one card from it to the discard stack.</string>
-    <string name="manual_tripeaks_scoring">Move a card to the waste: +50\n\nReturn cards from discard
-        stack to main stack: -200</string>
+    <string name="manual_tripeaks_scoring">Move a card to the waste: +50</string>
 
     <!-- Forty&Eight -->
     <string name="manual_fortyeight_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation

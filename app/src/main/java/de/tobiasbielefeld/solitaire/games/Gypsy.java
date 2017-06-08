@@ -29,6 +29,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 
 /**
  * Gypsy Solitaire! (Maybe needs another name)
@@ -105,17 +106,17 @@ public class Gypsy extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-
         if (stack.getId() < 8) {
-            return stack.isEmpty() || (stack.getTopCard().getColor() % 2 != card.getColor() % 2) && (stack.getTopCard().getValue() == card.getValue() + 1);
+            return canCardBePlaced(stack,card,ALTERNATING_COLOR,DESCENDING);
         } else if (stack.getId() < 16 && movingCards.hasSingleCard()) {
-            if (stack.isEmpty())
+            if (stack.isEmpty()) {
                 return card.getValue() == 1;
-            else
-                return (stack.getTopCard().getColor() == card.getColor())
-                        && (stack.getTopCard().getValue() == card.getValue() - 1);
-        } else
+            } else {
+                return canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING);
+            }
+        } else {
             return false;
+        }
     }
 
     public boolean addCardToMovementTest(Card card) {
@@ -170,12 +171,6 @@ public class Gypsy extends Game {
 
     @Override
     public Stack doubleTapTest(Card card) {
-        //tableau without the same card
-        for (int k = 0; k < 8; k++) {
-            if (card.test(stacks[k]) && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
-                return stacks[k];
-            }
-        }
 
         //foundation
         if (card.isTopCard()) {
@@ -183,6 +178,13 @@ public class Gypsy extends Game {
                 if (card.test(stacks[8 + k])) {
                     return stacks[8 + k];
                 }
+            }
+        }
+
+        //tableau without the same card
+        for (int k = 0; k < 8; k++) {
+            if (card.test(stacks[k]) && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
+                return stacks[k];
             }
         }
 

@@ -27,6 +27,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -37,10 +38,14 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Tripeaks extends Game {
 
+    static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
+
     //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
     //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28
-    int runCounter; //to count how many cards are moved in one "run"
+    int runCounter;                                                                                 //to count how many cards are moved in one "run"
+    ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
+
 
     static String RUN_COUNTER = "run_counter";
     static String LONGEST_RUN = "longest_run";
@@ -193,10 +198,20 @@ public class Tripeaks extends Game {
             if (!isUndoMovement) {
                 runCounter++;
                 updateLongestRun(runCounter);
+
+                if (savedRunRecords.size()== MAX_SAVED_RUN_RECORDS){
+                    savedRunRecords.remove(0);
+                }
+
+                savedRunRecords.add(runCounter*50);
                 points += runCounter*50;
             } else {
-                points += runCounter*50;
-                runCounter--;
+                points += savedRunRecords.get(savedRunRecords.size()-1);                            //get last entry
+                savedRunRecords.remove(savedRunRecords.size()-1);                                   //and remove it
+
+                if (runCounter>0) {
+                    runCounter--;
+                }
             }
         }
 

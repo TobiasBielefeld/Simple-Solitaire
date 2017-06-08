@@ -115,11 +115,15 @@ public class GameLogic {
                 scores.load();
                 recordList.load();
                 timer.setCurrentTime(getLong(TIMER_END_TIME, 0));
+
                 //timer will be loaded in onResume() of the game manager
-                for (Stack stack : stacks)
-                    stack.load();
 
                 Card.load();
+
+                for (Stack stack : stacks) {
+                    stack.load();
+                }
+
                 loadRandomCards();
 
                 if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {

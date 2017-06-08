@@ -69,7 +69,7 @@ public class Animate {
         float posY = gm.layoutGame.getHeight() / 2 - Card.height / 2;
 
         for (Card card : cards) {
-            card.setLocation(posX, posY);
+            moveCardSlow(card,posX, posY);
         }
 
         afterWonHandler.sendEmptyMessageDelayed(0, 100);
@@ -130,7 +130,7 @@ public class Animate {
         }
 
         for (int i=0;i<cards.length;i++) {
-            cards[i].setLocation(newPositions[i].x,newPositions[i].y);
+            moveCardSlow(cards[i],newPositions[i].x,newPositions[i].y);
         }
     }
 
@@ -216,6 +216,26 @@ public class Animate {
         });
 
         card.view.startAnimation(card_fade_in);
+    }
+
+    /**
+     * Same as moveCard, but without the user specified speed factor. Used for the win animation.
+     *
+     * @param card The card to move
+     * @param pX X-coordinate of the destination
+     * @param pY Y-coordinate of the destination
+     */
+    public void moveCardSlow(final Card card, final float pX, final float pY) {
+        final CustomImageView view = card.view;
+        int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
+
+        TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
+
+        animation.setDuration((long) (distance * 100 / Card.width));
+        animation.setFillEnabled(true);
+
+        view.setDestination(pX,pY);
+        view.startAnimation(animation);
     }
 
     /**

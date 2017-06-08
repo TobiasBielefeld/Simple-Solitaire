@@ -376,26 +376,31 @@ public class SharedData {
       */
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
 
-        if (option == OPTION_UNDO)
+        if (option == OPTION_UNDO) {
             scores.undo(cards, destinations);
-        else if (option == 0) {
+        } else if (option == 0) {
             scores.move(cards, destinations);
             recordList.add(cards);
         } else if (option == OPTION_REVERSED_RECORD) {
             //reverse the cards and add the reversed list to the record
             ArrayList<Card> cardsReversed = new ArrayList<>();
 
-            for (int i = 0; i < cards.size(); i++)
+            for (int i = 0; i < cards.size(); i++) {
                 cardsReversed.add(cards.get(cards.size() - 1 - i));
+            }
 
             recordList.add(cardsReversed);
             scores.move(cards, destinations);
         }
 
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).getStack() == destinations.get(i))                                     //this means to flip a card
+            if (cards.get(i).getStack() == destinations.get(i)) {                                     //this means to flip a card
                 cards.get(i).flip();
-            else {
+            }
+        }
+
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).getStack() != destinations.get(i)) {                                   //this means to flip a card
                 cards.get(i).getStack().removeCard(cards.get(i));
                 destinations.get(i).addCard(cards.get(i));
             }
@@ -668,6 +673,7 @@ public class SharedData {
         return value1 > value2 ? value1 : value2;
     }
 
-
-
+    public static boolean leftHandedModeEnabled(){
+        return getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, false);
+    }
 }

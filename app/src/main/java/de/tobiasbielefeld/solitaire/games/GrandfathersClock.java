@@ -29,6 +29,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 
 /**
  * Grandfathers Clock. First game with a completely different layout for portrait and landscape.
@@ -243,6 +244,7 @@ public class GrandfathersClock extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
 
+        //there is a invisible deal stack in the middle of the clock, which shouldn't be used for the movement
         if (card.getStackId() > getLastTableauId() || stack.getId() == getDealStack().getId()) {
             return false;
         }
@@ -261,13 +263,11 @@ public class GrandfathersClock extends Game {
             if (movingCards > numberOfFreeStacks && stack.isEmpty()) {
                 return false;
             } else {
-                return stack.isEmpty() || (card.getValue() == stack.getTopCard().getValue() - 1);
+                return canCardBePlaced(stack,card,DOESNT_MATTER,DESCENDING);
             }
 
         } else {
-            return movingCards.hasSingleCard() && card.getColor() == stack.getTopCard().getColor()
-                    && (card.getValue() == stack.getTopCard().getValue() + 1
-                    || (card.getValue() == 1 && stack.getTopCard().getValue() == 13));
+            return movingCards.hasSingleCard() &&  canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING,true);
         }
     }
 

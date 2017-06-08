@@ -29,7 +29,11 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.ALTERNATING_COLOR;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.ASCENDING;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
 
 /**
  * Dummy Game, so you can see what to do if you want to add more games
@@ -133,14 +137,19 @@ public class DummyGame extends Game {
     private void methodsYouCanUse() {
 
         //test the cards of a given stack from the gives index up to top if the cards are in the
-        //right order. Use for the card order the constants SAME_COLOR or ALTERNATING_COLOR
-        testCardsUpToTop(stacks[5], 5, testMode.SAME_COLOR);
+        //right order. Use for the card order the constants SAME_FAMILIY, SAME_COLOR or ALTERNATING_COLOR
+        testCardsUpToTop(stacks[5], 5, testMode.SAME_FAMILY);
 
         //used in movements: detect if the top card on the given stack is equal to the give card.
         //you can use this for example to test in a hint: do not show hints if the card on the other
         //stack has the same value/color, because that would be useless.
         //You can use the constants SAME_VALUE_AND_COLOR and SAME_VALUE_AND_FAMILY
         sameCardOnOtherStack(cards[5],stacks[2],SAME_VALUE_AND_COLOR);
+
+        //use this
+        canCardBePlaced(stacks[2],cards[2],ALTERNATING_COLOR,DESCENDING);
+
+        canCardBePlaced(stacks[2],cards[2],SAME_FAMILY,ASCENDING);
 
         //BEFORE USING THESE METHODS:
         //you have to call setNumberOfDecks() in the constructor, or else the returned classes aren't
@@ -285,18 +294,17 @@ public class DummyGame extends Game {
         //Example from Klondike.
 
         if (stack.getId() < 7) {                                                                    //tableau stacks
-            if (stack.isEmpty())                                                                    //if it's empty, you can place a king
+            if (stack.isEmpty()) {                                                                   //if it's empty, you can place a king
                 return card.getValue() == 13;
-            else
-                return (stack.getTopCard().getColor() % 2 != card.getColor() % 2)                   //else different Color. black is uneven and red even
-                        && (stack.getTopCard().getValue() == card.getValue() + 1);
-
+            } else {
+                return canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);                 //Cards on the tableau can be placed in alternating color and descending order
+            }
         } else if (stack.getId() < 11 && movingCards.hasSingleCard()) {                             //if its an foundation stack and only one card is moving
-            if (stack.isEmpty())                                                                    //place if it's an ace
+            if (stack.isEmpty()) {                                                                  //place if it's an ace
                 return card.getValue() == 1;
-            else                                                                                    //else same color
-                return (stack.getTopCard().getColor() == card.getColor())
-                        && (stack.getTopCard().getValue() == card.getValue() - 1);
+            } else {
+                return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);                        //Cards on the foundation can be placed in same family and ascending order
+            }
         } else
             return false;
     }

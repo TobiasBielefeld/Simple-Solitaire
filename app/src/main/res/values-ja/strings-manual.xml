@@ -142,8 +142,7 @@
         カードは、色に関係なく、捨て札にのみ昇順または降順に置くことができます。
         \n\nまた、エースの上にキングをプレイすることも、その逆も可能です。
         \n\nカードを移動できない場合は、山札を押して、1枚のカードを捨て札に配ります。</string>
-    <string name="manual_tripeaks_scoring">カードを捨て札に移動: +50
-        \n\nカードを捨て札から山札に戻す: -200</string>
+    <string name="manual_tripeaks_scoring">カードを捨て札に移動: +50</string>
 
     <!-- Forty&Eight -->
     <string name="manual_fortyeight_structure">52枚のカードを2組。\n\n8列の場札、8列の組札、

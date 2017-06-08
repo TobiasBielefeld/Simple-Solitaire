@@ -123,8 +123,7 @@
     <string name="manual_tripeaks_rules">Reguloj de tiu ĉi ludo estas ete malsamaj ol aliaj paciencludoj. Ĉiu karto, kiu ne estas kovrita per alia karto, povas esti uzita por ludi. Kartojn oni nur povas meti sur forĵetan stakon kreskante aŭ malkreskante sendepende de emblemo.
 	\n\nEstas ankaŭ eble meti reĝojn sur asojn kaj inverse.
 	\n\nSe neniu karto povas esti movita, frapetu la ĉefan stakon por preni unu karton de ĝi al forĵeta stako.</string>
-    <string name="manual_tripeaks_scoring">Movi karton al forĵeta stako: +50
-	\n\nTransmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
+    <string name="manual_tripeaks_scoring">Movi karton al forĵeta stako: +50</string>
 
     <!-- Forty&Eight -->
     <string name="manual_fortyeight_structure">2 kartaroj po 52 kartoj.

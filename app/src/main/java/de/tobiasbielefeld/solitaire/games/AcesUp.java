@@ -29,7 +29,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Aces Up! Just 6 stacks and pretty easy rules
+ * Aces Up! Just 6 stacks and pretty easy rules
  */
 
 public class AcesUp extends Game {
@@ -66,12 +66,14 @@ public class AcesUp extends Game {
 
 
     public boolean winTest() {
-        if (!getMainStack().isEmpty())
+        if (!getMainStack().isEmpty()) {
             return false;
+        }
 
         for (int i = 0; i < 4; i++) {
-            if (stacks[i].getSize() != 1 || stacks[i].getTopCard().getValue() != 1)
+            if (stacks[i].getSize() != 1 || stacks[i].getTopCard().getValue() != 1) {
                 return false;
+            }
         }
 
         return true;
@@ -104,19 +106,21 @@ public class AcesUp extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        if (stack.getId() < 4 && stack.isEmpty())
+        if (stack.getId() < 4 && stack.isEmpty()) {
             return true;
-        else if (stack.getId() == getMainStack().getId() || card.getValue() == 1)
+        } else if (stack.getId() == getMainStack().getId() || card.getValue() == 1) {
             return false;
-        else if (stack.getId() == getDiscardStack().getId()) {
+        } else if (stack.getId() == getDiscardStack().getId()) {
             for (int i = 0; i < 4; i++) {
-                if (stacks[i].isEmpty() || i == card.getStack().getId())
+                if (stacks[i].isEmpty() || i == card.getStack().getId()) {
                     continue;
+                }
 
                 Card cardOnStack = stacks[i].getTopCard();
 
-                if (cardOnStack.getColor() == card.getColor() && (cardOnStack.getValue() > card.getValue() || cardOnStack.getValue() == 1))
+                if (cardOnStack.getColor() == card.getColor() && (cardOnStack.getValue() > card.getValue() || cardOnStack.getValue() == 1)) {
                     return true;
+                }
             }
         }
 
@@ -130,32 +134,39 @@ public class AcesUp extends Game {
     public CardAndStack hintTest() {
 
         for (int j = 0; j < 4; j++) {
-            if (stacks[j].isEmpty() || hint.hasVisited(stacks[j].getTopCard()) || (stacks[j].getSize() == 1 && stacks[j].getTopCard().getValue() == 1))
+            if (stacks[j].isEmpty() || hint.hasVisited(stacks[j].getTopCard())
+                    || (stacks[j].getSize() == 1 && stacks[j].getTopCard().getValue() == 1)) {
                 continue;
+            }
 
             Card cardToTest = stacks[j].getTopCard();
             boolean success = false;
 
             if (cardToTest.getValue() == 1) {
                 for (int i = 0; i < 4; i++) {
-                    if (i == j || !stacks[i].isEmpty())
+                    if (i == j || !stacks[i].isEmpty()) {
                         continue;
+                    }
 
                     return new CardAndStack(cardToTest, stacks[i]);
                 }
             } else {
                 for (int i = 0; i < 4; i++) {
-                    if (stacks[i].isEmpty() || i == j)
+                    if (stacks[i].isEmpty() || i == j) {
                         continue;
+                    }
 
                     Card cardOnStack = stacks[i].getTopCard();
 
-                    if (cardOnStack.getColor() == cardToTest.getColor() && (cardOnStack.getValue() > cardToTest.getValue() || cardOnStack.getValue() == 1))
+                    if (cardOnStack.getColor() == cardToTest.getColor()
+                            && (cardOnStack.getValue() > cardToTest.getValue() || cardOnStack.getValue() == 1)) {
                         success = true;
+                    }
                 }
 
-                if (success)
+                if (success) {
                     return new CardAndStack(cardToTest, getDiscardStack());
+                }
             }
         }
 
@@ -169,23 +180,28 @@ public class AcesUp extends Game {
 
         if (card.getValue() != 1) {                                                                   //do not move aces to discard stack
             for (int i = 0; i < 4; i++) {
-                if (stacks[i].isEmpty() || i == card.getStack().getId())
+                if (stacks[i].isEmpty() || i == card.getStack().getId()) {
                     continue;
+                }
 
                 Card cardOnStack = stacks[i].getTopCard();
 
-                if (cardOnStack.getColor() == card.getColor() && (cardOnStack.getValue() > card.getValue() || cardOnStack.getValue() == 1))
+                if (cardOnStack.getColor() == card.getColor()
+                        && (cardOnStack.getValue() > card.getValue() || cardOnStack.getValue() == 1)) {
                     success = true;
+                }
             }
 
-            if (success)
+            if (success) {
                 return getDiscardStack();
+            }
         }
 
         if (!card.isFirstCard()) {
             for (int i = 0; i < 4; i++) {
-                if (i == card.getStackId() || !stacks[i].isEmpty())
+                if (i == card.getStackId() || !stacks[i].isEmpty()) {
                     continue;
+                }
 
                 return stacks[i];
             }
@@ -195,8 +211,9 @@ public class AcesUp extends Game {
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
-        if (destinationIDs[0] == getDiscardStack().getId())
+        if (destinationIDs[0] == getDiscardStack().getId()) {
             return 50;
+        }
 
         return 0;
     }

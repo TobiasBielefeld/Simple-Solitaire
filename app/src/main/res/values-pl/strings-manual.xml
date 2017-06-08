@@ -123,8 +123,7 @@
     <string name="manual_tripeaks_rules">Reguły tej gry są podobne do gry \"Golf\". Każda karta z wierzchu stosu może zostać użyta do gry. Karty można kłaść na stos odrzutów w kolejności rosnącej lub malejącej bez względu na kolor.
 	\n\nMożna także kłaść króla na asa i odwrotnie.
 	\n\nJeżeli nie możesz przesunąć jakielkolwiek karty, stuknij w stos główny, aby przenieść jedną kartę do stosu odrzutów.</string>
-    <string name="manual_tripeaks_scoring">Przeniesienie karty do stosu odrzutów: +50
-	\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do stosu głównego: -200</string>
+    <string name="manual_tripeaks_scoring">Przeniesienie karty do stosu odrzutów: +50</string>
 
     <!-- Forty&Eight -->
     <string name="manual_fortyeight_structure">2 talie po 52 karty.

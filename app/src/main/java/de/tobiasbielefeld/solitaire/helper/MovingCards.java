@@ -135,7 +135,7 @@ public class MovingCards {
      * @return True if a single card is moving, False otherwise
      */
     public boolean hasSingleCard() {
-        return movingCards.getSize() < 2;
+        return getSize() < 2;
     }
 
     public Card first() {
