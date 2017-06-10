@@ -48,8 +48,7 @@
     <string name="orange">Oranĝkolora</string>
     <string name="purple">Purpura</string>
 
-    <!-- new values -->
     <!-- game stuff -->
-    <string name="canfield_longest_run">Longest sequence:</string> <!-- also used by golf -->
+    <string name="canfield_longest_run">Plej longa serio:</string> <!-- also used by golf -->
     
 </resources>

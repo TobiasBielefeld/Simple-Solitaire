@@ -61,11 +61,10 @@
         <item>Ten sam kolor (ruski pasjans)</item>
     </string-array>
 
-    <!-- new values -->
     <string-array name="pref_movement_speed_titles">
-        <item>Slow</item>
-        <item>Normal</item>
-        <item>Fast</item>
+        <item>Powolne</item>
+        <item>Normalne</item>
+        <item>Szybkie</item>
     </string-array>
 
 </resources>
