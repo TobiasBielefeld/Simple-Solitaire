@@ -86,8 +86,8 @@
     <string name="settings_single_tap_enable_text">Nur por Golfo kaj TriPintoj: unuoble frapetu karton por movi ĝin sur forĵetan stakon</string>
     <string name="settings_background_color_custom">Propra</string>
 
-    <string name="settings_double_tap_foundation_first">Unue movi al fundamenta stako</string>
-    <string name="settings_double_tap_foundation_first_text">Provi movi la plej supran karton de frapetata stako al fundamenta stako antaŭ movi aliajn kartojn</string>
+    <string name="settings_double_tap_foundation_first">Unue movi sur fundamentan stakon</string>
+    <string name="settings_double_tap_foundation_first_text">Provi movi la plej supran karton de frapetata stako sur fundamentan stakon antaŭ movi aliajn kartojn</string>
     <string name="settings_movement_speed">Mov-rapido de kartoj</string>
 
 </resources>
