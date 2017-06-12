@@ -330,8 +330,10 @@ public class Canfield extends Game {
             }
         }
 
+        int requestedValue = (startCardValue == 1 ? 13 : startCardValue -1 );
+
         for (int i=0;i<4;i++){
-            if (stacks[i].isEmpty() || stacks[i].getCard(0).getValue() != startCardValue -1){
+            if (stacks[i].isEmpty() || stacks[i].getCard(0).getValue() != requestedValue){
                 return false;
             }
         }
@@ -449,10 +451,9 @@ public class Canfield extends Game {
     public Stack doubleTapTest(Card card) {
 
         //foundation stacks
-
         if (card.isTopCard() && !(card.getStackId() >= 5 && card.getStackId() <= 8)) {
             for (int j = 5; j < 9; j++) {
-                if (card.test(stacks[j])) {
+                if (card.getStackId()!=j && card.test(stacks[j])) {
                     return stacks[j];
                 }
             }
@@ -461,7 +462,7 @@ public class Canfield extends Game {
         //tableau stacks
         for (int j = 0; j < 4; j++) {
 
-            if (stacks[j].isEmpty()) {
+            if (stacks[j].isEmpty() || card.getStackId()==j) {
                 continue;
             }
 
@@ -474,8 +475,9 @@ public class Canfield extends Game {
             }
         }
 
+        //empty tableau stacks
         for (int j = 0; j < 4; j++) {
-            if (stacks[j].isEmpty() && card.test(stacks[j])) {
+            if (card.getStackId()!=j && stacks[j].isEmpty() && card.test(stacks[j])) {
                 return stacks[j];
             }
         }
