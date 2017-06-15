@@ -71,7 +71,15 @@ public class Statistics extends CustomAppCompatActivity {
         textWinPercentage = (TextView) findViewById(R.id.statisticsTextViewWinPercentage);
         textAdditonalStatistics = (TextView) findViewById(R.id.statisticsAdditionalText);
 
-        loadData();
+        //if the app got killed while the statistics are open and then the user restarts the app,
+        //my helper classes aren't initialized so they can't be used. In this case, simply
+        //close the statistics
+        try {
+            loadData();
+        } catch (NullPointerException e){
+            finish();
+            return;
+        }
 
         for (int i = 0; i < Scores.MAX_SAVED_SCORES; i++) {                                         //for each entry in highScores, add a new view with it
             if (scores.get(i, 0) == 0)                                                              //if the score is zero, don't show it

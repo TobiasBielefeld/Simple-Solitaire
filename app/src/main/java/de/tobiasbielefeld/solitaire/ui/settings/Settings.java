@@ -37,6 +37,7 @@ import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
@@ -268,7 +269,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceMenuBarPosition.setSummary(text);
     }
 
-    public static class CustomizationPreferenceFragment extends PreferenceFragment {
+    public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -284,7 +285,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
     }
 
-    public static class OtherPreferenceFragment extends PreferenceFragment {
+    public static class OtherPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -294,7 +295,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
     }
 
-    public static class GamesPreferenceFragment extends PreferenceFragment {
+    public static class GamesPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -304,7 +305,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
     }
 
-    public static class MenuPreferenceFragment extends PreferenceFragment {
+    public static class MenuPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -319,7 +320,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
     }
 
-    public static class AdditionalMovementsPreferenceFragment extends PreferenceFragment {
+    public static class AdditionalMovementsPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
         public void onCreate(Bundle savedInstanceState) {

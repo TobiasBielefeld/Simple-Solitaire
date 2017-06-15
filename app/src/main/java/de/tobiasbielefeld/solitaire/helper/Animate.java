@@ -253,7 +253,14 @@ public class Animate {
 
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
-        animation.setDuration((long) (distance * 100 / Card.width /speedFactor));
+        //there were some reports about an exception here, so simply set duration with a fixed value
+        //if the exception occures
+        try {
+            animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
+        } catch(ArithmeticException e){
+            animation.setDuration(100);
+        }
+
         animation.setFillEnabled(true);
 
         view.setDestination(pX,pY);

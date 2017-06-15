@@ -190,7 +190,9 @@ public class RecordList {
     }
 
     public void deleteLast() {
-        entries.remove(entries.size() - 1);
+        if (entries.size()>0) {
+            entries.remove(entries.size() - 1);
+        }
     }
 
     private class Entry {

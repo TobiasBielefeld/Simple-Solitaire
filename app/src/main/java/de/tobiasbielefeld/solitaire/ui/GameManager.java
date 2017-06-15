@@ -375,7 +375,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean motionActionMove(float X, float Y){
         if (movingCards.moveStarted(X,Y)) {
             movingCards.move(X, Y);
-            cardHighlight.move(tapped.getCard());
+
+            if (tapped!=null) {
+                cardHighlight.move(tapped.getCard());
+            }
         }
 
         return true;

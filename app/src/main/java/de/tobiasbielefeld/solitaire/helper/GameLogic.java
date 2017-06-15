@@ -97,16 +97,17 @@ public class GameLogic {
         currentGame.load();
         currentGame.loadRedealCount(gm);
 
-        if (first_run) {
-            newGame();
-            putBoolean(GAME_FIRST_RUN, false);
-        } else if (won) {
-            loadRandomCards();
+        try {
+            if (first_run) {
+                newGame();
+                putBoolean(GAME_FIRST_RUN, false);
+            } else if (won) {
+                loadRandomCards();
 
-            for (Card card : cards)
-                card.setLocationWithoutMovement(gm.layoutGame.getWidth(), 0);
-        } else {
-            try {
+                for (Card card : cards) {
+                    card.setLocationWithoutMovement(gm.layoutGame.getWidth(), 0);
+                }
+            } else {
                 for (Card card : cards) {
                     card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
                     card.flipDown();
@@ -129,11 +130,11 @@ public class GameLogic {
                 if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
                     autoComplete.showButton();
                 }
-            } catch (Exception e) {
-                Log.e(gm.getString(R.string.loading_data_failed), e.toString());
-                gm.showToast(gm.getString(R.string.game_load_error));
-                newGame();
             }
+        } catch (Exception e) {
+            Log.e(gm.getString(R.string.loading_data_failed), e.toString());
+            gm.showToast(gm.getString(R.string.game_load_error));
+            newGame();
         }
     }
 
