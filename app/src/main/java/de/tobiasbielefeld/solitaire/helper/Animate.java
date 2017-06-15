@@ -22,6 +22,7 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.graphics.PointF;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -259,6 +260,7 @@ public class Animate {
             animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
         } catch(ArithmeticException e){
             animation.setDuration(100);
+            Log.e("Animate moveCard()", e.toString() );
         }
 
         animation.setFillEnabled(true);
