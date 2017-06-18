@@ -36,12 +36,12 @@ import static android.view.View.GONE;
 public class CardHighlight {
 
 
-    private boolean moveStarted;
     int padding, width, height;
+    private boolean moveStarted;
     private GameManager gm;
 
-    public CardHighlight(GameManager gm){
-       this.gm = gm;
+    public CardHighlight(GameManager gm) {
+        this.gm = gm;
     }
 
     /**
@@ -49,20 +49,20 @@ public class CardHighlight {
      *
      * @param card The card on the stack to highlight
      */
-    public void set(Card card){
+    public void set(Card card) {
         Stack stack = card.getStack();
 
-        padding = (int) (Card.width*0.25);
+        padding = (int) (Card.width * 0.25);
         width = Card.width + padding;
         height = (int) (stack.getTopCard().getY() + Card.height - card.getY() + padding);
 
-        gm.highlight.setLayoutParams(new RelativeLayout.LayoutParams(width,height));
-        gm.highlight.setX(card.getX()- padding/2);
-        gm.highlight.setY(card.getY()- padding/2);
+        gm.highlight.setLayoutParams(new RelativeLayout.LayoutParams(width, height));
+        gm.highlight.setX(card.getX() - padding / 2);
+        gm.highlight.setY(card.getY() - padding / 2);
         gm.highlight.setVisibility(View.VISIBLE);
         gm.highlight.bringToFront();
 
-        for (int i= card.getIndexOnStack();i<stack.getSize();i++){
+        for (int i = card.getIndexOnStack(); i < stack.getSize(); i++) {
             stack.getCard(i).view.bringToFront();
         }
 
@@ -76,19 +76,19 @@ public class CardHighlight {
      *
      * @param card The card to highlight
      */
-    public void move(Card card){
-        if (!moveStarted){
+    public void move(Card card) {
+        if (!moveStarted) {
             moveStarted = true;
 
             height = (int) (card.getStack().getTopCard().getY() + Card.height - card.getY() + padding);
-            gm.highlight.setLayoutParams(new RelativeLayout.LayoutParams(width,height));
+            gm.highlight.setLayoutParams(new RelativeLayout.LayoutParams(width, height));
         }
 
-        gm.highlight.setX(card.getX() - padding/2);
-        gm.highlight.setY(card.getY() - padding/2);
+        gm.highlight.setX(card.getX() - padding / 2);
+        gm.highlight.setY(card.getY() - padding / 2);
     }
 
-    public void hide(){
+    public void hide() {
         gm.highlight.setVisibility(GONE);
     }
 }

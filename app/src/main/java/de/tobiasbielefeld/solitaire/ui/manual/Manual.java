@@ -36,14 +36,14 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
 /**
- *  Manual Activity: Uses some fragments to show the manual pages.
- *
- *  Phones use a navigation drawer, and tablets (devices with xlarge displays) uses an another layout
- *  with a listView instead the drawer. Therefore i have to distinguish between drawer and listView
- *  for the actions.
- *
- *  Also i disabled recreation on orientation change, so i don't have to deal with scrolling back to old
- *  position, load old fragment and so on
+ * Manual Activity: Uses some fragments to show the manual pages.
+ * <p>
+ * Phones use a navigation drawer, and tablets (devices with xlarge displays) uses an another layout
+ * with a listView instead the drawer. Therefore i have to distinguish between drawer and listView
+ * for the actions.
+ * <p>
+ * Also i disabled recreation on orientation change, so i don't have to deal with scrolling back to old
+ * position, load old fragment and so on
  */
 
 public class Manual extends CustomAppCompatActivity

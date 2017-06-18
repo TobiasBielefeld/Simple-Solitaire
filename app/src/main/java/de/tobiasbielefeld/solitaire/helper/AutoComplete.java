@@ -26,10 +26,10 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  if the last card on the tableau is flipped up, the auto complete can be run. it simply test
- *  every card from the tableau and the stock if they can be placed on the foundation.
- *  it continues until the last card was moved to the foundation. after that,
- *  the win animation will be started
+ * if the last card on the tableau is flipped up, the auto complete can be run. it simply test
+ * every card from the tableau and the stock if they can be placed on the foundation.
+ * it continues until the last card was moved to the foundation. after that,
+ * the win animation will be started
  */
 
 public class AutoComplete {

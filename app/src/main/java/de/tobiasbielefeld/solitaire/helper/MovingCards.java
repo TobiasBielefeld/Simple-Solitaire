@@ -27,9 +27,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static java.lang.Math.abs;
 
 /**
- *  Handles the input of cards to move around. When a card was touched, it adds all cards
- *  up to the stack top card. It moves the cards and also returns the cards to their old location
- *  if they can't be placed on another stack
+ * Handles the input of cards to move around. When a card was touched, it adds all cards
+ * up to the stack top card. It moves the cards and also returns the cards to their old location
+ * if they can't be placed on another stack
  */
 
 public class MovingCards {
@@ -46,7 +46,7 @@ public class MovingCards {
      * Adds a card and every card above it to the movement.  Also sets up the little offset from the
      * touch position to the card coordinates, for smother movements
      *
-     * @param card The card to add.
+     * @param card    The card to add.
      * @param offsetX X-coordinate of the offset from card coordinates and touch coordinates
      * @param offsetY Y-coordinate of the offset from card coordinates and touch coordinates
      */
@@ -76,8 +76,8 @@ public class MovingCards {
 
     }
 
-    public boolean moveStarted(float X, float Y){
-        return moveStarted || didMoveStart(X,Y);
+    public boolean moveStarted(float X, float Y) {
+        return moveStarted || didMoveStart(X, Y);
     }
 
     /**
@@ -87,8 +87,8 @@ public class MovingCards {
      * @param Y Y-coordinate of the point
      * @return True if the area was left, false otherwise
      */
-    private boolean didMoveStart(float X, float Y){
-        if (abs(currentCards.get(0).getX() + offsetX-X)>Card.width/4 || abs(currentCards.get(0).getY() +offsetY-Y)>Card.height/4){
+    private boolean didMoveStart(float X, float Y) {
+        if (abs(currentCards.get(0).getX() + offsetX - X) > Card.width / 4 || abs(currentCards.get(0).getY() + offsetY - Y) > Card.height / 4) {
             moveStarted = true;
             return true;
         }

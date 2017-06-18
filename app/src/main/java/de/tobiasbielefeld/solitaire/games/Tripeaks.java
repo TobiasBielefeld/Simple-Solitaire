@@ -33,22 +33,19 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Tripeaks is nearly the same as Golf, but with a different field layout
+ * Tripeaks is nearly the same as Golf, but with a different field layout
  */
 
 public class Tripeaks extends Game {
 
     static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
-
+    static String RUN_COUNTER = "run_counter";
+    static String LONGEST_RUN = "longest_run";
     //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
     //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28
     int runCounter;                                                                                 //to count how many cards are moved in one "run"
     ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
-
-
-    static String RUN_COUNTER = "run_counter";
-    static String LONGEST_RUN = "longest_run";
 
     public Tripeaks() {
 
@@ -70,12 +67,12 @@ public class Tripeaks extends Game {
 
     @Override
     public void save() {
-        putInt(RUN_COUNTER,runCounter);
+        putInt(RUN_COUNTER, runCounter);
     }
 
     @Override
     public void load() {
-        runCounter = getInt(RUN_COUNTER,0);
+        runCounter = getInt(RUN_COUNTER, 0);
 
     }
 
@@ -199,17 +196,17 @@ public class Tripeaks extends Game {
                 runCounter++;
                 updateLongestRun(runCounter);
 
-                if (savedRunRecords.size()== MAX_SAVED_RUN_RECORDS){
+                if (savedRunRecords.size() == MAX_SAVED_RUN_RECORDS) {
                     savedRunRecords.remove(0);
                 }
 
-                savedRunRecords.add(runCounter*50);
-                points += runCounter*50;
+                savedRunRecords.add(runCounter * 50);
+                points += runCounter * 50;
             } else {
-                points += savedRunRecords.get(savedRunRecords.size()-1);                            //get last entry
-                savedRunRecords.remove(savedRunRecords.size()-1);                                   //and remove it
+                points += savedRunRecords.get(savedRunRecords.size() - 1);                            //get last entry
+                savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
 
-                if (runCounter>0) {
+                if (runCounter > 0) {
                     runCounter--;
                 }
             }
@@ -228,12 +225,12 @@ public class Tripeaks extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN,0);
+        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN, 0);
     }
 
     @Override
     public void deleteAdditionalStatisticsData() {
-        putInt(LONGEST_RUN,0);
+        putInt(LONGEST_RUN, 0);
     }
 
     private boolean stackIsFree(Stack stack) {
@@ -246,9 +243,9 @@ public class Tripeaks extends Game {
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
     }
 
-    private void updateLongestRun(int currentRunCount){
-        if (currentRunCount> getInt(LONGEST_RUN,0)){
-            putInt(LONGEST_RUN,currentRunCount);
+    private void updateLongestRun(int currentRunCount) {
+        if (currentRunCount > getInt(LONGEST_RUN, 0)) {
+            putInt(LONGEST_RUN, currentRunCount);
         }
     }
 

@@ -142,7 +142,7 @@ public class GameLogic {
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */
     public void newGame() {
-        System.arraycopy(cards,0,randomCards,0,cards.length);
+        System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 
         redeal();

@@ -51,13 +51,13 @@ public class MenuBarPositionDialogPreference extends DialogPreference {
 
 
         //minus 1 because the values are 1 to 10, indexes are from 0 to 9
-        if (sharedStringEquals(PREF_KEY_MENU_BAR_POS_PORTRAIT,DEFAULT_MENU_BAR_POSITION_PORTRAIT)){
+        if (sharedStringEquals(PREF_KEY_MENU_BAR_POS_PORTRAIT, DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
             bottom.setChecked(true);
         } else {
             top.setChecked(true);
         }
 
-        if (sharedStringEquals(PREF_KEY_MENU_BAR_POS_LANDSCAPE,DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
+        if (sharedStringEquals(PREF_KEY_MENU_BAR_POS_LANDSCAPE, DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
             right.setChecked(true);
         } else {
             left.setChecked(true);

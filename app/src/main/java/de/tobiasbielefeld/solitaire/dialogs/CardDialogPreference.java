@@ -76,7 +76,8 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
         int choice;
 
         switch (v.getId()) {
-            case R.id.settingsLinearLayoutCardsBasic: default:
+            case R.id.settingsLinearLayoutCardsBasic:
+            default:
                 choice = 1;
                 break;
             case R.id.settingsLinearLayoutCardsClassic:
@@ -131,7 +132,8 @@ public class CardDialogPreference extends DialogPreference implements View.OnCli
         int selectedTheme = getSharedInt(CARD_DRAWABLES, 1);
 
         switch (selectedTheme) {
-            case 1: default:
+            case 1:
+            default:
                 text = context.getString(R.string.settings_basic);
                 break;
             case 2:

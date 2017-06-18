@@ -27,8 +27,8 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Manages the records, so the player can undo movements. for that it has an entry subclass
- *  which has a variable amount of cards, so multiple cards can be undo at once
+ * Manages the records, so the player can undo movements. for that it has an entry subclass
+ * which has a variable amount of cards, so multiple cards can be undo at once
  */
 
 public class RecordList {
@@ -63,7 +63,7 @@ public class RecordList {
      * Adds entries of the card list, if the maximum number of records was reached, delete
      * the last one. This version also takes a stack as origin of the cards
      *
-     * @param cards The card list to add
+     * @param cards  The card list to add
      * @param origin Other stack as origin, where the cards can be returned to
      */
     public void add(ArrayList<Card> cards, Stack origin) {
@@ -79,7 +79,7 @@ public class RecordList {
      * the last one. This version also takes a stack array list as origins, so every card can
      * have a different origin stack
      *
-     * @param cards the card list to add
+     * @param cards   the card list to add
      * @param origins Other stacks as origin, where the cards can be returned to
      */
     public void add(ArrayList<Card> cards, ArrayList<Stack> origins) {
@@ -92,10 +92,10 @@ public class RecordList {
     /**
      * Adds more cards to the last entry, used for example in Spider: If a card family is completed,
      * move the cards to the foundation, but also add the movement to the last entry.
-     *
+     * <p>
      * Method version with a single card and stack
      *
-     * @param card Single card to add
+     * @param card   Single card to add
      * @param origin The origin stack of that card
      */
     public void addAtEndOfLastEntry(Card card, Stack origin) {
@@ -111,10 +111,10 @@ public class RecordList {
     /**
      * Adds more cards to the last entry, used for example in Spider: If a card family is completed,
      * move the cards to the foundation, but also add the movement to the last entry.
-     *
+     * <p>
      * Method version with card and stack arrays for multiple cards
      *
-     * @param cards Multiple cards to add
+     * @param cards   Multiple cards to add
      * @param origins Origin stacks of these cards
      */
     public void addAtEndOfLastEntry(ArrayList<Card> cards, ArrayList<Stack> origins) {
@@ -129,7 +129,7 @@ public class RecordList {
      * Adds more cards to the last entry but as the first cards of that entry, so these cards will be
      * moved at first, if the record is undone
      *
-     * @param cards Multiple cards to add
+     * @param cards   Multiple cards to add
      * @param origins Origin stacks of these cards
      */
     public void addInFrontOfLastEntry(ArrayList<Card> cards, ArrayList<Stack> origins) {
@@ -190,7 +190,7 @@ public class RecordList {
     }
 
     public void deleteLast() {
-        if (entries.size()>0) {
+        if (entries.size() > 0) {
             entries.remove(entries.size() - 1);
         }
     }
@@ -244,7 +244,7 @@ public class RecordList {
         /**
          * Create a new entry with the given cards. Origin will be applied for all cards
          *
-         * @param cards The cards to add
+         * @param cards  The cards to add
          * @param origin The origin of the cards
          */
         Entry(ArrayList<Card> cards, Stack origin) {
@@ -257,7 +257,7 @@ public class RecordList {
         /**
          * Create a new entry with the given cards and origins
          *
-         * @param cards The cards to add
+         * @param cards   The cards to add
          * @param origins The orgins of the cards
          */
         Entry(ArrayList<Card> cards, ArrayList<Stack> origins) {
@@ -316,7 +316,7 @@ public class RecordList {
          * Adds cards in front of this entry. It also checks if the cards added were already in this entry,
          * if so, replace the old origin with the new one
          *
-         * @param cards The cards to add
+         * @param cards  The cards to add
          * @param stacks The origins of the cards to add
          */
         void addInFront(ArrayList<Card> cards, ArrayList<Stack> stacks) {
@@ -341,7 +341,7 @@ public class RecordList {
          * Adds cards at the end of this entry. Checking if the card is already in this entry isn't
          * necessary here.
          *
-         * @param cards The cards to add
+         * @param cards  The cards to add
          * @param stacks The origins of the cards to add
          */
         void addAtEnd(ArrayList<Card> cards, ArrayList<Stack> stacks) {

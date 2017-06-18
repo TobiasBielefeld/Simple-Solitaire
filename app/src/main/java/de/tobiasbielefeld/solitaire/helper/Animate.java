@@ -54,11 +54,11 @@ public class Animate {
     public Animate(GameManager gm) {
         this.gm = gm;
         afterWonHandler = new AfterWonHandler(gm);
-        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED,DEFAULT_MOVEMENT_SPEED));
+        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED));
     }
 
-    public void updateMovementSpeed(){
-        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED,DEFAULT_MOVEMENT_SPEED));
+    public void updateMovementSpeed() {
+        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED));
     }
 
     /**
@@ -70,7 +70,7 @@ public class Animate {
         float posY = gm.layoutGame.getHeight() / 2 - Card.height / 2;
 
         for (Card card : cards) {
-            moveCardSlow(card,posX, posY);
+            moveCardSlow(card, posX, posY);
         }
 
         afterWonHandler.sendEmptyMessageDelayed(0, 100);
@@ -86,7 +86,7 @@ public class Animate {
 
         PointF newPositions[] = new PointF[cards.length];
 
-        for (int i=0;i<cards.length;i++) {
+        for (int i = 0; i < cards.length; i++) {
             switch (direction) {
                 case 0:
                 default://right side
@@ -130,16 +130,16 @@ public class Animate {
             }
         }
 
-        for (int i=0;i<cards.length;i++) {
-            moveCardSlow(cards[i],newPositions[i].x,newPositions[i].y);
+        for (int i = 0; i < cards.length; i++) {
+            moveCardSlow(cards[i], newPositions[i].x, newPositions[i].y);
         }
     }
 
     /**
      * Moves a card to another stack, fades the card out and fades it in on the origin as a hint
      *
-     * @param card The card to move as the hint
-     * @param offset The position of the card above the top card of the destination
+     * @param card        The card to move as the hint
+     * @param offset      The position of the card above the top card of the destination
      * @param destination The destination of the movement
      */
     public void cardHint(final Card card, final int offset, final Stack destination) {
@@ -152,7 +152,7 @@ public class Animate {
 
         TranslateAnimation animation = new TranslateAnimation(0, dist_x, 0, dist_y);
 
-        animation.setDuration((long)(distance * 100 / Card.width / speedFactor));
+        animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
             }
@@ -173,6 +173,7 @@ public class Animate {
 
     /**
      * is the second part from the hint: fade the card out the screen
+     *
      * @param card The card to fade out
      */
     private void hideCard(final Card card) {
@@ -197,6 +198,7 @@ public class Animate {
 
     /**
      * is the third part from the hint: fade the card back in at the original destination
+     *
      * @param card The card to fade in
      */
     private void showCard(final Card card) {
@@ -223,8 +225,8 @@ public class Animate {
      * Same as moveCard, but without the user specified speed factor. Used for the win animation.
      *
      * @param card The card to move
-     * @param pX X-coordinate of the destination
-     * @param pY Y-coordinate of the destination
+     * @param pX   X-coordinate of the destination
+     * @param pY   Y-coordinate of the destination
      */
     public void moveCardSlow(final Card card, final float pX, final float pY) {
         final CustomImageView view = card.view;
@@ -235,7 +237,7 @@ public class Animate {
         animation.setDuration((long) (distance * 100 / Card.width));
         animation.setFillEnabled(true);
 
-        view.setDestination(pX,pY);
+        view.setDestination(pX, pY);
         view.startAnimation(animation);
     }
 
@@ -245,8 +247,8 @@ public class Animate {
      * method of the custom image view.
      *
      * @param card The card to move
-     * @param pX X-coordinate of the destination
-     * @param pY Y-coordinate of the destination
+     * @param pX   X-coordinate of the destination
+     * @param pY   Y-coordinate of the destination
      */
     public void moveCard(final Card card, final float pX, final float pY) {
         final CustomImageView view = card.view;
@@ -258,14 +260,14 @@ public class Animate {
         //if the exception occurs
         try {
             animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
-        } catch(ArithmeticException e){
+        } catch (ArithmeticException e) {
             animation.setDuration(100);
-            Log.e("Animate moveCard()", e.toString() );
+            Log.e("Animate moveCard()", e.toString());
         }
 
         animation.setFillEnabled(true);
 
-        view.setDestination(pX,pY);
+        view.setDestination(pX, pY);
         view.startAnimation(animation);
     }
 

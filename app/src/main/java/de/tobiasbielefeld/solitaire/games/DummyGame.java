@@ -144,12 +144,12 @@ public class DummyGame extends Game {
         //you can use this for example to test in a hint: do not show hints if the card on the other
         //stack has the same value/color, because that would be useless.
         //You can use the constants SAME_VALUE_AND_COLOR and SAME_VALUE_AND_FAMILY
-        sameCardOnOtherStack(cards[5],stacks[2],SAME_VALUE_AND_COLOR);
+        sameCardOnOtherStack(cards[5], stacks[2], SAME_VALUE_AND_COLOR);
 
         //use this
-        canCardBePlaced(stacks[2],cards[2],ALTERNATING_COLOR,DESCENDING);
+        canCardBePlaced(stacks[2], cards[2], ALTERNATING_COLOR, DESCENDING);
 
-        canCardBePlaced(stacks[2],cards[2],SAME_FAMILY,ASCENDING);
+        canCardBePlaced(stacks[2], cards[2], SAME_FAMILY, ASCENDING);
 
         //BEFORE USING THESE METHODS:
         //you have to call setNumberOfDecks() in the constructor, or else the returned classes aren't
@@ -517,11 +517,11 @@ public class DummyGame extends Game {
      * save and load values, to save custom stuff. save will be called in every onPause().
      * load will be called on a game start
      */
-    public void save(){
+    public void save() {
 
     }
 
-    public void load(){
+    public void load() {
 
     }
 

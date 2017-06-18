@@ -26,7 +26,7 @@ import android.content.Context;
  * card will still be marked as animating and the app doesn't respond anymore. (For example: Rotate
  * the screen, so the cards will be dealt again, then turn off the screen. After turning it on again,
  * the app doesn't respond, because one card is still set to be animating.)
- *
+ * <p>
  * This answer on StackOverflow http://stackoverflow.com/a/5110476/7016229 stated, that there is a
  * bug in the animationListener, the solution is to create a custom imageView class and override
  * the onAnimationStart() and onAnimationEnd() methods. I still had the problem that the movement
@@ -40,10 +40,6 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
     private float destX, destY;
 
     private boolean isCard, isStack;
-
-    public enum Object{
-        CARD, STACK
-    }
 
     public CustomImageView(Context context) {
         super(context);
@@ -59,7 +55,7 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
         setOnTouchListener(listener);
         setId(ID);
 
-        switch (object){
+        switch (object) {
             case CARD:
                 isCard = true;
                 break;
@@ -93,29 +89,34 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
     /**
      * Sets a destination to apply at the end of a animation. Only used for the Translate Anim of
      * card movements
+     *
      * @param pX The X-coordinate of the destination
      * @param pY The X-coordinate of the destination
      */
-    public void setDestination(float pX, float pY){
+    public void setDestination(float pX, float pY) {
         moveAtEnd = true;
         destX = pX;
         destY = pY;
     }
 
-    public void stopAnim(){
+    public void stopAnim() {
         animating = false;
         clearAnimation();
     }
 
-    public boolean isAnimating(){
+    public boolean isAnimating() {
         return animating;
     }
 
-    public boolean belongsToCard(){
+    public boolean belongsToCard() {
         return isCard;
     }
 
-    public boolean belongsToStack(){
+    public boolean belongsToStack() {
         return isStack;
+    }
+
+    public enum Object {
+        CARD, STACK
     }
 }

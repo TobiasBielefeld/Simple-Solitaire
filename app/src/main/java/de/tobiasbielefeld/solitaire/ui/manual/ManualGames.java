@@ -34,9 +34,9 @@ import de.tobiasbielefeld.solitaire.R;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Games Page contains a button for each game. If one button is pressed, the view with the buttons
- *  will be hidden and a scroll view with the manual entry will be loaded. A button click gets a prefix
- *  for the string resources
+ * Games Page contains a button for each game. If one button is pressed, the view with the buttons
+ * will be hidden and a scroll view with the manual entry will be loaded. A button click gets a prefix
+ * for the string resources
  */
 
 public class ManualGames extends Fragment implements View.OnClickListener {

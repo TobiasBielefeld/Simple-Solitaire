@@ -3,24 +3,24 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:icon="@drawable/icon_manual"
             android:id="@+id/item_manual"
+            android:icon="@drawable/icon_manual"
             android:title="@string/title_activity_manual" />
 
         <item
-            android:icon="@drawable/icon_settings"
             android:id="@+id/item_settings"
+            android:icon="@drawable/icon_settings"
             android:title="@string/settings" />
 
 
         <item
-            android:icon="@drawable/icon_about"
             android:id="@+id/item_about"
+            android:icon="@drawable/icon_about"
             android:title="@string/about_name" />
 
         <item
-            android:icon="@drawable/icon_close"
             android:id="@+id/item_close"
+            android:icon="@drawable/icon_close"
             android:title="@string/game_close" />
     </group>
 

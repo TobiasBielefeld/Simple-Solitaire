@@ -24,9 +24,9 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Handles the timer, updates, saves and load the current time of playing.
- *  I thought about just incrementing a counter every second using a handler, but it could be
- *  not precise enough (?) so I just go the bit more complex way using the System.currentTimeMillis().
+ * Handles the timer, updates, saves and load the current time of playing.
+ * I thought about just incrementing a counter every second using a handler, but it could be
+ * not precise enough (?) so I just go the bit more complex way using the System.currentTimeMillis().
  */
 
 public class Timer {
@@ -48,7 +48,11 @@ public class Timer {
      * @return The time to show on the screen
      */
     public long getCurrentTime() {
-        return winningTime!=0 ? winningTime : currentTime;
+        return winningTime != 0 ? winningTime : currentTime;
+    }
+
+    public void setCurrentTime(long time) {
+        currentTime = time;
     }
 
     /**
@@ -60,7 +64,7 @@ public class Timer {
             putLong(TIMER_END_TIME, System.currentTimeMillis());
             putLong(TIMER_START_TIME, startTime);
         } else {
-            putLong(TIMER_WINNING_TIME,winningTime);
+            putLong(TIMER_WINNING_TIME, winningTime);
         }
     }
 
@@ -75,7 +79,7 @@ public class Timer {
                 + System.currentTimeMillis()
                 - getLong(TIMER_END_TIME, System.currentTimeMillis());
 
-        winningTime = getLong(TIMER_WINNING_TIME,DEFAULT_WINNING_TIME);
+        winningTime = getLong(TIMER_WINNING_TIME, DEFAULT_WINNING_TIME);
 
         timerHandler.sendEmptyMessage(0);
     }
@@ -103,11 +107,7 @@ public class Timer {
         return startTime;
     }
 
-    public void setWinningTime(){
+    public void setWinningTime() {
         winningTime = currentTime;
-    }
-
-    public void setCurrentTime(long time) {
-        currentTime = time;
     }
 }

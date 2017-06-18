@@ -174,14 +174,14 @@ public class SharedData {
      *
      * @param context Used to get the resources
      */
-    public static void reinitializeData(Context context){
+    public static void reinitializeData(Context context) {
         //Strings
-        if (GAME==null) {
+        if (GAME == null) {
             loadStrings(context.getResources());
         }
 
         //Bitmaps
-        if (!bitmaps.checkResources()){
+        if (!bitmaps.checkResources()) {
             bitmaps.setResources(context.getResources());
         }
 
@@ -221,7 +221,7 @@ public class SharedData {
         PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
         PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
         PREF_KEY_4_COLOR_MODE = res.getString(R.string.pref_key_4_color_mode);
-        PREF_KEY_LEFT_HANDED_MODE =  res.getString(R.string.pref_key_left_handed_mode);
+        PREF_KEY_LEFT_HANDED_MODE = res.getString(R.string.pref_key_left_handed_mode);
         PREF_KEY_MENU_BAR_POS_PORTRAIT = res.getString(R.string.pref_key_menu_bar_position_portrait);
         PREF_KEY_MENU_BAR_POS_LANDSCAPE = res.getString(R.string.pref_key_menu_bar_position_landscape);
         PREF_KEY_DOUBLE_TAP_ENABLED = res.getString(R.string.pref_key_double_tap_enable);
@@ -306,7 +306,7 @@ public class SharedData {
     /**
      * Moves a card to a stack.
      *
-     * @param card The card to move
+     * @param card        The card to move
      * @param destination The destination of the movement
      */
     public static void moveToStack(Card card, Stack destination) {
@@ -316,9 +316,9 @@ public class SharedData {
     /**
      * Moves a card to a stack. but with an additional option
      *
-     * @param card The card to move
+     * @param card        The card to move
      * @param destination The destination of the movement
-     * @param option The option to apply
+     * @param option      The option to apply
      */
     public static void moveToStack(Card card, Stack destination, int option) {
         ArrayList<Card> cards = new ArrayList<>();
@@ -333,7 +333,7 @@ public class SharedData {
     /**
      * Moves multiple cards to a destination
      *
-     * @param cards The cards to move
+     * @param cards       The cards to move
      * @param destination The destination of the movement
      */
     public static void moveToStack(ArrayList<Card> cards, Stack destination) {
@@ -343,9 +343,9 @@ public class SharedData {
     /**
      * Moves multiple cards to a destination, with an additional option
      *
-     * @param cards The cards to move
+     * @param cards       The cards to move
      * @param destination The destination of the movement
-     * @param option The option to apply
+     * @param option      The option to apply
      */
     public static void moveToStack(ArrayList<Card> cards, Stack destination, int option) {
         ArrayList<Stack> destinations = new ArrayList<>();
@@ -360,20 +360,20 @@ public class SharedData {
         moveToStack(cards, destinations, 0);
     }
 
-     /**
-      * Moves multiple cards to multiple destinations, with an additional option
-      *
-      * moves a card to a stack by doing this:
-      * - change the score according to the cards
-      * - add the cards to the record list
-      * - move every card one by one
-      * - bring the moving cards to front
-      * - and start handlers to call some methods
-      *
-      * @param cards The cards to move
-      * @param destinations The destinations of the movements
-      * @param option The option to apply
-      */
+    /**
+     * Moves multiple cards to multiple destinations, with an additional option
+     * <p>
+     * moves a card to a stack by doing this:
+     * - change the score according to the cards
+     * - add the cards to the record list
+     * - move every card one by one
+     * - bring the moving cards to front
+     * - and start handlers to call some methods
+     *
+     * @param cards        The cards to move
+     * @param destinations The destinations of the movements
+     * @param option       The option to apply
+     */
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
 
         if (option == OPTION_UNDO) {
@@ -487,7 +487,7 @@ public class SharedData {
     /**
      * Gets data for games individually
      *
-     * @param name The name in the shared pref
+     * @param name         The name in the shared pref
      * @param defaultValue The default to apply, if not found
      */
     public static Long getLong(String name, long defaultValue) {
@@ -497,7 +497,7 @@ public class SharedData {
     /**
      * Gets data for games individually
      *
-     * @param name The name in the shared pref
+     * @param name         The name in the shared pref
      * @param defaultValue The default to apply, if not found
      */
     public static int getInt(String name, int defaultValue) {
@@ -507,7 +507,7 @@ public class SharedData {
     /**
      * Gets data for games individually
      *
-     * @param name The name in the shared pref
+     * @param name         The name in the shared pref
      * @param defaultValue The default to apply, if not found
      */
     public static boolean getBoolean(String name, boolean defaultValue) {
@@ -517,7 +517,7 @@ public class SharedData {
     /**
      * Gets data for games individually
      *
-     * @param name The name in the shared pref
+     * @param name         The name in the shared pref
      * @param defaultValue The default to apply, if not found
      */
     public static String getString(String name, String defaultValue) {
@@ -527,7 +527,7 @@ public class SharedData {
     /**
      * Saves data for games individually
      *
-     * @param name The name in the shared pref
+     * @param name  The name in the shared pref
      * @param value The value to save
      */
     public static void putLong(String name, long value) {
@@ -537,7 +537,7 @@ public class SharedData {
     /**
      * Saves data for games individually
      *
-     * @param name The name in the shared pref
+     * @param name  The name in the shared pref
      * @param value The value to save
      */
     public static void putInt(String name, int value) {
@@ -547,7 +547,7 @@ public class SharedData {
     /**
      * Saves data for games individually
      *
-     * @param name The name in the shared pref
+     * @param name  The name in the shared pref
      * @param value The value to save
      */
     public static void putBoolean(String name, boolean value) {
@@ -557,7 +557,7 @@ public class SharedData {
     /**
      * Gets data for shared data (same for every game)
      *
-     * @param name The name in the shared pref
+     * @param name         The name in the shared pref
      * @param defaultValue The default to apply, if not found
      */
     public static int getSharedInt(String name, int defaultValue) {
@@ -567,7 +567,7 @@ public class SharedData {
     /**
      * Gets data for shared data (same for every game)
      *
-     * @param name The name in the shared pref
+     * @param name         The name in the shared pref
      * @param defaultValue The default to apply, if not found
      */
     public static String getSharedString(String name, String defaultValue) {
@@ -577,7 +577,7 @@ public class SharedData {
     /**
      * Gets data for shared data (same for every game)
      *
-     * @param name The name in the shared pref
+     * @param name         The name in the shared pref
      * @param defaultValue The default to apply, if not found
      */
     public static boolean getSharedBoolean(String name, boolean defaultValue) {
@@ -587,7 +587,7 @@ public class SharedData {
     /**
      * Saves shared data (same for every game)
      *
-     * @param name The name in the shared pref
+     * @param name  The name in the shared pref
      * @param value The value to save
      */
     public static void putSharedInt(String name, int value) {
@@ -597,7 +597,7 @@ public class SharedData {
     /**
      * Saves shared data (same for every game)
      *
-     * @param name The name in the shared pref
+     * @param name  The name in the shared pref
      * @param value The value to save
      */
     public static void putSharedString(String name, String value) {
@@ -640,6 +640,7 @@ public class SharedData {
 
     /**
      * Little method I use to test if my code reaches some point
+     *
      * @param text The text to show
      */
     public static void logText(String text) {
@@ -649,7 +650,7 @@ public class SharedData {
     /**
      * Tests if the saved value equals the given default value
      *
-     * @param name The name of the key
+     * @param name         The name of the key
      * @param defaultValue The default value of it
      * @return True if the current value saved is the default value
      */
@@ -673,7 +674,7 @@ public class SharedData {
         return value1 > value2 ? value1 : value2;
     }
 
-    public static boolean leftHandedModeEnabled(){
+    public static boolean leftHandedModeEnabled() {
         return getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, false);
     }
 }

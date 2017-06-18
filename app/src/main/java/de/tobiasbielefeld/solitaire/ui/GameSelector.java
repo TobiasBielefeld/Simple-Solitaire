@@ -34,7 +34,7 @@ import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-public class GameSelector extends CustomAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener{
+public class GameSelector extends CustomAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener {
 
     ArrayList<ImageView> gameImageViews;
     TableLayout tableLayout;
@@ -191,7 +191,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         super.onResume();
         loadGameList();
 
-        if (navigationView!=null) {
+        if (navigationView != null) {
             navigationView.setCheckedItem(R.id.item_close);
         }
     }
@@ -212,7 +212,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
 
             float X = event.getX(), Y = event.getY();
 
-            if (X>0 && X < v.getWidth() && Y>0 && Y<v.getHeight()){
+            if (X > 0 && X < v.getWidth() && Y > 0 && Y < v.getHeight()) {
                 startGame(v);
             }
         } else if (event.getAction() == MotionEvent.ACTION_CANCEL) {
@@ -227,10 +227,10 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
      * changes the button size, according to the second parameter.
      * Used to shrink/expand the menu buttons.
      *
-     * @param view The view to apply the changes
+     * @param view  The view to apply the changes
      * @param scale The scale to apply
      */
-    private void changeButtonSize(View view, float scale){
+    private void changeButtonSize(View view, float scale) {
         ObjectAnimator animX = ObjectAnimator.ofFloat(view, "scaleX", scale);
         animX.setDuration(100);
         ObjectAnimator animY = ObjectAnimator.ofFloat(view, "scaleY", scale);
@@ -246,7 +246,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
 
     }
 
-    private void startGame(View view){
+    private void startGame(View view) {
         //avoid loading two games at once when pressing two buttons at once
         if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0)
             return;

@@ -26,8 +26,8 @@ import java.util.ArrayList;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Contains everything related to cards. The view is a custom image view, which overrides some
- *  methods for animations. The drawable files are also updated here
+ * Contains everything related to cards. The view is a custom image view, which overrides some
+ * methods for animations. The drawable files are also updated here
  */
 
 public class Card {
@@ -45,7 +45,7 @@ public class Card {
 
     /**
      * Sets id, color and value. The cards are initialized at game start with a for loop.
-     *
+     * <p>
      * The color range is 1 to 4 and depends on the cardDrawableOrder, which is set to
      * 1 for the first 13 cards, 2 for the following 13 cards and so on.
      * After 52 cards (= one deck) it repeats. The value range is from 1 to 13 (= Ace to King).
@@ -240,7 +240,7 @@ public class Card {
      * up, and no auto complete is running.
      *
      * @param destination The destination stack to test the card on
-     * @return  True if movement is possible, false otherwise
+     * @return True if movement is possible, false otherwise
      */
     public boolean test(Stack destination) {
         return !((!isUp() || (destination.getSize() != 0 && !destination.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(destination, this);
@@ -283,23 +283,23 @@ public class Card {
         this.stack = stack;
     }
 
-    public float getX(){
+    public float getX() {
         return view.getX();
     }
 
-    public float getY(){
-        return view.getY();
-    }
-
-    public void setX(float X){
+    public void setX(float X) {
         view.setX(X);
     }
 
-    public void setY(float Y){
+    public float getY() {
+        return view.getY();
+    }
+
+    public void setY(float Y) {
         view.setY(Y);
     }
 
-    public int getStackId(){
+    public int getStackId() {
         return stack.getId();
     }
 }

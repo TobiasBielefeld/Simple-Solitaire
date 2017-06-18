@@ -90,5 +90,5 @@
     <string name="settings_double_tap_foundation_first">Przenieś najpierw na stos bazowy</string>
     <string name="settings_double_tap_foundation_first_text">Próbuj przenieś górną kartę z dotykanego stosu na stos bazowy przed przeniesieniem innych kart</string>
     <string name="settings_movement_speed">Szybkość przenoszenia kart</string>
-    
+
 </resources>

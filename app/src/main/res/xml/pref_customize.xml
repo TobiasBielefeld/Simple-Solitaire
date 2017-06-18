@@ -13,7 +13,7 @@
         android:positiveButtonText="@string/game_cancel"
         android:summary="%s"
         android:title="@string/settings_background_color"
-        android:widgetLayout="@layout/preference_widget_layout_background_color"/>
+        android:widgetLayout="@layout/preference_widget_layout_background_color" />
 
     <de.tobiasbielefeld.solitaire.dialogs.CardDialogPreference
         android:key="@string/pref_key_cards"
@@ -21,7 +21,7 @@
         android:positiveButtonText="@null"
         android:summary=""
         android:title="@string/settings_cards"
-        android:widgetLayout="@layout/preference_widget_layout_cards"/>
+        android:widgetLayout="@layout/preference_widget_layout_cards" />
 
     <de.tobiasbielefeld.solitaire.dialogs.CardBackgroundDialogPreference
         android:key="@string/pref_key_cards_background"
@@ -29,7 +29,7 @@
         android:positiveButtonText="@string/game_confirm"
         android:summary=""
         android:title="@string/settings_cards_back"
-        android:widgetLayout="@layout/preference_widget_layout_cards_background"/>
+        android:widgetLayout="@layout/preference_widget_layout_cards_background" />
 
     <CheckBoxPreference
         android:defaultValue="@bool/default_4_color_mode"

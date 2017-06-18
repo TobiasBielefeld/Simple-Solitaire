@@ -30,6 +30,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
+
 /**
  * Simple Simon Game! It's nearly like Spider, but with less cards and all cards are
  * already faced up at start
@@ -87,7 +88,7 @@ public class SimpleSimon extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-        return Spider.cardTestStatic(stack,card);
+        return Spider.cardTestStatic(stack, card);
     }
 
     public boolean addCardToMovementTest(Card card) {
@@ -100,7 +101,7 @@ public class SimpleSimon extends Game {
 
     @Override
     public Stack doubleTapTest(Card card) {
-       return Spider.doubleTapTestStatic(card);
+        return Spider.doubleTapTestStatic(card);
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {

@@ -28,8 +28,8 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Handles scoring. It has two methods which tests movements and update the score.
- *  Also high scores are saved and updated
+ * Handles scoring. It has two methods which tests movements and update the score.
+ * Also high scores are saved and updated
  */
 
 public class Scores {
@@ -48,7 +48,7 @@ public class Scores {
      * Adds scores of the given movement to the scores.
      * The origin of the cards is their current stack.
      *
-     * @param card The card of the movement
+     * @param card  The card of the movement
      * @param stack The destination of the movement
      */
     public void move(Card card, Stack stack) {
@@ -64,7 +64,7 @@ public class Scores {
      * Adds scores of the given movement to the scores.
      * The origins of the cards are their current stacks
      *
-     * @param cards The cards of the movement
+     * @param cards  The cards of the movement
      * @param stacks The destinations of the movement
      */
     public void move(ArrayList<Card> cards, ArrayList<Stack> stacks) {
@@ -85,7 +85,7 @@ public class Scores {
      * Reverts scores of the given movement from the scores.
      * It uses the move() method, but destination and origin are changed and the result is negated.
      *
-     * @param card The card of the movement
+     * @param card  The card of the movement
      * @param stack The destination of the movement
      */
     public void undo(Card card, Stack stack) {
@@ -101,7 +101,7 @@ public class Scores {
      * Reverts scores of the given movement from the scores.
      * It uses the move() method, but destination and origin are changed and the result is negated.
      *
-     * @param cards The cards of the movement
+     * @param cards  The cards of the movement
      * @param stacks The destinations of the movement
      */
     public void undo(ArrayList<Card> cards, ArrayList<Stack> stacks) {

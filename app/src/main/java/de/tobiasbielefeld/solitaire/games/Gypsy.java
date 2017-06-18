@@ -107,12 +107,12 @@ public class Gypsy extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
         if (stack.getId() < 8) {
-            return canCardBePlaced(stack,card,ALTERNATING_COLOR,DESCENDING);
+            return canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
         } else if (stack.getId() < 16 && movingCards.hasSingleCard()) {
             if (stack.isEmpty()) {
                 return card.getValue() == 1;
             } else {
-                return canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING);
+                return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);
             }
         } else {
             return false;

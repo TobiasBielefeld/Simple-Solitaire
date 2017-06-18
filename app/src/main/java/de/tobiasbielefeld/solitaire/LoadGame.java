@@ -76,7 +76,7 @@ public class LoadGame {
                 gameName = activity.getString(R.string.games_acesup);
                 game = new AcesUp();
                 break;
-                //fall through
+            //fall through
             case R.id.buttonStartCanfield:
                 sharedPrefName = "Canfield";
                 gameName = activity.getString(R.string.games_canfield);
@@ -178,7 +178,7 @@ public class LoadGame {
     /**
      * Loads the buttons for the manual and applies the onClickListener.
      *
-     * @param view The view, where to search the buttons
+     * @param view     The view, where to search the buttons
      * @param listener The listener to apply
      */
     public void loadManualButtons(View view, View.OnClickListener listener) {
@@ -261,7 +261,7 @@ public class LoadGame {
     /**
      * returns the prefix of the manual entries for the games. The strings have the following structure:
      * manual_<game name>_rules , manual_<game name>_points and so on.
-     *
+     * <p>
      * The game name needs to have the same structure! games_<game name>
      *
      * @param id The clicked manual entry

@@ -76,7 +76,7 @@ public class GrandfathersClock extends Game {
 
     private void setStacksPortrait(RelativeLayout layoutGame) {
         //stacking shouldn't go over the clock layout
-        setDirectionBorders(-1,-1,-1,-1,-1,-1,-1,-1);
+        setDirectionBorders(-1, -1, -1, -1, -1, -1, -1, -1);
 
         // initialize the dimensions
         setUpCardDimensions(layoutGame, 9, 10);
@@ -96,7 +96,7 @@ public class GrandfathersClock extends Game {
         stacks[9].setY(startPosY + 3 * verticalSpacing);
 
         stacks[10].setX(startPosX + 2 * Card.width + 2 * spacing);
-        stacks[10].setY(startPosY );
+        stacks[10].setY(startPosY);
 
         stacks[11].setX(startPosX + 3 * Card.width + 3 * spacing);
         stacks[11].setY(startPosY + 3 * verticalSpacing);
@@ -137,7 +137,7 @@ public class GrandfathersClock extends Game {
 
         //then tableau stacks
         startPosX = layoutGame.getWidth() / 2 - spacing / 2 - 4 * Card.width - 3 * spacing;
-        startPosY = (int) stacks[17].getY()+ Card.height + Card.height/2;
+        startPosY = (int) stacks[17].getY() + Card.height + Card.height / 2;
 
         for (int i = 0; i < 8; i++) {
             stacks[i].setX(startPosX + spacing * i + Card.width * i);
@@ -147,7 +147,7 @@ public class GrandfathersClock extends Game {
 
     private void setStacksLandscape(RelativeLayout layoutGame) {
         //stacking shouldn't go over the clock layout
-        setDirectionBorders(4,4,4,4,-1,-1,-1,-1);
+        setDirectionBorders(4, 4, 4, 4, -1, -1, -1, -1);
 
         // initialize the dimensions
         setUpCardDimensions(layoutGame, 12, 6);
@@ -157,8 +157,8 @@ public class GrandfathersClock extends Game {
         int verticalSpacing = setUpVerticalSpacing(layoutGame, 5, 7);
 
         //foundation stacks in a circle
-        int startPosX = (layoutGame.getWidth() - 10* Card.width - 9* spacing)/2 + Card.width/2;
-        int startPosY = layoutGame.getHeight()/2 - Card.height/2 - 7*verticalSpacing - Card.height;
+        int startPosX = (layoutGame.getWidth() - 10 * Card.width - 9 * spacing) / 2 + Card.width / 2;
+        int startPosY = layoutGame.getHeight() / 2 - Card.height / 2 - 7 * verticalSpacing - Card.height;
 
         stacks[8].setX(startPosX);
         stacks[8].setY(startPosY + 6 * verticalSpacing);
@@ -167,7 +167,7 @@ public class GrandfathersClock extends Game {
         stacks[9].setY(startPosY + 3 * verticalSpacing);
 
         stacks[10].setX(startPosX + 2 * Card.width + 2 * spacing);
-        stacks[10].setY(startPosY );
+        stacks[10].setY(startPosY);
 
         stacks[11].setX(startPosX + 3 * Card.width + 3 * spacing);
         stacks[11].setY(startPosY + 3 * verticalSpacing);
@@ -202,8 +202,8 @@ public class GrandfathersClock extends Game {
         stacks[19].setX(stacks[12].getX());
         stacks[19].setY(startPosY);
 
-        startPosX = (int) (stacks[14].getX() + Card.width + 2*spacing);
-        startPosY = Card.height/2;
+        startPosX = (int) (stacks[14].getX() + Card.width + 2 * spacing);
+        startPosY = Card.height / 2;
 
         //deal stack
         stacks[20].setX(stacks[10].getX());
@@ -215,8 +215,8 @@ public class GrandfathersClock extends Game {
             stacks[i].setY(startPosY);
         }
         for (int i = 0; i < 4; i++) {
-            stacks[4+i].setX(startPosX + spacing * i + Card.width * i);
-            stacks[4+i].setY((layoutGame.getHeight() - Card.height)/2 + Card.height/2);
+            stacks[4 + i].setX(startPosX + spacing * i + Card.width * i);
+            stacks[4 + i].setY((layoutGame.getHeight() - Card.height) / 2 + Card.height / 2);
         }
 
 
@@ -231,9 +231,9 @@ public class GrandfathersClock extends Game {
             moveToStack(cardToMove, stacks[8 + i], OPTION_NO_RECORD);
         }
 
-        for (int i = 0; i<8;i++){
-            for (int j=0;j<5;j++){
-                moveToStack(getDealStack().getTopCard(),stacks[i], OPTION_NO_RECORD);
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 5; j++) {
+                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
         }
     }
@@ -263,11 +263,11 @@ public class GrandfathersClock extends Game {
             if (movingCards > numberOfFreeStacks && stack.isEmpty()) {
                 return false;
             } else {
-                return canCardBePlaced(stack,card,DOESNT_MATTER,DESCENDING);
+                return canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
             }
 
         } else {
-            return movingCards.hasSingleCard() &&  canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING,true);
+            return movingCards.hasSingleCard() && canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING, true);
         }
     }
 
@@ -368,8 +368,8 @@ public class GrandfathersClock extends Game {
     }
 
     public boolean winTest() {
-        for (int i=0;i<8;i++){
-            if (!stacks[i].isEmpty()){
+        for (int i = 0; i < 8; i++) {
+            if (!stacks[i].isEmpty()) {
                 return false;
             }
         }
@@ -378,8 +378,8 @@ public class GrandfathersClock extends Game {
     }
 
     public boolean autoCompleteStartTest() {
-        for (int i=0;i<8;i++){
-            if (!testCardsUpToTop(stacks[i],0,DOESNT_MATTER)){
+        for (int i = 0; i < 8; i++) {
+            if (!testCardsUpToTop(stacks[i], 0, DOESNT_MATTER)) {
                 return false;
             }
         }

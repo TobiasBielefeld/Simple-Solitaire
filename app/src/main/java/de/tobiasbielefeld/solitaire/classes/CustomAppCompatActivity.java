@@ -38,7 +38,30 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class CustomAppCompatActivity extends AppCompatActivity {
 
-    @Override protected void onCreate(Bundle savedInstanceState){
+    /**
+     * Sets the screen orientation according to the settings. It is called from onResume().
+     *
+     * @param activity The activity to apply the orientation on.
+     */
+    public static void setOrientation(Activity activity) {
+        switch (getSharedString("pref_key_orientation", "1")) {
+            case "1": //follow system settings
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+                break;
+            case "2": //portrait
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                break;
+            case "3": //landscape
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                break;
+            case "4": //landscape upside down
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                break;
+        }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         reinitializeData(this);
     }
@@ -61,28 +84,8 @@ public class CustomAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets the screen orientation according to the settings. It is called from onResume().
-     * @param activity The activity to apply the orientation on.
-     */
-    public static void setOrientation(Activity activity) {
-        switch (getSharedString("pref_key_orientation", "1")) {
-            case "1": //follow system settings
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-                break;
-            case "2": //portrait
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                break;
-            case "3": //landscape
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-            case "4": //landscape upside down
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                break;
-        }
-    }
-
-    /**
      * Hides the status bar according to the settings. It is called from onResume().
+     *
      * @param activity The activity to apply the changes on.
      */
     public void showOrHideStatusBar(Activity activity) {

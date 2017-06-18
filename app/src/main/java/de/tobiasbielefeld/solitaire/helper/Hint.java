@@ -27,10 +27,10 @@ import de.tobiasbielefeld.solitaire.handler.HintHandler;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Shows hints. It has a handler which shows up to MAX_NUMBER_OF_HINTS hints.
- *  The hint function tests the tableau and stock if a card can be moved. If so,
- *  the hint animation will be started and the card will be marked, so it won't be shown again
- *  as a hint
+ * Shows hints. It has a handler which shows up to MAX_NUMBER_OF_HINTS hints.
+ * The hint function tests the tableau and stock if a card can be moved. If so,
+ * the hint animation will be started and the card will be marked, so it won't be shown again
+ * as a hint
  */
 
 public class Hint {
@@ -69,6 +69,7 @@ public class Hint {
 
     /**
      * tests a card if it has been visited in the current hint
+     *
      * @param test_card The card to test
      * @return True if the card has been visited, false otherwise
      */

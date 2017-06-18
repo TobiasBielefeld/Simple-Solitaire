@@ -133,12 +133,12 @@ public class FortyEight extends Game {
                 return false;
 
 
-            return canCardBePlaced(stack,card, SAME_FAMILY, DESCENDING);
+            return canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);
         } else if (stack.getId() < 16 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;
             else
-                return canCardBePlaced(stack,card, SAME_FAMILY, ASCENDING);
+                return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);
         } else
             return false;
     }

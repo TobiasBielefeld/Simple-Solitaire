@@ -43,9 +43,10 @@ public class Bitmaps {
     private Bitmap menu, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private int savedCardTheme;
 
-    public boolean checkResources(){
+    public boolean checkResources() {
         return res != null;
     }
+
     public void setResources(Resources res) {
         this.res = res;
     }
@@ -186,7 +187,7 @@ public class Bitmaps {
      */
     public Bitmap getCardPreview2(int posX, int posY) {
 
-        posX = posX*2 + 1;
+        posX = posX * 2 + 1;
 
         if (cardPreview2 == null) {
             cardPreview2 = BitmapFactory.decodeResource(res, R.drawable.card_previews);
@@ -201,7 +202,7 @@ public class Bitmaps {
     /**
      * Resets the menu preview. Used after changing the locale, so the correct new previews will be shown
      */
-    public void resetMenuPreview(){
+    public void resetMenuPreview() {
         menu = null;
     }
 }

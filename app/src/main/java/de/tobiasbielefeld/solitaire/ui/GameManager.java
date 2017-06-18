@@ -64,18 +64,18 @@ import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.NONE;
 
 public class GameManager extends CustomAppCompatActivity implements View.OnTouchListener {
 
+    private final static long DOUBLE_TAP_SPEED = 400;                                               //time delta between two taps in milliseconds
     public static int loadCounter = 0;                                                              //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
     public boolean hasLoaded = false;                                                               //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRedeals;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
     public Toast toast;                                                                             //a delicious toast!
-    private final static long DOUBLE_TAP_SPEED = 400;                                               //time delta between two taps in milliseconds
+    public View highlight;
     private long firstTapTime;                                                                       //stores the time of first tapping on a card
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
     private boolean activityPaused;
-    public View highlight;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -627,7 +627,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * just to let the win animation handler know, if the game was paused (due to screen rotation)
      * so it can halt
      */
-    public boolean isActivityPaused(){
+    public boolean isActivityPaused() {
         return activityPaused;
     }
 }

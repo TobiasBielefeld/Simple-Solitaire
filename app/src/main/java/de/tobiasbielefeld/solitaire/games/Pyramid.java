@@ -139,7 +139,7 @@ public class Pyramid extends Game {
         if (stack.getId() == 28 && card.getValue() == 13)
             return true;
 
-        if (stack.getId()!=28 && !stack.isEmpty() && stackIsFree(stack) && card.getValue() + stack.getTopCard().getValue() == 13) {
+        if (stack.getId() != 28 && !stack.isEmpty() && stackIsFree(stack) && card.getValue() + stack.getTopCard().getValue() == 13) {
 
             cardsToMove.add(stack.getTopCard());
             cardsToMove.add(card);

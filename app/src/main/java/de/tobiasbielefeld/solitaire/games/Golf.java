@@ -42,28 +42,10 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Golf extends Game {
 
     static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
-
-    int runCounter; //to count how many cards are moved in one "run"
-    ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
     static String RUN_COUNTER = "run_counter";
     static String LONGEST_RUN = "longest_run";
-
-    @Override
-    public void reset(GameManager gm) {
-        super.reset(gm);
-        runCounter = 0;
-    }
-
-    @Override
-    public void save() {
-        putInt(RUN_COUNTER,runCounter);
-    }
-
-    @Override
-    public void load() {
-        runCounter = getInt(RUN_COUNTER,0);
-
-    }
+    int runCounter; //to count how many cards are moved in one "run"
+    ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
 
     public Golf() {
         setNumberOfDecks(1);
@@ -73,6 +55,23 @@ public class Golf extends Game {
         setLastTableauID(6);
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
         setSingleTapeEnabled(true);
+    }
+
+    @Override
+    public void reset(GameManager gm) {
+        super.reset(gm);
+        runCounter = 0;
+    }
+
+    @Override
+    public void save() {
+        putInt(RUN_COUNTER, runCounter);
+    }
+
+    @Override
+    public void load() {
+        runCounter = getInt(RUN_COUNTER, 0);
+
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -162,17 +161,17 @@ public class Golf extends Game {
                 runCounter++;
                 updateLongestRun(runCounter);
 
-                if (savedRunRecords.size()== MAX_SAVED_RUN_RECORDS){
+                if (savedRunRecords.size() == MAX_SAVED_RUN_RECORDS) {
                     savedRunRecords.remove(0);
                 }
 
-                savedRunRecords.add(runCounter*50);
-                points += runCounter*50;
+                savedRunRecords.add(runCounter * 50);
+                points += runCounter * 50;
             } else {
-                points += savedRunRecords.get(savedRunRecords.size()-1);                            //get last entry
-                savedRunRecords.remove(savedRunRecords.size()-1);                                   //and remove it
+                points += savedRunRecords.get(savedRunRecords.size() - 1);                            //get last entry
+                savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
 
-                if (runCounter>0) {
+                if (runCounter > 0) {
                     runCounter--;
                 }
             }
@@ -190,17 +189,17 @@ public class Golf extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN,0);
+        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN, 0);
     }
 
     @Override
     public void deleteAdditionalStatisticsData() {
-        putInt(LONGEST_RUN,0);
+        putInt(LONGEST_RUN, 0);
     }
 
-    private void updateLongestRun(int currentRunCount){
-        if (currentRunCount> getInt(LONGEST_RUN,0)){
-            putInt(LONGEST_RUN,currentRunCount);
+    private void updateLongestRun(int currentRunCount) {
+        if (currentRunCount > getInt(LONGEST_RUN, 0)) {
+            putInt(LONGEST_RUN, currentRunCount);
         }
     }
 }

@@ -324,16 +324,16 @@ public class Canfield extends Game {
     }
 
     public boolean autoCompleteStartTest() {
-        for (int i=9;i<13;i++){
-            if (!stacks[i].isEmpty()){
+        for (int i = 9; i < 13; i++) {
+            if (!stacks[i].isEmpty()) {
                 return false;
             }
         }
 
-        int requestedValue = (startCardValue == 1 ? 13 : startCardValue -1 );
+        int requestedValue = (startCardValue == 1 ? 13 : startCardValue - 1);
 
-        for (int i=0;i<4;i++){
-            if (stacks[i].isEmpty() || stacks[i].getCard(0).getValue() != requestedValue){
+        for (int i = 0; i < 4; i++) {
+            if (stacks[i].isEmpty() || stacks[i].getCard(0).getValue() != requestedValue) {
                 return false;
             }
         }
@@ -347,12 +347,12 @@ public class Canfield extends Game {
         }
 
         if (stack.getId() < 4) {
-            return canCardBePlaced(stack,card,ALTERNATING_COLOR,DESCENDING,true);
+            return canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING, true);
         } else if (stack.getId() < 9 && movingCards.hasSingleCard()) {
             if (stack.isEmpty()) {
                 return card.getValue() == startCardValue;
             } else {
-                return canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING,true);
+                return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING, true);
             }
         } else
             return false;
@@ -453,7 +453,7 @@ public class Canfield extends Game {
         //foundation stacks
         if (card.isTopCard() && !(card.getStackId() >= 5 && card.getStackId() <= 8)) {
             for (int j = 5; j < 9; j++) {
-                if (card.getStackId()!=j && card.test(stacks[j])) {
+                if (card.getStackId() != j && card.test(stacks[j])) {
                     return stacks[j];
                 }
             }
@@ -462,7 +462,7 @@ public class Canfield extends Game {
         //tableau stacks
         for (int j = 0; j < 4; j++) {
 
-            if (stacks[j].isEmpty() || card.getStackId()==j) {
+            if (stacks[j].isEmpty() || card.getStackId() == j) {
                 continue;
             }
 
@@ -477,7 +477,7 @@ public class Canfield extends Game {
 
         //empty tableau stacks
         for (int j = 0; j < 4; j++) {
-            if (card.getStackId()!=j && stacks[j].isEmpty() && card.test(stacks[j])) {
+            if (card.getStackId() != j && stacks[j].isEmpty() && card.test(stacks[j])) {
                 return stacks[j];
             }
         }
@@ -523,15 +523,20 @@ public class Canfield extends Game {
 
         if (originID >= 9 && originID <= 11 && destinationID >= 9 && destinationID <= 11) {           //used for from stock to tabaleau/foundation
             return 45;
-        } if ((originID < 5 || originID == 12) && destinationID >= 5 && destinationID <= 8) {         //transfer from tableau to foundations
+        }
+        if ((originID < 5 || originID == 12) && destinationID >= 5 && destinationID <= 8) {         //transfer from tableau to foundations
             return 60;
-        } if ((originID == 9 || originID == 10 || originID == 11) && destinationID < 9) {             //stock to tableau
+        }
+        if ((originID == 9 || originID == 10 || originID == 11) && destinationID < 9) {             //stock to tableau
             return 45;
-        } if (destinationID < 5 && originID >= 5 && originID <= 8) {                                  //foundation to tableau
+        }
+        if (destinationID < 5 && originID >= 5 && originID <= 8) {                                  //foundation to tableau
             return -75;
-        } if (originID == destinationID) {                                                              //turn a card over
+        }
+        if (originID == destinationID) {                                                              //turn a card over
             return 25;
-        } if (originID >= 9 && originID < 12 && destinationID == 12) {                                //returning cards to stock
+        }
+        if (originID >= 9 && originID < 12 && destinationID == 12) {                                //returning cards to stock
             return -200;
         }
 

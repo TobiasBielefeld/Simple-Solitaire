@@ -76,7 +76,7 @@ public class Statistics extends CustomAppCompatActivity {
         //close the statistics
         try {
             loadData();
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             finish();
             return;
         }
@@ -142,7 +142,7 @@ public class Statistics extends CustomAppCompatActivity {
 
         String additionalText = currentGame.getAdditionalStatisticsData(getResources());
 
-        if (additionalText!=null){
+        if (additionalText != null) {
             textAdditonalStatistics.setText(additionalText);
             textAdditonalStatistics.setVisibility(View.VISIBLE);
         }

@@ -65,7 +65,7 @@ public class LocaleChanger {
     /**
      * Applies the loaded language to the context for Android N and above.
      *
-     * @param context The application context
+     * @param context  The application context
      * @param language The language to apply
      * @return A new context with the updated language
      */
@@ -89,7 +89,7 @@ public class LocaleChanger {
     /**
      * Applies the loaded language to the context for Android M and below
      *
-     * @param context The application context
+     * @param context  The application context
      * @param language The language to apply
      * @return A new context with the updated language
      */

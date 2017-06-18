@@ -17,7 +17,7 @@ import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 /**
  * A {@link android.preference.PreferenceActivity} which implements and proxies the necessary calls
  * to be used with AppCompat.
- *
+ * <p>
  * This is auto generated with the "Create settings activity" tool from Android Studio.
  */
 

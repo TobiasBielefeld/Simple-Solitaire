@@ -39,7 +39,7 @@
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">Canfield</string>
     <string name="games_grandfathersClock">AvaHorloĝo</string>
-    
+
     <!-- colors -->
     <string name="blue">Blua</string>
     <string name="green">Verda</string>
@@ -50,5 +50,5 @@
 
     <!-- game stuff -->
     <string name="canfield_longest_run">Plej longa serio:</string> <!-- also used by golf -->
-    
+
 </resources>

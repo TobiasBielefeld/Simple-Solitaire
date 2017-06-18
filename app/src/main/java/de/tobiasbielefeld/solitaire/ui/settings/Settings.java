@@ -45,7 +45,7 @@ import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Settings activity created with the "Create settings activity" tool from Android Studio.
+ * Settings activity created with the "Create settings activity" tool from Android Studio.
  */
 
 public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -145,12 +145,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
             setLocale();
 
-        } else if (key.equals(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS)){
+        } else if (key.equals(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS)) {
             if (currentGame instanceof FortyEight) {
                 gameLogic.toggleNumberOfRedeals();
             }
 
-        } else if(key.equals(PREF_KEY_PYRAMID_LIMITED_REDEALS)) {
+        } else if (key.equals(PREF_KEY_PYRAMID_LIMITED_REDEALS)) {
             if (currentGame instanceof Pyramid) {
                 gameLogic.toggleNumberOfRedeals();
             }

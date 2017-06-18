@@ -63,7 +63,7 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
         setDialogIcon(null);
         this.context = context;
 
-       context.getTheme().resolveAttribute(R.attr.selectableItemBackground, typedValue, true);
+        context.getTheme().resolveAttribute(R.attr.selectableItemBackground, typedValue, true);
     }
 
     @Override
@@ -163,24 +163,24 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
     /**
      * Update the "selection shadow" and the pictures of the dialog
      */
-    private void updateDialog(){
+    private void updateDialog() {
         for (int i = 0; i < NUMBER_OF_CARD_BACKGROUNDS; i++) {
-            linearLayoutsBackgrounds[i].setBackgroundResource(i==selectedBackground ? R.drawable.settings_highlight : typedValue.resourceId);
+            linearLayoutsBackgrounds[i].setBackgroundResource(i == selectedBackground ? R.drawable.settings_highlight : typedValue.resourceId);
         }
 
         for (int i = 0; i < NUMBER_OF_CARD_BACKGROUNDS; i++) {
             imageViews[i].setImageBitmap(bitmaps.getCardBack(i, selectedBackgroundColor));
         }
 
-        for (int i = 0; i<4;i++){
-            linearLayoutsColors[i].setBackgroundResource(i==selectedBackgroundColor ? R.drawable.settings_highlight : typedValue.resourceId);
+        for (int i = 0; i < 4; i++) {
+            linearLayoutsColors[i].setBackgroundResource(i == selectedBackgroundColor ? R.drawable.settings_highlight : typedValue.resourceId);
         }
     }
 
     /**
      * save the selected background and update the summary
      */
-    private void save(){
+    private void save() {
         putSharedInt(CARD_BACKGROUND, selectedBackground);
         putSharedInt(CARD_BACKGROUND_COLOR, selectedBackgroundColor);
 
@@ -196,11 +196,11 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
         int selectedBackground = getSharedInt(CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
         int selectedBackgroundColor = getSharedInt(CARD_BACKGROUND_COLOR, DEFAULT_CARD_BACKGROUND_COLOR);
 
-        cardBack = bitmaps.getCardBack(selectedBackground,selectedBackgroundColor);
+        cardBack = bitmaps.getCardBack(selectedBackground, selectedBackgroundColor);
 
         image.setImageBitmap(cardBack);
         setSummary(String.format(Locale.getDefault(), "%s %s",
-                context.getString(R.string.settings_background), selectedBackground+1));
+                context.getString(R.string.settings_background), selectedBackground + 1));
     }
 
     /*
@@ -210,7 +210,7 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
 
-        if (positiveResult){
+        if (positiveResult) {
             save();
         }
     }

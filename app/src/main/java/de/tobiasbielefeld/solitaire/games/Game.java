@@ -40,18 +40,6 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 public abstract class Game {
 
-    protected enum testMode{
-        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER, SAME_FAMILY
-    }
-
-    protected enum testMode2{
-        SAME_VALUE_AND_COLOR, SAME_VALUE_AND_FAMILY, SAME_VALUE
-    }
-
-    protected enum testMode3{
-        ASCENDING, DESCENDING
-    }
-
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
     public Stack.SpacingDirection[] directions;
     public int[] directionBorders;
@@ -67,8 +55,6 @@ public abstract class Game {
     private int totalRedeals = 0;
     private boolean hasArrow = false;
     private boolean singleTapeEnabled = false;
-
-    // some methods used by other classes
 
     /**
      * Called to test where the given card can be moved to
@@ -119,17 +105,17 @@ public abstract class Game {
         return cardAndStack;
     }
 
-    //methods games must implement
-
     /**
      * Sets the layouts and position of the stacks on the screen.
      *
-     * @param layoutGame The layout, where the stacks and cards are showed in. Used to calculate
-     *                   the widht/height
+     * @param layoutGame  The layout, where the stacks and cards are showed in. Used to calculate
+     *                    the widht/height
      * @param isLandscape Shows if the screen is in landscape mode, so the games can set up
      *                    different layouts for this
      */
     abstract public void setStacks(RelativeLayout layoutGame, boolean isLandscape);
+
+    // some methods used by other classes
 
     /**
      * Tests if the currently played game is won. Called after every movement. If the game is won,
@@ -144,11 +130,13 @@ public abstract class Game {
      */
     abstract public void dealCards();
 
+    //methods games must implement
+
     /**
      * Tests a card if it can be placed on the given stack.
      *
      * @param stack The destination of the card
-     * @param card The card to test
+     * @param card  The card to test
      * @return True if it can placed, false otherwise
      */
     abstract public boolean cardTest(Stack stack, Card card);
@@ -170,13 +158,13 @@ public abstract class Game {
 
     /**
      * Uses the given card and the movement (given as the stack id's) to update the current score.
-     *
+     * <p>
      * CAUTION: If you only want to handle scoring, you don't need to think of the undo case. Undo movement
      * will this call normally but subtract the result from the current score. isUndoMovement is only useful
      * if you need to take care of other stuff
      *
-     * @param cards The moved cards
-     * @param originIDs The id's of the origin stacks
+     * @param cards          The moved cards
+     * @param originIDs      The id's of the origin stacks
      * @param destinationIDs The id's of the destination stacks
      * @param isUndoMovement if set to true, the movement is called from a undo
      * @return The points to be added to the current score
@@ -193,11 +181,9 @@ public abstract class Game {
      * can be placed
      *
      * @param card The card to test
-     * @return  A destination, if the card can be moved, null otherwise
+     * @return A destination, if the card can be moved, null otherwise
      */
     abstract Stack doubleTapTest(Card card);
-
-    //stuff that games can override if necessary
 
     /**
      * Tests when a autocomplete can be started.
@@ -222,11 +208,13 @@ public abstract class Game {
      * Is the second phase of the autocomplete, it doesnt wait for card movements to end, will be called
      * faster and faster until every card was moved.
      *
-     * @return  A card and a destination stack if possible, null otherwise
+     * @return A card and a destination stack if possible, null otherwise
      */
     public CardAndStack autoCompletePhaseTwo() {
         return null;
     }
+
+    //stuff that games can override if necessary
 
     /**
      * Gets executed in onPause() of the gameManager, save stuff to sharedPrefs here, if necessary
@@ -274,35 +262,33 @@ public abstract class Game {
     }
 
     /**
-     *  Use this to add stuff to the statistics screen of the game, like longest run.
-     *  Save and load the data withing the game. It will be shown in a textView under the
-     *  "your win rate" text
+     * Use this to add stuff to the statistics screen of the game, like longest run.
+     * Save and load the data withing the game. It will be shown in a textView under the
+     * "your win rate" text
+     * <p>
+     * IMPORTANT: Also implement deleteAdditionalStatisticsData() for reseting the data!
      *
-     *  IMPORTANT: Also implement deleteAdditionalStatisticsData() for reseting the data!
-     *
-     *  @return the text to show
+     * @return the text to show
      */
-    public String getAdditionalStatisticsData(Resources res){
+    public String getAdditionalStatisticsData(Resources res) {
         return null;
     }
 
     /**
      * Reset the additional statistics data, if there are any
      */
-    public void deleteAdditionalStatisticsData(){
+    public void deleteAdditionalStatisticsData() {
 
     }
-
-    // stuff that the games should use to set up other stuff
 
     /**
      * tests card from startPos to stack top if the cards are in the right order
      * (For example, first a red 10, then a black 9, then a red 8 and so on)
      * set mode to true if the card color has to alternate, false otherwise
      *
-     * @param stack The stack to test
+     * @param stack    The stack to test
      * @param startPos The start index of the cards to test
-     * @param mode Shows which order the colors should have
+     * @param mode     Shows which order the colors should have
      * @return True if the cards are in the correct order, false otherwise
      */
     protected boolean testCardsUpToTop(Stack stack, int startPos, testMode mode) {
@@ -361,9 +347,9 @@ public abstract class Game {
      * the game width will be divided by these values according to orientation to use as card widths.
      * Card height is 1.5*width and the dimensions are applied to every card and stack
      *
-     * @param layoutGame The layout, where the cards are located in
-     * @param isLandscape Shows if the phone is currently in landscape mode
-     * @param portraitValue The limiting number of card in the biggest row of the layout
+     * @param layoutGame     The layout, where the cards are located in
+     * @param isLandscape    Shows if the phone is currently in landscape mode
+     * @param portraitValue  The limiting number of card in the biggest row of the layout
      * @param landscapeValue The limiting number of cards in the biggest column of the layout
      */
     protected void setUpCardWidth(RelativeLayout layoutGame, boolean isLandscape, int portraitValue, int landscapeValue) {
@@ -374,6 +360,8 @@ public abstract class Game {
         for (Stack stack : stacks) stack.view.setLayoutParams(params);
     }
 
+    // stuff that the games should use to set up other stuff
+
     /**
      * use this to automatically set up the dimensions (then the call of setUpCardWidth() isn't necessary).
      * It will take the layout, a value for width and a value for height. The values
@@ -381,8 +369,8 @@ public abstract class Game {
      * stacks have to fit on the horizontal axis, but also 4 cards in the height. The method uses
      * these values to calculate the right dimensions for the cards, so everything fits fine on the screen
      *
-     * @param layoutGame The layout, where the cards are located in
-     * @param cardsInRow The limiting number of card in the biggest row of the layout
+     * @param layoutGame    The layout, where the cards are located in
+     * @param cardsInRow    The limiting number of card in the biggest row of the layout
      * @param cardsInColumn The limiting number of cards in the biggest column of the layout
      */
     protected void setUpCardDimensions(RelativeLayout layoutGame, int cardsInRow, int cardsInColumn) {
@@ -413,9 +401,9 @@ public abstract class Game {
      * then divides the remaining space with the divider. So the game can know how big the spaces are
      * between the card stacks for a good layout.
      *
-     * @param layoutGame The layout where the cards are located in.
+     * @param layoutGame    The layout where the cards are located in.
      * @param numberOfCards The number of cards in a row
-     * @param divider The amount of spaces you want to have between the cards
+     * @param divider       The amount of spaces you want to have between the cards
      * @return The spacing value
      */
     protected int setUpHorizontalSpacing(RelativeLayout layoutGame, int numberOfCards, int divider) {
@@ -427,9 +415,9 @@ public abstract class Game {
      * then divides the remaining space with the divider. So the game can know how big the spaces are
      * between the card stacks for a good layout.
      *
-     * @param layoutGame The layout where the cards are located in.
+     * @param layoutGame    The layout where the cards are located in.
      * @param numberOfCards The number of cards in a row
-     * @param divider The amount of spaces you want to have between the cards
+     * @param divider       The amount of spaces you want to have between the cards
      * @return The spacing value
      */
     protected int setUpVerticalSpacing(RelativeLayout layoutGame, int numberOfCards, int divider) {
@@ -491,14 +479,16 @@ public abstract class Game {
     /**
      * Set the direction, in which the cards on the stack should be stacked. The parameter is an
      * int list to have shorter call of the method
+     *
      * @param newDirections The list of directions to be applied
      */
     protected void setDirections(int... newDirections) {
         directions = new Stack.SpacingDirection[newDirections.length];
 
-        for (int i=0;i<newDirections.length;i++){
-            switch (newDirections[i]){
-                case 0:default:
+        for (int i = 0; i < newDirections.length; i++) {
+            switch (newDirections[i]) {
+                case 0:
+                default:
                     directions[i] = Stack.SpacingDirection.NONE;
                     break;
                 case 1:
@@ -524,7 +514,7 @@ public abstract class Game {
     /**
      * Sets the background of a stack to an arrow (left handed mode will reverse the direction)
      *
-     * @param stack The stack to apply
+     * @param stack     The stack to apply
      * @param direction The default direction of the arrow LEFT or RIGHT
      */
     protected void setArrow(Stack stack, Stack.ArrowDirection direction) {
@@ -541,8 +531,8 @@ public abstract class Game {
      * @param p3 Color for the third family
      * @param p4 Color for the fourth family
      */
-    protected void setCardFamilies(int p1, int p2, int p3, int p4) throws ArrayIndexOutOfBoundsException{
-        if (p1<1 || p2<1 || p3<1 || p4<1 || p1>4 || p2>4 || p3>4 || p4>4){
+    protected void setCardFamilies(int p1, int p2, int p3, int p4) throws ArrayIndexOutOfBoundsException {
+        if (p1 < 1 || p2 < 1 || p3 < 1 || p4 < 1 || p1 > 4 || p2 > 4 || p3 > 4 || p4 > 4) {
             throw new ArrayIndexOutOfBoundsException("Card families can be between 1 and 4");
         }
 
@@ -553,9 +543,9 @@ public abstract class Game {
      * Tests if the given card is above the same card as the top card on the other stack.
      * "Same card" means same value and depending on the mode: Same color or same family.
      *
-     * @param card The card to test
+     * @param card       The card to test
      * @param otherStack The stack to test
-     * @param mode Shows which color the other card should have
+     * @param mode       Shows which color the other card should have
      * @return True if it is the same card (under the given conditions), false otherwise
      */
     protected boolean sameCardOnOtherStack(Card card, Stack otherStack, testMode2 mode) {
@@ -588,7 +578,7 @@ public abstract class Game {
      *
      * @param layoutGame Used to set the border according to the screen dimensions
      */
-    public void applyDirectionBorders(RelativeLayout layoutGame){
+    public void applyDirectionBorders(RelativeLayout layoutGame) {
         if (directionBorders != null) {
             for (int i = 0; i < directionBorders.length; i++) {
                 if (directionBorders[i] != -1)    //-1 means no border
@@ -607,48 +597,48 @@ public abstract class Game {
      * Tell that this game has foundation stacks. Used for double tap, to move to the foundation
      * first. Games like Spider and SimpleSimon, where the player can't move directly to the foundation,
      * don't need this
+     *
      * @param value The value to apply
      */
-    protected void setHasFoundationStacks(boolean value){
+    protected void setHasFoundationStacks(boolean value) {
         hasFoundationStacks = value;
     }
 
-
     /**
      * Little overload method to not need to specify wrap, so it's set to false.
-     *
+     * <p>
      * See the other canCardBePlaced() method below this one.
      */
-    protected boolean canCardBePlaced(Stack stack, Card card, testMode mode , testMode3 direction){
-        return canCardBePlaced(stack, card, mode , direction, false);
+    protected boolean canCardBePlaced(Stack stack, Card card, testMode mode, testMode3 direction) {
+        return canCardBePlaced(stack, card, mode, direction, false);
     }
 
     /**
      * Little method to test if a given card can be placed on the given stack.
-     *
+     * <p>
      * Use the other canCardBePlaced() method to not explicitly specify wrap, so it's default set to false
      *
-     * @param stack The destination stack
-     * @param card The card to move
-     * @param mode Which color the cards should have
+     * @param stack     The destination stack
+     * @param card      The card to move
+     * @param mode      Which color the cards should have
      * @param direction which direction the cards are played
-     * @param wrap set to true if an ace can be placed on a king (ascending) or vice versa(descending)
+     * @param wrap      set to true if an ace can be placed on a king (ascending) or vice versa(descending)
      * @return true if the card can be placed on the stack, false otherwise
      */
-    protected boolean canCardBePlaced(Stack stack, Card card, testMode mode , testMode3 direction, boolean wrap){
+    protected boolean canCardBePlaced(Stack stack, Card card, testMode mode, testMode3 direction, boolean wrap) {
 
         if (stack.isEmpty()) {
             return true;
         }
 
-        if (direction==testMode3.DESCENDING) {   //example move a 8 on top of a 9
+        if (direction == testMode3.DESCENDING) {   //example move a 8 on top of a 9
             switch (mode) {
                 case SAME_COLOR:
                     return stack.getTopCard().getColor() % 2 == card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() + 1
                             || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
                 case ALTERNATING_COLOR:
                     return stack.getTopCard().getColor() % 2 != card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() + 1
-                             || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
                 case SAME_FAMILY:
                     return stack.getTopCard().getColor() == card.getColor() && (stack.getTopCard().getValue() == card.getValue() + 1
                             || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
@@ -676,10 +666,7 @@ public abstract class Game {
         return false; //can't be reached
     }
 
-
-    //some getters,setters and simple methods, games should'nt override these
-
-    public Stack getMainStack() throws ArrayIndexOutOfBoundsException{
+    public Stack getMainStack() throws ArrayIndexOutOfBoundsException {
         if (mainStackID == -1) {
             throw new ArrayIndexOutOfBoundsException("No main stack specified");
         }
@@ -687,7 +674,7 @@ public abstract class Game {
         return stacks[mainStackID];
     }
 
-    public int getLastTableauId() throws ArrayIndexOutOfBoundsException{
+    public int getLastTableauId() throws ArrayIndexOutOfBoundsException {
         if (lastTableauID == -1) {
             throw new ArrayIndexOutOfBoundsException("No last tableau stack specified");
         }
@@ -695,7 +682,7 @@ public abstract class Game {
         return lastTableauID;
     }
 
-    public Stack getLastTableauStack() throws ArrayIndexOutOfBoundsException{
+    public Stack getLastTableauStack() throws ArrayIndexOutOfBoundsException {
         if (lastTableauID == -1) {
             throw new ArrayIndexOutOfBoundsException("No last tableau stack specified");
         }
@@ -703,7 +690,10 @@ public abstract class Game {
         return stacks[lastTableauID];
     }
 
-    public Stack getDiscardStack() throws ArrayIndexOutOfBoundsException{
+
+    //some getters,setters and simple methods, games should'nt override these
+
+    public Stack getDiscardStack() throws ArrayIndexOutOfBoundsException {
         if (discardStackID == -1) {
             throw new ArrayIndexOutOfBoundsException("No discard stack specified");
         }
@@ -731,7 +721,7 @@ public abstract class Game {
         return hasLimitedRedeals;
     }
 
-    public boolean hasFoundationStacks(){
+    public boolean hasFoundationStacks() {
         return hasFoundationStacks;
     }
 
@@ -766,16 +756,28 @@ public abstract class Game {
         hasLimitedRedeals = !hasLimitedRedeals;
     }
 
-    public void setSingleTapeEnabled(boolean value){
+    public void setSingleTapeEnabled(boolean value) {
         singleTapeEnabled = value;
     }
 
-    public boolean isSingleTapEnabled(){
+    public boolean isSingleTapEnabled() {
         return singleTapeEnabled;
     }
 
-    public void flipAllCardsUp(){
+    public void flipAllCardsUp() {
         for (Card card : cards)
             card.flipUp();
+    }
+
+    protected enum testMode {
+        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER, SAME_FAMILY
+    }
+
+    protected enum testMode2 {
+        SAME_VALUE_AND_COLOR, SAME_VALUE_AND_FAMILY, SAME_VALUE
+    }
+
+    protected enum testMode3 {
+        ASCENDING, DESCENDING
     }
 }

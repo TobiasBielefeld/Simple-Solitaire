@@ -44,7 +44,7 @@ public class Freecell extends Game {
         setLastTableauID(11);
         setHasFoundationStacks(true);
 
-        setDirections(1,1,1,1,1,1,1,1,0,0,0,0);
+        setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -112,19 +112,18 @@ public class Freecell extends Game {
                     numberOfFreeCells++;
             }
 
-
             if (movingCards > numberOfFreeCells && stack.isEmpty()) {
                 return false;
             }
 
-            return canCardBePlaced(stack,card,ALTERNATING_COLOR,DESCENDING);
+            return canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
         } else if (stack.getId() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
         } else if (movingCards.hasSingleCard()) {
             if (stack.isEmpty()) {
                 return card.getValue() == 1;
             } else {
-                return canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING);
+                return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);
             }
         } else {
             return false;
@@ -294,11 +293,13 @@ public class Freecell extends Game {
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         if ((originIDs[0] < 12 && destinationIDs[0] >= 12)) {                                           //to foundations
             return 60;
-        } if ((destinationIDs[0] < 12 && originIDs[0] >= 12)) {                                          //from foundations
+        }
+        if ((destinationIDs[0] < 12 && originIDs[0] >= 12)) {                                          //from foundations
             return -75;
-        } if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize() != 1) {//king to a empty field
+        }
+        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize() != 1) {//king to a empty field
             return 20;
-        }else {
+        } else {
             return 0;
         }
     }

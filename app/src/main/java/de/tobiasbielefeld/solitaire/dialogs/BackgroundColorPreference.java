@@ -47,7 +47,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * Dialog for changing the background color. It uses a custom layout, so I can dynamically update
  * the widget icon of the preference. The user can choose between 6 pre defined colors or set a custom
  * color. The custom color chooser uses this library: https://github.com/yukuku/ambilwarna
- *
+ * <p>
  * To distinguish between the pre defined and custom colors, I use another entry in the sharedPref.
  * I also planned to add a "Add background from gallery" option, but it would require the
  * permission to the external storage, and i wanted my app to use no permissions.
@@ -55,14 +55,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class BackgroundColorPreference extends DialogPreference implements View.OnClickListener {
 
-    private ArrayList<LinearLayout> linearLayouts;
-
-    private Context context;
-    private ImageView image;
-
     int backgroundType;
     int backgroundValue;
     int savedCustomColor;
+    private ArrayList<LinearLayout> linearLayouts;
+    private Context context;
+    private ImageView image;
 
     public BackgroundColorPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -74,8 +72,8 @@ public class BackgroundColorPreference extends DialogPreference implements View.
     @Override
     protected void onBindDialogView(View view) {
 
-        backgroundType = getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,DEFAULT_BACKGROUND_COLOR_TYPE);
-        backgroundValue = Integer.parseInt(getSharedString(PREF_KEY_BACKGROUND_COLOR,DEFAULT_BACKGROUND_COLOR));
+        backgroundType = getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, DEFAULT_BACKGROUND_COLOR_TYPE);
+        backgroundValue = Integer.parseInt(getSharedString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR));
         savedCustomColor = getSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM);
 
         linearLayouts = new ArrayList<>();
@@ -86,7 +84,7 @@ public class BackgroundColorPreference extends DialogPreference implements View.
         linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorOrange));
         linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorPurple));
 
-        for (LinearLayout linearLayout : linearLayouts){
+        for (LinearLayout linearLayout : linearLayouts) {
             linearLayout.setOnClickListener(this);
         }
 
@@ -96,15 +94,15 @@ public class BackgroundColorPreference extends DialogPreference implements View.
 
     @SuppressWarnings("SuspiciousMethodCalls")
     public void onClick(View view) {
-        if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE)){
+        if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE)) {
             AmbilWarnaDialog dialog = new AmbilWarnaDialog(context, savedCustomColor, new AmbilWarnaDialog.OnAmbilWarnaListener() {
                 @Override
                 public void onOk(AmbilWarnaDialog dialog, int color) {
                     backgroundType = 2;
                     backgroundValue = savedCustomColor = color;
 
-                    putSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,backgroundType);
-                    putSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM,backgroundValue);
+                    putSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, backgroundType);
+                    putSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, backgroundValue);
                     updateSummary();
                     getDialog().dismiss();
                 }
@@ -115,14 +113,14 @@ public class BackgroundColorPreference extends DialogPreference implements View.
                 }
             });
             dialog.show();
-        } else if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE)){
+        } else if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE)) {
             getDialog().dismiss();
         } else {
             backgroundValue = linearLayouts.indexOf(view) + 1;
             backgroundType = 1;
 
-            putSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,backgroundType);
-            putSharedString(PREF_KEY_BACKGROUND_COLOR,Integer.toString(backgroundValue));
+            putSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, backgroundType);
+            putSharedString(PREF_KEY_BACKGROUND_COLOR, Integer.toString(backgroundValue));
             updateSummary();
             getDialog().dismiss();
         }
@@ -152,13 +150,14 @@ public class BackgroundColorPreference extends DialogPreference implements View.
     /**
      * Gets the saved data and updates the summary according to it
      */
-    private void updateSummary(){
+    private void updateSummary() {
 
-        if (getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,DEFAULT_BACKGROUND_COLOR_TYPE)==1){
+        if (getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, DEFAULT_BACKGROUND_COLOR_TYPE) == 1) {
             int drawableID;
             int stringID;
             switch (getSharedString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR)) {
-                case "1":default:
+                case "1":
+                default:
                     stringID = R.string.blue;
                     drawableID = R.drawable.background_color_blue;
                     break;

@@ -113,7 +113,7 @@ public class Yukon extends Game {
             if (stack.isEmpty()) {
                 return card.getValue() == 1;
             } else {
-                return canCardBePlaced(stack,card,SAME_FAMILY,ASCENDING);
+                return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);
             }
         } else {
             return false;
@@ -123,8 +123,8 @@ public class Yukon extends Game {
     boolean checkRules(Stack stack, Card card) {
         boolean defaultRules = sharedStringEquals(PREF_KEY_YUKON_RULES_OLD, DEFAULT_YUKON_RULES);
 
-        return defaultRules ? canCardBePlaced(stack,card,ALTERNATING_COLOR,DESCENDING) :
-                canCardBePlaced(stack,card,SAME_FAMILY,DESCENDING);
+        return defaultRules ? canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING) :
+                canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);
     }
 
     public boolean addCardToMovementTest(Card card) {

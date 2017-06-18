@@ -32,9 +32,9 @@ import de.tobiasbielefeld.solitaire.R;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- *  Dialog for hiding games in the main menu.
- *  It is NOT a multiSelection list, because it was buggy on tested Android 6 phones. So I
- *  just use a linearLayout with a button and a textView for each game
+ * Dialog for hiding games in the main menu.
+ * It is NOT a multiSelection list, because it was buggy on tested Android 6 phones. So I
+ * just use a linearLayout with a button and a textView for each game
  */
 
 public class MenuHideGamesPreference extends DialogPreference implements View.OnClickListener {
