@@ -255,7 +255,7 @@ public class Animate {
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
         //there were some reports about an exception here, so simply set duration with a fixed value
-        //if the exception occures
+        //if the exception occurs
         try {
             animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
         } catch(ArithmeticException e){

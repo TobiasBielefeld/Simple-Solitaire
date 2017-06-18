@@ -28,7 +28,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -75,6 +74,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private long firstTapTime;                                                                       //stores the time of first tapping on a card
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
+    private boolean activityPaused;
     public View highlight;
 
     /*
@@ -85,7 +85,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * happens in the layout.post() method.
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
 
@@ -119,14 +119,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //initialize cards and stacks
         for (int i = 0; i < stacks.length; i++) {
             stacks[i] = new Stack(i);
-            stacks[i].view = new CustomImageView(this,this, CustomImageView.Object.STACK,i);
+            stacks[i].view = new CustomImageView(this, this, CustomImageView.Object.STACK, i);
             stacks[i].view.setImageBitmap(Stack.backgroundDefault);
             layoutGame.addView(stacks[i].view);
         }
 
         for (int i = 0; i < cards.length; i++) {
             cards[i] = new Card(i);
-            cards[i].view = new CustomImageView(this,this,CustomImageView.Object.CARD,i);
+            cards[i].view = new CustomImageView(this, this, CustomImageView.Object.CARD, i);
             layoutGame.addView(cards[i].view);
         }
 
@@ -161,8 +161,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 //all other stacks don't have a visible offset
                 //use setDirections() in a game to change that
                 if (currentGame.directions == null) {
-                    for (Stack stack : stacks){
-                        if (stack.getId() <= currentGame.getLastTableauId()){
+                    for (Stack stack : stacks) {
+                        if (stack.getId() <= currentGame.getLastTableauId()) {
                             stack.setSpacingDirection(DOWN);
                         } else {
                             stack.setSpacingDirection(NONE);
@@ -170,7 +170,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     }
                 } else {
                     for (int i = 0; i < stacks.length; i++) {
-                        if (currentGame.directions.length>i) {
+                        if (currentGame.directions.length > i) {
                             stacks[i].setSpacingDirection(currentGame.directions[i]);
                         } else {
                             stacks[i].setSpacingDirection(NONE);
@@ -179,7 +179,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
 
                 //if there are direction borders set (when cards should'nt overlap another stack)  use it.
-                //else set the layout height/widht as maximum
+                //else set the layout height/width as maximum
                 currentGame.applyDirectionBorders(layoutGame);
 
                 //load the game, to prevent multiple loadings, check the counter first. Load the game
@@ -190,6 +190,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     LoadGameHandler loadGameHandler = new LoadGameHandler(gm);
                     loadGameHandler.sendEmptyMessageDelayed(0, 200);
                 }
+
+
             }
         });
     }
@@ -202,6 +204,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             timer.save();
             gameLogic.save();
         }
+
+        activityPaused = true;
     }
 
     @Override
@@ -210,6 +214,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         timer.load();
         loadBackgroundColor();
+
+        activityPaused = false;
     }
 
     /**
@@ -255,7 +261,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             return motionActionDown(v, event, X, Y);
         } else if (event.getAction() == MotionEvent.ACTION_MOVE && movingCards.hasCards()) {
-           return motionActionMove(X, Y);
+            return motionActionMove(X, Y);
         } else if (event.getAction() == MotionEvent.ACTION_UP && movingCards.hasCards()) {
             return motionActionUp(X, Y);
         }
@@ -268,13 +274,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * its stack, and moves the card the next time the screen is touched. Separate between stacks and
      * cards. Because the tap-to-select need to test if a empty stack was touched
      *
-     * @param v The tapped image view
+     * @param v     The tapped image view
      * @param event The motion event
-     * @param X The absolute X-coordinate on the game layout
-     * @param Y The absolute X-coordinate on the game layout
+     * @param X     The absolute X-coordinate on the game layout
+     * @param Y     The absolute X-coordinate on the game layout
      * @return True to end the input
      */
-    private boolean motionActionDown(CustomImageView v, MotionEvent event, float X, float Y){
+    private boolean motionActionDown(CustomImageView v, MotionEvent event, float X, float Y) {
 
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
@@ -291,8 +297,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             return resetTappedCard();
         }
 
-        if (v.belongsToStack() && getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED,DEFAULT_TAP_TO_SELECT_ENABLED) ) {
-            if (tapped!=null && tapped.getStack()!= stacks[v.getId()] && currentGame.addCardToMovementTest(tapped.getCard())) {
+        if (v.belongsToStack() && getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, DEFAULT_TAP_TO_SELECT_ENABLED)) {
+            if (tapped != null && tapped.getStack() != stacks[v.getId()] && currentGame.addCardToMovementTest(tapped.getCard())) {
 
                 movingCards.add(tapped.getCard(), event.getX(), event.getY());
 
@@ -306,7 +312,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             return resetTappedCard();
 
         } else if (v.belongsToCard() && cards[v.getId()].isUp()) {
-            if (tapped!=null) {
+            if (tapped != null) {
                 //double tap
                 if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_ENABLED, DEFAULT_DOUBLE_TAP_ENABLE)
                         && tapped.getStack() == cards[v.getId()].getStack()
@@ -315,7 +321,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     CardAndStack cardAndStack = null;
 
                     if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_ALL_CARDS, DEFAULT_DOUBLE_TAP_ALL_CARDS) && tapped.getStackId() <= currentGame.getLastTableauId()) {
-                        if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST,DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST) && currentGame.hasFoundationStacks()) {
+                        if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST, DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST) && currentGame.hasFoundationStacks()) {
                             cardAndStack = currentGame.doubleTap(tapped.getStack().getTopCard());
                         }
 
@@ -334,7 +340,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     }
                 }
                 //tap to select
-                else if (getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED,DEFAULT_TAP_TO_SELECT_ENABLED)
+                else if (getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, DEFAULT_TAP_TO_SELECT_ENABLED)
                         && tapped.getStack() != cards[v.getId()].getStack() && currentGame.addCardToMovementTest(tapped.getCard())) {
 
                     movingCards.add(tapped.getCard(), event.getX(), event.getY());
@@ -372,11 +378,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * @param Y The absolute X-coordinate on the game layout
      * @return True to end the input
      */
-    private boolean motionActionMove(float X, float Y){
-        if (movingCards.moveStarted(X,Y)) {
+    private boolean motionActionMove(float X, float Y) {
+        if (movingCards.moveStarted(X, Y)) {
             movingCards.move(X, Y);
 
-            if (tapped!=null) {
+            if (tapped != null) {
                 cardHighlight.move(tapped.getCard());
             }
         }
@@ -391,9 +397,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * @param Y The absolute X-coordinate on the game layout
      * @return True to end the input
      */
-    private boolean motionActionUp(float X, float Y){
+    private boolean motionActionUp(float X, float Y) {
 
-        if (movingCards.moveStarted(X,Y)){
+        if (movingCards.moveStarted(X, Y)) {
 
             cardHighlight.hide();
             Stack stack = getIntersectingStack(movingCards.first());
@@ -406,7 +412,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
             return resetTappedCard();
         } else if (currentGame.isSingleTapEnabled() && tapped.getCard().test(currentGame.getDiscardStack())
-                && getSharedBoolean(PREF_KEY_SINGLE_TAP_ENABLE,DEFAULT_SINGLE_TAP_ENABLED)) {
+                && getSharedBoolean(PREF_KEY_SINGLE_TAP_ENABLE, DEFAULT_SINGLE_TAP_ENABLED)) {
 
             movingCards.moveToDestination(currentGame.getDiscardStack());
             return resetTappedCard();
@@ -421,7 +427,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * can be placed on that stack. If so, save the stack and the amount of intersection.
      * If another stack is also a possible destination AND has a higher intersection rate, save the
      * new stack instead. So at the end, the best possible destination will be returned.
-     *
+     * <p>
      * It takes one card and tests every stack (expect the stack, where the card is located on)
      *
      * @param card The card to test
@@ -461,7 +467,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private void loadBackgroundColor() {
 
         if (mainRelativeLayoutBackground != null) {
-            if (getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE,DEFAULT_BACKGROUND_COLOR_TYPE) == 1) {
+            if (getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, DEFAULT_BACKGROUND_COLOR_TYPE) == 1) {
                 switch (getSharedString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR)) {
                     case "1":
                         mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_blue);
@@ -601,14 +607,27 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         mainTextViewRedeals.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRedeals()));
     }
 
+    /*
+     * do not show the dialog while the activity is paused. This would cause a force close
+     */
     public void showRestartDialog() {
-        RestartDialog restartDialog = new RestartDialog();
-        restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
+        if (!activityPaused) {
+            RestartDialog restartDialog = new RestartDialog();
+            restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
+        }
     }
 
-    private boolean resetTappedCard(){
-        tapped=null;
+    private boolean resetTappedCard() {
+        tapped = null;
         cardHighlight.hide();
         return true;
+    }
+
+    /*
+     * just to let the win animation handler know, if the game was paused (due to screen rotation)
+     * so it can halt
+     */
+    public boolean isActivityPaused(){
+        return activityPaused;
     }
 }

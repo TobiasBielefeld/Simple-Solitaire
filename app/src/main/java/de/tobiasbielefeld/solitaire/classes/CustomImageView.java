@@ -50,7 +50,7 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
     }
 
     /*
-     * Sets the necessery data to this object. The ontouchListener is set to all image Views, because
+     * Sets the necessary data to this object. The ontouchListener is set to all image Views, because
      * the tap-to-select movement needs that.
      */
     public CustomImageView(Context context, OnTouchListener listener, Object object, int ID) {
@@ -82,7 +82,7 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
         super.onAnimationEnd();
         animating = false;
 
-        if (moveAtEnd) {
+        if (moveAtEnd) {                                //TODO this could be help me resolve an issue from github
             moveAtEnd = false;
             clearAnimation();
             setX(destX);

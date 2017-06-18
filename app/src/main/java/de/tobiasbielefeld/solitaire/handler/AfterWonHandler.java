@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.handler;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
@@ -41,7 +42,7 @@ public class AfterWonHandler extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        if (animate.cardIsAnimating())
+        if (animate.cardIsAnimating() || gm.isActivityPaused())
             animate.afterWonHandler.sendEmptyMessageDelayed(0, 100);
         else {
             if (phase == 2) {

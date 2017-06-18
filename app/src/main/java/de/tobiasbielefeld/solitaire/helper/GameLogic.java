@@ -85,7 +85,7 @@ public class GameLogic {
      */
     public void load() {
 
-        boolean first_run = getBoolean(GAME_FIRST_RUN, DEFAULT_FIRST_RUN);
+        boolean firstRun = getBoolean(GAME_FIRST_RUN, DEFAULT_FIRST_RUN);
         numberWonGames = getInt(GAME_NUMBER_OF_WON_GAMES, 0);
         won = getBoolean(GAME_WON, DEFAULT_WON);
         movedFirstCard = getBoolean(GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
@@ -98,7 +98,7 @@ public class GameLogic {
         currentGame.loadRedealCount(gm);
 
         try {
-            if (first_run) {
+            if (firstRun) {
                 newGame();
                 putBoolean(GAME_FIRST_RUN, false);
             } else if (won) {
@@ -142,7 +142,7 @@ public class GameLogic {
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */
     public void newGame() {
-        randomCards = cards.clone();
+        System.arraycopy(cards,0,randomCards,0,cards.length);
         randomize(randomCards);
 
         redeal();
