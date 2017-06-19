@@ -237,6 +237,7 @@ public class Stack {
      */
     private void updateSpacing() {
         float posX, posY;
+        float facedDownSpacing;
 
         if (currentCards.size() == 0) {
             return;
@@ -252,22 +253,24 @@ public class Stack {
             case DOWN:
                 posY = view.getY();
                 spacing = min((spacingMax - view.getY()) / (currentCards.size() + 1), defaultSpacing);
+                facedDownSpacing = min(spacing, defaultSpacing / 2);
 
                 currentCards.get(0).setLocation(view.getX(), view.getY());
 
                 for (int i = 1; i < currentCards.size(); i++) {
-                    posY += currentCards.get(i - 1).isUp() ? spacing : defaultSpacing / 2;
+                    posY += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                     currentCards.get(i).setLocation(view.getX(), posY);
                 }
                 break;
             case UP:
                 posY = view.getY();
                 spacing = min((view.getY() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
+                facedDownSpacing = min(spacing, defaultSpacing / 2);
 
                 currentCards.get(0).setLocation(view.getX(), view.getY());
 
                 for (int i = 1; i < currentCards.size(); i++) {
-                    posY -= currentCards.get(i - 1).isUp() ? spacing : defaultSpacing / 2;
+                    posY -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                     currentCards.get(i).setLocation(view.getX(), posY);
                 }
                 break;
@@ -277,16 +280,18 @@ public class Stack {
 
                 if (leftHandedModeEnabled()) {
                     spacing = min((spacingMax - view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    facedDownSpacing = min(spacing, defaultSpacing / 2);
 
                     for (int i = 1; i < currentCards.size(); i++) {
-                        posX += currentCards.get(i - 1).isUp() ? spacing : defaultSpacing / 2;
+                        posX += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                         currentCards.get(i).setLocation(posX, view.getY());
                     }
                 } else {
                     spacing = min((view.getX() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
+                    facedDownSpacing = min(spacing, defaultSpacing / 2);
 
                     for (int i = 1; i < currentCards.size(); i++) {
-                        posX -= currentCards.get(i - 1).isUp() ? spacing : defaultSpacing / 2;
+                        posX -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                         currentCards.get(i).setLocation(posX, view.getY());
                     }
                 }
@@ -297,16 +302,18 @@ public class Stack {
 
                 if (leftHandedModeEnabled()) {
                     spacing = min((view.getX() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
+                    facedDownSpacing = min(spacing, defaultSpacing / 2);
 
                     for (int i = 1; i < currentCards.size(); i++) {
-                        posX -= currentCards.get(i - 1).isUp() ? spacing : defaultSpacing / 2;
+                        posX -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                         currentCards.get(i).setLocation(posX, view.getY());
                     }
                 } else {
                     spacing = min((spacingMax - view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    facedDownSpacing = min(spacing, defaultSpacing / 2);
 
                     for (int i = 1; i < currentCards.size(); i++) {
-                        posX += currentCards.get(i - 1).isUp() ? spacing : defaultSpacing / 2;
+                        posX += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                         currentCards.get(i).setLocation(posX, view.getY());
                     }
                 }

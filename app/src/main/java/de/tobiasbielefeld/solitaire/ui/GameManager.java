@@ -23,6 +23,7 @@ import android.content.res.Configuration;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -611,9 +613,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * do not show the dialog while the activity is paused. This would cause a force close
      */
     public void showRestartDialog() {
-        if (!activityPaused) {
+        try {
             RestartDialog restartDialog = new RestartDialog();
             restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
+        } catch (Exception e){
+            Log.e("showRestartDialog: ", e.toString());
         }
     }
 
