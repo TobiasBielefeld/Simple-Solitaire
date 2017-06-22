@@ -34,7 +34,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:background="#000000"></FrameLayout>
+            android:background="#000000" />
 
         <TextView
             android:id="@+id/mainTextViewTime"
@@ -107,7 +107,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:background="#000000"></FrameLayout>
+            android:background="#000000" />
 
     </RelativeLayout>
 

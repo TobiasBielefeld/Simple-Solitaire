@@ -28,8 +28,6 @@ import android.preference.PreferenceManager;
 
 import java.util.Locale;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-
 /**
  * Update locale in the activities,
  * created with this guide: http://gunhansancar.com/change-language-programmatically-in-android/
