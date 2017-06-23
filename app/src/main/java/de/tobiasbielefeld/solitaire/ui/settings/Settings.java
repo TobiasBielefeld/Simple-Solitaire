@@ -40,7 +40,6 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
-import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 

@@ -20,23 +20,16 @@ package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import yuku.ambilwarna.AmbilWarnaDialog;

@@ -18,7 +18,6 @@
 
 package de.tobiasbielefeld.solitaire.handler;
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
