@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.handler;
 
 import android.os.Handler;
 import android.os.Message;
-import android.os.SystemClock;
 
 import java.util.Locale;
 

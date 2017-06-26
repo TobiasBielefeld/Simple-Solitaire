@@ -112,11 +112,8 @@ public class Freecell extends Game {
                     numberOfFreeCells++;
             }
 
-            if (movingCards > numberOfFreeCells && stack.isEmpty()) {
-                return false;
-            }
+            return !(movingCards > numberOfFreeCells && stack.isEmpty()) && canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
 
-            return canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
         } else if (stack.getId() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
         } else if (movingCards.hasSingleCard()) {

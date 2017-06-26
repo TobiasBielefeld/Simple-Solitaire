@@ -35,7 +35,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Locale;
-import java.util.concurrent.ExecutionException;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;

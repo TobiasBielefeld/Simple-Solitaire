@@ -129,11 +129,9 @@ public class FortyEight extends Game {
                     numberOfFreeStacks++;
             }
 
-            if (movingCards > numberOfFreeStacks && stack.isEmpty())
-                return false;
+            return !(movingCards > numberOfFreeStacks && stack.isEmpty()) && canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);
 
 
-            return canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);
         } else if (stack.getId() < 16 && movingCards.hasSingleCard()) {
             if (stack.isEmpty())
                 return card.getValue() == 1;

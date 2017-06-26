@@ -21,7 +21,6 @@ package de.tobiasbielefeld.solitaire.helper;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;

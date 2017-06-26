@@ -260,11 +260,7 @@ public class GrandfathersClock extends Game {
                     numberOfFreeStacks++;
             }
 
-            if (movingCards > numberOfFreeStacks && stack.isEmpty()) {
-                return false;
-            } else {
-                return canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
-            }
+            return !(movingCards > numberOfFreeStacks && stack.isEmpty()) && canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
 
         } else {
             return movingCards.hasSingleCard() && canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING, true);
