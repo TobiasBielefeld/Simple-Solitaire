@@ -165,7 +165,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             Card.updateCardDrawableChoice();
 
         } else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
-            animate.updateMovementSpeed();
+            if (animate != null) {
+                animate.updateMovementSpeed();
+            }
 
         }
     }
