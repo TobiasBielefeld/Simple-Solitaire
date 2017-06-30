@@ -276,11 +276,11 @@ public class Spider extends Game {
          */
         int currentMainStackID = 22;
 
-        while (stacks[currentMainStackID].isEmpty())
+        while (currentMainStackID > 17 && stacks[currentMainStackID].isEmpty())
             currentMainStackID--;
 
         //id below 18 means all main stacks are empty
-        if (stacks[currentMainStackID].getId() >= 18) {
+        if (currentMainStackID > 17) {
 
             ArrayList<Card> cards = new ArrayList<>();
             ArrayList<Stack> destinations = new ArrayList<>();
