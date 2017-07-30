@@ -62,6 +62,7 @@
     </string-array>
 
     <string-array name="pref_movement_speed_titles">
+        <item>Tre malrapida</item>
         <item>Malrapida</item>
         <item>Meza</item>
         <item>Rapida</item>

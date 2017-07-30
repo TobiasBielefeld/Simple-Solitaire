@@ -25,6 +25,8 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.helper.Sounds;
+
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*

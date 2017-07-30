@@ -52,6 +52,7 @@ import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
+import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.helper.Timer;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
@@ -110,6 +111,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         autoComplete = new AutoComplete(gm);
         timer = new Timer(gm);
         cardHighlight = new CardHighlight(gm);
+        sounds = new Sounds(gm);
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
         savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
         Stack.loadBackgrounds();
@@ -614,6 +616,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void showRestartDialog() {
         try {
             RestartDialog restartDialog = new RestartDialog();
+            restartDialog.setArguments(this);
             restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e){
             Log.e("showRestartDialog: ", e.toString());

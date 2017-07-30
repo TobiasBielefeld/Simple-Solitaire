@@ -86,9 +86,11 @@
     <string name="settings_single_tap_enable">Włącz ruchy przy pojedynczym stuknięciu</string>
     <string name="settings_single_tap_enable_text">Tylko w grach Golf i TrzyWieże: stuknij pojedynczo w kartę, aby przenieść ją na stos odrzutów</string>
 
-    <!-- new values -->
     <string name="settings_double_tap_foundation_first">Przenieś najpierw na stos bazowy</string>
     <string name="settings_double_tap_foundation_first_text">Próbuj przenieś górną kartę z dotykanego stosu na stos bazowy przed przeniesieniem innych kart</string>
     <string name="settings_movement_speed">Szybkość przenoszenia kart</string>
+
+    <!-- new values -->
+    <string name="Settings_sound">Enable sound in game</string>
 
 </resources>

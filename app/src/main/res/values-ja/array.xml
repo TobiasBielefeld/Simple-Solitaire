@@ -63,7 +63,8 @@
     </string-array>
 
     <string-array name="pref_movement_speed_titles">
-        <item>スロー</item>
+        <item>非常にゆっくりと</item>
+        <item>ゆっくり</item>
         <item>ノーマル</item>
         <item>速い</item>
     </string-array>

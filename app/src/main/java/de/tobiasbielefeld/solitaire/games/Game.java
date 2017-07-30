@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -779,5 +780,9 @@ public abstract class Game {
 
     protected enum testMode3 {
         ASCENDING, DESCENDING
+    }
+
+    protected void playSound(Sounds.names name){
+        sounds.playSound(name);
     }
 }

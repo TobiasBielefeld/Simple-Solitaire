@@ -63,6 +63,7 @@
 
     <!-- new values -->
     <string-array name="pref_movement_speed_titles">
+        <item>Very slow</item>
         <item>Slow</item>
         <item>Normal</item>
         <item>Fast</item>

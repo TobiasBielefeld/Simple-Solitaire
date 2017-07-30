@@ -108,8 +108,10 @@ public class MovingCards {
 
         moveToStack(currentCards, destination);
 
-        if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp())
+        if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp()) {
             origin.getTopCard().flipWithAnim();
+        }
+
 
         currentCards.clear();
 
