@@ -80,6 +80,7 @@
     <string name="game_number_of_played_games" translatable="false">GameNumberOfPlayedGames</string>
     <string name="game_number_of_won_games" translatable="false">GameNumberOfWonGames</string>
     <string name="game_won" translatable="false">GameWon</string>
+    <string name="game_won_and_reloaded" translatable="false">GameWonAndReloaded</string>
     <string name="game_redeal_count" translatable="false">GameRedealCount</string>
     <string name="saved_scores" translatable="false">SavedScores</string>
     <string name="score" translatable="false">Score</string>

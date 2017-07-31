@@ -614,6 +614,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void showRestartDialog() {
         try {
             RestartDialog restartDialog = new RestartDialog();
+            restartDialog.setArguments(this);
             restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e){
             Log.e("showRestartDialog: ", e.toString());

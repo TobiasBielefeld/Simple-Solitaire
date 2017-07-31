@@ -18,12 +18,18 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.IntentCompat;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -35,6 +41,19 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  */
 
 public class RestartDialog extends DialogFragment {
+
+    Activity activity;
+    GameManager gameManager;
+
+    public RestartDialog(){
+        super();
+    }
+
+    public void setArguments(GameManager gameManager){
+        activity = gameManager;
+        this.gameManager = gameManager;
+    }
+
     @Override
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -52,15 +71,16 @@ public class RestartDialog extends DialogFragment {
                                 gameLogic.redeal();
                                 break;
                             case 2:
-                                getActivity().finish();
-                                break;
                             case 3:
-                                if (((GameManager) getActivity()).hasLoaded) {
+                                if (gameManager.hasLoaded) {
                                     timer.save();
+                                    gameLogic.setWonAndReloaded();
                                     gameLogic.save();
                                 }
 
-                                getActivity().finish();
+                                putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);          //otherwise the menu would load the current game again, because last played game will start
+                                activity.finish();
+                                //fall through
                                 break;
                         }
                     }

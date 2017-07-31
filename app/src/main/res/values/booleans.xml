@@ -8,6 +8,7 @@
     <bool name="default_forty_eight_limited_redeals">true</bool>
     <bool name="default_first_run">true</bool>
     <bool name="default_won">false</bool>
+    <bool name="default_won_and_reloaded">false</bool>
     <bool name="default_moved_first_card">false</bool>
     <bool name="default_4_color_mode">false</bool>
     <bool name="default_tap_to_select_enable">true</bool>

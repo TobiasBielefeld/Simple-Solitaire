@@ -32,7 +32,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class LoadGameHandler extends Handler {
 
-    GameManager gm;
+    private GameManager gm;
 
     public LoadGameHandler(GameManager gm) {
         this.gm = gm;

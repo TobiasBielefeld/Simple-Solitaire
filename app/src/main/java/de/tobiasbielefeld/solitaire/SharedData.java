@@ -58,6 +58,7 @@ public class SharedData {
     public static String GAME;
     public static String GAME_REDEAL_COUNT;
     public static String GAME_WON;
+    public static String GAME_WON_AND_RELOADED;
     public static String GAME_NUMBER_OF_WON_GAMES;
     public static String GAME_NUMBER_OF_PLAYED_GAMES;
     public static String GAME_RANDOM_CARDS;
@@ -136,6 +137,7 @@ public class SharedData {
     public static boolean DEFAULT_DOUBLE_TAP_ALL_CARDS;
     public static boolean DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST;
     public static boolean DEFAULT_WON;
+    public static boolean DEFAULT_WON_AND_RELOADED;
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
     public static boolean DEFAULT_4_COLOR_MODE;
@@ -254,6 +256,7 @@ public class SharedData {
         DEFAULT_MENU_BAR_POSITION_PORTRAIT = res.getString(R.string.default_menu_bar_position_portrait);
         DEFAULT_FIRST_RUN = res.getBoolean(R.bool.default_first_run);
         DEFAULT_WON = res.getBoolean(R.bool.default_won);
+        DEFAULT_WON_AND_RELOADED = res.getBoolean(R.bool.default_won_and_reloaded);
         DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
         DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
         DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
@@ -269,6 +272,7 @@ public class SharedData {
         DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_canfield_draw_values)[1];
         GAME_REDEAL_COUNT = res.getString(R.string.game_redeal_count);
         GAME_WON = res.getString(R.string.game_won);
+        GAME_WON = res.getString(R.string.game_won_and_reloaded);
         GAME_NUMBER_OF_WON_GAMES = res.getString(R.string.game_number_of_won_games);
         GAME_NUMBER_OF_PLAYED_GAMES = res.getString(R.string.game_number_of_played_games);
         GAME_RANDOM_CARDS = res.getString(R.string.game_random_cards);

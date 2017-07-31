@@ -39,7 +39,7 @@ public class GameLogic {
 
     public Card[] randomCards;                                                                      //array to shuffle the cards
     private int numberWonGames;                                                                     //number of won games. It's shown in the high score activity
-    private boolean won;                                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
+    private boolean won, wonAndReloaded;                                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
 
@@ -65,6 +65,7 @@ public class GameLogic {
         scores.save();
         recordList.save();
         putBoolean(GAME_WON, won);
+        putBoolean(GAME_WON_AND_RELOADED, wonAndReloaded);
         putBoolean(GAME_MOVED_FIRST_CARD, movedFirstCard);
         putInt(GAME_NUMBER_OF_WON_GAMES, numberWonGames);
         // Timer will be saved in onPause()
@@ -75,6 +76,12 @@ public class GameLogic {
         saveRandomCards();
         currentGame.save();
         currentGame.saveRedealCount();
+    }
+
+    public void setWonAndReloaded(){
+        if (won){
+            wonAndReloaded = true;
+        }
     }
 
     /**
@@ -88,6 +95,7 @@ public class GameLogic {
         boolean firstRun = getBoolean(GAME_FIRST_RUN, DEFAULT_FIRST_RUN);
         numberWonGames = getInt(GAME_NUMBER_OF_WON_GAMES, 0);
         won = getBoolean(GAME_WON, DEFAULT_WON);
+        wonAndReloaded = getBoolean(GAME_WON_AND_RELOADED, DEFAULT_WON_AND_RELOADED);
         movedFirstCard = getBoolean(GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
         //update and reset
         Card.updateCardDrawableChoice();
@@ -101,7 +109,9 @@ public class GameLogic {
             if (firstRun) {
                 newGame();
                 putBoolean(GAME_FIRST_RUN, false);
-            } else if (won) {
+            }  else if (wonAndReloaded){        //in case the game was selected from the main menu and it was already won, start a new game
+                newGame();
+            } else if (won) {                   //in case the screen orientation changes, do not immediately start a new game
                 loadRandomCards();
 
                 for (Card card : cards) {
@@ -159,6 +169,7 @@ public class GameLogic {
 
         movedFirstCard = false;
         won = false;
+        wonAndReloaded = false;
         currentGame.reset(gm);
 
         animate.reset();
@@ -173,7 +184,7 @@ public class GameLogic {
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
-            card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
+            card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());          ///TODO there is an error somewhere here "null pointer exception"
             currentGame.getDealStack().addCard(card);
             card.flipDown();
         }
