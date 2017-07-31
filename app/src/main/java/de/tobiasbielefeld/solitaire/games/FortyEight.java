@@ -81,9 +81,9 @@ public class FortyEight extends Game {
     }
 
     public boolean winTest() {
-        /*for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 8; i++)
             if (stacks[8 + i].getSize() != 13)
-                return false;*/
+                return false;
 
         return true;
     }
