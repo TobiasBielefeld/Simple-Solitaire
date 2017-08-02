@@ -53,6 +53,9 @@ public class BackgroundSound extends AsyncTask<Context,Void,Void> {
             case "2":
                 soundID = R.raw.background_music_2;
                 break;
+            case "3"://TODO CHANGE !!!
+                soundID = R.raw.background_music_2;
+                break;
         }
 
         player = MediaPlayer.create(context, soundID);
