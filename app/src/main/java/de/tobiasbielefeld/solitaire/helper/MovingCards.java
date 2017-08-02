@@ -103,13 +103,16 @@ public class MovingCards {
      */
     public void moveToDestination(Stack destination) {
         gameLogic.checkFirstMovement();
+        sounds.playSound(Sounds.names.CARD_SET);
 
         Stack origin = currentCards.get(0).getStack();
 
         moveToStack(currentCards, destination);
 
-        if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp())
+        if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp()) {
             origin.getTopCard().flipWithAnim();
+        }
+
 
         currentCards.clear();
 

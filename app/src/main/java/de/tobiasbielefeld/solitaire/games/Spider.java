@@ -269,7 +269,7 @@ public class Spider extends Game {
         }
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
         /*
          * first get the current main stack, then deal the cards from it to the tableau.
          * with the reversed record option
@@ -294,7 +294,10 @@ public class Spider extends Game {
             moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
             //test if a card family is now full
             testAfterMoveHandler.sendEmptyMessageDelayed(0, 100);
+            return 1;
         }
+
+        return 0;
     }
 
     public boolean cardTest(Stack stack, Card card) {

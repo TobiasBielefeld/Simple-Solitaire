@@ -45,6 +45,8 @@
     <string name="pref_key_background_color_type" translatable="false">pref_key_background_color_type</string>
     <string name="pref_key_background_color_custom" translatable="false">pref_key_background_color_custom</string>
     <string name="pref_key_movement_speed" translatable="false">pref_key_movement_speed</string>
+    <string name="pref_key_sound_enabled" translatable="false">pref_key_sound_enabled</string>
+    <string name="pref_key_win_sound" translatable="false">pref_key_win_sound</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

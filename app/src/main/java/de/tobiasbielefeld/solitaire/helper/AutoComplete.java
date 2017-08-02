@@ -66,6 +66,12 @@ public class AutoComplete {
 
     public void showButton() {
         buttonShown = true;
+        sounds.playSound(Sounds.names.SHOW_AUTOCOMPLETE);
+        animate.showAutoCompleteButton();
+    }
+
+    public void showButtonWithoutSound() {
+        buttonShown = true;
         animate.showAutoCompleteButton();
     }
 

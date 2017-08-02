@@ -62,6 +62,7 @@
     </string-array>
 
     <string-array name="pref_movement_speed_titles">
+        <item>Sehr langsam</item>
         <item>Langsam</item>
         <item>Normal</item>
         <item>Schnell</item>

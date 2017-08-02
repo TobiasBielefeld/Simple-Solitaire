@@ -23,6 +23,8 @@ import android.graphics.PointF;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.helper.Sounds;
+
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
@@ -224,10 +226,12 @@ public class Card {
     public void flipWithAnim() {
         if (isUp()) {
             isUp = false;
+            //sounds.playSound(Sounds.names.CARD_FLIP_BACK);
             scores.undo(this, getStack());
             animate.flipCard(this, false);
         } else {
             isUp = true;
+            //sounds.playSound(Sounds.names.CARD_FLIP);
             scores.move(this, getStack());
             recordList.addFlip(this);
             animate.flipCard(this, true);

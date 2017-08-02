@@ -180,11 +180,14 @@ public class Golf extends Game {
         return points;
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
         if (getMainStack().getSize() > 0) {
             moveToStack(getMainStack().getTopCard(), getDiscardStack());
             runCounter = 0;
+            return 1;
         }
+
+        return 0;
     }
 
     @Override

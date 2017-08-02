@@ -145,6 +145,7 @@ public class RecordList {
      */
     public void undo() {
         if (!entries.isEmpty()) {
+            sounds.playSound(Sounds.names.CARD_RETURN);
             scores.update(-25);
             entries.get(entries.size() - 1).undo();
             entries.remove(entries.size() - 1);

@@ -23,6 +23,7 @@ import android.os.Message;
 
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.helper.Hint;
+import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -31,6 +32,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  */
 
 public class HintHandler extends Handler {
+
+    boolean soundPlayed = false;
 
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
@@ -41,16 +44,23 @@ public class HintHandler extends Handler {
             if (!animate.cardIsAnimating()) {
                 cardAndStack = currentGame.hintTest();
 
-                if (cardAndStack == null)
+                if (cardAndStack == null) {
                     hint.stop();
-                else
+                } else {
+
+                    if (!soundPlayed) {
+                        sounds.playSound(Sounds.names.HINT);
+                        soundPlayed = true;
+                    }
                     hint.move(cardAndStack.getCard(), cardAndStack.getStack());
+                }
 
                 hint.setCounter(hint.getCounter() + 1);
             }
 
             hint.hintHandler.sendEmptyMessageDelayed(0, 100);
         } else {
+            soundPlayed = false;
             hint.setCounter(0);
         }
     }

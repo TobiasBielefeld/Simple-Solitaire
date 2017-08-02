@@ -104,6 +104,7 @@ public class GameLogic {
         autoComplete.reset();
         currentGame.load();
         currentGame.loadRedealCount(gm);
+        sounds.playSound(Sounds.names.DEAL_CARDS);
 
         try {
             if (firstRun) {
@@ -138,7 +139,7 @@ public class GameLogic {
                 loadRandomCards();
 
                 if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
-                    autoComplete.showButton();
+                    autoComplete.showButtonWithoutSound();
                 }
             }
         } catch (Exception e) {
@@ -171,6 +172,7 @@ public class GameLogic {
         won = false;
         wonAndReloaded = false;
         currentGame.reset(gm);
+        sounds.playSound(Sounds.names.DEAL_CARDS);
 
         animate.reset();
         scores.reset();

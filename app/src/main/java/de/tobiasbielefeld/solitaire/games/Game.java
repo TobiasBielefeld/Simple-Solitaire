@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -174,7 +175,22 @@ public abstract class Game {
     /**
      * Put what happens on a main stack touch here, for example move a card to the discard stack.
      */
-    abstract public void onMainStackTouch();
+    abstract public int onMainStackTouch();
+
+    public void mainStackTouch(){
+
+        int sound = onMainStackTouch();
+
+        switch (sound){
+            case 1:     //single card moved
+                sounds.playSound(Sounds.names.CARD_SET);
+                break;
+            case 2:     //moved cards back to mainstack
+                break;
+            default:    //no cards moved
+                break;
+        }
+    }
 
     /**
      * Is the method a game needs to implement for the double tap test. Test where the given card

@@ -97,8 +97,9 @@ public class Freecell extends Game {
         }
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
         //no main stack, so empty
+        return 0;
     }
 
     public boolean cardTest(Stack stack, Card card) {

@@ -265,14 +265,14 @@ public class DummyGame extends Game {
      * Put here what happens if the player touches the main stack, if there is any.
      * If there is no main stack, leave it empty
      */
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
 
         //first test the coordinates if they are really on the main stack.
         //(I put this test here because in Spider Solitaire, the cards from "main" are placed on
         // multiple stacks).
         if (getMainStack().getSize() > 0) {                                                         //if it has cards
             moveToStack(getMainStack().getTopCard(), getDiscardStack());                            //move the card to the discard stack
-
+            return 1;
         }
         //if it empty, do something like move all cards from the discard pile to the main
         // Stack again. In this example from Klondike, the cards are moved in reversed order than
@@ -283,7 +283,11 @@ public class DummyGame extends Game {
 
             while (stacks[11].getSize() > 0)                                                        //then place the top card from stack11 to stack12 until it is empty
                 moveToStack(stacks[11].getTopCard(), getMainStack(), OPTION_NO_RECORD);
+
+            return 2;
         }
+
+        return 0;
     }
 
     /*

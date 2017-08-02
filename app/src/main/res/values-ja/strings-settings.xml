@@ -90,6 +90,7 @@
     <string name="settings_double_tap_foundation_first">最初に基礎スタックに移動する</string>
     <string name="settings_double_tap_foundation_first_text">他のカードを移動する前に、タップされたスタックの一番上のカードを土台に移動してみてください</string>
     <string name="settings_movement_speed">カードの移動速度</string>
+    <string name="Settings_sound">ゲームでサウンドを有効にする</string>
 
 
 </resources>
