@@ -37,12 +37,6 @@
         android:title="@string/settings_hide_status_bar" />
 
     <CheckBoxPreference
-        android:key="@string/pref_key_sound_enabled"
-        android:defaultValue="@bool/default_sound_enabled"
-        android:title="@string/Settings_sound" />
-
-
-    <CheckBoxPreference
         android:defaultValue="false"
         android:key="@string/pref_key_left_handed_mode"
         android:summary="@string/settings_left_handed_mode_description"

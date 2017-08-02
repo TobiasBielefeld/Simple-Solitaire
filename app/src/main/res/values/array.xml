@@ -41,6 +41,13 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="pref_win_sounds_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string-array name="pref_yukon_rules_values" translatable="false">
         <item>default</item>
         <item>russian</item>
@@ -128,6 +135,13 @@
         <item>Slow</item>
         <item>Normal</item>
         <item>Fast</item>
+    </string-array>
+
+    <string-array name="pref_win_sounds_titles" translatable="false">
+        <item>Piano (Default)</item>
+        <item>Victory sound</item>
+        <item>8-Bit voice "You win"</item>
+        <item>Cheering croud</item>
     </string-array>
 
 </resources>

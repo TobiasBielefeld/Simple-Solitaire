@@ -101,10 +101,11 @@ public class FortyEight extends Game {
     }
 
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
 
         if (!getMainStack().isEmpty()) {
             moveToStack(getMainStack().getTopCard(), getDiscardStack());
+            return 1;
 
         } else if (getDiscardStack().getSize() != 0) {
             recordList.add(getDiscardStack().currentCards);
@@ -113,7 +114,10 @@ public class FortyEight extends Game {
                 moveToStack(getDiscardStack().getTopCard(), getMainStack(), OPTION_NO_RECORD);
 
             scores.update(-200);    //because of no record, it isn't updated automatically
+            return 2;
         }
+
+        return 0;
     }
 
 

@@ -17,10 +17,10 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Sounds {
 
-    public enum names {CARD_FLIP, CARD_FLIP_BACK, CARD_HIT}
+    public enum names {CARD_RETURN, CARD_SET, HINT, DEAL_CARDS, SHOW_AUTOCOMPLETE}
 
     private SoundPool sp;// = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-    private int[] soundList = new int[8];
+    private int[] soundList = new int[15];
     private Context context;
 
     public Sounds(Context context){
@@ -39,25 +39,55 @@ public class Sounds {
 
         if (savedSharedData.getBoolean(PREF_KEY_SOUND_ENABLED, DEFAULT_SOUND_ENABLED)) {
             switch (name){
-                case CARD_FLIP:
+                case CARD_RETURN:
                     sp.play(soundList[0], 1, 1, 0, 0, 1);
                     break;
-                case CARD_FLIP_BACK:
+                case CARD_SET:
                     sp.play(soundList[1], 1, 1, 0, 0, 1);
                     break;
-                case CARD_HIT:
+                case HINT:
                     sp.play(soundList[2], 1, 1, 0, 0, 1);
                     break;
+                case DEAL_CARDS:
+                    sp.play(soundList[3], 1, 1, 0, 0, 1);
+                    break;
+                case SHOW_AUTOCOMPLETE:
+                    sp.play(soundList[4], 1, 1, 0, 0, 1);
+                    break;
             }
+        }
+    }
 
+    public void playWinSound() {
+        if (savedSharedData.getBoolean(PREF_KEY_SOUND_ENABLED, DEFAULT_SOUND_ENABLED)) {
+            switch (savedSharedData.getString(PREF_KEY_WIN_SOUND, DEFAULT_WIN_SOUND)) {
+                case "0":
+                    sp.play(soundList[5], 1, 1, 0, 0, 1);
+                    break;
+                case "1":
+                    sp.play(soundList[6], 1, 1, 0, 0, 1);
+                    break;
+                case "2":
+                    sp.play(soundList[7], 1, 1, 0, 0, 1);
+                    break;
+                case "3":
+                    sp.play(soundList[8], 1, 1, 0, 0, 1);
+                    break;
+            }
         }
     }
 
     private void loadSounds(){
-        soundList[0] = sp.load(context, R.raw.card_flip, 1);
-        soundList[1] = sp.load(context, R.raw.card_flip_back, 1);
-        //soundList[2] = sp.load(this, R.raw.explosion, 1);
-        //soundList[3] = sp.load(this, R.raw.boop, 1);
+        soundList[0] = sp.load(context, R.raw.card_return, 1);
+        soundList[1] = sp.load(context, R.raw.card_set, 1);
+        soundList[2] = sp.load(context, R.raw.hint, 1);
+        soundList[3] = sp.load(context, R.raw.deal_cards, 1);
+        soundList[4] = sp.load(context, R.raw.show_autocomplete, 1);
+
+        soundList[5] = sp.load(context, R.raw.win_1, 1);
+        soundList[6] = sp.load(context, R.raw.win_2, 1);
+        soundList[7] = sp.load(context, R.raw.win_3, 1);
+        soundList[8] = sp.load(context, R.raw.win_4, 1);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

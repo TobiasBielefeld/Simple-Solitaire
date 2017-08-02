@@ -206,7 +206,7 @@ public class Canfield extends Game {
         }
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
 
         boolean deal3 = sharedStringEquals(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW);
 
@@ -296,8 +296,10 @@ public class Canfield extends Game {
                 moveToStack(getMainStack().getTopCard(), stacks[11]);
                 stacks[11].getTopCard().flipUp();
             }
+
+            return 1;
         }
-        //of there are NO cards on the main stack, but cards on the discard stacks, move them all to main
+        //if there are NO cards on the main stack, but cards on the discard stacks, move them all to main
         else if (stacks[9].getSize() != 0 || stacks[10].getSize() != 0 || stacks[11].getSize() != 0) {
             ArrayList<Card> cards = new ArrayList<>();
 
@@ -320,7 +322,10 @@ public class Canfield extends Game {
             }
 
             moveToStack(cardsReversed, getMainStack(), OPTION_REVERSED_RECORD);
+            return 2;
         }
+
+        return 0;
     }
 
     public boolean autoCompleteStartTest() {

@@ -85,7 +85,7 @@ public class Mod3 extends Game {
         }
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
 
         if (!getMainStack().isEmpty()) {
             ArrayList<Card> cards = new ArrayList<>();
@@ -98,7 +98,11 @@ public class Mod3 extends Game {
             }
 
             moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
+
+            return 1;
         }
+
+        return 0;
     }
 
     public boolean cardTest(Stack stack, Card card) {

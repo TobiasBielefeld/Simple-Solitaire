@@ -238,8 +238,9 @@ public class GrandfathersClock extends Game {
         }
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
         //no main stack
+        return 0;
     }
 
     public boolean cardTest(Stack stack, Card card) {

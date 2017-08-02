@@ -15,6 +15,11 @@
         android:title="@string/settings_games" />
 
     <header
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$SoundPreferenceFragment"
+        android:summary="@string/Settings_sounds_text"
+        android:title="@string/Settings_sounds_title" />
+
+    <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$AdditionalMovementsPreferenceFragment"
         android:summary="@string/settings_additional_movements_description"
         android:title="@string/settings_additional_movements" />

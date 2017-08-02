@@ -296,7 +296,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
             }
             //do what the game wants to be done on a main stack press
-            currentGame.onMainStackTouch();
+            currentGame.mainStackTouch();
             return resetTappedCard();
         }
 

@@ -226,12 +226,12 @@ public class Card {
     public void flipWithAnim() {
         if (isUp()) {
             isUp = false;
-            sounds.playSound(Sounds.names.CARD_FLIP_BACK);
+            //sounds.playSound(Sounds.names.CARD_FLIP_BACK);
             scores.undo(this, getStack());
             animate.flipCard(this, false);
         } else {
             isUp = true;
-            sounds.playSound(Sounds.names.CARD_FLIP);
+            //sounds.playSound(Sounds.names.CARD_FLIP);
             scores.move(this, getStack());
             recordList.addFlip(this);
             animate.flipCard(this, true);

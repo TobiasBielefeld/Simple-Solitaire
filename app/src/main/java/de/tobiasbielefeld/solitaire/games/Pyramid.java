@@ -117,10 +117,12 @@ public class Pyramid extends Game {
         return (getDealStack().isEmpty() && getDealStack().isOnLocation(X, Y)) || getMainStack().isOnLocation(X, Y);
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
 
         if (!getDealStack().isEmpty()) {
             moveToStack(getDealStack().getTopCard(), getDiscardStack());
+            return 1;
+
         } else if (!getDiscardStack().isEmpty()) {
             recordList.add(getDiscardStack().currentCards);
 
@@ -128,7 +130,10 @@ public class Pyramid extends Game {
                 moveToStack(getDiscardStack().getTopCard(), getDealStack(), OPTION_NO_RECORD);
 
             scores.update(-200);    //because of no record, it isn't updated automatically
+            return 2;
         }
+
+        return 0;
     }
 
 

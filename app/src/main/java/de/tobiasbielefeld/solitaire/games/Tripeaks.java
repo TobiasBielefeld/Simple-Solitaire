@@ -140,11 +140,15 @@ public class Tripeaks extends Game {
         moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
         if (getMainStack().getSize() > 0) {
             moveToStack(getMainStack().getTopCard(), getDiscardStack());
             runCounter = 0;
+
+            return 1;
         }
+
+        return 0;
     }
 
     public boolean cardTest(Stack stack, Card card) {

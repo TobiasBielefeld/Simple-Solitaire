@@ -127,7 +127,7 @@ public class Klondike extends Game {
         }
     }
 
-    public void onMainStackTouch() {
+    public int onMainStackTouch() {
 
         boolean deal3 = !sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD, DEFAULT_KLONDIKE_DRAW);
 
@@ -213,8 +213,10 @@ public class Klondike extends Game {
                 moveToStack(getMainStack().getTopCard(), stacks[13]);
                 stacks[13].getTopCard().flipUp();
             }
+
+            return 1;
         }
-        //of there are NO cards on the main stack, but cards on the discard stacks, move them all to main
+        //if there are NO cards on the main stack, but cards on the discard stacks, move them all to main
         else if (stacks[11].getSize() != 0 || stacks[12].getSize() != 0 || stacks[13].getSize() != 0) {
             ArrayList<Card> cards = new ArrayList<>();
 
@@ -232,7 +234,10 @@ public class Klondike extends Game {
                 cardsReversed.add(cards.get(cards.size() - 1 - i));
 
             moveToStack(cardsReversed, getMainStack(), OPTION_REVERSED_RECORD);
+            return 2;
         }
+
+        return 0;
     }
 
     public boolean autoCompleteStartTest() {

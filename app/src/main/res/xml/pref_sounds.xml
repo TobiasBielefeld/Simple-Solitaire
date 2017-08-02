@@ -1,0 +1,21 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="@string/pref_key_sound_enabled"
+        android:defaultValue="@bool/default_sound_enabled"
+        android:title="@string/Settings_sound" />
+
+    <ListPreference
+        android:dependency="@string/pref_key_sound_enabled"
+        android:defaultValue="@string/default_win_sound"
+        android:entries="@array/pref_win_sounds_titles"
+        android:entryValues="@array/pref_win_sounds_values"
+        android:key="@string/pref_key_win_sound"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@null"
+        android:summary="%s"
+        android:title="@string/Settings_win_sound_title" />
+
+
+
+</PreferenceScreen>

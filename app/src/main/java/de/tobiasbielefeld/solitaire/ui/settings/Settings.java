@@ -168,6 +168,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 animate.updateMovementSpeed();
             }
 
+        } else if (key.equals(PREF_KEY_WIN_SOUND)) {
+            sounds.playWinSound();
         }
     }
 
@@ -183,7 +185,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 || OtherPreferenceFragment.class.getName().equals(fragmentName)
                 || GamesPreferenceFragment.class.getName().equals(fragmentName)
                 || MenuPreferenceFragment.class.getName().equals(fragmentName)
-                || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName);
+                || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
+                || SoundPreferenceFragment.class.getName().equals(fragmentName);
     }
 
     /**
@@ -292,6 +295,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_other);
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public static class SoundPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_sounds);
             setHasOptionsMenu(true);
         }
     }
