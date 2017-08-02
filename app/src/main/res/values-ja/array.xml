@@ -76,4 +76,12 @@
         <item>応援している群衆</item>
     </string-array>
 
+    <string-array name="pref_background_sounds_titles">
+        <item>使用禁止</item>
+        <item>1</item>      <!-- names will be changed later -->
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+
 </resources>

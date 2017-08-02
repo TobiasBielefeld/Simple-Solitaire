@@ -186,6 +186,7 @@ public abstract class Game {
                 sounds.playSound(Sounds.names.CARD_SET);
                 break;
             case 2:     //moved cards back to mainstack
+                sounds.playSound(Sounds.names.DEAL_CARDS);
                 break;
             default:    //no cards moved
                 break;

@@ -83,7 +83,9 @@
     <string name="settings_movement_speed">Kartenbewegungsgeschwindigkeit</string>
     <string name="Settings_sound">Ton im Spiel erlauben</string>
     <string name="Settings_sounds_title">Töne</string>
-    <string name="Settings_sounds_text">Deaktivere Töne, ändere Toneffekte</string>
+    <string name="Settings_sounds_text">Aktivere Töne, ändere Effekte</string>
     <string name="Settings_win_sound_title">Gewinn Ton</string>
+    <string name="Settings_background_sound">Hintergrundmusik</string>
+
 
 </resources>

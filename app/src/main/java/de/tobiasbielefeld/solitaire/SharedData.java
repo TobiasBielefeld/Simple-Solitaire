@@ -113,6 +113,7 @@ public class SharedData {
     public static String PREF_KEY_MOVEMENT_SPEED;
     public static String PREF_KEY_SOUND_ENABLED;
     public static String PREF_KEY_WIN_SOUND;
+    public static String PREF_KEY_BACKGROUND_SOUND;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
@@ -125,6 +126,7 @@ public class SharedData {
     public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
     public static String DEFAULT_ORIENTATION;
     public static String DEFAULT_BACKGROUND_COLOR;
+    public static String DEFAULT_BACKGROUND_SOUND;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_CARD_BACKGROUND_COLOR;
@@ -243,6 +245,7 @@ public class SharedData {
         PREF_KEY_MOVEMENT_SPEED = res.getString(R.string.pref_key_movement_speed);
         PREF_KEY_SOUND_ENABLED = res.getString(R.string.pref_key_sound_enabled);
         PREF_KEY_WIN_SOUND = res.getString(R.string.pref_key_win_sound);
+        PREF_KEY_BACKGROUND_SOUND = res.getString(R.string.pref_key_background_sound);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -276,6 +279,7 @@ public class SharedData {
         DEFAULT_MOVEMENT_SPEED = res.getString(R.string.default_movement_speed);
         DEFAULT_SOUND_ENABLED = res.getBoolean(R.bool.default_sound_enabled);
         DEFAULT_WIN_SOUND = res.getString(R.string.default_win_sound);
+        DEFAULT_BACKGROUND_SOUND = res.getString(R.string.default_background_sound);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];

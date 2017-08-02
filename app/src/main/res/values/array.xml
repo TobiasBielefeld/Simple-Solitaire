@@ -48,6 +48,13 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="pref_background_sound_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string-array name="pref_yukon_rules_values" translatable="false">
         <item>default</item>
         <item>russian</item>
@@ -142,6 +149,13 @@
         <item>Victory sound</item>
         <item>8-Bit voice \"You win\"</item>
         <item>Cheering crowd</item>
+    </string-array>
+
+    <string-array name="pref_background_sounds_titles">
+        <item>Disabled</item>
+        <item>1</item>      <!-- names will be changed later -->
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
 </resources>

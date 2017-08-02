@@ -37,6 +37,7 @@ import android.widget.Toast;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.BackgroundSound;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
@@ -78,6 +79,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
     private boolean activityPaused;
+    private BackgroundSound backgroundSound = new BackgroundSound();
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -202,6 +204,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     @Override
     public void onPause() {
         super.onPause();
+        backgroundSound.pause();
         //ony save if the game has been loaded before
         if (hasLoaded) {
             timer.save();
@@ -217,6 +220,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         timer.load();
         loadBackgroundColor();
+
+        backgroundSound.doInBackground(this);
 
         activityPaused = false;
     }
