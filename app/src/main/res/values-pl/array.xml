@@ -68,4 +68,12 @@
         <item>Szybkie</item>
     </string-array>
 
+    <!-- new values -->
+    <string-array name="pref_win_sounds_titles">
+        <item>Piano (Default)</item>
+        <item>Victory sound</item>
+        <item>8-Bit voice \"You win\"</item>
+        <item>Cheering crowd</item>
+    </string-array>
+
 </resources>

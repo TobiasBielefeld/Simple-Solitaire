@@ -87,5 +87,8 @@
     <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
     <string name="settings_movement_speed">Card movement speed</string>
     <string name="Settings_sound">Enable sound in game</string>
+    <string name="Settings_sounds_title">Sounds</string>
+    <string name="Settings_sounds_text">Disable sounds, set up different sound effects</string>
+    <string name="Settings_win_sound_title">Winning sound effect</string>
 
 </resources>

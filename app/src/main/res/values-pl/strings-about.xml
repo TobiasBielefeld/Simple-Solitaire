@@ -27,4 +27,8 @@
     <string name="about_custom_color_picker">Wybierak własnych kolorów: używa <a href="https://github.com/yukuku/ambilwarna">biblioteki AmbilWarna</a>
         wydanej na <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">licencji Apache 2.0</a></string>
 
+    <!-- new values -->
+    <string name="about_sounds">All sounds were originally published on <a href="www.pixabay.com">pixabay.com</a> under the
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 license</a></string>
+
 </resources>

@@ -92,5 +92,8 @@
 
     <!-- new values -->
     <string name="Settings_sound">Enable sound in game</string>
+    <string name="Settings_sounds_title">Sounds</string>
+    <string name="Settings_sounds_text">Disable sounds, set up different sound effects</string>
+    <string name="Settings_win_sound_title">Winning sound effect</string>
 
 </resources>

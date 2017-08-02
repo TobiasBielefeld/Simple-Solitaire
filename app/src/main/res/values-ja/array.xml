@@ -69,4 +69,11 @@
         <item>速い</item>
     </string-array>
 
+    <string-array name="pref_win_sounds_titles">
+        <item>ピアノ（デフォルト）</item>
+        <item>勝利音</item>
+        <item>8ビットの音声 "あなたが勝つ"</item>
+        <item>応援している群衆</item>
+    </string-array>
+
 </resources>

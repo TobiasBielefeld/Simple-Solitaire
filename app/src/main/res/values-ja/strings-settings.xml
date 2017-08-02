@@ -92,5 +92,9 @@
     <string name="settings_movement_speed">カードの移動速度</string>
     <string name="Settings_sound">ゲームでサウンドを有効にする</string>
 
+    <string name="Settings_sounds_title">サウンド</string>
+    <string name="Settings_sounds_text">サウンドを無効にし、異なるサウンドエフェクトを設定する</string>
+    <string name="Settings_win_sound_title">勝利効果</string>
+
 
 </resources>

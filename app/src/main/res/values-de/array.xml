@@ -68,4 +68,11 @@
         <item>Schnell</item>
     </string-array>
 
+    <string-array name="pref_win_sounds_titles">
+        <item>Piano (Standard)</item>
+        <item>Triumph Ton</item>
+        <item>8-Bit Stimme \"You win\"</item>
+        <item>Jubelnde Menge</item>
+    </string-array>
+
 </resources>
