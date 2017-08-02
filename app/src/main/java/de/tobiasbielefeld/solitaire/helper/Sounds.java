@@ -20,7 +20,7 @@ public class Sounds {
     public enum names {CARD_RETURN, CARD_SET, HINT, DEAL_CARDS, SHOW_AUTOCOMPLETE}
 
     private SoundPool sp;// = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-    private int[] soundList = new int[15];
+    private int[] soundList = new int[9];
     private Context context;
 
     public Sounds(Context context){

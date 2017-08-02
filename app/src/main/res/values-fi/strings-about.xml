@@ -34,7 +34,6 @@
         joka on julkaistu <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0 lisenssillä</a></string>
 
     <!-- new values -->
-    <string name="about_sounds">All sounds were originally published on <a href="www.pixabay.com">pixabay.com</a> under the
+    <string name="about_sounds">All sounds were originally published on <a href="https://freesound.org">freesound.org</a> under the
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 license</a></string>
-
 </resources>
