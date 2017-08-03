@@ -3,6 +3,7 @@
     <string-array name="restart_menu">
         <item>Komenci novan ludon</item>
         <item>Disdoni kartojn ree</item>
+        <item>Ludo reguloj</item>
         <item>Reveni al ĉefmenuo</item>
     </string-array>
 

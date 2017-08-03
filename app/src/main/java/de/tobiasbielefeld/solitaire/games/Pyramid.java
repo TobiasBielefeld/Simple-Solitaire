@@ -138,6 +138,7 @@ public class Pyramid extends Game {
 
 
     public boolean cardTest(Stack stack, Card card) {
+
         if (stack.getId() == 31)
             return false;
 
@@ -145,6 +146,9 @@ public class Pyramid extends Game {
             return true;
 
         if (stack.getId() != 28 && !stack.isEmpty() && stackIsFree(stack) && card.getValue() + stack.getTopCard().getValue() == 13) {
+
+            cardsToMove.clear();
+            origins.clear();
 
             cardsToMove.add(stack.getTopCard());
             cardsToMove.add(card);

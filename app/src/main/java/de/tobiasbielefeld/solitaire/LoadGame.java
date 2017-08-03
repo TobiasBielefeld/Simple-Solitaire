@@ -19,6 +19,7 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +44,8 @@ import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
 import de.tobiasbielefeld.solitaire.games.Tripeaks;
 import de.tobiasbielefeld.solitaire.games.Yukon;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Everything about loading a game should be here. If you want to add a game, just expand the switch
@@ -272,6 +275,7 @@ public class LoadGame {
             default:
                 Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");
             case R.id.manual_games_button_acesup:
+                //fall through
                 return "acesup";
             case R.id.manual_games_button_canfield:
                 return "canfield";
@@ -301,6 +305,53 @@ public class LoadGame {
                 return "yukon";
 
         }
+    }
+
+    /**
+     * Returns the string prefix of the manual entries of a given game.
+     * Used for the direct link to the manual from the in game menu.
+     * (It only has the shown game name, which is different to the manaul prefix name)
+     *
+     * @param activity      the calling activity to use its resources
+     * @param gameName      the gameName of the searched game
+     * @return              the string for the manual entries
+     */
+    public String manualName(Activity activity, String gameName) {
+
+        Resources res = activity.getResources();
+
+        if (gameName.equals(res.getString(R.string.games_acesup))){
+            return "acesup";
+        } else if (gameName.equals(res.getString(R.string.games_canfield))){
+            return "canfield";
+        } else if (gameName.equals(res.getString(R.string.games_fortyeight))){
+            return "fortyeight";
+        } else if (gameName.equals(res.getString(R.string.games_freecell))){
+            return "freecell";
+        } else if (gameName.equals(res.getString(R.string.games_golf))){
+            return "golf";
+        } else if (gameName.equals(res.getString(R.string.games_grandfathersClock))){
+            return "grandfathersClock";
+        } else if (gameName.equals(res.getString(R.string.games_gypsy))){
+            return "gypsy";
+        } else if (gameName.equals(res.getString(R.string.games_klondike))){
+            return "klondike";
+        } else if (gameName.equals(res.getString(R.string.games_mod3))){
+            return "mod3";
+        } else if (gameName.equals(res.getString(R.string.games_pyramid))){
+            return "pyramid";
+        } else if (gameName.equals(res.getString(R.string.games_simplesimon))){
+            return "simplesimon";
+        } else if (gameName.equals(res.getString(R.string.games_spider))){
+            return "spider";
+        } else if (gameName.equals(res.getString(R.string.games_tripeaks))){
+            return "tripeaks";
+        } else if (gameName.equals(res.getString(R.string.games_yukon))){
+            return "yukon";
+        }
+
+        Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");
+        return "klondike";
     }
 
     public String getGameName() {

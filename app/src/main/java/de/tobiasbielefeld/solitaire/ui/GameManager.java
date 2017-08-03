@@ -233,8 +233,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            DialogFragment restartDialog = new RestartDialog();
-            restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
+            showRestartDialog();
 
             return true;
         }
@@ -454,11 +453,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
             RectF stackRect = stack.getRect();
 
-            if (RectF.intersects(cardRect, stackRect) && card.test(stack)) {
+            if (RectF.intersects(cardRect, stackRect)) {
                 float overlapX = max(0, min(cardRect.right, stackRect.right) - max(cardRect.left, stackRect.left));
                 float overlapY = max(0, min(cardRect.bottom, stackRect.bottom) - max(cardRect.top, stackRect.top));
 
-                if (overlapX * overlapY > overlapArea) {
+                if (overlapX * overlapY > overlapArea && card.test(stack)) {
                     overlapArea = overlapX * overlapY;
                     returnStack = stack;
                 }

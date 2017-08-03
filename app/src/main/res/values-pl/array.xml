@@ -3,6 +3,7 @@
     <string-array name="restart_menu">
         <item>Rozpocznij nową grę</item>
         <item>Ponownie rozdaj karty</item>
+        <item>Zasady gry</item>
         <item>Powrót do menu głównego</item>
     </string-array>
 

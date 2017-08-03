@@ -65,6 +65,12 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         layout1.setVisibility(View.VISIBLE);
         scrollView.setVisibility(View.GONE);
 
+        //if the manual is called from the in game menu, show the corresponding game rule page
+        if (getArguments()!=null && getArguments().containsKey(GAME)){
+            String gameName = lg.manualName(getActivity(),getArguments().getString(GAME));
+            loadGameText(gameName);
+        }
+
         return view;
     }
 
@@ -76,10 +82,12 @@ public class ManualGames extends Fragment implements View.OnClickListener {
     private void loadGameText(int id) {
         currentGameButtonID = id;
         String gameName = lg.manualClick(id);   //get prefix
-        logText(gameName);
+        loadGameText(gameName);
+    }
 
+    private void loadGameText(String gameName) {
         try {
-            //and load everything
+            //load everything
             textName.setText((getString(getResources().getIdentifier("games_" + gameName + "", "string", getActivity().getPackageName()))));
             textStructure.setText(getString(getResources().getIdentifier("manual_" + gameName + "_structure", "string", getActivity().getPackageName())));
             textObjective.setText(getString(getResources().getIdentifier("manual_" + gameName + "_objective", "string", getActivity().getPackageName())));

@@ -33,6 +33,7 @@ import android.support.v4.content.IntentCompat;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
+import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -71,6 +72,10 @@ public class RestartDialog extends DialogFragment {
                                 gameLogic.redeal();
                                 break;
                             case 2:
+                                Intent intent = new Intent(activity, Manual.class);
+                                intent.putExtra(GAME,lg.getGameName());
+                                startActivity(intent);
+                                break;
                             case 3:
                                 if (gameManager.hasLoaded) {
                                     timer.save();
@@ -80,7 +85,6 @@ public class RestartDialog extends DialogFragment {
 
                                 putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);          //otherwise the menu would load the current game again, because last played game will start
                                 activity.finish();
-                                //fall through
                                 break;
                         }
                     }

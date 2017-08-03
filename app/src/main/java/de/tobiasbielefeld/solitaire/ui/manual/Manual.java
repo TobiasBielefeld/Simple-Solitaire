@@ -35,6 +35,9 @@ import android.widget.ListView;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.logText;
+
 /**
  * Manual Activity: Uses some fragments to show the manual pages.
  * <p>
@@ -94,6 +97,26 @@ public class Manual extends CustomAppCompatActivity
                     checkMenuItem(0);
                 }
             });
+        }
+
+        //if the manual is called from the in game menu, show the corresponding game rule page
+        if (getIntent()!=null && getIntent().hasExtra(GAME)){
+            try {
+                Fragment fragment = ManualGames.class.newInstance();
+
+                //Put args, so the correct game page can be shown
+                Bundle args = new Bundle();
+                args.putString(GAME, getIntent().getStringExtra(GAME));
+                fragment.setArguments(args);
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            fragmentLoaded = false;
         }
     }
 
