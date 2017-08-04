@@ -8,7 +8,11 @@
 AcesUp, Canfield, Forty&Eight, FreeCell, Golf, GrandfathersClock, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, Tripeaks and Yukon!
 
 # Simple Solitaire
-You can find screenshots for phones and tablets and the uses card themes as .svg files [here](./pictures/screenshots)
+
+<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/1.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/2.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/8.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/4.png" width=200 height=356> 
+
+
+You can find more screenshots for phones and tablets and the uses card themes as .svg files [here](./pictures/)
 
 There is a DummyGame class with a lot of comments, if you want to add a new game. I hope it's good enough for that!
 
