@@ -63,10 +63,10 @@ Also think of the other aspects of the GPL license!
 - [X] Add more games (frecell, spider and yukon)
 - [X] Improve the settings to use fragments
 - [X] Add even more games (Simple Simon, Golf, etc)
-- [ ] Add the card themes from Kpatience, if their license is compatible to mine.
+- [ ] ~~Add the card themes from Kpatience, if their license is compatible to mine.~~ (I asked the main dev from Kpatience, the licenses of the themes aren't clear, and there are no links to the authors of them...)
 - [X] Add a color chooser for background color
 - [X] Improve the Highscores to a Statistics Activity (including date stamps)
-- [ ] Find the reason why the game activity gets created two times when changing the screen orientation in game
+- [X] Find the reason why the game activity gets created two times when changing the screen orientation in game
 - [ ] Add a button to mix the cards if no movement can be done
 - [X] Add 'Grandfathers Clock'
 - [ ] Add a Custom game maker, maybe
@@ -75,7 +75,8 @@ Also think of the other aspects of the GPL license!
 - [X] Also save high scores when canceling a game
 - [ ] Add an option to set up appearance for each game indivially
 - [X] Implement "Tap to select/move cards"
-- [ ] Add custom images for backgrounds
+- [ ] ~~Add custom images for backgrounds~~ (Would require additional android permissions, I don't really want that)
+- [ ] Add drag and drop feature to change the order of the games in the main menu
 
 ## Translations
 Thanks to the following persons for providing translations :D
@@ -97,6 +98,8 @@ Every card theme was modified by me to add a four color theme! You can download 
 The Material Design Symbols used for the menu icons are made by Google Inc and are published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 Custom color picker: Uses the [AmbilWarna library](https://github.com/yukuku/ambilwarna) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+All sounds used in this project were originally published on https://freesound.org under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
 This project is licensed under the GPLv3+ license! Full license text can be found [here](./LICENSE.txt)
 
