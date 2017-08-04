@@ -10,7 +10,7 @@ android {
         minSdkVersion 11
         targetSdkVersion 25
         versionCode 49
-        versionName "3.7.3"
+        versionName "3.8"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {

@@ -116,6 +116,7 @@ public class Manual extends CustomAppCompatActivity
                 e.printStackTrace();
             }
 
+            //set fragment loaded to false, so back press will return to the current game
             fragmentLoaded = false;
         }
     }

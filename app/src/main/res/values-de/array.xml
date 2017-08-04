@@ -76,7 +76,7 @@
         <item>Jubelnde Menge</item>
     </string-array>
 
-    <string-array name="pref_background_sounds_titles">
+    <string-array name="pref_background_musics_titles">
         <item>Deaktiviert</item>
         <item>1</item>
         <item>2</item>

@@ -40,6 +40,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
+import de.tobiasbielefeld.solitaire.handler.StopBackgroundMusicHandler;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -53,7 +54,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Toast toast;
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
+    private Preference preferenceBackgroundVolume;
     private Sounds settingsSounds;
+
+    StopBackgroundMusicHandler stopBackgroundMusicHandler = new StopBackgroundMusicHandler();
 
     private static boolean isXLargeTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
@@ -99,12 +103,18 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         savedSharedData.registerOnSharedPreferenceChangeListener(this);
         showOrHideStatusBar();
         setOrientation();
+
+        activityCounter++;
+        backgroundSound.doInBackground(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
         savedSharedData.unregisterOnSharedPreferenceChangeListener(this);
+
+        activityCounter--;
+        stopBackgroundMusicHandler.sendEmptyMessageDelayed(0, 100);
     }
 
     /*
@@ -174,6 +184,14 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
         } else if (key.equals(PREF_KEY_WIN_SOUND)) {
             settingsSounds.playWinSound();
+
+        } else if (key.equals(PREF_KEY_BACKGROUND_MUSIC) || key.equals(PREF_KEY_SOUND_ENABLED)) {
+            backgroundSound.doInBackground(this);
+
+        } else if (key.equals(PREF_KEY_BACKGROUND_VOLUME)){
+            updatePreferenceBackgroundVolumeSummary();
+            backgroundSound.doInBackground(this);
+
         }
     }
 
@@ -277,6 +295,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceMenuBarPosition.setSummary(text);
     }
 
+    private void updatePreferenceBackgroundVolumeSummary(){
+        int volume = getSharedInt(PREF_KEY_BACKGROUND_VOLUME,DEFAULT_BACKGROUND_VOLUME);
+
+        preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(),"%s %%",volume));
+    }
+
     public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
@@ -310,6 +334,13 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_sounds);
             setHasOptionsMenu(true);
+
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceBackgroundVolume = findPreference(getString(R.string.pref_key_background_volume));
+
+            settings.updatePreferenceBackgroundVolumeSummary();
         }
     }
 

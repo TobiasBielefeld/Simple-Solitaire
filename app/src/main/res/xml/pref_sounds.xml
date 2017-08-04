@@ -18,14 +18,22 @@
 
     <ListPreference
         android:dependency="@string/pref_key_sound_enabled"
-        android:defaultValue="@string/default_background_sound"
-        android:entries="@array/pref_background_sounds_titles"
-        android:entryValues="@array/pref_background_sound_values"
-        android:key="@string/pref_key_background_sound"
+        android:defaultValue="@string/default_background_music"
+        android:entries="@array/pref_background_musics_titles"
+        android:entryValues="@array/pref_background_music_values"
+        android:key="@string/pref_key_background_music"
         android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@null"
         android:summary="%s"
-        android:title="@string/Settings_background_sound" />
+        android:title="@string/Settings_background_music" />
+
+    <de.tobiasbielefeld.solitaire.dialogs.MusicVolumeDialog
+        android:dependency="@string/pref_key_sound_enabled"
+        android:key="@string/pref_key_background_volume"
+        android:title="@string/Settings_background_volume"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@string/game_confirm"
+        android:summary=""/>
 
 
 

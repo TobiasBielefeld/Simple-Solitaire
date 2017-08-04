@@ -9,8 +9,8 @@
     <integer name="default_winning_time">0</integer>
     <integer name="default_background_color_type">1</integer>
     <integer name="default_background_color_custom">0xffe5e5e5</integer>
-
     <integer name="expand_button_anim_delay_ms">100</integer>
+    <integer name="default_background_volume">100</integer>
 
     <!-- changing these to integers would cause problems with already saved values -->
     <string name="default_menu_columns_landscape" translatable="false">5</string>
@@ -18,6 +18,6 @@
     <string name="default_background_color" translatable="false">2</string>
     <string name="default_movement_speed" translatable="false">2</string>
     <string name="default_win_sound" translatable="false">0</string>
-    <string name="default_background_sound" translatable="false">1</string>
+    <string name="default_background_music" translatable="false">1</string>
 
 </resources>

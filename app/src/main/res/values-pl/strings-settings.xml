@@ -95,6 +95,7 @@
     <string name="Settings_sounds_title">Sounds</string>
     <string name="Settings_sounds_text">Enable sounds, set up different sound effects</string>
     <string name="Settings_win_sound_title">Winning sound effect</string>
-    <string name="Settings_background_sound">Background music</string>
+    <string name="Settings_background_music">Background music</string>
+    <string name="Settings_background_volume">Background music volume</string>
 
 </resources>

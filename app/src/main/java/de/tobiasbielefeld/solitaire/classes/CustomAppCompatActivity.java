@@ -22,11 +22,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.handler.StopBackgroundMusicHandler;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -37,6 +41,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  */
 
 public class CustomAppCompatActivity extends AppCompatActivity {
+
+    StopBackgroundMusicHandler stopBackgroundMusicHandler = new StopBackgroundMusicHandler();
 
     /**
      * Sets the screen orientation according to the settings. It is called from onResume().
@@ -81,6 +87,22 @@ public class CustomAppCompatActivity extends AppCompatActivity {
         super.onResume();
         setOrientation(this);
         showOrHideStatusBar(this);
+
+        backgroundSound.doInBackground(this);
+        activityCounter++;
+    }
+
+    /**
+     * Check here if the application is closed. If the activityCounter reaches zero, no activity
+     * is in the foreground so stop the background music. But try stopping some milliseconds delayed,
+     * because otherwise the music would stop/restart between the activities
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        activityCounter--;
+        stopBackgroundMusicHandler.sendEmptyMessageDelayed(0, 100);
     }
 
     /**
@@ -95,6 +117,4 @@ public class CustomAppCompatActivity extends AppCompatActivity {
         else
             activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
-
-
 }

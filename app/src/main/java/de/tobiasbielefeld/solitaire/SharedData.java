@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.games.Game;
@@ -113,7 +114,8 @@ public class SharedData {
     public static String PREF_KEY_MOVEMENT_SPEED;
     public static String PREF_KEY_SOUND_ENABLED;
     public static String PREF_KEY_WIN_SOUND;
-    public static String PREF_KEY_BACKGROUND_SOUND;
+    public static String PREF_KEY_BACKGROUND_MUSIC;
+    public static String PREF_KEY_BACKGROUND_VOLUME;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
@@ -126,12 +128,13 @@ public class SharedData {
     public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
     public static String DEFAULT_ORIENTATION;
     public static String DEFAULT_BACKGROUND_COLOR;
-    public static String DEFAULT_BACKGROUND_SOUND;
+    public static String DEFAULT_BACKGROUND_MUSIC;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_CARD_BACKGROUND_COLOR;
     public static int DEFAULT_WINNING_TIME;
     public static int DEFAULT_BACKGROUND_COLOR_TYPE;
+    public static int DEFAULT_BACKGROUND_VOLUME;
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
     public static String DEFAULT_WIN_SOUND;
     public static String DEFAULT_MOVEMENT_SPEED;
@@ -173,6 +176,8 @@ public class SharedData {
 
     public static TestAfterMoveHandler testAfterMoveHandler = new TestAfterMoveHandler();
     public static TestIfWonHandler testIfWonHandler = new TestIfWonHandler();
+    public static BackgroundMusic backgroundSound = new BackgroundMusic();
+    public static int activityCounter = 0;
 
     public static int NUMBER_OF_CARD_BACKGROUNDS;
     public static int NUMBER_OF_CARD_THEMES;
@@ -245,7 +250,8 @@ public class SharedData {
         PREF_KEY_MOVEMENT_SPEED = res.getString(R.string.pref_key_movement_speed);
         PREF_KEY_SOUND_ENABLED = res.getString(R.string.pref_key_sound_enabled);
         PREF_KEY_WIN_SOUND = res.getString(R.string.pref_key_win_sound);
-        PREF_KEY_BACKGROUND_SOUND = res.getString(R.string.pref_key_background_sound);
+        PREF_KEY_BACKGROUND_MUSIC = res.getString(R.string.pref_key_background_music);
+        PREF_KEY_BACKGROUND_VOLUME = res.getString(R.string.pref_key_background_volume);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -279,7 +285,8 @@ public class SharedData {
         DEFAULT_MOVEMENT_SPEED = res.getString(R.string.default_movement_speed);
         DEFAULT_SOUND_ENABLED = res.getBoolean(R.bool.default_sound_enabled);
         DEFAULT_WIN_SOUND = res.getString(R.string.default_win_sound);
-        DEFAULT_BACKGROUND_SOUND = res.getString(R.string.default_background_sound);
+        DEFAULT_BACKGROUND_MUSIC = res.getString(R.string.default_background_music);
+        DEFAULT_BACKGROUND_VOLUME = res.getInteger(R.integer.default_background_volume);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];

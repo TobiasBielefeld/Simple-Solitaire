@@ -95,7 +95,8 @@
     <string name="Settings_sounds_title">サウンド</string>
     <string name="Settings_sounds_text">サウンドを有効にし、異なるサウンドエフェクトを設定する</string>
     <string name="Settings_win_sound_title">勝利効果</string>
-    <string name="Settings_background_sound">バックグラウンドミュージック</string>
+    <string name="Settings_background_music">バックグラウンドミュージック</string>
+    <string name="Settings_background_volume">バックグラウンドミュージックボリューム</string>
 
 
 </resources>
