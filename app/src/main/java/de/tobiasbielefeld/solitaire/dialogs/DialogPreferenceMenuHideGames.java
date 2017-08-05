@@ -37,12 +37,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * just use a linearLayout with a button and a textView for each game
  */
 
-public class MenuHideGamesPreference extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceMenuHideGames extends DialogPreference implements View.OnClickListener {
 
     ArrayList<LinearLayout> linearLayouts;
     ArrayList<CheckBox> checkBoxes;
 
-    public MenuHideGamesPreference(Context context, AttributeSet attrs) {
+    public DialogPreferenceMenuHideGames(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_menu_show_games);
         setDialogIcon(null);

@@ -46,7 +46,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * permission to the external storage, and i wanted my app to use no permissions.
  */
 
-public class BackgroundColorPreference extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceBackgroundColor extends DialogPreference implements View.OnClickListener {
 
     int backgroundType;
     int backgroundValue;
@@ -55,7 +55,7 @@ public class BackgroundColorPreference extends DialogPreference implements View.
     private Context context;
     private ImageView image;
 
-    public BackgroundColorPreference(Context context, AttributeSet attrs) {
+    public DialogPreferenceBackgroundColor(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_background_color);
         setDialogIcon(null);

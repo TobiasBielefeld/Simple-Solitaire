@@ -18,7 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
-import de.tobiasbielefeld.solitaire.handler.TimerHandler;
+import de.tobiasbielefeld.solitaire.handler.HandlerTimer;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -31,7 +31,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Timer {
 
-    public TimerHandler timerHandler;                                                               //handler to show the current time
+    public HandlerTimer handlerTimer;                                                               //handler to show the current time
 
     private long currentTime;                                                                       //current system time, will be "frozen" if a game has been won
     private long startTime;                                                                         //time where the game was started
@@ -39,7 +39,7 @@ public class Timer {
     private long winningTime;
 
     public Timer(GameManager gm) {
-        timerHandler = new TimerHandler(gm);
+        handlerTimer = new HandlerTimer(gm);
     }
 
     /**
@@ -81,7 +81,7 @@ public class Timer {
 
         winningTime = getLong(TIMER_WINNING_TIME, DEFAULT_WINNING_TIME);
 
-        timerHandler.sendEmptyMessage(0);
+        handlerTimer.sendEmptyMessage(0);
     }
 
     /**
@@ -96,7 +96,7 @@ public class Timer {
         winningTime = 0;
 
         startTime = System.currentTimeMillis();
-        timerHandler.sendEmptyMessage(0);
+        handlerTimer.sendEmptyMessage(0);
     }
 
     public boolean isRunning() {

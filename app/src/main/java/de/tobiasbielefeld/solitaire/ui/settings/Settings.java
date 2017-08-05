@@ -40,7 +40,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
-import de.tobiasbielefeld.solitaire.handler.StopBackgroundMusicHandler;
+import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -57,7 +57,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceBackgroundVolume;
     private Sounds settingsSounds;
 
-    StopBackgroundMusicHandler stopBackgroundMusicHandler = new StopBackgroundMusicHandler();
+    HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
 
     private static boolean isXLargeTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
@@ -114,7 +114,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         savedSharedData.unregisterOnSharedPreferenceChangeListener(this);
 
         activityCounter--;
-        stopBackgroundMusicHandler.sendEmptyMessageDelayed(0, 100);
+        handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
     }
 
     /*

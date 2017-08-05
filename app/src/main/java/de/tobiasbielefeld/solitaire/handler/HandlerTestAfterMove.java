@@ -21,26 +21,19 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
-import de.tobiasbielefeld.solitaire.ui.GameManager;
-
-import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Check here if the application is closed. If the activityCounter reaches zero, no activity
- * is in the foreground so stop the background music. But try stopping some milliseconds delayed,
- * because otherwise the music would stop/restart between the activities
+ * Handler for the moveToStack() method. i need to wait until the card movement is done, so i use this handler
  */
 
-public class StopBackgroundMusicHandler extends Handler {
-
-
+public class HandlerTestAfterMove extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        if (activityCounter==0){
-            backgroundSound.pausePlaying();
-        }
+        if (animate.cardIsAnimating())
+            handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
+        else
+            currentGame.testAfterMove();
     }
 }

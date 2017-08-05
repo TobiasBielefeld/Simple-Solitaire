@@ -36,12 +36,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * custom dialog to set the background music volume. it can be set from 0 (off) to 100%.
  */
 
-public class MusicVolumeDialog extends DialogPreference implements SeekBar.OnSeekBarChangeListener{
+public class DialogPreferenceMusicVolume extends DialogPreference implements SeekBar.OnSeekBarChangeListener{
 
     private SeekBar mSeekBar;
     private TextView mTextView;
 
-    public MusicVolumeDialog(Context context, AttributeSet attrs) {
+    public DialogPreferenceMusicVolume(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_background_volume);
         setDialogIcon(null);

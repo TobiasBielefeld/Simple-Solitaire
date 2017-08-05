@@ -34,7 +34,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.handler.AfterWonHandler;
+import de.tobiasbielefeld.solitaire.handler.HandlerAfterWon;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -47,13 +47,13 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Animate {
 
-    public AfterWonHandler afterWonHandler;
+    public HandlerAfterWon handlerAfterWon;
     private GameManager gm;
     private float speedFactor;
 
     public Animate(GameManager gm) {
         this.gm = gm;
-        afterWonHandler = new AfterWonHandler(gm);
+        handlerAfterWon = new HandlerAfterWon(gm);
         speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED));
     }
 
@@ -74,7 +74,7 @@ public class Animate {
         }
 
         sounds.playWinSound();
-        afterWonHandler.sendEmptyMessageDelayed(0, 100);
+        handlerAfterWon.sendEmptyMessageDelayed(0, 100);
     }
 
     /**

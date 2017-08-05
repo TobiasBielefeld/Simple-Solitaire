@@ -63,7 +63,7 @@
     <string name="github_issues_URL" translatable="false">https://github.com/TobiasBielefeld/Simple-Solitaire/issues</string>
 
     <string name="game" translatable="false">game</string>
-    <string name="restart_dialog" translatable="false">restartDialog</string>
+    <string name="restart_dialog" translatable="false">dialogRestart</string>
     <string name="canfield_start_value" translatable="false">canfield_startCardValue</string>
     <string name="old" translatable="false">_old</string>
     <string name="default_menu_bar_position_landscape" translatable="false">right</string>

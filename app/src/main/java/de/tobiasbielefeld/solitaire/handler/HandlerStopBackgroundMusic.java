@@ -20,34 +20,27 @@ package de.tobiasbielefeld.solitaire.handler;
 
 import android.os.Handler;
 import android.os.Message;
-import android.view.View;
 
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
 
 /**
- * load the game data in a handler which waits a bit, so the initial card deal looks smoother
+ * Check here if the application is closed. If the activityCounter reaches zero, no activity
+ * is in the foreground so stop the background music. But try stopping some milliseconds delayed,
+ * because otherwise the music would stop/restart between the activities
  */
 
-public class LoadGameHandler extends Handler {
+public class HandlerStopBackgroundMusic extends Handler {
 
-    private GameManager gm;
-
-    public LoadGameHandler(GameManager gm) {
-        this.gm = gm;
-    }
 
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
-        gameLogic.load();
 
-        if (currentGame.hasLimitedRedeals()) {
-            gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
-            gm.mainTextViewRedeals.setX(currentGame.getMainStack().getX());
-            gm.mainTextViewRedeals.setY(currentGame.getMainStack().getY());
+        if (activityCounter==0){
+            backgroundSound.pausePlaying();
         }
-
-        gm.hasLoaded = true;
     }
 }

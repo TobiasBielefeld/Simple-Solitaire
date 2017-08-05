@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.handler.HintHandler;
+import de.tobiasbielefeld.solitaire.handler.HandlerHint;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -36,13 +36,13 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Hint {
 
     public static final int MAX_NUMBER_OF_HINTS = 3;                                                //max number of hints which are shown when pressing the button
-    public HintHandler hintHandler = new HintHandler();                                             //handler to show the hinzd
+    public HandlerHint handlerHint = new HandlerHint();                                             //handler to show the hinzd
 
     private int counter = 0;                                                                        //counter to know how many hints were shown
     private Card[] visited = new Card[MAX_NUMBER_OF_HINTS];                                         //array for already shown cards in hint
 
     public void showHint() {
-        hintHandler.sendEmptyMessage(0);
+        handlerHint.sendEmptyMessage(0);
     }
 
     /**

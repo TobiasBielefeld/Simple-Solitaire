@@ -32,11 +32,11 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
-public class MenuRowsDialogPreference extends DialogPreference {
+public class DialogPreferenceMenuRows extends DialogPreference {
 
     Spinner spinnerPortrait, spinnerLandscape;
 
-    public MenuRowsDialogPreference(Context context, AttributeSet attrs) {
+    public DialogPreferenceMenuRows(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_menu_columns);
         setDialogIcon(null);

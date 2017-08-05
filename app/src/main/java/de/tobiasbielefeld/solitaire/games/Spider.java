@@ -186,7 +186,7 @@ public class Spider extends Game {
                         currentStack.getTopCard().flipWithAnim();
                     }
 
-                    testIfWonHandler.sendEmptyMessageDelayed(0, 200);
+                    handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
                     scores.update(200);
                     break;
                 }
@@ -293,7 +293,7 @@ public class Spider extends Game {
 
             moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
             //test if a card family is now full
-            testAfterMoveHandler.sendEmptyMessageDelayed(0, 100);
+            handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
             return 1;
         }
 

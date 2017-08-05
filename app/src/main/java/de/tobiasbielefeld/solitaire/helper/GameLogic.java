@@ -221,18 +221,18 @@ public class GameLogic {
     /**
      * Randomizes a given card array using the Fisher–Yates shuffle
      *
-     * @param Array The array to randomize
+     * @param array The array to randomize
      */
-    private void randomize(Card[] Array) {
+    private void randomize(Card[] array) {
         int index;
         Card dummy;
         Random rand = new Random();
 
-        for (int i = Array.length - 1; i > 0; i--) {
+        for (int i = array.length - 1; i > 0; i--) {
             if ((index = rand.nextInt(i + 1)) != i) {
-                dummy = Array[i];
-                Array[i] = Array[index];
-                Array[index] = dummy;
+                dummy = array[i];
+                array[i] = array[index];
+                array[index] = dummy;
             }
         }
     }

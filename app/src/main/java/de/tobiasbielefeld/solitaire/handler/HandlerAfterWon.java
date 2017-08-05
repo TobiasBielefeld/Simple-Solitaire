@@ -21,19 +21,37 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
+import de.tobiasbielefeld.solitaire.ui.GameManager;
+
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Handler for the moveToStack() method. i need to wait until the card movement is done, so i use this handler
+ * Handler to show the menu after the win animation
  */
 
-public class TestIfWonHandler extends Handler {
+public class HandlerAfterWon extends Handler {
+
+    GameManager gm;
+    int phase = 2;
+
+    public HandlerAfterWon(GameManager gm) {
+        this.gm = gm;
+    }
+
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        if (animate.cardIsAnimating())
-            testIfWonHandler.sendEmptyMessageDelayed(0, 100);
-        else
-            gameLogic.testIfWon();
+        if (animate.cardIsAnimating() || gm.isActivityPaused())
+            animate.handlerAfterWon.sendEmptyMessageDelayed(0, 100);
+        else {
+            if (phase == 2) {
+                animate.wonAnimationPhase2();
+                phase = 3;
+                animate.handlerAfterWon.sendEmptyMessageDelayed(0, 100);
+            } else {
+                phase = 2;
+                gm.showRestartDialog();
+            }
+        }
     }
 }

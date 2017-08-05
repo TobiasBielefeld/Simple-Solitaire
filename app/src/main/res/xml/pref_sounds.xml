@@ -27,7 +27,7 @@
         android:summary="%s"
         android:title="@string/Settings_background_music" />
 
-    <de.tobiasbielefeld.solitaire.dialogs.MusicVolumeDialog
+    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMusicVolume
         android:dependency="@string/pref_key_sound_enabled"
         android:key="@string/pref_key_background_volume"
         android:title="@string/Settings_background_volume"

@@ -32,11 +32,11 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
-public class MenuBarPositionDialogPreference extends DialogPreference {
+public class DialogPreferenceMenuBarPosition extends DialogPreference {
 
     RadioButton top, bottom, left, right;
 
-    public MenuBarPositionDialogPreference(Context context, AttributeSet attrs) {
+    public DialogPreferenceMenuBarPosition(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_menu_bar_position);
         setDialogIcon(null);

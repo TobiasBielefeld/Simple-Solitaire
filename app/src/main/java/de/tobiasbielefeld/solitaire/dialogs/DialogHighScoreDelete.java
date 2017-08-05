@@ -32,7 +32,7 @@ import de.tobiasbielefeld.solitaire.ui.Statistics;
  * Dialog for deleting all high scores
  */
 
-public class HighScoreDeleteDialog extends DialogFragment {
+public class DialogHighScoreDelete extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

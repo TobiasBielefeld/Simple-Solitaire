@@ -36,13 +36,13 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * the widget icon of the preference.
  */
 
-public class CardDialogPreference extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceCardDialog extends DialogPreference implements View.OnClickListener {
 
     private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_THEMES];
     private Context context;
     private ImageView image;
 
-    public CardDialogPreference(Context context, AttributeSet attrs) {
+    public DialogPreferenceCardDialog(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards);
         setDialogIcon(null);

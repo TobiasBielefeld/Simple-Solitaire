@@ -39,7 +39,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * the widget icon of the preference.
  */
 
-public class CardBackgroundDialogPreference extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceCardBackground extends DialogPreference implements View.OnClickListener {
 
     private LinearLayout[] linearLayoutsBackgrounds = new LinearLayout[NUMBER_OF_CARD_BACKGROUNDS];
     private ImageView[] imageViews = new ImageView[NUMBER_OF_CARD_BACKGROUNDS];
@@ -53,7 +53,7 @@ public class CardBackgroundDialogPreference extends DialogPreference implements 
     private int selectedBackgroundColor;
 
 
-    public CardBackgroundDialogPreference(Context context, AttributeSet attrs) {
+    public DialogPreferenceCardBackground(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards_background);
         setDialogIcon(null);

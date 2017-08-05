@@ -22,15 +22,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.handler.StopBackgroundMusicHandler;
+import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -42,7 +39,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class CustomAppCompatActivity extends AppCompatActivity {
 
-    StopBackgroundMusicHandler stopBackgroundMusicHandler = new StopBackgroundMusicHandler();
+    HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
 
     /**
      * Sets the screen orientation according to the settings. It is called from onResume().
@@ -102,7 +99,7 @@ public class CustomAppCompatActivity extends AppCompatActivity {
         super.onPause();
 
         activityCounter--;
-        stopBackgroundMusicHandler.sendEmptyMessageDelayed(0, 100);
+        handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
     }
 
     /**

@@ -41,12 +41,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
  */
 
-public class RestartDialog extends DialogFragment {
+public class DialogRestart extends DialogFragment {
 
     Activity activity;
     GameManager gameManager;
 
-    public RestartDialog(){
+    public DialogRestart(){
         super();
     }
 

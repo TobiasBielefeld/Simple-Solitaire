@@ -34,7 +34,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * After the last card is moved, start a pause handler and it calls the win animation
  */
 
-public class AutoCompleteHandler extends Handler {
+public class HandlerAutoComplete extends Handler {
 
     private final static int START_TIME = 300;                                                      //start velocity of the handler callings
     private final static int DELTA_TIME = 5;                                                        //will be decreased on every call by this number
@@ -48,12 +48,12 @@ public class AutoCompleteHandler extends Handler {
 
         //if the phase is 1 (moving on the tableau) wait until the moving animation is over
         if (animate.cardIsAnimating() && phase == 1) {
-            autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, currentTime);
+            autoComplete.handlerAutoComplete.sendEmptyMessageDelayed(0, currentTime);
         }
         //if the auto complete is finished, wait until the movement of the cards stop and then show the win animation
         else if (isFinished) {
             if (animate.cardIsAnimating()) {
-                autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, currentTime);
+                autoComplete.handlerAutoComplete.sendEmptyMessageDelayed(0, currentTime);
             } else {
                 autoComplete.reset();
                 gameLogic.testIfWon();
@@ -71,10 +71,10 @@ public class AutoCompleteHandler extends Handler {
             if (cardAndStack == null) {
                 if (phase == 1) {
                     phase = 2;
-                    autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, 0);
+                    autoComplete.handlerAutoComplete.sendEmptyMessageDelayed(0, 0);
                 } else {
                     isFinished = true;
-                    autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, START_TIME);
+                    autoComplete.handlerAutoComplete.sendEmptyMessageDelayed(0, START_TIME);
                 }
             } else {
                 //if phase 1, move the card and every card above it
@@ -94,7 +94,7 @@ public class AutoCompleteHandler extends Handler {
 
                 currentTime = max(currentTime - DELTA_TIME, MIN_TIME);
                 //start the next handler in some milliseconds
-                autoComplete.autoCompleteHandler.sendEmptyMessageDelayed(0, currentTime);
+                autoComplete.handlerAutoComplete.sendEmptyMessageDelayed(0, currentTime);
             }
         }
     }

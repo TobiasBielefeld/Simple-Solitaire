@@ -21,39 +21,19 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
-import java.util.Locale;
-
-import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
-
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Handler to update the current time and show it
+ * Handler for the moveToStack() method. i need to wait until the card movement is done, so i use this handler
  */
 
-public class TimerHandler extends Handler {
-
-    private GameManager gm;
-
-    public TimerHandler(GameManager gm) {
-        this.gm = gm;
-    }
-
+public class HandlerTestIfWon extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        //is always called at least once a game started, because this gets executed before the
-        //won variable in gameLogic was loaded
-        if (timer.isRunning() && !gameLogic.hasWon()) {
-            timer.setCurrentTime((System.currentTimeMillis() - timer.getStartTime()) / 1000);
-            timer.timerHandler.sendEmptyMessageDelayed(0, 1000);
-        }
-
-        Long time = timer.getCurrentTime();
-
-        gm.mainTextViewTime.setText(String.format(Locale.getDefault(),
-                "%s: %02d:%02d:%02d", gm.getString(R.string.game_time),
-                time / 3600, (time % 3600) / 60, (time % 60)));                                     //in hours:minutes:seconds format
+        if (animate.cardIsAnimating())
+            handlerTestIfWon.sendEmptyMessageDelayed(0, 100);
+        else
+            gameLogic.testIfWon();
     }
 }

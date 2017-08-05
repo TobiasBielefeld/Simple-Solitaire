@@ -32,8 +32,8 @@ import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.games.Game;
-import de.tobiasbielefeld.solitaire.handler.TestAfterMoveHandler;
-import de.tobiasbielefeld.solitaire.handler.TestIfWonHandler;
+import de.tobiasbielefeld.solitaire.handler.HandlerTestAfterMove;
+import de.tobiasbielefeld.solitaire.handler.HandlerTestIfWon;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
@@ -174,8 +174,8 @@ public class SharedData {
     public static SharedPreferences savedGameData;
     public static Game currentGame;
 
-    public static TestAfterMoveHandler testAfterMoveHandler = new TestAfterMoveHandler();
-    public static TestIfWonHandler testIfWonHandler = new TestIfWonHandler();
+    public static HandlerTestAfterMove handlerTestAfterMove = new HandlerTestAfterMove();
+    public static HandlerTestIfWon handlerTestIfWon = new HandlerTestIfWon();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
 
@@ -437,8 +437,8 @@ public class SharedData {
 
         //following stuff in handlers, because they should wait until possible card movements are over.
         if (option == 0) {
-            testAfterMoveHandler.sendEmptyMessageDelayed(0, 100);
-            testIfWonHandler.sendEmptyMessageDelayed(0, 200);
+            handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
+            handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
         }
     }
 

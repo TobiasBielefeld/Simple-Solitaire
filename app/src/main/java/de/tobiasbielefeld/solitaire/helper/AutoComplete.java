@@ -20,7 +20,7 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import android.view.View;
 
-import de.tobiasbielefeld.solitaire.handler.AutoCompleteHandler;
+import de.tobiasbielefeld.solitaire.handler.HandlerAutoComplete;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -34,7 +34,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class AutoComplete {
 
-    public AutoCompleteHandler autoCompleteHandler = new AutoCompleteHandler();
+    public HandlerAutoComplete handlerAutoComplete = new HandlerAutoComplete();
     private boolean running = false;                                                                  //shows if the autocomplete is still running
     private boolean buttonShown = false;
     private GameManager gm;
@@ -44,7 +44,7 @@ public class AutoComplete {
     }
 
     public void reset() {
-        autoCompleteHandler.reset();
+        handlerAutoComplete.reset();
         hideButton();
         running = false;
     }
@@ -52,8 +52,8 @@ public class AutoComplete {
     public void start() {
         running = true;
         hideButton();
-        autoCompleteHandler.reset();
-        autoCompleteHandler.sendEmptyMessage(0);
+        handlerAutoComplete.reset();
+        handlerAutoComplete.sendEmptyMessage(0);
     }
 
     public boolean isRunning() {

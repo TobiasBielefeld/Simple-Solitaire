@@ -35,7 +35,7 @@ import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
-import de.tobiasbielefeld.solitaire.dialogs.HighScoreDeleteDialog;
+import de.tobiasbielefeld.solitaire.dialogs.DialogHighScoreDelete;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 
 import static android.view.View.GONE;
@@ -170,7 +170,7 @@ public class Statistics extends CustomAppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_delete:
-                DialogFragment deleteDialog = new HighScoreDeleteDialog();
+                DialogFragment deleteDialog = new DialogHighScoreDelete();
                 deleteDialog.show(getSupportFragmentManager(), "high_score_delete");
                 break;
             case android.R.id.home:

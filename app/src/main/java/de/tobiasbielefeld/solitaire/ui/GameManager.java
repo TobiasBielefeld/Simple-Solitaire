@@ -41,8 +41,8 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.dialogs.RestartDialog;
-import de.tobiasbielefeld.solitaire.handler.LoadGameHandler;
+import de.tobiasbielefeld.solitaire.dialogs.DialogRestart;
+import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
@@ -190,8 +190,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 loadCounter--;
                 if (loadCounter < 1) {
                     scores.load();
-                    LoadGameHandler loadGameHandler = new LoadGameHandler(gm);
-                    loadGameHandler.sendEmptyMessageDelayed(0, 200);
+                    HandlerLoadGame handlerLoadGame = new HandlerLoadGame(gm);
+                    handlerLoadGame.sendEmptyMessageDelayed(0, 200);
                 }
 
 
@@ -615,9 +615,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     public void showRestartDialog() {
         try {
-            RestartDialog restartDialog = new RestartDialog();
-            restartDialog.setArguments(this);
-            restartDialog.show(getSupportFragmentManager(), RESTART_DIALOG);
+            DialogRestart dialogRestart = new DialogRestart();
+            dialogRestart.setArguments(this);
+            dialogRestart.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e){
             Log.e("showRestartDialog: ", e.toString());
         }

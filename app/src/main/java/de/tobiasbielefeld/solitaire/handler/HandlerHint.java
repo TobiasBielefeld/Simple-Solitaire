@@ -31,7 +31,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * shows hints, waits until the movement is done and then starts the next hint
  */
 
-public class HintHandler extends Handler {
+public class HandlerHint extends Handler {
 
     boolean soundPlayed = false;
 
@@ -58,7 +58,7 @@ public class HintHandler extends Handler {
                 hint.setCounter(hint.getCounter() + 1);
             }
 
-            hint.hintHandler.sendEmptyMessageDelayed(0, 100);
+            hint.handlerHint.sendEmptyMessageDelayed(0, 100);
         } else {
             soundPlayed = false;
             hint.setCounter(0);

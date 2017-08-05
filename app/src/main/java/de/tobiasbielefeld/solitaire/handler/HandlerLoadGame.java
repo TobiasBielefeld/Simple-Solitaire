@@ -20,38 +20,34 @@ package de.tobiasbielefeld.solitaire.handler;
 
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Handler to show the menu after the win animation
+ * load the game data in a handler which waits a bit, so the initial card deal looks smoother
  */
 
-public class AfterWonHandler extends Handler {
+public class HandlerLoadGame extends Handler {
 
-    GameManager gm;
-    int phase = 2;
+    private GameManager gm;
 
-    public AfterWonHandler(GameManager gm) {
+    public HandlerLoadGame(GameManager gm) {
         this.gm = gm;
     }
 
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
+        gameLogic.load();
 
-        if (animate.cardIsAnimating() || gm.isActivityPaused())
-            animate.afterWonHandler.sendEmptyMessageDelayed(0, 100);
-        else {
-            if (phase == 2) {
-                animate.wonAnimationPhase2();
-                phase = 3;
-                animate.afterWonHandler.sendEmptyMessageDelayed(0, 100);
-            } else {
-                phase = 2;
-                gm.showRestartDialog();
-            }
+        if (currentGame.hasLimitedRedeals()) {
+            gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
+            gm.mainTextViewRedeals.setX(currentGame.getMainStack().getX());
+            gm.mainTextViewRedeals.setY(currentGame.getMainStack().getY());
         }
+
+        gm.hasLoaded = true;
     }
 }
