@@ -120,15 +120,15 @@ public class DummyGame extends Game {
         //it will automatically flip the direction, if left handed mode is enabled
         setArrow(stacks[1], LEFT);
 
-        //if your game needs to have limited redeals, so after a few tries of moving the cards from
+        //if your game needs to have limited recycles, so after a few tries of moving the cards from
         //the discard stack back to the main stack, it won't be possible anymore, use this method
-        //It will automatically show the remaining redeals on the main stack.
-        setLimitedRedeals(5);
+        //It will automatically show the remaining recycles on the main stack.
+        setLimitedRecycles(5);
 
-        //if you used setLimitedRedeals(), you can also use toggleRedeals like this to disable the limitation
+        //if you used setLimitedRecycles(), you can also use toggleRecycles like this to disable the limitation
         //from the settings
-        if (!getSharedBoolean("your_pref_key_for_limited_redeals", false))
-            toggleRedeals();
+        if (!getSharedBoolean("your_pref_key_for_limited_recycles", false))
+            toggleRecycles();
     }
 
     /*
@@ -469,7 +469,7 @@ public class DummyGame extends Game {
 
     /*
      *  use this if you need to reset something on a game start. Call super if your games
-     *  has limited redeals to reset them automatically
+     *  has limited recycles to reset them automatically
      */
     public void reset(GameManager gm) {
         super.reset(gm);

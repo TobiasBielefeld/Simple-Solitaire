@@ -158,17 +158,27 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
             setLocale();
 
-        } else if (key.equals(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS)) {
+        } else if (key.equals(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES)) {
             if (currentGame instanceof FortyEight) {
-                gameLogic.toggleNumberOfRedeals();
+                gameLogic.toggleRecycles();
             }
 
-        } else if (key.equals(PREF_KEY_PYRAMID_LIMITED_REDEALS)) {
+        } else if (key.equals(PREF_KEY_PYRAMID_LIMITED_RECYCLES)) {
             if (currentGame instanceof Pyramid) {
-                gameLogic.toggleNumberOfRedeals();
+                gameLogic.toggleRecycles();
             }
 
-        } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
+        } else if (key.equals(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES)){
+            if (currentGame instanceof Pyramid) {
+                gameLogic.setNumberOfRecycles(key,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
+            }
+
+        } else if (key.equals(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES)){
+            if (currentGame instanceof FortyEight) {
+                gameLogic.setNumberOfRecycles(key,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
+            }
+
+        }else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
             updatePreferenceMenuBarPositionSummary();
             if (gameLogic != null) {
                 gameLogic.updateMenuBar();

@@ -48,11 +48,6 @@
     <string name="settings_change_language">言語の変更</string>
 
     <!-- following values are translated with an online translator -->
-    <string name="settings_forty_eight_limted_redeals">再取引の数を制限する</string>
-    <string name="settings_forty_eight_limted_redeals_text">再処理はゲームで1回だけ許可され、無効にするにはチェックを外す</string>
-    <string name="settings_pyramid_limted_redeals">再取引の数を制限する</string>
-    <string name="settings_pyramid_limted_redeals_text">再処理はゲームで2回だけ許可され、無効にするにはチェックを外す</string>
-
     <string name="settings_icon_theme">アイコンのテーマ</string>
     <string name="settings_menu_bar_position">メニューバーの位置</string>
     <string name="settings_menu_bar_position_top">上</string>
@@ -97,6 +92,10 @@
     <string name="Settings_win_sound_title">勝利効果</string>
     <string name="Settings_background_music">バックグラウンドミュージック</string>
     <string name="Settings_background_volume">バックグラウンドミュージックボリューム</string>
+
+    <string name="settings_limit_number_of_recycles">再取引の数を制限する</string>
+    <string name="settings_limit_number_of_recycles_text">メインスタックへの廃棄物のリサイクルは制限されています</string>
+    <string name="settings_number_of_recycles">リサイクル量</string>
 
 
 </resources>

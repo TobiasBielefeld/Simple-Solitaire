@@ -48,12 +48,12 @@ public abstract class Game {
     private int dealFromID = -1;
     private int mainStackID = -1;
     private boolean hasDiscardStack = false;
-    private boolean hasLimitedRedeals = false;
+    private boolean hasLimitedRecycles = false;
     private boolean hasFoundationStacks = false;
     private int discardStackID = -1;
     private int lastTableauID = -1;
-    private int redealCounter = 0;
-    private int totalRedeals = 0;
+    private int recycleCounter = 0;
+    private int totalRecycles = 0;
     private boolean hasArrow = false;
     private boolean singleTapeEnabled = false;
 
@@ -253,10 +253,10 @@ public abstract class Game {
      */
     @CallSuper
     public void reset(GameManager gm) {
-        if (hasLimitedRedeals) {
-            redealCounter = 0;
+        if (hasLimitedRecycles) {
+            recycleCounter = 0;
 
-            gm.updateNumberOfRedeals();
+            gm.updateNumberOfRecycles();
         }
     }
 
@@ -344,17 +344,17 @@ public abstract class Game {
     }
 
     /**
-     * Sets the number of limited redeals for this game. Use a zero as the parameter to disable
-     * the limited redeals.
+     * Sets the number of limited recycles for this game. Use a zero as the parameter to disable
+     * the limited recycles.
      *
-     * @param number The maximum number of redeals
+     * @param number The maximum number of recycles
      */
-    protected void setLimitedRedeals(int number) {
+    protected void setLimitedRecycles(int number) {
         if (number >= 0) {
-            hasLimitedRedeals = true;
-            totalRedeals = number;
+            hasLimitedRecycles = true;
+            totalRecycles = number;
         } else {
-            hasLimitedRedeals = false;
+            hasLimitedRecycles = false;
         }
     }
 
@@ -707,6 +707,11 @@ public abstract class Game {
         return stacks[lastTableauID];
     }
 
+    public void setNumberOfRecycles(String key, String defaultValue){
+        int recycles = Integer.parseInt(getSharedString(key, defaultValue));
+        setLimitedRecycles(recycles);
+    }
+
 
     //some getters,setters and simple methods, games should'nt override these
 
@@ -734,43 +739,45 @@ public abstract class Game {
         return hasDiscardStack;
     }
 
-    public boolean hasLimitedRedeals() {
-        return hasLimitedRedeals;
+    public boolean hasLimitedRecycles() {
+        return hasLimitedRecycles;
     }
 
     public boolean hasFoundationStacks() {
         return hasFoundationStacks;
     }
 
-    public int getRemainingNumberOfRedeals() {
-        return totalRedeals - redealCounter;
+    public int getRemainingNumberOfRecycles() {
+        int remaining = totalRecycles - recycleCounter;
+
+        return remaining>0 ? remaining : 0;
     }
 
-    public void incrementRedealCounter(GameManager gm) {
-        redealCounter++;
-        gm.updateNumberOfRedeals();
+    public void incrementRecycleCounter(GameManager gm) {
+        recycleCounter++;
+        gm.updateNumberOfRecycles();
     }
 
-    public void decrementRedealCounter(GameManager gm) {
-        redealCounter--;
-        gm.updateNumberOfRedeals();
+    public void decrementRecycleCounter(GameManager gm) {
+        recycleCounter--;
+        gm.updateNumberOfRecycles();
     }
 
-    public void saveRedealCount() {
-        putInt(GAME_REDEAL_COUNT, redealCounter);
+    public void saveRecycleCount() {
+        putInt(GAME_REDEAL_COUNT, recycleCounter);
     }
 
-    public void loadRedealCount(GameManager gm) {
-        redealCounter = getInt(GAME_REDEAL_COUNT, totalRedeals);
-        gm.updateNumberOfRedeals();
+    public void loadRecycleCount(GameManager gm) {
+        recycleCounter = getInt(GAME_REDEAL_COUNT, totalRecycles);
+        gm.updateNumberOfRecycles();
     }
 
     public boolean hasArrow() {
         return hasArrow;
     }
 
-    public void toggleRedeals() {
-        hasLimitedRedeals = !hasLimitedRedeals;
+    public void toggleRecycles() {
+        hasLimitedRecycles = !hasLimitedRecycles;
     }
 
     public void setSingleTapeEnabled(boolean value) {

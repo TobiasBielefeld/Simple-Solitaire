@@ -69,7 +69,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public static int loadCounter = 0;                                                              //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
     public boolean hasLoaded = false;                                                               //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                                               //button for auto complete
-    public TextView mainTextViewTime, mainTextViewScore, mainTextViewRedeals;                       //textViews for time, scores and re-deals
+    public TextView mainTextViewTime, mainTextViewScore, mainTextViewRecycles;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
     public Toast toast;                                                                             //a delicious toast!
     public View highlight;
@@ -96,7 +96,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
         mainTextViewTime = (TextView) findViewById(R.id.mainTextViewTime);
         mainTextViewScore = (TextView) findViewById(R.id.mainTextViewScore);
-        mainTextViewRedeals = (TextView) findViewById(R.id.textViewRedeals);
+        mainTextViewRecycles = (TextView) findViewById(R.id.textViewRecycles);
         buttonAutoComplete = (Button) findViewById(R.id.buttonMainAutoComplete);
         mainRelativeLayoutBackground = (RelativeLayout) findViewById(R.id.mainRelativeLayoutBackground);
 
@@ -288,11 +288,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
             //test if the redeal counter needs to be updated
-            if (currentGame.hasLimitedRedeals() && currentGame.getDealStack().isEmpty()) {
-                if (currentGame.getRemainingNumberOfRedeals() == 0) {
+            if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty()) {
+                if (currentGame.getRemainingNumberOfRecycles() == 0) {
                     return true;
                 } else {
-                    currentGame.incrementRedealCounter(this);
+                    currentGame.incrementRecycleCounter(this);
                 }
             }
             //do what the game wants to be done on a main stack press
@@ -606,8 +606,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
-    public void updateNumberOfRedeals() {
-        mainTextViewRedeals.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRedeals()));
+    public void updateNumberOfRecycles() {
+        mainTextViewRecycles.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRecycles()));
     }
 
     /*

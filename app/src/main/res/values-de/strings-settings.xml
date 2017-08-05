@@ -47,12 +47,6 @@
     <string name="settings_show_manual_in_menu_description">Zeige einen Punkt im Menü, um das aktuelle Spiel im Handbuch zu öffnen</string>
     <string name="settings_change_language">Sprache ändern</string>
     <string name="settings_yukon_rules">Lege Karten auf…</string>
-    <string name="settings_forty_eight_limted_redeals">Begrenzte Kartenrückgabe</string>
-    <string name="settings_forty_eight_limted_redeals_text">Das Zurücklegen der Karten vom Ablage-
-        zum Hauptstapel ist nur einmal pro Spiel möglich, zum Deaktiveren entferne den Haken</string>
-    <string name="settings_pyramid_limted_redeals">Begrenzte Kartenrückgabe</string>
-    <string name="settings_pyramid_limted_redeals_text">Das Zurücklegen der Karten vom Ablage-
-        zum Hauptstapel ist nur zweimal pro Spiel möglich, zum Deaktiveren entferne den Haken</string>
     <string name="settings_icon_theme">Symbol Thema</string>
     <string name="settings_menu_bar_position">Menüleistenposition</string>
     <string name="settings_menu_bar_position_top">Oben</string>
@@ -88,5 +82,8 @@
     <string name="Settings_background_music">Hintergrundmusik</string>
     <string name="Settings_background_volume">Hintergrundmusik Lautstärke</string>
 
+    <string name="settings_limit_number_of_recycles">Begrenzte Kartenrückgabe</string>
+    <string name="settings_limit_number_of_recycles_text">Das Zurücklegen der Karten zum Hauptstapel ist limitiert</string>
+    <string name="settings_number_of_recycles">Anzahl der Rückgaben</string>
 
 </resources>

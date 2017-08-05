@@ -85,13 +85,11 @@ public class SharedData {
     public static String RESTART_DIALOG;
     public static String PREF_KEY_YUKON_RULES;
     public static String PREF_KEY_YUKON_RULES_OLD;
-    public static String PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS;
     public static String PREF_KEY_KLONDIKE_DRAW;
     public static String PREF_KEY_KLONDIKE_DRAW_OLD;
     public static String PREF_KEY_GOLF_CYCLIC;
     public static String PREF_KEY_CANFIELD_DRAW;
     public static String PREF_KEY_CANFIELD_DRAW_OLD;
-    public static String PREF_KEY_PYRAMID_LIMITED_REDEALS;
     public static String PREF_KEY_PYRAMID_DIFFICULTY;
     public static String PREF_KEY_SPIDER_DIFFICULTY;
     public static String PREF_KEY_SPIDER_DIFFICULTY_OLD;
@@ -116,6 +114,10 @@ public class SharedData {
     public static String PREF_KEY_WIN_SOUND;
     public static String PREF_KEY_BACKGROUND_MUSIC;
     public static String PREF_KEY_BACKGROUND_VOLUME;
+    public static String PREF_KEY_PYRAMID_LIMITED_RECYCLES;
+    public static String PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
+    public static String PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
+    public static String PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_YUKON_RULES;
@@ -129,6 +131,8 @@ public class SharedData {
     public static String DEFAULT_ORIENTATION;
     public static String DEFAULT_BACKGROUND_COLOR;
     public static String DEFAULT_BACKGROUND_MUSIC;
+    public static String DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
+    public static String DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_CARD_BACKGROUND_COLOR;
@@ -138,9 +142,7 @@ public class SharedData {
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
     public static String DEFAULT_WIN_SOUND;
     public static String DEFAULT_MOVEMENT_SPEED;
-    public static boolean DEFAULT_PYRAMID_LIMITED_REDEALS;
     public static boolean DEFAULT_GOLF_CYCLIC;
-    public static boolean DEFAULT_FORTY_EIGHT_LIMITED_REDEALS;
     public static boolean DEFAULT_LEFT_HANDED_MODE;
     public static boolean DEFAULT_DOUBLE_TAP_ENABLE;
     public static boolean DEFAULT_DOUBLE_TAP_ALL_CARDS;
@@ -153,6 +155,9 @@ public class SharedData {
     public static boolean DEFAULT_TAP_TO_SELECT_ENABLED;
     public static boolean DEFAULT_SINGLE_TAP_ENABLED;
     public static boolean DEFAULT_SOUND_ENABLED;
+
+    public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
+    public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
 
 
     public static Card[] cards;
@@ -225,9 +230,7 @@ public class SharedData {
         PREF_KEY_YUKON_RULES_OLD = PREF_KEY_YUKON_RULES + OLD;
         PREF_KEY_KLONDIKE_DRAW_OLD = PREF_KEY_KLONDIKE_DRAW + OLD;
         PREF_KEY_CANFIELD_DRAW_OLD = PREF_KEY_CANFIELD_DRAW + OLD;
-        PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS = res.getString(R.string.pref_key_forty_eight_limited_redeals);
         PREF_KEY_GOLF_CYCLIC = res.getString(R.string.pref_key_golf_cyclic);
-        PREF_KEY_PYRAMID_LIMITED_REDEALS = res.getString(R.string.pref_key_pyramid_limited_redeals);
         PREF_KEY_PYRAMID_DIFFICULTY = res.getString(R.string.pref_key_pyramid_difficulty);
         PREF_KEY_SPIDER_DIFFICULTY = res.getString(R.string.pref_key_spider_difficulty);
         PREF_KEY_SPIDER_DIFFICULTY_OLD = PREF_KEY_SPIDER_DIFFICULTY + OLD;
@@ -252,6 +255,10 @@ public class SharedData {
         PREF_KEY_WIN_SOUND = res.getString(R.string.pref_key_win_sound);
         PREF_KEY_BACKGROUND_MUSIC = res.getString(R.string.pref_key_background_music);
         PREF_KEY_BACKGROUND_VOLUME = res.getString(R.string.pref_key_background_volume);
+        PREF_KEY_PYRAMID_LIMITED_RECYCLES = res.getString(R.string.pref_key_pyramid_limit_recycles);
+        PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES = res.getString(R.string.pref_key_fortyeight_limit_recycles);
+        PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_pyramid_number_of_recycles);
+        PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_fortyeight_number_of_recycles);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -261,9 +268,7 @@ public class SharedData {
         DEFAULT_DOUBLE_TAP_ENABLE = res.getBoolean(R.bool.default_double_tap_enable);
         DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST = res.getBoolean(R.bool.default_double_tap_foundation_first);
         DEFAULT_LEFT_HANDED_MODE = res.getBoolean(R.bool.default_left_handed_mode);
-        DEFAULT_PYRAMID_LIMITED_REDEALS = res.getBoolean(R.bool.default_pyramid_limited_redeals);
         DEFAULT_GOLF_CYCLIC = res.getBoolean(R.bool.default_golf_cyclic);
-        DEFAULT_FORTY_EIGHT_LIMITED_REDEALS = res.getBoolean(R.bool.default_forty_eight_limited_redeals);
         DEFAULT_TAP_TO_SELECT_ENABLED = res.getBoolean(R.bool.default_tap_to_select_enable);
         DEFAULT_SINGLE_TAP_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
@@ -287,11 +292,15 @@ public class SharedData {
         DEFAULT_WIN_SOUND = res.getString(R.string.default_win_sound);
         DEFAULT_BACKGROUND_MUSIC = res.getString(R.string.default_background_music);
         DEFAULT_BACKGROUND_VOLUME = res.getInteger(R.integer.default_background_volume);
+        DEFAULT_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.default_pyramid_number_of_recycles);
+        DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.default_fortyeight_number_of_recycles);
+        DEFAULT_PYRAMID_LIMITED_RECYCLES = res.getBoolean(R.bool.default_pyramid_limited_recycles);
+        DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];
         DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_canfield_draw_values)[1];
-        GAME_REDEAL_COUNT = res.getString(R.string.game_redeal_count);
+        GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         GAME_WON = res.getString(R.string.game_won);
         GAME_WON = res.getString(R.string.game_won_and_reloaded);
         GAME_NUMBER_OF_WON_GAMES = res.getString(R.string.game_number_of_won_games);

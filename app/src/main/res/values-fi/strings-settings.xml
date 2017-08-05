@@ -51,10 +51,6 @@
     <string name="settings_show_manual_in_menu_description">Näytä painike jolla avata kyseisen pelin ohje</string>
     <string name="settings_change_language">Vaihda kieli</string>
     <string name="settings_yukon_rules">Aseta kortit…</string>
-    <string name="settings_forty_eight_limted_redeals">Rajoita uudelleen jakojen määrää</string>
-    <string name="settings_forty_eight_limted_redeals_text">Uudelleen jako on sallittu vain kerran pelissä, deaktivoi poistamalla valinta</string>
-    <string name="settings_pyramid_limted_redeals">Rajoita uudelleen jakojen määrää</string>
-    <string name="settings_pyramid_limted_redeals_text">Uudelleen jako on sallittu vain kaksi kertaa pelissä, deaktivoi poistamalla valinta</string>
     <string name="settings_icon_theme">Kuvake teema</string>
     <string name="settings_menu_bar_position">Valikkopalkin sijanti</string>
     <string name="settings_menu_bar_position_top">Ylhäällä</string>
@@ -91,5 +87,9 @@
     <string name="Settings_win_sound_title">Winning sound effect</string>
     <string name="Settings_background_music">Background music</string>
     <string name="Settings_background_volume">Background music volume</string>
+
+    <string name="settings_limit_number_of_recycles">Rajoita uudelleen jakojen määrää</string>
+    <string name="settings_limit_number_of_recycles_text">Recycling the waste back to the main stack is limited</string>
+    <string name="settings_number_of_recycles">Amount of recycles</string>
 
 </resources>

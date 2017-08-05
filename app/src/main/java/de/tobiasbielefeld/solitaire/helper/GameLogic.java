@@ -75,7 +75,7 @@ public class GameLogic {
         Card.save();
         saveRandomCards();
         currentGame.save();
-        currentGame.saveRedealCount();
+        currentGame.saveRecycleCount();
     }
 
     public void setWonAndReloaded(){
@@ -103,7 +103,7 @@ public class GameLogic {
         animate.reset();
         autoComplete.reset();
         currentGame.load();
-        currentGame.loadRedealCount(gm);
+        currentGame.loadRecycleCount(gm);
         sounds.playSound(Sounds.names.DEAL_CARDS);
 
         try {
@@ -251,9 +251,9 @@ public class GameLogic {
         }
 
         //move the re-deal counter too
-        if (currentGame.hasLimitedRedeals()) {
-            gm.mainTextViewRedeals.setX(currentGame.getMainStack().getX());
-            gm.mainTextViewRedeals.setY(currentGame.getMainStack().getY());
+        if (currentGame.hasLimitedRecycles()) {
+            gm.mainTextViewRecycles.setX(currentGame.getMainStack().getX());
+            gm.mainTextViewRecycles.setY(currentGame.getMainStack().getY());
         }
 
         //change the arrow direction
@@ -268,20 +268,26 @@ public class GameLogic {
      * toggle the redeal counter: From enabled to disabled and vice versa. When enabled, the location
      * is also updated.
      */
-    public void toggleNumberOfRedeals() {
+    public void toggleRecycles() {
 
         if (currentGame == null)
             return;
 
-        currentGame.toggleRedeals();
+        currentGame.toggleRecycles();
 
-        if (currentGame.hasLimitedRedeals()) {
-            gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
-            gm.mainTextViewRedeals.setX(currentGame.getMainStack().getX());
-            gm.mainTextViewRedeals.setY(currentGame.getMainStack().getY());
+        if (currentGame.hasLimitedRecycles()) {
+            gm.mainTextViewRecycles.setVisibility(View.VISIBLE);
+            gm.mainTextViewRecycles.setX(currentGame.getMainStack().getX());
+            gm.mainTextViewRecycles.setY(currentGame.getMainStack().getY());
         } else {
-            gm.mainTextViewRedeals.setVisibility(View.GONE);
+            gm.mainTextViewRecycles.setVisibility(View.GONE);
         }
+    }
+
+    public void setNumberOfRecycles(String key, String defaultValue){
+        currentGame.setNumberOfRecycles(key,defaultValue);
+
+        gm.updateNumberOfRecycles();
     }
 
     public boolean hasWon() {

@@ -241,10 +241,18 @@ public class Klondike extends Game {
     }
 
     public boolean autoCompleteStartTest() {
+
         //if every card is faced up, show the auto complete button
         for (int i = 0; i < 7; i++)
             if (stacks[i].getSize() > 0 && !stacks[i].getCard(0).isUp())
                 return false;
+
+        //for deal3 mode, discard and main stack have to be empty too
+        if (!sharedStringEquals(PREF_KEY_KLONDIKE_DRAW_OLD, DEFAULT_KLONDIKE_DRAW)) {
+            if (getMainStack().getSize()>0 || getDiscardStack().getSize()>0){
+                return false;
+            }
+        }
 
         return true;
     }

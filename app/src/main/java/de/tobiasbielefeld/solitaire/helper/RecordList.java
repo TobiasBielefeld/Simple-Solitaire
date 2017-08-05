@@ -299,10 +299,10 @@ public class RecordList {
          */
         void undo() {
             //Check if the movement resulted in a increment of the redeal counter, if so, revert it
-            if (currentGame.hasLimitedRedeals()
+            if (currentGame.hasLimitedRecycles()
                     && currentOrigins.get(0) == currentGame.getDiscardStack()
                     && currentCards.get(0).getStack() == currentGame.getDealStack()) {
-                currentGame.decrementRedealCounter(gm);
+                currentGame.decrementRecycleCounter(gm);
             }
 
             for (Card card : flipCards) {

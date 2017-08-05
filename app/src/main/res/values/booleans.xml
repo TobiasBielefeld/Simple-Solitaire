@@ -3,9 +3,8 @@
     <bool name="default_double_tap_all_cards">true</bool>
     <bool name="default_double_tap_enable">true</bool>
     <bool name="default_left_handed_mode">false</bool>
-    <bool name="default_pyramid_limited_redeals">true</bool>
+    <bool name="default_pyramid_limited_recycles">true</bool>
     <bool name="default_golf_cyclic">true</bool>
-    <bool name="default_forty_eight_limited_redeals">true</bool>
     <bool name="default_first_run">true</bool>
     <bool name="default_won">false</bool>
     <bool name="default_won_and_reloaded">false</bool>
@@ -15,5 +14,6 @@
     <bool name="default_single_tap_enable">true</bool>
     <bool name="default_double_tap_foundation_first">true</bool>
     <bool name="default_sound_enabled">false</bool>
+    <bool name="default_fortyeight_limited_recycles">true</bool>
 </resources>
 

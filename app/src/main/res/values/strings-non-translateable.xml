@@ -10,8 +10,6 @@
     <string name="pref_key_double_tap_enable" translatable="false">pref_key_double_tap_enable</string>
     <string name="pref_key_double_tap_all_cards" translatable="false">pref_key_double_tap_all_cards</string>
     <string name="pref_key_double_tap_foundation_first" translatable="false">pref_key_double_tap_foundation_first</string>
-    <string name="pref_key_pyramid_limited_redeals" translatable="false">pref_key_pyramid_limited_redeals</string>
-    <string name="pref_key_forty_eight_limited_redeals" translatable="false">pref_key_forty_eight_limited_redeals</string>
     <string name="pref_key_customization" translatable="false">pref_key_customization</string>
     <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
     <string name="pref_key_cards" translatable="false">pref_key_cards</string>
@@ -49,6 +47,10 @@
     <string name="pref_key_win_sound" translatable="false">pref_key_win_sound</string>
     <string name="pref_key_background_music" translatable="false">pref_key_background_music</string>
     <string name="pref_key_background_volume" translatable="false">pref_key_background_volume</string>
+    <string name="pref_key_pyramid_limit_recycles" translatable="false">pref_key_pyramid_limit_recycles</string>
+    <string name="pref_key_fortyeight_limit_recycles" translatable="false">pref_key_fortyeight_limit_recycles</string>
+    <string name="pref_key_pyramid_number_of_recycles" translatable="false">pref_key_pyramid_number_of_recycles</string>
+    <string name="pref_key_fortyeight_number_of_recycles" translatable="false">pref_key_fortyeight_number_of_recycles</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>
@@ -85,7 +87,7 @@
     <string name="game_number_of_won_games" translatable="false">GameNumberOfWonGames</string>
     <string name="game_won" translatable="false">GameWon</string>
     <string name="game_won_and_reloaded" translatable="false">GameWonAndReloaded</string>
-    <string name="game_redeal_count" translatable="false">GameRedealCount</string>
+    <string name="game_recycle_count" translatable="false">GameRecycleCount</string>
     <string name="saved_scores" translatable="false">SavedScores</string>
     <string name="score" translatable="false">Score</string>
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>

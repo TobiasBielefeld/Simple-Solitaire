@@ -49,10 +49,11 @@ public class Pyramid extends Game {
         setDealFromID(30);
         setDirections();                                                                              //empty so all stacks have no spacing direction
 
-        setLimitedRedeals(2);
+        setNumberOfRecycles(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
 
-        if (!getSharedBoolean(PREF_KEY_PYRAMID_LIMITED_REDEALS, DEFAULT_PYRAMID_LIMITED_REDEALS))
-            toggleRedeals();
+        if (!getSharedBoolean(PREF_KEY_PYRAMID_LIMITED_RECYCLES, DEFAULT_PYRAMID_LIMITED_RECYCLES)) {
+            toggleRecycles();
+        }
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {

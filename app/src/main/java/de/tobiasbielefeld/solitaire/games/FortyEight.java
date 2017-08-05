@@ -45,10 +45,12 @@ public class FortyEight extends Game {
         setFirstDiscardStackID(16);
         setLastTableauID(7);
         setHasFoundationStacks(true);
-        setLimitedRedeals(1);
 
-        if (!getSharedBoolean(PREF_KEY_FORTY_EIGHT_LIMITED_REDEALS, DEFAULT_FORTY_EIGHT_LIMITED_REDEALS))
-            toggleRedeals();
+        setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
+
+        if (!getSharedBoolean(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES, DEFAULT_FORTYEIGHT_LIMITED_RECYCLES)) {
+            toggleRecycles();
+        }
 
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0);
     }

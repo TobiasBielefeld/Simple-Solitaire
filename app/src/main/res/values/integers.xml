@@ -19,5 +19,7 @@
     <string name="default_movement_speed" translatable="false">2</string>
     <string name="default_win_sound" translatable="false">0</string>
     <string name="default_background_music" translatable="false">1</string>
+    <string name="default_pyramid_number_of_recycles" translatable="false">2</string>
+    <string name="default_fortyeight_number_of_recycles" translatable="false">1</string>
 
 </resources>

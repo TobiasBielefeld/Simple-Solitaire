@@ -50,12 +50,7 @@
     <string name="settings_show_manual_in_menu">Page de manuel dans le menu du jeu</string>
     <string name="settings_show_manual_in_menu_description">Affiche un bouton pour ouvrir le manuel du jeu de carte en cours</string>
     <string name="settings_change_language">Changer la langue</string>
-
     <string name="settings_yukon_rules">Placez les cartes sur…</string>
-    <string name="settings_forty_eight_limted_redeals">Limitation du nombre de donnes</string>
-    <string name="settings_forty_eight_limted_redeals_text">Le retour des cartes de la défausse dans le talon est limité à une fois par partie, décochez pour désactiver</string>
-    <string name="settings_pyramid_limted_redeals">Limitation du nombre de donnes</string>
-    <string name="settings_pyramid_limted_redeals_text">Le retour des cartes de la défausse vers à la pioche est limité à deux fois par partie, décochez pour désactiver</string>
 
     <string name="settings_icon_theme">Set d\'icônes</string>
     <string name="settings_menu_bar_position">Position de la barre de menu</string>
@@ -92,5 +87,9 @@
     <string name="Settings_win_sound_title">Winning sound effect</string>
     <string name="Settings_background_music">Background music</string>
     <string name="Settings_background_volume">Background music volume</string>
+
+    <string name="settings_limit_number_of_recycles">Limitation du nombre de donnes</string>
+    <string name="settings_limit_number_of_recycles_text">Le retour des cartes de la défausse dans le talon est limité</string>
+    <string name="settings_number_of_recycles">Nombre de retours</string>
 
 </resources>

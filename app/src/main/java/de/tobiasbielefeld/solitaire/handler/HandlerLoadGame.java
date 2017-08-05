@@ -42,10 +42,10 @@ public class HandlerLoadGame extends Handler {
         super.handleMessage(msg);
         gameLogic.load();
 
-        if (currentGame.hasLimitedRedeals()) {
-            gm.mainTextViewRedeals.setVisibility(View.VISIBLE);
-            gm.mainTextViewRedeals.setX(currentGame.getMainStack().getX());
-            gm.mainTextViewRedeals.setY(currentGame.getMainStack().getY());
+        if (currentGame.hasLimitedRecycles()) {
+            gm.mainTextViewRecycles.setVisibility(View.VISIBLE);
+            gm.mainTextViewRecycles.setX(currentGame.getMainStack().getX());
+            gm.mainTextViewRecycles.setY(currentGame.getMainStack().getY());
         }
 
         gm.hasLoaded = true;
