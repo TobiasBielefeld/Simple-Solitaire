@@ -4,79 +4,13 @@
     <PreferenceCategory android:title="@string/games_canfield">
         <ListPreference
             android:defaultValue="3"
-            android:entries="@array/pref_canfield_draw_titles"
-            android:entryValues="@array/pref_canfield_draw_values"
+            android:entries="@array/pref_draw_titles"
+            android:entryValues="@array/pref_draw_values"
             android:key="@string/pref_key_canfield_draw"
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@null"
             android:summary="%s"
             android:title="@string/settings_canfield_draw" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/games_klondike">
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/pref_klondike_draw_titles"
-            android:entryValues="@array/pref_klondike_draw_values"
-            android:key="@string/pref_key_klondike_draw"
-            android:negativeButtonText="@string/game_cancel"
-            android:positiveButtonText="@null"
-            android:summary="%s"
-            android:title="@string/settings_klondike_draw" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/games_spider">
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/pref_spider_difficulty_titles"
-            android:entryValues="@array/pref_spider_difficulty_values"
-            android:key="@string/pref_key_spider_difficulty"
-            android:negativeButtonText="@string/game_cancel"
-            android:positiveButtonText="@null"
-            android:summary="%s"
-            android:title="@string/settings_spider_difficulty" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/games_yukon">
-        <ListPreference
-            android:defaultValue="default"
-            android:entries="@array/pref_yukon_rules_titles"
-            android:entryValues="@array/pref_yukon_rules_values"
-            android:key="@string/pref_key_yukon_rules"
-            android:negativeButtonText="@string/game_cancel"
-            android:positiveButtonText="@null"
-            android:summary="%s"
-            android:title="@string/settings_yukon_rules" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/games_pyramid">
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/pref_pyramid_difficulty_titles"
-            android:entryValues="@array/pref_pyramid_difficulty_values"
-            android:key="@string/pref_key_pyramid_difficulty"
-            android:negativeButtonText="@string/game_cancel"
-            android:positiveButtonText="@null"
-            android:summary="%s"
-            android:title="@string/settings_pyramid_difficulty" />
-
-        <CheckBoxPreference
-            android:defaultValue="@bool/default_pyramid_limited_recycles"
-            android:key="@string/pref_key_pyramid_limit_recycles"
-            android:summary="@string/settings_limit_number_of_recycles_text"
-            android:title="@string/settings_limit_number_of_recycles" />
-
-        <ListPreference
-            android:dependency="@string/pref_key_pyramid_limit_recycles"
-            android:defaultValue="@string/default_pyramid_number_of_recycles"
-            android:entries="@array/pref_number_of_recycles_values"
-            android:entryValues="@array/pref_number_of_recycles_values"
-            android:key="@string/pref_key_pyramid_number_of_recycles"
-            android:negativeButtonText="@string/game_cancel"
-            android:positiveButtonText="@null"
-            android:summary="%s"
-            android:title="@string/settings_number_of_recycles" />
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/games_fortyeight">
@@ -106,5 +40,99 @@
             android:title="@string/settings_golf_easy" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/games_klondike">
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/pref_draw_titles"
+            android:entryValues="@array/pref_draw_values"
+            android:key="@string/pref_key_klondike_draw"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_klondike_draw" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_pyramid">
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/pref_pyramid_difficulty_titles"
+            android:entryValues="@array/pref_pyramid_difficulty_values"
+            android:key="@string/pref_key_pyramid_difficulty"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_pyramid_difficulty" />
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_pyramid_limited_recycles"
+            android:key="@string/pref_key_pyramid_limit_recycles"
+            android:summary="@string/settings_limit_number_of_recycles_text"
+            android:title="@string/settings_limit_number_of_recycles" />
+
+        <ListPreference
+            android:dependency="@string/pref_key_pyramid_limit_recycles"
+            android:defaultValue="@string/default_pyramid_number_of_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_pyramid_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_spider">
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/pref_spider_difficulty_titles"
+            android:entryValues="@array/pref_spider_difficulty_values"
+            android:key="@string/pref_key_spider_difficulty"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_spider_difficulty" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_vegas">
+        <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/pref_draw_titles"
+            android:entryValues="@array/pref_draw_values"
+            android:key="@string/pref_key_vegas_draw"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_klondike_draw" />
+
+        <!--
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_vegas_limited_recycles"
+            android:key="@string/pref_key_vegas_limit_recycles"
+            android:summary="@string/settings_limit_number_of_recycles_text"
+            android:title="@string/settings_limit_number_of_recycles" />
+
+        <ListPreference
+            android:dependency="@string/pref_key_vegas_limit_recycles"
+            android:defaultValue="@string/default_vegas_number_of_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_vegas_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" /> -->
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_yukon">
+        <ListPreference
+            android:defaultValue="default"
+            android:entries="@array/pref_yukon_rules_titles"
+            android:entryValues="@array/pref_yukon_rules_values"
+            android:key="@string/pref_key_yukon_rules"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_yukon_rules" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

@@ -20,12 +20,7 @@
         <item>4 (Difficile)</item>
     </string-array>
 
-    <string-array name="pref_klondike_draw_titles">
-        <item>Donner 1 carte</item>
-        <item>Donner 3 cartes</item>
-    </string-array>
-
-    <string-array name="pref_canfield_draw_titles">
+    <string-array name="pref_draw_titles">
         <item>Donner 1 carte</item>
         <item>Donner 3 cartes</item>
     </string-array>
@@ -71,8 +66,8 @@
     </string-array>
 
     <string-array name="pref_win_sounds_titles">
-        <item>Piano (Default)</item>
-        <item>Victory sound</item>
+        <item>Default</item>
+        <item>Piano</item>
         <item>8-Bit voice \"You win\"</item>
         <item>Cheering crowd</item>
     </string-array>

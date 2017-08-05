@@ -35,6 +35,7 @@
     <string name="settings_golf_easy_description">Zezwól kłaść asy na króli i odwrotnie</string>
     <string name="settings_restart_klondike">Aby zastosować zmiany, rozpocznij nową grę Klondkie</string>
     <string name="settings_restart_yukon">Aby zastosować zmiany, rozpocznij nową grę Yukon</string>
+    <string name="settings_restart_vegas">Aby zastosować zmiany, rozpocznij nową grę Vegas</string>
     <string name="settings_restart_canfield">Aby zastosować zmiany, rozpocznij nową grę Canfield</string>
     <string name="settings_restart_spider">Aby zastosować zmiany, rozpocznij nową grę Pająk</string>
     <string name="settings_restart_fortyeight">Aby zastosować zmiany, rozpocznij nową grę Czterdzieści&amp;Osiem</string>

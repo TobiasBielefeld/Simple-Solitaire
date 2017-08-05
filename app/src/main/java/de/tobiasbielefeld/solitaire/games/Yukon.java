@@ -122,7 +122,7 @@ public class Yukon extends Game {
     }
 
     boolean checkRules(Stack stack, Card card) {
-        boolean defaultRules = sharedStringEquals(PREF_KEY_YUKON_RULES_OLD, DEFAULT_YUKON_RULES);
+        boolean defaultRules = sharedStringEqualsDefault(PREF_KEY_YUKON_RULES_OLD, DEFAULT_YUKON_RULES);
 
         return defaultRules ? canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING) :
                 canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);

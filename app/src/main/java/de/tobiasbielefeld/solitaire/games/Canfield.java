@@ -195,7 +195,7 @@ public class Canfield extends Game {
         setFoundationBackgrounds();
 
         //deal cards to trash according to the draw option
-        if (sharedStringEquals(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW)) {
+        if (sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW)) {
             for (int i = 0; i < 3; i++) {
                 moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
                 stacks[9 + i].getTopCard().flipUp();
@@ -208,7 +208,7 @@ public class Canfield extends Game {
 
     public int onMainStackTouch() {
 
-        boolean deal3 = sharedStringEquals(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW);
+        boolean deal3 = sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW);
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
@@ -572,7 +572,7 @@ public class Canfield extends Game {
             }
         }
 
-        if (!sharedStringEquals(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW))
+        if (!sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW))
             return;
 
         if (stacks[10].getSize() == 0 || stacks[11].getSize() == 0) {

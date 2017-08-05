@@ -43,6 +43,7 @@ import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
 import de.tobiasbielefeld.solitaire.games.Tripeaks;
+import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
 
 import static android.content.ContentValues.TAG;
@@ -145,6 +146,11 @@ public class LoadGame {
                 gameName = activity.getString(R.string.games_yukon);
                 game = new Yukon();
                 break;
+            case R.id.buttonStartVegas:
+                sharedPrefName = "Vegas";
+                gameName = activity.getString(R.string.games_vegas);
+                game = new Vegas();
+                break;
         }
 
         return game;
@@ -173,6 +179,7 @@ public class LoadGame {
         imageViews.add((ImageView) activity.findViewById(R.id.buttonStartSimpleSimon));
         imageViews.add((ImageView) activity.findViewById(R.id.buttonStartSpider));
         imageViews.add((ImageView) activity.findViewById(R.id.buttonStartTriPeaks));
+        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartVegas));
         imageViews.add((ImageView) activity.findViewById(R.id.buttonStartYukon));
 
         return imageViews;
@@ -200,6 +207,7 @@ public class LoadGame {
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_simplesimon));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_spider));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_tripeaks));
+        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_vegas));
         gameButtons.add((Button) view.findViewById(R.id.manual_games_button_yukon));
 
         for (Button button : gameButtons) {
@@ -230,6 +238,7 @@ public class LoadGame {
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_12));
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_13));
         linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_14));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_15));
 
         return linearLayouts;
     }
@@ -257,6 +266,7 @@ public class LoadGame {
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_12));
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_13));
         checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_14));
+        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_15));
 
         return checkBoxes;
     }
@@ -303,6 +313,8 @@ public class LoadGame {
                 return "tripeaks";
             case R.id.manual_games_button_yukon:
                 return "yukon";
+            case R.id.manual_games_button_vegas:
+                return "vegas";
 
         }
     }
@@ -348,6 +360,8 @@ public class LoadGame {
             return "tripeaks";
         } else if (gameName.equals(res.getString(R.string.games_yukon))){
             return "yukon";
+        } else if (gameName.equals(res.getString(R.string.games_vegas))){
+            return "vegas";
         }
 
         Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");

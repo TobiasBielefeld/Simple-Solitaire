@@ -210,7 +210,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
 
                     <Button
@@ -225,6 +225,23 @@
                         android:textAllCaps="false" />
 
                     <Button
+                        android:id="@+id/manual_games_button_vegas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@string/games_vegas"
+                        android:textAllCaps="false" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <Button
                         android:id="@+id/manual_games_button_yukon"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -234,6 +251,14 @@
                         android:maxLines="1"
                         android:text="@string/games_yukon"
                         android:textAllCaps="false" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                    </FrameLayout>
+
                 </TableRow>
 
             </TableLayout>

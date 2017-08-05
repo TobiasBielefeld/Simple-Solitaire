@@ -34,6 +34,7 @@
     <string name="games_mod3">Mod3</string>
     <string name="games_canfield">カンフィールド</string>
     <string name="games_grandfathersClock">祖父の時計</string>
+    <string name="games_vegas">ベガス</string>
 
     <!-- colors -->
     <string name="blue">青</string>
@@ -47,7 +48,6 @@
     <string name="game_close">ゲームを閉じる</string>
     <string name="game_main_menu">メインメニュー</string>
 
-    <!-- new values -->
     <!-- game stuff -->
     <string name="canfield_longest_run">最長シーケンス:</string> <!-- also used by golf -->
 

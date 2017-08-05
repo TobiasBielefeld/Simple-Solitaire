@@ -40,6 +40,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
+import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
@@ -143,6 +144,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(PREF_KEY_KLONDIKE_DRAW)) {
             showToast(getString(R.string.settings_restart_klondike));
 
+        } else if (key.equals(PREF_KEY_VEGAS_DRAW)) {
+            showToast(getString(R.string.settings_restart_vegas));
+
         } else if (key.equals(PREF_KEY_CANFIELD_DRAW)) {
             showToast(getString(R.string.settings_restart_canfield));
 
@@ -178,7 +182,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 gameLogic.setNumberOfRecycles(key,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
             }
 
-        }else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
+        } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
             updatePreferenceMenuBarPositionSummary();
             if (gameLogic != null) {
                 gameLogic.updateMenuBar();
@@ -287,13 +291,13 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     private void updatePreferenceMenuBarPositionSummary() {
         String portrait, landscape;
-        if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_portrait), DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
+        if (sharedStringEqualsDefault(getString(R.string.pref_key_menu_bar_position_portrait), DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
             portrait = getString(R.string.settings_menu_bar_position_bottom);
         } else {
             portrait = getString(R.string.settings_menu_bar_position_top);
         }
 
-        if (sharedStringEquals(getString(R.string.pref_key_menu_bar_position_landscape), DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
+        if (sharedStringEqualsDefault(getString(R.string.pref_key_menu_bar_position_landscape), DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
             landscape = getString(R.string.settings_menu_bar_position_right);
         } else {
             landscape = getString(R.string.settings_menu_bar_position_left);

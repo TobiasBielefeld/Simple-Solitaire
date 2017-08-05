@@ -99,7 +99,7 @@ public class Pyramid extends Game {
             if (!stacks[i].isEmpty())
                 return false;
 
-        return sharedStringEquals(PREF_KEY_PYRAMID_DIFFICULTY, DEFAULT_PYRAMID_DIFFICULTY) || getDiscardStack().isEmpty() && stacks[30].isEmpty();
+        return sharedStringEqualsDefault(PREF_KEY_PYRAMID_DIFFICULTY, DEFAULT_PYRAMID_DIFFICULTY) || getDiscardStack().isEmpty() && stacks[30].isEmpty();
     }
 
     public void dealCards() {

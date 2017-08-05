@@ -144,6 +144,9 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         if (result.size() == 13) { //new grand fathers clock game
             result.add(5, 1);
         }
+        if (result.size() == 14) { //new vegas game
+            result.add(14, 1);
+        }
 
         //add the game buttons
         for (int i = 0; i < gameImageViews.size(); i++) {

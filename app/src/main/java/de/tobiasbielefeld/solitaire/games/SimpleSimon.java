@@ -31,10 +31,10 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 
 /**
  * Simple Simon Game! It's nearly like Spider, but with less cards and all cards are
- * already faced up at start
+ * already faced up at start. This game extends Spider, so some methods aren't declared here.
  */
 
-public class SimpleSimon extends Game {
+public class SimpleSimon extends Spider {
 
     public SimpleSimon() {
         setNumberOfDecks(1);
@@ -85,23 +85,6 @@ public class SimpleSimon extends Game {
         getDealStack().getTopCard().flipUp();
     }
 
-    public boolean cardTest(Stack stack, Card card) {
-        return Spider.cardTestStatic(stack, card);
-    }
-
-    public boolean addCardToMovementTest(Card card) {
-        return Spider.addCardToMovementTestStatic(card);
-    }
-
-    public CardAndStack hintTest() {
-        return Spider.hintTestStatic();
-    }
-
-    @Override
-    public Stack doubleTapTest(Card card) {
-        return Spider.doubleTapTestStatic(card);
-    }
-
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         if (destinationIDs[0] >= 10 && destinationIDs[0] < 14) {
             return 200;
@@ -113,11 +96,6 @@ public class SimpleSimon extends Game {
     public int onMainStackTouch() {
         //no main stack so empty
         return 0;
-    }
-
-    @Override
-    public void testAfterMove() {
-        Spider.testAfterMoveStatic();
     }
 
     public boolean autoCompleteStartTest() {

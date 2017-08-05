@@ -20,12 +20,7 @@
         <item>4 (Schwer)</item>
     </string-array>
 
-    <string-array name="pref_klondike_draw_titles">
-        <item>Draw 1</item>
-        <item>Draw 3</item>
-    </string-array>
-
-    <string-array name="pref_canfield_draw_titles">
+    <string-array name="pref_draw_titles">
         <item>Draw 1</item>
         <item>Draw 3</item>
     </string-array>
@@ -70,8 +65,8 @@
     </string-array>
 
     <string-array name="pref_win_sounds_titles">
-        <item>Piano (Standard)</item>
-        <item>Triumph Ton</item>
+        <item>Standard</item>
+        <item>Piano</item>
         <item>8-Bit Stimme \"You win\"</item>
         <item>Jubelnde Menge</item>
     </string-array>

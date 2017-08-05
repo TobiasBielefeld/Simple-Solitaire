@@ -87,6 +87,8 @@ public class SharedData {
     public static String PREF_KEY_YUKON_RULES_OLD;
     public static String PREF_KEY_KLONDIKE_DRAW;
     public static String PREF_KEY_KLONDIKE_DRAW_OLD;
+    public static String PREF_KEY_VEGAS_DRAW;
+    public static String PREF_KEY_VEGAS_DRAW_OLD;
     public static String PREF_KEY_GOLF_CYCLIC;
     public static String PREF_KEY_CANFIELD_DRAW;
     public static String PREF_KEY_CANFIELD_DRAW_OLD;
@@ -120,6 +122,7 @@ public class SharedData {
     public static String PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
+    public static String DEFAULT_VEGAS_DRAW;
     public static String DEFAULT_YUKON_RULES;
     public static String DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
     public static String DEFAULT_MENU_BAR_POSITION_PORTRAIT;
@@ -133,6 +136,7 @@ public class SharedData {
     public static String DEFAULT_BACKGROUND_MUSIC;
     public static String DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
     public static String DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
+
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_CARD_BACKGROUND_COLOR;
@@ -223,12 +227,15 @@ public class SharedData {
      */
     public static void loadStrings(Resources res) {
         GAME = res.getString(R.string.game);
+        OLD = "_old";
 
         PREF_KEY_YUKON_RULES = res.getString(R.string.pref_key_yukon_rules);
         PREF_KEY_KLONDIKE_DRAW = res.getString(R.string.pref_key_klondike_draw);
+        PREF_KEY_VEGAS_DRAW = res.getString(R.string.pref_key_vegas_draw);
         PREF_KEY_CANFIELD_DRAW = res.getString(R.string.pref_key_canfield_draw);
         PREF_KEY_YUKON_RULES_OLD = PREF_KEY_YUKON_RULES + OLD;
         PREF_KEY_KLONDIKE_DRAW_OLD = PREF_KEY_KLONDIKE_DRAW + OLD;
+        PREF_KEY_VEGAS_DRAW_OLD = PREF_KEY_VEGAS_DRAW + OLD;
         PREF_KEY_CANFIELD_DRAW_OLD = PREF_KEY_CANFIELD_DRAW + OLD;
         PREF_KEY_GOLF_CYCLIC = res.getString(R.string.pref_key_golf_cyclic);
         PREF_KEY_PYRAMID_DIFFICULTY = res.getString(R.string.pref_key_pyramid_difficulty);
@@ -298,8 +305,9 @@ public class SharedData {
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
 
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
-        DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_klondike_draw_values)[0];
-        DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_canfield_draw_values)[1];
+        DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
+        DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
+        DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
         GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         GAME_WON = res.getString(R.string.game_won);
         GAME_WON = res.getString(R.string.game_won_and_reloaded);
@@ -688,8 +696,20 @@ public class SharedData {
      * @param defaultValue The default value of it
      * @return True if the current value saved is the default value
      */
-    public static boolean sharedStringEquals(String name, String defaultValue) {
+    public static boolean sharedStringEqualsDefault(String name, String defaultValue) {
         return savedSharedData.getString(name, defaultValue).equals(defaultValue);
+    }
+
+    /**
+     * Tests if the saved value equals the given value
+     *
+     * @param name         The name of the key
+     * @param defaultValue The default value of it
+     * @param testValue    The value to compare
+     * @return True if the current value saved is the value to compare
+     */
+    public static boolean sharedStringEquals(String name, String defaultValue, String testValue) {
+        return savedSharedData.getString(name, defaultValue).equals(testValue);
     }
 
     public static int min(int value1, int value2) {

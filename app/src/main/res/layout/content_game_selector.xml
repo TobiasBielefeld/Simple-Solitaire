@@ -185,6 +185,16 @@
                 android:padding="@dimen/game_selector_images_padding"
                 android:scaleType="fitCenter" />
 
+            <ImageView
+                android:id="@+id/buttonStartVegas"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:longClickable="true"
+                android:padding="@dimen/game_selector_images_padding"
+                android:scaleType="fitCenter" />
+
 
         </TableRow>
 

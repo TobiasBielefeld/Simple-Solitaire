@@ -45,7 +45,7 @@ public class Spider extends Game {
         setLastTableauID(9);
     }
 
-    static public CardAndStack hintTestStatic() {
+    public CardAndStack hintTest() {
         for (int i = 0; i < 10; i++) {
             Stack sourceStack = stacks[i];
 
@@ -56,7 +56,7 @@ public class Spider extends Game {
             for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !currentGame.testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
                     continue;
                 }
 
@@ -77,11 +77,11 @@ public class Spider extends Game {
                         }
 
                         //if the card is already on the same card as on the other stack, don't return it
-                        if (currentGame.sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
+                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
                             continue;
                         }
 
-                        if (cardToMove.test(destStack) && !currentGame.sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
+                        if (cardToMove.test(destStack) && !sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
 
                             //try to prefer stacks with a top card of the same family as the moving card
                             if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor())) {
@@ -102,7 +102,7 @@ public class Spider extends Game {
         return null;
     }
 
-    static public Stack doubleTapTestStatic(Card card) {
+    public Stack doubleTapTest(Card card) {
         Card cardBelow = null;
 
         if (card.getIndexOnStack() > 0) {
@@ -122,7 +122,7 @@ public class Spider extends Game {
                 continue;
             }
 
-            if (card.test(destStack) && !currentGame.sameCardOnOtherStack(card, destStack, SAME_VALUE_AND_FAMILY)) {
+            if (card.test(destStack) && !sameCardOnOtherStack(card, destStack, SAME_VALUE_AND_FAMILY)) {
 
                 //try to prefer stacks with a top card of the same family as the moving card
                 if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == card.getColor())) {
@@ -145,7 +145,7 @@ public class Spider extends Game {
         return null;
     }
 
-    static public void testAfterMoveStatic() {
+    public void testAfterMove() {
         /*
          * after a move, test if somewhere is a complete card family, if so, move it to foundations
          */
@@ -163,7 +163,7 @@ public class Spider extends Game {
 
                 Card cardToTest = currentStack.getCard(j);
 
-                if (cardToTest.getValue() == 13 && currentGame.testCardsUpToTop(currentStack, j, SAME_FAMILY)) {
+                if (cardToTest.getValue() == 13 && testCardsUpToTop(currentStack, j, SAME_FAMILY)) {
                     Stack foundationStack = stacks[10];
 
                     while (!foundationStack.isEmpty()) {
@@ -194,12 +194,12 @@ public class Spider extends Game {
         }
     }
 
-    static public boolean addCardToMovementTestStatic(Card card) {
+    public boolean addCardToMovementTest(Card card) {
         //do not accept cards from foundation and test if the cards are in the right order.
         return card.getStackId() < 10 && currentGame.testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_FAMILY);
     }
 
-    static public boolean cardTestStatic(Stack stack, Card card) {
+    public boolean cardTest(Stack stack, Card card) {
         return stack.getId() < 10 && currentGame.canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
     }
 
@@ -300,23 +300,6 @@ public class Spider extends Game {
         return 0;
     }
 
-    public boolean cardTest(Stack stack, Card card) {
-        return cardTestStatic(stack, card);
-    }
-
-    public boolean addCardToMovementTest(Card card) {
-        return addCardToMovementTestStatic(card);
-    }
-
-    public CardAndStack hintTest() {
-        return hintTestStatic();
-    }
-
-    @Override
-    public Stack doubleTapTest(Card card) {
-        return doubleTapTestStatic(card);
-    }
-
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int points = 0;
         boolean foundation = false;
@@ -334,11 +317,6 @@ public class Spider extends Game {
         return points;
     }
 
-    /*
-     * some static versions of the methods, so i can use them in SimpleSimon too.
-     * (The rules are nearly identical)
-     */
-
     @Override
     public boolean testIfMainStackTouched(float X, float Y) {
         return (stacks[18].isOnLocation(X, Y) ||
@@ -346,11 +324,6 @@ public class Spider extends Game {
                 stacks[20].isOnLocation(X, Y) ||
                 stacks[21].isOnLocation(X, Y) ||
                 stacks[22].isOnLocation(X, Y));
-    }
-
-    @Override
-    public void testAfterMove() {
-        testAfterMoveStatic();
     }
 
     private void loadCards() {

@@ -371,6 +371,32 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
+                    android:text="@string/games_vegas"
+                    android:textSize="15sp"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_linearLayout_15"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <CheckBox
+                    android:id="@+id/menu_checkBox_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginStart="@dimen/layout_padding" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
                     android:text="@string/games_yukon"
                     android:textSize="15sp"
                     android:textStyle="normal|bold" />
