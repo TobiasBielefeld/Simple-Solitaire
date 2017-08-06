@@ -74,10 +74,10 @@
 
     <string-array name="pref_background_musics_titles">
         <item>使用禁止</item>
-        <item>1</item>      <!-- names will be changed later -->
-        <item>2</item>
-        <item>3</item>
+        <item>楽想1</item>
+        <item>楽想2</item>
+        <item>楽想3</item>
+        <item>オルゴール</item>
     </string-array>
-
 
 </resources>

@@ -48,6 +48,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
     <string-array name="pref_yukon_rules_values" translatable="false">
@@ -153,9 +154,10 @@
 
     <string-array name="pref_background_musics_titles">
         <item>Disabled</item>
-        <item>1</item>      <!-- names will be changed later -->
-        <item>2</item>
-        <item>3</item>
+        <item>Theme 1</item>
+        <item>Theme 2</item>
+        <item>Theme 3</item>
+        <item>Music Box</item>
     </string-array>
 
 </resources>

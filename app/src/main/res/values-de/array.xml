@@ -73,9 +73,10 @@
 
     <string-array name="pref_background_musics_titles">
         <item>Deaktiviert</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+        <item>Melodie 1</item>
+        <item>Melodie 2</item>
+        <item>Melodie 3</item>
+        <item>Musikbox</item>
     </string-array>
 
 </resources>
