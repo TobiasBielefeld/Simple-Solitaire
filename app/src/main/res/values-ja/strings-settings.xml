@@ -98,5 +98,9 @@
     <string name="settings_limit_number_of_recycles_text">メインスタックへの廃棄物のリサイクルは制限されています</string>
     <string name="settings_number_of_recycles">リサイクル量</string>
 
+    <string name="settings_vegas_bet_amount">ベット額</string>
+    <string name="settings_vegas_bet_amount_progress_text">最初の取引には%1$d$がかかり、基金に支払われた各カードは%2$d$を獲得します。</string>
+    <string name="settings_vegas_bet_amount_summary">最初の取引：-%1$d$、基金：+%2$d$</string>
+
 
 </resources>

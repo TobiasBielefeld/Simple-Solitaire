@@ -256,4 +256,24 @@
         aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden.
        </string>
     <string name="manual_grandfathersClock_scoring">Vom Tableau zur Foundation: +50</string>
+
+
+    <!-- Vegas -->
+    <string name="manual_vegas_structure">@string/manual_klondike_structure</string>
+    <string name="manual_vegas_objective">Spiele Karten zur Foundation um mehr Geld zu gewinnen.</string>
+    <string name="manual_vegas_rules">Die Regeln sind identisch zu den \"Klondike\"-Regeln.
+        \n\nKarten können auf dem Tableau in abfallender Reihenfolge
+        und alternierenden Farben gespielt werden. Man kann eine ganze Kartensequenz auf einmal bewegen.
+        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.\n\nNur
+        Könige können auf leeren Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
+        werden.\n\nTippe den Haupt-Stapel an um Karten auf den Ablage-Stapel zu bewegen. Die Anzahl der Karten
+        hängt dabei von den gewählten Einstellungen ab. Falls \"Draw 1\" aktiviert ist, wird nur eine Karte
+        bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.\n\nFalls der Haupt-Stapel leer ist, tippe
+        drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten
+        erneut verwendet werden.</string>
+    <string name="manual_vegas_scoring">Die Höhe des gewinnbaren Geldbetrages hängt von dem Einsatz ab, welcher in den Einstellungen festgelegt wird.
+        Man zahl zum Beispiel 50$ zu Beginn des Spiels und mit jeder Karte, die zur Foundation gespielt wird, gewinnt man 1/10 des Einsatzes.
+        \n\nEin Spiel wird als \"Gewonnen\" gespeichert, falls die Punktzahl über 0$ liegt. Karten von der Foundation wegzubewgen kostet 2/10 des Einsatzes.
+        \n\nHINWEIS: Es wird nicht für echtes Geld gespielt :)</string>
+
 </resources>

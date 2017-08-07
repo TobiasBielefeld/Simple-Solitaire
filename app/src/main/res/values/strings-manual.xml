@@ -253,4 +253,21 @@
        </string>
     <string name="manual_grandfathersClock_scoring">From tableau to foundation: +50</string>
 
+    <!-- Vegas -->
+    <string name="manual_vegas_structure">@string/manual_klondike_structure</string>
+    <string name="manual_vegas_objective">Play cards to the foundation to win more money.</string>
+    <string name="manual_vegas_rules">The rules are identical to the \"Klondike\"-Rules.
+        \n\nCards can be placed on the tableau in descending order and
+        in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards
+        can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed
+        on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing
+        on the main stack, cards will be moved to the discard stack from where you can use them.
+        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card
+        will be moved. With \"Draw 3\" enabled, 3 cards will be moved at once.\n\nIf the main stack is empty,
+        you can still press on it to move every card from the discard stack to the main stack and use them again.</string>
+    <string name="manual_vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
+        You pay eg. 50$ at the beginning of the game, and with every card played to the foundation you win 1/10 of the bet.
+        \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2/10 of the bet.
+        \n\nDISCLAIMER: You do not play for real money in this game :)</string>
+
 </resources>

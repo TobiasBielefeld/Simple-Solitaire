@@ -104,15 +104,14 @@
             android:summary="%s"
             android:title="@string/settings_klondike_draw" />
 
-        <!--
-        <CheckBoxPreference
-            android:defaultValue="@bool/default_vegas_limited_recycles"
-            android:key="@string/pref_key_vegas_limit_recycles"
-            android:summary="@string/settings_limit_number_of_recycles_text"
-            android:title="@string/settings_limit_number_of_recycles" />
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceVegasBetAmount
+            android:key="@string/pref_key_vegas_bet_amount"
+            android:title="@string/settings_vegas_bet_amount"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:summary=""/>
 
         <ListPreference
-            android:dependency="@string/pref_key_vegas_limit_recycles"
             android:defaultValue="@string/default_vegas_number_of_recycles"
             android:entries="@array/pref_number_of_recycles_values"
             android:entryValues="@array/pref_number_of_recycles_values"
@@ -120,7 +119,8 @@
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@null"
             android:summary="%s"
-            android:title="@string/settings_number_of_recycles" /> -->
+            android:title="@string/settings_number_of_recycles" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/games_yukon">

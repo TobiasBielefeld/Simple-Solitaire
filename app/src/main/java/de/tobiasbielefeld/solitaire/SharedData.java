@@ -120,6 +120,9 @@ public class SharedData {
     public static String PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
     public static String PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
+    public static String PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
+    public static String PREF_KEY_VEGAS_BET_AMOUNT;
+    public static String PREF_KEY_VEGAS_BET_AMOUNT_OLD;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -136,7 +139,9 @@ public class SharedData {
     public static String DEFAULT_BACKGROUND_MUSIC;
     public static String DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
     public static String DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
-
+    public static String DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
+    public static String DEFAULT_WIN_SOUND;
+    public static String DEFAULT_MOVEMENT_SPEED;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_CARD_BACKGROUND_COLOR;
@@ -144,8 +149,7 @@ public class SharedData {
     public static int DEFAULT_BACKGROUND_COLOR_TYPE;
     public static int DEFAULT_BACKGROUND_VOLUME;
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
-    public static String DEFAULT_WIN_SOUND;
-    public static String DEFAULT_MOVEMENT_SPEED;
+    public static int DEFAULT_VEGAS_BET_AMOUNT;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_LEFT_HANDED_MODE;
     public static boolean DEFAULT_DOUBLE_TAP_ENABLE;
@@ -266,6 +270,9 @@ public class SharedData {
         PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES = res.getString(R.string.pref_key_fortyeight_limit_recycles);
         PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_pyramid_number_of_recycles);
         PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_fortyeight_number_of_recycles);
+        PREF_KEY_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_vegas_number_of_recycles);
+        PREF_KEY_VEGAS_BET_AMOUNT = res.getString(R.string.pref_key_vegas_bet_amount);
+        PREF_KEY_VEGAS_BET_AMOUNT_OLD = PREF_KEY_VEGAS_BET_AMOUNT + OLD;
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -299,15 +306,18 @@ public class SharedData {
         DEFAULT_WIN_SOUND = res.getString(R.string.default_win_sound);
         DEFAULT_BACKGROUND_MUSIC = res.getString(R.string.default_background_music);
         DEFAULT_BACKGROUND_VOLUME = res.getInteger(R.integer.default_background_volume);
+        DEFAULT_VEGAS_BET_AMOUNT = res.getInteger(R.integer.default_vegas_bet_amount);
         DEFAULT_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.default_pyramid_number_of_recycles);
         DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.default_fortyeight_number_of_recycles);
+        DEFAULT_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.default_vegas_number_of_recycles);
         DEFAULT_PYRAMID_LIMITED_RECYCLES = res.getBoolean(R.bool.default_pyramid_limited_recycles);
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
-
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
         DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
         DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
+
+
         GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         GAME_WON = res.getString(R.string.game_won);
         GAME_WON = res.getString(R.string.game_won_and_reloaded);

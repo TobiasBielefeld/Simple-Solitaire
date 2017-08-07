@@ -135,8 +135,10 @@ public class Scores {
      * Adds a bonus to the score, used after a game has been won
      */
     public void updateBonus() {
-        int bonus = max((int) (2 * score - (5 * timer.getCurrentTime() / 1000)), 0);
-        update(bonus);
+        if (currentGame.isBonusEnabled()) {
+            int bonus = max((int) (2 * score - (5 * timer.getCurrentTime() / 1000)), 0);
+            update(bonus);
+        }
     }
 
     public void save() {
@@ -167,6 +169,9 @@ public class Scores {
      * and moved left until it is in the right position
      */
     public void addNewHighScore() {
+
+        currentGame.processScore(score);
+
         if (score < 0)
             return;
 

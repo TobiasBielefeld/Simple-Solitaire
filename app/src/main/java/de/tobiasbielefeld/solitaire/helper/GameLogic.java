@@ -39,7 +39,7 @@ public class GameLogic {
 
     public Card[] randomCards;                                                                      //array to shuffle the cards
     private int numberWonGames;                                                                     //number of won games. It's shown in the high score activity
-    private boolean won, wonAndReloaded;                                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
+    private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
 
@@ -186,7 +186,8 @@ public class GameLogic {
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
-            card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());          ///TODO there is an error somewhere here "null pointer exception"
+            ///TODO there is an error somewhere here "null pointer exception"
+            card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
             currentGame.getDealStack().addCard(card);
             card.flipDown();
         }
@@ -330,5 +331,9 @@ public class GameLogic {
 
     public void updateMenuBar() {
         gm.updateMenuBar();
+    }
+
+    public void incrementNumberWonGames(){
+        numberWonGames++;
     }
 }

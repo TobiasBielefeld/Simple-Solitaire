@@ -56,6 +56,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
+    private Preference preferenceVegasBetAmount;
     private Sounds settingsSounds;
 
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
@@ -182,6 +183,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 gameLogic.setNumberOfRecycles(key,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
             }
 
+        } else if (key.equals(PREF_KEY_VEGAS_NUMBER_OF_RECYCLES)){
+            if (currentGame instanceof Vegas) {
+                gameLogic.setNumberOfRecycles(key,DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
+            }
+
         } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
             updatePreferenceMenuBarPositionSummary();
             if (gameLogic != null) {
@@ -205,6 +211,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(PREF_KEY_BACKGROUND_VOLUME)){
             updatePreferenceBackgroundVolumeSummary();
             backgroundSound.doInBackground(this);
+
+        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT)){
+            updatePreferenceVegasBetAmountSummary();
+            showToast(getString(R.string.settings_restart_vegas));
 
         }
     }
@@ -315,6 +325,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(),"%s %%",volume));
     }
 
+    private void updatePreferenceVegasBetAmountSummary(){
+        int amount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
+
+        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),amount*10,amount));
+    }
+
     public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
@@ -365,6 +381,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_games);
             setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceVegasBetAmount = findPreference(getString(R.string.pref_key_vegas_bet_amount));
+            settings.updatePreferenceVegasBetAmountSummary();
         }
     }
 

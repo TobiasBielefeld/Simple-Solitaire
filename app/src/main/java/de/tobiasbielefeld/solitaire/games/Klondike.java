@@ -135,11 +135,7 @@ public class Klondike extends Game {
         }
     }
 
-    public int onMainStackTouch(){
-        return realOnMainStackTouch(true);
-    }
-
-    public int realOnMainStackTouch(boolean withRecycle) {
+    public int onMainStackTouch() {
 
         boolean deal3 = sharedStringEquals(PREF_KEY_DRAW_OLD, DEFAULT_DRAW,"3");
 
@@ -230,7 +226,7 @@ public class Klondike extends Game {
             return 1;
         }
         //if there are NO cards on the main stack, but cards on the discard stacks, move them all to main
-        else if (withRecycle && (stacks[11].getSize() != 0 || stacks[12].getSize() != 0 || stacks[13].getSize() != 0)) {
+        else if ((stacks[11].getSize() != 0 || stacks[12].getSize() != 0 || stacks[13].getSize() != 0)) {
             ArrayList<Card> cards = new ArrayList<>();
 
             for (int i = 0; i < stacks[11].getSize(); i++) {

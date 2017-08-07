@@ -204,4 +204,18 @@
 		To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki,
 		można kartę umieścić w pustej komórce i następnie na docelowym stosie.</string>
     <string name="manual_grandfathersClock_scoring">Ze stosu gry na stos bazowy: +50</string>
+
+	<!-- new values -->
+	<!-- Vegas -->
+	<string name="manual_vegas_structure">@string/manual_klondike_structure</string>
+	<string name="manual_vegas_objective">Play cards to the foundation to win more money.</string>
+	<string name="manual_vegas_rules">The rules are identical to the \"Klondike\"-Rules.
+    \n\nKarty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+	\n\nTylko króli można kłaść na puste pola gry i tylko asy na puste pola bazowe.
+	\n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś /"Rozdaj 1/", tylko pojedyncza karta zostanie przeniesiona. Przy opcji /"Rozdaj 3/", 3 karty zostaną przeniesione naraz.
+	\n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
+	<string name="manual_vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
+        You pay eg. 50$ at the beginning of the game, and with every card played to the foundation you win 1/10 of the bet.
+        \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2/10 of the bet.
+        \n\nDISCLAIMER: You do not play for real money in this game :)</string>
 </resources>

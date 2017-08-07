@@ -56,6 +56,7 @@ public abstract class Game {
     private int totalRecycles = 0;
     private boolean hasArrow = false;
     private boolean singleTapeEnabled = false;
+    private boolean bonusEnabled = true;
 
     /**
      * Called to test where the given card can be moved to
@@ -246,7 +247,7 @@ public abstract class Game {
     }
 
     /**
-     * Does stuff on game reset. By default, it resets the redeal counter (if there is one).
+     * Does stuff on game reset. By default, it resets the recycle counter (if there is one).
      * If games need to reset additional stuff, put it here
      *
      * @param gm A reference to the game manager, to update the ui redeal counter
@@ -276,6 +277,15 @@ public abstract class Game {
      * If the game needs to execute code after every card movement, write it here
      */
     public void testAfterMove() {
+    }
+
+    /**
+     * use this method to do something with the score, when the game is won or canceled (new game started)
+     * So you can do other stuff for the high score list. For example, a game in Vegas is already won, when
+     * the player makes profit, not only when all cards could be played on the foundation
+     */
+    public void processScore(long currentScore){
+
     }
 
     /**
@@ -712,6 +722,10 @@ public abstract class Game {
         setLimitedRecycles(recycles);
     }
 
+    protected void disableBonus(){
+        bonusEnabled = false;
+    }
+
 
     //some getters,setters and simple methods, games should'nt override these
 
@@ -791,6 +805,10 @@ public abstract class Game {
     public void flipAllCardsUp() {
         for (Card card : cards)
             card.flipUp();
+    }
+
+    public boolean isBonusEnabled(){
+        return bonusEnabled;
     }
 
     protected enum testMode {

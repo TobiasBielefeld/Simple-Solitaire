@@ -106,6 +106,7 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
 
         if (player!=null){
             player.release();
+            player = null;
         }
 
         player = MediaPlayer.create(context, soundID);
@@ -116,7 +117,7 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
     }
 
     public void pausePlaying(){
-        if (player!=null) {
+        if (player!=null && player.isPlaying()) {
             player.pause();
         }
 
@@ -124,7 +125,7 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
     }
 
     private void stopPlaying(){
-        if (player!=null) {
+        if (player!=null && player.isPlaying()) {
             player.stop();
         }
 

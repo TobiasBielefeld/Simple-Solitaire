@@ -18,18 +18,26 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
-import android.widget.RelativeLayout;
+import android.content.res.Resources;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
-import de.tobiasbielefeld.solitaire.classes.Stack;
 
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_DRAW;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT_OLD;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW_OLD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getInt;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
  * Vegas game! It's like Klondike, but with some changes and different scoring.
@@ -37,30 +45,28 @@ import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 public class Vegas extends Klondike {
 
+    private int betAmount=50;
+
     public Vegas(){
         super();
+
+        disableBonus();
 
         PREF_KEY_DRAW_OLD = PREF_KEY_VEGAS_DRAW_OLD;
         PREF_KEY_DRAW = PREF_KEY_VEGAS_DRAW;
         DEFAULT_DRAW = DEFAULT_VEGAS_DRAW;
+
+        setNumberOfRecycles(PREF_KEY_VEGAS_NUMBER_OF_RECYCLES,DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
     }
 
     @Override
     public void dealCards() {
         super.dealCards();
 
-        scores.update(-52);
-    }
+        putSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT, DEFAULT_VEGAS_BET_AMOUNT));
 
-    @Override
-    public int onMainStackTouch() {
-        return realOnMainStackTouch(false);
-    }
-
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
-        super.setStacks(layoutGame,isLandscape);
-
-        stacks[14].view.setImageBitmap(Stack.backgroundDefault);
+        betAmount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT)*10;
+        scores.update(-betAmount);
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
@@ -68,9 +74,21 @@ public class Vegas extends Klondike {
         int destinationID = destinationIDs[0];
 
         if (destinationID >= 7 && destinationID <= 10){
-            return 5;
+            return betAmount/10;
+        }
+
+        if (originID >= 7 && originID <= 10){
+            return -2*betAmount/10;
         }
 
         return 0;
+    }
+
+    @Override
+    public void processScore(long currentScore) {
+        if (!gameLogic.hasWon() && currentScore > 0){
+            gameLogic.incrementNumberWonGames();
+        }
+
     }
 }

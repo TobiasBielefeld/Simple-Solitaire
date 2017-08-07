@@ -194,7 +194,7 @@
 		\n\nMalkovri karton: +25
 		\n\nMovi ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
 
-    <!-- new values -->
+
     <!-- GrandfathersClock -->
     <string name="manual_grandfathersClock_structure">1 kartaro po 52 kartoj.
         \n\n8 tablamasoj, 12 fundamentaj stakoj formante horloĝon. Ĉiu fundamenta stako enhavas unu karton dekomence.</string>
@@ -204,5 +204,19 @@
 		Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj
 		estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako.</string>
     <string name="manual_grandfathersClock_scoring">De tablamaso al fundamenta stako: +50</string>
+
+	<!-- new values -->
+	<!-- Vegas -->
+	<string name="manual_vegas_structure">@string/manual_klondike_structure</string>
+	<string name="manual_vegas_objective">Play cards to the foundation to win more money.</string>
+	<string name="manual_vegas_rules">The rules are identical to the \"Klondike\"-Rules.
+    \n\nKartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nNur reĝojn oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
+	\n\nPer frapeto de ĉefa stako, kartoj estos movitaj al forĵeta stako, kie vi povas uzi ilin. Nombro da kartoj dependas de elektitaj agordoj. Se \"Depreni 1\" estas elektita, unu karto estos movita. Se \"Depreni 3\" estas elektita, 3 kartoj estos movitaj samtempe.
+	\n\nSe la ĉefa stako malpleniĝos, vi plue povos frapeti ĝin por movi ĉiujn kartojn de forĵeta stako al ĉefa stako kaj reuzi ilin.</string>
+	<string name="manual_vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
+        You pay eg. 50$ at the beginning of the game, and with every card played to the foundation you win 1/10 of the bet.
+        \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2/10 of the bet.
+        \n\nDISCLAIMER: You do not play for real money in this game :)</string>
 
 </resources>

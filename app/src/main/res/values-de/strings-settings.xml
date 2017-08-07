@@ -83,9 +83,12 @@
     <string name="Settings_background_music">Hintergrundmusik</string>
     <string name="Settings_background_volume">Hintergrundmusik Lautstärke</string>
 
-
     <string name="settings_limit_number_of_recycles">Begrenzte Kartenrückgabe</string>
     <string name="settings_limit_number_of_recycles_text">Das Zurücklegen der Karten zum Hauptstapel ist limitiert</string>
     <string name="settings_number_of_recycles">Anzahl der Rückgaben</string>
+
+    <string name="settings_vegas_bet_amount">Höhe des Einsatzes</string>
+    <string name="settings_vegas_bet_amount_progress_text">Ein Spiel kostet %1$d$. Jede Karte, die zur Foundation gespielt wird, bringt %2$d$.</string>
+    <string name="settings_vegas_bet_amount_summary">Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$</string>
 
 </resources>

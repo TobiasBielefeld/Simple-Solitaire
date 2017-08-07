@@ -153,7 +153,13 @@ public class Animate {
 
         TranslateAnimation animation = new TranslateAnimation(0, dist_x, 0, dist_y);
 
-        animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
+        try {
+            animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
+        } catch (ArithmeticException e) {
+            animation.setDuration(100);
+            Log.e("Animate moveCard()", e.toString());
+        }
+
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
             }
