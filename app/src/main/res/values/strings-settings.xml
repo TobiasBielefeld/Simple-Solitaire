@@ -92,4 +92,7 @@
     <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
     <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
 
+    <string name="settings_auto_start_new_game_title">Start a new game when won</string>
+    <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
+
 </resources>

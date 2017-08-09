@@ -123,6 +123,7 @@ public class SharedData {
     public static String PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_VEGAS_BET_AMOUNT;
     public static String PREF_KEY_VEGAS_BET_AMOUNT_OLD;
+    public static String PREF_KEY_AUTO_START_NEW_GAME;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -163,6 +164,7 @@ public class SharedData {
     public static boolean DEFAULT_TAP_TO_SELECT_ENABLED;
     public static boolean DEFAULT_SINGLE_TAP_ENABLED;
     public static boolean DEFAULT_SOUND_ENABLED;
+    public static boolean DEFAULT_AUTO_START_NEW_GAME;
 
     public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
     public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
@@ -273,6 +275,7 @@ public class SharedData {
         PREF_KEY_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_vegas_number_of_recycles);
         PREF_KEY_VEGAS_BET_AMOUNT = res.getString(R.string.pref_key_vegas_bet_amount);
         PREF_KEY_VEGAS_BET_AMOUNT_OLD = PREF_KEY_VEGAS_BET_AMOUNT + OLD;
+        PREF_KEY_AUTO_START_NEW_GAME = res.getString(R.string.pref_key_auto_start_new_game);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -285,6 +288,7 @@ public class SharedData {
         DEFAULT_GOLF_CYCLIC = res.getBoolean(R.bool.default_golf_cyclic);
         DEFAULT_TAP_TO_SELECT_ENABLED = res.getBoolean(R.bool.default_tap_to_select_enable);
         DEFAULT_SINGLE_TAP_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
+        DEFAULT_AUTO_START_NEW_GAME = res.getBoolean(R.bool.default_auto_start_new_game);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);

@@ -54,6 +54,7 @@
     <string name="pref_key_fortyeight_number_of_recycles" translatable="false">pref_key_fortyeight_number_of_recycles</string>
     <string name="pref_key_vegas_number_of_recycles" translatable="false">pref_key_vegas_number_of_recycles</string>
     <string name="pref_key_vegas_bet_amount" translatable="false">pref_key_vegas_bet_amount</string>
+    <string name="pref_key_auto_start_new_game" translatable="false">pref_key_auto_start_new_game</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

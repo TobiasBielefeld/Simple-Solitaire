@@ -91,4 +91,7 @@
     <string name="settings_vegas_bet_amount_progress_text">Ein Spiel kostet %1$d$. Jede Karte, die zur Foundation gespielt wird, bringt %2$d$.</string>
     <string name="settings_vegas_bet_amount_summary">Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$</string>
 
+    <string name="settings_auto_start_new_game_title">Starte ein neues Spiel</string>
+    <string name="settings_auto_start_new_game_text">Falls zu einem bereits gewonnenen Spiel zurückgekehrt wird, starte ein neues Spiel</string>
+
 </resources>
