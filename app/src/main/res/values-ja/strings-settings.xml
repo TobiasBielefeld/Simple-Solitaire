@@ -102,5 +102,8 @@
     <string name="settings_vegas_bet_amount_progress_text">最初の取引には%1$d$がかかり、基金に支払われた各カードは%2$d$を獲得します。</string>
     <string name="settings_vegas_bet_amount_summary">最初の取引：-%1$d$、基金：+%2$d$</string>
 
+    <string name="settings_auto_start_new_game_title">勝ったら新しいゲームを始める</string>
+    <string name="settings_auto_start_new_game_text">すでに勝利したゲームに戻った場合は自動的に新しいゲームを開始します</string>
+
 
 </resources>
