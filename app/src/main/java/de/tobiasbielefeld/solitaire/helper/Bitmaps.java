@@ -22,6 +22,8 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import java.util.ArrayList;
+
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -52,17 +54,21 @@ public class Bitmaps {
     /**
      * Gets the menu previews
      *
-     * @param posX X-coordinate of the preview in the file
-     * @param posY Y-coordinate of the preview in the file
+     * @param i The position of the game, as in the order the user set up in the settings
      * @return a single bitmap
      */
-    public Bitmap getMenu(int posX, int posY) {
+    public Bitmap getMenu(int i) {
 
         if (menu == null) {
             menu = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu);
             menuWidth = menu.getWidth() / 6;
             menuHeight = menu.getHeight() / 3;
         }
+
+        ArrayList<Integer> list = getSharedIntList(PREF_KEY_MENU_ORDER);
+
+        int posX = list.indexOf(i)%6;
+        int posY = list.indexOf(i)/6;
 
         return Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
     }

@@ -39,105 +39,105 @@
 
 
     <!-- Klondike -->
-    <string name="manual_klondike_structure">1 talia po 52 karty.
+    <string name="manual_Klondike_structure">1 talia po 52 karty.
 	\n\n7 stosów gry, 4 stosy bazowe, 1 główny stos i 1 stos odrzutów.</string>
-    <string name="manual_klondike_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
-    <string name="manual_klondike_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+    <string name="manual_Klondike_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_Klondike_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
 	\n\nTylko króli można kłaść na puste pola gry i tylko asy na puste pola bazowe.
 	\n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś /"Rozdaj 1/", tylko pojedyncza karta zostanie przeniesiona (to jest domyślne ustawienie, łatwiejsze). Przy opcji /"Rozdaj 3/", 3 karty zostaną przeniesione naraz.
 	\n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
-    <string name="manual_klondike_scoring">Ze stosu gry na bazowy: +60
+    <string name="manual_Klondike_scoring">Ze stosu gry na bazowy: +60
 	\n\nZe stosu odrzutów na bazowy: +45
 	\n\nZe stosu bazowego na stos gry: -75
 	\n\nOdsłonięcie karty: +25
 	\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do głównego: -200</string>
 
     <!-- FreeCell -->
-    <string name="manual_freecell_structure">1 talia po 52 karty.
+    <string name="manual_Freecell_structure">1 talia po 52 karty.
 	\n\n8 stosów gry, 4 stosy bazowe i 4 puste komórki.</string>
-    <string name="manual_freecell_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
-    <string name="manual_freecell_rules">Karty można kłaść na stosach gry w kolejności malejącej i naprzemiennych kolorach. Na stosach bazowych karty można umieszczać tylko w kolejności rosnącej i tego samego koloru. 4 komórki na górze mogą pomieścić po jednej karcie każda.
+    <string name="manual_Freecell_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_Freecell_rules">Karty można kłaść na stosach gry w kolejności malejącej i naprzemiennych kolorach. Na stosach bazowych karty można umieszczać tylko w kolejności rosnącej i tego samego koloru. 4 komórki na górze mogą pomieścić po jednej karcie każda.
 	\n\nMożesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól (zarówno komórek i stosów gry). To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki, można kartę umieścić w pustej komórce i następnie na docelowym stosie.
 	\n\nKażdą kartę można umieścić na pustych polach gry i wolnych komórkach. Asy można umieścić na pustych komórkach bazowych.</string>
-    <string name="manual_freecell_scoring">Przeniesienie karty na stos bazowy: +60
+    <string name="manual_Freecell_scoring">Przeniesienie karty na stos bazowy: +60
 	\n\nPrzeniesienie karty ze stosu bazowego: -75
 	\n\nUmieszczenie króla na pustym polu: +20</string>
 
     <!-- Yukon -->
-    <string name="manual_yukon_structure">1 talia po 52 karty.
+    <string name="manual_Yukon_structure">1 talia po 52 karty.
 	\n\n7 stosów gry i 4 stosy bazowe.</string>
-    <string name="manual_yukon_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
-    <string name="manual_yukon_rules">Karty można kłaść na stosach gry w kolejności malejącej i naprzemiennych kolorach. Na stosach bazowych karty można umieszczać tylko w kolejności rosnącej i tego samego koloru.
+    <string name="manual_Yukon_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_Yukon_rules">Karty można kłaść na stosach gry w kolejności malejącej i naprzemiennych kolorach. Na stosach bazowych karty można umieszczać tylko w kolejności rosnącej i tego samego koloru.
 	\n\nMożesz przenieść każdą odkrytą kartę, bez znaczenia w jakiej kolejności i ile kart znajduje się na niej.
 	\n\nTylko króli można kłaść na pustych polach gry i tylko asy na pustych polach bazowych.</string>
-    <string name="manual_yukon_scoring">Ze stosu gry na stos bazowy: +60
+    <string name="manual_Yukon_scoring">Ze stosu gry na stos bazowy: +60
 	\n\nZe stosu bazowego na stos gry: -75
 	\n\nPrzeniesienie króla na puste pole: +20
 	\n\nOdsłonięcie karty: +25</string>
 
     <!-- Spider -->
-    <string name="manual_spider_structure">2 talie po 52 karty.
+    <string name="manual_Spider_structure">2 talie po 52 karty.
 	\n\n10 stosów gry i 8 stosów bazowych.
 	\n\n1 główny stos, rozdawany w 5 rzutach.
 	\n\nZależnie od ustawień: 1, 2 lub 4 różne kolory kart.</string>
-    <string name="manual_spider_objective">Uszereguj wszystkie karty w rodziny tego samego koloru malejąco gdziekolwiek na polu gry. Kompletne rodziny kart zostaną automatycznie przeniesione do stosów bazowych.</string>
-    <string name="manual_spider_rules">Karty można kłaść na dowolną inną w kolejności malejącej. Ale tylko poprawne sekwencje tego samego koloru kart można razem przenosić.
+    <string name="manual_Spider_objective">Uszereguj wszystkie karty w rodziny tego samego koloru malejąco gdziekolwiek na polu gry. Kompletne rodziny kart zostaną automatycznie przeniesione do stosów bazowych.</string>
+    <string name="manual_Spider_rules">Karty można kłaść na dowolną inną w kolejności malejącej. Ale tylko poprawne sekwencje tego samego koloru kart można razem przenosić.
 	\n\nKażdą kartę można położyć na pustych polach gry.
 	\n\nStuknij w główny stos, aby rozdać po jednej karcie na każdy stos gry.</string>
-    <string name="manual_spider_scoring">Przeniesienie rodziny kart na stos bazowy: +200
+    <string name="manual_Spider_scoring">Przeniesienie rodziny kart na stos bazowy: +200
 	\n\nOdsłonięcie karty: +25</string>
 
     <!-- SimpleSimon -->
-    <string name="manual_simplesimon_structure">1 talia po 52 karty.
+    <string name="manual_SimpleSimon_structure">1 talia po 52 karty.
 	\n\n10 stosów gry i 4 stosy bazowe.</string>
-    <string name="manual_simplesimon_objective">Uszereguj wszystkie karty w rodziny tego samego koloru malejąco gdziekolwiek na polu gry. Kompletne rodziny kart zostaną automatycznie przeniesione do stosów bazowych.</string>
-    <string name="manual_simplesimon_rules">Karty można kłaść na dowolną inną w kolejności malejącej. Ale tylko poprawne sekwencje tego samego koloru kart można razem przenosić.
+    <string name="manual_SimpleSimon_objective">Uszereguj wszystkie karty w rodziny tego samego koloru malejąco gdziekolwiek na polu gry. Kompletne rodziny kart zostaną automatycznie przeniesione do stosów bazowych.</string>
+    <string name="manual_SimpleSimon_rules">Karty można kłaść na dowolną inną w kolejności malejącej. Ale tylko poprawne sekwencje tego samego koloru kart można razem przenosić.
 	\n\nKażdą kartę można położyć na pustych polach gry.</string>
-    <string name="manual_simplesimon_scoring">Przeniesienie rodziny kart na stos bazowy: +200</string>
+    <string name="manual_SimpleSimon_scoring">Przeniesienie rodziny kart na stos bazowy: +200</string>
 
     <!-- Golf -->
-    <string name="manual_golf_structure">1 talia po 52 karty.
+    <string name="manual_Golf_structure">1 talia po 52 karty.
 	\n\n7 stosów gry, 1 główny i 1 stos odrzutów.
 	\n\nPrzeniesienie kart ze stosu odrzutów do głównego nie jest możliwe (za wyjątkiem użycia przycisku cofnij).</string>
-    <string name="manual_golf_objective">Przenieś wszystkie karty z pola gry na stos odrzutów.</string>
-    <string name="manual_golf_rules">Każda karta z wierzchu stosu może zostać użyta do gry. Karty można kłaść na stos odrzutów w kolejności rosnącej lub malejącej bez względu na kolor.
+    <string name="manual_Golf_objective">Przenieś wszystkie karty z pola gry na stos odrzutów.</string>
+    <string name="manual_Golf_rules">Każda karta z wierzchu stosu może zostać użyta do gry. Karty można kłaść na stos odrzutów w kolejności rosnącej lub malejącej bez względu na kolor.
 	\n\nZależnie od ustawień, możesz także kłaść króla na asa i odwrotnie (łatwiejsza rozgrywka).
 	\n\nJeżeli nie możesz przesunąć żadnej karty, stuknij w stos główny, aby przenieść jedną kartę do stosu odrzutów.</string>
-    <string name="manual_golf_scoring">Przeniesienie karty na stos odrzutów: +50</string>
+    <string name="manual_Golf_scoring">Przeniesienie karty na stos odrzutów: +50</string>
 
     <!-- Pyramid -->
-    <string name="manual_pyramid_structure">1 talia po 52 karty.
+    <string name="manual_Pyramid_structure">1 talia po 52 karty.
 	\n\n28 stosów gry, 1 główny, 1 odrzutów i 1 stos docelowy.
 	\n\nKarty ze stosu odrzutów można przenieść na stos główny tylko 2 razy podczas gry.</string>
-    <string name="manual_pyramid_objective">Przenieś wszystkie karty z pola gry na stos docelowy. Zależnie od ustawień, być może będziesz także musiał przenieść wszystkie karty ze stosu głównego i odrzutów na stos docelowy.</string>
-    <string name="manual_pyramid_rules">Ta gra ma odrobinę inne zasady niż inne pasjanse. Każda karta z wierzchu stosu może zostać użyta do gry. 2 karty, których wartości sumują się do 13 można przenieść do stosu docelowego. Aby to zrobić, przenieś kartę na inną wolną kartę, jeżeli ich wartości są poprawne, zostaną one automatycznie przeniesione do stosu docelowego.
+    <string name="manual_Pyramid_objective">Przenieś wszystkie karty z pola gry na stos docelowy. Zależnie od ustawień, być może będziesz także musiał przenieść wszystkie karty ze stosu głównego i odrzutów na stos docelowy.</string>
+    <string name="manual_Pyramid_rules">Ta gra ma odrobinę inne zasady niż inne pasjanse. Każda karta z wierzchu stosu może zostać użyta do gry. 2 karty, których wartości sumują się do 13 można przenieść do stosu docelowego. Aby to zrobić, przenieś kartę na inną wolną kartę, jeżeli ich wartości są poprawne, zostaną one automatycznie przeniesione do stosu docelowego.
 	\n\nJest także możliwe użycie kart ze stosu głównego i odrzutów. Jeżeli nie możesz wykonać żadnego ruchu, stuknij na strzałkę pomiędzy stosami aby przenieść jedną kartę ze stosu głównego do odrzutów. Jeżeli stos główny jest pusty, stuknij go lub strzałkę aby przenieść wszystkie karty z niego do stosu odrzutów do głównego. Ten ruch możesz wykonać tylko dwa razy w ciągu gry. Pozostała liczba razy wyświetla się jako niewielki numer nad strzałką.</string>
-    <string name="manual_pyramid_scoring">Przeniesienie karty na stos docelowy: +50
+    <string name="manual_Pyramid_scoring">Przeniesienie karty na stos docelowy: +50
 	\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do stosu głównego: -200</string>
 
     <!-- TriPekas -->
-    <string name="manual_tripeaks_structure">1 talia po 52 karty.
+    <string name="manual_TriPeaks_structure">1 talia po 52 karty.
 	\n\n28 stosów gry, 1 główny i 1 stos odrzutów.
 	\n\nPrzeniesienie kart ze stosu odrzutów do głównego nie jest możliwe (za wyjątkiem użycia przycisku cofnij).</string>
-    <string name="manual_tripeaks_objective">Przenieś wszystkie karty z pola gry na stos odrzutów.</string>
-    <string name="manual_tripeaks_rules">Reguły tej gry są podobne do gry \"Golf\". Każda karta z wierzchu stosu może zostać użyta do gry. Karty można kłaść na stos odrzutów w kolejności rosnącej lub malejącej bez względu na kolor.
+    <string name="manual_TriPeaks_objective">Przenieś wszystkie karty z pola gry na stos odrzutów.</string>
+    <string name="manual_TriPeaks_rules">Reguły tej gry są podobne do gry \"Golf\". Każda karta z wierzchu stosu może zostać użyta do gry. Karty można kłaść na stos odrzutów w kolejności rosnącej lub malejącej bez względu na kolor.
 	\n\nMożna także kłaść króla na asa i odwrotnie.
 	\n\nJeżeli nie możesz przesunąć jakielkolwiek karty, stuknij w stos główny, aby przenieść jedną kartę do stosu odrzutów.</string>
-    <string name="manual_tripeaks_scoring">Przeniesienie karty do stosu odrzutów: +50</string>
+    <string name="manual_TriPeaks_scoring">Przeniesienie karty do stosu odrzutów: +50</string>
 
     <!-- Forty&Eight -->
-    <string name="manual_fortyeight_structure">2 talie po 52 karty.
+    <string name="manual_FortyEight_structure">2 talie po 52 karty.
 	\n\n8 stosów gry, 8 stosów bazowych, 1 główny i 1 stos odrzutów.
 	\n\nKarty ze stosu odrzutów można przenieść na stos główny tylko 1 raz podczas gry.</string>
-    <string name="manual_fortyeight_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
-    <string name="manual_fortyeight_rules">Karty można kłaść na stosach gry w kolejności malejącej i tego samego koloru kart. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+    <string name="manual_FortyEight_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_FortyEight_rules">Karty można kłaść na stosach gry w kolejności malejącej i tego samego koloru kart. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
 
 		\n\nMożesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól. To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki, można kartę umieścić w pustej komórce i następnie na docelowym stosie.
 
 		\n\nKażdą kartę można umieścić na pustym polu gry i tylko asy można umieścić na pustych polach bazowych.
 	\n\nKlikając na stos główny, jedna karta zostanie przeniesiona do stosu odrzutów, skąd będziesz mógł ją użyć.
 	\n\nJeżeli stos główny jest pusty, stuknij w niego, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie. Ale możesz to zrobić tylko raz w ciągu gry. Pozostała liczba jest wyświetlana jako niewielki numer nad głównym stosem.</string>
-    <string name="manual_fortyeight_scoring">Przeniesienie karty na stos bazowy: +45
+    <string name="manual_FortyEight_scoring">Przeniesienie karty na stos bazowy: +45
 	\n\nPrzeniesienie karty z powrotem na pole gry: -60
 	\n\nPrzeniesienie karty ze stosu odrzutów na pole gry: +60
 	\n\nPrzeniesienie kart ze stosu odrzutów na stos główny: -200</string>
@@ -158,63 +158,63 @@
 	\n\nPrzeniesienie karty z pola gry na czwarty rząd: -75</string>
 
     <!-- Gypsy -->
-    <string name="manual_gypsy_structure">2 talie po 52 karty.
+    <string name="manual_Gypsy_structure">2 talie po 52 karty.
 	\n\n8 stosów gry, 8 stosów bazowych i 1 stos główny.</string>
-    <string name="manual_gypsy_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
-    <string name="manual_gypsy_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Można przenosić całą serię kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+    <string name="manual_Gypsy_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_Gypsy_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Można przenosić całą serię kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
 	\n\nKażdą kartę można umieścić na pustych polach gry i tylko asy można kłaść na pustych polach bazowych.
 	\n\nPo kliknięciu w główny stos, po jednej karcie zostanie umieszczonej w każdym stosie gry.</string>
-    <string name="manual_gypsy_scoring">Przeniesienie karty na stos bazowy: +75
+    <string name="manual_Gypsy_scoring">Przeniesienie karty na stos bazowy: +75
 	\n\nPrzeniesienie karty ze stosu bazowego na pole gry: -100
 	\n\nOdkrycie karty: +50</string>
 
     <!-- acesUp -->
-    <string name="manual_acesup_structure">! talia po 52 karty.
+    <string name="manual_AcesUp_structure">! talia po 52 karty.
 	\n\n4 stosy gry, 1 główny i 1 stos bazowy.
 	\n\nAsy mają wartość 14, więc mają większą wartość niż króle.</string>
-    <string name="manual_acesup_objective">Umieść wszystkie kart z wyjątkiem asów na stosach bazowych, tak aby tylko jeden as pozostał na każdym polu gry.</string>
-    <string name="manual_acesup_rules">Możesz przesunąć tylko górną kartę ze stosu. Przesuń karty, które mają niższą wartość niż inne karty tego samego koloru na stosy bazowe. Przykład: na dwóch polach gry znajduje się kier 5 i kier 10. Możesz przesunąć kier 5 na pole bazowe. Asy mają wyższą wartość niż wszystkie inne karty.
+    <string name="manual_AcesUp_objective">Umieść wszystkie kart z wyjątkiem asów na stosach bazowych, tak aby tylko jeden as pozostał na każdym polu gry.</string>
+    <string name="manual_AcesUp_rules">Możesz przesunąć tylko górną kartę ze stosu. Przesuń karty, które mają niższą wartość niż inne karty tego samego koloru na stosy bazowe. Przykład: na dwóch polach gry znajduje się kier 5 i kier 10. Możesz przesunąć kier 5 na pole bazowe. Asy mają wyższą wartość niż wszystkie inne karty.
 	\n\nKażdą przesuwalną kartę można umieścić na pustych polach gry.
 	\n\nStuknij w główny stos, aby rozdać po jednej karcie na każdy stos gry.</string>
-    <string name="manual_acesup_scoring">Umieszczenie karty na stosie bazowym: +50</string>
+    <string name="manual_AcesUp_scoring">Umieszczenie karty na stosie bazowym: +50</string>
 
     <!-- Canfield -->
-    <string name="manual_canfield_structure">1 talia po 52 karty.
+    <string name="manual_Canfield_structure">1 talia po 52 karty.
 	\n\n4 stosy gry, 4 stosy bazowe, 1 główny stos, 1 stos odrzutów i 1 rezerwowy.</string>
-    <string name="manual_canfield_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
-    <string name="manual_canfield_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
+    <string name="manual_Canfield_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.</string>
+    <string name="manual_Canfield_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
 	    \n\nPuste pola gry są zapełniane kartami ze stosu rezerwowego. Jeżeli stos rezerwowy jest pusty, karta ze stosu głównego zostanie użyta.
 	    \n\nWartość pierwszej karty położonej na stosie bazowym determinuje jakie karty można kłaść na pozostałych pustych polach bazowych. Przykład: położono 10 kier na puste pole bazowe, więc tylko karty o wartości 10 można kłaść na pozostałych polach bazowych. Ale karty na stosach bazowych można układać cyklicznie, więc możesz położyć asa na króla.
 	    \n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś /"Rozdaj 1/", tylko pojedyncza karta zostanie przeniesiona. Przy opcji /"Rozdaj 3/", 3 karty zostaną przeniesione naraz.
 	    \n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
-    <string name="manual_canfield_scoring">Ze stosu gry na bazowy: +60
+    <string name="manual_Canfield_scoring">Ze stosu gry na bazowy: +60
 		\n\nZe stosu odrzutów na bazowy: +45
 		\n\nZe stosu bazowego na stos gry: -75
 		\n\nOdsłonięcie karty: +25
 		\n\nPrzeniesienie wszystkich kart ze stosu odrzutów do głównego: -200</string>
 
     <!-- GrandfathersClock -->
-    <string name="manual_grandfathersClock_structure">1 talia po 52 karty.
+    <string name="manual_GrandfathersClock_structure">1 talia po 52 karty.
 		\n\n8 stosów gry, 12 stosy bazowe tworzące tarczę zegara. Każdy stos bazowy już zawiera jedną kartę.</string>
-    <string name="manual_grandfathersClock_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.
+    <string name="manual_GrandfathersClock_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.
 		Ostatecznie wartości kart powinny odpowiadać wartościom na tarczy zegara.</string>
-    <string name="manual_grandfathersClock_rules">Karty można uukładać na stosach gry w kolejności malejącej, kolor nie ma znaczenia.
+    <string name="manual_GrandfathersClock_rules">Karty można uukładać na stosach gry w kolejności malejącej, kolor nie ma znaczenia.
         Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru. Asy można kłaść na króli.
        \n\nMożesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól.
 		To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki,
 		można kartę umieścić w pustej komórce i następnie na docelowym stosie.</string>
-    <string name="manual_grandfathersClock_scoring">Ze stosu gry na stos bazowy: +50</string>
+    <string name="manual_GrandfathersClock_scoring">Ze stosu gry na stos bazowy: +50</string>
 
 	<!-- new values -->
 	<!-- Vegas -->
-	<string name="manual_vegas_structure">@string/manual_klondike_structure</string>
-	<string name="manual_vegas_objective">Play cards to the foundation to win more money.</string>
-	<string name="manual_vegas_rules">The rules are identical to the \"Klondike\"-Rules.
+	<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+	<string name="manual_Vegas_objective">Play cards to the foundation to win more money.</string>
+	<string name="manual_Vegas_rules">The rules are identical to the \"Klondike\"-Rules.
     \n\nKarty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
 	\n\nTylko króli można kłaść na puste pola gry i tylko asy na puste pola bazowe.
 	\n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś /"Rozdaj 1/", tylko pojedyncza karta zostanie przeniesiona. Przy opcji /"Rozdaj 3/", 3 karty zostaną przeniesione naraz.
 	\n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
-	<string name="manual_vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
+	<string name="manual_Vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
         You pay eg. 50$ at the beginning of the game, and with every card played to the foundation you win 1/10 of the bet.
         \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2/10 of the bet.
         \n\nDISCLAIMER: You do not play for real money in this game :)</string>

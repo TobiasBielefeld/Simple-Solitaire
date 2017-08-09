@@ -22,7 +22,6 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,11 +41,12 @@ import de.tobiasbielefeld.solitaire.games.Mod3;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
-import de.tobiasbielefeld.solitaire.games.Tripeaks;
+import de.tobiasbielefeld.solitaire.games.TriPeaks;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
 
-import static android.content.ContentValues.TAG;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_ORDER;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedIntList;
 
 /**
  * Everything about loading a game should be here. If you want to add a game, just expand the switch
@@ -58,6 +58,40 @@ public class LoadGame {
 
     private String gameName;
     private String sharedPrefName;
+    private ArrayList<AllGameInfos> allGameInfos = new ArrayList<>();
+
+    public String[] getDefaultGameList(Resources res){
+        return new String[]{
+                res.getString(R.string.games_AcesUp),
+                res.getString(R.string.games_Canfield),
+                res.getString(R.string.games_FortyEight),
+                res.getString(R.string.games_Freecell),
+                res.getString(R.string.games_Golf),
+                res.getString(R.string.games_GrandfathersClock),
+                res.getString(R.string.games_Gypsy),
+                res.getString(R.string.games_Klondike),
+                res.getString(R.string.games_mod3),
+                res.getString(R.string.games_Pyramid),
+                res.getString(R.string.games_SimpleSimon),
+                res.getString(R.string.games_Spider),
+                res.getString(R.string.games_TriPeaks),
+                res.getString(R.string.games_Vegas),
+                res.getString(R.string.games_Yukon)
+        };
+    }
+
+    public ArrayList<String> getAllGameNames(Resources res){
+
+        ArrayList<Integer> savedList = getSharedIntList(PREF_KEY_MENU_ORDER);
+        ArrayList<String> returnList = new ArrayList<>();
+        String[] defaultList = getDefaultGameList(res);
+
+        for (int i=0;i<defaultList.length;i++){
+            returnList.add(defaultList[savedList.indexOf(i)]);
+        }
+
+        return returnList;
+    }
 
     /**
      * load the game class and set the shown name and the name used for the sharedPref of the
@@ -67,93 +101,50 @@ public class LoadGame {
      * @param activity The activity to get the strings from the xml file
      * @param buttonID The pressed button
      */
-
     public Game loadClass(Activity activity, int buttonID) {
 
-        Game game;
+        for (AllGameInfos gameInfos : allGameInfos){
+            if (gameInfos.getGameSelectorButtonResID() == buttonID){
+                sharedPrefName = gameInfos.getSharedPrefName();
+                gameName = gameInfos.getName(activity.getResources());
+            }
+        }
 
         switch (buttonID) {
             default:
                 Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");
             case R.id.buttonStartAcesUp:
-                sharedPrefName = "AcesUp";
-                gameName = activity.getString(R.string.games_acesup);
-                game = new AcesUp();
-                break;
-            //fall through
+                //fallthrough
+                return new AcesUp();
             case R.id.buttonStartCanfield:
-                sharedPrefName = "Canfield";
-                gameName = activity.getString(R.string.games_canfield);
-                game = new Canfield();
-                break;
+                return new Canfield();
             case R.id.buttonStartFortyEight:
-                sharedPrefName = "FortyEight";
-                gameName = activity.getString(R.string.games_fortyeight);
-                game = new FortyEight();
-                break;
+                return new FortyEight();
             case R.id.buttonStartFreecell:
-                sharedPrefName = "Freecell";
-                gameName = activity.getString(R.string.games_freecell);
-                game = new Freecell();
-                break;
+                return new Freecell();
             case R.id.buttonStartGolf:
-                sharedPrefName = "Golf";
-                gameName = activity.getString(R.string.games_golf);
-                game = new Golf();
-                break;
+                return new Golf();
             case R.id.buttonStartGrandfathersClock:
-                sharedPrefName = "GrandfathersClock";
-                gameName = activity.getString(R.string.games_grandfathersClock);
-                game = new GrandfathersClock();
-                break;
+                return new GrandfathersClock();
             case R.id.buttonStartGypsy:
-                sharedPrefName = "Gypsy";
-                gameName = activity.getString(R.string.games_gypsy);
-                game = new Gypsy();
-                break;
+                return new Gypsy();
             case R.id.buttonStartKlondike:
-                sharedPrefName = "Klondike";
-                gameName = activity.getString(R.string.games_klondike);
-                game = new Klondike();
-                break;
+                return new Klondike();
             case R.id.buttonStartMod3:
-                sharedPrefName = "mod3";
-                gameName = activity.getString(R.string.games_mod3);
-                game = new Mod3();
-                break;
+                return new Mod3();
             case R.id.buttonStartPyramid:
-                sharedPrefName = "Pyramid";
-                gameName = activity.getString(R.string.games_pyramid);
-                game = new Pyramid();
-                break;
+                return new Pyramid();
             case R.id.buttonStartSimpleSimon:
-                sharedPrefName = "SimpleSimon";
-                gameName = activity.getString(R.string.games_simplesimon);
-                game = new SimpleSimon();
-                break;
+                return new SimpleSimon();
             case R.id.buttonStartSpider:
-                sharedPrefName = "Spider";
-                gameName = activity.getString(R.string.games_spider);
-                game = new Spider();
-                break;
+                return new Spider();
             case R.id.buttonStartTriPeaks:
-                sharedPrefName = "TriPeaks";
-                gameName = activity.getString(R.string.games_tripeaks);
-                game = new Tripeaks();
-                break;
+                return new TriPeaks();
             case R.id.buttonStartYukon:
-                sharedPrefName = "Yukon";
-                gameName = activity.getString(R.string.games_yukon);
-                game = new Yukon();
-                break;
+                return new Yukon();
             case R.id.buttonStartVegas:
-                sharedPrefName = "Vegas";
-                gameName = activity.getString(R.string.games_vegas);
-                game = new Vegas();
-                break;
+                return new Vegas();
         }
-
-        return game;
     }
 
     /**
@@ -165,22 +156,9 @@ public class LoadGame {
     public ArrayList<ImageView> loadImageViews(Activity activity) {
         ArrayList<ImageView> imageViews = new ArrayList<>();
 
-        //This is the exact same order like the games are shown in the main menu!
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartAcesUp));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartCanfield));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartFortyEight));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartFreecell));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartGolf));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartGrandfathersClock));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartGypsy));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartKlondike));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartMod3));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartPyramid));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartSimpleSimon));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartSpider));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartTriPeaks));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartVegas));
-        imageViews.add((ImageView) activity.findViewById(R.id.buttonStartYukon));
+        for (AllGameInfos gameInfo : allGameInfos){
+            imageViews.add(gameInfo.getGameSelectorButton(activity));
+        }
 
         return imageViews;
     }
@@ -192,26 +170,8 @@ public class LoadGame {
      * @param listener The listener to apply
      */
     public void loadManualButtons(View view, View.OnClickListener listener) {
-        ArrayList<Button> gameButtons = new ArrayList<>();
-
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_acesup));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_canfield));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_fortyeight));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_freecell));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_golf));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_grandfathers_clock));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_gypsy));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_klondike));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_mod3));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_pyramid));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_simplesimon));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_spider));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_tripeaks));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_vegas));
-        gameButtons.add((Button) view.findViewById(R.id.manual_games_button_yukon));
-
-        for (Button button : gameButtons) {
-            button.setOnClickListener(listener);
+        for (AllGameInfos gameInfo : allGameInfos){
+            gameInfo.setManualButtonListener(view,listener);
         }
     }
 
@@ -281,42 +241,14 @@ public class LoadGame {
      * @return The prefix for the strings
      */
     public String manualClick(int id) {
-        switch (id) {
-            default:
-                Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");
-            case R.id.manual_games_button_acesup:
-                //fall through
-                return "acesup";
-            case R.id.manual_games_button_canfield:
-                return "canfield";
-            case R.id.manual_games_button_fortyeight:
-                return "fortyeight";
-            case R.id.manual_games_button_freecell:
-                return "freecell";
-            case R.id.manual_games_button_golf:
-                return "golf";
-            case R.id.manual_games_button_grandfathers_clock:
-                return "grandfathersClock";
-            case R.id.manual_games_button_gypsy:
-                return "gypsy";
-            case R.id.manual_games_button_klondike:
-                return "klondike";
-            case R.id.manual_games_button_mod3:
-                return "mod3";
-            case R.id.manual_games_button_pyramid:
-                return "pyramid";
-            case R.id.manual_games_button_simplesimon:
-                return "simplesimon";
-            case R.id.manual_games_button_spider:
-                return "spider";
-            case R.id.manual_games_button_tripeaks:
-                return "tripeaks";
-            case R.id.manual_games_button_yukon:
-                return "yukon";
-            case R.id.manual_games_button_vegas:
-                return "vegas";
 
+        for (AllGameInfos gameInfos : allGameInfos){
+            if (gameInfos.getManualButtonResID() == id){
+                return gameInfos.getSharedPrefName();
+            }
         }
+
+        return "";
     }
 
     /**
@@ -329,43 +261,7 @@ public class LoadGame {
      * @return              the string for the manual entries
      */
     public String manualName(Activity activity, String gameName) {
-
-        Resources res = activity.getResources();
-
-        if (gameName.equals(res.getString(R.string.games_acesup))){
-            return "acesup";
-        } else if (gameName.equals(res.getString(R.string.games_canfield))){
-            return "canfield";
-        } else if (gameName.equals(res.getString(R.string.games_fortyeight))){
-            return "fortyeight";
-        } else if (gameName.equals(res.getString(R.string.games_freecell))){
-            return "freecell";
-        } else if (gameName.equals(res.getString(R.string.games_golf))){
-            return "golf";
-        } else if (gameName.equals(res.getString(R.string.games_grandfathersClock))){
-            return "grandfathersClock";
-        } else if (gameName.equals(res.getString(R.string.games_gypsy))){
-            return "gypsy";
-        } else if (gameName.equals(res.getString(R.string.games_klondike))){
-            return "klondike";
-        } else if (gameName.equals(res.getString(R.string.games_mod3))){
-            return "mod3";
-        } else if (gameName.equals(res.getString(R.string.games_pyramid))){
-            return "pyramid";
-        } else if (gameName.equals(res.getString(R.string.games_simplesimon))){
-            return "simplesimon";
-        } else if (gameName.equals(res.getString(R.string.games_spider))){
-            return "spider";
-        } else if (gameName.equals(res.getString(R.string.games_tripeaks))){
-            return "tripeaks";
-        } else if (gameName.equals(res.getString(R.string.games_yukon))){
-            return "yukon";
-        } else if (gameName.equals(res.getString(R.string.games_vegas))){
-            return "vegas";
-        }
-
-        Log.e("LoadGame.manualClick()", "Your games seems not to be added here?");
-        return "klondike";
+       return sharedPrefName;
     }
 
     public String getGameName() {
@@ -374,5 +270,66 @@ public class LoadGame {
 
     public String getSharedPrefName() {
         return sharedPrefName;
+    }
+
+    private class AllGameInfos{
+
+        private int shownNameResID;
+        private String sharedPrefName;
+        private int gameSelectorButtonResID;
+        private int manualButtonResID;
+
+        AllGameInfos(int shownNameResID, String sharedPrefName, int gameSelectorButtonResID, int manualButtonResID){
+            this.shownNameResID = shownNameResID;
+            this.sharedPrefName = sharedPrefName;
+            this.gameSelectorButtonResID = gameSelectorButtonResID;
+            this.manualButtonResID = manualButtonResID;
+        }
+
+        public String getName(Resources res){
+            return res.getString(shownNameResID);
+        }
+
+        public String getSharedPrefName(){
+            return sharedPrefName;
+        }
+
+        public ImageView getGameSelectorButton(Activity activity){
+            return (ImageView) activity.findViewById(gameSelectorButtonResID);
+        }
+
+        public void setManualButtonListener(View view, View.OnClickListener listener){
+            (view.findViewById(manualButtonResID)).setOnClickListener(listener);
+        }
+
+        public int getManualButtonResID(){
+            return manualButtonResID;
+        }
+
+        public int getGameSelectorButtonResID(){
+            return gameSelectorButtonResID;
+        }
+    }
+
+    public void loadAllGames(Activity activity){
+        allGameInfos.add(new AllGameInfos(R.string.games_AcesUp,"AcesUp",R.id.buttonStartAcesUp,R.id.manual_games_button_acesup));
+        allGameInfos.add(new AllGameInfos(R.string.games_Canfield,"Canfield",R.id.buttonStartCanfield,R.id.manual_games_button_canfield));
+        allGameInfos.add(new AllGameInfos(R.string.games_FortyEight,"FortyEight",R.id.buttonStartFortyEight,R.id.manual_games_button_fortyeight));
+        allGameInfos.add(new AllGameInfos(R.string.games_Freecell,"Freecell",R.id.buttonStartFreecell,R.id.manual_games_button_freecell));
+        allGameInfos.add(new AllGameInfos(R.string.games_Golf,"Golf",R.id.buttonStartGolf,R.id.manual_games_button_golf));
+        allGameInfos.add(new AllGameInfos(R.string.games_GrandfathersClock,"GrandfathersClock",R.id.buttonStartGrandfathersClock,R.id.manual_games_button_grandfathers_clock));
+        allGameInfos.add(new AllGameInfos(R.string.games_Gypsy,"Gypsy",R.id.buttonStartGypsy,R.id.manual_games_button_gypsy));
+        allGameInfos.add(new AllGameInfos(R.string.games_Klondike,"Klondike",R.id.buttonStartKlondike,R.id.manual_games_button_klondike));
+        allGameInfos.add(new AllGameInfos(R.string.games_mod3,"mod3",R.id.buttonStartMod3,R.id.manual_games_button_mod3));
+        allGameInfos.add(new AllGameInfos(R.string.games_Pyramid,"Pyramid",R.id.buttonStartPyramid,R.id.manual_games_button_pyramid));
+        allGameInfos.add(new AllGameInfos(R.string.games_SimpleSimon,"SimpleSimon",R.id.buttonStartSimpleSimon,R.id.manual_games_button_simplesimon));
+        allGameInfos.add(new AllGameInfos(R.string.games_Spider,"Spider",R.id.buttonStartSpider,R.id.manual_games_button_spider));
+        allGameInfos.add(new AllGameInfos(R.string.games_TriPeaks,"TriPeaks",R.id.buttonStartTriPeaks,R.id.manual_games_button_tripeaks));
+        allGameInfos.add(new AllGameInfos(R.string.games_Yukon,"Yukon",R.id.buttonStartYukon,R.id.manual_games_button_yukon));
+        allGameInfos.add(new AllGameInfos(R.string.games_Vegas,"Vegas",R.id.buttonStartVegas,R.id.manual_games_button_vegas));
+    }
+
+    public int getGameCount(){
+        return 15;
     }
 }

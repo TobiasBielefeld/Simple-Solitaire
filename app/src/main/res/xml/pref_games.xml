@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/games_canfield">
+    <PreferenceCategory android:title="@string/games_Canfield">
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="3"
             android:entries="@array/pref_draw_titles"
@@ -13,7 +13,7 @@
             android:title="@string/settings_canfield_draw" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_fortyeight">
+    <PreferenceCategory android:title="@string/games_FortyEight">
         <CheckBoxPreference
             android:defaultValue="@bool/default_fortyeight_limited_recycles"
             android:key="@string/pref_key_fortyeight_limit_recycles"
@@ -32,7 +32,7 @@
             android:title="@string/settings_number_of_recycles" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_golf">
+    <PreferenceCategory android:title="@string/games_Golf">
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="@string/pref_key_golf_cyclic"
@@ -40,7 +40,7 @@
             android:title="@string/settings_golf_easy" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_klondike">
+    <PreferenceCategory android:title="@string/games_Klondike">
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="1"
             android:entries="@array/pref_draw_titles"
@@ -52,7 +52,7 @@
             android:title="@string/settings_klondike_draw" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_pyramid">
+    <PreferenceCategory android:title="@string/games_Pyramid">
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="1"
             android:entries="@array/pref_pyramid_difficulty_titles"
@@ -81,7 +81,7 @@
             android:title="@string/settings_number_of_recycles" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_spider">
+    <PreferenceCategory android:title="@string/games_Spider">
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="1"
             android:entries="@array/pref_spider_difficulty_titles"
@@ -93,7 +93,7 @@
             android:title="@string/settings_spider_difficulty" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_vegas">
+    <PreferenceCategory android:title="@string/games_Vegas">
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="3"
             android:entries="@array/pref_draw_titles"
@@ -123,7 +123,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/games_yukon">
+    <PreferenceCategory android:title="@string/games_Yukon">
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="default"
             android:entries="@array/pref_yukon_rules_titles"

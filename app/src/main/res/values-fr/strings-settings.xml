@@ -74,7 +74,7 @@
     <string name="settings_tap_to_select_enable_text">Appuyez sur une carte pour la sélectionner, puis appuyez sur la pile de destination pour la déplacer</string>
     <string name="settings_single_tap">Un seul clic</string>
     <string name="settings_single_tap_enable">Activer clic simple</string>
-    <string name="settings_single_tap_enable_text">Pour Golf et Tripeaks uniquement : appuyez une fois sur une carte pour la déplacer vers la défausse</string>
+    <string name="settings_single_tap_enable_text">Pour Golf et TriPeaks uniquement : appuyez une fois sur une carte pour la déplacer vers la défausse</string>
 
     <string name="settings_background_color_custom">Personnaliser</string>
 

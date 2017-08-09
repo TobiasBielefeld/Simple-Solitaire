@@ -56,10 +56,10 @@
         Kiitos etukäteen palautteestasi :)</string>
 
     <!-- Klondike -->
-    <string name="manual_klondike_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_Klondike_structure">Yksi pakka jossa 52 kortia.\n\n
         Seitsemän pöytäpinoa, neljä peruspinoa, yksi käsipakka ja yksi kääntöpakka.</string>
-    <string name="manual_klondike_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
-    <string name="manual_klondike_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
+    <string name="manual_Klondike_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
+    <string name="manual_Klondike_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
         Peruspinoon voidaan asettaa vain vastaavan maan kortteja nousevassa järjestyksessä. Kokonainen korttisarja
         voidaan siirtää kerralla.\n\n
         Ainoastaan kuninkaita voidaan laittaa tyhjään pöytäpinoon ja vain ässiä voidaan asettaa tyhjään peruspinoon.\n\n
@@ -68,17 +68,17 @@
         (Tämä on oletusasetus helpottamaan peliä). Kun \"Nosta 3\" on valittuna, niin silloin kolme
         korttia käännetään kerralla.\n\n
         Painamalla tyhjää käsipakkaa kääntöpakka siirretään käsipakaksi ja kortit on jälleen käytettävissä.</string>
-    <string name="manual_klondike_scoring">Kortin siirto pöytäpinosta peruspinoon: +60\n\n
+    <string name="manual_Klondike_scoring">Kortin siirto pöytäpinosta peruspinoon: +60\n\n
         Kortin siirto kääntöpakasta peruspinoon: +45\n\n
         Kortin siirto peruspinosta pöytäpinoon: -75\n\n
         Kortin kääntäminen: +25\n\n
         Korttien palauttaminen kääntöpakasta käsipakkaan: -200</string>
 
     <!-- FreeCell -->
-    <string name="manual_freecell_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_Freecell_structure">Yksi pakka jossa 52 kortia.\n\n
         Kahdeksan pöytäpinoa, neljä peruspinoa ja neljä tyhjää solua.</string>
-    <string name="manual_freecell_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
-    <string name="manual_freecell_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
+    <string name="manual_Freecell_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
+    <string name="manual_Freecell_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
         Peruspinoihin kortit voidaan laittaa nousevassa järjestyksessä maittain. Jokainen ylhäällä olevasta neljästä
         solusta voi sisältää vain yhden kortin kerrallaan.\n\n
         Kerralla voi siirtää niin monta korttia (jotka ovat oikeassa järjestyksessä) kuin on tyhjiä pinoja
@@ -87,67 +87,67 @@
         sen jälkeen kohdepinoon.\n\n
         Jokainen kortti voidaan asettaa tyhjään pöytäpinoon ja soluun. Ainoastaan ässät voidaan laittaa tyhjään
         peruspinoon.</string>
-    <string name="manual_freecell_scoring">Kortin siirto peruspinoon: +60\n\n
+    <string name="manual_Freecell_scoring">Kortin siirto peruspinoon: +60\n\n
         Kortin siirto peruspinosta: -75\n\n
         Kuninkaan siirtäminen tyhjään pöytäpinoon: +20</string>
 
     <!-- Yukon -->
-    <string name="manual_yukon_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_Yukon_structure">Yksi pakka jossa 52 kortia.\n\n
         Seitsemän pöytäpinoa, neljä peruspinoa.</string>
-    <string name="manual_yukon_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
-    <string name="manual_yukon_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
+    <string name="manual_Yukon_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
+    <string name="manual_Yukon_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
         Peruspinoihin kortit voidaan laittaa nousevassa järjestyksessä maittain.n\n
         Jokainen kuvapuoli ylöspäin oleva kortti voidaan siirtää, oli sen päällä kuinka monta korttia tahansa ja
         missä tahansa järjestyksessä.\n\n
         Ainoastaan kuninkaat voidaan asettaa tyhjään pöytäpinoon ja vain ässät voidaan laittaa tyhjään peruspinoon.</string>
-    <string name="manual_yukon_scoring">Kortin siirto peruspinoon: +60\n\n
+    <string name="manual_Yukon_scoring">Kortin siirto peruspinoon: +60\n\n
         Kortin siirto peruspinosta: -75\n\n
         Kuninkaan siirtäminen tyhjään pöytäpinoon: +20\n\n
         Kortin kääntäminen kuvapuoli ylöspäin: +25</string>
 
     <!-- Spider -->
-    <string name="manual_spider_structure">Kaksi pakkaa joissa 52 kortia.\n\n
+    <string name="manual_Spider_structure">Kaksi pakkaa joissa 52 kortia.\n\n
         10 pöytäpinoa ja kahdeksan peruspinoa.\n\n
         Yksi käsipakka jaettuna viiteen pinoon.\n\n
         Riippuen asetuksista: yksi, kaksi tai neljä eri maata.</string>
-    <string name="manual_spider_objective">Järjestä kaikki maan kortit alenevassa järjestyksessä mihin tahansa pöydällä,
+    <string name="manual_Spider_objective">Järjestä kaikki maan kortit alenevassa järjestyksessä mihin tahansa pöydällä,
         jolloin korttisarjan kortit siirretään automaattisesti peruspinoon.</string>
-    <string name="manual_spider_rules">Kortit voidaan asettaa alenevassa järjestyksessä minkä tahansa maan kortin päälle.
+    <string name="manual_Spider_rules">Kortit voidaan asettaa alenevassa järjestyksessä minkä tahansa maan kortin päälle.
         Mutta ainoastaan maittain olevat korttisarjat voidaan siirtää kerralla.\n\n
         Mikä tahansa kortti voidaan asettaa tyhjään pöytäpinoon.\n\n
         Painamalla käsipakasta jokaiseen pöytäpinoon jaetaan uusi kortti.</string>
-    <string name="manual_spider_scoring">Maan siirto peruspinoon: +200\n\n
+    <string name="manual_Spider_scoring">Maan siirto peruspinoon: +200\n\n
         Kortin kääntäminen kuvapuoli ylöspäin: +25</string>
 
     <!-- SimpleSimon -->
-    <string name="manual_simplesimon_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_SimpleSimon_structure">Yksi pakka jossa 52 kortia.\n\n
         10 pöytäpinoa ja neljä peruspinoa.</string>
-    <string name="manual_simplesimon_objective">Järjestä kaikki maan kortit alenevassa järjestyksessä mihin tahansa
+    <string name="manual_SimpleSimon_objective">Järjestä kaikki maan kortit alenevassa järjestyksessä mihin tahansa
         pöydällä, jolloin korttisarjan kortit siirretään automaattisesti peruspinoon.</string>
-    <string name="manual_simplesimon_rules">Kortit voidaan asettaa alenevassa järjestyksessä minkä tahansa maan
+    <string name="manual_SimpleSimon_rules">Kortit voidaan asettaa alenevassa järjestyksessä minkä tahansa maan
         kortin päälle. Mutta ainoastaan maittain olevat korttisarjat voidaan siirtää kerralla.\n\n
         Mikä tahansa kortti voidaan asettaa tyhjään pöytäpinoon.</string>
-    <string name="manual_simplesimon_scoring">Maan siirto peruspinoon: +200</string>
+    <string name="manual_SimpleSimon_scoring">Maan siirto peruspinoon: +200</string>
 
     <!-- Golf -->
-    <string name="manual_golf_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_Golf_structure">Yksi pakka jossa 52 kortia.\n\n
         Seitsemän pöytäpinoa, yksi käsipakka ja yksi kääntöpakka.\n\n
         Korttien siirtäminen kääntöpakasta takaisin käsipakkaan ei ole mahdollista
         (Paitsi käyttämällä Kumoa painiketta).</string>
-    <string name="manual_golf_objective">Siirrä kaikki kortit pöytäpinoista kääntöpakkaan.</string>
-    <string name="manual_golf_rules">Pöytäpinojen päällimmäisiä kortteja voidaan siirtää kääntöpakkaan.
+    <string name="manual_Golf_objective">Siirrä kaikki kortit pöytäpinoista kääntöpakkaan.</string>
+    <string name="manual_Golf_rules">Pöytäpinojen päällimmäisiä kortteja voidaan siirtää kääntöpakkaan.
         Kortit voidaan asettaa nousevassa ja alenemassa järjestyksessä maasta välittämättä.\n\n
         Asetuksista riippuen kuningas voidaan asettaa ässän päälle ja päinvastoin (helpompi peli).\n\n
         Mikäli mitään korttia ei voida siirtää, uusi kortti käännetään kääntöpakkaan painamalla käsipakasta.</string>
-    <string name="manual_golf_scoring">Kortin siirto kääntöpakkaan: +50</string>
+    <string name="manual_Golf_scoring">Kortin siirto kääntöpakkaan: +50</string>
 
     <!-- Pyramid -->
-    <string name="manual_pyramid_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_Pyramid_structure">Yksi pakka jossa 52 kortia.\n\n
         28 pöytäpinoa, yksi käsipakka, yksi kääntöpakka ja yksi kaatopakka.\n\n
         Kortit voidaan siirtää pelin aikana vain kahdesti kääntöpakasta käsipakkaan.</string>
-    <string name="manual_pyramid_objective">Siirrä kaikki kortit pöytäpinoista kaatopakkaan. Riippuen asetuksista,
+    <string name="manual_Pyramid_objective">Siirrä kaikki kortit pöytäpinoista kaatopakkaan. Riippuen asetuksista,
         myös kortit käsipakasta ja kääntöpakasta pitää siirtää kaatopakkaan.</string>
-    <string name="manual_pyramid_rules">Tässä pelissä on hieman poikkeavat säännöt muihin pasiansseihin. Jokainen kortti
+    <string name="manual_Pyramid_rules">Tässä pelissä on hieman poikkeavat säännöt muihin pasiansseihin. Jokainen kortti
         joka ei ole muiden korttien alla on pelattavissa. Kaksi korttia joiden yhteenlaskettu summa on 13 voidaan
         siirtää kaatopakkaan. Tee tämä siirtämällä kortti toisen pelattavissa olevan kortin päälle.
         Mikäli yhteenlaskettu summa on oikein, silloin molemmat kortit siirretään automaattisesti kaatopakkaan.\n\n
@@ -155,28 +155,28 @@
         pakkojen välillä siirtääksesi yhden kortin käsipakasta kääntöpakkaan. Jos käsipakka on tyhjä, paina pakkaa
         tai nuolta palauttaaksesi kortit kääntöpakasta käsipakkaan. Tämä siirto voidaan tehdä vain kahdesti pelin aikana.
         Jäljellä olevien siirtojen määrä näkyy numerona nuolen yläpuolella.</string>
-    <string name="manual_pyramid_scoring">Kortin siirto kaatopakkaan: +50\n\n
+    <string name="manual_Pyramid_scoring">Kortin siirto kaatopakkaan: +50\n\n
         Korttien palauttaminen kääntöpakasta käsipakkaan: -200</string>
 
     <!-- TriPekas -->
-    <string name="manual_tripeaks_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_TriPeaks_structure">Yksi pakka jossa 52 kortia.\n\n
         28 pöytäpinoa, yksi käsipakka ja yksi kääntöpakka.\n\n
         Korttien siirtäminen kääntöpakasta takaisin käsipakkaan ei ole mahdollista
         (Paitsi käyttämällä Kumoa painiketta).</string>
-    <string name="manual_tripeaks_objective">Siirrä kaikki kortit pöytäpinoista kaatopakkaan.</string>
-    <string name="manual_tripeaks_rules">Tämän pelin säännöt ovat samankaltaiset kuin \"Golf\" pelissä.
+    <string name="manual_TriPeaks_objective">Siirrä kaikki kortit pöytäpinoista kaatopakkaan.</string>
+    <string name="manual_TriPeaks_rules">Tämän pelin säännöt ovat samankaltaiset kuin \"Golf\" pelissä.
         Jokainen kortti joka ei ole muiden korttien alla on pelattavissa.
         Kortit voidaan asettaa nousevassa ja alenemassa järjestyksessä maasta välittämättä.\n\n
         Asetuksista riippuen kuningas voidaan asettaa ässän päälle ja päinvastoin.\n\n
         Mikäli mitään korttia ei voida siirtää, uusi kortti käännetään kääntöpakkaan painamalla käsipakasta.</string>
-    <string name="manual_tripeaks_scoring">Kortin siirto kaatopakkaan: +50</string>
+    <string name="manual_TriPeaks_scoring">Kortin siirto kaatopakkaan: +50</string>
 
     <!-- Forty&Eight -->
-    <string name="manual_fortyeight_structure">Kaksi pakkaa joissa 52 kortia.\n\n
+    <string name="manual_FortyEight_structure">Kaksi pakkaa joissa 52 kortia.\n\n
         Kahdeksan pöytäpinoa, kahdeksan peruspinoa, yksi käsipakka ja yksi kääntöpakka.\n\n
         Kortit voidaan siirtää pelin aikana vain kerran kääntöpakasta käsipakkaan.</string>
-    <string name="manual_fortyeight_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
-    <string name="manual_fortyeight_rules">
+    <string name="manual_FortyEight_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
+    <string name="manual_FortyEight_rules">
         Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä maittain.
         Peruspinoihin kortit voidaan laittaa nousevassa järjestyksessä maittain.\n\n
         Kerralla voi siirtää niin monta korttia (jotka ovat oikeassa järjestyksessä) kuin on tyhjiä pinoja.
@@ -187,7 +187,7 @@
         Painamalla käsipakasta yksi kortti kääntyy kääntöpakkaan josta sen voi siirtää.\n\n
         Painamalla tyhjää käsipakkaa kääntöpakka siirretään käsipakaksi ja kortit on jälleen käytettävissä. Tämän voi
         tehdä ainoastaan kerran pelin aikana. Jäljellä olevien siirtojen määrä näkyy numerona käsipakan yläpuolella.</string>
-    <string name="manual_fortyeight_scoring">Kortin siirto peruspinoon: +45\n\n
+    <string name="manual_FortyEight_scoring">Kortin siirto peruspinoon: +45\n\n
         Kortin siirto peruspinosta pöytäpinoon: -60\n\n
         Kortin siirto kääntöpakasta pöytäpinoon: +60\n\n
         Korttien palauttaminen kääntöpakasta käsipakkaan: -200</string>
@@ -213,37 +213,37 @@
         Kortin siirto neljänteen riviin: -75</string>
 
     <!-- Gypsy -->
-    <string name="manual_gypsy_structure">Kaksi pakkaa joissa 52 kortia.\n\n
+    <string name="manual_Gypsy_structure">Kaksi pakkaa joissa 52 kortia.\n\n
         Kahdeksan pöytäpinoa, kahdeksan peruspinoa ja yksi käsipakka.</string>
-    <string name="manual_gypsy_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
-    <string name="manual_gypsy_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
+    <string name="manual_Gypsy_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
+    <string name="manual_Gypsy_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
         Peruspinoihin kortit voidaan laittaa nousevassa järjestyksessä maittain. Oikeassa järjestyksessä oleva
         korttisarja voidaan siirtää kerralla.\n\n
         Mikä tahansa kortti voidaan asettaa tyhjään pöytäpinoon ja vain ässät voidaan laittaa tyhjään peruspinoon.\n\n
         Painamalla käsipakkaa yksi kortti jaetaan jokaiseen pöytäpinoon.</string>
-    <string name="manual_gypsy_scoring">Kortin siirto peruspinoon: +75\n\n
+    <string name="manual_Gypsy_scoring">Kortin siirto peruspinoon: +75\n\n
         Kortin siirto peruspinosta pöytäpinoon: -100\n\n
         Kortin kääntäminen kuvapuoli ylöspäin: +50</string>
 
     <!-- acesUp -->
-    <string name="manual_acesup_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_AcesUp_structure">Yksi pakka jossa 52 kortia.\n\n
         Neljä pöytäpinoa, yksi käsipakka ja yksi peruspino.\n\n
         Ässät ovat arvoltaan 14, joten ne ovat korkeampia kuin kuninkaat.</string>
-    <string name="manual_acesup_objective">Laita ässiä lukuunottamatta kaikki kortit peruspakkaan, jolloin jokaiseen
+    <string name="manual_AcesUp_objective">Laita ässiä lukuunottamatta kaikki kortit peruspakkaan, jolloin jokaiseen
         pöytäpinoon jää yksi ässä.</string>
-    <string name="manual_acesup_rules">Ainoastaan pinon päällimmäinen kortti voidaan siirtää. Siirrä peruspinoon kortit
+    <string name="manual_AcesUp_rules">Ainoastaan pinon päällimmäinen kortti voidaan siirtää. Siirrä peruspinoon kortit
         jotka ovat pienempiä kun toinen samaa maata oleva pinon päällimmäinen kortti. Esimerkki: Kahden pöytäpinon
         päällimmäiset kortit ovat hertta viisi ja hertta 10. Hertta viisi voidaan siirtää peruspinoon.\n\n
         Ässät ovat korkeampia kuin mikään muu kortti.\n\n
         Jokainen pinon päällimmäinen kortti voidaan siirtää tyhjään pöytäpinoon.\n\n
         Painamalla käsipakkaa yksi kortti jaetaan jokaiseen pöytäpinoon.</string>
-    <string name="manual_acesup_scoring">Kortin siirto peruspinoon:: +50</string>
+    <string name="manual_AcesUp_scoring">Kortin siirto peruspinoon:: +50</string>
 
     <!-- Canfield -->
-    <string name="manual_canfield_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_Canfield_structure">Yksi pakka jossa 52 kortia.\n\n
         Neljä pöytäpinoa, neljä peruspinoa, yksi käsipakka, yksi kääntöpakka ja yksi varapakka.</string>
-    <string name="manual_canfield_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
-    <string name="manual_canfield_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
+    <string name="manual_Canfield_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.</string>
+    <string name="manual_Canfield_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
         Peruspinoihin kortit voidaan laittaa nousevassa järjestyksessä maittain. Oikeassa järjestyksessä oleva
         korttisarja voidaan siirtää kerralla.\n\n
         Tyhjä pöytäpino täytetään varapakassa olevalla kortilla. Mikäli varapakka on tyhjä, niin siinä tapauksessa
@@ -256,31 +256,31 @@
         (Tämä on oletusasetus helpottamaan peliä). Kun \"Nosta 3\" on valittuna, niin silloin kolme
         korttia käännetään kerralla.\n\n
         Painamalla tyhjää käsipakkaa kääntöpakka siirretään käsipakaksi ja kortit on jälleen käytettävissä.</string>
-    <string name="manual_canfield_scoring">Kortin siirto pöytäpinosta peruspinoon: +60\n\n
+    <string name="manual_Canfield_scoring">Kortin siirto pöytäpinosta peruspinoon: +60\n\n
         Kortin siirto kääntöpakasta peruspinoon: +45\n\n
         Kortin siirto peruspinosta pöytäpinoon: -75\n\n
         Kortin kääntäminen: +25\n\n
         Korttien palauttaminen kääntöpakasta käsipakkaan: -200</string>
 
     <!-- GrandfathersClock -->
-    <string name="manual_grandfathersClock_structure">Yksi pakka jossa 52 kortia.\n\n
+    <string name="manual_GrandfathersClock_structure">Yksi pakka jossa 52 kortia.\n\n
         Kahdeksan pöytäpinoa ja kaksitoista peruspinoa kellon muodossa. Jokainen peruspino sisältää yhden kortin</string>
-    <string name="manual_grandfathersClock_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.
+    <string name="manual_GrandfathersClock_objective">Järjestä kaikki kortit maittain nousevassa järjestyksessä peruspinoihin.
         Lopussa peruspinojen päällimmäinen kortti vastaa kellon tunteja.</string>
-    <string name="manual_grandfathersClock_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä, väri ei ole väliä.
+    <string name="manual_GrandfathersClock_rules">Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä, väri ei ole väliä.
         Peruspinoihin kortit voidaan laittaa nousevassa järjestyksessä maittain. Ässät voidaan sijoittaa kuninkaiden päälle.\n\n
         Kerralla voi siirtää niin monta korttia (jotka ovat oikeassa järjestyksessä) kuin on tyhjiä pinoja.
         Tämä perustuu sääntöön mikä määrää, että vain yhden kortin voi siirtää kerrallaan,
         mutta kun on tyhjiä pinoja, niin silloin kortit voidaan ensiksi siirtää tyhjiin pinoihin ja
         sen jälkeen kohdepinoon.
        </string>
-    <string name="manual_grandfathersClock_scoring">Kortin siirto pöytäpinosta peruspinoon: +50</string>
+    <string name="manual_GrandfathersClock_scoring">Kortin siirto pöytäpinosta peruspinoon: +50</string>
 
     <!-- new values -->
     <!-- Vegas -->
-    <string name="manual_vegas_structure">@string/manual_klondike_structure</string>
-    <string name="manual_vegas_objective">Play cards to the foundation to win more money.</string>
-    <string name="manual_vegas_rules">The rules are identical to the \"Klondike\"-Rules. Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
+    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+    <string name="manual_Vegas_objective">Play cards to the foundation to win more money.</string>
+    <string name="manual_Vegas_rules">The rules are identical to the \"Klondike\"-Rules. Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
         Peruspinoon voidaan asettaa vain vastaavan maan kortteja nousevassa järjestyksessä. Kokonainen korttisarja
         voidaan siirtää kerralla.\n\n
         Ainoastaan kuninkaita voidaan laittaa tyhjään pöytäpinoon ja vain ässiä voidaan asettaa tyhjään peruspinoon.\n\n
@@ -288,7 +288,7 @@
         määräytyy valittujen asetusten mukaan. Mikäli \"Nosta 1\" on valittuna, niin vain yksi kortti käännetään.
         Kun \"Nosta 3\" on valittuna, niin silloin kolme korttia käännetään kerralla.\n\n
         Painamalla tyhjää käsipakkaa kääntöpakka siirretään käsipakaksi ja kortit on jälleen käytettävissä.</string>
-    <string name="manual_vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
+    <string name="manual_Vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
         You pay eg. 50$ at the beginning of the game, and with every card played to the foundation you win 1/10 of the bet.
         \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2/10 of the bet.
         \n\nDISCLAIMER: You do not play for real money in this game :)</string>

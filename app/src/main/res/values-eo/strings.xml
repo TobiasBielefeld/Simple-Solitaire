@@ -25,21 +25,21 @@
     <string name="menu_settings">Agordoj</string>
 
     <!-- game names -->
-    <string name="games_klondike">Klondiko</string>
-    <string name="games_freecell">FreeCell</string>
-    <string name="games_yukon">Jukono</string>
-    <string name="games_spider">Araneo</string>
-    <string name="games_simplesimon">SimplaSimono</string>
-    <string name="games_golf">Golfo</string>
-    <string name="games_pyramid">Piramido</string>
-    <string name="games_tripeaks">TriPintoj</string>
-    <string name="games_fortyeight">Kvardek&amp;Ok</string>
-    <string name="games_acesup">KvarAsoj</string>
-    <string name="games_gypsy">Cigano</string>
+    <string name="games_Klondike">Klondiko</string>
+    <string name="games_Freecell">FreeCell</string>
+    <string name="games_Yukon">Jukono</string>
+    <string name="games_Spider">Araneo</string>
+    <string name="games_SimpleSimon">SimplaSimono</string>
+    <string name="games_Golf">Golfo</string>
+    <string name="games_Pyramid">Piramido</string>
+    <string name="games_TriPeaks">TriPintoj</string>
+    <string name="games_FortyEight">Kvardek&amp;Ok</string>
+    <string name="games_AcesUp">KvarAsoj</string>
+    <string name="games_Gypsy">Cigano</string>
     <string name="games_mod3">Mod3</string>
-    <string name="games_canfield">Canfield</string>
-    <string name="games_grandfathersClock">AvaHorloĝo</string>
-    <string name="games_vegas">Vegas</string>
+    <string name="games_Canfield">Canfield</string>
+    <string name="games_GrandfathersClock">AvaHorloĝo</string>
+    <string name="games_Vegas">Vegas</string>
 
     <!-- colors -->
     <string name="blue">Blua</string>

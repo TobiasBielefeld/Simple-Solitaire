@@ -71,7 +71,7 @@
     <string name="settings_tap_to_select_enable_text">Tippe eine Karte an um sie auszuwählen. Anschließend tippe auf einen Stapel um sie dorthin zu bewegen.</string>
     <string name="settings_single_tap">Einmaltippen</string>
     <string name="settings_single_tap_enable">Erlaube Einmaltipp-Bewegungen</string>
-    <string name="settings_single_tap_enable_text">Nur für Golf und Tripeaks: Tippe Karten einmal an, um sie zum Ablagestapel zu bewegen.</string>
+    <string name="settings_single_tap_enable_text">Nur für Golf und TriPeaks: Tippe Karten einmal an, um sie zum Ablagestapel zu bewegen.</string>
     <string name="settings_background_color_custom">Benutzerdefiniert</string>
     <string name="settings_double_tap_foundation_first">Zuerst zur Foundation bewegen</string>
     <string name="settings_double_tap_foundation_first_text">Versuche die oberste Karte des angetippten Stapels zur Foundation zu bewegen, bevor die anderen Karten bewegt werden</string>

@@ -74,7 +74,7 @@
 
     <string name="settings_single_tap">Yksittäinen napautus</string>
     <string name="settings_single_tap_enable">Salli siirrot yksittäisellä napautuksella</string>
-    <string name="settings_single_tap_enable_text">Vain Golf ja Tripeaks: Siirrä kortti kääntöpakkaan painamalla korttia kerran</string>
+    <string name="settings_single_tap_enable_text">Vain Golf ja TriPeaks: Siirrä kortti kääntöpakkaan painamalla korttia kerran</string>
 
     <string name="settings_background_color_custom">Mukautettu</string>
 

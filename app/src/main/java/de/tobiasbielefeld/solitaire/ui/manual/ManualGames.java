@@ -103,6 +103,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         } catch (Exception e) {
             //no page available
             Log.e("Manual page not found", e.toString());
+            Log.e("hey",gameName);
             showToast(getString(R.string.page_load_error));
         }
 

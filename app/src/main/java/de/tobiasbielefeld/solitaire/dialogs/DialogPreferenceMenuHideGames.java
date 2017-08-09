@@ -21,14 +21,18 @@ package de.tobiasbielefeld.solitaire.dialogs;
 import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 
+import static de.tobiasbielefeld.solitaire.R.attr.selectableItemBackground;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
@@ -41,6 +45,8 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
 
     ArrayList<LinearLayout> linearLayouts;
     ArrayList<CheckBox> checkBoxes;
+
+    static int GAME_COUNT = lg.getGameCount();
 
     public DialogPreferenceMenuHideGames(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -66,6 +72,29 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
                 checkBoxes.get(i).setChecked(result.get(i) == 1);
             }
         }
+
+        LinearLayout container = (LinearLayout) view.findViewById(R.id.layoutContainer);
+        LinearLayout newLayout = new LinearLayout(getContext());
+
+        TypedValue typedValue = new TypedValue();
+        getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
+
+        newLayout.setBackgroundResource(typedValue.resourceId);
+        int padding = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_layout_padding));
+        newLayout.setPadding(padding,padding,padding,padding);
+
+        CheckBox checkBox = new CheckBox(getContext());
+        int paddingLeft = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_padding_left));
+        int paddingRight = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_padding_right));
+        checkBox.setPadding(paddingLeft,0,paddingRight,0);
+        newLayout.addView(checkBox);
+
+        TextView textView = new TextView(getContext());
+        textView.setText("HELLLLLO");
+        newLayout.addView(textView);
+
+
+        container.addView(newLayout);
 
         super.onBindDialogView(view);
     }

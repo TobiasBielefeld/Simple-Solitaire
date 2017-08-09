@@ -58,9 +58,9 @@
         le Google Play Store (s\'il est installé).\n\nMerci d\'avance pour vos remarques :)</string>
 
     <!-- Klondike -->
-    <string name="manual_klondike_structure">1 jeu de 52 cartes.\n\n7 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse.</string>
-    <string name="manual_klondike_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
-    <string name="manual_klondike_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
+    <string name="manual_Klondike_structure">1 jeu de 52 cartes.\n\n7 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse.</string>
+    <string name="manual_Klondike_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
+    <string name="manual_Klondike_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
         les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.\n\nSeuls les rois peuvent être placés sur une colonne vide du tableau
         et seuls les As peuvent être placés sur les piles de base vides.\n\nEn appuyant sur le talon, les cartes sont retournées
@@ -68,15 +68,15 @@
         Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée (c\'est le réglage par défaut, le plus facile).
         Si \"Donner 3 cartes\" est activé, 3 cartes seront retournées à la fois.\n\nSi le talon se vide, vous pouvez encore
         appuyer dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser.</string>
-    <string name="manual_klondike_scoring">Du tableau à une pile de base : +60\n\nDe la défausse à une pile de
+    <string name="manual_Klondike_scoring">Du tableau à une pile de base : +60\n\nDe la défausse à une pile de
         base : +45\n\nD\'une pile de base au tableau : -75\n\nPiocher une carte: +25\n\nDéplacer les cartes de
         la défausse à la pioche : -200</string>
 
     <!-- FreeCell -->
-    <string name="manual_freecell_structure">1 jeu de 52 cartes.\n\n8 colonnes sur le tableau, 4 piles de base et
+    <string name="manual_Freecell_structure">1 jeu de 52 cartes.\n\n8 colonnes sur le tableau, 4 piles de base et
         4 cases libres (free cells).</string>
-    <string name="manual_freecell_objective">Empiler sur les bases les cartes de chaque famille dans l\'ordre croissant.</string>
-    <string name="manual_freecell_rules">Les cartes doivent être posées sur le tableau par ordre décroissant et
+    <string name="manual_Freecell_objective">Empiler sur les bases les cartes de chaque famille dans l\'ordre croissant.</string>
+    <string name="manual_Freecell_rules">Les cartes doivent être posées sur le tableau par ordre décroissant et
         en alternant les couleurs. Sur les bases, les cartes doivent être placées par ordre croissant pour une
         même famille. Les cases libres en haut ne peuvent contenir qu\'une seule carte à la fois.
         \n\nVous pouvez déplacer autant de cartes en une fois (si elles sont placées dans le bon ordre),
@@ -84,64 +84,64 @@
         être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n\'importe quelle carte,
         celles-ci servent d\'intermédiaire.\n\nTout les cartes peuvent être placées sur les colonnes vides du tableau
         et seuls les As peuvent être placés sur les piles de base vides.</string>
-    <string name="manual_freecell_scoring">Mettre une carte sur une pile de base : +60\n\nRetirer une carte d\'une pile de base :
+    <string name="manual_Freecell_scoring">Mettre une carte sur une pile de base : +60\n\nRetirer une carte d\'une pile de base :
         -75\n\nMettre un roi sur un emplacement libre : +20</string>
 
     <!-- Yukon -->
-    <string name="manual_yukon_structure">1 jeu de 52 cartes.\n\n7 colonnes sur le tableau, 4 piles de base.</string>
-    <string name="manual_yukon_objective">Trier toutes les cartes par famille et par ordre croissant sur les bases.</string>
-    <string name="manual_yukon_rules">Les cartes doivent être placées sur le tableau dans l\'ordre décroissant et en alternant
+    <string name="manual_Yukon_structure">1 jeu de 52 cartes.\n\n7 colonnes sur le tableau, 4 piles de base.</string>
+    <string name="manual_Yukon_objective">Trier toutes les cartes par famille et par ordre croissant sur les bases.</string>
+    <string name="manual_Yukon_rules">Les cartes doivent être placées sur le tableau dans l\'ordre décroissant et en alternant
         leur couleur. Sur les piles de base, les cartes doivent être placées par ordre croissant et dans la même famille.
         \n\nVous pouvez déplacer toutes les cartes retournées, sans avoir à tenir compte des cartes au dessus d\'elle.
         \n\nSeul les rois peuvent être placés sur des emplacements vides et seuls les As peuvent être placés
         sur les piles de base vides.</string>
-    <string name="manual_yukon_scoring">Déplacer une carte du tableau à une base : +60\n\nDéplacer une carte
+    <string name="manual_Yukon_scoring">Déplacer une carte du tableau à une base : +60\n\nDéplacer une carte
         d\'une base au tableau : -75\n\nMettre un roi sur une colonne vide : +20\n\nRetourner une carte : +25</string>
 
     <!-- Spider -->
-    <string name="manual_spider_structure">2 jeux de 52 cartes.\n\n10 colonnes sur le tableau, 8 piles de
+    <string name="manual_Spider_structure">2 jeux de 52 cartes.\n\n10 colonnes sur le tableau, 8 piles de
         base.\n\n1 talon, séparé en cinq tas.\n\nSelon le réglage, 1, 2 ou 4 familles de cartes différentes.</string>
-    <string name="manual_spider_objective">Mettre toutes les cartes d\'une même famille dans l\'ordre
+    <string name="manual_Spider_objective">Mettre toutes les cartes d\'une même famille dans l\'ordre
         croissant n\'importe où sur le tableau. Une fois complétée, une famille sera automatiquement déplacée
         sur une pile de base.</string>
-    <string name="manual_spider_rules">Les cartes peuvent être placées sur n\'importe quelle autre tant
+    <string name="manual_Spider_rules">Les cartes peuvent être placées sur n\'importe quelle autre tant
         que l\'on suit l\'ordre croissant. Mais seul les sequences d\'une même famille peuvent être déplacées
         en une seule fois.\n\nToutes les cartes peuvent être placées sur des emplacement libres du tableau
         \n\nAppuyer sur le talon pour ajouter une carte à chaque colonne du tableau.</string>
-    <string name="manual_spider_scoring">Déplacer une famille de carte sur une pile de base : +200\n\nRetourner
+    <string name="manual_Spider_scoring">Déplacer une famille de carte sur une pile de base : +200\n\nRetourner
         une série de cartes : +25</string>
 
     <!-- SimpleSimon -->
-    <string name="manual_simplesimon_structure">1 jeu de 52 cartes.\n\n10 colonnes sur le tableau, 4
+    <string name="manual_SimpleSimon_structure">1 jeu de 52 cartes.\n\n10 colonnes sur le tableau, 4
         piles de base.</string>
-    <string name="manual_simplesimon_objective">Mettre toutes les cartes de chaque famille dans l\'ordre
+    <string name="manual_SimpleSimon_objective">Mettre toutes les cartes de chaque famille dans l\'ordre
         décroissant n\'importe où sur le tableau. Une fois complétée, une famille sera automatiquement déplacée
         sur une pile de base.</string>
-    <string name="manual_simplesimon_rules">Les cartes peuvent être placées n\'importe où sur le plateau,
+    <string name="manual_SimpleSimon_rules">Les cartes peuvent être placées n\'importe où sur le plateau,
         mais seulement si elles sont mises dans l\'ordre décroissant. Seuls les séquences d\'une même famille peuvent
         être déplacées en même temps.\n\nToutes les cartes peuvent être placées sur les cases
         libres du tableau.</string>
-    <string name="manual_simplesimon_scoring">Mettre une famille sur une pile de base : +200</string>
+    <string name="manual_SimpleSimon_scoring">Mettre une famille sur une pile de base : +200</string>
 
     <!-- Golf -->
-    <string name="manual_golf_structure">1 jeu de 52 cartes.\n\n7 colonnes sur le tableau, 1 talon et 1
+    <string name="manual_Golf_structure">1 jeu de 52 cartes.\n\n7 colonnes sur le tableau, 1 talon et 1
         défausse.\n\nDéplacer les cartes de la défause au talon est impossible (sauf en utilisant le bouton \"Annuler\").</string>
-    <string name="manual_golf_objective">Mettre toutes les cartes du tableau dans la défausse.</string>
-    <string name="manual_golf_rules">Toutes les cartes en haut d\'une colonne peuvent être utilisées.
+    <string name="manual_Golf_objective">Mettre toutes les cartes du tableau dans la défausse.</string>
+    <string name="manual_Golf_rules">Toutes les cartes en haut d\'une colonne peuvent être utilisées.
         Les cartes peuvent être déplacées dans la défausse en suivant l\'ordre croissant ou décroissant
         quelque soit leur couleur.\n\nSelon le réglage, vous pouvez placer un roi sur un As, et inversement
         (ce qui est le plus facile).\n\nSi auncunes cartes ne peuvent être déplacées, appuyer de nouveau sur le talon
         pour ajouter une nouvelle carte à la défausse.</string>
-    <string name="manual_golf_scoring">Placer une carte dans la défause : +50</string>
+    <string name="manual_Golf_scoring">Placer une carte dans la défause : +50</string>
 
     <!-- Pyramid -->
-    <string name="manual_pyramid_structure">1 jeu de 52 cartes.\n\n28 cartes sur le tableau, 1 pioche,
+    <string name="manual_Pyramid_structure">1 jeu de 52 cartes.\n\n28 cartes sur le tableau, 1 pioche,
         1 écart, 1 défausse.\n\nLes cartes de la défausse ne peuvent être remises sur la pioche que
         deux fois dans la partie.</string>
-    <string name="manual_pyramid_objective">Mettre toutes les cartes du tableau dans la défausse.
+    <string name="manual_Pyramid_objective">Mettre toutes les cartes du tableau dans la défausse.
         Selon le réglage, toutes les cartes de la pioche et de la défausse doivent être placées dans
         l\'écart.</string>
-    <string name="manual_pyramid_rules">Ce jeu a des régles très différentes des autres jeux de Solitaire.
+    <string name="manual_Pyramid_rules">Ce jeu a des régles très différentes des autres jeux de Solitaire.
         Toutes les cartes non couvertes par une autre peuvent être jouées. Deux cartes peuvent être placées
         dans l\'écart lorsque la somme de leurs valeurs vaut 13. Pour cela, il suffit de déplacer l\'une des deux
         cartes sur l\'autre. Si leur somme est correcte, les deux cartes seront placées dans l\'écart.
@@ -150,28 +150,28 @@
         carte. Si le pioche est vide, appuyer de nouveau sur la flêche pour déplacer les cartes de la
         défausse dans la pioche ; cela n\'est possible que deux fois par partie. Le nombre restant
         où cela est encore possible est affiché en petit, au dessus de la flêche.</string>
-    <string name="manual_pyramid_scoring">Déplacer une carte dans l\'écart : +50\n\nRemettre toutes les cartes
+    <string name="manual_Pyramid_scoring">Déplacer une carte dans l\'écart : +50\n\nRemettre toutes les cartes
         de la défausse dans la pioche : -200</string>
 
     <!-- TriPekas -->
-    <string name="manual_tripeaks_structure">1 jeu de 52 cartes.\n\n28 cartes sur le tableau, 1 talon,
+    <string name="manual_TriPeaks_structure">1 jeu de 52 cartes.\n\n28 cartes sur le tableau, 1 talon,
         1 défausse.\n\nDéplacer les cartes de la défausse sur le talon n\'est pas possible (Sauf en
         utilisant le bouton \"Annuler\").</string>
-    <string name="manual_tripeaks_objective">Mettre toutes les cartes du tableau dans la défausse.</string>
-    <string name="manual_tripeaks_rules">Les régles de ce jeu sont assez similaires au \"Golf\". Chaque carte
+    <string name="manual_TriPeaks_objective">Mettre toutes les cartes du tableau dans la défausse.</string>
+    <string name="manual_TriPeaks_rules">Les régles de ce jeu sont assez similaires au \"Golf\". Chaque carte
         non recouverte peut être jouée. Les cartes ne peuvent être placées dans la défausse que par ordre
         croissant ou décroissant, sans avoir à tenir compte de leur couleur.\n\nIl est possible
         de jouer un roi sur un As, et inversement.\n\nSi aucunes cartes ne peuvent être jouées, appuyer sur
         le talon pour retourner une nouvelle carte sur la défausse.</string>
-    <string name="manual_tripeaks_scoring">Mettre une carte dans la défausse : +50</string>
+    <string name="manual_TriPeaks_scoring">Mettre une carte dans la défausse : +50</string>
 
     <!-- Forty&Eight -->
-    <string name="manual_fortyeight_structure">2 jeux de 52 cartes.\n\n8 colonnes sur le tableau, 8
+    <string name="manual_FortyEight_structure">2 jeux de 52 cartes.\n\n8 colonnes sur le tableau, 8
         piles de base, 1 talon et 1 défausse.\n\nLes cartes de la défausse ne peuvent être remis dans le
         talon qu\'une seule fois par partie.</string>
-    <string name="manual_fortyeight_objective">Empiler, sur les piles de base, toutes les cartes par
+    <string name="manual_FortyEight_objective">Empiler, sur les piles de base, toutes les cartes par
         famille et dans l\'ordre croissant.</string>
-    <string name="manual_fortyeight_rules">Les cartes doivent être placées sur le tableau dans l\'ordre
+    <string name="manual_FortyEight_rules">Les cartes doivent être placées sur le tableau dans l\'ordre
         décroissant de la même famille. Sur les piles de base, les cartes doivent
         être placées dans l\'ordre croissant et dans la même famille.
 
@@ -186,7 +186,7 @@
         partir de là.\n\nSi le talon devient vide, vous pouvez encore appuyer dessus pour déplacer les cartes
         de la défausse dans le talon ; cela n\'est possible qu\'une seule fois par partie. Le nombre de
         fois où il est encore possible d\'effectuer ce mouvement est affiché en petit au dessus du talon.</string>
-    <string name="manual_fortyeight_scoring">Mettre une carte sur une pile de base : +45\n\nRemettre une
+    <string name="manual_FortyEight_scoring">Mettre une carte sur une pile de base : +45\n\nRemettre une
         carte d\'une base sur la tableau : -60\n\nDéplacer une carte de la défausse sur le tableau : +60
         \n\nRemettre toutes les cartes de la défausse dans la pioche : -200</string>
 
@@ -210,38 +210,38 @@
         \n\nRemettre une carte sur la quatrième rangée : -75</string>
 
     <!-- Gypsy -->
-    <string name="manual_gypsy_structure">2 jeux de 52 cartes.\n\n8 colonnes sur le
+    <string name="manual_Gypsy_structure">2 jeux de 52 cartes.\n\n8 colonnes sur le
         tableau, 8 piles de base, 1 talon.</string>
-    <string name="manual_gypsy_objective">Ranger toutes les cartes par famille et par
+    <string name="manual_Gypsy_objective">Ranger toutes les cartes par famille et par
         ordre croissant sur les piles de base.</string>
-    <string name="manual_gypsy_rules">Les cartes sur le tableau doivent être placées
+    <string name="manual_Gypsy_rules">Les cartes sur le tableau doivent être placées
         dans l\'ordre décroissant et en alternant leur couleur. Vous pouvez déplacer un
         ensemble de cartes en une seule fois. Sur les bases, les cartes doivent être
         placées par ordre croissant et dans une même famille.\n\nToutes les cartes
         peuvent être placées sur les emplacements libres du tableau et seuls les As
         peuvent être placés sur les piles de base vides.\n\nEn appuyant sur le talon,
         une carte est retournée sur chacune des colonnes du tableau.</string>
-    <string name="manual_gypsy_scoring">Mettre une carte sur une base : +75\n\nDéplacer
+    <string name="manual_Gypsy_scoring">Mettre une carte sur une base : +75\n\nDéplacer
         une carte d\'une base sur le tableau : -100\n\nRetourner une carte : +50</string>
 
     <!-- acesUp -->
-    <string name="manual_acesup_structure">1 jeu de 52 cartes.\n\n4 cartes sur le
+    <string name="manual_AcesUp_structure">1 jeu de 52 cartes.\n\n4 cartes sur le
         tableau, 1 talon et 1 pile de base.\n\nLes As ont pour valeur 14 ; ils valent donc plus que les rois.</string>
-    <string name="manual_acesup_objective">Mettre toutes les cartes, sauf les As,
+    <string name="manual_AcesUp_objective">Mettre toutes les cartes, sauf les As,
         sur la pile de base pour qu\'il ne reste plus que les quatre As sur le tableau.</string>
-    <string name="manual_acesup_rules">Vous ne pouvez déplacer que la dernière carte
+    <string name="manual_AcesUp_rules">Vous ne pouvez déplacer que la dernière carte
         d\'une colonne. Déplacer sur la pile de base les cartes ayant une valeur plus petite que les
         autres cartes déplaçables. Par exemple, s\'il y a un 5 et un 10 de cœur en haut de deux colonnes,
         alors vous pouvez mettre le 5 dans la pile de base. Les As ont la plus haute valeur.
         \n\nToutes les cartes déplaçables peuvent être mises sur une emplacement libre du tableau.
         \n\nAppuyer sur le talon pour retourner une nouvelle carte sur chacunes des colonnes.</string>
-    <string name="manual_acesup_scoring">Mettre une carte dans la pile de base : +50</string>
+    <string name="manual_AcesUp_scoring">Mettre une carte dans la pile de base : +50</string>
 
     <!-- Canfield -->
-    <string name="manual_canfield_structure">1 jeu de 52 cartes.\n\n4 colonnes sur le tableau, 4 piles de bases,
+    <string name="manual_Canfield_structure">1 jeu de 52 cartes.\n\n4 colonnes sur le tableau, 4 piles de bases,
         1 talon, 1 défausse, 1 réserve.</string>
-    <string name="manual_canfield_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
-    <string name="manual_canfield_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
+    <string name="manual_Canfield_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
+    <string name="manual_Canfield_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
         les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.
         \n\nLes colonnes vident du tableau sont remplies automatiquement par une carte de la pile de réserve.
@@ -256,18 +256,18 @@
         Si \"Donner 3 cartes\" est activé, trois cartes seront retournées à la fois.\n\nSi le talon
         devient vide, vous pouvez appuyer de nouveau dessus pour déplacer les cartes de la défausse
         vers le talon et continuer à les utiliser.</string>
-    <string name="manual_canfield_scoring">Du tableau à une pile de base : +60
+    <string name="manual_Canfield_scoring">Du tableau à une pile de base : +60
         \n\nDe la défausse à une pile de base : +45
         \n\nD\'une pile de base au tableau : -75
         \n\nPiocher une carte : +25
         \n\nDéplacer les cartes de la défausse à la pioche : -200</string>
 
     <!-- GrandfathersClock -->
-    <string name="manual_grandfathersClock_structure">1 jeu de 52 cartes.\n\n8 colonnes sur le tableau, 12 piles de bases placées
+    <string name="manual_GrandfathersClock_structure">1 jeu de 52 cartes.\n\n8 colonnes sur le tableau, 12 piles de bases placées
         sous la forme d\'une horloge. Chaque pile de base contient déjà une carte</string>
-    <string name="manual_grandfathersClock_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.
+    <string name="manual_GrandfathersClock_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.
         À la fin, les valeurs en haut des piles de base suivent celles d\'une horloge.</string>
-    <string name="manual_grandfathersClock_rules">Les cartes doivent être placées sur le tableau par
+    <string name="manual_GrandfathersClock_rules">Les cartes doivent être placées sur le tableau par
         ordre décroissant, la famille n\'ayant pas d\'importance. Sur les bases, les cartes ne peuvent
         être placées que par ordre croissant et dans la même famille. Les As peuvent être placés au-dessus des rois.
 
@@ -276,13 +276,13 @@
         être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n\'importe quelle carte,
         ceux-ci servent d\'intermédiaire.
        </string>
-    <string name="manual_grandfathersClock_scoring">Du tableau à une pile de base : +50</string>
+    <string name="manual_GrandfathersClock_scoring">Du tableau à une pile de base : +50</string>
 
     <!-- new values -->
     <!-- Vegas -->
-    <string name="manual_vegas_structure">@string/manual_klondike_structure</string>
-    <string name="manual_vegas_objective">Play cards to the foundation to win more money.</string>
-    <string name="manual_vegas_rules">The rules are identical to the \"Klondike\"-Rules.
+    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+    <string name="manual_Vegas_objective">Play cards to the foundation to win more money.</string>
+    <string name="manual_Vegas_rules">The rules are identical to the \"Klondike\"-Rules.
         \n\nLes cartes doivent être placées sur le tableau par ordre décroissant en alternant
         les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.\n\nSeuls les rois peuvent être placés sur une colonne vide du tableau
@@ -291,7 +291,7 @@
         Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée.
         Si \"Donner 3 cartes\" est activé, 3 cartes seront retournées à la fois.\n\nSi le talon se vide, vous pouvez encore
         appuyer dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser.</string>
-    <string name="manual_vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
+    <string name="manual_Vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
         You pay eg. 50$ at the beginning of the game, and with every card played to the foundation you win 1/10 of the bet.
         \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2/10 of the bet.
         \n\nDISCLAIMER: You do not play for real money in this game :)</string>

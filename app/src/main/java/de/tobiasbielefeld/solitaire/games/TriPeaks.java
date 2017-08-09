@@ -33,10 +33,10 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Tripeaks is nearly the same as Golf, but with a different field layout
+ * TriPeaks is nearly the same as Golf, but with a different field layout
  */
 
-public class Tripeaks extends Game {
+public class TriPeaks extends Game {
 
     static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
     static String RUN_COUNTER = "run_counter";
@@ -47,7 +47,7 @@ public class Tripeaks extends Game {
     int runCounter;                                                                                 //to count how many cards are moved in one "run"
     ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
 
-    public Tripeaks() {
+    public TriPeaks() {
 
         setNumberOfDecks(1);
         setNumberOfStacks(30);

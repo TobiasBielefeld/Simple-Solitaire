@@ -50,7 +50,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_acesup"
+                        android:text="@string/games_AcesUp"
                         android:textAllCaps="false" />
 
                     <Button
@@ -61,7 +61,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_canfield"
+                        android:text="@string/games_Canfield"
                         android:textAllCaps="false" />
 
                 </TableRow>
@@ -78,7 +78,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_fortyeight"
+                        android:text="@string/games_FortyEight"
                         android:textAllCaps="false" />
 
                     <Button
@@ -89,7 +89,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_freecell"
+                        android:text="@string/games_Freecell"
                         android:textAllCaps="false" />
 
                 </TableRow>
@@ -106,7 +106,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_golf"
+                        android:text="@string/games_Golf"
                         android:textAllCaps="false" />
 
                     <Button
@@ -117,7 +117,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_grandfathersClock"
+                        android:text="@string/games_GrandfathersClock"
                         android:textAllCaps="false" />
 
                 </TableRow>
@@ -134,7 +134,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_gypsy"
+                        android:text="@string/games_Gypsy"
                         android:textAllCaps="false" />
 
                     <Button
@@ -145,7 +145,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_klondike"
+                        android:text="@string/games_Klondike"
                         android:textAllCaps="false" />
 
                 </TableRow>
@@ -174,7 +174,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_pyramid"
+                        android:text="@string/games_Pyramid"
                         android:textAllCaps="false" />
 
                 </TableRow>
@@ -192,7 +192,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_simplesimon"
+                        android:text="@string/games_SimpleSimon"
                         android:textAllCaps="false" />
 
                     <Button
@@ -203,7 +203,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_spider"
+                        android:text="@string/games_Spider"
                         android:textAllCaps="false" />
 
                 </TableRow>
@@ -221,7 +221,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_tripeaks"
+                        android:text="@string/games_TriPeaks"
                         android:textAllCaps="false" />
 
                     <Button
@@ -232,7 +232,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_vegas"
+                        android:text="@string/games_Vegas"
                         android:textAllCaps="false" />
                 </TableRow>
 
@@ -249,7 +249,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/games_yukon"
+                        android:text="@string/games_Yukon"
                         android:textAllCaps="false" />
 
                     <FrameLayout
@@ -281,7 +281,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:text="@string/games_spider"
+                android:text="@string/games_Spider"
                 android:textSize="24sp"
                 android:textStyle="normal|bold" />
 

@@ -51,6 +51,8 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        lg.loadAllGames(this);
+
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
         gameImageViews = lg.loadImageViews(this);
 
@@ -160,7 +162,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
             if (result.size() == 0 || result.size() < (i + 1) || result.get(i) == 1) {
                 imageView.setVisibility(View.VISIBLE);
 
-                imageView.setImageBitmap(bitmaps.getMenu(i % 6, i / 6));
+                imageView.setImageBitmap(bitmaps.getMenu(i));
                 imageView.setOnTouchListener(this);
                 row.addView(imageView);
                 counter++;
