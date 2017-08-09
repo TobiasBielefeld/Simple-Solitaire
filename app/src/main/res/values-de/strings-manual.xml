@@ -274,6 +274,7 @@
     <string name="manual_vegas_scoring">Die Höhe des gewinnbaren Geldbetrages hängt von dem Einsatz ab, welcher in den Einstellungen festgelegt wird.
         Man zahl zum Beispiel 50$ zu Beginn des Spiels und mit jeder Karte, die zur Foundation gespielt wird, gewinnt man 1/10 des Einsatzes.
         \n\nEin Spiel wird als \"Gewonnen\" gespeichert, falls die Punktzahl über 0$ liegt. Karten von der Foundation wegzubewegen kostet 2/10 des Einsatzes.
+        \n\nDas Benutzen der Undo- und Hinweisfunktion kostet ebenfalls 1/10 des Einsatzes.
         \n\nHINWEIS: Es wird nicht für echtes Geld gespielt :)</string>
 
 </resources>

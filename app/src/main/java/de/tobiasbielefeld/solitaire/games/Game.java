@@ -31,7 +31,6 @@ import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
@@ -57,6 +56,9 @@ public abstract class Game {
     private boolean hasArrow = false;
     private boolean singleTapeEnabled = false;
     private boolean bonusEnabled = true;
+    private boolean pointsInDollar = false;
+    private int hintCosts = 25;
+    private int undoCosts = 25;
 
     /**
      * Called to test where the given card can be moved to
@@ -726,6 +728,18 @@ public abstract class Game {
         bonusEnabled = false;
     }
 
+    protected void setPointsInDollar(){
+        pointsInDollar = true;
+    }
+
+    protected void setUndoCosts(int costs){
+        undoCosts = costs;
+    }
+
+    protected void setHintCosts(int costs){
+        hintCosts = costs;
+    }
+
 
     //some getters,setters and simple methods, games should'nt override these
 
@@ -809,6 +823,18 @@ public abstract class Game {
 
     public boolean isBonusEnabled(){
         return bonusEnabled;
+    }
+
+    public boolean isPointsInDollar(){
+        return pointsInDollar;
+    }
+
+    public int getUndoCosts(){
+        return undoCosts;
+    }
+
+    public int getHintCosts(){
+        return hintCosts;
     }
 
     protected enum testMode {
