@@ -505,6 +505,10 @@ public abstract class Game {
         dealFromID = id;
     }
 
+    protected void disableMainStack(){
+        hasMainStack = false;
+    }
+
     /**
      * Set the direction, in which the cards on the stack should be stacked. The parameter is an
      * int list to have shorter call of the method
