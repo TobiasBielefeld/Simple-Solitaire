@@ -51,7 +51,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        lg.loadAllGames(this);
+        lg.loadAllGames();
 
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
         gameImageViews = lg.loadImageViews(this);
@@ -116,9 +116,8 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
      * set to be hidden. Add the end, add some dummies, so the last row doesn't have less entries.
      */
     private void loadGameList() {
-        ArrayList<Integer> result;
-
-        result = getSharedIntList(PREF_KEY_MENU_GAMES);
+        ArrayList<Integer> isHiddenList = getSharedIntList(PREF_KEY_MENU_GAMES);
+        ArrayList<Integer> orderedList = lg.getOrderedGameList();
 
         TableRow row = new TableRow(this);
         int counter = 0;
@@ -140,18 +139,18 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         }
 
         //add games to list for older versions of the app
-        if (result.size() == 12) { //new canfield game
-            result.add(1, 1);
+        if (isHiddenList.size() == 12) { //new canfield game
+            isHiddenList.add(1, 1);
         }
-        if (result.size() == 13) { //new grand fathers clock game
-            result.add(5, 1);
+        if (isHiddenList.size() == 13) { //new grand fathers clock game
+            isHiddenList.add(5, 1);
         }
-        if (result.size() == 14) { //new vegas game
-            result.add(14, 1);
+        if (isHiddenList.size() == 14) { //new vegas game
+            isHiddenList.add(14, 1);
         }
 
         //add the game buttons
-        for (int i = 0; i < gameImageViews.size(); i++) {
+        for (int i = 0; i < lg.getGameCount(); i++) {
             ImageView imageView = gameImageViews.get(i);
 
             if (counter % columns == 0) {
@@ -159,10 +158,11 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
                 tableLayout.addView(row);
             }
 
-            if (result.size() == 0 || result.size() < (i + 1) || result.get(i) == 1) {
+            int index = orderedList.indexOf(i);
+            if (isHiddenList.size() == 0 || isHiddenList.size() < (index + 1) || isHiddenList.get(index) == 1) {
                 imageView.setVisibility(View.VISIBLE);
 
-                imageView.setImageBitmap(bitmaps.getMenu(i));
+                imageView.setImageBitmap(bitmaps.getMenu(index));
                 imageView.setOnTouchListener(this);
                 row.addView(imageView);
                 counter++;
@@ -248,8 +248,9 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
 
     private void startGame(View view) {
         //avoid loading two games at once when pressing two buttons at once
-        if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0)
+        if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0) {
             return;
+        }
 
         putSharedInt(PREF_KEY_CURRENT_GAME, view.getId());
         Intent intent = new Intent(getApplicationContext(), GameManager.class);

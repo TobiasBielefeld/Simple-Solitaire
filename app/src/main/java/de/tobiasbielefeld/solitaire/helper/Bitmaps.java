@@ -65,10 +65,8 @@ public class Bitmaps {
             menuHeight = menu.getHeight() / 3;
         }
 
-        ArrayList<Integer> list = getSharedIntList(PREF_KEY_MENU_ORDER);
-
-        int posX = list.indexOf(i)%6;
-        int posY = list.indexOf(i)/6;
+        int posX = i%6;
+        int posY = i/6;
 
         return Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
     }

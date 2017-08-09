@@ -22,11 +22,10 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.games.AcesUp;
 import de.tobiasbielefeld.solitaire.games.Canfield;
@@ -46,7 +45,7 @@ import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
 
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_ORDER;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
 
 /**
  * Everything about loading a game should be here. If you want to add a game, just expand the switch
@@ -59,30 +58,43 @@ public class LoadGame {
     private String gameName;
     private String sharedPrefName;
     private ArrayList<AllGameInfos> allGameInfos = new ArrayList<>();
+    private int GAME_COUNT;
+
+    public ArrayList<Integer> getOrderedGameList(){
+        String s = savedSharedData.getString(PREF_KEY_MENU_ORDER, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Integer> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        if (result.isEmpty()){
+            for (int i=0;i<getGameCount();i++){
+                result.add(i);
+            }
+        }
+
+        return result;
+    }
+
+    public int getGameCount(){
+        return GAME_COUNT;
+    }
 
     public String[] getDefaultGameList(Resources res){
-        return new String[]{
-                res.getString(R.string.games_AcesUp),
-                res.getString(R.string.games_Canfield),
-                res.getString(R.string.games_FortyEight),
-                res.getString(R.string.games_Freecell),
-                res.getString(R.string.games_Golf),
-                res.getString(R.string.games_GrandfathersClock),
-                res.getString(R.string.games_Gypsy),
-                res.getString(R.string.games_Klondike),
-                res.getString(R.string.games_mod3),
-                res.getString(R.string.games_Pyramid),
-                res.getString(R.string.games_SimpleSimon),
-                res.getString(R.string.games_Spider),
-                res.getString(R.string.games_TriPeaks),
-                res.getString(R.string.games_Vegas),
-                res.getString(R.string.games_Yukon)
-        };
+        String[] list = new String[allGameInfos.size()];
+
+        for (int i=0;i<allGameInfos.size();i++){
+            list[i] = allGameInfos.get(i).getName(res);
+        }
+
+        return list;
     }
 
     public ArrayList<String> getAllGameNames(Resources res){
 
-        ArrayList<Integer> savedList = getSharedIntList(PREF_KEY_MENU_ORDER);
+        ArrayList<Integer> savedList = getOrderedGameList();
         ArrayList<String> returnList = new ArrayList<>();
         String[] defaultList = getDefaultGameList(res);
 
@@ -91,60 +103,6 @@ public class LoadGame {
         }
 
         return returnList;
-    }
-
-    /**
-     * load the game class and set the shown name and the name used for the sharedPref of the
-     * current game. These names can be the same, but i used different ones and i don't want
-     * to loose the saved data, if I changed that.
-     *
-     * @param activity The activity to get the strings from the xml file
-     * @param buttonID The pressed button
-     */
-    public Game loadClass(Activity activity, int buttonID) {
-
-        for (AllGameInfos gameInfos : allGameInfos){
-            if (gameInfos.getGameSelectorButtonResID() == buttonID){
-                sharedPrefName = gameInfos.getSharedPrefName();
-                gameName = gameInfos.getName(activity.getResources());
-            }
-        }
-
-        switch (buttonID) {
-            default:
-                Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");
-            case R.id.buttonStartAcesUp:
-                //fallthrough
-                return new AcesUp();
-            case R.id.buttonStartCanfield:
-                return new Canfield();
-            case R.id.buttonStartFortyEight:
-                return new FortyEight();
-            case R.id.buttonStartFreecell:
-                return new Freecell();
-            case R.id.buttonStartGolf:
-                return new Golf();
-            case R.id.buttonStartGrandfathersClock:
-                return new GrandfathersClock();
-            case R.id.buttonStartGypsy:
-                return new Gypsy();
-            case R.id.buttonStartKlondike:
-                return new Klondike();
-            case R.id.buttonStartMod3:
-                return new Mod3();
-            case R.id.buttonStartPyramid:
-                return new Pyramid();
-            case R.id.buttonStartSimpleSimon:
-                return new SimpleSimon();
-            case R.id.buttonStartSpider:
-                return new Spider();
-            case R.id.buttonStartTriPeaks:
-                return new TriPeaks();
-            case R.id.buttonStartYukon:
-                return new Yukon();
-            case R.id.buttonStartVegas:
-                return new Vegas();
-        }
     }
 
     /**
@@ -176,62 +134,6 @@ public class LoadGame {
     }
 
     /**
-     * Loads the game list for the Show/Hide games preference.
-     *
-     * @param view The view, where to search the layouts
-     * @return The array list of the entries
-     */
-    public ArrayList<LinearLayout> loadMenuPreferenceViews(View view) {
-        ArrayList<LinearLayout> linearLayouts = new ArrayList<>();
-
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_1));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_2));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_3));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_4));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_5));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_6));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_7));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_8));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_9));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_10));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_11));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_12));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_13));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_14));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.menu_linearLayout_15));
-
-        return linearLayouts;
-    }
-
-    /**
-     * Loads the game list for the Show/Hide games preference, but only the checkboxes.
-     *
-     * @param view The view, where to search the layouts
-     * @return The array list of the checkboxes
-     */
-    public ArrayList<CheckBox> loadMenuPreferenceCheckBoxes(View view) {
-        ArrayList<CheckBox> checkBoxes = new ArrayList<>();
-
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_1));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_2));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_3));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_4));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_5));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_6));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_7));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_8));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_9));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_10));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_11));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_12));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_13));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_14));
-        checkBoxes.add((CheckBox) view.findViewById(R.id.menu_checkBox_15));
-
-        return checkBoxes;
-    }
-
-    /**
      * returns the prefix of the manual entries for the games. The strings have the following structure:
      * manual_<game name>_rules , manual_<game name>_points and so on.
      * <p>
@@ -256,11 +158,9 @@ public class LoadGame {
      * Used for the direct link to the manual from the in game menu.
      * (It only has the shown game name, which is different to the manaul prefix name)
      *
-     * @param activity      the calling activity to use its resources
-     * @param gameName      the gameName of the searched game
      * @return              the string for the manual entries
      */
-    public String manualName(Activity activity, String gameName) {
+    public String manualName() {
        return sharedPrefName;
     }
 
@@ -311,7 +211,61 @@ public class LoadGame {
         }
     }
 
-    public void loadAllGames(Activity activity){
+    /**
+     * load the game class and set the shown name and the name used for the sharedPref of the
+     * current game. These names can be the same, but i used different ones and i don't want
+     * to loose the saved data, if I changed that.
+     *
+     * @param activity The activity to get the strings from the xml file
+     * @param buttonID The pressed button
+     */
+    public Game loadClass(Activity activity, int buttonID) {
+
+        for (AllGameInfos gameInfos : allGameInfos){
+            if (gameInfos.getGameSelectorButtonResID() == buttonID){
+                sharedPrefName = gameInfos.getSharedPrefName();
+                gameName = gameInfos.getName(activity.getResources());
+            }
+        }
+
+        switch (buttonID) {
+            default:
+                Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");
+                //fallthrough
+            case R.id.buttonStartAcesUp:
+                return new AcesUp();
+            case R.id.buttonStartCanfield:
+                return new Canfield();
+            case R.id.buttonStartFortyEight:
+                return new FortyEight();
+            case R.id.buttonStartFreecell:
+                return new Freecell();
+            case R.id.buttonStartGolf:
+                return new Golf();
+            case R.id.buttonStartGrandfathersClock:
+                return new GrandfathersClock();
+            case R.id.buttonStartGypsy:
+                return new Gypsy();
+            case R.id.buttonStartKlondike:
+                return new Klondike();
+            case R.id.buttonStartMod3:
+                return new Mod3();
+            case R.id.buttonStartPyramid:
+                return new Pyramid();
+            case R.id.buttonStartSimpleSimon:
+                return new SimpleSimon();
+            case R.id.buttonStartSpider:
+                return new Spider();
+            case R.id.buttonStartTriPeaks:
+                return new TriPeaks();
+            case R.id.buttonStartYukon:
+                return new Yukon();
+            case R.id.buttonStartVegas:
+                return new Vegas();
+        }
+    }
+
+    public void loadAllGames(){
         allGameInfos.add(new AllGameInfos(R.string.games_AcesUp,"AcesUp",R.id.buttonStartAcesUp,R.id.manual_games_button_acesup));
         allGameInfos.add(new AllGameInfos(R.string.games_Canfield,"Canfield",R.id.buttonStartCanfield,R.id.manual_games_button_canfield));
         allGameInfos.add(new AllGameInfos(R.string.games_FortyEight,"FortyEight",R.id.buttonStartFortyEight,R.id.manual_games_button_fortyeight));
@@ -325,11 +279,9 @@ public class LoadGame {
         allGameInfos.add(new AllGameInfos(R.string.games_SimpleSimon,"SimpleSimon",R.id.buttonStartSimpleSimon,R.id.manual_games_button_simplesimon));
         allGameInfos.add(new AllGameInfos(R.string.games_Spider,"Spider",R.id.buttonStartSpider,R.id.manual_games_button_spider));
         allGameInfos.add(new AllGameInfos(R.string.games_TriPeaks,"TriPeaks",R.id.buttonStartTriPeaks,R.id.manual_games_button_tripeaks));
-        allGameInfos.add(new AllGameInfos(R.string.games_Yukon,"Yukon",R.id.buttonStartYukon,R.id.manual_games_button_yukon));
         allGameInfos.add(new AllGameInfos(R.string.games_Vegas,"Vegas",R.id.buttonStartVegas,R.id.manual_games_button_vegas));
-    }
+        allGameInfos.add(new AllGameInfos(R.string.games_Yukon,"Yukon",R.id.buttonStartYukon,R.id.manual_games_button_yukon));
 
-    public int getGameCount(){
-        return 15;
+        GAME_COUNT = allGameInfos.size();
     }
 }

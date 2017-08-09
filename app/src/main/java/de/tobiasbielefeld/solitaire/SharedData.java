@@ -743,4 +743,6 @@ public class SharedData {
     public static boolean leftHandedModeEnabled() {
         return getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, false);
     }
+
+
 }

@@ -67,7 +67,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
         //if the manual is called from the in game menu, show the corresponding game rule page
         if (getArguments()!=null && getArguments().containsKey(GAME)){
-            String gameName = lg.manualName(getActivity(),getArguments().getString(GAME));
+            String gameName = lg.manualName();
             loadGameText(gameName);
         }
 

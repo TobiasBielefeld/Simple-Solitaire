@@ -19,6 +19,7 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -43,10 +44,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class DialogPreferenceMenuHideGames extends DialogPreference implements View.OnClickListener {
 
-    ArrayList<LinearLayout> linearLayouts;
-    ArrayList<CheckBox> checkBoxes;
-
-    static int GAME_COUNT = lg.getGameCount();
+    private ArrayList<LinearLayout> linearLayouts = new ArrayList<>();
+    private ArrayList<CheckBox> checkBoxes = new ArrayList<>();
+    private ArrayList<Integer> gameOrder;
 
     public DialogPreferenceMenuHideGames(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -56,45 +56,48 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
 
     @Override
     protected void onBindDialogView(View view) {
-        linearLayouts = lg.loadMenuPreferenceViews(view);
-        checkBoxes = lg.loadMenuPreferenceCheckBoxes(view);
-
-        for (LinearLayout linearLayout : linearLayouts) {
-            linearLayout.setOnClickListener(this);
-        }
-
-        ArrayList<Integer> result = getSharedIntList(PREF_KEY_MENU_GAMES);
-
-        for (int i = 0; i < checkBoxes.size(); i++) {
-            if (result.size() - 1 < i) {
-                checkBoxes.get(i).setChecked(true);
-            } else {
-                checkBoxes.get(i).setChecked(result.get(i) == 1);
-            }
-        }
-
         LinearLayout container = (LinearLayout) view.findViewById(R.id.layoutContainer);
-        LinearLayout newLayout = new LinearLayout(getContext());
+
+        linearLayouts.clear();
+        checkBoxes.clear();
+
+        ArrayList<Integer> results = getSharedIntList(PREF_KEY_MENU_GAMES);
+        gameOrder = lg.getOrderedGameList();
 
         TypedValue typedValue = new TypedValue();
         getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
-
-        newLayout.setBackgroundResource(typedValue.resourceId);
         int padding = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_layout_padding));
-        newLayout.setPadding(padding,padding,padding,padding);
+        int marginLeft = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_padding_left));
+        int marginRight = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_padding_right));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(marginLeft, 0, marginRight, 0);
 
-        CheckBox checkBox = new CheckBox(getContext());
-        int paddingLeft = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_padding_left));
-        int paddingRight = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_padding_right));
-        checkBox.setPadding(paddingLeft,0,paddingRight,0);
-        newLayout.addView(checkBox);
+        ArrayList<String> sortedGameList = lg.getAllGameNames(getContext().getResources());
 
-        TextView textView = new TextView(getContext());
-        textView.setText("HELLLLLO");
-        newLayout.addView(textView);
+        for (int i=0;i<lg.getGameCount();i++){
+            LinearLayout entry = new LinearLayout(getContext());
+            entry.setBackgroundResource(typedValue.resourceId);
+            entry.setPadding(padding,padding,padding,padding);
+            entry.setOnClickListener(this);
 
+            CheckBox checkBox = new CheckBox(getContext());
+            checkBox.setLayoutParams(layoutParams);
+            int index = gameOrder.indexOf(i);
+            checkBox.setChecked(results.size() ==0 || results.get(index) < 0 || results.get(index) == 1);
 
-        container.addView(newLayout);
+            TextView textView = new TextView(getContext());
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setText(sortedGameList.get(i));
+
+            entry.addView(checkBox);
+            entry.addView(textView);
+
+            checkBoxes.add(checkBox);
+            linearLayouts.add(entry);
+
+            container.addView(entry);
+        }
+
 
         super.onBindDialogView(view);
     }
@@ -113,8 +116,9 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
         if (positiveResult) {
             ArrayList<Integer> list = new ArrayList<>();
 
-            for (CheckBox checkBox : checkBoxes) {
-                list.add(checkBox.isChecked() ? 1 : 0);
+            for (int i=0;i<lg.getGameCount();i++){
+                int index = gameOrder.get(i);
+                list.add(checkBoxes.get(index).isChecked() ? 1 : 0);
             }
 
             putSharedIntList(PREF_KEY_MENU_GAMES, list);

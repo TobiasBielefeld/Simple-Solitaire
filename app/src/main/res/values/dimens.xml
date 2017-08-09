@@ -17,9 +17,11 @@
     <dimen name="game_selector_images_padding">5dp</dimen>
 
     <dimen name="dialog_menu_layout_padding">5dp</dimen>
-    <dimen name="dialog_menu_button_padding_left">25dp</dimen>
+    <dimen name="dialog_menu_button_padding_left">15dp</dimen>
     <dimen name="dialog_menu_button_padding_right">15dp</dimen>
 
     <dimen name="list_text_size">16sp</dimen>
     <dimen name="list_item_height">48dip</dimen>
+
+    <dimen name="dialog_menu_text_size">15sp</dimen>
 </resources>
