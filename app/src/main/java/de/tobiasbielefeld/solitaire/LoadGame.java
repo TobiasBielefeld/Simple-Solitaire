@@ -161,10 +161,6 @@ public class LoadGame {
             result.add(13, 1);
         }
 
-        if (result.size() == 15) {                                                                  //new vegas game
-            result.add(14,0);
-        }
-
         if (result.size() < getGameCount()){
             for (int i=result.size();i<getGameCount();i++){
                 result.add(1);
