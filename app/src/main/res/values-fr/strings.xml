@@ -24,21 +24,21 @@
     <string name="menu_settings">Réglages</string>
 
     <!-- game names -->
-    <string name="games_klondike">Solitaire</string>
-    <string name="games_freecell">FreeCell</string>
-    <string name="games_yukon">Yukon</string>
-    <string name="games_spider">Spider</string>
-    <string name="games_simplesimon">SimpleSimon</string>
-    <string name="games_golf">Golf</string>
-    <string name="games_pyramid">Pyramide</string>
-    <string name="games_tripeaks">TriPeaks</string>
-    <string name="games_fortyeight">Forty&amp;Eight</string>
-    <string name="games_acesup">4 As</string>
-    <string name="games_gypsy">Gypsy</string>
+    <string name="games_Klondike">Solitaire</string>
+    <string name="games_Freecell">FreeCell</string>
+    <string name="games_Yukon">Yukon</string>
+    <string name="games_Spider">Spider</string>
+    <string name="games_SimpleSimon">SimpleSimon</string>
+    <string name="games_Golf">Golf</string>
+    <string name="games_Pyramid">Pyramide</string>
+    <string name="games_TriPeaks">TriPeaks</string>
+    <string name="games_FortyEight">Forty&amp;Eight</string>
+    <string name="games_AcesUp">4 As</string>
+    <string name="games_Gypsy">Gypsy</string>
     <string name="games_mod3">Mod3</string>
-    <string name="games_canfield">Canfield</string>
-    <string name="games_grandfathersClock">GrandfathersClock</string>
-    <string name="games_vegas">Vegas</string>
+    <string name="games_Canfield">Canfield</string>
+    <string name="games_GrandfathersClock">GrandfathersClock</string>
+    <string name="games_Vegas">Vegas</string>
 
     <!-- colors -->
     <string name="blue">Bleu</string>

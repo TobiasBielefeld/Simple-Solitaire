@@ -26,21 +26,21 @@
     <string name="menu_settings">Ustawienia</string>
 
     <!-- game names -->
-    <string name="games_klondike">Klondike</string>
-    <string name="games_freecell">FreeCell</string>
-    <string name="games_yukon">Jukon</string>
-    <string name="games_spider">Pająk</string>
-    <string name="games_simplesimon">SimpleSimon</string>
-    <string name="games_golf">Golf</string>
-    <string name="games_pyramid">Piramida</string>
-    <string name="games_tripeaks">TrzyWieże</string>
-    <string name="games_fortyeight">Czterdzieści&amp;Osiem</string>
-    <string name="games_acesup">CzteryAsy</string>
-    <string name="games_gypsy">Cygan</string>
+    <string name="games_Klondike">Klondike</string>
+    <string name="games_Freecell">FreeCell</string>
+    <string name="games_Yukon">Jukon</string>
+    <string name="games_Spider">Pająk</string>
+    <string name="games_SimpleSimon">SimpleSimon</string>
+    <string name="games_Golf">Golf</string>
+    <string name="games_Pyramid">Piramida</string>
+    <string name="games_TriPeaks">TrzyWieże</string>
+    <string name="games_FortyEight">Czterdzieści&amp;Osiem</string>
+    <string name="games_AcesUp">CzteryAsy</string>
+    <string name="games_Gypsy">Cygan</string>
     <string name="games_mod3">Mod3</string>
-    <string name="games_canfield">Canfield</string>
-    <string name="games_grandfathersClock">ZegarekDziadka</string>
-    <string name="games_vegas">Vegas</string>
+    <string name="games_Canfield">Canfield</string>
+    <string name="games_GrandfathersClock">ZegarekDziadka</string>
+    <string name="games_Vegas">Vegas</string>
 
     <!-- colors -->
     <string name="blue">Niebieski</string>

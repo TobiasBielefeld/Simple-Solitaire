@@ -123,6 +123,7 @@ public class SharedData {
     public static String PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_VEGAS_BET_AMOUNT;
     public static String PREF_KEY_VEGAS_BET_AMOUNT_OLD;
+    public static String PREF_KEY_MENU_ORDER;
     public static String PREF_KEY_AUTO_START_NEW_GAME;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
@@ -223,6 +224,10 @@ public class SharedData {
         if (savedGameData == null) {
             savedGameData = context.getSharedPreferences(lg.getSharedPrefName(), Context.MODE_PRIVATE);
         }
+
+        if (lg.getGameCount()==0){
+            lg.loadAllGames();
+        }
     }
 
     /**
@@ -274,6 +279,7 @@ public class SharedData {
         PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_fortyeight_number_of_recycles);
         PREF_KEY_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_vegas_number_of_recycles);
         PREF_KEY_VEGAS_BET_AMOUNT = res.getString(R.string.pref_key_vegas_bet_amount);
+        PREF_KEY_MENU_ORDER = res.getString(R.string.pref_key_menu_order);
         PREF_KEY_VEGAS_BET_AMOUNT_OLD = PREF_KEY_VEGAS_BET_AMOUNT + OLD;
         PREF_KEY_AUTO_START_NEW_GAME = res.getString(R.string.pref_key_auto_start_new_game);
 
@@ -745,4 +751,6 @@ public class SharedData {
     public static boolean leftHandedModeEnabled() {
         return getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, false);
     }
+
+
 }

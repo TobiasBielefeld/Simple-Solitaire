@@ -7,33 +7,33 @@
     <string name="game_cancel">Abbrechen</string>
     <string name="game_confirm">Bestätigen</string>
     <string name="game_load_error">Laden der Daten ist fehlgeschlagen, starte neues Spiel…</string>
-    <string name="games_freecell">FreeCell</string>
-    <string name="games_klondike">Klondike</string>
-    <string name="games_spider">Spider</string>
-    <string name="games_canfield">Canfield</string>
-    <string name="games_yukon">Yukon</string>
+    <string name="games_Freecell">FreeCell</string>
+    <string name="games_Klondike">Klondike</string>
+    <string name="games_Spider">Spider</string>
+    <string name="games_Canfield">Canfield</string>
+    <string name="games_Yukon">Yukon</string>
     <string name="menu_main_menu">Menü</string>
     <string name="menu_hint">Hinweis</string>
     <string name="menu_statistics">Punkte</string>
     <string name="menu_settings">Optionen</string>
     <string name="menu_undo">Zurück</string>
-    <string name="games_golf">Golf</string>
-    <string name="games_simplesimon">SimpleSimon</string>
-    <string name="games_tripeaks">TriPeaks</string>
-    <string name="games_pyramid">Pyramid</string>
-    <string name="games_fortyeight">Forty&amp;Eight</string>
-    <string name="games_acesup">AcesUp</string>
+    <string name="games_Golf">Golf</string>
+    <string name="games_SimpleSimon">SimpleSimon</string>
+    <string name="games_TriPeaks">TriPeaks</string>
+    <string name="games_Pyramid">Pyramid</string>
+    <string name="games_FortyEight">Forty&amp;Eight</string>
+    <string name="games_AcesUp">AcesUp</string>
     <string name="games_mod3">Mod3</string>
-    <string name="games_gypsy">Gypsy</string>
+    <string name="games_Gypsy">Gypsy</string>
     <string name="game_manual">Handbuch</string>
     <string name="about_loading">Lade…</string>
     <string name="app_version">Version</string>
     <string name="portrait">Hochformat</string>
     <string name="landscape">Querformat</string>
-    <string name="games_grandfathersClock">GrandfathersClock</string>
+    <string name="games_GrandfathersClock">GrandfathersClock</string>
     <string name="game_close">Spiel beenden</string>
     <string name="game_main_menu">Hauptmenü</string>
-    <string name="games_vegas">Vegas</string>
+    <string name="games_Vegas">Vegas</string>
 
 
     <!-- colors -->

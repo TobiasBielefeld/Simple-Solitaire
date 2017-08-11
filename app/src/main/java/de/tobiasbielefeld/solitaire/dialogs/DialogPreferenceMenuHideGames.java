@@ -19,11 +19,14 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -39,8 +42,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class DialogPreferenceMenuHideGames extends DialogPreference implements View.OnClickListener {
 
-    ArrayList<LinearLayout> linearLayouts;
-    ArrayList<CheckBox> checkBoxes;
+    private ArrayList<LinearLayout> linearLayouts = new ArrayList<>();
+    private ArrayList<CheckBox> checkBoxes = new ArrayList<>();
+    private ArrayList<Integer> gameOrder;
 
     public DialogPreferenceMenuHideGames(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -50,22 +54,47 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
 
     @Override
     protected void onBindDialogView(View view) {
-        linearLayouts = lg.loadMenuPreferenceViews(view);
-        checkBoxes = lg.loadMenuPreferenceCheckBoxes(view);
+        LinearLayout container = (LinearLayout) view.findViewById(R.id.layoutContainer);
 
-        for (LinearLayout linearLayout : linearLayouts) {
-            linearLayout.setOnClickListener(this);
+        linearLayouts.clear();
+        checkBoxes.clear();
+
+        ArrayList<Integer> results = lg.getMenuShownList();
+        gameOrder = lg.getOrderedGameList();
+
+        TypedValue typedValue = new TypedValue();
+        getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
+        int padding = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_layout_padding));
+        int margin = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_margin));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(margin, 0, margin, 0);
+
+        ArrayList<String> sortedGameList = lg.getOrderedGameNameList(getContext().getResources());
+
+        for (int i=0;i<lg.getGameCount();i++){
+            LinearLayout entry = new LinearLayout(getContext());
+            entry.setBackgroundResource(typedValue.resourceId);
+            entry.setPadding(padding,padding,padding,padding);
+            entry.setOnClickListener(this);
+
+            CheckBox checkBox = new CheckBox(getContext());
+            checkBox.setLayoutParams(layoutParams);
+            int index = gameOrder.indexOf(i);
+            checkBox.setChecked(results.get(index) == 1);
+
+            TextView textView = new TextView(getContext());
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setText(sortedGameList.get(i));
+
+            entry.addView(checkBox);
+            entry.addView(textView);
+
+            checkBoxes.add(checkBox);
+            linearLayouts.add(entry);
+
+            container.addView(entry);
         }
 
-        ArrayList<Integer> result = getSharedIntList(PREF_KEY_MENU_GAMES);
-
-        for (int i = 0; i < checkBoxes.size(); i++) {
-            if (result.size() - 1 < i) {
-                checkBoxes.get(i).setChecked(true);
-            } else {
-                checkBoxes.get(i).setChecked(result.get(i) == 1);
-            }
-        }
 
         super.onBindDialogView(view);
     }
@@ -84,8 +113,9 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
         if (positiveResult) {
             ArrayList<Integer> list = new ArrayList<>();
 
-            for (CheckBox checkBox : checkBoxes) {
-                list.add(checkBox.isChecked() ? 1 : 0);
+            for (int i=0;i<lg.getGameCount();i++){
+                int index = gameOrder.get(i);
+                list.add(checkBoxes.get(index).isChecked() ? 1 : 0);
             }
 
             putSharedIntList(PREF_KEY_MENU_GAMES, list);

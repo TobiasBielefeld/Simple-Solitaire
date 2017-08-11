@@ -74,7 +74,7 @@
     <string name="settings_tap_to_select_enable_text">Appuyez sur une carte pour la sélectionner, puis appuyez sur la pile de destination pour la déplacer</string>
     <string name="settings_single_tap">Un seul clic</string>
     <string name="settings_single_tap_enable">Activer clic simple</string>
-    <string name="settings_single_tap_enable_text">Pour Golf et Tripeaks uniquement : appuyez une fois sur une carte pour la déplacer vers la défausse</string>
+    <string name="settings_single_tap_enable_text">Pour Golf et TriPeaks uniquement : appuyez une fois sur une carte pour la déplacer vers la défausse</string>
 
     <string name="settings_background_color_custom">Personnaliser</string>
 
@@ -96,6 +96,10 @@
     <string name="settings_vegas_bet_amount">Bet Amount</string>
     <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
     <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+
+    <string name="settings_menu_order_title">Menu order</string>
+    <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
+    <string name="settings_menu_order_set_default">Reset order</string>
 
     <string name="settings_auto_start_new_game_title">Start a new game when won</string>
     <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>

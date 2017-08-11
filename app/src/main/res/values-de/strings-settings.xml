@@ -71,7 +71,7 @@
     <string name="settings_tap_to_select_enable_text">Tippe eine Karte an um sie auszuwählen. Anschließend tippe auf einen Stapel um sie dorthin zu bewegen.</string>
     <string name="settings_single_tap">Einmaltippen</string>
     <string name="settings_single_tap_enable">Erlaube Einmaltipp-Bewegungen</string>
-    <string name="settings_single_tap_enable_text">Nur für Golf und Tripeaks: Tippe Karten einmal an, um sie zum Ablagestapel zu bewegen.</string>
+    <string name="settings_single_tap_enable_text">Nur für Golf und TriPeaks: Tippe Karten einmal an, um sie zum Ablagestapel zu bewegen.</string>
     <string name="settings_background_color_custom">Benutzerdefiniert</string>
     <string name="settings_double_tap_foundation_first">Zuerst zur Foundation bewegen</string>
     <string name="settings_double_tap_foundation_first_text">Versuche die oberste Karte des angetippten Stapels zur Foundation zu bewegen, bevor die anderen Karten bewegt werden</string>
@@ -90,6 +90,9 @@
     <string name="settings_vegas_bet_amount">Höhe des Einsatzes</string>
     <string name="settings_vegas_bet_amount_progress_text">Ein Spiel kostet %1$d$. Jede Karte, die zur Foundation gespielt wird, bringt %2$d$.</string>
     <string name="settings_vegas_bet_amount_summary">Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$</string>
+    <string name="settings_menu_order_title">Menü Reihenfolge</string>
+    <string name="settings_menu_order_summary">Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern</string>
+    <string name="settings_menu_order_set_default">Setze Reihenfolge zurück</string>
 
     <string name="settings_auto_start_new_game_title">Starte ein neues Spiel</string>
     <string name="settings_auto_start_new_game_text">Falls zu einem bereits gewonnenen Spiel zurückgekehrt wird, starte ein neues Spiel</string>

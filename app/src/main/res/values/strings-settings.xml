@@ -73,7 +73,7 @@
     <string name="settings_tap_to_select_enable_text">Tap on a card to select it, then tap the destination stack to move it there</string>
     <string name="settings_single_tap">Single-Tap</string>
     <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
-    <string name="settings_single_tap_enable_text">Only for Golf and Tripeaks: Press a card once to move it to the discard stack</string>
+    <string name="settings_single_tap_enable_text">Only for Golf and TriPeaks: Press a card once to move it to the discard stack</string>
     <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
     <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
     <string name="settings_movement_speed">Card movement speed</string>
@@ -91,6 +91,9 @@
     <string name="settings_vegas_bet_amount">Bet Amount</string>
     <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
     <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+    <string name="settings_menu_order_title">Menu order</string>
+    <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
+    <string name="settings_menu_order_set_default">Reset order</string>
 
     <string name="settings_auto_start_new_game_title">Start a new game when won</string>
     <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>

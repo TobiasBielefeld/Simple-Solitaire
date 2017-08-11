@@ -20,21 +20,21 @@
     <string name="menu_main_menu">メニュー</string>
     <string name="menu_settings">設定</string>
 
-    <string name="games_klondike">クロンダイク</string>
-    <string name="games_freecell">フリーセル</string>
-    <string name="games_yukon">ユーコン</string>
-    <string name="games_spider">スパイダー</string>
-    <string name="games_simplesimon">シンプルシモン</string>
-    <string name="games_golf">ゴルフ</string>
-    <string name="games_pyramid">ピラミッド</string>
-    <string name="games_tripeaks">トリピーク</string>
-    <string name="games_fortyeight">フォーティ&amp;エイト</string>
-    <string name="games_acesup">エースアップ</string>
-    <string name="games_gypsy">ジプシー</string>
+    <string name="games_Klondike">クロンダイク</string>
+    <string name="games_Freecell">フリーセル</string>
+    <string name="games_Yukon">ユーコン</string>
+    <string name="games_Spider">スパイダー</string>
+    <string name="games_SimpleSimon">シンプルシモン</string>
+    <string name="games_Golf">ゴルフ</string>
+    <string name="games_Pyramid">ピラミッド</string>
+    <string name="games_TriPeaks">トリピーク</string>
+    <string name="games_FortyEight">フォーティ&amp;エイト</string>
+    <string name="games_AcesUp">エースアップ</string>
+    <string name="games_Gypsy">ジプシー</string>
     <string name="games_mod3">Mod3</string>
-    <string name="games_canfield">カンフィールド</string>
-    <string name="games_grandfathersClock">祖父の時計</string>
-    <string name="games_vegas">ベガス</string>
+    <string name="games_Canfield">カンフィールド</string>
+    <string name="games_GrandfathersClock">祖父の時計</string>
+    <string name="games_Vegas">ベガス</string>
 
     <!-- colors -->
     <string name="blue">青</string>
