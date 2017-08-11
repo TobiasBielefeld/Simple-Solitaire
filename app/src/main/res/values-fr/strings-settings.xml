@@ -101,4 +101,7 @@
     <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
     <string name="settings_menu_order_set_default">Reset order</string>
 
+    <string name="settings_auto_start_new_game_title">Start a new game when won</string>
+    <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
+
 </resources>

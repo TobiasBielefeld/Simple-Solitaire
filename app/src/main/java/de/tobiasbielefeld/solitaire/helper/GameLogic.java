@@ -110,7 +110,7 @@ public class GameLogic {
             if (firstRun) {
                 newGame();
                 putBoolean(GAME_FIRST_RUN, false);
-            }  else if (wonAndReloaded){        //in case the game was selected from the main menu and it was already won, start a new game
+            }  else if (wonAndReloaded && getSharedBoolean(PREF_KEY_AUTO_START_NEW_GAME,DEFAULT_AUTO_START_NEW_GAME)){        //in case the game was selected from the main menu and it was already won, start a new game
                 newGame();
             } else if (won) {                   //in case the screen orientation changes, do not immediately start a new game
                 loadRandomCards();

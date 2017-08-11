@@ -49,6 +49,11 @@ public class Vegas extends Klondike {
 
     public Vegas(){
         disableBonus();
+        setPointsInDollar();
+
+        betAmount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT)*10;
+        setHintCosts(betAmount/10);
+        setUndoCosts(betAmount/10);
 
         PREF_KEY_DRAW_OLD = PREF_KEY_VEGAS_DRAW_OLD;
         PREF_KEY_DRAW = PREF_KEY_VEGAS_DRAW;
@@ -64,6 +69,9 @@ public class Vegas extends Klondike {
         putSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT, DEFAULT_VEGAS_BET_AMOUNT));
 
         betAmount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT)*10;
+
+        setHintCosts(betAmount/10);
+        setUndoCosts(betAmount/10);
         scores.update(-betAmount);
     }
 

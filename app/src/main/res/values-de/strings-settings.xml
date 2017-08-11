@@ -94,4 +94,7 @@
     <string name="settings_menu_order_summary">Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern</string>
     <string name="settings_menu_order_set_default">Setze Reihenfolge zurück</string>
 
+    <string name="settings_auto_start_new_game_title">Starte ein neues Spiel</string>
+    <string name="settings_auto_start_new_game_text">Falls zu einem bereits gewonnenen Spiel zurückgekehrt wird, starte ein neues Spiel</string>
+
 </resources>

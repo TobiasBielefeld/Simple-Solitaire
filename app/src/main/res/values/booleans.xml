@@ -15,5 +15,6 @@
     <bool name="default_double_tap_foundation_first">true</bool>
     <bool name="default_sound_enabled">false</bool>
     <bool name="default_fortyeight_limited_recycles">true</bool>
+    <bool name="default_auto_start_new_game">true</bool>
 </resources>
 

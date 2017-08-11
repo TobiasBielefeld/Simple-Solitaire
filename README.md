@@ -44,6 +44,16 @@ This game is completely free without ads, tracking or something else. Just have 
 Landscape and tablet support: 
 You can switch to landscape mode, this is better for larger screens. It is also possible to lock the orientation in the settings
 
+## Hall of shame
+Reintroduce the hall of shame, where I will list blatant copies of this app! Every single one of people who like to steal open source software to make profit by including ads! Here they are:
+
+- https://play.google.com/store/apps/details?id=com.atechnos.solitaire
+- https://play.google.com/store/apps/details?id=de.classicsolitaire.solitairegame
+- https://play.google.com/store/apps/details?id=de.collectionof.solitairegame
+- https://play.google.com/store/apps/details?id=de.allinone.solitairegame
+- https://play.google.com/store/apps/details?id=de.collectionof.newsolitairegame
+- https://play.google.com/store/apps/details?id=startandroid.ru.solitairepack
+
 ## Installation Guide
 The instructions to compile this app are very easy. Just download the project and open Android Studio. Then go to File -> Open -> Navigate to the download location -> Choose the folder -> If you try to start the app, Android Studio should install all necessary dependencies and you are ready to go.
 

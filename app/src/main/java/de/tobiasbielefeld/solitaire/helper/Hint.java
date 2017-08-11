@@ -56,7 +56,7 @@ public class Hint {
         ArrayList<Card> currentCards = new ArrayList<>();
 
         if (counter == 0)
-            scores.update(-25);
+            scores.update(-currentGame.getHintCosts());
 
         visited[counter] = card;
 

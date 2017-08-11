@@ -106,5 +106,7 @@
     <string name="settings_menu_order_summary">エントリをロングクリックし、ドラッグアンドドロップを使ってメニューエントリを並べ替えます</string>
     <string name="settings_menu_order_set_default">注文をリセットする</string>
 
+    <string name="settings_auto_start_new_game_title">勝ったら新しいゲームを始める</string>
+    <string name="settings_auto_start_new_game_text">すでに勝利したゲームに戻った場合は自動的に新しいゲームを開始します</string>
 
 </resources>

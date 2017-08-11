@@ -40,6 +40,7 @@ public class SimpleSimon extends Spider {
         setNumberOfDecks(1);
         setNumberOfStacks(14);
         setDealFromID(0);
+        disableMainStack();
         setLastTableauID(9);
     }
 

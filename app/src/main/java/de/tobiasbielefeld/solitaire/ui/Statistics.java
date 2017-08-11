@@ -60,11 +60,13 @@ public class Statistics extends CustomAppCompatActivity {
 
         int padding = (int) getResources().getDimension(R.dimen.statistics_table_padding);
         int textSize = getResources().getInteger(R.integer.statistics_text_size);
+        String dollar = currentGame.isPointsInDollar() ? "$" : "";
         boolean addedEntries = false;
         TableRow row;
 
-        if (getSupportActionBar() != null)
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         tableLayout = (TableLayout) findViewById(R.id.statisticsTableHighScores);
         textWonGames = (TextView) findViewById(R.id.statisticsTextViewGamesWon);
@@ -96,7 +98,7 @@ public class Statistics extends CustomAppCompatActivity {
             TextView textView4 = new TextView(this);
 
             textView1.setText(String.format(Locale.getDefault(),
-                    "%s", scores.get(i, 0)));
+                    "%s %s", scores.get(i, 0),dollar));
             textView2.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d",               //add it to the view
                     scores.get(i, 1) / 3600,
                     (scores.get(i, 1) % 3600) / 60,
