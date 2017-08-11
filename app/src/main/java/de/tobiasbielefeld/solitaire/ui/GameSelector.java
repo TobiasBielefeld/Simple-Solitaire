@@ -13,7 +13,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -31,9 +30,10 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class GameSelector extends CustomAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener {
 
-    ArrayList<ImageView> gameImageViews;
-    TableLayout tableLayout;
-    NavigationView navigationView;
+    private TableLayout tableLayout;
+    private NavigationView navigationView;
+    private int menuColumns;
+    private ArrayList<Integer> indexes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,22 +51,10 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        lg.loadAllGames();
-
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
-        gameImageViews = lg.loadImageViews(this);
-
-        //loadGameList();
 
         if (!getSharedBoolean(getString(R.string.pref_key_start_menu), false)) {
-            int savedGame;
-
-            try {
-                savedGame = getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
-            } catch (Exception e) { //old version of saving the game
-                savedSharedData.edit().remove(PREF_KEY_CURRENT_GAME).apply();
-                savedGame = 0;
-            }
+            int savedGame = getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
 
             if (savedGame != 0) {
                 Intent intent = new Intent(getApplicationContext(), GameManager.class);
@@ -116,65 +104,55 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
      * set to be hidden. Add the end, add some dummies, so the last row doesn't have less entries.
      */
     private void loadGameList() {
-        ArrayList<Integer> isHiddenList = getSharedIntList(PREF_KEY_MENU_GAMES);
+        ArrayList<Integer> isShownList = lg.getMenuShownList();
         ArrayList<Integer> orderedList = lg.getOrderedGameList();
 
         TableRow row = new TableRow(this);
         int counter = 0;
-        int columns;
 
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-            columns = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE));
-        else
-            columns = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT));
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            menuColumns = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE));
+        } else {
+            menuColumns = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT));
+        }
 
         //clear the complete layout first
         tableLayout.removeAllViewsInLayout();
+        indexes.clear();
 
-        for (ImageView gameLayout : gameImageViews) {
-            TableRow parent = (TableRow) gameLayout.getParent();
-
-            if (parent != null)
-                parent.removeView(gameLayout);
-        }
-
-        //add games to list for older versions of the app
-        if (isHiddenList.size() == 12) { //new canfield game
-            isHiddenList.add(1, 1);
-        }
-        if (isHiddenList.size() == 13) { //new grand fathers clock game
-            isHiddenList.add(5, 1);
-        }
-        if (isHiddenList.size() == 14) { //new vegas game
-            isHiddenList.add(14, 1);
-        }
+        int padding = (int) (getResources().getDimension(R.dimen.game_selector_images_padding));
+        TableRow.LayoutParams params = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT);
+        params.weight = 1;
 
         //add the game buttons
         for (int i = 0; i < lg.getGameCount(); i++) {
-            ImageView imageView = gameImageViews.get(i);
-
-            if (counter % columns == 0) {
-                row = new TableRow(this);
-                tableLayout.addView(row);
-            }
 
             int index = orderedList.indexOf(i);
-            if (isHiddenList.size() == 0 || isHiddenList.size() < (index + 1) || isHiddenList.get(index) == 1) {
-                imageView.setVisibility(View.VISIBLE);
+
+            if (isShownList.get(index) == 1) {
+                ImageView imageView = new ImageView(this);
+                imageView.setLayoutParams(params);
+                imageView.setAdjustViewBounds(true);
+                imageView.setLongClickable(true);
+                imageView.setPadding(padding,padding,padding,padding);
+
+                if (counter % menuColumns == 0) {
+                    row = new TableRow(this);
+                    tableLayout.addView(row);
+                }
 
                 imageView.setImageBitmap(bitmaps.getMenu(index));
                 imageView.setOnTouchListener(this);
+                indexes.add(i);
                 row.addView(imageView);
                 counter++;
-            } else {
-                imageView.setVisibility(View.GONE);
             }
         }
 
         //add some dummies to the last row, if necessary
-        while (row.getChildCount() < columns) {
+        while (row.getChildCount() < menuColumns) {
             FrameLayout dummy = new FrameLayout(this);
-            dummy.setLayoutParams(new TableRow.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
+            dummy.setLayoutParams(params);
             row.addView(dummy);
         }
     }
@@ -243,18 +221,29 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         }
 
         animSetXY.start();
-
     }
 
+    /**
+     * Starts the clicked game. This uses the total index position of the clicked view to get the
+     * game.
+     *
+     * @param view The clicked view.
+     */
     private void startGame(View view) {
+        TableRow row = (TableRow) view.getParent();
+        TableLayout table = (TableLayout) row.getParent();
+        ArrayList<Integer> orderedList = lg.getOrderedGameList();
+        int index = indexes.get(table.indexOfChild(row)*menuColumns + row.indexOfChild(view));
+        index = orderedList.indexOf(index);
+
         //avoid loading two games at once when pressing two buttons at once
         if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0) {
             return;
         }
 
-        putSharedInt(PREF_KEY_CURRENT_GAME, view.getId());
+        putSharedInt(PREF_KEY_CURRENT_GAME, index);
         Intent intent = new Intent(getApplicationContext(), GameManager.class);
-        intent.putExtra(GAME, view.getId());
+        intent.putExtra(GAME, index);
         startActivityForResult(intent, 0);
     }
 

@@ -90,5 +90,8 @@
     <string name="settings_vegas_bet_amount">Höhe des Einsatzes</string>
     <string name="settings_vegas_bet_amount_progress_text">Ein Spiel kostet %1$d$. Jede Karte, die zur Foundation gespielt wird, bringt %2$d$.</string>
     <string name="settings_vegas_bet_amount_summary">Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$</string>
+    <string name="settings_menu_order_title">Menü Reihenfolge</string>
+    <string name="settings_menu_order_summary">Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern</string>
+    <string name="settings_menu_order_set_default">Setze Reihenfolge zurück</string>
 
 </resources>

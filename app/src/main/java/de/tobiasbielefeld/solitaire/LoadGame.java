@@ -21,8 +21,6 @@ package de.tobiasbielefeld.solitaire;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -44,6 +42,7 @@ import de.tobiasbielefeld.solitaire.games.TriPeaks;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
 
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_GAMES;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_ORDER;
 import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
 
@@ -57,9 +56,131 @@ public class LoadGame {
 
     private String gameName;
     private String sharedPrefName;
-    private ArrayList<AllGameInfos> allGameInfos = new ArrayList<>();
+    private ArrayList<AllGameInformation> allGameInformation = new ArrayList<>();
     private int GAME_COUNT;
 
+    /**
+     * load the game class and set the shown name and the name used for the sharedPref of the
+     * current game. These names can be the same, but i used different ones and i don't want
+     * to loose the saved data, if I changed that.
+     *
+     * @param activity The activity to get the strings from the xml file
+     * @param index The index of the game to start
+     */
+    public Game loadClass(Activity activity, int index) {
+
+        sharedPrefName = allGameInformation.get(index).getSharedPrefName();
+        gameName = allGameInformation.get(index).getName(activity.getResources());
+
+        switch (index) {
+            default: Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");//fallthrough
+            case 0: return new AcesUp();
+            case 1: return new Canfield();
+            case 2: return new FortyEight();
+            case 3: return new Freecell();
+            case 4: return new Golf();
+            case 5: return new GrandfathersClock();
+            case 6: return new Gypsy();
+            case 7: return new Klondike();
+            case 8: return new Mod3();
+            case 9: return new Pyramid();
+            case 10:return new SimpleSimon();
+            case 11:return new Spider();
+            case 12:return new TriPeaks();
+            case 13:return new Vegas();
+            case 14:return new Yukon();
+        }
+    }
+
+    /**
+     * Insert new games here and in loadClass(). The order is very important, so don't change it!
+     * The resource id points to the name of the game, so it can be translated. The second parameter
+     * is the prefix for the game saves (like order of the cards). It uses a separate sharedPref for
+     * each game. It is also the prefix for the manual entries. So use it when writing manual entries!
+     *
+     * If you add a game at the end, no further actions has to be done, expect updating the game
+     * selector images and adding a manual entry. If you add it somewhere else (eg to get an
+     * alphabetical default order) you need to update getMenuShownList() and getOrderedGameList()!
+     */
+    public void loadAllGames(){
+        allGameInformation.clear();
+
+        allGameInformation.add(new AllGameInformation(R.string.games_AcesUp,"AcesUp"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Canfield,"Canfield"));
+        allGameInformation.add(new AllGameInformation(R.string.games_FortyEight,"FortyEight"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Freecell,"Freecell"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Golf,"Golf"));
+        allGameInformation.add(new AllGameInformation(R.string.games_GrandfathersClock,"GrandfathersClock"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Gypsy,"Gypsy"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Klondike,"Klondike"));
+        allGameInformation.add(new AllGameInformation(R.string.games_mod3,"mod3"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid"));
+        allGameInformation.add(new AllGameInformation(R.string.games_SimpleSimon,"SimpleSimon"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Spider,"Spider"));
+        allGameInformation.add(new AllGameInformation(R.string.games_TriPeaks,"TriPeaks"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Vegas,"Vegas"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Yukon,"Yukon"));
+
+
+        GAME_COUNT = allGameInformation.size();
+    }
+
+    /**
+     * Gets the list of shown games in the game selection menu.
+     * The order of the game is the DEFAULT ORDER!
+     *
+     * If you add a game, the list lacks the newly added game. so you can insert it at the right
+     * position, or it will be automatically added at the end.
+     *
+     * 1 stands for show, 0 for not showing.
+     *
+     * @return the list of shown/not shown in the game selection menu
+     */
+    public ArrayList<Integer> getMenuShownList(){
+        String s = savedSharedData.getString(PREF_KEY_MENU_GAMES, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Integer> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        /*
+         * If added more games, insert them here in the correct order. Don't forget to add it also
+         * in getOrderedGameList()! If the new game is at the end of the game list, you don't
+         * need to do anything, it will be appended automatically.
+         */
+
+        if (result.size() == 12) {                                                                  //new canfield game
+            result.add(1, 1);
+        }
+        if (result.size() == 13) {                                                                  //new grand fathers clock game
+            result.add(5, 1);
+        }
+        if (result.size() == 14) {                                                                  //new vegas game
+            result.add(13, 1);
+        }
+
+        if (result.size() == 15) {                                                                  //new vegas game
+            result.add(14,0);
+        }
+
+        if (result.size() < getGameCount()){
+            for (int i=result.size();i<getGameCount();i++){
+                result.add(1);
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Returns the game list as integers in order of the user settings. If the user didn't set up
+     * a custom order yet, the default order will be returned. If there was added a new game,
+     * it will the added at the end.
+     *
+     * @return the game list in order of the user settings.
+     */
     public ArrayList<Integer> getOrderedGameList(){
         String s = savedSharedData.getString(PREF_KEY_MENU_ORDER, "");
         StringTokenizer st = new StringTokenizer(s, ",");
@@ -69,8 +190,27 @@ public class LoadGame {
             result.add(Integer.parseInt(st.nextToken()));
         }
 
-        if (result.isEmpty()){
+
+        if (result.isEmpty()){                                                                      //get default order
             for (int i=0;i<getGameCount();i++){
+                result.add(i);
+            }
+        }
+
+       /*
+         * If added more games, insert them here in the correct order. Don't forget to add it also
+         * in getMenuShownList()! If the new game is at the end of the game list, you don't
+         * need to do anything, it will be appended automatically.
+         *
+         * This is an example, if a new game has been added at the second last position. In the
+         * ordered game list, it has to appear at the very end:
+         */
+        //if (result.size()==15){
+        //    result.add(14,result.size());
+        //}
+
+        if (result.size() < getGameCount()){                                                 //add new games at the end
+            for (int i=result.size();i<getGameCount();i++){
                 result.add(i);
             }
         }
@@ -82,23 +222,37 @@ public class LoadGame {
         return GAME_COUNT;
     }
 
-    public String[] getDefaultGameList(Resources res){
-        String[] list = new String[allGameInfos.size()];
+    /**
+     * Uses the game information to return the DEFAULT order of the games.
+     *
+     *
+     * @param res   Resources to load the strings
+     * @return      the default game name list as string array
+     */
+    public String[] getDefaultGameNameList(Resources res){
+        String[] list = new String[allGameInformation.size()];
 
-        for (int i=0;i<allGameInfos.size();i++){
-            list[i] = allGameInfos.get(i).getName(res);
+        for (int i = 0; i< allGameInformation.size(); i++){
+            list[i] = allGameInformation.get(i).getName(res);
         }
 
         return list;
     }
 
-    public ArrayList<String> getAllGameNames(Resources res){
+    /**
+     * Uses the game information to return the ORDERED names of the games.
+     *
+     *
+     * @param res   Resources to load the strings
+     * @return      the default game name list as string array list
+     */
+    public ArrayList<String> getOrderedGameNameList(Resources res){
 
         ArrayList<Integer> savedList = getOrderedGameList();
         ArrayList<String> returnList = new ArrayList<>();
-        String[] defaultList = getDefaultGameList(res);
+        String[] defaultList = getDefaultGameNameList(res);
 
-        for (int i=0;i<defaultList.length;i++){
+        for (int i=0;i<getGameCount();i++){
             returnList.add(defaultList[savedList.indexOf(i)]);
         }
 
@@ -106,62 +260,15 @@ public class LoadGame {
     }
 
     /**
-     * Loads the game list for the game selector.
+     * Returns the shared pref prefix of the given game. Used in the manual, so on a click to the
+     * game entries, the resources are loaded using the shared pref prefix in the form of eg:
+     * manual_<gamePrefix>_structure or manual_<gamePrefix>_objective
      *
-     * @param activity Activity to get the id's
-     * @return An array list with each layout
+     * @param index Index of the game as in the default order
+     * @return      the shared pref prefix string
      */
-    public ArrayList<ImageView> loadImageViews(Activity activity) {
-        ArrayList<ImageView> imageViews = new ArrayList<>();
-
-        for (AllGameInfos gameInfo : allGameInfos){
-            imageViews.add(gameInfo.getGameSelectorButton(activity));
-        }
-
-        return imageViews;
-    }
-
-    /**
-     * Loads the buttons for the manual and applies the onClickListener.
-     *
-     * @param view     The view, where to search the buttons
-     * @param listener The listener to apply
-     */
-    public void loadManualButtons(View view, View.OnClickListener listener) {
-        for (AllGameInfos gameInfo : allGameInfos){
-            gameInfo.setManualButtonListener(view,listener);
-        }
-    }
-
-    /**
-     * returns the prefix of the manual entries for the games. The strings have the following structure:
-     * manual_<game name>_rules , manual_<game name>_points and so on.
-     * <p>
-     * The game name needs to have the same structure! games_<game name>
-     *
-     * @param id The clicked manual entry
-     * @return The prefix for the strings
-     */
-    public String manualClick(int id) {
-
-        for (AllGameInfos gameInfos : allGameInfos){
-            if (gameInfos.getManualButtonResID() == id){
-                return gameInfos.getSharedPrefName();
-            }
-        }
-
-        return "";
-    }
-
-    /**
-     * Returns the string prefix of the manual entries of a given game.
-     * Used for the direct link to the manual from the in game menu.
-     * (It only has the shown game name, which is different to the manaul prefix name)
-     *
-     * @return              the string for the manual entries
-     */
-    public String manualName() {
-       return sharedPrefName;
+    public String getSharedPrefNameOfGame(int index){
+        return allGameInformation.get(index).getSharedPrefName();
     }
 
     public String getGameName() {
@@ -172,18 +279,17 @@ public class LoadGame {
         return sharedPrefName;
     }
 
-    private class AllGameInfos{
+    /**
+     * little class to collect all needed game information in one array list.
+     */
+    private class AllGameInformation {
 
         private int shownNameResID;
         private String sharedPrefName;
-        private int gameSelectorButtonResID;
-        private int manualButtonResID;
 
-        AllGameInfos(int shownNameResID, String sharedPrefName, int gameSelectorButtonResID, int manualButtonResID){
+        AllGameInformation(int shownNameResID, String sharedPrefName){
             this.shownNameResID = shownNameResID;
             this.sharedPrefName = sharedPrefName;
-            this.gameSelectorButtonResID = gameSelectorButtonResID;
-            this.manualButtonResID = manualButtonResID;
         }
 
         public String getName(Resources res){
@@ -193,95 +299,5 @@ public class LoadGame {
         public String getSharedPrefName(){
             return sharedPrefName;
         }
-
-        public ImageView getGameSelectorButton(Activity activity){
-            return (ImageView) activity.findViewById(gameSelectorButtonResID);
-        }
-
-        public void setManualButtonListener(View view, View.OnClickListener listener){
-            (view.findViewById(manualButtonResID)).setOnClickListener(listener);
-        }
-
-        public int getManualButtonResID(){
-            return manualButtonResID;
-        }
-
-        public int getGameSelectorButtonResID(){
-            return gameSelectorButtonResID;
-        }
-    }
-
-    /**
-     * load the game class and set the shown name and the name used for the sharedPref of the
-     * current game. These names can be the same, but i used different ones and i don't want
-     * to loose the saved data, if I changed that.
-     *
-     * @param activity The activity to get the strings from the xml file
-     * @param buttonID The pressed button
-     */
-    public Game loadClass(Activity activity, int buttonID) {
-
-        for (AllGameInfos gameInfos : allGameInfos){
-            if (gameInfos.getGameSelectorButtonResID() == buttonID){
-                sharedPrefName = gameInfos.getSharedPrefName();
-                gameName = gameInfos.getName(activity.getResources());
-            }
-        }
-
-        switch (buttonID) {
-            default:
-                Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");
-                //fallthrough
-            case R.id.buttonStartAcesUp:
-                return new AcesUp();
-            case R.id.buttonStartCanfield:
-                return new Canfield();
-            case R.id.buttonStartFortyEight:
-                return new FortyEight();
-            case R.id.buttonStartFreecell:
-                return new Freecell();
-            case R.id.buttonStartGolf:
-                return new Golf();
-            case R.id.buttonStartGrandfathersClock:
-                return new GrandfathersClock();
-            case R.id.buttonStartGypsy:
-                return new Gypsy();
-            case R.id.buttonStartKlondike:
-                return new Klondike();
-            case R.id.buttonStartMod3:
-                return new Mod3();
-            case R.id.buttonStartPyramid:
-                return new Pyramid();
-            case R.id.buttonStartSimpleSimon:
-                return new SimpleSimon();
-            case R.id.buttonStartSpider:
-                return new Spider();
-            case R.id.buttonStartTriPeaks:
-                return new TriPeaks();
-            case R.id.buttonStartYukon:
-                return new Yukon();
-            case R.id.buttonStartVegas:
-                return new Vegas();
-        }
-    }
-
-    public void loadAllGames(){
-        allGameInfos.add(new AllGameInfos(R.string.games_AcesUp,"AcesUp",R.id.buttonStartAcesUp,R.id.manual_games_button_acesup));
-        allGameInfos.add(new AllGameInfos(R.string.games_Canfield,"Canfield",R.id.buttonStartCanfield,R.id.manual_games_button_canfield));
-        allGameInfos.add(new AllGameInfos(R.string.games_FortyEight,"FortyEight",R.id.buttonStartFortyEight,R.id.manual_games_button_fortyeight));
-        allGameInfos.add(new AllGameInfos(R.string.games_Freecell,"Freecell",R.id.buttonStartFreecell,R.id.manual_games_button_freecell));
-        allGameInfos.add(new AllGameInfos(R.string.games_Golf,"Golf",R.id.buttonStartGolf,R.id.manual_games_button_golf));
-        allGameInfos.add(new AllGameInfos(R.string.games_GrandfathersClock,"GrandfathersClock",R.id.buttonStartGrandfathersClock,R.id.manual_games_button_grandfathers_clock));
-        allGameInfos.add(new AllGameInfos(R.string.games_Gypsy,"Gypsy",R.id.buttonStartGypsy,R.id.manual_games_button_gypsy));
-        allGameInfos.add(new AllGameInfos(R.string.games_Klondike,"Klondike",R.id.buttonStartKlondike,R.id.manual_games_button_klondike));
-        allGameInfos.add(new AllGameInfos(R.string.games_mod3,"mod3",R.id.buttonStartMod3,R.id.manual_games_button_mod3));
-        allGameInfos.add(new AllGameInfos(R.string.games_Pyramid,"Pyramid",R.id.buttonStartPyramid,R.id.manual_games_button_pyramid));
-        allGameInfos.add(new AllGameInfos(R.string.games_SimpleSimon,"SimpleSimon",R.id.buttonStartSimpleSimon,R.id.manual_games_button_simplesimon));
-        allGameInfos.add(new AllGameInfos(R.string.games_Spider,"Spider",R.id.buttonStartSpider,R.id.manual_games_button_spider));
-        allGameInfos.add(new AllGameInfos(R.string.games_TriPeaks,"TriPeaks",R.id.buttonStartTriPeaks,R.id.manual_games_button_tripeaks));
-        allGameInfos.add(new AllGameInfos(R.string.games_Vegas,"Vegas",R.id.buttonStartVegas,R.id.manual_games_button_vegas));
-        allGameInfos.add(new AllGameInfos(R.string.games_Yukon,"Yukon",R.id.buttonStartYukon,R.id.manual_games_button_yukon));
-
-        GAME_COUNT = allGameInfos.size();
     }
 }

@@ -222,6 +222,10 @@ public class SharedData {
         if (savedGameData == null) {
             savedGameData = context.getSharedPreferences(lg.getSharedPrefName(), Context.MODE_PRIVATE);
         }
+
+        if (lg.getGameCount()==0){
+            lg.loadAllGames();
+        }
     }
 
     /**

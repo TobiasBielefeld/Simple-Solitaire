@@ -24,7 +24,6 @@ import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,7 +32,6 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.R.attr.selectableItemBackground;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
@@ -61,18 +59,17 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
         linearLayouts.clear();
         checkBoxes.clear();
 
-        ArrayList<Integer> results = getSharedIntList(PREF_KEY_MENU_GAMES);
+        ArrayList<Integer> results = lg.getMenuShownList();
         gameOrder = lg.getOrderedGameList();
 
         TypedValue typedValue = new TypedValue();
         getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
         int padding = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_layout_padding));
-        int marginLeft = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_padding_left));
-        int marginRight = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_padding_right));
+        int margin = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_margin));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(marginLeft, 0, marginRight, 0);
+        layoutParams.setMargins(margin, 0, margin, 0);
 
-        ArrayList<String> sortedGameList = lg.getAllGameNames(getContext().getResources());
+        ArrayList<String> sortedGameList = lg.getOrderedGameNameList(getContext().getResources());
 
         for (int i=0;i<lg.getGameCount();i++){
             LinearLayout entry = new LinearLayout(getContext());
@@ -83,7 +80,7 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
             CheckBox checkBox = new CheckBox(getContext());
             checkBox.setLayoutParams(layoutParams);
             int index = gameOrder.indexOf(i);
-            checkBox.setChecked(results.size() ==0 || results.get(index) < 0 || results.get(index) == 1);
+            checkBox.setChecked(results.get(index) == 1);
 
             TextView textView = new TextView(getContext());
             textView.setTypeface(null, Typeface.BOLD);

@@ -18,14 +18,20 @@
 
 package de.tobiasbielefeld.solitaire.ui.manual;
 
-import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ScrollView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,17 +47,16 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class ManualGames extends Fragment implements View.OnClickListener {
 
+    private static int COLUMNS = 2;
 
-    ScrollView layout1, scrollView;
-    int currentGameButtonID;
-    TextView textName, textStructure, textObjective, textRules, textScoring;
+    private ScrollView layout1, scrollView;
+    private TextView textName, textStructure, textObjective, textRules, textScoring;
     private Toast toast;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_manual_games, container, false);
 
-        lg.loadManualButtons(view, this);
         ((Manual) getActivity()).setGamePageShown(false);
 
         layout1 = (ScrollView) view.findViewById(R.id.manual_games_layout_selection);
@@ -67,8 +72,48 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
         //if the manual is called from the in game menu, show the corresponding game rule page
         if (getArguments()!=null && getArguments().containsKey(GAME)){
-            String gameName = lg.manualName();
+            String gameName = lg.getSharedPrefName();                                               //shared pref prefix is the same as manual string prefix
             loadGameText(gameName);
+        }
+
+        //load the table
+        String[] gameList = lg.getDefaultGameNameList(getResources());
+        TableRow row = new TableRow(getContext());
+        TableLayout tableLayout = (TableLayout) view.findViewById(R.id.manual_games_container);
+        TypedValue typedValue = new TypedValue();
+        getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
+
+        TableRow.LayoutParams params = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT);
+        params.weight = 1;
+
+        //add each button
+        for (int i = 0; i < lg.getGameCount(); i++) {
+            Button entry = new Button(getContext());
+
+            if (i % COLUMNS == 0) {
+                row = new TableRow(getContext());
+                tableLayout.addView(row);
+            }
+
+            entry.setBackgroundResource(typedValue.resourceId);
+            entry.setEllipsize(TextUtils.TruncateAt.END);
+            entry.setMaxLines(1);
+            entry.setLayoutParams(params);
+            entry.setText(gameList[i]);
+            entry.setOnClickListener(this);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                entry.setAllCaps(false);
+            }
+
+            row.addView(entry);
+        }
+
+        //add some dummies to the last row, if necessary
+        while (row.getChildCount() < COLUMNS) {
+            FrameLayout dummy = new FrameLayout(getContext());
+            dummy.setLayoutParams(params);
+            row.addView(dummy);
         }
 
         return view;
@@ -76,19 +121,23 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        loadGameText(v.getId());
+        //get index of the button as seen from the container
+        TableRow row = (TableRow) v.getParent();
+        TableLayout table = (TableLayout) row.getParent();
+        int index = table.indexOfChild(row)*COLUMNS + row.indexOfChild(v);
+
+        loadGameText(index);
     }
 
-    private void loadGameText(int id) {
-        currentGameButtonID = id;
-        String gameName = lg.manualClick(id);   //get prefix
+    private void loadGameText(int index) {
+        String gameName = lg.getSharedPrefNameOfGame(index);   //get prefix
         loadGameText(gameName);
     }
 
     private void loadGameText(String gameName) {
         try {
             //load everything
-            textName.setText((getString(getResources().getIdentifier("games_" + gameName + "", "string", getActivity().getPackageName()))));
+            textName.setText((getString(getResources().getIdentifier("games_" + gameName, "string", getActivity().getPackageName()))));
             textStructure.setText(getString(getResources().getIdentifier("manual_" + gameName + "_structure", "string", getActivity().getPackageName())));
             textObjective.setText(getString(getResources().getIdentifier("manual_" + gameName + "_objective", "string", getActivity().getPackageName())));
             textRules.setText(getString(getResources().getIdentifier("manual_" + gameName + "_rules", "string", getActivity().getPackageName())));
@@ -103,7 +152,6 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         } catch (Exception e) {
             //no page available
             Log.e("Manual page not found", e.toString());
-            Log.e("hey",gameName);
             showToast(getString(R.string.page_load_error));
         }
 
@@ -111,13 +159,11 @@ public class ManualGames extends Fragment implements View.OnClickListener {
     }
 
     public void showToast(final String text) {
-
-        Activity activity = getActivity();
-
-        if (toast == null)
-            toast = Toast.makeText(activity, text, Toast.LENGTH_SHORT);
-        else
+        if (toast == null) {
+            toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
+        } else {
             toast.setText(text);
+        }
 
         toast.show();
     }

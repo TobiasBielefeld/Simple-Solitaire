@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.helper;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -54,10 +55,12 @@ public class Bitmaps {
     /**
      * Gets the menu previews
      *
-     * @param i The position of the game, as in the order the user set up in the settings
+     * @param index The position of the game, as in the order the user set up in the settings
      * @return a single bitmap
      */
-    public Bitmap getMenu(int i) {
+    public Bitmap getMenu(int index) {
+
+        Bitmap bitmap;
 
         if (menu == null) {
             menu = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu);
@@ -65,10 +68,17 @@ public class Bitmaps {
             menuHeight = menu.getHeight() / 3;
         }
 
-        int posX = i%6;
-        int posY = i/6;
+        int posX = index%6;
+        int posY = index/6;
 
-        return Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
+        try {
+            bitmap = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
+        } catch (IllegalArgumentException e){
+            Log.e("Bitmap.getMenu()","No picture for current game available\n" + e.toString());
+            bitmap = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
+        }
+
+        return bitmap;
     }
 
     /**

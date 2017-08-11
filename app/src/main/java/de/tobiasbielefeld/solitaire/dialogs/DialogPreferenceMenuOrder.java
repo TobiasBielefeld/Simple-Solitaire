@@ -22,8 +22,8 @@ import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RadioButton;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,41 +32,36 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.DynamicListView;
 import de.tobiasbielefeld.solitaire.classes.StableArrayAdapter;
 
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_GAMES;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_ORDER;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedIntList;
 import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.putSharedIntList;
 
 /**
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
-public class DialogPreferenceMenuOrder extends DialogPreference {
+public class DialogPreferenceMenuOrder extends DialogPreference{
 
-    private DynamicListView listView;
     private ArrayList<String> gameList;
+    StableArrayAdapter adapter;
 
     public DialogPreferenceMenuOrder(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setDialogLayoutResource(R.layout.activity_list_view);
+        setDialogLayoutResource(R.layout.dialog_settings_menu_order);
         setDialogIcon(null);
     }
 
     @Override
     protected void onBindDialogView(View view) {
-
         gameList = new ArrayList<>();
-        ArrayList<String> sortedGameList = lg.getAllGameNames(getContext().getResources());
+        ArrayList<String> sortedGameList = lg.getOrderedGameNameList(getContext().getResources());
 
         for (String game: sortedGameList){
             gameList.add(game);
         }
 
-        StableArrayAdapter adapter = new StableArrayAdapter(getContext(), R.layout.text_view, gameList);
-        listView = (DynamicListView) view.findViewById(R.id.listview);
+        adapter = new StableArrayAdapter(getContext(), R.layout.text_view, gameList);
+        DynamicListView listView = (DynamicListView) view.findViewById(R.id.listview);
 
         listView.setList(gameList);
         listView.setAdapter(adapter);
@@ -81,7 +76,7 @@ public class DialogPreferenceMenuOrder extends DialogPreference {
 
         if (positiveResult) {
             ArrayList<Integer> list = new ArrayList<>();
-            String[] defaultList = lg.getDefaultGameList(getContext().getResources());
+            String[] defaultList = lg.getDefaultGameNameList(getContext().getResources());
 
             for (String game: defaultList) {
                 list.add(gameList.indexOf(game));

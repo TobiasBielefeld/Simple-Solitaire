@@ -48,8 +48,6 @@ public class Vegas extends Klondike {
     private int betAmount=50;
 
     public Vegas(){
-        super();
-
         disableBonus();
 
         PREF_KEY_DRAW_OLD = PREF_KEY_VEGAS_DRAW_OLD;

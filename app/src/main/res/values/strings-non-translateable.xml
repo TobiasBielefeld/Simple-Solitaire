@@ -24,7 +24,7 @@
     <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
     <string name="pref_key_vegas_draw" translatable="false">pref_key_vegas_draw</string>
     <string name="pref_key_canfield_draw" translatable="false">pref_key_canfield_draw</string>
-    <string name="pref_key_current_game" translatable="false">pref_key_current_game</string>
+    <string name="pref_key_current_game" translatable="false">pref_key_current_game_v2</string>
     <string name="pref_key_start_menu" translatable="false">pref_key_start_menu</string>
     <string name="pref_key_golf_cyclic" translatable="false">pref_key_golf_cyclic</string>
     <string name="pref_key_pyramid_difficulty" translatable="false">pref_key_pyramid_difficult</string>
