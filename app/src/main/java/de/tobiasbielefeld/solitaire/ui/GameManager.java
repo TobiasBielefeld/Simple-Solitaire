@@ -102,15 +102,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         //initialize my static helper stuff
         final GameManager gm = this;
-        recordList = new RecordList(gm);
-        movingCards = new MovingCards();
-        hint = new Hint();
+
         scores = new Scores(gm);
         gameLogic = new GameLogic(gm);
         animate = new Animate(gm);
         autoComplete = new AutoComplete(gm);
         timer = new Timer(gm);
-        cardHighlight = new CardHighlight(gm);
         sounds = new Sounds(gm);
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
         savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
@@ -366,7 +363,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
                 if (currentGame.addCardToMovementTest(tapped.getCard())) {
                     movingCards.add(tapped.getCard(), event.getX(), event.getY());
-                    cardHighlight.set(tapped.getCard());
+                    cardHighlight.set(this, tapped.getCard());
                 }
             }
         }
@@ -386,7 +383,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             movingCards.move(X, Y);
 
             if (tapped != null) {
-                cardHighlight.move(tapped.getCard());
+                cardHighlight.move(this, tapped.getCard());
             }
         }
 
@@ -404,7 +401,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         if (movingCards.moveStarted(X, Y)) {
 
-            cardHighlight.hide();
+            cardHighlight.hide(this);
             Stack stack = getIntersectingStack(movingCards.first());
 
             if (stack != null) {    //the card.test() method is already called in getIntersectingStack()
@@ -586,7 +583,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 break;
             case R.id.mainButtonUndo:           //undo last movement
                 if (!gameLogic.hasWon()) {
-                    recordList.undo();
+                    recordList.undo(this);
                 }
                 break;
             case R.id.mainButtonHint:           //show a hint
@@ -616,7 +613,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void showRestartDialog() {
         try {
             DialogRestart dialogRestart = new DialogRestart();
-            dialogRestart.setArguments(this);
             dialogRestart.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e){
             Log.e("showRestartDialog: ", e.toString());
@@ -625,7 +621,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     private boolean resetTappedCard() {
         tapped = null;
-        cardHighlight.hide();
+        cardHighlight.hide(this);
         return true;
     }
 

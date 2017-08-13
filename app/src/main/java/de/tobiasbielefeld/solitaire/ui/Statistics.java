@@ -48,6 +48,7 @@ public class Statistics extends CustomAppCompatActivity {
     private TableLayout tableLayout;
     private TextView textWonGames, textWinPercentage, textAdditonalStatistics;
     private Toast toast;
+    private String dollar;
 
 
     /**
@@ -60,7 +61,6 @@ public class Statistics extends CustomAppCompatActivity {
 
         int padding = (int) getResources().getDimension(R.dimen.statistics_table_padding);
         int textSize = getResources().getInteger(R.integer.statistics_text_size);
-        String dollar = currentGame.isPointsInDollar() ? "$" : "";
         boolean addedEntries = false;
         TableRow row;
 
@@ -141,6 +141,7 @@ public class Statistics extends CustomAppCompatActivity {
 
         textWonGames.setText(String.format(Locale.getDefault(), getString(R.string.statistics_text_won_games), wonGames, totalGames));
         textWinPercentage.setText(String.format(Locale.getDefault(), getString(R.string.statistics_win_percentage), totalGames > 0 ? ((float) wonGames * 100 / totalGames) : 0.0));
+        dollar = currentGame.isPointsInDollar() ? "$" : "";
 
         String additionalText = currentGame.getAdditionalStatisticsData(getResources());
 

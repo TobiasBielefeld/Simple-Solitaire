@@ -270,10 +270,6 @@ public class GameLogic {
      * is also updated.
      */
     public void toggleRecycles() {
-
-        if (currentGame == null)
-            return;
-
         currentGame.toggleRecycles();
 
         if (currentGame.hasLimitedRecycles()) {

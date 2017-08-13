@@ -35,11 +35,6 @@ public class RecordList {
 
     public final static int MAX_RECORDS = 20;
     private ArrayList<Entry> entries = new ArrayList<>();
-    private GameManager gm;
-
-    public RecordList(GameManager gm) {
-        this.gm = gm;
-    }
 
     public void reset() {                                                                                  //delete the content on reset
         entries.clear();
@@ -143,11 +138,11 @@ public class RecordList {
      * reverst one record, this will delete that record from the list and takes 25 points away
      * from the current score
      */
-    public void undo() {
+    public void undo(GameManager gm) {
         if (!entries.isEmpty()) {
             sounds.playSound(Sounds.names.CARD_RETURN);
             scores.update(-currentGame.getUndoCosts());
-            entries.get(entries.size() - 1).undo();
+            entries.get(entries.size() - 1).undo(gm);
             entries.remove(entries.size() - 1);
         }
     }
@@ -297,7 +292,7 @@ public class RecordList {
         /**
          * Undos the latest entry.
          */
-        void undo() {
+        void undo(GameManager gm) {
             //Check if the movement resulted in a increment of the redeal counter, if so, revert it
             if (currentGame.hasLimitedRecycles()
                     && currentOrigins.get(0) == currentGame.getDiscardStack()

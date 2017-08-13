@@ -39,21 +39,10 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class DialogRestart extends DialogFragment {
 
-    Activity activity;
-    GameManager gameManager;
-
-    public DialogRestart(){
-        super();
-    }
-
-    public void setArguments(GameManager gameManager){
-        activity = gameManager;
-        this.gameManager = gameManager;
-    }
-
     @Override
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        final GameManager gameManager = (GameManager) getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle(lg.getGameName())
@@ -68,8 +57,8 @@ public class DialogRestart extends DialogFragment {
                                 gameLogic.redeal();
                                 break;
                             case 2:
-                                Intent intent = new Intent(activity, Manual.class);
-                                intent.putExtra(GAME,lg.getGameName());
+                                Intent intent = new Intent(gameManager, Manual.class);
+                                intent.putExtra(GAME,lg.getSharedPrefName());
                                 startActivity(intent);
                                 break;
                             case 3:
@@ -80,7 +69,7 @@ public class DialogRestart extends DialogFragment {
                                 }
 
                                 putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);          //otherwise the menu would load the current game again, because last played game will start
-                                activity.finish();
+                                gameManager.finish();
                                 break;
                         }
                     }

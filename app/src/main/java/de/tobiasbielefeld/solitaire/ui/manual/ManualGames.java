@@ -72,8 +72,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
         //if the manual is called from the in game menu, show the corresponding game rule page
         if (getArguments()!=null && getArguments().containsKey(GAME)){
-            String gameName = lg.getSharedPrefName();                                               //shared pref prefix is the same as manual string prefix
-            loadGameText(gameName);
+            loadGameText(getArguments().getString(GAME));
         }
 
         //load the table

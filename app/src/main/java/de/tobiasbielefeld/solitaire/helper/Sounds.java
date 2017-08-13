@@ -21,10 +21,8 @@ public class Sounds {
 
     private SoundPool sp;// = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
     private int[] soundList = new int[9];
-    private Context context;
 
     public Sounds(Context context){
-        this.context = context;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             createNewSoundPool();
@@ -32,7 +30,7 @@ public class Sounds {
             createOldSoundPool();
         }
 
-        loadSounds();
+        loadSounds(context);
     }
 
     public void playSound(names name) {
@@ -77,7 +75,7 @@ public class Sounds {
         }
     }
 
-    private void loadSounds(){
+    private void loadSounds(Context context){
         soundList[0] = sp.load(context, R.raw.card_return, 1);
         soundList[1] = sp.load(context, R.raw.card_set, 1);
         soundList[2] = sp.load(context, R.raw.hint, 1);

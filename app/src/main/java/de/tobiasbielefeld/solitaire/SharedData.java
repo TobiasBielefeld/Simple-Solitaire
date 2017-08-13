@@ -173,18 +173,21 @@ public class SharedData {
 
     public static Card[] cards;
     public static Stack[] stacks;
-    public static RecordList recordList;
+
     public static Scores scores;
-    public static MovingCards movingCards;
+
     public static GameLogic gameLogic;
     public static Animate animate;
-    public static Hint hint;
+
     public static AutoComplete autoComplete;
     public static Timer timer;
     public static Sounds sounds;
+    public static Hint hint = new Hint();
+    public static MovingCards movingCards = new MovingCards();
+    public static RecordList recordList = new RecordList();
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
-    public static CardHighlight cardHighlight;
+    public static CardHighlight cardHighlight = new CardHighlight();
 
     public static SharedPreferences savedSharedData;
     public static SharedPreferences savedGameData;
@@ -199,7 +202,7 @@ public class SharedData {
     public static int NUMBER_OF_CARD_THEMES;
 
     /**
-     * Reload the needed data. Because if the android device runns out of memory, the app gets
+     * Reload the needed data. Because if the android device runs out of memory, the app gets
      * killed. If the user restarts the app and it loads  for example the settings activity, all
      * the strings and the shared preferences need to be reinitialized.
      *
@@ -326,7 +329,6 @@ public class SharedData {
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
         DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
         DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
-
 
         GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         GAME_WON = res.getString(R.string.game_won);

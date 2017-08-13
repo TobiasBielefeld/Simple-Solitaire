@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static android.view.View.GONE;
@@ -37,18 +38,13 @@ public class CardHighlight {
 
     int padding, width, height;
     private boolean moveStarted;
-    private GameManager gm;
-
-    public CardHighlight(GameManager gm) {
-        this.gm = gm;
-    }
 
     /**
      * Sets the size of the highlighting and moves it behin the cards.
      *
      * @param card The card on the stack to highlight
      */
-    public void set(Card card) {
+    public void set(GameManager gm, Card card) {
         Stack stack = card.getStack();
 
         padding = (int) (Card.width * 0.25);
@@ -75,7 +71,7 @@ public class CardHighlight {
      *
      * @param card The card to highlight
      */
-    public void move(Card card) {
+    public void move(GameManager gm, Card card) {
         if (!moveStarted) {
             moveStarted = true;
 
@@ -87,7 +83,7 @@ public class CardHighlight {
         gm.highlight.setY(card.getY() - padding / 2);
     }
 
-    public void hide() {
+    public void hide(GameManager gm) {
         gm.highlight.setVisibility(GONE);
     }
 }
