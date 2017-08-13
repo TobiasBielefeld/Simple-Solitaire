@@ -3,7 +3,7 @@
     <string-array name="restart_menu">
         <item>Komenci novan ludon</item>
         <item>Disdoni kartojn ree</item>
-        <item>Ludo reguloj</item>
+        <item>Reguloj de ludo</item>
         <item>Reveni al ĉefmenuo</item>
     </string-array>
 
@@ -63,22 +63,20 @@
         <item>Meza</item>
         <item>Rapida</item>
     </string-array>
-
-
-    <!-- new values -->
+    
     <string-array name="pref_win_sounds_titles">
-        <item>Default</item>
+        <item>Implicita</item>
         <item>Piano</item>
-        <item>8-Bit voice \"You win\"</item>
-        <item>Cheering crowd</item>
+        <item>8-bitoka voĉo \"You win\"</item>
+        <item>Aplaŭdo</item>
     </string-array>
 
     <string-array name="pref_background_musics_titles">
-        <item>Disabled</item>
-        <item>Theme 1</item>
-        <item>Theme 2</item>
-        <item>Theme 3</item>
-        <item>Music Box</item>
+        <item>Malaktiva</item>
+        <item>Muzikaĵo 1</item>
+        <item>Muzikaĵo 2</item>
+        <item>Muzikaĵo 3</item>
+        <item>Muzikujo</item>
     </string-array>
 
 
