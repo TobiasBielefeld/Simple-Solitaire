@@ -34,9 +34,9 @@
     <string name="settings_golf_easy_description">Permesi meti asojn sur reĝojn kaj inverse</string>
     <string name="settings_restart_klondike">Komencu novan ludon Klondiko por apliki ŝanĝojn</string>
     <string name="settings_restart_canfield">Komencu novan ludon Canfield por apliki ŝanĝojn</string>
-    <string name="settings_restart_yukon">Komencu novan ludon Yukon por apliki ŝanĝojn</string>
+    <string name="settings_restart_yukon">Komencu novan ludon Jukono por apliki ŝanĝojn</string>
     <string name="settings_restart_spider">Komencu novan ludon Araneo por apliki ŝanĝojn</string>
-    <string name="settings_restart_vegas">Komencu novan ludon Vegas por apliki ŝanĝojn</string>
+    <string name="settings_restart_vegas">Komencu novan ludon Vegaso por apliki ŝanĝojn</string>
     <string name="settings_restart_fortyeight">Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn</string>
     <string name="settings_menu">Ĉefmenuo</string>
     <string name="settings_menu_description">Ŝanĝi nombron da kolumnoj, montri kaj kaŝu ludojn</string>
@@ -87,26 +87,26 @@
     <string name="settings_movement_speed">Mov-rapido de kartoj</string>
 
     <!-- new values -->
-    <string name="Settings_sound">Enable sound in game</string>
-    <string name="Settings_sounds_title">Sounds</string>
-    <string name="Settings_sounds_text">Enable sounds, set up different sound effects</string>
-    <string name="Settings_win_sound_title">Winning sound effect</string>
-    <string name="Settings_background_music">Background music</string>
-    <string name="Settings_background_volume">Background music volume</string>
+    <string name="Settings_sound">Aktivigi sonojn en ludo</string>
+    <string name="Settings_sounds_title">Sonoj</string>
+    <string name="Settings_sounds_text">Aktivigi sonojn, agordi diversajn sonefektojn</string>
+    <string name="Settings_win_sound_title">Sonefekto de venko</string>
+    <string name="Settings_background_music">Fona muziko</string>
+    <string name="Settings_background_volume">Sonforteco de fona muziko</string>
 
     <string name="settings_limit_number_of_recycles">Limigi nombron da redisdonoj</string>
-    <string name="settings_limit_number_of_recycles_text">Recycling the waste back to the main stack is limited</string>
-    <string name="settings_number_of_recycles">Amount of recycles</string>
+    <string name="settings_limit_number_of_recycles_text">Movado de forĵeta stako al ĉefa stako estas limigita</string>
+    <string name="settings_number_of_recycles">Nombro de reuzoj</string>
 
-    <string name="settings_vegas_bet_amount">Bet Amount</string>
-    <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
-    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+    <string name="settings_vegas_bet_amount">Vetluda monsumo</string>
+    <string name="settings_vegas_bet_amount_progress_text">Unua redisdono kostas %1$d$, por movi karton al fundamenta stako gajnas %2$d$.</string>
+    <string name="settings_vegas_bet_amount_summary">Redisdono: -%1$d$, karto al fundamenta stako: +%2$d$</string>
 
-    <string name="settings_menu_order_title">Menu order</string>
-    <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
-    <string name="settings_menu_order_set_default">Reset order</string>
+    <string name="settings_menu_order_title">Ordo de menuo</string>
+    <string name="settings_menu_order_summary">Frapetadu eron kaj poste ŝovu kaj demetu ĝin por reordigi menuon</string>
+    <string name="settings_menu_order_set_default">Restarigi ordon</string>
 
-    <string name="settings_auto_start_new_game_title">Start a new game when won</string>
-    <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
+    <string name="settings_auto_start_new_game_title">Komenci novan ludon post venko</string>
+    <string name="settings_auto_start_new_game_text">Je reveno al ĵus-venkita ludo, aŭtomate komenci novan ludon</string>
 
 </resources>
