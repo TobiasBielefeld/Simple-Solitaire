@@ -87,26 +87,26 @@
     <string name="settings_movement_speed">Szybkość przenoszenia kart</string>
 
     <!-- new values -->
-    <string name="Settings_sound">Enable sound in game</string>
-    <string name="Settings_sounds_title">Sounds</string>
-    <string name="Settings_sounds_text">Enable sounds, set up different sound effects</string>
-    <string name="Settings_win_sound_title">Winning sound effect</string>
-    <string name="Settings_background_music">Background music</string>
-    <string name="Settings_background_volume">Background music volume</string>
+    <string name="Settings_sound">Włącz dźwięki w grze</string>
+    <string name="Settings_sounds_title">Dźwięki</string>
+    <string name="Settings_sounds_text">Włącz dźwięki, ustaw różne efekty dźwiękowe</string>
+    <string name="Settings_win_sound_title">Dźwięk wygranej</string>
+    <string name="Settings_background_music">Muzyka w tle</string>
+    <string name="Settings_background_volume">Głośność muzyki w tle</string>
 
-    <string name="settings_limit_number_of_recycles">Limituj liczbę ponownych rozdań</string>
-    <string name="settings_limit_number_of_recycles_text">Recycling the waste back to the main stack is limited</string>
-    <string name="settings_number_of_recycles">Amount of recycles</string>
+    <string name="settings_limit_number_of_recycles">Ogranicz liczbę ponownych rozdań</string>
+    <string name="settings_limit_number_of_recycles_text">Ogranicz możliwość ponownego wykorzystania kart ze stosu odrzutów</string>
+    <string name="settings_number_of_recycles">Liczba ponownych rozdań</string>
 
-    <string name="settings_vegas_bet_amount">Bet Amount</string>
-    <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
-    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+    <string name="settings_vegas_bet_amount">Kwota zakładu</string>
+    <string name="settings_vegas_bet_amount_progress_text">Płacisz %1$d$ za pierwsze rozdanie kart, za przeniesienie każdej karty na stos bazowy dostajesz %2$d$.</string>
+    <string name="settings_vegas_bet_amount_summary">Rozdanie -%1$d$, wrzucenie karty: +%2$d$</string>
 
-    <string name="settings_menu_order_title">Menu order</string>
-    <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
-    <string name="settings_menu_order_set_default">Reset order</string>
+    <string name="settings_menu_order_title">Kolejność menu</string>
+    <string name="settings_menu_order_summary">Stuknij i przytrzymaj wpis, a następnie przeciągnij i upuść go w żądane miejsce</string>
+    <string name="settings_menu_order_set_default">Domyślny układ</string>
   
-    <string name="settings_auto_start_new_game_title">Start a new game when won</string>
-    <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
+    <string name="settings_auto_start_new_game_title">Rozpocznij nową grę po wygranej</string>
+    <string name="settings_auto_start_new_game_text">Po powrocie do właśnie wygranej gry, automatycznie rozpoczynaj nową grę</string>
 
 </resources>
