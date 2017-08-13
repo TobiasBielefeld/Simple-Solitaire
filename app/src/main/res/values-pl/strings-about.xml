@@ -26,9 +26,6 @@
         Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - na licencji <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
     <string name="about_custom_color_picker">Wybierak własnych kolorów: używa <a href="https://github.com/yukuku/ambilwarna">biblioteki AmbilWarna</a>
         wydanej na <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">licencji Apache 2.0</a></string>
-
-    <!-- new values -->
-    <string name="about_sounds">All sounds were originally published on <a href="https://freesound.org">freesound.org</a> under the
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 license</a></string>
+    <string name="about_sounds">Wszystkie dźwięki zostały oryginalnie opublikowane na <a href="https://freesound.org">freesound.org</a> na <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.pl">licencji CC0</a></string>
 
 </resources>
