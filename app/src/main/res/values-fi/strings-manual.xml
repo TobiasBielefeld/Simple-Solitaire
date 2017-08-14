@@ -276,11 +276,10 @@
        </string>
     <string name="manual_GrandfathersClock_scoring">Kortin siirto pöytäpinosta peruspinoon: +50</string>
 
-    <!-- new values -->
     <!-- Vegas -->
     <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-    <string name="manual_Vegas_objective">Play cards to the foundation to win more money.</string>
-    <string name="manual_Vegas_rules">The rules are identical to the \"Klondike\"-Rules. Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
+    <string name="manual_Vegas_objective">Siirrä kortit peruspinoihin voittaaksesi rahaa.</string>
+    <string name="manual_Vegas_rules">Säännöt ovat samat kuin \"Klondike\"-pelissä. Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
         Peruspinoon voidaan asettaa vain vastaavan maan kortteja nousevassa järjestyksessä. Kokonainen korttisarja
         voidaan siirtää kerralla.\n\n
         Ainoastaan kuninkaita voidaan laittaa tyhjään pöytäpinoon ja vain ässiä voidaan asettaa tyhjään peruspinoon.\n\n
@@ -288,9 +287,9 @@
         määräytyy valittujen asetusten mukaan. Mikäli \"Nosta 1\" on valittuna, niin vain yksi kortti käännetään.
         Kun \"Nosta 3\" on valittuna, niin silloin kolme korttia käännetään kerralla.\n\n
         Painamalla tyhjää käsipakkaa kääntöpakka siirretään käsipakaksi ja kortit on jälleen käytettävissä.</string>
-    <string name="manual_Vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
-        You pay eg. 50$ at the beginning of the game, and with every card played to the foundation you win 1/10 of the bet.
-        \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2/10 of the bet.
-        \n\nUsing the hint or undo functions will also cost 1/10 of the bet.
-        \n\nDISCLAIMER: You do not play for real money in this game :)</string>
+    <string name="manual_Vegas_scoring">Voittosumma määräytyy asetuksissa määritellyn panoksen mukaan.
+        Maksat pelin alussa esimerksi $50 ja jokaisesta peruspinoon siirretystä kortista voitat 1/10 panoksesta.
+        \n\nPeli tulkitaan voitetuksi, kun tulos on yli 0. Kortin siirtäminen pois peruspinosta maksaa 2/10 panoksesta.
+        \n\nVihje ja kumoa-toiminto maksavat 1/10 panoksesta.
+        \n\EROTUSLAUSUMA: Pelissä ei pelata oikeilla rahoilla :)</string>
 </resources>

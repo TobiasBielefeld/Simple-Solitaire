@@ -78,30 +78,29 @@
 
     <string name="settings_background_color_custom">Mukautettu</string>
 
-    <!-- new values -->
-    <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
-    <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
-    <string name="settings_movement_speed">Card movement speed</string>
-    <string name="Settings_sound">Enable sound in game</string>
-    <string name="Settings_sounds_title">Sounds</string>
-    <string name="Settings_sounds_text">Enable sounds, set up different sound effects</string>
-    <string name="Settings_win_sound_title">Winning sound effect</string>
-    <string name="Settings_background_music">Background music</string>
-    <string name="Settings_background_volume">Background music volume</string>
+    <string name="settings_double_tap_foundation_first">Siirretään ensiksi peruspinoon</string>
+    <string name="settings_double_tap_foundation_first_text">Yritä siirtää napautetun pinon päällimmäinen kortti peruspinoon ennen muiden korttien siirtoa</string>
+    <string name="settings_movement_speed">Korttien siirtonopeus</string>
+    <string name="Settings_sound">Salli äänet</string>
+    <string name="Settings_sounds_title">Äänet</string>
+    <string name="Settings_sounds_text">Salli äänet, aseta äänitehosteet</string>
+    <string name="Settings_win_sound_title">Voiton äänitehoste</string>
+    <string name="Settings_background_music">Taustamusiikki</string>
+    <string name="Settings_background_volume">Taustamusiikin äänenvoimakkuus</string>
 
     <string name="settings_limit_number_of_recycles">Rajoita uudelleen jakojen määrää</string>
-    <string name="settings_limit_number_of_recycles_text">Recycling the waste back to the main stack is limited</string>
-    <string name="settings_number_of_recycles">Amount of recycles</string>
+    <string name="settings_limit_number_of_recycles_text">Kääntäminen kääntöpakasta takaisin käsipakkaan on rajoitettu</string>
+    <string name="settings_number_of_recycles">Kääntämisten määrä</string>
 
-    <string name="settings_vegas_bet_amount">Bet Amount</string>
-    <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
-    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+    <string name="settings_vegas_bet_amount">Panos</string>
+    <string name="settings_vegas_bet_amount_progress_text">Alkujako maksaa %1$d$, jokainen peruspinoon siirretty kortti tuottaa %2$d$.</string>
+    <string name="settings_vegas_bet_amount_summary">Alkujako: -%1$d$, kortti peruspinoon: +%2$d$</string>
 
-    <string name="settings_menu_order_title">Menu order</string>
-    <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
-    <string name="settings_menu_order_set_default">Reset order</string>
+    <string name="settings_menu_order_title">Valikon järjestys</string>
+    <string name="settings_menu_order_summary">Paina pitkään valikon kohtaa, jonka jälkeen vedä ja pudota muuttaaksesi valikon järjestystä</string>
+    <string name="settings_menu_order_set_default">Palauta järjestys</string>
   
-    <string name="settings_auto_start_new_game_title">Start a new game when won</string>
-    <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
+    <string name="settings_auto_start_new_game_title">Aloita uusi peli voiton jälkeen</string>
+    <string name="settings_auto_start_new_game_text">Mikäli palataan peliin joka on jo voitettu, käynnistä uusi peli automaattisesti</string>
 
 </resources>
