@@ -64,20 +64,19 @@
         <item>Szybkie</item>
     </string-array>
 
-    <!-- new values -->
     <string-array name="pref_win_sounds_titles">
-        <item>Default</item>
-        <item>Piano</item>
-        <item>8-Bit voice \"You win\"</item>
-        <item>Cheering crowd</item>
+        <item>Domyślny</item>
+        <item>Pianino</item>
+        <item>8-bitowy głos \"You win\"</item>
+        <item>Oklaski</item>
     </string-array>
 
     <string-array name="pref_background_musics_titles">
-        <item>Disabled</item>
-        <item>Theme 1</item>
-        <item>Theme 2</item>
-        <item>Theme 3</item>
-        <item>Music Box</item>
+        <item>Brak</item>
+        <item>Temat 1</item>
+        <item>Temat 2</item>
+        <item>Temat 3</item>
+        <item>Pozytywka</item>
     </string-array>
 
 </resources>
