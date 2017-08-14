@@ -57,27 +57,26 @@
         <item>Samaa maata (Venäläinen pasianssi)</item>
     </string-array>
 
-    <!-- new values -->
     <string-array name="pref_movement_speed_titles">
-        <item>Very slow</item>
-        <item>Slow</item>
-        <item>Normal</item>
-        <item>Fast</item>
+        <item>Erittäin hidas</item>
+        <item>Hidas</item>
+        <item>Normaali</item>
+        <item>Nopea</item>
     </string-array>
 
     <string-array name="pref_win_sounds_titles">
-        <item>Default</item>
+        <item>Oletus</item>
         <item>Piano</item>
-        <item>8-Bit voice \"You win\"</item>
-        <item>Cheering crowd</item>
+        <item>8 bittinen ääni \"You win\"</item>
+        <item>Hurraava yleisö</item>
     </string-array>
 
     <string-array name="pref_background_musics_titles">
-        <item>Disabled</item>
-        <item>Theme 1</item>
-        <item>Theme 2</item>
-        <item>Theme 3</item>
-        <item>Music Box</item>
+        <item>Pois käytöstä</item>
+        <item>Teema 1</item>
+        <item>Teema 2</item>
+        <item>Teema 3</item>
+        <item>Soittorasia</item>
     </string-array>
 
 
