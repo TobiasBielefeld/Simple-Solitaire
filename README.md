@@ -90,7 +90,7 @@ Also think of the other aspects of the GPL license!
 - [ ] Add an option to set up appearance for each game indivially
 - [X] Implement "Tap to select/move cards"
 - [ ] ~~Add custom images for backgrounds~~ (Would require additional android permissions, I don't really want that)
-- [ ] Add drag and drop feature to change the order of the games in the main menu
+- [X] Add drag and drop feature to change the order of the games in the main menu
 
 ## Translations
 Thanks to the following persons for providing translations :D
