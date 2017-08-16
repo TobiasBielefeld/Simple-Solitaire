@@ -86,7 +86,6 @@
     <string name="settings_double_tap_foundation_first_text">Provi movi la plej supran karton de frapetata stako sur fundamentan stakon antaŭ movi aliajn kartojn</string>
     <string name="settings_movement_speed">Mov-rapido de kartoj</string>
 
-    <!-- new values -->
     <string name="Settings_sound">Aktivigi sonojn en ludo</string>
     <string name="Settings_sounds_title">Sonoj</string>
     <string name="Settings_sounds_text">Aktivigi sonojn, agordi diversajn sonefektojn</string>

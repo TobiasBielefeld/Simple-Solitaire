@@ -86,7 +86,6 @@
     <string name="settings_double_tap_foundation_first_text">Próbuj przenieś górną kartę z dotykanego stosu na stos bazowy przed przeniesieniem innych kart</string>
     <string name="settings_movement_speed">Szybkość przenoszenia kart</string>
 
-    <!-- new values -->
     <string name="Settings_sound">Włącz dźwięki w grze</string>
     <string name="Settings_sounds_title">Dźwięki</string>
     <string name="Settings_sounds_text">Włącz dźwięki, ustaw różne efekty dźwiękowe</string>

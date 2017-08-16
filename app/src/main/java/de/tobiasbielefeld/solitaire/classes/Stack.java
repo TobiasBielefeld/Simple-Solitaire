@@ -195,13 +195,15 @@ public class Stack {
             default:
                 return new PointF(view.getX(), view.getY());
             case DOWN:
-                return new PointF(view.getX(), isEmpty() ? view.getY() : getTopCard().getY() + offset * spacing);
+                return new PointF(view.getX(), isEmpty() ? view.getY() + (offset-1) * spacing : getTopCard().getY() + offset * spacing);
             case UP:
-                return new PointF(view.getX(), isEmpty() ? view.getY() : getTopCard().getY() - offset * spacing);
+                return new PointF(view.getX(), isEmpty() ? view.getY() - (offset-1) * spacing : getTopCard().getY() - offset * spacing);
             case LEFT:
-                return new PointF(isEmpty() ? view.getX() : (getTopCard().getX() + (leftHandedModeEnabled() ? offset * spacing : -offset * spacing)), view.getY());
+                return new PointF(isEmpty() ? view.getX() + (leftHandedModeEnabled() ? (offset-1) * spacing : -(offset-1) * spacing)
+                        : (getTopCard().getX() + (leftHandedModeEnabled() ? offset * spacing : -offset * spacing)), view.getY());
             case RIGHT:
-                return new PointF(isEmpty() ? view.getX() : (getTopCard().getX() + (leftHandedModeEnabled() ? -offset * spacing : offset * spacing)), view.getY());
+                return new PointF(isEmpty() ? view.getX() + (leftHandedModeEnabled() ? -(offset-1) * spacing : (offset-1) * spacing)
+                        : (getTopCard().getX() + (leftHandedModeEnabled() ? -offset * spacing : offset * spacing)), view.getY());
         }
     }
 
@@ -545,5 +547,9 @@ public class Stack {
 
     public enum ArrowDirection {
         LEFT, RIGHT
+    }
+
+    public void applyDefaultSpacing(){
+        spacing = defaultSpacing;
     }
 }

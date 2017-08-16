@@ -156,6 +156,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 //calculate the spacing for cards on a stack
                 Stack.defaultSpacing = Card.width / 2;
 
+                for (Stack stack : stacks){
+                    stack.applyDefaultSpacing();
+                }
+
                 //setup how the cards on the stacks will be stacked (offset to the previous card)
                 //there are 4 possible directions. By default, the tableau stacks are stacked down
                 //all other stacks don't have a visible offset
