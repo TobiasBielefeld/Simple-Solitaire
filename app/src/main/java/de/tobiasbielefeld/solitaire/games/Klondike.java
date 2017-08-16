@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.games;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
@@ -426,22 +427,24 @@ public class Klondike extends Game {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
-        if (originID >= 11 && originID <= 13 && destinationID >= 11 && destinationID <= 13) {           //used for from stock to tabaleau/f
-            return 45;
+        //relevant for deal3 options, because cards on the waste move first and checking only
+        // the first id wouldn't be enough
+        for (int i=0;i<originIDs.length;i++){
+            if (originIDs[i] >=11 && originIDs[i]<=13 && destinationIDs[i] <=10){                   //stock to tableau/foundation
+                return 45;
+            }
         }
-        if ((originID < 7 || originID == 14) && destinationID >= 7 && destinationID <= 10) {         //transfer from tableau to foundations
+
+        if (originID < 7 && destinationID >= 7 && destinationID <= 10) {                            //transfer from tableau to foundations
             return 60;
         }
-        if ((originID == 11 || originID == 12 || originID == 13) && destinationID < 10) {            //stock to tableau
-            return 45;
-        }
-        if (destinationID < 7 && originID >= 7 && originID <= 10) {                                //foundation to tableau
+        if (destinationID < 7 && originID >= 7 && originID <= 10) {                                 //foundation to tableau
             return -75;
         }
-        if (originID == destinationID) {                                                             //turn a card over
+        if (originID == destinationID) {                                                            //turn a card over
             return 25;
         }
-        if (originID >= 11 && originID < 14 && destinationID == 14) {                                //returning cards to stock
+        if (originID >= 11 && originID < 14 && destinationID == 14) {                               //returning cards to stock
             return -200;
         }
 

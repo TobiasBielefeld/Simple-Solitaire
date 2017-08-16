@@ -18,11 +18,8 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
-import android.content.res.Resources;
-
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
@@ -34,8 +31,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW_OLD;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getInt;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
@@ -79,11 +76,19 @@ public class Vegas extends Klondike {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
-        if (destinationID >= 7 && destinationID <= 10){
+        //relevant for deal3 options, because cards on the waste move first and checking only
+        //the first id wouldn't be enough
+        for (int i=0;i<originIDs.length;i++){
+            if (originIDs[i] >=11 && originIDs[i]<=13 && destinationIDs[i] >=7 && destinationIDs[i] <=10){//stock to foundation
+                return betAmount/10;
+            }
+        }
+
+        if (originID < 7 && destinationID >= 7 && destinationID <= 10){                             //from tableau to foundation
             return betAmount/10;
         }
 
-        if (originID >= 7 && originID <= 10){
+        if (originID >= 7 && originID <= 10 && destinationID < 7){                                  //from foundation to tableau
             return -2*betAmount/10;
         }
 

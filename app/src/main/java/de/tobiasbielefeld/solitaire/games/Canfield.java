@@ -526,19 +526,21 @@ public class Canfield extends Game {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
-        if (originID >= 9 && originID <= 11 && destinationID >= 9 && destinationID <= 11) {           //used for from stock to tabaleau/foundation
-            return 45;
+        //relevant for deal3 options, because cards on the waste move first and checking only
+        // the first id wouldn't be enough
+        for (int i=0;i<originIDs.length;i++){
+            if (originIDs[i] >=9 && originIDs[i]<=11 && destinationIDs[i] <=8){                     //stock to tableau/foundation
+                return 45;
+            }
         }
+
         if ((originID < 5 || originID == 12) && destinationID >= 5 && destinationID <= 8) {         //transfer from tableau to foundations
             return 60;
-        }
-        if ((originID == 9 || originID == 10 || originID == 11) && destinationID < 9) {             //stock to tableau
-            return 45;
         }
         if (destinationID < 5 && originID >= 5 && originID <= 8) {                                  //foundation to tableau
             return -75;
         }
-        if (originID == destinationID) {                                                              //turn a card over
+        if (originID == destinationID) {                                                            //turn a card over
             return 25;
         }
         if (originID >= 9 && originID < 12 && destinationID == 12) {                                //returning cards to stock
