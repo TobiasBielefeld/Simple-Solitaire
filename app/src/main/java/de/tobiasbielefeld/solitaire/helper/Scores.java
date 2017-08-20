@@ -166,7 +166,7 @@ public class Scores {
 
     /**
      * Adds a new high score to the list. New score will be inserted at the last position
-     * and moved left until it is in the right position
+     * and moved in direction of the highest score until it is in the correct position
      */
     public void addNewHighScore() {
 
@@ -175,11 +175,17 @@ public class Scores {
         if (score < 0)
             return;
 
+        long timeTaken = timer.getCurrentTime();
+        long systemTime = System.currentTimeMillis();
         int index = MAX_SAVED_SCORES - 1;
 
-        //if the new score is greater than the last saved one or the last one is empty, override it
-        if (score > savedScores[index][0] || savedScores[index][0] == 0) {
-            savedScores[index] = new long[]{score, timer.getCurrentTime(), System.currentTimeMillis()};
+        //Override the last score when the following conditions are fulfilled:
+        //The new score is larger than the saved one OR
+        //the new score is the same as the saved one BUT the time taken for the game is less than or equals the saved one OR
+        //The saved score equals zero (so it is empty, nothing saved yet)
+        if (score > savedScores[index][0] || savedScores[index][0] == 0 ||
+                (score == savedScores[index][0] && timeTaken <= savedScores[index][1])) {
+            savedScores[index] = new long[]{score, timeTaken, systemTime};
 
             while (index > 0 && (savedScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
                     || savedScores[index - 1][0] < savedScores[index][0]                            //or the score at index is less than the score before it
