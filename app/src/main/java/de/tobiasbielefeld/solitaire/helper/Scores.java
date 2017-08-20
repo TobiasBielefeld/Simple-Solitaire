@@ -190,7 +190,7 @@ public class Scores {
             while (index > 0 && (savedScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
                     || savedScores[index - 1][0] < savedScores[index][0]                            //or the score at index is less than the score before it
                     || (savedScores[index - 1][0] == savedScores[index][0]                          //or the scores are the same...
-                    && savedScores[index - 1][1] > savedScores[index][1]))) {                       //but the time is less
+                    && savedScores[index - 1][1] >= savedScores[index][1]))) {                       //but the time is less
                 long dummy[] = savedScores[index];
                 savedScores[index] = savedScores[index - 1];
                 savedScores[index - 1] = dummy;
