@@ -24,37 +24,37 @@
     <string name="manual_startpage_text">Bienvenue dans le manuel de cette collection de jeux de cartes !
         J\'espère qu\'il vous expliquera tout ce qu\'il faut savoir.
         \n\nUtiliser le menu à gauche pour accèder aux différents manuels.</string>
-    <string name="manual_general_main_menu">L\'utilisation du menu principal est assez facile : appuyer
-        juste sur le type de jeu que vous voulez lancer.\n\nSi l\'application avait été mis en pause pendant
+    <string name="manual_general_main_menu">L\'utilisation du menu principal est assez facile : appuyez
+        juste sur le type de jeu que vous voulez lancer.\n\nSi l\'application avait été mise en pause pendant
         une partie, l\'application chargera automatiquement la dernière partie jouée. Ce comportement
         peut être désactivé dans les réglages, sous le menu \"Général\".\n\nÀ cet endroit, vous trouverez
         aussi la section \"Menu principal\", où il est possible de masquer des jeux et changer le nombre
         de colonnes affichées, afin que la plupart des jeux puissent s\'afficher correctement sur l\'écran.</string>
     <string name="manual_ui_text">Un jeu affiche toujours un petit menu en bas de l\'écran (en mode portrait)
-        ou sur la droite (en mode paysage), décrit par la suite. Il affiche aussi le nombre de points
+        ou sur la droite (en mode paysage). Ce menu affiche le nombre de points
         et le temps de jeu écoulé pour la partie en cours. Si possible, ces deux valeurs seront sauvegardées
         dans la liste des meilleurs scores. Le menu contient 5 éléments qui ont pour fonction (en allant
         de la gauche vers la droite):
         \n\nLe bouton \"Points\" affiche une nouvelle fenêtre contenant les meilleurs scores et le nombre
-        de parties gagnées du même type que la prtie en cours.
-        \n\nLe bouton \"Indice\" vous aide en vous montrant jusqu\'à 3 possibilitées de mouvement à la
-        fois. Par contre cela diminuera votre nombre de points de 25. Il est à noter que les mouvements
+        de parties gagnées du même type que la partie en cours.
+        \n\nLe bouton \"Indice\" vous aide en vous montrant jusqu\'à 3 possibilités de mouvement à la
+        fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements
         triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont
         pas considérés comme des indices. Si aucun indice n\'est montré, votre score ne diminuera pas.
         \n\nLe bouton \"Menu\" donne accès à trois actions différentes : Démarrer une nouvelle partie en
         mélangeant les cartes. Redistribuer les cartes fait de même mais sans les mélanger, donc c\'est un
-        peu comme recommencer la partie en cours. La dernière option mets fin à la partie et retourne
+        peu comme recommencer la partie en cours. La dernière option met fin à la partie et retourne
         au menu principal.\n\nLe bouton \"Annuler\" inverse le dernier mouvement, mais au prix de 25 points.
-        Il n\'est possible d\'annuler que les 20 derniers mouvements uniquement.\n\nLe bouton \"Réglages\"
+        Il n\'est possible d\'annuler que les 20 derniers mouvements.\n\nLe bouton \"Réglages\"
         ouvre simplement le menu des options.</string>
     <string name="manual_feedback_text">Vous avez trouvé un bug, une erreur ? Quelque chose pourrait être amélioré ? Devrais-je ajouter
         un autre type de jeu à la collection ? Peut-être voulez-vous aider à la traduction ? Ou autre idée ?\n\nJ\'apprécie beaucoup
         recevoir vos remarques, sous toutes ses formes. Si vous sentez le besoin de me contacter, vous devriez utiliser l\'une
         de ses deux options :\n\nOuvrir une demande sur l\'outil de gestion de demandes sur GitHub : le dépôt GitHub de cette
-        application a une fonctionnalité très intéressant concernant la gestion des demandes. Appuyer juste sur le bouton à
+        application a une fonctionnalité très intéressante concernant la gestion des demandes. Appuyez juste sur le bouton à
         gauche de l\'écran pour ouvrir l\'outil de suivi des demandes dans votre navigateur web.\n\nMettre
         une évaluation sur Google Play Store : faites simplement une évaluation sur la page du store et
-        écriver ce que vous voulez ensuite. Cliquer sur le bouton à droite de l\'écran pour ouvrir
+        écriver ce que vous voulez ensuite. Cliquez sur le bouton à droite de l\'écran pour ouvrir
         le Google Play Store (s\'il est installé).\n\nMerci d\'avance pour vos remarques :)</string>
 
     <!-- Klondike -->
