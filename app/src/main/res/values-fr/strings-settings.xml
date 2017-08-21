@@ -29,8 +29,8 @@
     <string name="settings_games">Jeux</string>
     <string name="settings_games_description">Modifier les préférences pour les variantes de jeu</string>
     <string name="settings_spider_difficulty">Nombre de familles différentes de cartes</string>
-    <string name="settings_klondike_draw">Nombre de carte à piocher</string>
-    <string name="settings_canfield_draw">Nombre de carte à piocher</string>
+    <string name="settings_klondike_draw">Nombre de cartes à piocher</string>
+    <string name="settings_canfield_draw">Nombre de cartes à piocher</string>
     <string name="settings_show_main_menu">Démarrer sur le menu principal</string>
     <string name="settings_show_main_menu_description">Ne pas lancer la dernière partie au démarrage</string>
     <string name="settings_golf_easy">Mouvements cycliques (Facile)</string>
@@ -47,13 +47,13 @@
     <string name="settings_menu_columns">Nombre de colonnes</string>
     <string name="settings_menu_games">Afficher et masquer des jeux</string>
     <string name="settings_menu_games_description">Séléctionner les jeux à afficher dans le menu principal</string>
-    <string name="settings_about_description">Montrer des informations sur cette application comme sa licence, son changelog</string>
+    <string name="settings_about_description">Montrer des informations sur cette application comme sa licence, son historique des versions</string>
     <string name="settings_show_manual_in_menu">Page de manuel dans le menu du jeu</string>
     <string name="settings_show_manual_in_menu_description">Affiche un bouton pour ouvrir le manuel du jeu de carte en cours</string>
     <string name="settings_change_language">Changer la langue</string>
     <string name="settings_yukon_rules">Placez les cartes sur…</string>
 
-    <string name="settings_icon_theme">Set d\'icônes</string>
+    <string name="settings_icon_theme">Jeu d\'icônes</string>
     <string name="settings_menu_bar_position">Position de la barre de menu</string>
     <string name="settings_menu_bar_position_top">Haut</string>
     <string name="settings_menu_bar_position_bottom">Bas</string>
@@ -69,7 +69,7 @@
     <string name="settings_double_tap_enable_text">Appuyez deux fois successivement sur une carte pour la déplacer sur la première pile disponible</string>
     <string name="settings_double_tap_all_cards">Déplacer toutes les cartes possibles</string>
     <string name="settings_double_tap_all_cards_text">Déplacer autant de cartes que possible depuis une pile, et non uniquement celle touchée</string>
-    <string name="settings_tap_to_select">Appuyez pour sélectionner</string>
+    <string name="settings_tap_to_select">Appuyer pour sélectionner</string>
     <string name="settings_tap_to_select_enable">Activer la sélection par un appui rapide</string>
     <string name="settings_tap_to_select_enable_text">Appuyez sur une carte pour la sélectionner, puis appuyez sur la pile de destination pour la déplacer</string>
     <string name="settings_single_tap">Un seul clic</string>
@@ -79,29 +79,29 @@
     <string name="settings_background_color_custom">Personnaliser</string>
 
     <!-- new values -->
-    <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
-    <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
-    <string name="settings_movement_speed">Card movement speed</string>
-    <string name="Settings_sound">Enable sound in game</string>
-    <string name="Settings_sounds_title">Sounds</string>
-    <string name="Settings_sounds_text">Enable sounds, set up different sound effects</string>
-    <string name="Settings_win_sound_title">Winning sound effect</string>
-    <string name="Settings_background_music">Background music</string>
-    <string name="Settings_background_volume">Background music volume</string>
+    <string name="settings_double_tap_foundation_first">Déplacer vers la pile de fondation en premier</string>
+    <string name="settings_double_tap_foundation_first_text">Essayer de déplacer la carte du dessus de la pile appuyée vers la fondation, avant de déplacer les autres cartes</string>
+    <string name="settings_movement_speed">Vitesse de mouvement des cartes</string>
+    <string name="Settings_sound">Activer le son du jeu</string>
+    <string name="Settings_sounds_title">Sons</string>
+    <string name="Settings_sounds_text">Activer les sons, configurer les effets sonores</string>
+    <string name="Settings_win_sound_title">Effet sonore en cas de victoire</string>
+    <string name="Settings_background_music">Musique d'ambiance</string>
+    <string name="Settings_background_volume">Volume de la musique d'ambiance</string>
 
     <string name="settings_limit_number_of_recycles">Limitation du nombre de donnes</string>
     <string name="settings_limit_number_of_recycles_text">Le retour des cartes de la défausse dans le talon est limité</string>
     <string name="settings_number_of_recycles">Nombre de retours</string>
 
-    <string name="settings_vegas_bet_amount">Bet Amount</string>
-    <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
-    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+    <string name="settings_vegas_bet_amount">Montant du pari</string>
+    <string name="settings_vegas_bet_amount_progress_text">La donne initiale coûte %1$d$, chaque carte jouée vers la fondation fait gagner %2$d$.</string>
+    <string name="settings_vegas_bet_amount_summary">Donne initiale : -%1$d$, carte vers la fondation : +%2$d$</string>
 
-    <string name="settings_menu_order_title">Menu order</string>
-    <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
-    <string name="settings_menu_order_set_default">Reset order</string>
+    <string name="settings_menu_order_title">Ordre du menu</string>
+    <string name="settings_menu_order_summary">Restez appuyé sur un élément et glissez-le ensuite pour modifier l'ordre du menu</string>
+    <string name="settings_menu_order_set_default">Réinitialiser l'ordre</string>
 
-    <string name="settings_auto_start_new_game_title">Start a new game when won</string>
-    <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
+    <string name="settings_auto_start_new_game_title">Démarre une nouvelle partie en cas de victoire</string>
+    <string name="settings_auto_start_new_game_text">En cas de retour vers un jeu gagné, démarrer automatiquement un nouvelle partie</string>
 
 </resources>
