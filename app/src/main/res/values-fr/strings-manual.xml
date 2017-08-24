@@ -61,7 +61,7 @@
     <string name="manual_Klondike_structure">1 jeu de 52 cartes.\n\n7 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse.</string>
     <string name="manual_Klondike_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
     <string name="manual_Klondike_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
-        les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
+        les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.\n\nSeuls les rois peuvent être placés sur une colonne vide du tableau
         et seuls les As peuvent être placés sur les piles de base vides.\n\nEn appuyant sur le talon, les cartes sont retournées
         sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l\'application.
