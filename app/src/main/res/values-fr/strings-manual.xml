@@ -153,7 +153,7 @@
     <string name="manual_Pyramid_scoring">Déplacer une carte dans l\'écart : +50\n\nRemettre toutes les cartes
         de la défausse dans la pioche : -200</string>
 
-    <!-- TriPekas -->
+    <!-- TriPeaks -->
     <string name="manual_TriPeaks_structure">1 jeu de 52 cartes.\n\n28 cartes sur le tableau, 1 talon,
         1 défausse.\n\nDéplacer les cartes de la défausse sur le talon n\'est pas possible (Sauf en
         utilisant le bouton \"Annuler\").</string>
@@ -161,7 +161,7 @@
     <string name="manual_TriPeaks_rules">Les régles de ce jeu sont assez similaires au \"Golf\". Chaque carte
         non recouverte peut être jouée. Les cartes ne peuvent être placées dans la défausse que par ordre
         croissant ou décroissant, sans avoir à tenir compte de leur couleur.\n\nIl est possible
-        de jouer un roi sur un As, et inversement.\n\nSi aucunes cartes ne peuvent être jouées, appuyer sur
+        de jouer un roi sur un As, et inversement.\n\nSi aucune carte ne peut être jouée, appuyer sur
         le talon pour retourner une nouvelle carte sur la défausse.</string>
     <string name="manual_TriPeaks_scoring">Mettre une carte dans la défausse : +50</string>
 
