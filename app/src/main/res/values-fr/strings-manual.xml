@@ -167,7 +167,7 @@
 
     <!-- Forty&Eight -->
     <string name="manual_FortyEight_structure">2 jeux de 52 cartes.\n\n8 colonnes sur le tableau, 8
-        piles de base, 1 talon et 1 défausse.\n\nLes cartes de la défausse ne peuvent être remis dans le
+        piles de base, 1 talon et 1 défausse.\n\nLes cartes de la défausse ne peuvent être remises dans le
         talon qu\'une seule fois par partie.</string>
     <string name="manual_FortyEight_objective">Empiler, sur les piles de base, toutes les cartes par
         famille et dans l\'ordre croissant.</string>
@@ -176,16 +176,16 @@
         être placées dans l\'ordre croissant et dans la même famille.
 
         \n\nVous pouvez déplacer autant de cartes en une fois (si elles sont placées dans le bon ordre),
-        qu\'il y a d\'emplacements libres sur le tableau. Cela suis la règle qu\'une seule carte peut
+        qu\'il y a d\'emplacements libres sur le tableau. Cela suit la règle qu\'une seule carte peut
         être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n\'importe quelle carte,
-        celles-ci servent d\'intermédiaire.
+        celles-ci servent d\'intermédiaires.
 
         \n\nToutes les cartes peuvent être déposées
-        sur un emplacement libre du tableau et seulent les As peuvent être placés sur une pile de base vide.
+        sur un emplacement libre du tableau et seules les As peuvent être placés sur une pile de base vide.
         \n\nEn appuyant sur le talon, une carte est retournée sur la défausse ; vous pouvez la jouer à
         partir de là.\n\nSi le talon devient vide, vous pouvez encore appuyer dessus pour déplacer les cartes
         de la défausse dans le talon ; cela n\'est possible qu\'une seule fois par partie. Le nombre de
-        fois où il est encore possible d\'effectuer ce mouvement est affiché en petit au dessus du talon.</string>
+        fois où il est encore possible d\'effectuer ce mouvement est affiché en petit au-dessus du talon.</string>
     <string name="manual_FortyEight_scoring">Mettre une carte sur une pile de base : +45\n\nRemettre une
         carte d\'une base sur la tableau : -60\n\nDéplacer une carte de la défausse sur le tableau : +60
         \n\nRemettre toutes les cartes de la défausse dans la pioche : -200</string>
