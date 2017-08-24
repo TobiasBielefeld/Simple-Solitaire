@@ -26,8 +26,8 @@
     </string-array>
 
     <string-array name="pref_pyramid_difficulty_titles">
-        <item>Facile: La partie est gagnée quand le plateau est vide</item>
-        <item>Difficile: La partie est gagnée quand le plateau et la pile sont vides</item>
+        <item>Facile : La partie est gagnée quand le plateau est vide</item>
+        <item>Difficile : La partie est gagnée quand le plateau et la pile sont vides</item>
     </string-array>
 
     <string-array name="pref_language_titles">
@@ -37,7 +37,7 @@
         <item>Esperanto</item>
         <item>Finnois</item>
         <item>Français</item>
-        <item>Japonnais</item>
+        <item>Japonais</item>
         <item>Polonais</item>
     </string-array>
 
@@ -59,25 +59,25 @@
 
     <!-- new values -->
     <string-array name="pref_movement_speed_titles">
-        <item>Very slow</item>
-        <item>Slow</item>
-        <item>Normal</item>
-        <item>Fast</item>
+        <item>Très lente</item>
+        <item>Lente</item>
+        <item>Normale</item>
+        <item>Rapide</item>
     </string-array>
 
     <string-array name="pref_win_sounds_titles">
-        <item>Default</item>
+        <item>Par défaut</item>
         <item>Piano</item>
-        <item>8-Bit voice \"You win\"</item>
-        <item>Cheering crowd</item>
+        <item>Voix \"You win\" 8-Bit</item>
+        <item>Foule en liesse</item>
     </string-array>
 
     <string-array name="pref_background_musics_titles">
-        <item>Disabled</item>
-        <item>Theme 1</item>
-        <item>Theme 2</item>
-        <item>Theme 3</item>
-        <item>Music Box</item>
+        <item>Désactivée</item>
+        <item>Thème 1</item>
+        <item>Thème 2</item>
+        <item>Thème 3</item>
+        <item>Boîte à musique</item>
     </string-array>
 
 

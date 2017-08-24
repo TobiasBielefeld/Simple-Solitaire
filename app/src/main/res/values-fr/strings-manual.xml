@@ -24,44 +24,44 @@
     <string name="manual_startpage_text">Bienvenue dans le manuel de cette collection de jeux de cartes !
         J\'espère qu\'il vous expliquera tout ce qu\'il faut savoir.
         \n\nUtiliser le menu à gauche pour accèder aux différents manuels.</string>
-    <string name="manual_general_main_menu">L\'utilisation du menu principal est assez facile : appuyer
-        juste sur le type de jeu que vous voulez lancer.\n\nSi l\'application avait été mis en pause pendant
+    <string name="manual_general_main_menu">L\'utilisation du menu principal est assez facile : appuyez
+        juste sur le type de jeu que vous voulez lancer.\n\nSi l\'application avait été mise en pause pendant
         une partie, l\'application chargera automatiquement la dernière partie jouée. Ce comportement
         peut être désactivé dans les réglages, sous le menu \"Général\".\n\nÀ cet endroit, vous trouverez
         aussi la section \"Menu principal\", où il est possible de masquer des jeux et changer le nombre
         de colonnes affichées, afin que la plupart des jeux puissent s\'afficher correctement sur l\'écran.</string>
     <string name="manual_ui_text">Un jeu affiche toujours un petit menu en bas de l\'écran (en mode portrait)
-        ou sur la droite (en mode paysage), décrit par la suite. Il affiche aussi le nombre de points
+        ou sur la droite (en mode paysage). Ce menu affiche le nombre de points
         et le temps de jeu écoulé pour la partie en cours. Si possible, ces deux valeurs seront sauvegardées
         dans la liste des meilleurs scores. Le menu contient 5 éléments qui ont pour fonction (en allant
         de la gauche vers la droite):
         \n\nLe bouton \"Points\" affiche une nouvelle fenêtre contenant les meilleurs scores et le nombre
-        de parties gagnées du même type que la prtie en cours.
-        \n\nLe bouton \"Indice\" vous aide en vous montrant jusqu\'à 3 possibilitées de mouvement à la
-        fois. Par contre cela diminuera votre nombre de points de 25. Il est à noter que les mouvements
+        de parties gagnées du même type que la partie en cours.
+        \n\nLe bouton \"Indice\" vous aide en vous montrant jusqu\'à 3 possibilités de mouvement à la
+        fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements
         triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont
         pas considérés comme des indices. Si aucun indice n\'est montré, votre score ne diminuera pas.
         \n\nLe bouton \"Menu\" donne accès à trois actions différentes : Démarrer une nouvelle partie en
         mélangeant les cartes. Redistribuer les cartes fait de même mais sans les mélanger, donc c\'est un
-        peu comme recommencer la partie en cours. La dernière option mets fin à la partie et retourne
+        peu comme recommencer la partie en cours. La dernière option met fin à la partie et retourne
         au menu principal.\n\nLe bouton \"Annuler\" inverse le dernier mouvement, mais au prix de 25 points.
-        Il n\'est possible d\'annuler que les 20 derniers mouvements uniquement.\n\nLe bouton \"Réglages\"
+        Il n\'est possible d\'annuler que les 20 derniers mouvements.\n\nLe bouton \"Réglages\"
         ouvre simplement le menu des options.</string>
     <string name="manual_feedback_text">Vous avez trouvé un bug, une erreur ? Quelque chose pourrait être amélioré ? Devrais-je ajouter
         un autre type de jeu à la collection ? Peut-être voulez-vous aider à la traduction ? Ou autre idée ?\n\nJ\'apprécie beaucoup
         recevoir vos remarques, sous toutes ses formes. Si vous sentez le besoin de me contacter, vous devriez utiliser l\'une
         de ses deux options :\n\nOuvrir une demande sur l\'outil de gestion de demandes sur GitHub : le dépôt GitHub de cette
-        application a une fonctionnalité très intéressant concernant la gestion des demandes. Appuyer juste sur le bouton à
+        application a une fonctionnalité très intéressante concernant la gestion des demandes. Appuyez juste sur le bouton à
         gauche de l\'écran pour ouvrir l\'outil de suivi des demandes dans votre navigateur web.\n\nMettre
         une évaluation sur Google Play Store : faites simplement une évaluation sur la page du store et
-        écriver ce que vous voulez ensuite. Cliquer sur le bouton à droite de l\'écran pour ouvrir
+        écriver ce que vous voulez ensuite. Cliquez sur le bouton à droite de l\'écran pour ouvrir
         le Google Play Store (s\'il est installé).\n\nMerci d\'avance pour vos remarques :)</string>
 
     <!-- Klondike -->
     <string name="manual_Klondike_structure">1 jeu de 52 cartes.\n\n7 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse.</string>
     <string name="manual_Klondike_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
     <string name="manual_Klondike_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
-        les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
+        les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.\n\nSeuls les rois peuvent être placés sur une colonne vide du tableau
         et seuls les As peuvent être placés sur les piles de base vides.\n\nEn appuyant sur le talon, les cartes sont retournées
         sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l\'application.
@@ -80,9 +80,9 @@
         en alternant les couleurs. Sur les bases, les cartes doivent être placées par ordre croissant pour une
         même famille. Les cases libres en haut ne peuvent contenir qu\'une seule carte à la fois.
         \n\nVous pouvez déplacer autant de cartes en une fois (si elles sont placées dans le bon ordre),
-        qu\'il y a d\'emplacements libres en haut et sur le tableau. Cela suis la règle qu\'une seule carte peut
+        qu\'il y a d\'emplacements libres en haut et sur le tableau. Cela suit la règle selon laquelle une seule carte peut
         être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n\'importe quelle carte,
-        celles-ci servent d\'intermédiaire.\n\nTout les cartes peuvent être placées sur les colonnes vides du tableau
+        celles-ci servent d\'intermédiaires.\n\nToutes les cartes peuvent être placées sur les colonnes vides du tableau
         et seuls les As peuvent être placés sur les piles de base vides.</string>
     <string name="manual_Freecell_scoring">Mettre une carte sur une pile de base : +60\n\nRetirer une carte d\'une pile de base :
         -75\n\nMettre un roi sur un emplacement libre : +20</string>
@@ -105,8 +105,8 @@
         croissant n\'importe où sur le tableau. Une fois complétée, une famille sera automatiquement déplacée
         sur une pile de base.</string>
     <string name="manual_Spider_rules">Les cartes peuvent être placées sur n\'importe quelle autre tant
-        que l\'on suit l\'ordre croissant. Mais seul les sequences d\'une même famille peuvent être déplacées
-        en une seule fois.\n\nToutes les cartes peuvent être placées sur des emplacement libres du tableau
+        que l\'on suit l\'ordre croissant. Mais seules les séquences d\'une même famille peuvent être déplacées
+        en une seule fois.\n\nToutes les cartes peuvent être placées sur des emplacements libres du tableau
         \n\nAppuyer sur le talon pour ajouter une carte à chaque colonne du tableau.</string>
     <string name="manual_Spider_scoring">Déplacer une famille de carte sur une pile de base : +200\n\nRetourner
         une série de cartes : +25</string>
@@ -129,8 +129,8 @@
     <string name="manual_Golf_objective">Mettre toutes les cartes du tableau dans la défausse.</string>
     <string name="manual_Golf_rules">Toutes les cartes en haut d\'une colonne peuvent être utilisées.
         Les cartes peuvent être déplacées dans la défausse en suivant l\'ordre croissant ou décroissant
-        quelque soit leur couleur.\n\nSelon le réglage, vous pouvez placer un roi sur un As, et inversement
-        (ce qui est le plus facile).\n\nSi auncunes cartes ne peuvent être déplacées, appuyer de nouveau sur le talon
+        quelle que soit leur couleur.\n\nSelon le réglage, vous pouvez placer un roi sur un As, et inversement
+        (ce qui est le plus facile).\n\nSi auncune carte ne peut être déplacée, appuyer de nouveau sur le talon
         pour ajouter une nouvelle carte à la défausse.</string>
     <string name="manual_Golf_scoring">Placer une carte dans la défause : +50</string>
 
@@ -141,19 +141,19 @@
     <string name="manual_Pyramid_objective">Mettre toutes les cartes du tableau dans la défausse.
         Selon le réglage, toutes les cartes de la pioche et de la défausse doivent être placées dans
         l\'écart.</string>
-    <string name="manual_Pyramid_rules">Ce jeu a des régles très différentes des autres jeux de Solitaire.
+    <string name="manual_Pyramid_rules">Ce jeu a des règles très différentes des autres jeux de Solitaire.
         Toutes les cartes non couvertes par une autre peuvent être jouées. Deux cartes peuvent être placées
         dans l\'écart lorsque la somme de leurs valeurs vaut 13. Pour cela, il suffit de déplacer l\'une des deux
         cartes sur l\'autre. Si leur somme est correcte, les deux cartes seront placées dans l\'écart.
-        \n\nIl est possible d\'utiliser les cartes de la pioche et de la défausse. Si aucunes paires n\'est
+        \n\nIl est possible d\'utiliser les cartes de la pioche et de la défausse. Si aucune paire n\'est
         disponible, appuyer sur la flêche entre la pioche et la défausse pour retourner une nouvelle
-        carte. Si le pioche est vide, appuyer de nouveau sur la flêche pour déplacer les cartes de la
+        carte. Si la pioche est vide, appuyer de nouveau sur la flêche pour déplacer les cartes de la
         défausse dans la pioche ; cela n\'est possible que deux fois par partie. Le nombre restant
-        où cela est encore possible est affiché en petit, au dessus de la flêche.</string>
+        où cela est encore possible est affiché en petit, au-dessus de la flêche.</string>
     <string name="manual_Pyramid_scoring">Déplacer une carte dans l\'écart : +50\n\nRemettre toutes les cartes
         de la défausse dans la pioche : -200</string>
 
-    <!-- TriPekas -->
+    <!-- TriPeaks -->
     <string name="manual_TriPeaks_structure">1 jeu de 52 cartes.\n\n28 cartes sur le tableau, 1 talon,
         1 défausse.\n\nDéplacer les cartes de la défausse sur le talon n\'est pas possible (Sauf en
         utilisant le bouton \"Annuler\").</string>
@@ -161,13 +161,13 @@
     <string name="manual_TriPeaks_rules">Les régles de ce jeu sont assez similaires au \"Golf\". Chaque carte
         non recouverte peut être jouée. Les cartes ne peuvent être placées dans la défausse que par ordre
         croissant ou décroissant, sans avoir à tenir compte de leur couleur.\n\nIl est possible
-        de jouer un roi sur un As, et inversement.\n\nSi aucunes cartes ne peuvent être jouées, appuyer sur
+        de jouer un roi sur un As, et inversement.\n\nSi aucune carte ne peut être jouée, appuyer sur
         le talon pour retourner une nouvelle carte sur la défausse.</string>
     <string name="manual_TriPeaks_scoring">Mettre une carte dans la défausse : +50</string>
 
     <!-- Forty&Eight -->
     <string name="manual_FortyEight_structure">2 jeux de 52 cartes.\n\n8 colonnes sur le tableau, 8
-        piles de base, 1 talon et 1 défausse.\n\nLes cartes de la défausse ne peuvent être remis dans le
+        piles de base, 1 talon et 1 défausse.\n\nLes cartes de la défausse ne peuvent être remises dans le
         talon qu\'une seule fois par partie.</string>
     <string name="manual_FortyEight_objective">Empiler, sur les piles de base, toutes les cartes par
         famille et dans l\'ordre croissant.</string>
@@ -176,16 +176,16 @@
         être placées dans l\'ordre croissant et dans la même famille.
 
         \n\nVous pouvez déplacer autant de cartes en une fois (si elles sont placées dans le bon ordre),
-        qu\'il y a d\'emplacements libres sur le tableau. Cela suis la règle qu\'une seule carte peut
+        qu\'il y a d\'emplacements libres sur le tableau. Cela suit la règle qu\'une seule carte peut
         être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n\'importe quelle carte,
-        celles-ci servent d\'intermédiaire.
+        celles-ci servent d\'intermédiaires.
 
         \n\nToutes les cartes peuvent être déposées
-        sur un emplacement libre du tableau et seulent les As peuvent être placés sur une pile de base vide.
+        sur un emplacement libre du tableau et seules les As peuvent être placés sur une pile de base vide.
         \n\nEn appuyant sur le talon, une carte est retournée sur la défausse ; vous pouvez la jouer à
         partir de là.\n\nSi le talon devient vide, vous pouvez encore appuyer dessus pour déplacer les cartes
         de la défausse dans le talon ; cela n\'est possible qu\'une seule fois par partie. Le nombre de
-        fois où il est encore possible d\'effectuer ce mouvement est affiché en petit au dessus du talon.</string>
+        fois où il est encore possible d\'effectuer ce mouvement est affiché en petit au-dessus du talon.</string>
     <string name="manual_FortyEight_scoring">Mettre une carte sur une pile de base : +45\n\nRemettre une
         carte d\'une base sur la tableau : -60\n\nDéplacer une carte de la défausse sur le tableau : +60
         \n\nRemettre toutes les cartes de la défausse dans la pioche : -200</string>
@@ -234,7 +234,7 @@
         autres cartes déplaçables. Par exemple, s\'il y a un 5 et un 10 de cœur en haut de deux colonnes,
         alors vous pouvez mettre le 5 dans la pile de base. Les As ont la plus haute valeur.
         \n\nToutes les cartes déplaçables peuvent être mises sur une emplacement libre du tableau.
-        \n\nAppuyer sur le talon pour retourner une nouvelle carte sur chacunes des colonnes.</string>
+        \n\nAppuyer sur le talon pour retourner une nouvelle carte sur chacune des colonnes.</string>
     <string name="manual_AcesUp_scoring">Mettre une carte dans la pile de base : +50</string>
 
     <!-- Canfield -->
@@ -242,11 +242,11 @@
         1 talon, 1 défausse, 1 réserve.</string>
     <string name="manual_Canfield_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
     <string name="manual_Canfield_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
-        les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
+        les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.
-        \n\nLes colonnes vident du tableau sont remplies automatiquement par une carte de la pile de réserve.
+        \n\nLes colonnes vides du tableau sont remplies automatiquement par une carte de la pile de réserve.
         Si la réserve est vide, une carte du talon sera utilisée.
-        \n\nLa valeur de la premier carte sur la fondation définira quelle valeur de carte doit être
+        \n\nLa valeur de la première carte sur la fondation définira quelle valeur de carte doit être
         placée pour commencer les piles de fondation vides. Par exemple, en début de partie : si un 10 de cœur est retourné sur
         la fondation, seules les cartes de la valeur 10 peuvent être placées sur des champs de fondation
         vides. Les cartes sur la fondation peuvent être placées cycliquement, donc il est possible de jouer un as sur un roi.
@@ -271,29 +271,27 @@
         ordre décroissant, la famille n\'ayant pas d\'importance. Sur les bases, les cartes ne peuvent
         être placées que par ordre croissant et dans la même famille. Les As peuvent être placés au-dessus des rois.
 
-        \n\nVous pouvez déplacer autant de cartes désirée à la fois (si la pile est dans le bon ordre),
-        qu\'il y a d\'emplacements libres sur le tableau. Cela suis la règle qu\'une seule carte peut
+        \n\nVous pouvez déplacer autant de cartes désirées à la fois (si la pile est dans le bon ordre),
+        qu\'il y a d\'emplacements libres sur le tableau. Cela suit la règle qu\'une seule carte peut
         être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n\'importe quelle carte,
-        ceux-ci servent d\'intermédiaire.
+        ceux-ci servent d\'intermédiaires.
        </string>
     <string name="manual_GrandfathersClock_scoring">Du tableau à une pile de base : +50</string>
 
-    <!-- new values -->
     <!-- Vegas -->
-    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-    <string name="manual_Vegas_objective">Play cards to the foundation to win more money.</string>
-    <string name="manual_Vegas_rules">The rules are identical to the \"Klondike\"-Rules.
+    <string name="manual_Vegas_objective">Déplacer les cartes vers la fondation pour gagner de l'argent.</string>
+    <string name="manual_Vegas_rules">Les règles sont les mêmes que pour le jeu \"Klondike\".
         \n\nLes cartes doivent être placées sur le tableau par ordre décroissant en alternant
-        les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
+        les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.\n\nSeuls les rois peuvent être placés sur une colonne vide du tableau
         et seuls les As peuvent être placés sur les piles de base vides.\n\nEn appuyant sur le talon, les cartes sont retournées
         sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l\'application.
         Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée.
         Si \"Donner 3 cartes\" est activé, 3 cartes seront retournées à la fois.\n\nSi le talon se vide, vous pouvez encore
         appuyer dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser.</string>
-    <string name="manual_Vegas_scoring">The amount of money you win depends on the bet you set up in the settings.
-        You pay eg. 50$ at the beginning of the game, and with every card played to the foundation you win 1/10 of the bet.
-        \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2/10 of the bet.
-        \n\nUsing the hint or undo functions will also cost 1/10 of the bet.
-        \n\nDISCLAIMER: You do not play for real money in this game :)</string>
+    <string name="manual_Vegas_scoring">L'agent gagné dépend du pari défini dans le paramétrage.
+        Vous payez par exemple 50$ au début de la partie et, avec chaque carte déplacée vers la fondation, vous gagnez 1/10 du pari.
+        \n\nUne partie sera gagnée quand les gains dépassent le pari (score supérieur à 0). Déplacer des cartes depuis la fondation coûte 2/10 du pari.
+        \n\nUtiliser un indice ou le bouton \"Annuler\" coûte également 1/10 du pari.
+        \n\nAVERTISSEMENT: Vous ne gagnerez pas vraiment d'argent dans ce jeu :)</string>
 </resources>

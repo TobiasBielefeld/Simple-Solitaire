@@ -12,7 +12,7 @@
     <string name="game_confirm">Confirmer</string>
     <string name="game_auto_complete_text">Finir automatiquement</string>
     <string name="game_press_again">Appuyer encore pour sortir</string>
-    <string name="game_load_error">Chargement des données échoué, démarrage d\'une nouvelle partie…</string>
+    <string name="game_load_error">Echec du chargement des données, démarrage d\'une nouvelle partie…</string>
     <string name="game_close">Fermer le jeu</string>
     <string name="game_main_menu">Menu principal</string>
 
@@ -50,6 +50,6 @@
 
     <!-- new values -->
     <!-- game stuff -->
-    <string name="canfield_longest_run">Longest sequence:</string> <!-- also used by golf -->
+    <string name="canfield_longest_run">Plus longue série :</string> <!-- also used by golf -->
 
 </resources>

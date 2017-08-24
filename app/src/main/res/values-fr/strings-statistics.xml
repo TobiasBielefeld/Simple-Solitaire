@@ -3,10 +3,10 @@
 <resources>
     <string name="title_activity_statistics">Meilleurs scores</string>
 
-    <string name="statistics_text_won_games">Remporté %1$d fois de %2$d jeux</string><!-- %1$d and %2$d are placeholders for the values-->
+    <string name="statistics_text_won_games">Remporté %1$d fois sur %2$d parties</string><!-- %1$d and %2$d are placeholders for the values-->
     <string name="statistics_win_percentage">Votre taux de victoire: %1$.0f%%</string> <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
-    <string name="statistics_button_delete">Supprimer tout!</string>
-    <string name="statistics_button_delete_text">Supprimer toutes les données pour ce type de jeu ! Êtes-vous sûre ?</string>
+    <string name="statistics_button_delete">Supprimer tout !</string>
+    <string name="statistics_button_delete_text">Supprimer toutes les données pour ce type de jeu ! Êtes-vous sûr ?</string>
     <string name="statistics_button_deleted_all_entries">Tout a été supprimé</string>
 
     <string name="statistics_time_of_day">Heure</string>
