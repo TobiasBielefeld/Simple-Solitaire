@@ -105,8 +105,8 @@
         croissant n\'importe où sur le tableau. Une fois complétée, une famille sera automatiquement déplacée
         sur une pile de base.</string>
     <string name="manual_Spider_rules">Les cartes peuvent être placées sur n\'importe quelle autre tant
-        que l\'on suit l\'ordre croissant. Mais seul les sequences d\'une même famille peuvent être déplacées
-        en une seule fois.\n\nToutes les cartes peuvent être placées sur des emplacement libres du tableau
+        que l\'on suit l\'ordre croissant. Mais seules les séquences d\'une même famille peuvent être déplacées
+        en une seule fois.\n\nToutes les cartes peuvent être placées sur des emplacements libres du tableau
         \n\nAppuyer sur le talon pour ajouter une carte à chaque colonne du tableau.</string>
     <string name="manual_Spider_scoring">Déplacer une famille de carte sur une pile de base : +200\n\nRetourner
         une série de cartes : +25</string>
