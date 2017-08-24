@@ -234,7 +234,7 @@
         autres cartes déplaçables. Par exemple, s\'il y a un 5 et un 10 de cœur en haut de deux colonnes,
         alors vous pouvez mettre le 5 dans la pile de base. Les As ont la plus haute valeur.
         \n\nToutes les cartes déplaçables peuvent être mises sur une emplacement libre du tableau.
-        \n\nAppuyer sur le talon pour retourner une nouvelle carte sur chacunes des colonnes.</string>
+        \n\nAppuyer sur le talon pour retourner une nouvelle carte sur chacune des colonnes.</string>
     <string name="manual_AcesUp_scoring">Mettre une carte dans la pile de base : +50</string>
 
     <!-- Canfield -->
