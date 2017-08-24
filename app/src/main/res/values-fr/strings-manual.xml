@@ -242,11 +242,11 @@
         1 talon, 1 défausse, 1 réserve.</string>
     <string name="manual_Canfield_objective">Empiler toutes les cartes d\'une même famille par ordre croisant sur les piles de base.</string>
     <string name="manual_Canfield_rules">Les cartes doivent être placées sur le tableau par ordre décroissant en alternant
-        les couleurs. Vous pouvez déplacer un ensemble de cartes à la fois. Sur les bases, les cartes peuvent être placées uniquement
+        les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement
         par ordre croissant et dans la même famille.
-        \n\nLes colonnes vident du tableau sont remplies automatiquement par une carte de la pile de réserve.
+        \n\nLes colonnes vides du tableau sont remplies automatiquement par une carte de la pile de réserve.
         Si la réserve est vide, une carte du talon sera utilisée.
-        \n\nLa valeur de la premier carte sur la fondation définira quelle valeur de carte doit être
+        \n\nLa valeur de la première carte sur la fondation définira quelle valeur de carte doit être
         placée pour commencer les piles de fondation vides. Par exemple, en début de partie : si un 10 de cœur est retourné sur
         la fondation, seules les cartes de la valeur 10 peuvent être placées sur des champs de fondation
         vides. Les cartes sur la fondation peuvent être placées cycliquement, donc il est possible de jouer un as sur un roi.
