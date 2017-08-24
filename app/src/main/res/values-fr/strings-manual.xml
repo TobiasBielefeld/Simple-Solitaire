@@ -141,15 +141,15 @@
     <string name="manual_Pyramid_objective">Mettre toutes les cartes du tableau dans la défausse.
         Selon le réglage, toutes les cartes de la pioche et de la défausse doivent être placées dans
         l\'écart.</string>
-    <string name="manual_Pyramid_rules">Ce jeu a des régles très différentes des autres jeux de Solitaire.
+    <string name="manual_Pyramid_rules">Ce jeu a des règles très différentes des autres jeux de Solitaire.
         Toutes les cartes non couvertes par une autre peuvent être jouées. Deux cartes peuvent être placées
         dans l\'écart lorsque la somme de leurs valeurs vaut 13. Pour cela, il suffit de déplacer l\'une des deux
         cartes sur l\'autre. Si leur somme est correcte, les deux cartes seront placées dans l\'écart.
-        \n\nIl est possible d\'utiliser les cartes de la pioche et de la défausse. Si aucunes paires n\'est
+        \n\nIl est possible d\'utiliser les cartes de la pioche et de la défausse. Si aucune paire n\'est
         disponible, appuyer sur la flêche entre la pioche et la défausse pour retourner une nouvelle
-        carte. Si le pioche est vide, appuyer de nouveau sur la flêche pour déplacer les cartes de la
+        carte. Si la pioche est vide, appuyer de nouveau sur la flêche pour déplacer les cartes de la
         défausse dans la pioche ; cela n\'est possible que deux fois par partie. Le nombre restant
-        où cela est encore possible est affiché en petit, au dessus de la flêche.</string>
+        où cela est encore possible est affiché en petit, au-dessus de la flêche.</string>
     <string name="manual_Pyramid_scoring">Déplacer une carte dans l\'écart : +50\n\nRemettre toutes les cartes
         de la défausse dans la pioche : -200</string>
 
