@@ -129,8 +129,8 @@
     <string name="manual_Golf_objective">Mettre toutes les cartes du tableau dans la défausse.</string>
     <string name="manual_Golf_rules">Toutes les cartes en haut d\'une colonne peuvent être utilisées.
         Les cartes peuvent être déplacées dans la défausse en suivant l\'ordre croissant ou décroissant
-        quelque soit leur couleur.\n\nSelon le réglage, vous pouvez placer un roi sur un As, et inversement
-        (ce qui est le plus facile).\n\nSi auncunes cartes ne peuvent être déplacées, appuyer de nouveau sur le talon
+        quelle que soit leur couleur.\n\nSelon le réglage, vous pouvez placer un roi sur un As, et inversement
+        (ce qui est le plus facile).\n\nSi auncune carte ne peut être déplacée, appuyer de nouveau sur le talon
         pour ajouter une nouvelle carte à la défausse.</string>
     <string name="manual_Golf_scoring">Placer une carte dans la défause : +50</string>
 
