@@ -95,7 +95,7 @@ Also think of the other aspects of the GPL license!
 ## Translations
 Thanks to the following persons for providing translations :D
 - Esperanto and Polish: verdulo
-- French: romainhk
+- French: romainhk and cicithesquirrel
 - Japanese: naofum
 - Finnish: winjar
 
