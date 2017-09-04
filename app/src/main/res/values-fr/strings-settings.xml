@@ -78,7 +78,6 @@
 
     <string name="settings_background_color_custom">Personnaliser</string>
 
-    <!-- new values -->
     <string name="settings_double_tap_foundation_first">Déplacer vers la pile de fondation en premier</string>
     <string name="settings_double_tap_foundation_first_text">Essayer de déplacer la carte du dessus de la pile appuyée vers la fondation, avant de déplacer les autres cartes</string>
     <string name="settings_movement_speed">Vitesse de mouvement des cartes</string>
@@ -86,8 +85,8 @@
     <string name="Settings_sounds_title">Sons</string>
     <string name="Settings_sounds_text">Activer les sons, configurer les effets sonores</string>
     <string name="Settings_win_sound_title">Effet sonore en cas de victoire</string>
-    <string name="Settings_background_music">Musique d'ambiance</string>
-    <string name="Settings_background_volume">Volume de la musique d'ambiance</string>
+    <string name="Settings_background_music">Musique d\'ambiance</string>
+    <string name="Settings_background_volume">Volume de la musique d\'ambiance</string>
 
     <string name="settings_limit_number_of_recycles">Limitation du nombre de donnes</string>
     <string name="settings_limit_number_of_recycles_text">Le retour des cartes de la défausse dans le talon est limité</string>
@@ -98,8 +97,8 @@
     <string name="settings_vegas_bet_amount_summary">Donne initiale : -%1$d$, carte vers la fondation : +%2$d$</string>
 
     <string name="settings_menu_order_title">Ordre du menu</string>
-    <string name="settings_menu_order_summary">Restez appuyé sur un élément et glissez-le ensuite pour modifier l'ordre du menu</string>
-    <string name="settings_menu_order_set_default">Réinitialiser l'ordre</string>
+    <string name="settings_menu_order_summary">Restez appuyé sur un élément et glissez-le ensuite pour modifier l\'ordre du menu</string>
+    <string name="settings_menu_order_set_default">Réinitialiser l\'ordre</string>
 
     <string name="settings_auto_start_new_game_title">Démarre une nouvelle partie en cas de victoire</string>
     <string name="settings_auto_start_new_game_text">En cas de retour vers un jeu gagné, démarrer automatiquement un nouvelle partie</string>

@@ -31,7 +31,6 @@
     <string name="about_custom_color_picker">Le sélecteur de couleur personnalisé : utilisation de la <a href="https://github.com/yukuku/ambilwarna">bibliothèque AmbilWarna</a>
         publiée sous licence <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
 
-    <!-- new values -->
-    <string name="about_sounds">Tous les sons ont été publiés à l'origine sur <a href="https://freesound.org">freesound.org</a> sous la licence
+    <string name="about_sounds">Tous les sons ont été publiés à l\'origine sur <a href="https://freesound.org">freesound.org</a> sous la licence
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
 </resources>

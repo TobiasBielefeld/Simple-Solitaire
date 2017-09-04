@@ -279,7 +279,7 @@
     <string name="manual_GrandfathersClock_scoring">Du tableau à une pile de base : +50</string>
 
     <!-- Vegas -->
-    <string name="manual_Vegas_objective">Déplacer les cartes vers la fondation pour gagner de l'argent.</string>
+    <string name="manual_Vegas_objective">Déplacer les cartes vers la fondation pour gagner de l\'argent.</string>
     <string name="manual_Vegas_rules">Les règles sont les mêmes que pour le jeu \"Klondike\".
         \n\nLes cartes doivent être placées sur le tableau par ordre décroissant en alternant
         les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement
@@ -289,9 +289,9 @@
         Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée.
         Si \"Donner 3 cartes\" est activé, 3 cartes seront retournées à la fois.\n\nSi le talon se vide, vous pouvez encore
         appuyer dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser.</string>
-    <string name="manual_Vegas_scoring">L'agent gagné dépend du pari défini dans le paramétrage.
+    <string name="manual_Vegas_scoring">L\'agent gagné dépend du pari défini dans le paramétrage.
         Vous payez par exemple 50$ au début de la partie et, avec chaque carte déplacée vers la fondation, vous gagnez 1/10 du pari.
         \n\nUne partie sera gagnée quand les gains dépassent le pari (score supérieur à 0). Déplacer des cartes depuis la fondation coûte 2/10 du pari.
         \n\nUtiliser un indice ou le bouton \"Annuler\" coûte également 1/10 du pari.
-        \n\nAVERTISSEMENT: Vous ne gagnerez pas vraiment d'argent dans ce jeu :)</string>
+        \n\nAVERTISSEMENT: Vous ne gagnerez pas vraiment d\'argent dans ce jeu :)</string>
 </resources>
