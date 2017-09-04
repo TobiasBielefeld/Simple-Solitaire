@@ -264,7 +264,7 @@ public class Klondike extends Game {
         }
 
         //for deal3 mode, discard and main stack have to be empty too
-        if (!sharedStringEqualsDefault(PREF_KEY_DRAW_OLD, DEFAULT_DRAW)) {
+        if (!sharedStringEqualsDefault(PREF_KEY_DRAW_OLD, DEFAULT_DRAW) || hasLimitedRecycles()) {
             if (getMainStack().getSize()>0 || getDiscardStack().getSize()>0){
                 return false;
             }
