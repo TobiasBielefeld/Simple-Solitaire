@@ -7,6 +7,12 @@
         <item>Powrót do menu głównego</item>
     </string-array>
 
+    <string-array name="won_menu">
+        <item>Rozpocznij nową grę</item>
+        <item>Ponownie rozdaj karty</item>
+        <item>Powrót do menu głównego</item>
+    </string-array>
+
     <string-array name="pref_orientation_titles">
         <item>Ustawienia systemu</item>
         <item>Pionowa</item>

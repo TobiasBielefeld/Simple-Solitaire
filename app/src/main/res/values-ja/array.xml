@@ -7,6 +7,12 @@
         <item>メインメニューに戻る</item>
     </string-array>
 
+    <string-array name="won_menu">
+        <item>新しいゲームを開始する</item>
+        <item>カードをもう一度配る</item>
+        <item>メインメニューに戻る</item>
+    </string-array>
+
     <string-array name="pref_orientation_titles">
         <item>システム設定に従う</item>
         <item>縦向き</item>

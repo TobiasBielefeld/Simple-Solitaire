@@ -50,7 +50,7 @@ public class HandlerAfterWon extends Handler {
                 animate.handlerAfterWon.sendEmptyMessageDelayed(0, 100);
             } else {
                 phase = 2;
-                gm.showRestartDialog();
+                gm.showWonDialog();
             }
         }
     }

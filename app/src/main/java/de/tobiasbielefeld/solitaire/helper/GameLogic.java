@@ -202,17 +202,11 @@ public class GameLogic {
      */
     public void testIfWon() {
         if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
-
-            new Thread(new Runnable() {
-                public void run() {
-                    numberWonGames++;
-                    scores.updateBonus();
-                    scores.addNewHighScore();
-                    recordList.reset();
-                    timer.setWinningTime();
-                }
-            }).start();
-
+            numberWonGames++;
+            scores.updateBonus();
+            scores.addNewHighScore();
+            recordList.reset();
+            timer.setWinningTime();
             autoComplete.hideButton();
             animate.winAnimation();
             won = true;

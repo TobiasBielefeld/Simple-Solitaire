@@ -51,5 +51,11 @@
     <!-- game stuff -->
     <string name="canfield_longest_run">最長シーケンス:</string> <!-- also used by golf -->
 
+    <!-- dialog won-->
+    <string name="dialog_win_titel">おめでとう！</string>
+    <string name="dialog_win_score">スコア: %1$d</string>
+    <string name="dialog_win_bonus">ボーナス: %1$d</string>
+    <string name="dialog_win_total">合計: %1$d</string>
+
 
 </resources>

@@ -42,14 +42,11 @@ import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogRestart;
+import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
-import de.tobiasbielefeld.solitaire.helper.CardHighlight;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
-import de.tobiasbielefeld.solitaire.helper.Hint;
-import de.tobiasbielefeld.solitaire.helper.MovingCards;
-import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.helper.Timer;
@@ -620,6 +617,19 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             dialogRestart.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e){
             Log.e("showRestartDialog: ", e.toString());
+        }
+    }
+
+    /*
+    * do not show the dialog while the activity is paused. This would cause a force close
+    */
+    public void showWonDialog() {
+
+        try {
+            DialogWon dialogWon = new DialogWon();
+            dialogWon.show(getSupportFragmentManager(), WON_DIALOG);
+        } catch (Exception e){
+            Log.e("showWonDialog: ", e.toString());
         }
     }
 

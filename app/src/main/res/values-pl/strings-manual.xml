@@ -15,6 +15,9 @@
     <string name="manual_ui">Interfejs użytkownika</string>
     <string name="page_load_error">Strona tej gry nie jest dostępna…</string>
 
+	<!-- new value, translated with google -->
+	<string name="manual_bonus">Po wygraniu gry dostajesz bonus: Im szybciej wygrasz, tym wyższy bonus.</string>
+
     <!-- Feedback -->
     <string name="manual_open_google_play">Otwórz Google Play</string>
     <string name="manual_open_github">Otwórz GitHub Repo</string>

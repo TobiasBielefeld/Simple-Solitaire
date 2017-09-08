@@ -7,6 +7,12 @@
         <item>Revenir au menu principal</item>
     </string-array>
 
+    <string-array name="won_menu">
+        <item>Démarrer une nouvelle partie</item>
+        <item>Redistribuer les cartes</item>
+        <item>Revenir au menu principal</item>
+    </string-array>
+
     <string-array name="pref_orientation_titles">
         <item>Suivre les préférences système</item>
         <item>Portrait</item>

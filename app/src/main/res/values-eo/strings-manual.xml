@@ -15,6 +15,9 @@
     <string name="manual_ui">Fasado</string>
     <string name="page_load_error">Paĝo pri tiu ĉi ludo ne estas disponebla…</string>
 
+	<!-- new value, translated with google -->
+	<string name="manual_bonus">Post gajni la ludon vi ricevas bonkonon: la pli rapide vi gajnos, pli alta la bonuson.</string>
+
     <!-- Feedback -->
     <string name="manual_open_google_play">Malfermi Google Play</string>
     <string name="manual_open_github">Malfermi paĝon je GitHub</string>

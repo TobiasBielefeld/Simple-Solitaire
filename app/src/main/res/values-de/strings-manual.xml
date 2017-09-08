@@ -14,6 +14,7 @@
     <string name="manual_open_google_play">Öffne Google Play</string>
     <string name="manual_open_github">Öffne GitHub Repo</string>
     <string name="page_load_error">Keine Seite für dieses Spiel verfügbar…</string>
+    <string name="manual_bonus">Wenn ein Spiel gewonnen ist, wird ein Bonus berechnet: Je schneller gewonnen wird, desto höher wird der Bonus.</string>
 
     <string name="manual_games_text1">Wähle ein Spiel aus um Aufbau, Ziel, Regeln und Punktzahlen anzuzeigen.</string>
     <string name="manual_startpage_text">Willkommen zum Handbuch von dieser Spiele-Sammlung! Ich hoffe

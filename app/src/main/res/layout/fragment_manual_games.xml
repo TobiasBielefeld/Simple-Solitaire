@@ -120,6 +120,13 @@
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
+            <TextView
+                android:id="@+id/manual_games_bonus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/manual_bonus" />
+
 
         </LinearLayout>
 

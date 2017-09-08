@@ -37,6 +37,8 @@ public class Scores {
     public final static int MAX_SAVED_SCORES = 10;                                                  //set how many scores will be saved and shown
 
     private long score;                                                                             //the current score
+    private long preBonus;
+    private long bonus;
     private long savedScores[][] = new long[MAX_SAVED_SCORES][3];                                   //array to hold the saved scores with score and time
     private GameManager gm;
 
@@ -132,12 +134,31 @@ public class Scores {
     }
 
     /**
+     * Updates the current score, but only if the game hasn't been won.
+     *
+     * @param points The points to add
+     */
+    public void update(long points) {
+        if (gameLogic.hasWon())
+            return;
+
+        score += points;
+        output();
+    }
+
+    /**
      * Adds a bonus to the score, used after a game has been won
      */
     public void updateBonus() {
-        if (currentGame.isBonusEnabled()) {
-            int bonus = max((int) (2 * score - (5 * timer.getCurrentTime() / 1000)), 0);
+        long currentTime =  timer.getCurrentTime();                                          //in seconds
+        preBonus = score;
+
+        if (currentGame.isBonusEnabled() && currentTime>0) {
+            bonus = 20 * (score/currentTime);
+            //bonus = max((int) (2 * score - (5 * timer.getCurrentTime() / 1000)), 0);
             update(bonus);
+        } else {
+            bonus = 0;
         }
     }
 
@@ -190,7 +211,7 @@ public class Scores {
             while (index > 0 && (savedScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
                     || savedScores[index - 1][0] < savedScores[index][0]                            //or the score at index is less than the score before it
                     || (savedScores[index - 1][0] == savedScores[index][0]                          //or the scores are the same...
-                    && savedScores[index - 1][1] >= savedScores[index][1]))) {                       //but the time is less
+                    && savedScores[index - 1][1] >= savedScores[index][1]))) {                      //but the time is less
                 long dummy[] = savedScores[index];
                 savedScores[index] = savedScores[index - 1];
                 savedScores[index - 1] = dummy;
@@ -225,6 +246,8 @@ public class Scores {
      */
     public void reset() {
         score = 0;
+        preBonus = 0;
+        bonus = 0;
         output();
     }
 
@@ -257,5 +280,17 @@ public class Scores {
                         gm.getString(R.string.game_score), score, dollar));
             }
         });
+    }
+
+    public long getScore(){
+        return score;
+    }
+
+    public long getPreBonus(){
+        return preBonus;
+    }
+
+    public long getBonus(){
+        return bonus;
     }
 }

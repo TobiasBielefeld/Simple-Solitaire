@@ -14,6 +14,8 @@
     <string name="manual_main_menu">メインメニュー</string>
     <string name="manual_ui">ユーザーインターフェース</string>
     <string name="page_load_error">このゲームのページはありません…</string>
+    <string name="manual_bonus">ゲームに勝った後、あなたはボーナスを得る：速く勝つほど、ボーナスは高くなる。</string>
+
 
     <!-- Feedback -->
     <string name="manual_open_github">GitHubリポジトリを開く</string>

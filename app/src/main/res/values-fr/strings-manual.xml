@@ -14,6 +14,7 @@
     <string name="manual_main_menu">Menu principal</string>
     <string name="manual_ui">Interface utilisateur</string>
     <string name="page_load_error">Pas de pages pour ce jeu disponible…</string>
+    <string name="manual_bonus">Après avoir gagné un jeu, vous obtenez un bonus: plus vous gagnez, plus le bonus sera élevé.</string>
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Ouvrir Google Play</string>

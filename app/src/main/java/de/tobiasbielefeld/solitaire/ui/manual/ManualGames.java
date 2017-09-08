@@ -50,7 +50,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
     private static int COLUMNS = 2;
 
     private ScrollView layout1, scrollView;
-    private TextView textName, textStructure, textObjective, textRules, textScoring;
+    private TextView textName, textStructure, textObjective, textRules, textScoring, textBonus;
     private Toast toast;
 
     @Override
@@ -66,6 +66,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         textObjective = (TextView) view.findViewById(R.id.manual_games_objective);
         textRules = (TextView) view.findViewById(R.id.manual_games_rules);
         textScoring = (TextView) view.findViewById(R.id.manual_games_scoring);
+        textBonus = (TextView) view.findViewById(R.id.manual_games_bonus);
 
         layout1.setVisibility(View.VISIBLE);
         scrollView.setVisibility(View.GONE);
@@ -141,6 +142,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
             textObjective.setText(getString(getResources().getIdentifier("manual_" + gameName + "_objective", "string", getActivity().getPackageName())));
             textRules.setText(getString(getResources().getIdentifier("manual_" + gameName + "_rules", "string", getActivity().getPackageName())));
             textScoring.setText(getString(getResources().getIdentifier("manual_" + gameName + "_scoring", "string", getActivity().getPackageName())));
+            textBonus.setVisibility(currentGame.isBonusEnabled() ? View.VISIBLE : View.GONE);
 
             //when the back button is pressed, it should return to the main page from the games, not to the start page.
             //this way is easier than implementing an interface to control what happens in onBackPressed()
@@ -153,8 +155,6 @@ public class ManualGames extends Fragment implements View.OnClickListener {
             Log.e("Manual page not found", e.toString());
             showToast(getString(R.string.page_load_error));
         }
-
-
     }
 
     public void showToast(final String text) {

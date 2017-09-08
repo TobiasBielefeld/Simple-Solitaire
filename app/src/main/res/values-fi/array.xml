@@ -7,6 +7,12 @@
         <item>Palaa päävalikkoon</item>
     </string-array>
 
+    <string-array name="won_menu">
+        <item>Aloita uusi peli</item>
+        <item>Jaa kortit uudelleen</item>
+        <item>Palaa päävalikkoon</item>
+    </string-array>
+
     <string-array name="pref_orientation_titles">
         <item>Seuraa järjestelmän asetuksia</item>
         <item>Pystysuunta</item>

@@ -83,6 +83,7 @@ public class SharedData {
     public static String MENU_COLUMNS_LANDSCAPE;
     public static String CANFIELD_START_CARD_VALUE;
     public static String RESTART_DIALOG;
+    public static String WON_DIALOG;
     public static String PREF_KEY_YUKON_RULES;
     public static String PREF_KEY_YUKON_RULES_OLD;
     public static String PREF_KEY_KLONDIKE_DRAW;
@@ -340,6 +341,7 @@ public class SharedData {
         GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
 
         RESTART_DIALOG = res.getString(R.string.restart_dialog);
+        WON_DIALOG = res.getString(R.string.won_dialog);
         CANFIELD_START_CARD_VALUE = res.getString(R.string.canfield_start_value);
         SCORE = res.getString(R.string.score);
         SAVED_SCORES = res.getString(R.string.saved_scores);

@@ -14,6 +14,7 @@
     <string name="manual_main_menu">Päävalikko</string>
     <string name="manual_ui">Käyttöliittymä</string>
     <string name="page_load_error">Tälle pelille ei ole sivua…</string>
+    <string name="manual_bonus">Pelin voittamisen jälkeen saat bonuksen: Mitä nopeammin voitat, sitä korkeampi bonus on.</string>
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Avaa Google Play</string>

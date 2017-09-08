@@ -51,4 +51,10 @@
     <!-- game stuff -->
     <string name="canfield_longest_run">Plus longue série :</string> <!-- also used by golf -->
 
+    <!-- dialog won-->
+    <string name="dialog_win_titel">Félicitation!</string>
+    <string name="dialog_win_score">Points: %1$d</string>
+    <string name="dialog_win_bonus">Prime: %1$d</string>
+    <string name="dialog_win_total">Total: %1$d</string>
+
 </resources>
