@@ -280,6 +280,7 @@
     <string name="manual_GrandfathersClock_scoring">Du tableau à une pile de base : +50</string>
 
     <!-- Vegas -->
+    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
     <string name="manual_Vegas_objective">Déplacer les cartes vers la fondation pour gagner de l\'argent.</string>
     <string name="manual_Vegas_rules">Les règles sont les mêmes que pour le jeu \"Klondike\".
         \n\nLes cartes doivent être placées sur le tableau par ordre décroissant en alternant
