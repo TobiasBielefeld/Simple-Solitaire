@@ -153,7 +153,7 @@ public class Scores {
         long currentTime =  timer.getCurrentTime();                                          //in seconds
         preBonus = score;
 
-        if (currentGame.isBonusEnabled() && currentTime>0) {
+        if (currentGame.isBonusEnabled() && currentTime>0 && score>0) {
             bonus = 20 * (score/currentTime);
             //bonus = max((int) (2 * score - (5 * timer.getCurrentTime() / 1000)), 0);
             update(bonus);
