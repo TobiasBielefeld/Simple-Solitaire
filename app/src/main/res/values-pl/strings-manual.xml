@@ -14,9 +14,7 @@
     <string name="manual_main_menu">Menu główne</string>
     <string name="manual_ui">Interfejs użytkownika</string>
     <string name="page_load_error">Strona tej gry nie jest dostępna…</string>
-
-	<!-- new value, translated with google -->
-	<string name="manual_bonus">Po wygraniu gry dostajesz bonus: Im szybciej wygrasz, tym wyższy bonus.</string>
+    <string name="manual_bonus">Po wygraniu gry dostajesz bonus: im szybciej wygrasz, tym wyższy bonus dostajesz.</string>
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Otwórz Google Play</string>
@@ -218,6 +216,6 @@
 	\n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
 	<string name="manual_Vegas_scoring">Ilość wygranych pieniędzy jest zależna od wysokości zakładu konfigurowalnego w opcjach. Płacisz np. 50$ za rozdanie i za każdą kartę umieszczoną na stosie bazowym otrzymujesz 1/10 kwoty zakładu.
         \n\nGra zostanie uznana jako wygrana wtedy, gdy zdobędziesz więcej niż 0 punktów. Przeniesienie karty ze stosu bazowego kosztuje 2/10 kwoty zakładu.
-		\n\nUUżycie podpowiedzi lub cofnięcie także kossztuje 1/10 kwoty zakład.
+		\n\nUżycie podpowiedzi lub cofnięcie także kosztuje 1/10 kwoty zakładu.
         \n\nNOTA: nie grasz o prawdziwą kasę w tej grze :)</string>
 </resources>
