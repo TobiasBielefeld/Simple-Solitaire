@@ -54,9 +54,9 @@
     <string name="canfield_longest_run">Najdłuższa seria:</string> <!-- also used by golf -->
 
     <!-- dialog won-->
-    <string name="dialog_win_titel">Gratulacja!</string>
+    <string name="dialog_win_titel">Gratulacje!</string>
     <string name="dialog_win_score">Punkty: %1$d</string>
     <string name="dialog_win_bonus">Premia: %1$d</string>
-    <string name="dialog_win_total">Całkowity: %1$d</string>
+    <string name="dialog_win_total">Ogółem: %1$d</string>
 
 </resources>
