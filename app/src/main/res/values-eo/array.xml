@@ -45,6 +45,7 @@
         <item>de</item>
         <item>ja</item>
         <item>pl</item>
+        <item>tr</item>
     </string-array>
 
     <string-array name="pref_language_titles">
@@ -56,6 +57,7 @@
         <item>Germana</item>
         <item>Japana</item>
         <item>Pola</item>
+        <item>Turka</item>
     </string-array>
 
     <string-array name="pref_yukon_rules_titles">

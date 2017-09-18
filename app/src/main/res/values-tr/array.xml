@@ -52,7 +52,7 @@
     </string-array>
 
     <string-array name="pref_yukon_rules_values" translatable="false">
-        <item>default</item>
+        <item>varsayılan</item>
         <item>russian</item>
     </string-array>
 
@@ -82,43 +82,43 @@
     </string-array>
 
     <string-array name="restart_menu">
-        <item>Start new game</item>
-        <item>Give cards again</item>
-        <item>Game rules</item>
-        <item>Return to main menu</item>
+        <item>Yeni oyun</item>
+        <item>Tekrar kart ver</item>
+        <item>Oyun kuralları</item>
+        <item>Anasayfaya geri dön</item>
     </string-array>
 
     <string-array name="won_menu">
-        <item>Start new game</item>
-        <item>Give cards again</item>
-        <item>Return to main menu</item>
+        <item>Yeni oyun</item>
+        <item>Tekrar kart ver</item>
+        <item>Anasayfaya geri dön</item>
     </string-array>
 
     <string-array name="pref_orientation_titles">
-        <item>Follow system settings</item>
-        <item>Portrait</item>
-        <item>Landscape</item>
-        <item>Landscape upside down</item>
+        <item>Sistem ayarlarını uygula</item>
+        <item>Dikey</item>
+        <item>Yatay</item>
+        <item>Ters Yatay</item>
     </string-array>
 
     <string-array name="pref_spider_difficulty_titles">
-        <item>1 (Easy)</item>
-        <item>2 (Medium)</item>
-        <item>4 (Hard)</item>
+        <item>1 (Kolay)</item>
+        <item>2 (Normal)</item>
+        <item>4 (Zor)</item>
     </string-array>
 
     <string-array name="pref_draw_titles">
-        <item>Draw 1</item>
-        <item>Draw 3</item>
+        <item>1 Kart</item>
+        <item>3 Kart</item>
     </string-array>
 
     <string-array name="pref_pyramid_difficulty_titles">
-        <item>Easy: Game is won when tableau is empty</item>
-        <item>Hard: Game is won when tableau and stock are empty</item>
+        <item>Kolay: Tablo boşaldığında oyun kazanılır</item>
+        <item>Hard: Tablo ve stok boşaldığında oyun kazanılır</item>
     </string-array>
 
     <string-array name="pref_language_titles">
-        <item>Default language</item>
+        <item>Varsayılan Dil</item>
         <item>English</item>
         <item>Esperanto</item>
         <item>Finnish</item>
@@ -126,11 +126,11 @@
         <item>German</item>
         <item>Japanese</item>
         <item>Polish</item>
-        <item>Turkish</item>
+        <item>Türkçe</item>
     </string-array>
 
     <string-array name="pref_language_values">
-        <item>default</item>
+        <item>varsayılan</item>
         <item>en</item>
         <item>eo</item>
         <item>fi</item>
@@ -142,8 +142,8 @@
     </string-array>
 
     <string-array name="pref_yukon_rules_titles">
-        <item>different colors (Default)</item>
-        <item>same suit (Russian Solitaire)</item>
+        <item>farklı renkler (Varsayılan)</item>
+        <item>aynı takım (Rus)</item>
     </string-array>
 
     <string-array name="pref_movement_speed_titles">
@@ -154,18 +154,18 @@
     </string-array>
 
     <string-array name="pref_win_sounds_titles">
-        <item>Default</item>
+        <item>Varsayılan</item>
         <item>Piano</item>
-        <item>8-Bit voice \"You win\"</item>
-        <item>Cheering crowd</item>
+        <item>8-Bit ses \"You win\"</item>
+        <item>Kalabalığın Tezahüratı</item>
     </string-array>
 
     <string-array name="pref_background_musics_titles">
-        <item>Disabled</item>
-        <item>Theme 1</item>
-        <item>Theme 2</item>
-        <item>Theme 3</item>
-        <item>Music Box</item>
+        <item>Kapalı</item>
+        <item>Tema 1</item>
+        <item>Tema 2</item>
+        <item>Tema 3</item>
+        <item>Müzik Kutusu</item>
     </string-array>
 
 </resources>

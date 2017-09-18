@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- -->
+    <string name="title_activity_settings">Ayarlar</string>
+
+    <string name="settings_background_color">Arkaplan Rengi</string>
+    <string name="settings_hide_status_bar">Durum çubuğunu gizle</string>
+    <string name="settings_left_handed_mode">Solak modu</string>
+    <string name="settings_left_handed_mode_description">Kartı ve yığın konumlarını sol tarafa yerleştir</string>
+    <string name="settings_back_press">Oyunu kapatmayı onayla</string>
+    <string name="settings_back_press_description">Oyunu kapatmak için iki defa geri tuşuna bas</string>
+    <string name="settings_orientation">Ekran yönü</string>
+    <string name="settings_cards">Kartlar</string>
+    <string name="settings_classic">Klasik</string>
+    <string name="settings_simple">Temel</string>
+    <string name="settings_cards_back">Kart Arkaplanları</string>
+    <string name="settings_modern">Modern</string>
+    <string name="settings_abstract">Soyut</string>
+    <string name="settings_basic">Temel</string>
+    <string name="settings_oxygen_dark">Koyu oksijen</string>
+    <string name="settings_oxygen_light">Açık oksijen</string>
+    <string name="settings_poker">Poker</string>
+
+    <string name="settings_background">Arkaplan Sayısı</string>
+    <string name="settings_customization">Görünüm</string>
+    <string name="settings_customization_description">Kartları ve arkaplanı özelleştir</string>
+    <string name="settings_other">Genel</string>
+    <string name="settings_other_description">Diğer tüm ayarları kaydet</string>
+    <string name="settings_games">Oyunlar</string>
+    <string name="settings_games_description">Oyun çeşitleri için tercihleri ayarlama</string>
+    <string name="settings_spider_difficulty">Farklı kart çeşitlerinin sayısı</string>
+    <string name="settings_klondike_draw">Çekilecek kart sayısı</string>
+    <string name="settings_canfield_draw">Çekilecek kart sayısı</string>
+    <string name="settings_show_main_menu">Ana menüde başla</string>
+    <string name="settings_show_main_menu_description">Başlangıçta son oynanan oyuna dönme</string>
+    <string name="settings_golf_easy">Döngüsel hareketler (Daha Kolay)</string>
+    <string name="settings_golf_easy_description">Asları papazların üzerine ve papazları asların üzerine yerleştirmeye izin ver</string>
+    <string name="settings_restart_klondike">Değişikliği uygulamak için yeni bir Klondike oyununa başlayın</string>
+    <string name="settings_restart_canfield">Değişikliği uygulamak için yeni bir Canfield oyununa başlayın</string>
+    <string name="settings_restart_spider">Değişikliği uygulamak için yeni bir Spider oyununa başlayın</string>
+    <string name="settings_restart_vegas">Değişikliği uygulamak için yeni bir Vegas oyununa başlayın</string>
+    <string name="settings_restart_fortyeight">Değişikliği uygulamak için yeni bir Forty&amp;Eight oyununa başlayın</string>
+    <string name="settings_restart_yukon">Değişikliği uygulamak için yeni bir Yukon oyununa başlayın</string>
+    <string name="settings_menu">Ana menü</string>
+    <string name="settings_menu_description">Sütun sayısını değiştirme, oyunları gösterme ve gizleme</string>
+    <string name="settings_pyramid_difficulty">Zorluk</string>
+    <string name="settings_menu_columns">Sütun sayısı</string>
+    <string name="settings_menu_games">Oyunları göster ve gizle</string>
+    <string name="settings_menu_games_description">Menüde hangi oyunların gösterileceğini seçin</string>
+    <string name="settings_about_description">Lisanslar ve değişiklikler gibi oyun hakkında bilgi göster</string>
+    <string name="settings_show_manual_in_menu">Oyun menüsünde Kılavuz sayfası</string>
+    <string name="settings_show_manual_in_menu_description">Kılavuzda aktif oyunu açmak için bir öğe göster</string>
+    <string name="settings_change_language">Şu anki dil</string>
+    <string name="settings_yukon_rules">Karları şuraya yerleştir…</string>
+    <string name="settings_icon_theme">Simge Teması</string>
+    <string name="settings_menu_bar_position">Menü çubuğu yeri</string>
+    <string name="settings_menu_bar_position_top">Üst</string>
+    <string name="settings_menu_bar_position_bottom">Alt</string>
+    <string name="settings_menu_bar_position_left">Sol</string>
+    <string name="settings_menu_bar_position_right">Sağ</string>
+    <string name="settings_4_color_mode_title">4 renkli kart yığnı</string>
+    <string name="settings_4_color_mode_text">Sinekleri yeşil, karoları mavi renk yap</string>
+    <string name="settings_additional_movements">Ek oyun hareketleri</string>
+    <string name="settings_additional_movements_description">Çfit tıklama ve diğer hareket yöntemlerini aktif veya pasif yap</string>
+    <string name="settings_double_tap">Çift tıklama</string>
+    <string name="settings_double_tap_enable">Çift tıklama hareketlerini etkinleştir</string>
+    <string name="settings_double_tap_enable_text">Bir kartı olası başka bir yığına taşımak için çift tıkla</string>
+    <string name="settings_double_tap_all_cards">Tüm olası kartları taşıyın</string>
+    <string name="settings_double_tap_all_cards_text">Yığından yalnızca dokunulan kartı değil taşınabilen tüm kartları taşı</string>
+    <string name="settings_tap_to_select">Seçmek için dokun</string>
+    <string name="settings_tap_to_select_enable">Seçmek için dokun hareketlerini etkinleştir</string>
+    <string name="settings_tap_to_select_enable_text">Dokunarak bir kartı seçi sonra hedaf yığına dokunarak kartı oraya kareket ettir</string>
+    <string name="settings_single_tap">Tek dokunuş</string>
+    <string name="settings_single_tap_enable">Tek dokunuş hareketlerini etkinleştir</string>
+    <string name="settings_single_tap_enable_text">Sadece Golf ve TriPeaks için: Bir karta bir defa dokunarak onu atık yığınına taşıyın</string>
+    <string name="settings_double_tap_foundation_first">İlk önce temel yığını taşı</string>
+    <string name="settings_double_tap_foundation_first_text">Diğer kartları seçili yığından hedefe taşımadan önce en üstteki kartı taşımayı dene</string>
+    <string name="settings_movement_speed">Kart hareket hızı</string>
+    <string name="Settings_sound">Oyundan sesi etkinleştir</string>
+    <string name="Settings_sounds_title">Sesler</string>
+    <string name="Settings_sounds_text">Sesleri etkinleştirin, farklı ses efektleri ayarlayın</string>
+    <string name="Settings_win_sound_title">Kazanma ses efekti</string>
+    <string name="Settings_background_music">Arkaplan müziği</string>
+    <string name="settings_background_color_custom">Kişisel</string>
+    <string name="Settings_background_volume">Arkaplan müzik seviyesi</string>
+    <string name="settings_limit_number_of_recycles">Geri gönderme sayısını sınırla</string>
+    <string name="settings_limit_number_of_recycles_text">Atık kartları ana yığına geri gönderme sınırlandırıldı</string>
+    <string name="settings_number_of_recycles">Geri gönderme miktarı</string>
+
+    <string name="settings_vegas_bet_amount">Bahis Miktarı</string>
+    <string name="settings_vegas_bet_amount_progress_text">İlk sağıtım masrafı: %1$d$. Toplanan her kartın kazandırdığı: %2$d$.</string>
+    <string name="settings_vegas_bet_amount_summary">İlk sağıtım: -%1$d$, Toplanan kart: +%2$d$</string>
+    <string name="settings_menu_order_title">Menü sırası</string>
+    <string name="settings_menu_order_summary">Bir linke uzun süre tıklayın, ardından menü girişlerini yeniden sıralamak için sürükleyip bırakın</string>
+    <string name="settings_menu_order_set_default">Sıfırlama sırası</string>
+
+    <string name="settings_auto_start_new_game_title">Kazandığında yeni oyun başlat</string>
+    <string name="settings_auto_start_new_game_text">Kazanılan bir oyuna geri dönülürse, otomatik olarak yeni bir oyun başlat</string>
+
+</resources>

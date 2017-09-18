@@ -56,5 +56,6 @@
     <string name="dialog_win_score">Points: %1$d</string>
     <string name="dialog_win_bonus">Prime: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
+    <string name="about_translations_turkish">Turc: par le compte GitHub sekmenhuseyin</string>
 
 </resources>

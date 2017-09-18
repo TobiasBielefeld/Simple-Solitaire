@@ -45,6 +45,7 @@
         <item>Französisch</item>
         <item>Japanisch</item>
         <item>Polnisch</item>
+        <item>Türkisch</item>
     </string-array>
 
     <string-array name="pref_language_values">
@@ -56,6 +57,7 @@
         <item>fr</item>
         <item>ja</item>
         <item>pl</item>
+        <item>tr</item>
     </string-array>
 
     <string-array name="pref_yukon_rules_titles">
