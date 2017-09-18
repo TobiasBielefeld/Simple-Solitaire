@@ -53,9 +53,9 @@
     <string name="canfield_longest_run">Plej longa serio:</string> <!-- also used by golf -->
 
     <!-- dialog won-->
-    <string name="dialog_win_titel">Gratulojn!!</string>
+    <string name="dialog_win_titel">Gratulon!!</string>
     <string name="dialog_win_score">Poentaro: %1$d</string>
-    <string name="dialog_win_bonus">Bonuso: %1$d</string>
-    <string name="dialog_win_total">Supertuto: %1$d</string>
+    <string name="dialog_win_bonus">Premio: %1$d</string>
+    <string name="dialog_win_total">Tute: %1$d</string>
 
 </resources>
