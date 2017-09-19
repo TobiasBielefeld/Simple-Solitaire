@@ -146,9 +146,10 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
             //when the back button is pressed, it should return to the main page from the games, not to the start page.
             //this way is easier than implementing an interface to control what happens in onBackPressed()
+            ((Manual) getActivity()).setGamePageShown(true);
+
             layout1.setVisibility(View.GONE);
             scrollView.setVisibility(View.VISIBLE);
-            ((Manual) getActivity()).setGamePageShown(true);
 
         } catch (Exception e) {
             //no page available
