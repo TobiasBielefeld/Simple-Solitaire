@@ -218,7 +218,7 @@
     <string name="manual_AcesUp_rules">Man kann nur die oberste Karte eines Stapels bewegen. Bewege
         Karten zur Foundation, die einen niedrigeren Wert als eine andere oberste Karte eines Stapels haben.
         Zum Beispiel sind ein Kreuz 3 und ein Kreuz 10 oberste Karten eines Stapels,
-        dDann kann die Kreuz 3 auf den Foundation-Stapel bewegt werden. Asse haben höhere Werte als
+        dann kann die Kreuz 3 auf den Foundation-Stapel bewegt werden. Asse haben höhere Werte als
         jede andere Karte.</string>
     <string name="manual_AcesUp_scoring">Bewege eine Karte zur Foundation: +50</string>
 

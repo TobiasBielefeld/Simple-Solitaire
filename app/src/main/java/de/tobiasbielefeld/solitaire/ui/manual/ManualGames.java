@@ -142,7 +142,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
             textObjective.setText(getString(getResources().getIdentifier("manual_" + gameName + "_objective", "string", getActivity().getPackageName())));
             textRules.setText(getString(getResources().getIdentifier("manual_" + gameName + "_rules", "string", getActivity().getPackageName())));
             textScoring.setText(getString(getResources().getIdentifier("manual_" + gameName + "_scoring", "string", getActivity().getPackageName())));
-            textBonus.setVisibility(currentGame.isBonusEnabled() ? View.VISIBLE : View.GONE);
+            textBonus.setVisibility(gameName.equals("Vegas") ? View.GONE : View.VISIBLE);           //TODO: Manage this in a better way
 
             //when the back button is pressed, it should return to the main page from the games, not to the start page.
             //this way is easier than implementing an interface to control what happens in onBackPressed()

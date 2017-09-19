@@ -57,6 +57,5 @@
     <string name="dialog_win_score">Poentaro: %1$d</string>
     <string name="dialog_win_bonus">Premio: %1$d</string>
     <string name="dialog_win_total">Tute: %1$d</string>
-    <string name="about_translations_turkish">Turka: de GitHub-uzanto sekmenhuseyin</string>
 
 </resources>

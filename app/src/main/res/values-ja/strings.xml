@@ -56,7 +56,6 @@
     <string name="dialog_win_score">スコア: %1$d</string>
     <string name="dialog_win_bonus">ボーナス: %1$d</string>
     <string name="dialog_win_total">合計: %1$d</string>
-    <string name="about_translations_turkish">トルコ語: GitHubのユーザー sekmenhuseyin</string>
 
 
 </resources>

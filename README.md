@@ -98,6 +98,7 @@ Thanks to the following persons for providing translations :D
 - French: romainhk and cicithesquirrel
 - Japanese: naofum
 - Finnish: winjar
+- Turkish: sekmenhuseyin
 
 ## Licenses
 

@@ -58,6 +58,5 @@
     <string name="dialog_win_score">Punkty: %1$d</string>
     <string name="dialog_win_bonus">Premia: %1$d</string>
     <string name="dialog_win_total">Ogółem: %1$d</string>
-    <string name="about_translations_turkish">Turecki: użytkownik GitHuba sekmenhuseyin</string>
 
 </resources>

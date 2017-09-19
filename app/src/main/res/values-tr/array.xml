@@ -1,86 +1,5 @@
 <resources>
 
-    <string-array name="pref_orientation_values" translatable="false">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
-    <string-array name="pref_spider_difficulty_values" translatable="false">
-        <item>1</item>
-        <item>2</item>
-        <item>4</item>
-    </string-array>
-
-    <string-array name="pref_draw_values" translatable="false">
-        <item>1</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="pref_menu_columns_list" translatable="false">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
-
-    <string-array name="pref_pyramid_difficulty_values" translatable="false">
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="pref_win_sounds_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="pref_background_music_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
-    <string-array name="pref_yukon_rules_values" translatable="false">
-        <item>varsayılan</item>
-        <item>russian</item>
-    </string-array>
-
-    <string-array name="manual_side_menu_tablet" translatable="false">
-        <item>@string/manual_startpage</item>
-        <item>@string/manual_main_menu</item>
-        <item>@string/manual_ui</item>
-        <item>@string/manual_games</item>
-        <item>@string/manual_feedback</item>
-        <item>@string/manual_back_to_game</item>
-    </string-array>
-
-    <string-array name="pref_movement_speed_values" translatable="false">
-        <item>0.5</item>
-        <item>1</item>
-        <item>2</item>
-        <item>4</item>
-    </string-array>
-
-    <string-array name="pref_number_of_recycles_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-    </string-array>
-
     <string-array name="restart_menu">
         <item>Yeni oyun</item>
         <item>Tekrar kart ver</item>
@@ -130,7 +49,7 @@
     </string-array>
 
     <string-array name="pref_language_values">
-        <item>varsayılan</item>
+        <item>default</item>
         <item>en</item>
         <item>eo</item>
         <item>fi</item>

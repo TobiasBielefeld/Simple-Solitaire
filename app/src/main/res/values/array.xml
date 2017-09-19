@@ -129,16 +129,18 @@
         <item>Turkish</item>
     </string-array>
 
+    <!-- for translations: you can order pref_language_titles alphabetically in the new language,
+    if you want. Then the order of the values have to be changed too!-->
     <string-array name="pref_language_values">
-        <item>default</item>
-        <item>en</item>
-        <item>eo</item>
-        <item>fi</item>
-        <item>fr</item>
-        <item>de</item>
-        <item>ja</item>
-        <item>pl</item>
-        <item>tr</item>
+        <item>default</item>    <!-- do not translate this one! -->
+        <item>en</item>         <!-- English -->
+        <item>eo</item>         <!-- Ssperanto -->
+        <item>fi</item>         <!-- Finnish -->
+        <item>fr</item>         <!-- French-->
+        <item>de</item>         <!-- German -->
+        <item>ja</item>         <!-- Japanese -->
+        <item>pl</item>         <!-- Polish -->
+        <item>tr</item>         <!-- Turkish -->
     </string-array>
 
     <string-array name="pref_yukon_rules_titles">

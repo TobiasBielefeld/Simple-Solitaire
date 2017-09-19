@@ -15,24 +15,270 @@
     <string name="manual_ui">Kullanıcı arayüzü</string>
     <string name="page_load_error">Bu oyun için yardım sayfası yok…</string>
     <string name="manual_bonus">Bir oyunu kazandıktan sonra, bir bonus kazanırsınız: Kazanmanız ne kadar hızlı olursa, bonus o kadar yüksek olur.</string>
+    <string name="manual_ui_text">Bir oyun daima ekranın alt kısmında (Dikey mod) veya sağ tarafta (Yatay mod)
+        küçük bir menü gösterecektir. Oyunun geçerli puanı ve oynatılan zamanı da gösterecektir. Mümkünse,
+        bu iki değer yüksek puanlı listeye kaydedilecektir. Menü, aşağıdaki efektleri içeren 5 maddeden oluşur (soldan sağa düğmeler):
+        \n\n\"Skorlar\" düğmesi, yüksek puanlara ve mevcut oyunun kazanılan sayı sayısına sahip yeni bir pencere gösterecektir.
+        \n\n\"İpucu\" düğmesi aynı anda en çok 3 kart hareketi göstererek size yardımcı olacaktır. Fakat bu şimdiki puanı 25 azaltıyor.
+        Her kartı boş bir alana taşımak ya da ana yığına basmak gibi önemsiz hareketlerin ipucu olarak gösterilmediğine dikkat
+        edin. \nHerhangi bir ipucu gösterilmediyse, skor düşmeyecektir.
+        \n\n\"Menü\" düğmesi üç farklı işlemi gösterir: Kartları karıştırıp yeni bir anlaşma çizerek yeni bir oyun başlatın.
+        Kartları ver yine aynı şeyi ancak karıştırma yapmadan yapacak. Bu, mevcut oyunun yeniden başlatılması gibi. Son seçenek
+        mevcut oyunu bitirir ve uygulamayı ana menüye geri döndürür.
+        \n\n\"Geri Al\" düğmesi son hareketi geri alır, ancak bu 25 puana mal olur. Bu son 20 hareket için kullanılabilir.
+        \n\n\"Ayarlar\" düğmesi, yalnızca ayarlar menüsünü açar.\n</string>
+    <string name="manual_startpage_text">Bu oyun kılavuz el kitabına hoş geldiniz! Umarım her şeyi açıklar.\n\n\nDiğer sayfalara erişmek için sol taraftaki menüyü kullanın.</string>
+    <string name="manual_games_text1">Oynanışını, amacını, kurallarını ve puanlamasını göstermek için bir oyun seçin.</string>
+    <string name="manual_general_main_menu">Ana menünün kullanımı nispeten basittir. Başlamak için bir oyuna dokunmanız yeterlidir.       
+        \n\nUygulama, içinde duraklatılmışsa, uygulama son oynatılan oyunu otomatik olarak bir yeniden başlatmada yükleyecektir.
+        Bu davranış \"Genel\" altındaki ayarlarda devre dışı bırakılabilir.\n\nOrada \"Ana menü\" bölümünü de bulabilirsiniz;
+        burada menüden oyunları gizlemek ve sütun sayısını değiştirmek mümkündür, böylece bir anda aynı anda daha fazla oyun sığacak oyunlar olur.</string>
 
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Google Playi aç</string>
     <string name="manual_open_github">GitHub Repoyu aç</string>
+    <string name="manual_feedback_text">Bir hata mı buldunuz? Geliştirmem gereken bir şey var mı?
+        \nKoleksiyona başka bir oyun eklemem gerekir mi?
+        \nBelki bazı çevirilerle yardım etmek istersiniz?
+        \nYa da başka bir fikrin mi var?\n\nHer türlü geribildirim almaktan mutluluk duyuyorum.
+        \nBenimle iletişim kurmak gerektiğini düşünüyorsanız, aşağıdaki iki seçeneği düşünmelisiniz:
+        \n\nGitHub\'da Sorun İzleyici\'yi kullanın:
+        \nGitHub\'daki bu uygulamanın projeleri sorunları bildirmek için düzgün bir işleve sahiptir.
+        \nInternet tarayıcısıyla Sorun İzleyici\'yi açmak için ekranın sol tarafındaki düğmeyi tıklamanız yeterlidir.
+        \n\nGoogle Play\'de bir derecelendirme kullanın:
+        \nBu uygulamadan sayfaya bir puan bırakın ve istediğiniz herhangi bir şey yazın.
+        \nGoogle Play Store\'u açmak için sağ taraftaki düğmeyi tıklayın (yüklü ise).
+        \n\nGeribildiriminiz için şimdiden teşekkür ederiz :)</string>
+
     <!-- acesUp -->
-    <string name="manual_AcesUp_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 1 ana ve 1\n        temel yığın.\n\nAsların değeri 14\'tür, bu nedenle papazlardan daha yüksek bir değere sahiptirler.</string>
-    <string name="manual_AcesUp_objective">Aslar hariç tüm kartları temel yığınının üzerine koy,\n        böylece her yığında sadece bir as kalsın.</string>
-    <string name="manual_AcesUp_rules">Yalnızca destenin en üstündeki kartı taşıyabilirsiniz. Aynı ailenin başka \n        bir üst kartından daha düşük bir değere sahip olan kartları temel yığına taşıyın. Mesela:\n        İki tablo yığınının üzerinde bir Kupa 5 ve bir Kupa 10 var.. Bu durumda Kupa 5i temel yığına taşıyabilirsiniz. \n        Asların değeri tüm diğer kartlardan fazladır.\n\nHer taşınabilir kart\n        boş kart sütununa taşınabilir.\n\nAna kart yığınına tıklayarak her kart sütununa birer\n        kart dağıtabilirsiniz.</string>
+    <string name="manual_AcesUp_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 1 ana ve 1 temel yığın.
+        \n\nAsların değeri 14\'tür, bu nedenle papazlardan daha yüksek bir değere sahiptirler.</string>
+    <string name="manual_AcesUp_objective">Aslar hariç tüm kartları temel yığınının üzerine koy,
+        \nböylece her yığında sadece bir as kalsın.</string>
+    <string name="manual_AcesUp_rules">Yalnızca destenin en üstündeki kartı taşıyabilirsiniz. Aynı
+        ailenin başka bir üst kartından daha düşük bir değere sahip olan kartları temel yığına taşıyın.
+        Mesela: İki tablo yığınının üzerinde bir Kupa 5 ve bir Kupa 10 var.. Bu durumda Kupa 5i temel
+        yığına taşıyabilirsiniz. Asların değeri tüm diğer kartlardan fazladır.
+        \n\nHer taşınabilir kart boş kart sütununa taşınabilir.
+        \n\nAna kart yığınına tıklayarak her kart sütununa birer kart dağıtabilirsiniz.</string>
     <string name="manual_AcesUp_scoring">Kartı temel yığınına taşıyın: +50</string>
 
     <!-- Canfield -->
-    <string name="manual_Canfield_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 4 temel yığın,\n        1 ana ve 1 ayrılmış ve rezerv yığın</string>
-    <string name="manual_Canfield_objective">Her destedeki kartları artan sıralamada temel yığına \n        yerleştirin.</string>
-    <string name="manual_Canfield_rules">Kartlar masaüstüne azalan ve renkleri dönüşümlü olarak yerleştirilebilir. \n        Birden fazla kart dizisini aynı anda taşıyabilirsiniz. Vakfın üzerinde, kartlar ilgili aileye artan düzende yerleştirilebilir.\n\nBoş \n        masa alanı, rezervin kartıyla doldurulur. Rezerv boşsa, ana istasyondaki bir kart kullanılacaktır.\n\nİlk \n        kartın temel üzerine çekilen değeri, boş temel alanlarına hangi kartların yerleştirileceğini belirleyecektir.\n         Örneğin: Bir Kalpler 10 vakfa çekilirse, yalnızca 10 değerli kartlar boş temel alanlarına yerleştirilebilir.\n         Fakat temeldeki kartlar çevrimsel olarak yerleştirilebilir, bu nedenle bir kral üzerinde bir as da oynanabilir\n\nAna \n        istife bastığınızda, kartlar kullanabileceğiniz yerden atılan desteye taşınacaktır.\n         Kartların miktarı seçilen ayarlara bağlıdır. \"Bir çizin\" seçildiyse, yalnızca bir \n        kart taşınacaktır. \"Draw 3\" etkinleştirilmişken, aynı anda 3 kart taşınacaktır.\n\nAna istif boşsa, her kartı atık yığından ana yığına taşımak \n        ve üzerine tekrar basmak için üzerine basabilirsiniz.</string>
-    <string name="manual_Canfield_scoring">Temel yığına taşıma: +60\n\nAyrılmış kartı temel yığına taşı: +45\n\nTemel yığından sütunlara taşı: -75\n\nKartı ters çevir: +25\n\nAyrılmış kartları sütunlara geri gönder: -200</string>
+    <string name="manual_Canfield_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 4 temel yığın,
+        1 ana ve 1 ayrılmış ve rezerv yığın</string>
+    <string name="manual_Canfield_objective">Her destedeki kartları artan sıralamada temel yığına yerleştirin.</string>
+    <string name="manual_Canfield_rules">Kartlar masaüstüne azalan ve renkleri dönüşümlü olarak yerleştirilebilir.
+        Birden fazla kart dizisini aynı anda taşıyabilirsiniz. Vakfın üzerinde, kartlar ilgili aileye artan düzende yerleştirilebilir.
+        \n\nBoş masa alanı, rezervin kartıyla doldurulur. Rezerv boşsa, ana istasyondaki bir kart kullanılacaktır.
+        \n\nİlk kartın temel üzerine çekilen değeri, boş temel alanlarına hangi kartların yerleştirileceğini belirleyecektir.
+        Örneğin: Bir Kalpler 10 vakfa çekilirse, yalnızca 10 değerli kartlar boş temel alanlarına yerleştirilebilir.
+        Fakat temeldeki kartlar çevrimsel olarak yerleştirilebilir, bu nedenle bir kral üzerinde bir as da oynanabilir
+        \n\nAna istife bastığınızda, kartlar kullanabileceğiniz yerden atılan desteye taşınacaktır. Kartların miktarı
+        seçilen ayarlara bağlıdır. \"Bir çizin\" seçildiyse, yalnızca bir kart taşınacaktır. \"Draw 3\"
+        etkinleştirilmişken, aynı anda 3 kart taşınacaktır.
+        \n\nAna istif boşsa, her kartı atık yığından ana yığına taşımak ve üzerine tekrar basmak için üzerine basabilirsiniz.</string>
+    <string name="manual_Canfield_scoring">Temel yığına taşıma: +60
+        \n\nAyrılmış kartı temel yığına taşı: +45
+        \n\nTemel yığından sütunlara taşı: -75
+        \n\nKartı ters çevir: +25
+        \n\nAyrılmış kartları sütunlara geri gönder: -200</string>
 
     <!-- Vegas -->
     <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+    <string name="manual_Vegas_scoring">Kazanılan para miktarı, ayarlarda ayarladığınız bahise bağlıdır.
+        Örneğin ödeme yaparsın. Oyunun başında 50 $, oyuna giren her kartla birlikte bahsin 1 / 10\'unu kazanırsınız.
+        \n\nSkor 0\'dan büyük olduğunda bir oyun kazanılan olarak kaydedilecektir. Kuruluştan kartlarıgeri oynatmak bahsin 2 / 10\'u pahalıdır.
+        \n\nİpucu veya geri alma işlevlerini kullanmak, bahsin 1 / 10\'una mal olur.
+        \n\nYASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)</string>
+    <string name="manual_Vegas_objective">Daha fazla para kazanmak için temel yığına daha fazla kart gönder.</string>
+    <string name="manual_Vegas_rules">The rules are identical to the \"Klondike\"-Rules.
+        \n\nCards can be placed on the tableau in descending order and
+        in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards
+        can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed
+        on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing
+        on the main stack, cards will be moved to the discard stack from where you can use them.
+        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card
+        will be moved. With \"Draw 3\" enabled, 3 cards will be moved at once.\n\nIf the main stack is empty,
+        you can still press on it to move every card from the discard stack to the main stack and use them again.</string>
+
+    <!-- Forty&Eight -->
+    <string name="manual_FortyEight_objective">Order every card as real families in ascending order on the foundation.</string>
+    <string name="manual_FortyEight_scoring">Kartı temel yığına taşı: +45\n\nKartı sütunlara geri taşı: -60
+        \n\nAtılan kartı sütuna geri koy: +60
+        \n\nAtılan kartı desteye geri koy: -200</string>
+    <string name="manual_FortyEight_structure">52 kartlık 2 deste.
+        \n\n8 sütun, 8 temel yığın, 1 ana ve 1 atılmış yer.
+        \n\nHer oyunda sedece bir atılmış kart ana yığına geri konabilir.</string>
+    <string name="manual_FortyEight_rules">Cards can be placed on the tableau in descending order of
+        the same family. On the foundation, cards can be placed only in ascending order on the corresponding family.
+
+        \n\nYou can
+        move as many cards (which are in a correct sequence) at once, as there are free stacks available.
+        This corresponds to the rule, that only one card can be moved at once,
+        but when there are free stacks available, the cards can be moved on the free stacks first and then
+        to the destination stack.
+
+        \n\nEvery card can be
+        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
+        pressing on the main stack, one card will be moved to the discard stack from where you can play
+        it.\n\nIf the main stack is empty, you can still press on it to move every card from the
+        discard stack back to the main stack and use them again. But this is only once a game possible.
+        The remaining amount is shown a the little number above the main stack.</string>
+
+    <!-- FreeCell -->
+    <string name="manual_Freecell_scoring">Kartı temel yığına taşı: +60
+        \n\nTemel yığından kartı al: -75
+        \n\nPapazı boş sütuna taşı: +20</string>
+    <string name="manual_Freecell_structure">52 kartlık bir deste
+        \n\n8 sütun, 4 temel yığın ve 4 boş sütun</string>
+    <string name="manual_Freecell_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.</string>
+    <string name="manual_Freecell_rules">Cards can be placed on the tableau in descending order and
+        in alternating colors. On the foundation, cards can be placed only in ascending order on the
+        corresponding family. The 4 cells on the top can only contain one card at a time.\n\nYou can
+        move as many cards (which are in a correct sequence) at once, as there are free stacks (tableau
+        and the cells) available. This corresponds to the rule, that only one card can be moved at once,
+        but when there are free stacks available, the cards can be moved on the free stacks first and then
+        to the destination stack.\n\nEvery card can be placed on empty tableau fields and cells. Aces can
+        be placed on empty foundation fields.</string>
+
+    <!-- Golf -->
+    <string name="manual_Golf_scoring">Kartı atılan yığına taşı: +50</string>
+    <string name="manual_Golf_structure">52 kartlık bir deste
+        \n\n7 sütun, 1 ana ve 1 atılmış yer.
+        \n\nAtılmış kartları ana yığına geri döndürmek mümkün değildir. (Geri tuşu hariç)</string>
+    <string name="manual_Golf_objective">Tüm kartları atılmış yığına at.</string>
+    <string name="manual_Golf_rules">Every top card of a stack can be used to play. Cards can only be
+        placed on the discard stack in ascending and descending order regardless of color.\n\nDepending
+        on settings, you can also place a king on an ace and vice versa (easier game play).\n\nIf no
+        card can be moved, press on the main stack to deal one card from it to the discard stack.</string>
+
+    <!-- GrandfathersClock -->
+    <string name="manual_GrandfathersClock_scoring">Sütunlardan temel yığına: +50</string>
+    <string name="manual_GrandfathersClock_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.
+        En sonda yığındaki kart değerleri saatteki değerle aynı olmalı.</string>
+    <string name="manual_GrandfathersClock_rules">Cards can be placed on the tableau in descending order, the color doesn\'t matter.
+        On the foundation, cards can be placed only in ascending order on the corresponding family. But Aces can be placed on top of kings.
+
+        \n\nYou can move as many cards (which are in a correct sequence) at once on the tableau, as
+        there are free stacks available. This corresponds to the rule, that only one card can be moved at once,
+        but when there are free stacks available, the cards can be moved on the free stacks first and then
+        to the destination stack.
+       </string>
+
+    <!-- Gypsy -->
+    <string name="manual_Gypsy_scoring">Temel yığına kart taşı: +75
+        \n\nTemel yığından sütunlara kart taşı: -100
+        \n\nKartı ters çevir: +50</string>
+    <string name="manual_Gypsy_structure">52 kartlık 2 deste.
+        \n\n8 sütun, 8 temel yığın karesi ve 1 ana yığın.</string>
+    <string name="manual_Gypsy_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.</string>
+    <string name="manual_Gypsy_rules">Cards can be placed on the tableau in descending order and in
+        alternating colors. You can move a whole correct sequence of cards at once. On the foundation,
+        cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be
+        placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy
+        pressing on the main stack, one card will be moved to each tableau stack.</string>
+
+    <!-- Klondike -->
+    <string name="manual_Klondike_scoring">Sütunlardan temel yığına kart taşı: +60
+        \n\nAtılan kartı temel yığına taşı: +45
+        \n\nTemel yığından sütunlara taşı: -75
+        \n\nTüm atılan kartları ana yığına taşı: -200</string>
+    <string name="manual_Klondike_structure">52 kartlık bir deste.
+        \n\n7 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri.</string>
+    <string name="manual_Klondike_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.</string>
+    <string name="manual_Klondike_rules">Cards can be placed on the tableau in descending order and
+        in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards
+        can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed
+        on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing
+        on the main stack, cards will be moved to the discard stack from where you can use them.
+        The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card
+        will be moved (This is the default setting, for easier game play). With \"Draw 3\" enabled, 3 cards
+        will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every
+        card from the discard stack to the main stack and use them again.</string>
+
+    <!-- Pyramid -->
+    <string name="manual_Pyramid_scoring">Kartı geri döndür: +50
+        \n\nAtılan kartı ana yığına koy: -200</string>
+    <string name="manual_Pyramid_structure">52 kartlık bir deste.
+        \n\n28 sütun, 1 ana, 1 atılmış ve 1 çöp yeri.
+        \n\nAtılmış kartlar bir oyunda sadece iki defa ana yığına geri konulabilir.</string>
+    <string name="manual_Pyramid_objective">Sütunlardaki tüm kartları çöpe gönder. Ayarlara göre ana
+        ve atılmış kartları da göndermeniz gerekebilir.</string>
+    <string name="manual_Pyramid_rules">This game has slightly different rules compared to the other Solitare games.
+        Every card, which isn\'t covered by another card can be played. Two cards, whose values add up to 13 can be moved to the
+        waste. To do so, move a card on another free card. If both values are correct, they will be
+        automatically moved to the waste.\n\nIt is also possible to use the cards from main and discard stack.
+        If no card movement is possible, press on the arrow between these stacks to
+        move one card from the main stack to the discard stack. If the main stack is empty, press again on it or
+        on the arrow to return the cards from the discard stack to the main stack. This movement can
+        only be used two times in a game. The remaining amount will be shown as the little number above
+        the arrow.</string>
+
+    <!-- Spider -->
+    <string name="manual_Spider_scoring">Bir şeklin tüm kartlarını temel yığına taşı: +200
+        \n\nBir kartı döndür: +25</string>
+    <string name="manual_Spider_structure">52 kartlık 2 deste.
+        \n\n10 sütun ve 8 temel yığın yeri.
+        \n\n1 ana yığın ve 5 farklı yığın.
+        \n\nAyarlara göre 1, 2 ve ya 4 farklı kart şekli.</string>
+    <string name="manual_Spider_objective">Sütunlara her şekli azalan sırada yerleştir. Sıralanan
+        kartlar otomatik olarak temel yığına taşınır.</string>
+    <string name="manual_Spider_rules">Cards can be placed on any card in descending order. But only
+        real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau
+        stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
+
+    <!-- TriPeaks -->
+    <string name="manual_TriPeaks_scoring">Bir kartı geriye döndür: +50</string>
+    <string name="manual_TriPeaks_structure">52 kartlık bir deste.
+        \n\n28 sütun, 1 ana ve 1 atılmış yer.
+        \n\nAtılmış kartlar tekrar ana yığına alınamaz. (Geri tuşu hariç)</string>
+    <string name="manual_TriPeaks_objective">Sütunlardaki kartları atılmış yere taşı.</string>
+    <string name="manual_TriPeaks_rules">The rules of this game are similar to \"Golf\". Every card
+        which isn\'t covered by another card can be used to play. Cards can only be placed on the
+        discard stack in ascending and descending order regardless of color.\n\nIt is also possible
+        to play kings on aces and vice versa.\n\nIf no card can be moved, press on the main stack to
+        deal one card from it to the discard stack.</string>
+
+    <!-- Yukon -->
+    <string name="manual_Yukon_scoring">Sütunlardan temel yığına taşı: +60
+        \n\nTemel yığından sütunlara geri taşı: -75
+        \n\nPapazı boş bir sutüne taşı: +20
+        \n\nBir kartı ters çevir: +25</string>
+    <string name="manual_Yukon_structure">52 kartlık bir deste.
+        \n\n7 sütun ve 4 temel yığın yeri.</string>
+    <string name="manual_Yukon_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.</string>
+    <string name="manual_Yukon_rules">Cards can be placed on the tableau in descending order and in
+        alternating colors. On the foundation, cards can be placed only in ascending order on the
+        corresponding family.\n\nYou can move every faced up card, no matter how many cards and
+        which sequence the cards are on top of it.\n\nOnly kings can be placed on empty tableau
+        fields and only aces can be placed on empty foundation fields.</string>
+
+    <!-- Mod3 -->
+    <string name="manual_mod3_scoring">Kartı sütunlarda doğru yere yerleştir: +50
+        \n\nBir kartı sütunun dördüncü satırına taşı: -75</string>
+    <string name="manual_mod3_structure">52 kartlık 2 deste.
+        \n\n32 sütun, 1 ana ve 1 as yeri.</string>
+    <string name="manual_mod3_objective">Her sütundaki ilk 3 kartı aynı renk olacak şekilde aşağıdaki
+        sıralamaya göre diz:
+        \n\nİlk sıra: 2–5–8–J\nİkinci Sıra: 3–6–9–Q\nÜçüncü Sıra: 4–7–10–K
+        \n\nAslar atılacak.</string>
+    <string name="manual_mod3_rules">You can move only one card from the top of a stack at once. Cards can only
+        be placed if the sequence shown under \"Objectives\" is correct. So you can place for example a
+        Hearts 5 on a Hearts 2, but only if the Hearts 2 is in the first row of the tableau. Different
+        families aren\'t allowed either.\n\nGain free stacks to place cards by moving aces to the aces
+        stack above the main stack.\n\nThe fourth row is also the discard row for the cards from the main
+        stack. Any card can be placed on a free stack of the forth row.\n\nPress on the main stack to deal
+        one card to each stack of the forth row.\n\n</string>
+
+    <!-- SimpleSimon -->
+    <string name="manual_SimpleSimon_scoring">Bir şeklin tüm kartlarını temel yığına taşı: +200</string>
+    <string name="manual_SimpleSimon_structure">52 kartlık bir deste.
+        \n\n10 sütun ve 4 temel yığın yeri.</string>
+    <string name="manual_SimpleSimon_objective">Sütunlara her şekli azalan sırada yerleştir. Sıralanan
+        kartlar otomatik olarak temel yığına taşınır.</string>
+    <string name="manual_SimpleSimon_rules">Cards can be placed on any card in descending order.
+        But only real card family sequences can be moved at once.\n\nEvery card can be placed on
+        empty tableau stacks.</string>
 
 </resources>
