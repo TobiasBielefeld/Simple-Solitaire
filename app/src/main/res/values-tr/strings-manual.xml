@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_activity_manual">Kılavuz</string>
+
+    <string name="manual_games">Oyun</string>
+    <string name="manual_feedback">Geri Bildirim</string>
+    <string name="manual_startpage">Başlangıç Sayfası</string>
+    <string name="manual_back_to_game">Oyuna geri dön</string>
+    <string name="manual_structure">Yapı</string>
+    <string name="manual_objective">Amaç</string>
+    <string name="manual_rules">Kurallar</string>
+    <string name="manual_scoring">Puanlama</string>
+    <string name="manual_main_menu">Ana menü</string>
+    <string name="manual_ui">Kullanıcı arayüzü</string>
+    <string name="page_load_error">Bu oyun için yardım sayfası yok…</string>
+    <string name="manual_bonus">Bir oyunu kazandıktan sonra, bir bonus kazanırsınız: Kazanmanız ne kadar hızlı olursa, bonus o kadar yüksek olur.</string>
+
+
+    <!-- Feedback -->
+    <string name="manual_open_google_play">Google Playi aç</string>
+    <string name="manual_open_github">GitHub Repoyu aç</string>
+    <!-- acesUp -->
+    <string name="manual_AcesUp_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 1 ana ve 1\n        temel yığın.\n\nAsların değeri 14\'tür, bu nedenle papazlardan daha yüksek bir değere sahiptirler.</string>
+    <string name="manual_AcesUp_objective">Aslar hariç tüm kartları temel yığınının üzerine koy,\n        böylece her yığında sadece bir as kalsın.</string>
+    <string name="manual_AcesUp_rules">Yalnızca destenin en üstündeki kartı taşıyabilirsiniz. Aynı ailenin başka \n        bir üst kartından daha düşük bir değere sahip olan kartları temel yığına taşıyın. Mesela:\n        İki tablo yığınının üzerinde bir Kupa 5 ve bir Kupa 10 var.. Bu durumda Kupa 5i temel yığına taşıyabilirsiniz. \n        Asların değeri tüm diğer kartlardan fazladır.\n\nHer taşınabilir kart\n        boş kart sütununa taşınabilir.\n\nAna kart yığınına tıklayarak her kart sütununa birer\n        kart dağıtabilirsiniz.</string>
+    <string name="manual_AcesUp_scoring">Kartı temel yığınına taşıyın: +50</string>
+
+    <!-- Canfield -->
+    <string name="manual_Canfield_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 4 temel yığın,\n        1 ana ve 1 ayrılmış ve rezerv yığın</string>
+    <string name="manual_Canfield_objective">Her destedeki kartları artan sıralamada temel yığına \n        yerleştirin.</string>
+    <string name="manual_Canfield_rules">Kartlar masaüstüne azalan ve renkleri dönüşümlü olarak yerleştirilebilir. \n        Birden fazla kart dizisini aynı anda taşıyabilirsiniz. Vakfın üzerinde, kartlar ilgili aileye artan düzende yerleştirilebilir.\n\nBoş \n        masa alanı, rezervin kartıyla doldurulur. Rezerv boşsa, ana istasyondaki bir kart kullanılacaktır.\n\nİlk \n        kartın temel üzerine çekilen değeri, boş temel alanlarına hangi kartların yerleştirileceğini belirleyecektir.\n         Örneğin: Bir Kalpler 10 vakfa çekilirse, yalnızca 10 değerli kartlar boş temel alanlarına yerleştirilebilir.\n         Fakat temeldeki kartlar çevrimsel olarak yerleştirilebilir, bu nedenle bir kral üzerinde bir as da oynanabilir\n\nAna \n        istife bastığınızda, kartlar kullanabileceğiniz yerden atılan desteye taşınacaktır.\n         Kartların miktarı seçilen ayarlara bağlıdır. \"Bir çizin\" seçildiyse, yalnızca bir \n        kart taşınacaktır. \"Draw 3\" etkinleştirilmişken, aynı anda 3 kart taşınacaktır.\n\nAna istif boşsa, her kartı atık yığından ana yığına taşımak \n        ve üzerine tekrar basmak için üzerine basabilirsiniz.</string>
+    <string name="manual_Canfield_scoring">Temel yığına taşıma: +60\n\nAyrılmış kartı temel yığına taşı: +45\n\nTemel yığından sütunlara taşı: -75\n\nKartı ters çevir: +25\n\nAyrılmış kartları sütunlara geri gönder: -200</string>
+
+    <!-- Vegas -->
+    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+
+</resources>

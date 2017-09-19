@@ -56,5 +56,6 @@
     <string name="dialog_win_score">Tulos: %1$d</string>
     <string name="dialog_win_bonus">Palkkio: %1$d</string>
     <string name="dialog_win_total">Yleinen: %1$d</string>
+    <string name="about_translations_turkish">Turkki: Github käyttäjä sekmenhuseyin</string>
 
 </resources>

@@ -45,6 +45,7 @@
         <item>ポーランド語</item>
         <item>フランス語</item>
         <item>フィンランド語</item>
+        <item>トルコ語</item>
     </string-array>
 
     <string-array name="pref_language_values">
@@ -56,6 +57,7 @@
         <item>pl</item>
         <item>fr</item>
         <item>fi</item>
+        <item>tr</item>
     </string-array>
 
     <!-- following are translated with an online translator -->

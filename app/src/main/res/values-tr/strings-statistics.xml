@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="title_activity_statistics">En Yüksek Puanlar</string>
+
+    <string name="statistics_text_won_games">%2$d oyun oynadın, %1$d oyun kazandın</string>  <!-- %1$d and %2$d are placeholders for the values-->
+    <string name="statistics_win_percentage">Kazanma oranın: %1$.0f%%</string> <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
+    <string name="statistics_button_delete">Tüm girişleri sil!</string>
+    <string name="statistics_button_delete_text">Bu oyun için tüm girişleri siler! Emin misin?</string>
+    <string name="statistics_button_deleted_all_entries">Tüm girişler silindi</string>
+
+    <string name="statistics_time_of_day">Saat</string>
+    <string name="statistics_date">Tarih</string>
+</resources>

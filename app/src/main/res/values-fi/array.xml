@@ -45,6 +45,7 @@
         <item>Ranska</item>
         <item>Saksa</item>
         <item>Suomi</item>
+        <item>Turkki</item>
     </string-array>
 
     <string-array name="pref_language_values">
@@ -56,6 +57,7 @@
         <item>fr</item>
         <item>de</item>
         <item>fi</item>
+        <item>tr</item>
     </string-array>
 
     <string-array name="pref_yukon_rules_titles">
