@@ -154,6 +154,8 @@
         card can be moved, press on the main stack to deal one card from it to the discard stack.</string>
 
     <!-- GrandfathersClock -->
+    <string name="manual_GrandfathersClock_structure">1 deck of 52 cards.\n\n8 tableau stacks, 12 foundation
+        stacks in the form of a clock. Each foundation stack already contains one card</string>
     <string name="manual_GrandfathersClock_scoring">Sütunlardan temel yığına: +50</string>
     <string name="manual_GrandfathersClock_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.
         En sonda yığındaki kart değerleri saatteki değerle aynı olmalı.</string>
