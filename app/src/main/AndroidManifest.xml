@@ -25,6 +25,11 @@
             android:label="@string/title_activity_settings"
             android:theme="@style/AppThemeActionBar" />
 
+        <activity
+            android:name=".ui.settings.SettingsGames"
+            android:label="@string/settings_games"
+            android:theme="@style/AppThemeActionBar" />
+
         <activity android:name=".ui.GameManager" />
         <activity
             android:name=".ui.manual.Manual"

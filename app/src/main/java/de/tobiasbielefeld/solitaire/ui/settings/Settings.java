@@ -142,51 +142,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 gameLogic.mirrorStacks();
             }
 
-        } else if (key.equals(PREF_KEY_KLONDIKE_DRAW)) {
-            showToast(getString(R.string.settings_restart_klondike));
-
-        } else if (key.equals(PREF_KEY_VEGAS_DRAW)) {
-            showToast(getString(R.string.settings_restart_vegas));
-
-        } else if (key.equals(PREF_KEY_CANFIELD_DRAW)) {
-            showToast(getString(R.string.settings_restart_canfield));
-
-        } else if (key.equals(PREF_KEY_SPIDER_DIFFICULTY)) {
-            showToast(getString(R.string.settings_restart_spider));
-
-        } else if (key.equals(PREF_KEY_YUKON_RULES)) {
-            showToast(getString(R.string.settings_restart_yukon));
-
         } else if (key.equals(MENU_COLUMNS_PORTRAIT) || key.equals(MENU_COLUMNS_LANDSCAPE)) {
             updatePreferenceMenuColumnsSummary();
 
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
             setLocale();
-
-        } else if (key.equals(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES)) {
-            if (currentGame instanceof FortyEight) {
-                gameLogic.toggleRecycles();
-            }
-
-        } else if (key.equals(PREF_KEY_PYRAMID_LIMITED_RECYCLES)) {
-            if (currentGame instanceof Pyramid) {
-                gameLogic.toggleRecycles();
-            }
-
-        } else if (key.equals(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES)){
-            if (currentGame instanceof Pyramid) {
-                gameLogic.setNumberOfRecycles(key,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
-            }
-
-        } else if (key.equals(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES)){
-            if (currentGame instanceof FortyEight) {
-                gameLogic.setNumberOfRecycles(key,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
-            }
-
-        } else if (key.equals(PREF_KEY_VEGAS_NUMBER_OF_RECYCLES)){
-            if (currentGame instanceof Vegas) {
-                gameLogic.setNumberOfRecycles(key,DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
-            }
 
         } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
             updatePreferenceMenuBarPositionSummary();
@@ -212,10 +172,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             updatePreferenceBackgroundVolumeSummary();
             backgroundSound.doInBackground(this);
 
-        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT)){
-            updatePreferenceVegasBetAmountSummary();
-            showToast(getString(R.string.settings_restart_vegas));
-
         }
     }
 
@@ -229,7 +185,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         return PreferenceFragment.class.getName().equals(fragmentName)
                 || CustomizationPreferenceFragment.class.getName().equals(fragmentName)
                 || OtherPreferenceFragment.class.getName().equals(fragmentName)
-                || GamesPreferenceFragment.class.getName().equals(fragmentName)
                 || MenuPreferenceFragment.class.getName().equals(fragmentName)
                 || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
                 || SoundPreferenceFragment.class.getName().equals(fragmentName);
@@ -374,20 +329,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
     }
 
-    public static class GamesPreferenceFragment extends CustomPreferenceFragment {
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_games);
-            setHasOptionsMenu(true);
-
-            Settings settings = (Settings) getActivity();
-
-            settings.preferenceVegasBetAmount = findPreference(getString(R.string.pref_key_vegas_bet_amount));
-            settings.updatePreferenceVegasBetAmountSummary();
-        }
-    }
 
     public static class MenuPreferenceFragment extends CustomPreferenceFragment {
 

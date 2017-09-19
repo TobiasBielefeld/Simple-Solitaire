@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        android:defaultValue="3"
+        android:entries="@array/pref_draw_titles"
+        android:entryValues="@array/pref_draw_values"
+        android:key="@string/pref_key_canfield_draw"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@null"
+        android:summary="%s"
+        android:title="@string/settings_canfield_draw" />
+
+</PreferenceScreen>
