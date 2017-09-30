@@ -33,7 +33,6 @@
     <string name="about_custom_color_picker">Mukautettu värivalitsin: Käyttää <a href="https://github.com/yukuku/ambilwarna">AmbilWarna kirjastoa</a>
         joka on julkaistu <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0 lisenssillä</a></string>
 
-    <!-- new values -->
     <string name="about_sounds">Kaikki äänet on alkujaan julkaistu <a href="https://freesound.org">freesound.org</a> sivustolla
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 lisenssissä</a></string>
 </resources>
