@@ -56,6 +56,7 @@
     <string name="pref_key_vegas_bet_amount" translatable="false">pref_key_vegas_bet_amount</string>
     <string name="pref_key_menu_order" translatable="false">pref_key_menu_order</string>
     <string name="pref_key_auto_start_new_game" translatable="false">pref_key_auto_start_new_game</string>
+    <string name="pref_key_hide_time" translatable="false">pref_key_hide_time</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

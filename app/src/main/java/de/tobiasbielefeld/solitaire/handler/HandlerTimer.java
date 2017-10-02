@@ -50,10 +50,15 @@ public class HandlerTimer extends Handler {
             timer.handlerTimer.sendEmptyMessageDelayed(0, 1000);
         }
 
-        Long time = timer.getCurrentTime();
+        if (getSharedBoolean(PREF_KEY_HIDE_TIME, DEFAULT_HIDE_TIME)) {
+            gm.mainTextViewTime.setText("");
+        }
+        else {
+            Long time = timer.getCurrentTime();
 
-        gm.mainTextViewTime.setText(String.format(Locale.getDefault(),
-                "%s: %02d:%02d:%02d", gm.getString(R.string.game_time),
-                time / 3600, (time % 3600) / 60, (time % 60)));                                     //in hours:minutes:seconds format
+            gm.mainTextViewTime.setText(String.format(Locale.getDefault(),
+                    "%s: %02d:%02d:%02d", gm.getString(R.string.game_time),
+                    time / 3600, (time % 3600) / 60, (time % 60)));                                     //in hours:minutes:seconds format
+        }
     }
 }
