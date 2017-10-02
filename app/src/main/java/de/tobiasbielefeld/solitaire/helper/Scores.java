@@ -273,13 +273,17 @@ public class Scores {
     }
 
     public void output() {
-        final String dollar = currentGame.isPointsInDollar() ? "$" : "";
-        gm.mainTextViewScore.post(new Runnable() {
-            public void run() {
-                gm.mainTextViewScore.setText(String.format("%s: %s %s",
-                        gm.getString(R.string.game_score), score, dollar));
-            }
-        });
+        if (getSharedBoolean(PREF_KEY_HIDE_SCORE, DEFAULT_HIDE_SCORE)) {
+            gm.mainTextViewScore.setText("");
+        } else {
+            final String dollar = currentGame.isPointsInDollar() ? "$" : "";
+            gm.mainTextViewScore.post(new Runnable() {
+                public void run() {
+                    gm.mainTextViewScore.setText(String.format("%s: %s %s",
+                            gm.getString(R.string.game_score), score, dollar));
+                }
+            });
+        }
     }
 
     public long getScore(){

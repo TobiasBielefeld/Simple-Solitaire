@@ -127,6 +127,7 @@ public class SharedData {
     public static String PREF_KEY_MENU_ORDER;
     public static String PREF_KEY_AUTO_START_NEW_GAME;
     public static String PREF_KEY_HIDE_TIME;
+    public static String PREF_KEY_HIDE_SCORE;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -169,6 +170,7 @@ public class SharedData {
     public static boolean DEFAULT_SOUND_ENABLED;
     public static boolean DEFAULT_AUTO_START_NEW_GAME;
     public static boolean DEFAULT_HIDE_TIME;
+    public static boolean DEFAULT_HIDE_SCORE;
 
     public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
     public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
@@ -289,6 +291,7 @@ public class SharedData {
         PREF_KEY_VEGAS_BET_AMOUNT_OLD = PREF_KEY_VEGAS_BET_AMOUNT + OLD;
         PREF_KEY_AUTO_START_NEW_GAME = res.getString(R.string.pref_key_auto_start_new_game);
         PREF_KEY_HIDE_TIME = res.getString(R.string.pref_key_hide_time);
+        PREF_KEY_HIDE_SCORE = res.getString(R.string.pref_key_hide_score);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -303,6 +306,7 @@ public class SharedData {
         DEFAULT_SINGLE_TAP_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
         DEFAULT_AUTO_START_NEW_GAME = res.getBoolean(R.bool.default_auto_start_new_game);
         DEFAULT_HIDE_TIME = res.getBoolean(R.bool.default_hide_time);
+        DEFAULT_HIDE_SCORE = res.getBoolean(R.bool.default_hide_score);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);

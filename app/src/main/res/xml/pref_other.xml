@@ -43,6 +43,11 @@
 
     <CheckBoxPreference
         android:defaultValue="false"
+        android:key="@string/pref_key_hide_score"
+        android:title="@string/settings_hide_score" />
+
+    <CheckBoxPreference
+        android:defaultValue="false"
         android:key="@string/pref_key_left_handed_mode"
         android:summary="@string/settings_left_handed_mode_description"
         android:title="@string/settings_left_handed_mode" />
