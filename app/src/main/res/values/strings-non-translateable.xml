@@ -56,8 +56,19 @@
     <string name="pref_key_vegas_bet_amount" translatable="false">pref_key_vegas_bet_amount</string>
     <string name="pref_key_menu_order" translatable="false">pref_key_menu_order</string>
     <string name="pref_key_auto_start_new_game" translatable="false">pref_key_auto_start_new_game</string>
+    <string name="pref_key_force_tablet_layout" translatable="false">pref_key_force_tablet_layout</string>
+    <string name="pref_key_klondike_limit_recycles" translatable="false">pref_key_klondike_limit_recycles</string>
+    <string name="pref_key_klondike_number_of_recycles" translatable="false">pref_key_klondike_number_of_recycles</string>
+    <string name="pref_key_calculation_limit_recycles" translatable="false">pref_key_calculation_limit_recycles</string>
+    <string name="pref_key_calculation_number_of_recycles" translatable="false">pref_key_calculation_number_of_recycles</string>
+    <string name="pref_key_calculation_alternative" translatable="false">pref_key_calculation_alternative</string>
     <string name="pref_key_hide_time" translatable="false">pref_key_hide_time</string>
     <string name="pref_key_hide_score" translatable="false">pref_key_hide_score</string>
+    <string name="pref_key_vegas_money" translatable="false">pref_key_vegas_money</string>
+    <string name="pref_key_vegas_money_enabled" translatable="false">pref_key_vegas_money_enabled</string>
+    <string name="pref_key_vegas_reset_money" translatable="false">pref_key_vegas_reset_money</string>
+    <string name="pref_key_mod3_auto_move" translatable="false">pref_key_mod3_auto_move</string>
+    <string name="pref_key_pyramid_auto_move" translatable="false">pref_key_pyramid_auto_move</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

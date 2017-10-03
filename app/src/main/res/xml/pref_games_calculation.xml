@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_rules">
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_calculation_alternative"
+            android:key="@string/pref_key_calculation_alternative"
+            android:summary="@string/settings_calculation_alternative_text"
+            android:title="@string/settings_calculation_alternative_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_cards">
+
+        <CheckBoxPreference
+            android:dependency="@string/pref_key_calculation_alternative"
+            android:defaultValue="@bool/default_calculation_limited_recycles"
+            android:key="@string/pref_key_calculation_limit_recycles"
+            android:summary="@string/settings_limit_number_of_recycles_text"
+            android:title="@string/settings_limit_number_of_recycles" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:dependency="@string/pref_key_calculation_limit_recycles"
+            android:defaultValue="@string/default_calculation_number_of_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_calculation_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

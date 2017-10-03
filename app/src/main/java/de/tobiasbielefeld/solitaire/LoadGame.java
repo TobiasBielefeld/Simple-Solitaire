@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.games.AcesUp;
+import de.tobiasbielefeld.solitaire.games.Calculation;
 import de.tobiasbielefeld.solitaire.games.Canfield;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Freecell;
@@ -61,8 +62,7 @@ public class LoadGame {
 
     /**
      * load the game class and set the shown name and the name used for the sharedPref of the
-     * current game. These names can be the same, but i used different ones and i don't want
-     * to loose the saved data, if I changed that.
+     * current game.
      *
      * @param activity The activity to get the strings from the xml file
      * @param index The index of the game to start
@@ -89,6 +89,7 @@ public class LoadGame {
             case 12:return new TriPeaks();
             case 13:return new Vegas();
             case 14:return new Yukon();
+            case 15: return new Calculation();
         }
     }
 
@@ -100,7 +101,8 @@ public class LoadGame {
      *
      * If you add a game at the end, no further actions has to be done, expect updating the game
      * selector images and adding a manual entry. If you add it somewhere else (eg to get an
-     * alphabetical default order) you need to update getMenuShownList() and getOrderedGameList()!
+     * alphabetical default order) you need to update getMenuShownList(), getOrderedGameList() and
+     * loadClass() !
      */
     public void loadAllGames(){
         allGameInformation.clear();
@@ -120,6 +122,8 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_TriPeaks,"TriPeaks"));
         allGameInformation.add(new AllGameInformation(R.string.games_Vegas,"Vegas"));
         allGameInformation.add(new AllGameInformation(R.string.games_Yukon,"Yukon"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Calculation,"Calculation"));
+
 
 
         GAME_COUNT = allGameInformation.size();
@@ -205,7 +209,7 @@ public class LoadGame {
         //    result.add(14,result.size());
         //}
 
-        if (result.size() < getGameCount()){                                                 //add new games at the end
+        if (result.size() < getGameCount()){                                                        //add new games at the end
             for (int i=result.size();i<getGameCount();i++){
                 result.add(i);
             }

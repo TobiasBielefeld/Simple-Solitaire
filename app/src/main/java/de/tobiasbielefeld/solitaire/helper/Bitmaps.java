@@ -23,8 +23,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
-import java.util.ArrayList;
-
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -161,7 +159,7 @@ public class Bitmaps {
     public Bitmap getCardBack(int posX, int posY) {
 
         if (cardBack == null) {
-            cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards_2);
+            cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
             cardBackWidth = cardBack.getWidth() / 9;
             cardBackHeight = cardBack.getHeight() / 4;
         }

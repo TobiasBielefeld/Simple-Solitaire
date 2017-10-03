@@ -24,8 +24,8 @@
     <string name="settings_show_main_menu">Mit Hauptmenü starten</string>
     <string name="settings_show_main_menu_description">Beim Starten nicht das zuletzt gespielte Spiel öffnen</string>
     <string name="settings_spider_difficulty">Anzahl verschiedener Karten Familien</string>
-    <string name="settings_klondike_draw">Anzahl Karten zum Ziehen</string>
-    <string name="settings_canfield_draw">Anzahl Karten zum Ziehen</string>
+    <string name="settings_klondike_draw">Anzahl der zu ziehenden Karten</string>
+    <string name="settings_canfield_draw">Anzahl der zu ziehenden Karten</string>
     <string name="settings_golf_easy">Zyklische Bewegungen (Einfacher)</string>
     <string name="settings_golf_easy_description">Erlaube das Setzen von Assen auf Könige und umgekehrt</string>
     <string name="settings_basic">Basic</string>
@@ -82,19 +82,20 @@
     <string name="Settings_win_sound_title">Gewinn Ton</string>
     <string name="Settings_background_music">Hintergrundmusik</string>
     <string name="Settings_background_volume">Hintergrundmusik Lautstärke</string>
-
     <string name="settings_limit_number_of_recycles">Begrenzte Kartenrückgabe</string>
     <string name="settings_limit_number_of_recycles_text">Das Zurücklegen der Karten zum Hauptstapel ist limitiert</string>
     <string name="settings_number_of_recycles">Anzahl der Rückgaben</string>
-
     <string name="settings_vegas_bet_amount">Höhe des Einsatzes</string>
     <string name="settings_vegas_bet_amount_progress_text">Ein Spiel kostet %1$d$. Jede Karte, die zur Foundation gespielt wird, bringt %2$d$.</string>
     <string name="settings_vegas_bet_amount_summary">Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$</string>
     <string name="settings_menu_order_title">Menü Reihenfolge</string>
     <string name="settings_menu_order_summary">Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern</string>
     <string name="settings_menu_order_set_default">Setze Reihenfolge zurück</string>
-
     <string name="settings_auto_start_new_game_title">Starte ein neues Spiel</string>
     <string name="settings_auto_start_new_game_text">Falls zu einem bereits gewonnenen Spiel zurückgekehrt wird, starte ein neues Spiel</string>
+
+    <string name="settings_rules">Regeln</string>
+    <string name="settings_money">Geld</string>
+    <string name="settings_support">Unterstützung</string>
 
 </resources>

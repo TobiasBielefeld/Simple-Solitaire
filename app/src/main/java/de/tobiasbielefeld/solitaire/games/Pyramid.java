@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class Pyramid extends Game {
         }
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardDimensions(layoutGame, 7 + 1, 5 + 1);
 
@@ -272,7 +273,27 @@ public class Pyramid extends Game {
             cardsToMove.clear();
             origins.clear();
 
-            handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
+            handlerTestAfterMove.sendEmptyMessageDelayed(0, 200);
+
+        } else if (getSharedBoolean(PREF_KEY_PYRAMID_AUTO_MOVE,DEFAULT_PYRAMID_AUTO_MOVE)) {
+            ArrayList<Card> tempCards = new ArrayList<>();
+            ArrayList<Stack> origins = new ArrayList<>();
+
+            for (int i=0;i<32;i++){
+                if (i==28){
+                    continue;
+                }
+
+                if (!stacks[i].isEmpty() && stackIsFree(stacks[i]) && stacks[i].getTopCard().getValue()==13){
+                    tempCards.add(stacks[i].getTopCard());
+                    origins.add(stacks[i]);
+                }
+            }
+
+            if (!tempCards.isEmpty()) {
+                recordList.addToLastEntry(tempCards, origins);
+                moveToStack(tempCards, stacks[28], OPTION_NO_RECORD);
+            }
         }
     }
 

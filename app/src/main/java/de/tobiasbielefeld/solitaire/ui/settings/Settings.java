@@ -18,11 +18,9 @@
 
 package de.tobiasbielefeld.solitaire.ui.settings;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -30,7 +28,6 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import java.util.List;
 import java.util.Locale;
@@ -38,9 +35,6 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
-import de.tobiasbielefeld.solitaire.games.FortyEight;
-import de.tobiasbielefeld.solitaire.games.Pyramid;
-import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
@@ -52,19 +46,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private Toast toast;
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
-    private Preference preferenceVegasBetAmount;
     private Sounds settingsSounds;
 
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
-
-    private static boolean isXLargeTablet(Context context) {
-        return (context.getResources().getConfiguration().screenLayout
-                & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +133,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             updatePreferenceMenuColumnsSummary();
 
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
-            setLocale();
+            restartApplication();
 
         } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
             updatePreferenceMenuBarPositionSummary();
@@ -171,6 +158,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         } else if (key.equals(PREF_KEY_BACKGROUND_VOLUME)){
             updatePreferenceBackgroundVolumeSummary();
             backgroundSound.doInBackground(this);
+
+        } else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)){
+            restartApplication();
 
         } else if (key.equals(PREF_KEY_HIDE_SCORE)) {
             scores.output();
@@ -224,23 +214,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     /**
-     * Shows the given text as a toast. New texts override the old one.
-     *
-     * @param text The text to show
-     */
-    private void showToast(String text) {
-        if (toast == null) {
-            toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
-        } else
-            toast.setText(text);
-
-        toast.show();
-    }
-
-    /**
      * Restarts the app to apply the new locale settings
      */
-    private void setLocale() {
+    private void restartApplication() {
         Intent intent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -280,12 +256,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         int volume = getSharedInt(PREF_KEY_BACKGROUND_VOLUME,DEFAULT_BACKGROUND_VOLUME);
 
         preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(),"%s %%",volume));
-    }
-
-    private void updatePreferenceVegasBetAmountSummary(){
-        int amount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
-
-        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),amount*10,amount));
     }
 
     public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {

@@ -192,5 +192,15 @@
             android:text="@string/about_sounds"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
+        <TextView
+            android:id="@+id/aboutTextViewSlidingTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/about_sliding_tabs"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
     </LinearLayout>
 </ScrollView>

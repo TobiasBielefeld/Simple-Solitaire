@@ -37,4 +37,6 @@
     <string name="about_sounds">All sounds were originally published on <a href="https://freesound.org">freesound.org</a> under the
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 license</a></string>
 
+    <string name="about_sliding_tabs">Sliding tabs: Uses the <a href="https://github.com/astuetz/PagerSlidingTabStrip">PagerSlidingTabStrip library</a>
+        published under the <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0 license</a></string>
 </resources>

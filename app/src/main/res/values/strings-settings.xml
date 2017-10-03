@@ -89,15 +89,39 @@
     <string name="settings_limit_number_of_recycles">Limit number of recycles</string>
     <string name="settings_limit_number_of_recycles_text">Recycling the waste back to the main stack is limited</string>
     <string name="settings_number_of_recycles">Amount of recycles</string>
-
     <string name="settings_vegas_bet_amount">Bet Amount</string>
     <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
     <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
     <string name="settings_menu_order_title">Menu order</string>
     <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
     <string name="settings_menu_order_set_default">Reset order</string>
-
     <string name="settings_auto_start_new_game_title">Start a new game when won</string>
     <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
+
+    <string name="settings_force_tablet_layout_title">Force tablet layout</string>
+    <string name="settings_force_tablet_layout_text">Show the application as on large screens (>=10\")</string>
+
+    <string name="settings_restart_calculation">Start a new Calculation game to apply the change</string>
+    <string name="settings_calculation_alternative_title">Alternative rules</string>
+    <string name="settings_calculation_alternative_text">On main stack press: Instead of moving the card from the discard
+        stack to the tableau, keep it on the discard stack (like in Klondike). This will also active
+        the option for limited recycles.</string>
+
+    <string name="settings_vegas_money_enabled">Keep the current balance</string>
+    <string name="settings_vegas_money_enabled_text">The balance will be transferred to following deals of Vegas,
+        but you need to reset the balance and then start a new game for saving the current high-score</string>
+    <string name="settings_vegas_money_reset">Reset balance</string>
+    <string name="settings_vegas_money_reset_text">The next Vegas deal will start with 0$</string>
+    <string name="settings_vegas_money_reset_confirm">Do you really want to reset your balance? This can\'t be reverted.</string>
+
+    <string name="settings_mod3_auto_move_title">Automatic movement</string>
+    <string name="settings_mod3_auto_move_text">Automatically move Aces to the discard stack, when possible</string>
+
+    <string name="settings_pyramid_auto_move_title">Automatic movement</string>
+    <string name="settings_pyramid_auto_move_text">Automatically move Kings to the waste, when possible</string>
+
+    <string name="settings_rules">Rules</string>
+    <string name="settings_money">Money</string>
+    <string name="settings_support">Support</string>
 
 </resources>

@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.widget.RelativeLayout;
 
@@ -74,7 +75,7 @@ public class Golf extends Game {
 
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 8, 9);
 

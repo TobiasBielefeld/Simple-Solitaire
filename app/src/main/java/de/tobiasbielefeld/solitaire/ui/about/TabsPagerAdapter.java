@@ -18,8 +18,11 @@
 
 package de.tobiasbielefeld.solitaire.ui.about;
 
+import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import de.tobiasbielefeld.solitaire.R;
 
 /**
  * Adapter for the tabs
@@ -27,8 +30,21 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
-    public TabsPagerAdapter(FragmentManager fm) {
+    private final String[] TITLES;
+
+    TabsPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
+        TITLES = new String[]{context.getString(R.string.about_tab_1) , context.getString(R.string.about_tab_2), context.getString(R.string.about_tab_1)};
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return TITLES[position];
+    }
+
+    @Override
+    public int getCount() {
+        return TITLES.length;
     }
 
     @Override
@@ -45,8 +61,4 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         return null;
     }
 
-    @Override
-    public int getCount() {
-        return 3;
-    }
 }

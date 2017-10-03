@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -176,7 +177,7 @@ public class DummyGame extends Game {
      *
      *  Here is an example code you should follow
      */
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         //use this to set the cards width according to last two values.
         //second last is for portrait mode, last one for landscape.
@@ -530,4 +531,8 @@ public class DummyGame extends Game {
     }
 
 
+    //called after undo movement
+    public void afterUndo(){
+        //check stuff here
+    }
 }

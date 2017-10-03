@@ -32,7 +32,7 @@ import de.tobiasbielefeld.solitaire.R;
  * after orientation change, so don't need to handle that.
  */
 
-public class ChangeLogFragment extends Fragment implements View.OnClickListener {
+public class ChangeLogFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,10 +42,5 @@ public class ChangeLogFragment extends Fragment implements View.OnClickListener 
         webView.loadUrl(getString(R.string.changelog_URL));
 
         return view;
-    }
-
-    @Override
-    public void onClick(View v) {
-        //nothing
     }
 }

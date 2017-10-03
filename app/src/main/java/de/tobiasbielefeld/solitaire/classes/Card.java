@@ -306,4 +306,8 @@ public class Card {
     public int getStackId() {
         return stack.getId();
     }
+
+    public void removeFromCurrentStack(){
+        getStack().removeCard(this);
+    }
 }

@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class Freecell extends Game {
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 9, 10);
 

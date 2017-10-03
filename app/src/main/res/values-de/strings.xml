@@ -34,6 +34,7 @@
     <string name="game_close">Spiel beenden</string>
     <string name="game_main_menu">Hauptmenü</string>
     <string name="games_Vegas">Vegas</string>
+    <string name="games_Calculation">Calculation</string>
 
     <!-- colors -->
     <string name="blue">Blau</string>

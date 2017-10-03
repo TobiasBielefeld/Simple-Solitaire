@@ -37,12 +37,12 @@
         android:title="@string/settings_hide_status_bar" />
 
     <CheckBoxPreference
-        android:defaultValue="false"
+        android:defaultValue="@bool/default_hide_time"
         android:key="@string/pref_key_hide_time"
         android:title="@string/settings_hide_time" />
 
     <CheckBoxPreference
-        android:defaultValue="false"
+        android:defaultValue="@bool/default_hide_score"
         android:key="@string/pref_key_hide_score"
         android:title="@string/settings_hide_score" />
 

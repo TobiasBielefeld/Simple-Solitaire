@@ -37,4 +37,10 @@
         android:summary="@string/settings_4_color_mode_text"
         android:title="@string/settings_4_color_mode_title" />
 
+    <CheckBoxPreference
+        android:defaultValue="@bool/default_force_tablet_layout"
+        android:key="@string/pref_key_force_tablet_layout"
+        android:summary="@string/settings_force_tablet_layout_text"
+        android:title="@string/settings_force_tablet_layout_title" />
+
 </PreferenceScreen>

@@ -36,6 +36,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
 import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.isXLargeTablet;
 import static de.tobiasbielefeld.solitaire.SharedData.logText;
 
 /**
@@ -64,7 +65,7 @@ public class Manual extends CustomAppCompatActivity
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manual);
+        setContentView(isXLargeTablet(getApplicationContext()) ? R.layout.activity_manual_xlarge : R.layout.activity_manual);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         listView = (ListView) findViewById(R.id.manual_listView);
@@ -73,9 +74,7 @@ public class Manual extends CustomAppCompatActivity
         setSupportActionBar(toolbar);
         fragmentLoaded = false;
 
-
         loadFragment(ManualStartPage.class);
-
 
         if (drawer != null) {
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

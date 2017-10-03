@@ -15,8 +15,17 @@
     <bool name="default_double_tap_foundation_first">true</bool>
     <bool name="default_sound_enabled">false</bool>
     <bool name="default_fortyeight_limited_recycles">true</bool>
+    <bool name="default_klondike_limited_recycles">false</bool>
+    <bool name="default_calculation_limited_recycles">false</bool>
     <bool name="default_auto_start_new_game">true</bool>
+    <bool name="default_force_tablet_layout">false</bool>
+    <bool name="default_calculation_alternative">false</bool>
     <bool name="default_hide_time">false</bool>
     <bool name="default_hide_score">false</bool>
+    <bool name="default_vegas_money_enabled">false</bool>
+    <bool name="default_vegas_reset_money">false</bool>
+
+    <bool name="default_mod3_auto_move">true</bool>
+    <bool name="default_pyramid_auto_move">true</bool>
 </resources>
 

@@ -35,6 +35,7 @@
     <string name="games_Canfield">カンフィールド</string>
     <string name="games_GrandfathersClock">祖父の時計</string>
     <string name="games_Vegas">ベガス</string>
+    <string name="games_Calculation">計算</string>
 
     <!-- colors -->
     <string name="blue">青</string>

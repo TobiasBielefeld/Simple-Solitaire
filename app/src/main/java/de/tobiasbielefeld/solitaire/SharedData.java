@@ -20,14 +20,17 @@ package de.tobiasbielefeld.solitaire;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
+import de.tobiasbielefeld.solitaire.handler.HandlerRecordListUndo;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -54,6 +57,7 @@ public class SharedData {
 
     public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
     //Strings
+    public static String ORDER;
     public static String SCORE;
     public static String SAVED_SCORES;
     public static String OLD;
@@ -121,13 +125,24 @@ public class SharedData {
     public static String PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
     public static String PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
+    public static String PREF_KEY_KLONDIKE_LIMITED_RECYCLES;
+    public static String PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
+    public static String PREF_KEY_CALCULATION_LIMITED_RECYCLES;
+    public static String PREF_KEY_CALCULATION_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_VEGAS_BET_AMOUNT;
     public static String PREF_KEY_VEGAS_BET_AMOUNT_OLD;
     public static String PREF_KEY_MENU_ORDER;
     public static String PREF_KEY_AUTO_START_NEW_GAME;
+    public static String PREF_KEY_FORCE_TABLET_LAYOUT;
+    public static String PREF_KEY_CALCULATION_ALTERNATIVE;
     public static String PREF_KEY_HIDE_TIME;
     public static String PREF_KEY_HIDE_SCORE;
+    public static String PREF_KEY_VEGAS_MONEY;
+    public static String PREF_KEY_VEGAS_MONEY_ENABLED;
+    public static String PREF_KEY_VEGAS_RESET_MONEY;
+    public static String PREF_KEY_MOD3_AUTO_MOVE;
+    public static String PREF_KEY_PYRAMID_AUTO_MOVE;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -145,6 +160,8 @@ public class SharedData {
     public static String DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
     public static String DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
     public static String DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
+    public static String DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
+    public static String DEFAULT_CALCULATION_NUMBER_OF_RECYCLES;
     public static String DEFAULT_WIN_SOUND;
     public static String DEFAULT_MOVEMENT_SPEED;
     public static int DEFAULT_CURRENT_GAME;
@@ -155,6 +172,7 @@ public class SharedData {
     public static int DEFAULT_BACKGROUND_VOLUME;
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
     public static int DEFAULT_VEGAS_BET_AMOUNT;
+    public static int DEFAULT_VEGAS_MONEY;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_LEFT_HANDED_MODE;
     public static boolean DEFAULT_DOUBLE_TAP_ENABLE;
@@ -169,11 +187,19 @@ public class SharedData {
     public static boolean DEFAULT_SINGLE_TAP_ENABLED;
     public static boolean DEFAULT_SOUND_ENABLED;
     public static boolean DEFAULT_AUTO_START_NEW_GAME;
+    public static boolean DEFAULT_FORCE_TABLET_LAYOUT;
     public static boolean DEFAULT_HIDE_TIME;
     public static boolean DEFAULT_HIDE_SCORE;
+    public static boolean DEFAULT_VEGAS_MONEY_ENABLED;
+    public static boolean DEFAULT_VEGAS_RESET_MONEY;
 
     public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
     public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
+    public static boolean DEFAULT_KLONDIKE_LIMITED_RECYCLES;
+    public static boolean DEFAULT_CALCULATION_LIMITED_RECYCLES;
+    public static boolean DEFAULT_CALCULATION_ALTERNATIVE;
+    public static boolean DEFAULT_MOD3_AUTO_MOVE;
+    public static boolean DEFAULT_PYRAMID_AUTO_MOVE;
 
 
     public static Card[] cards;
@@ -200,6 +226,7 @@ public class SharedData {
 
     public static HandlerTestAfterMove handlerTestAfterMove = new HandlerTestAfterMove();
     public static HandlerTestIfWon handlerTestIfWon = new HandlerTestIfWon();
+    public static HandlerRecordListUndo handlerRecordListUndo = new HandlerRecordListUndo();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
 
@@ -247,6 +274,7 @@ public class SharedData {
     public static void loadStrings(Resources res) {
         GAME = res.getString(R.string.game);
         OLD = "_old";
+        ORDER = "order";
 
         PREF_KEY_YUKON_RULES = res.getString(R.string.pref_key_yukon_rules);
         PREF_KEY_KLONDIKE_DRAW = res.getString(R.string.pref_key_klondike_draw);
@@ -290,8 +318,19 @@ public class SharedData {
         PREF_KEY_MENU_ORDER = res.getString(R.string.pref_key_menu_order);
         PREF_KEY_VEGAS_BET_AMOUNT_OLD = PREF_KEY_VEGAS_BET_AMOUNT + OLD;
         PREF_KEY_AUTO_START_NEW_GAME = res.getString(R.string.pref_key_auto_start_new_game);
+        PREF_KEY_FORCE_TABLET_LAYOUT = res.getString(R.string.pref_key_force_tablet_layout);
+        PREF_KEY_KLONDIKE_LIMITED_RECYCLES = res.getString(R.string.pref_key_klondike_limit_recycles);
+        PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_klondike_number_of_recycles);
+        PREF_KEY_CALCULATION_LIMITED_RECYCLES = res.getString(R.string.pref_key_calculation_limit_recycles);
+        PREF_KEY_CALCULATION_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_calculation_number_of_recycles);
+        PREF_KEY_CALCULATION_ALTERNATIVE = res.getString(R.string.pref_key_calculation_alternative);
         PREF_KEY_HIDE_TIME = res.getString(R.string.pref_key_hide_time);
         PREF_KEY_HIDE_SCORE = res.getString(R.string.pref_key_hide_score);
+        PREF_KEY_VEGAS_MONEY = res.getString(R.string.pref_key_vegas_money);
+        PREF_KEY_VEGAS_MONEY_ENABLED = res.getString(R.string.pref_key_vegas_money_enabled);
+        PREF_KEY_VEGAS_RESET_MONEY = res.getString(R.string.pref_key_vegas_reset_money);
+        PREF_KEY_MOD3_AUTO_MOVE = res.getString(R.string.pref_key_mod3_auto_move);
+        PREF_KEY_PYRAMID_AUTO_MOVE = res.getString(R.string.pref_key_pyramid_auto_move);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -305,8 +344,15 @@ public class SharedData {
         DEFAULT_TAP_TO_SELECT_ENABLED = res.getBoolean(R.bool.default_tap_to_select_enable);
         DEFAULT_SINGLE_TAP_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
         DEFAULT_AUTO_START_NEW_GAME = res.getBoolean(R.bool.default_auto_start_new_game);
+        DEFAULT_KLONDIKE_LIMITED_RECYCLES = res.getBoolean(R.bool.default_klondike_limited_recycles);
+        DEFAULT_CALCULATION_LIMITED_RECYCLES = res.getBoolean(R.bool.default_calculation_limited_recycles);
+        DEFAULT_CALCULATION_ALTERNATIVE = res.getBoolean(R.bool.default_calculation_alternative);
         DEFAULT_HIDE_TIME = res.getBoolean(R.bool.default_hide_time);
         DEFAULT_HIDE_SCORE = res.getBoolean(R.bool.default_hide_score);
+        DEFAULT_VEGAS_MONEY_ENABLED = res.getBoolean(R.bool.default_vegas_money_enabled);
+        DEFAULT_VEGAS_RESET_MONEY = res.getBoolean(R.bool.default_vegas_reset_money);
+        DEFAULT_MOD3_AUTO_MOVE = res.getBoolean(R.bool.default_mod3_auto_move);
+        DEFAULT_PYRAMID_AUTO_MOVE = res.getBoolean(R.bool.default_pyramid_auto_move);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
@@ -325,13 +371,17 @@ public class SharedData {
         DEFAULT_BACKGROUND_COLOR_CUSTOM = res.getInteger(R.integer.default_background_color_custom);
         DEFAULT_MOVEMENT_SPEED = res.getString(R.string.default_movement_speed);
         DEFAULT_SOUND_ENABLED = res.getBoolean(R.bool.default_sound_enabled);
+        DEFAULT_FORCE_TABLET_LAYOUT = res.getBoolean(R.bool.default_force_tablet_layout);
         DEFAULT_WIN_SOUND = res.getString(R.string.default_win_sound);
         DEFAULT_BACKGROUND_MUSIC = res.getString(R.string.default_background_music);
         DEFAULT_BACKGROUND_VOLUME = res.getInteger(R.integer.default_background_volume);
         DEFAULT_VEGAS_BET_AMOUNT = res.getInteger(R.integer.default_vegas_bet_amount);
+        DEFAULT_VEGAS_MONEY = res.getInteger(R.integer.default_vegas_money);
         DEFAULT_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.default_pyramid_number_of_recycles);
         DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.default_fortyeight_number_of_recycles);
         DEFAULT_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.default_vegas_number_of_recycles);
+        DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.default_klondike_number_of_recycles);
+        DEFAULT_CALCULATION_NUMBER_OF_RECYCLES = res.getString(R.string.default_calculation_number_of_recycles);
         DEFAULT_PYRAMID_LIMITED_RECYCLES = res.getBoolean(R.bool.default_pyramid_limited_recycles);
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
@@ -465,17 +515,19 @@ public class SharedData {
 
             recordList.add(cardsReversed);
             scores.move(cards, destinations);
+        } else if (option == OPTION_NO_RECORD){
+            //nothing
         }
 
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).getStack() == destinations.get(i)) {                                     //this means to flip a carf
+            if (cards.get(i).getStack() == destinations.get(i)) {                                     //this means to flip a card
                 cards.get(i).flip();
             }
         }
 
         for (int i = 0; i < cards.size(); i++) {
             if (cards.get(i).getStack() != destinations.get(i)) {
-                cards.get(i).getStack().removeCard(cards.get(i));
+                cards.get(i).removeFromCurrentStack();
                 destinations.get(i).addCard(cards.get(i));
             }
         }
@@ -659,6 +711,16 @@ public class SharedData {
     }
 
     /**
+     * Gets data for shared data (same for every game)
+     *
+     * @param name         The name in the shared pref
+     * @param defaultValue The default to apply, if not found
+     */
+    public static long getSharedLong(String name, long defaultValue) {
+        return savedSharedData.getLong(name, defaultValue);
+    }
+
+    /**
      * Saves shared data (same for every game)
      *
      * @param name  The name in the shared pref
@@ -680,10 +742,30 @@ public class SharedData {
 
     /**
      * Saves shared data (same for every game)
+     *
+     * @param name  The name in the shared pref
+     * @param value The value to save
+     */
+    public static void putSharedBoolean(String name, boolean value) {
+        savedSharedData.edit().putBoolean(name, value).apply();
+    }
+
+    /**
+     * Saves shared data (same for every game)
+     *
+     * @param name  The name in the shared pref
+     * @param value The value to save
+     */
+    public static void putSharedLong(String name, long value) {
+        savedSharedData.edit().putLong(name, value).apply();
+    }
+
+    /**
+     * Saves shared data (same for every game)
      * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
      *
      * @param name The name in the shared pref
-     * @param list The default tos ave
+     * @param list The items to save
      */
     public static void putSharedIntList(String name, List<Integer> list) {
         //
@@ -707,6 +789,40 @@ public class SharedData {
 
         while (st.hasMoreTokens()) {
             result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        return result;
+    }
+
+    /**
+     * Saves shared data (same for every game)
+     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     * @param list The items to save
+     */
+    public static void putSharedStringList(String name, List<String> list) {
+        //
+        String s = "";
+        for (String i : list) {
+            s += i + ",";
+        }
+        savedSharedData.edit().putString(name, s).apply();
+    }
+
+    /**
+     * Gets shared data (same for every game)
+     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     */
+    public static ArrayList<String> getSharedStringList(String name) {
+        String s = savedSharedData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<String> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(st.nextToken());
         }
 
         return result;
@@ -764,5 +880,38 @@ public class SharedData {
         return getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, false);
     }
 
+    public static boolean isXLargeTablet(Context context) {
+        return getSharedBoolean(PREF_KEY_FORCE_TABLET_LAYOUT,DEFAULT_FORCE_TABLET_LAYOUT) ||
+                ((context.getResources().getConfiguration().screenLayout
+                        & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE);
+    }
+
+    public static String stringFormat(String text){
+        return String.format(Locale.getDefault(),"%s", text);
+    }
+
+    public static int max(ArrayList<Integer> list ){
+        int max = 0;
+
+        for (int value : list){
+            if (value > max){
+                max = value;
+            }
+        }
+
+        return max;
+    }
+
+    public static int min(ArrayList<Integer> list ){
+        int min = list.get(0);
+
+        for (int value : list){
+            if (value < min){
+                min = value;
+            }
+        }
+
+        return min;
+    }
 
 }

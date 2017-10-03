@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class FortyEight extends Game {
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardWidth(layoutGame, isLandscape, 8 + 1, 8 + 4);
 
@@ -295,7 +296,7 @@ public class FortyEight extends Game {
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
 
         //anywhere to foundation
-        if (destinationIDs[0] >= 8 && destinationIDs[0] < 16)
+        if (destinationIDs[0] >= 8 && destinationIDs[0] < 16 && (originIDs[0] < 8 || originIDs[0] >=16))
             return 45;
         //foundation to tableau
         if (originIDs[0] >= 8 && originIDs[0] < 16 && destinationIDs[0] < 8)

@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class Mod3 extends Game {
         setDirectionBorders(8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, -1, -1, -1, -1, -1, -1, -1, -1, 33, -1);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardDimensions(layoutGame, 10, 7);
 
@@ -192,6 +193,27 @@ public class Mod3 extends Game {
         }
 
         return null;
+    }
+
+    @Override
+    public void testAfterMove() {
+
+        if (getSharedBoolean(PREF_KEY_MOD3_AUTO_MOVE,DEFAULT_MOD3_AUTO_MOVE)) {
+            ArrayList<Card> cardsToMove = new ArrayList<>();
+            ArrayList<Stack> origins = new ArrayList<>();
+
+            for (int i=0;i<32;i++){
+                if (!stacks[i].isEmpty() && stacks[i].getTopCard().getValue()==1){
+                    cardsToMove.add(stacks[i].getTopCard());
+                    origins.add(stacks[i]);
+                }
+            }
+
+            if (!cardsToMove.isEmpty()) {
+                recordList.addToLastEntry(cardsToMove, origins);
+                moveToStack(cardsToMove, getDiscardStack(), OPTION_NO_RECORD);
+            }
+        }
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
