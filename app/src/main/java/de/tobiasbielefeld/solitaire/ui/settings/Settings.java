@@ -172,6 +172,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             updatePreferenceBackgroundVolumeSummary();
             backgroundSound.doInBackground(this);
 
+        } else if (key.equals(PREF_KEY_HIDE_SCORE)) {
+            scores.output();
         }
     }
 

@@ -6,6 +6,8 @@
 
     <string name="settings_background_color">Background colour</string>
     <string name="settings_hide_status_bar">Hide status bar</string>
+    <string name="settings_hide_time">Hide Time</string>
+    <string name="settings_hide_score">Hide Score</string>
     <string name="settings_left_handed_mode">Left handed mode</string>
     <string name="settings_left_handed_mode_description">Mirrors the card and stack positions to the left side</string>
     <string name="settings_back_press">Confirm closing game</string>
