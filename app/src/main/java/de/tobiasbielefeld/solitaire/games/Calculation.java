@@ -46,7 +46,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.recordList;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
- * Calculation Solitaire, maybe should have a better layout
+ * Calculation Solitaire, first game which uses custom text views in the layout
  */
 
 public class Calculation extends Game {

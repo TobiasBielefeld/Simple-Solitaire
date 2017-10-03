@@ -201,7 +201,6 @@ public class SharedData {
     public static boolean DEFAULT_MOD3_AUTO_MOVE;
     public static boolean DEFAULT_PYRAMID_AUTO_MOVE;
 
-
     public static Card[] cards;
     public static Stack[] stacks;
 
@@ -913,5 +912,4 @@ public class SharedData {
 
         return min;
     }
-
 }

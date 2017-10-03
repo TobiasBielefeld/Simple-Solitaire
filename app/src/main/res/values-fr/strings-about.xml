@@ -3,28 +3,28 @@
 <resources>
 
     <string name="about_name">À propos du jeu</string>
-    <string name="about_Text1">développé par Tobias Bielefeld</string>
-    <string name="about_Text2">merci de jouer avec mon jeu :)</string>
     <string name="about_tab_1">Information</string>
-    <string name="about_tab_2">Licence</string>
+    <string name="about_tab_2">Licences</string>
     <string name="about_tab_3">Versions</string>
-    <string name="about_build_date">Date de la construction</string>
-    <string name="about_license_top_text">Ce jeu est publié sous licence GPL 3.0 :</string>
-    <string name="about_program_code_text">Code source disponible sur :</string>
     <string name="about_loading">Chargement…</string>
 
+    <string name="about_developer_name">Tobias Bielefeld</string>
+    <string name="about_compiled">Date de la construction</string>
+    <string name="about_source_code">Code source</string>
+    <string name="about_license">Licence</string>
     <string name="about_translations">Traductions</string>
-    <string name="about_translations_japanese">Japonais: par le compte GitHub naofum</string>
-    <string name="about_translations_esperanto_polish">Esperanto et Polonais: par le compte GitHub verdulo</string>
-    <string name="about_translations_french">Français: par le compte GitHub romainhk et cicithesquirrel</string>
-    <string name="about_translations_finnish">Finnois: par le compte GitHub winjar</string>
-    <string name="about_translations_turkish">Turc: par le compte GitHub sekmenhuseyin</string>
+
+    <string name="about_translations_japanese">Japonais</string>
+    <string name="about_translations_esperanto">Esperanto</string>
+    <string name="about_translations_polish">Polonais</string>
+    <string name="about_translations_french">Français</string>
+    <string name="about_translations_finnish">Finnois</string>
+    <string name="about_translations_turkish">Turc</string>
 
     <string name="about_material_icons_text">Les icônes « Material Design » sont la propriété de Google Inc. et publiées sous licence
         <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>
     <string name="about_pixa_bay_license_text">Les autres thèmes de cartes ont été publiés sur <a href="www.pixabay.com">pixabay.com</a> sous la licence
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
-    <string name="about_third_party_licenses">Licences tierces</string>
 
     <string name="about_poker_theme">Thème de carte \'Poker\' : Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
         Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - Licence <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
@@ -34,4 +34,9 @@
 
     <string name="about_sounds">Tous les sons ont été publiés à l\'origine sur <a href="https://freesound.org">freesound.org</a> sous la licence
         <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
+
+    <!-- new values -->
+    <string name="about_developer">Developer</string>
+    <string name="about_further_contributors">Further contributors</string>
+
 </resources>

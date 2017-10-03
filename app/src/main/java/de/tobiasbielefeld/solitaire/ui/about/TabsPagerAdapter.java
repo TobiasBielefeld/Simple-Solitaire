@@ -34,7 +34,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     TabsPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
-        TITLES = new String[]{context.getString(R.string.about_tab_1) , context.getString(R.string.about_tab_2), context.getString(R.string.about_tab_1)};
+        TITLES = new String[]{context.getString(R.string.about_tab_1) , context.getString(R.string.about_tab_2), context.getString(R.string.about_tab_3)};
     }
 
     @Override
