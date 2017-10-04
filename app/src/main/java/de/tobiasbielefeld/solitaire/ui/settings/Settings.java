@@ -35,6 +35,7 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
@@ -49,6 +50,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
+    private DialogPreferenceCardDialog preferenceCards;
     private Sounds settingsSounds;
 
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
@@ -143,6 +145,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
         } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
+            preferenceCards.updateSummary();
 
         } else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
             if (animate != null) {
@@ -271,6 +274,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             Settings settings = (Settings) getActivity();
 
             settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
+            settings.preferenceCards = (DialogPreferenceCardDialog) findPreference(getString(R.string.pref_key_cards));
 
             settings.updatePreferenceMenuBarPositionSummary();
         }

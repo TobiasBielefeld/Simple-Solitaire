@@ -179,7 +179,7 @@
 
     <!-- Mod3 -->
     <string name="manual_mod3_structure">2 deck of 52 cards.\n\n32 tableau stacks, 1 main and 1 aces
-        stack.\n\n</string>
+        stack.</string>
     <string name="manual_mod3_objective">Order every card on the top 3 rows of the tableau as sequences
         of the same color in the following way:\n\nFirst row: Sequences of 2–5–8–J\nSecond row: Sequences
         of 3–6–9–Q\nThird row: Sequences of 4–7–10–K\n\nAces will be put away.</string>
@@ -189,7 +189,7 @@
         families aren\'t allowed either.\n\nGain free stacks to place cards by moving aces to the aces
         stack above the main stack.\n\nThe fourth row is also the discard row for the cards from the main
         stack. Any card can be placed on a free stack of the forth row.\n\nPress on the main stack to deal
-        one card to each stack of the forth row.\n\n</string>
+        one card to each stack of the forth row.</string>
     <string name="manual_mod3_scoring">Move a card on a correct field of the tableau: +50\n\nMove a card back to the fourth row of the tableau: -75</string>
 
     <!-- Gypsy -->

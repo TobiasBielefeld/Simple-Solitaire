@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.games.Calculation;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
@@ -71,6 +72,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
 import static de.tobiasbielefeld.solitaire.SharedData.isXLargeTablet;
+import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.reinitializeData;
 import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
 

@@ -20,7 +20,6 @@
 
     <string name="settings_background">背景の番号</string>
     <string name="settings_customization">外観</string>
-    <string name="settings_customization_description">カードと背景をカスタマイズします</string>
     <string name="settings_other">全般</string>
     <string name="settings_other_description">他のすべての設定を設定します</string>
     <string name="settings_games">ゲーム</string>
@@ -108,5 +107,6 @@
 
     <string name="settings_auto_start_new_game_title">勝ったら新しいゲームを始める</string>
     <string name="settings_auto_start_new_game_text">すでに勝利したゲームに戻った場合は自動的に新しいゲームを開始します</string>
+    <string name="settings_customization_description">カードと背景をカスタマイズします</string>
 
 </resources>

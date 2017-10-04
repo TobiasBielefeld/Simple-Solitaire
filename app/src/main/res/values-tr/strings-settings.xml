@@ -24,7 +24,6 @@
 
     <string name="settings_background">Arkaplan Sayısı</string>
     <string name="settings_customization">Görünüm</string>
-    <string name="settings_customization_description">Kartları ve arkaplanı özelleştir</string>
     <string name="settings_other">Genel</string>
     <string name="settings_other_description">Diğer tüm ayarları kaydet</string>
     <string name="settings_games">Oyunlar</string>
@@ -97,5 +96,6 @@
 
     <string name="settings_auto_start_new_game_title">Kazandığında yeni oyun başlat</string>
     <string name="settings_auto_start_new_game_text">Kazanılan bir oyuna geri dönülürse, otomatik olarak yeni bir oyun başlat</string>
+    <string name="settings_customization_description">Kartları, arkaplanı ve kullanıcı arayüzüözelleştir</string>
 
 </resources>

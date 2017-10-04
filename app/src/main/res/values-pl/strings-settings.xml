@@ -21,7 +21,7 @@
 
     <string name="settings_background">Koszulka numer</string>
     <string name="settings_customization">Wygląd</string>
-    <string name="settings_customization_description">Dostosuj karty i tło</string>
+
     <string name="settings_other">Ogólne</string>
     <string name="settings_other_description">Dostosuj wszystkie inne opcje</string>
     <string name="settings_games">Gry</string>
@@ -107,5 +107,8 @@
   
     <string name="settings_auto_start_new_game_title">Rozpocznij nową grę po wygranej</string>
     <string name="settings_auto_start_new_game_text">Po powrocie do właśnie wygranej gry, automatycznie rozpoczynaj nową grę</string>
+
+    <!-- new values -->
+    <string name="settings_customization_description">Dostosuj karty, tła i interfejs użytkownika</string>
 
 </resources>

@@ -23,7 +23,7 @@
     <string name="about_translations_turkish">Türkisch</string>
 
     <string name="about_android_support_libraries_title">Android Support Bibliothek</string>
-    <string name="about_android_support_libraries_usage">Werden für besseres Design und leichtere Entwicklung benutzt</string>
+    <string name="about_android_support_libraries_usage">Wird für besseres Design und leichtere Entwicklung benutzt</string>
 
     <string name="about_material_icons_title">Material Design Symbole</string>
     <string name="about_material_icons_usage">Werden für alle Symbole in dieser Anwendung verwendet</string>

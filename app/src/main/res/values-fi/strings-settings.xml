@@ -23,7 +23,6 @@
 
     <string name="settings_background">Taustanumero</string>
     <string name="settings_customization">Ulkoasu</string>
-    <string name="settings_customization_description">Muuta kortteja ja taustaa</string>
     <string name="settings_other">Yleistä</string>
     <string name="settings_other_description">Aseta kaikki muut asetukset</string>
     <string name="settings_games">Pelit</string>
@@ -102,5 +101,8 @@
   
     <string name="settings_auto_start_new_game_title">Aloita uusi peli voiton jälkeen</string>
     <string name="settings_auto_start_new_game_text">Mikäli palataan peliin joka on jo voitettu, käynnistä uusi peli automaattisesti</string>
+
+    <!-- new values -->
+    <string name="settings_customization_description">Muuta karttoja, tausta ja Käyttöliittymä</string>
 
 </resources>

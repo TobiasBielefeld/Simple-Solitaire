@@ -17,7 +17,7 @@
     <string name="settings_back_press_description">Zum Beenden Zurück Taste zwei mal drücken</string>
     <string name="settings_left_handed_mode_description">Spiegelt die Karten und Stapel Positionen zur linken Seite</string>
     <string name="settings_background">Hintergrund Nummer</string>
-    <string name="settings_customization_description">Passe Karten und Hintergrund an</string>
+    <string name="settings_customization_description">Passe Karten, Hintergründe und Benutzeroberfläche an</string>
     <string name="settings_other_description">Nehme alle anderen Einstellungen vor</string>
     <string name="settings_games">Spiele</string>
     <string name="settings_games_description">Nehme Einstellungen der Spielvarianten vor</string>

@@ -37,16 +37,6 @@
         android:title="@string/settings_hide_status_bar" />
 
     <CheckBoxPreference
-        android:defaultValue="@bool/default_hide_time"
-        android:key="@string/pref_key_hide_time"
-        android:title="@string/settings_hide_time" />
-
-    <CheckBoxPreference
-        android:defaultValue="@bool/default_hide_score"
-        android:key="@string/pref_key_hide_score"
-        android:title="@string/settings_hide_score" />
-
-    <CheckBoxPreference
         android:defaultValue="false"
         android:key="@string/pref_key_left_handed_mode"
         android:summary="@string/settings_left_handed_mode_description"

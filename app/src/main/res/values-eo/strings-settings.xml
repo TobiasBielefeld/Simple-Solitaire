@@ -20,7 +20,6 @@
 
     <string name="settings_background">Malantaŭo numero</string>
     <string name="settings_customization">Aspekto</string>
-    <string name="settings_customization_description">Alĝustigi kartojn kaj fonojn</string>
     <string name="settings_other">Ĝeneralaj</string>
     <string name="settings_other_description">Agordi ĉion alian</string>
     <string name="settings_games">Ludoj</string>
@@ -107,5 +106,9 @@
 
     <string name="settings_auto_start_new_game_title">Komenci novan ludon post venko</string>
     <string name="settings_auto_start_new_game_text">Je reveno al ĵus-venkita ludo, aŭtomate komenci novan ludon</string>
+
+
+    <!-- new values -->
+    <string name="settings_customization_description">Alĝustigi kartojn, fonojn kaj Fasado</string>
 
 </resources>

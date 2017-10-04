@@ -23,7 +23,6 @@
 
     <string name="settings_background">Fond numéro</string>
     <string name="settings_customization">Apparence</string>
-    <string name="settings_customization_description">Modifier les cartes et l\'arrière-plan</string>
     <string name="settings_other">Général</string>
     <string name="settings_other_description">Modifier les autres réglages</string>
     <string name="settings_games">Jeux</string>
@@ -102,5 +101,8 @@
 
     <string name="settings_auto_start_new_game_title">Démarre une nouvelle partie en cas de victoire</string>
     <string name="settings_auto_start_new_game_text">En cas de retour vers un jeu gagné, démarrer automatiquement un nouvelle partie</string>
+
+    <!-- new values -->
+    <string name="settings_customization_description">Modifier les cartes, les arrière-plans et l\'interface utilisateur</string>
 
 </resources>
