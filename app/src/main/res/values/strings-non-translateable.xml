@@ -59,8 +59,6 @@
     <string name="pref_key_force_tablet_layout" translatable="false">pref_key_force_tablet_layout</string>
     <string name="pref_key_klondike_limit_recycles" translatable="false">pref_key_klondike_limit_recycles</string>
     <string name="pref_key_klondike_number_of_recycles" translatable="false">pref_key_klondike_number_of_recycles</string>
-    <string name="pref_key_calculation_limit_recycles" translatable="false">pref_key_calculation_limit_recycles</string>
-    <string name="pref_key_calculation_number_of_recycles" translatable="false">pref_key_calculation_number_of_recycles</string>
     <string name="pref_key_calculation_alternative" translatable="false">pref_key_calculation_alternative</string>
     <string name="pref_key_hide_time" translatable="false">pref_key_hide_time</string>
     <string name="pref_key_hide_score" translatable="false">pref_key_hide_score</string>
@@ -120,5 +118,14 @@
     <string name="contributers_naofum" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
     <string name="contributers_sekmenhuseyin" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
     <string name="contributers_romainhk_cicithesquirrel" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
+
+    <!-- urls in about screen -->
+    <string name="about_material_icons_license" translatable="false"><a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>
+    <string name="about_card_themes_license" translatable="false"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
+    <string name="about_poker_themes_title" translatable="false">Vectorized Playing Cards 2.0</string>  <!-- not translatable, because name of the software-->
+    <string name="about_poker_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
+    <string name="about_sounds_license" translatable="false"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
+    <string name="about_custom_color_picker_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
+    <string name="about_sliding_tabs_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
 
 </resources>

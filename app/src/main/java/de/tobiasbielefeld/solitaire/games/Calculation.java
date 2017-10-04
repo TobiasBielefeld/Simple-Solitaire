@@ -29,12 +29,8 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CALCULATION_ALTERNATIVE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CALCULATION_LIMITED_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CALCULATION_NUMBER_OF_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CALCULATION_ALTERNATIVE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CALCULATION_LIMITED_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CALCULATION_NUMBER_OF_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedStringList;
@@ -59,12 +55,6 @@ public class Calculation extends Game {
     private void updateAlternativeMode(){
         boolean alternativeMode = getSharedBoolean(PREF_KEY_CALCULATION_ALTERNATIVE, DEFAULT_CALCULATION_ALTERNATIVE);
         putSharedBoolean(PREF_KEY_ALTERNATIVE_OLD, alternativeMode);
-
-        setNumberOfRecycles(PREF_KEY_CALCULATION_NUMBER_OF_RECYCLES, DEFAULT_CALCULATION_NUMBER_OF_RECYCLES);
-
-        if (!getSharedBoolean(PREF_KEY_CALCULATION_LIMITED_RECYCLES, DEFAULT_CALCULATION_LIMITED_RECYCLES) || !alternativeMode) {
-            toggleRecycles();
-        }
     }
 
     public Calculation() {

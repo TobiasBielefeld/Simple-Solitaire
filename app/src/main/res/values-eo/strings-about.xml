@@ -21,16 +21,25 @@
     <string name="about_translations_finnish">Suoma</string>
     <string name="about_translations_turkish">Turka</string>
 
-    <string name="about_material_icons_text">Piktogramoj ‘Material design’ estas faritaj de Google Inc kaj eldonitaj laŭ la <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">permesilo Apache 2.0</a></string>
-    <string name="about_pixa_bay_license_text">Aliaj kart-stiloj estis origine publikigitaj ĉe <a href="www.pixabay.com">pixabay.com</a> laŭ la <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">permesilo CC0</a></string>
-    <string name="about_third_party_licenses">Permesiloj de eksteraj partioj</string>
-    <string name="about_poker_theme">Pokera kart-stilo: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
-        Kopirajto 2015 - Chris AGUILAR - conjurenation@gmail.com - laŭ la permesilo <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
-    <string name="about_custom_color_picker">Propr-kolora elektilo: uzas la <a href="https://github.com/yukuku/ambilwarna">bibliotekon AmbilWarna</a> eldonitan laŭ la <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">permesilo Apache 2.0</a></string>
-    <string name="about_sounds">Ĉiuj sonoj origine publikigitaj ĉe <a href="https://freesound.org">freesound.org</a> laŭ la <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">permesilo CC0</a></string>
+    <string name="about_material_icons_title">Piktogramoj ‘Material design’</string>
+    <string name="about_card_themes_title">kart-stiloj</string>
+    <string name="about_custom_color_picker_title">Bibliotekon AmbilWarna</string>
+    <string name="about_sounds_title">Sonoj</string>
+    <string name="about_sliding_tabs_title">Bibliotekon PagerSlidingTabStrip</string>
 
     <!-- new values -->
     <string name="about_developer">Developer</string>
     <string name="about_further_contributors">Further contributors</string>
+    <string name="about_material_icons_usage">Used for all icons in this application</string>
+    <string name="about_card_themes_usage">The card themes were taken from <a href="https://pixabay.com/">pixabay.com</a>,
+        for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">here</a></string>
+    <string name="about_custom_color_picker_usage">Used for the custom color picker</string>
+    <string name="about_sounds_usage">Ĉiuj sonoj origine publikigitaj ĉe <a href="https://freesound.org">freesound.org</a>,
+        for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">here</a></string>
+    <string name="about_sliding_tabs_usage">Used for the tabs in the \"about game\" screen</string>
+
+    <!-- maybe needs correction -->
+    <string name="about_poker_themes_usage">Uzita kiel Pokera kart-stilo - Disponebla <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
+        - Kopirajto 2015 - Chris AGUILAR - conjurenation@gmail.com</string>
 
 </resources>

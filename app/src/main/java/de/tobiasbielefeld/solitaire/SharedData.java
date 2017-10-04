@@ -127,8 +127,6 @@ public class SharedData {
     public static String PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_KLONDIKE_LIMITED_RECYCLES;
     public static String PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
-    public static String PREF_KEY_CALCULATION_LIMITED_RECYCLES;
-    public static String PREF_KEY_CALCULATION_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_VEGAS_BET_AMOUNT;
     public static String PREF_KEY_VEGAS_BET_AMOUNT_OLD;
@@ -161,7 +159,6 @@ public class SharedData {
     public static String DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
     public static String DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
     public static String DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
-    public static String DEFAULT_CALCULATION_NUMBER_OF_RECYCLES;
     public static String DEFAULT_WIN_SOUND;
     public static String DEFAULT_MOVEMENT_SPEED;
     public static int DEFAULT_CURRENT_GAME;
@@ -196,7 +193,6 @@ public class SharedData {
     public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
     public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
     public static boolean DEFAULT_KLONDIKE_LIMITED_RECYCLES;
-    public static boolean DEFAULT_CALCULATION_LIMITED_RECYCLES;
     public static boolean DEFAULT_CALCULATION_ALTERNATIVE;
     public static boolean DEFAULT_MOD3_AUTO_MOVE;
     public static boolean DEFAULT_PYRAMID_AUTO_MOVE;
@@ -320,8 +316,6 @@ public class SharedData {
         PREF_KEY_FORCE_TABLET_LAYOUT = res.getString(R.string.pref_key_force_tablet_layout);
         PREF_KEY_KLONDIKE_LIMITED_RECYCLES = res.getString(R.string.pref_key_klondike_limit_recycles);
         PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_klondike_number_of_recycles);
-        PREF_KEY_CALCULATION_LIMITED_RECYCLES = res.getString(R.string.pref_key_calculation_limit_recycles);
-        PREF_KEY_CALCULATION_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_calculation_number_of_recycles);
         PREF_KEY_CALCULATION_ALTERNATIVE = res.getString(R.string.pref_key_calculation_alternative);
         PREF_KEY_HIDE_TIME = res.getString(R.string.pref_key_hide_time);
         PREF_KEY_HIDE_SCORE = res.getString(R.string.pref_key_hide_score);
@@ -344,7 +338,6 @@ public class SharedData {
         DEFAULT_SINGLE_TAP_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
         DEFAULT_AUTO_START_NEW_GAME = res.getBoolean(R.bool.default_auto_start_new_game);
         DEFAULT_KLONDIKE_LIMITED_RECYCLES = res.getBoolean(R.bool.default_klondike_limited_recycles);
-        DEFAULT_CALCULATION_LIMITED_RECYCLES = res.getBoolean(R.bool.default_calculation_limited_recycles);
         DEFAULT_CALCULATION_ALTERNATIVE = res.getBoolean(R.bool.default_calculation_alternative);
         DEFAULT_HIDE_TIME = res.getBoolean(R.bool.default_hide_time);
         DEFAULT_HIDE_SCORE = res.getBoolean(R.bool.default_hide_score);
@@ -380,7 +373,6 @@ public class SharedData {
         DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.default_fortyeight_number_of_recycles);
         DEFAULT_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.default_vegas_number_of_recycles);
         DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.default_klondike_number_of_recycles);
-        DEFAULT_CALCULATION_NUMBER_OF_RECYCLES = res.getString(R.string.default_calculation_number_of_recycles);
         DEFAULT_PYRAMID_LIMITED_RECYCLES = res.getBoolean(R.bool.default_pyramid_limited_recycles);
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];

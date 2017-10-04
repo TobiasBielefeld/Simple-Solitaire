@@ -163,7 +163,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             restartApplication();
 
         } else if (key.equals(PREF_KEY_HIDE_SCORE)) {
-            scores.output();
+            if (scores!=null) {
+                scores.output();
+            }
         }
     }
 

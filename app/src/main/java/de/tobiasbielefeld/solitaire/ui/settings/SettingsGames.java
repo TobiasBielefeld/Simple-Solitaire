@@ -42,7 +42,6 @@ import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CALCULATION_ALTERNATIVE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CALCULATION_NUMBER_OF_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_ORIENTATION;
@@ -50,8 +49,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_PYRAMID_NUMBER_OF_
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CALCULATION_ALTERNATIVE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CALCULATION_LIMITED_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CALCULATION_NUMBER_OF_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CANFIELD_DRAW;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
@@ -197,16 +194,6 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
         } else if (key.equals(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES)){
             if (currentGame instanceof Klondike) {
                 gameLogic.setNumberOfRecycles(key,DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
-            }
-
-        } else if (key.equals(PREF_KEY_CALCULATION_LIMITED_RECYCLES)) {
-            if (currentGame instanceof Calculation && getSharedBoolean(PREF_KEY_CALCULATION_ALTERNATIVE, DEFAULT_CALCULATION_ALTERNATIVE)) {
-                gameLogic.toggleRecycles();
-            }
-
-        } else if (key.equals(PREF_KEY_CALCULATION_NUMBER_OF_RECYCLES)){
-            if (currentGame instanceof Calculation && getSharedBoolean(PREF_KEY_CALCULATION_ALTERNATIVE, DEFAULT_CALCULATION_ALTERNATIVE)) {
-                gameLogic.setNumberOfRecycles(key,DEFAULT_CALCULATION_NUMBER_OF_RECYCLES);
             }
 
         } else if (key.equals(PREF_KEY_CALCULATION_ALTERNATIVE)){

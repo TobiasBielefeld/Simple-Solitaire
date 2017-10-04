@@ -21,24 +21,25 @@
     <string name="about_translations_finnish">Suomi</string>
     <string name="about_translations_turkish">Turkki</string>
 
+    <string name="about_material_icons_title">Material Design teeman</string>
+    <string name="about_card_themes_title">korttiteemat</string>
+    <string name="about_poker_themes_usage">Käytetään nimellä Poker teema - Saatavilla <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
+        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
 
-    <string name="about_material_icons_text">Material Design teeman ikonit ovat Google Inc:n tekemiä ja julkaistu
-        <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 lisenssillä</a></string>
-    <string name="about_pixa_bay_license_text">Muut korttiteemat olivat alkujaan julkaistu
-        <a href="www.pixabay.com">pixabay.com</a> sivulla
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 lisenssillä</a></string>
-
-    <string name="about_poker_theme">Poker card teema: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
-        Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - Lisensoitu <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a> lisessillä</string>
-
-    <string name="about_custom_color_picker">Mukautettu värivalitsin: Käyttää <a href="https://github.com/yukuku/ambilwarna">AmbilWarna kirjastoa</a>
-        joka on julkaistu <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0 lisenssillä</a></string>
-
-    <string name="about_sounds">Kaikki äänet on alkujaan julkaistu <a href="https://freesound.org">freesound.org</a> sivustolla
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 lisenssissä</a></string>
+    <string name="about_custom_color_picker_title">AmbilWarna kirjastoa</string>
+    <string name="about_custom_color_picker_usage">Käytetään mukautettu värivalitsin</string>
+    <string name="about_sounds_title">Äänet</string>
+    <string name="about_sliding_tabs_title">PagerSlidingTabStrip kirjastoa</string>
 
     <!-- new values -->
     <string name="about_developer">Developer</string>
     <string name="about_further_contributors">Further contributors</string>
+
+    <string name="about_material_icons_usage">Used for all icons in this application</string>
+    <string name="about_card_themes_usage">The card themes were taken from <a href="https://pixabay.com/">pixabay.com</a>,
+        for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">here</a></string>
+    <string name="about_sounds_usage">Kaikki äänet on alkujaan julkaistu <a href="https://freesound.org">freesound.org</a>,
+        for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">here</a></string>
+    <string name="about_sliding_tabs_usage">Used for the tabs in the \"about game\" screen</string>
 
 </resources>

@@ -20,21 +20,28 @@
     <string name="about_translations_finnish">フィンランド語</string>
     <string name="about_translations_turkish">トルコ語</string>
 
-    <!-- following are translated with an online translator -->
+    <!-- following values are translated with an online translator -->
     <string name="about_developer">開発者</string>
     <string name="about_further_contributors">その他の寄稿者</string>
 
-    <string name="about_material_icons_text">材料デザインアイコンはGoogle Incによって作成され、
-        <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 license</a>ライセンスで公開されています</string>
-    <string name="about_pixa_bay_license_text">他のカードとのテーマは、もともと
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a>ライセンスの下で
-        <a href="www.pixabay.com">pixabay.com</a>に公開されました</string>
-    <string name="about_poker_theme">ポーカーカードのテーマは: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
-        Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - ライセンスを受けた <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
-    <string name="about_custom_color_picker">カスタムカラーピッカー：<a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a>
-        ライセンスで公開されている <a href="https://github.com/yukuku/ambilwarna"> AmbilWarnaライブラリ</a> を使用します</string>
-    <string name="about_sounds">すべての音、もともと
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a>ライセンスの下で
-        <a href="https://freesound.org">freesound.org</a>に公開されました</string>
+    <string name="about_material_icons_title">マテリアルデザインアイコン</string>
+    <string name="about_material_icons_usage">このアプリケーションのすべてのアイコンに使用されます</string>
+
+    <string name="about_card_themes_title">カードのテーマ</string>
+    <string name="about_card_themes_usage">カードのテーマは<a href="https://pixabay.com/">pixabay.com</a>から取られました,
+        詳細については、をクリックしてください<a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">ここに</a></string>
+
+    <string name="about_poker_themes_usage">ポーカーテーマとして使用 - 上で利用可能 <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
+        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
+
+    <string name="about_custom_color_picker_title">AmbilWarnaライブラリ</string>
+    <string name="about_custom_color_picker_usage">カスタムカラーピッカーに使用</string>
+
+    <string name="about_sounds_title">サウンド</string>
+    <string name="about_sounds_usage">すべての音、もともと<a href="https://freesound.org">freesound.org</a>に公開されました,
+        詳細については、をクリックしてください<a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">ここに</a></string>
+
+    <string name="about_sliding_tabs_title">PagerSlidingTabStripライブラリ</string>
+    <string name="about_sliding_tabs_usage">「ゲームについて」画面のタブに使用されます</string>
 
 </resources>

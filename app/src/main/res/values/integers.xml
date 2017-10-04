@@ -25,6 +25,5 @@
     <string name="default_fortyeight_number_of_recycles" translatable="false">1</string>
     <string name="default_vegas_number_of_recycles" translatable="false">1</string>
     <string name="default_klondike_number_of_recycles" translatable="false">3</string>
-    <string name="default_calculation_number_of_recycles" translatable="false">2</string>
 
 </resources>
