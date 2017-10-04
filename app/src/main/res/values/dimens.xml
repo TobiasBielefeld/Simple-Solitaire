@@ -23,4 +23,9 @@
     <dimen name="list_item_height">48dip</dimen>
 
     <dimen name="dialog_menu_text_size">15sp</dimen>
+
+    <dimen name="changelog_text_padding">7dp</dimen>
+    <dimen name="changelog_title_padding">3dp</dimen>
+    <dimen name="changelog_card_corner_radius">2dp</dimen>
+    <dimen name="changelog_linear_layout_Padding">6dp</dimen>
 </resources>

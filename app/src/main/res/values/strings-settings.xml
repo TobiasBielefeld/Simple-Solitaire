@@ -98,14 +98,17 @@
     <string name="settings_auto_start_new_game_title">Start a new game when won</string>
     <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
 
+
+    <!-- NEWWWWW -->
+
+
     <string name="settings_force_tablet_layout_title">Force tablet layout</string>
     <string name="settings_force_tablet_layout_text">Show the application as on large screens (>=10\")</string>
 
     <string name="settings_restart_calculation">Start a new Calculation game to apply the change</string>
-    <string name="settings_calculation_alternative_title">Alternative rules</string>
+    <string name="settings_calculation_alternative_title">Keep cards</string>
     <string name="settings_calculation_alternative_text">On main stack press: Instead of moving the card from the discard
-        stack to the tableau, keep it on the discard stack (like in Klondike). This will also active
-        the option for limited recycles.</string>
+        stack to the tableau, keep it on the discard stack.</string>
 
     <string name="settings_vegas_money_enabled">Keep the current balance</string>
     <string name="settings_vegas_money_enabled_text">The balance will be transferred to following deals of Vegas,
