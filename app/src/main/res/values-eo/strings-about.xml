@@ -30,6 +30,8 @@
     <!-- new values -->
     <string name="about_developer">Developer</string>
     <string name="about_further_contributors">Further contributors</string>
+    <string name="about_android_support_libraries_usage">Used for better design and easier development</string>
+
     <string name="about_material_icons_usage">Used for all icons in this application</string>
     <string name="about_card_themes_usage">The card themes were taken from <a href="https://pixabay.com/">pixabay.com</a>,
         for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">here</a></string>
@@ -39,6 +41,7 @@
     <string name="about_sliding_tabs_usage">Used for the tabs in the \"about game\" screen</string>
 
     <!-- maybe needs correction -->
+    <string name="about_android_support_libraries_title">Bibliotekon Android subteno</string>
     <string name="about_poker_themes_usage">Uzita kiel Pokera kart-stilo - Disponebla <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
         - Kopirajto 2015 - Chris AGUILAR - conjurenation@gmail.com</string>
 

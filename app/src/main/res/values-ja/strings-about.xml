@@ -44,4 +44,7 @@
     <string name="about_sliding_tabs_title">PagerSlidingTabStripライブラリ</string>
     <string name="about_sliding_tabs_usage">「ゲームについて」画面のタブに使用されます</string>
 
+    <string name="about_android_support_libraries_title">Androidサポートライブラリ</string>
+    <string name="about_android_support_libraries_usage">より良い設計とより容易な開発に使用</string>
+
 </resources>

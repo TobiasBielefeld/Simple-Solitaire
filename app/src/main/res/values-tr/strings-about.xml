@@ -46,4 +46,7 @@
     <string name="about_sliding_tabs_title">PagerSlidingTabStrip library</string>
     <string name="about_sliding_tabs_usage">Used for the tabs in the \"about game\" screen</string>
 
+    <string name="about_android_support_libraries_title">Android support library</string>
+    <string name="about_android_support_libraries_usage">Used for better design and easier development</string>
+
 </resources>

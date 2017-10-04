@@ -23,6 +23,9 @@
     <string name="about_translations_finnish">Finnish</string>
     <string name="about_translations_turkish">Turkish</string>
 
+    <string name="about_android_support_libraries_title">Android support library</string>
+    <string name="about_android_support_libraries_usage">Used for better design and easier development</string>
+
     <string name="about_material_icons_title">Material design icons</string>
     <string name="about_material_icons_usage">Used for all icons in this application</string>
 

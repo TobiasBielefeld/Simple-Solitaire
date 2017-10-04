@@ -46,4 +46,7 @@
     <string name="about_sliding_tabs_title">Bibliothèque PagerSlidingTabStrip</string>
     <string name="about_sliding_tabs_usage">Utilisé pour les onglets dans l\'écran \'À propos du jeu\'</string>
 
+    <string name="about_android_support_libraries_title">Bibliothèque de support Android</string>
+    <string name="about_android_support_libraries_usage">Utilisé pour une meilleure conception et un développement plus facile</string>
+
 </resources>

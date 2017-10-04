@@ -33,8 +33,8 @@ import android.widget.TextView;
 import de.tobiasbielefeld.solitaire.R;
 
 /**
- * Shows the changelog, which is simply loaded from a webView. The About activity disables recreation
- * after orientation change, so don't need to handle that.
+ * Shows the changelog, each version has an own string in strings-changelog.xml. This fragment
+ * uses the version name to generate each entry
  */
 
 public class ChangeLogFragment extends Fragment{
@@ -50,7 +50,6 @@ public class ChangeLogFragment extends Fragment{
                 "3.3.4", "3.3.3", "3.3.2", "3.3.1", "3.3", "3.2", "3.1.5", "3.1.4", "3.1.3", "3.1.2",
                 "3.1.1", "3.1", "3.0.1", "3.0", "2.0.2", "2.0.1", "2.0", "1.4", "1.3", "1.2", "1.1",
                 "1.0"};
-
 
         for (int i=0;i<titles.length;i++) {
             CardView card = createCard();
