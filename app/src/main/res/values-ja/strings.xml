@@ -50,7 +50,7 @@
     <string name="game_main_menu">メインメニュー</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">最長シーケンス:</string> <!-- also used by golf -->
+    <string name="game_longest_run">最長シーケンス:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">おめでとう！</string>
@@ -58,5 +58,9 @@
     <string name="dialog_win_bonus">ボーナス: %1$d</string>
     <string name="dialog_win_total">合計: %1$d</string>
 
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">ミックスカード</string>
+    <string name="dialog_mix_cards_text">あなたは本当にカードを混ぜたいですか？ これはすべてのカードをシャッフルし
+        （基礎スタックからの期待）、新しいゲームのように扱います</string>
 
 </resources>

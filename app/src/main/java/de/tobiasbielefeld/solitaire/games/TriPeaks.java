@@ -229,7 +229,7 @@ public class TriPeaks extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN, 0);
+        return res.getString(R.string.game_longest_run) + " " + getInt(LONGEST_RUN, 0);
     }
 
     @Override

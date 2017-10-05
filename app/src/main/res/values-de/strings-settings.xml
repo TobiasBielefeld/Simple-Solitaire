@@ -102,9 +102,9 @@
     <string name="settings_force_tablet_layout_text">Zeige die Anwendung wie auf großen Bildschirmen (>=10\")</string>
 
     <string name="settings_restart_calculation">Starte ein neues Calculation Spiel um die Änderung anzuwenden</string>
-    <string name="settings_calculation_alternative_title">Belasse Karten</string>
+    <string name="settings_calculation_alternative_title">Behalte Karten</string>
     <string name="settings_calculation_alternative_text">Beim Drücken auf dem Haupt-Stapel: Bewege Karten
-        vom Ablage-Stapel nicht zum Tableau, belasse sie auf dem Ablage-Stapel</string>
+        vom Ablage-Stapel nicht zum Tableau, behalte sie auf dem Ablage-Stapel</string>
 
     <string name="settings_vegas_money_enabled">Behalte aktuellen Kontostand</string>
     <string name="settings_vegas_money_enabled_text">Das Geld wird zu den nachfolgenden Vegas Spielen übertragen,

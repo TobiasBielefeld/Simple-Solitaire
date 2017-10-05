@@ -275,6 +275,10 @@ public class LoadGame {
         return gameName;
     }
 
+    public String getGameName(Resources res, int index) {
+        return allGameInformation.get(index).getName(res);
+    }
+
     public String getSharedPrefName() {
         return sharedPrefName;
     }

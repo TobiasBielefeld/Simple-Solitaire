@@ -40,7 +40,6 @@
     <string name="games_Canfield">Canfield</string>
     <string name="games_GrandfathersClock">AvaHorloĝo</string>
     <string name="games_Vegas">Vegaso</string>
-    <string name="games_Calculation">Calculation</string>
 
     <!-- colors -->
     <string name="blue">Blua</string>
@@ -51,12 +50,22 @@
     <string name="purple">Purpura</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Plej longa serio:</string> <!-- also used by golf -->
+    <string name="game_longest_run">Plej longa serio:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Gratulon!!</string>
     <string name="dialog_win_score">Poentaro: %1$d</string>
     <string name="dialog_win_bonus">Premio: %1$d</string>
     <string name="dialog_win_total">Tute: %1$d</string>
+
+
+
+    <!-- new values -->
+    <string name="games_Calculation">Calculation</string>
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Mix cards</string>
+    <string name="dialog_mix_cards_text">Do you really want to mix the cards? This will shuffle all cards
+        (expect from foundation stacks) and deal them like a new game</string>
 
 </resources>

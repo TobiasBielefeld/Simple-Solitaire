@@ -95,8 +95,6 @@
     <string name="settings_auto_start_new_game_title">Start a new game when won</string>
     <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
 
-
-    <!-- NEWWWWW -->
     <string name="settings_customization_description">Customize cards, backgrounds and user interface</string>
 
     <string name="settings_force_tablet_layout_title">Force tablet layout</string>

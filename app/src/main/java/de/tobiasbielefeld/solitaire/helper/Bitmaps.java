@@ -85,8 +85,11 @@ public class Bitmaps {
         int posY = index/6;
 
         try {
+            //just the preview of the game itself
             Bitmap gamePicture = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
-            Bitmap gameText = drawTextToBitmap(lg.getDefaultGameNameList(res)[index]);
+            //get the game name picture
+            Bitmap gameText = drawTextToBitmap(lg.getGameName(res,index));
+            //append both parts
             bitmap = putTogether(gamePicture,gameText);
         } catch (Exception e){
             Log.e("Bitmap.getMenu()","No picture for current game available\n" + e.toString());
@@ -102,53 +105,43 @@ public class Bitmaps {
      * Thanks to this article for the code!
      * https://www.skoumal.net/en/android-drawing-multiline-text-on-bitmap/
      */
-    public Bitmap drawTextToBitmap(String gText) {
+    private Bitmap drawTextToBitmap(String text) {
 
         // prepare canvas
         float scale = res.getDisplayMetrics().density;
         Bitmap bitmap = Bitmap.createBitmap(menuText);
 
         android.graphics.Bitmap.Config bitmapConfig = bitmap.getConfig();
-        // set default bitmap config if none
-        if(bitmapConfig == null) {
+
+        if(bitmapConfig == null) {                                                                  //set default bitmap config if none
             bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
         }
-        // resource bitmaps are imutable,
-        // so we need to convert it to mutable one
-        bitmap = bitmap.copy(bitmapConfig, true);
 
+        bitmap = bitmap.copy(bitmapConfig, true);                                                   //make bitmap mutable
         Canvas canvas = new Canvas(bitmap);
 
-        // new antialiased Paint
-        TextPaint paint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        // text color - #3D3D3D
-        paint.setColor(Color.rgb(61, 61, 61));
+        TextPaint paint=new TextPaint(Paint.ANTI_ALIAS_FLAG);                                       //new antialiased Paint
+        paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);                                              //text shadow
+        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));                        //set bold
+        paint.setColor(Color.rgb(0,0,0));                                                           //set black color
 
-        // text shadow
-        paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);
-        //set bold
-        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-
-
-        // set text width to canvas width minus 5dp padding
-        int textWidth = canvas.getWidth() - (int) (5 * scale);
+        int textWidth = canvas.getWidth() - (int) (5 * scale);                                      //set text width to canvas width minus 5dp padding
         int textHeight;
-        int scaleFactor = 30;
+        int textScale = 80;
         StaticLayout textLayout;
 
+        //try to generate the text with the biggest size possible first. If the text height is greater
+        //than the bitmap height, shrink it and try again. minimum scale factor is set to 10 (very small)
         do {
-            // text size in pixels
-            paint.setTextSize((int) (scaleFactor * scale));
+            paint.setTextSize(textScale);
 
+            textLayout = new StaticLayout(text, paint, textWidth,                                   // nit StaticLayout for text
+                    Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
 
-            // init StaticLayout for text
-            textLayout = new StaticLayout(
-                    gText, paint, textWidth, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            textHeight = textLayout.getHeight();                                                    //get height of multiline text
 
-            // get height of multiline text
-             textHeight = textLayout.getHeight();
-            scaleFactor--;
-        } while(textHeight >= bitmap.getHeight() && scaleFactor >5);
+            textScale--;                                                                            //reduce text size for possible next iteration
+        } while(textHeight >= bitmap.getHeight() && textScale >10);
 
         // get position of text's top left corner
         float x = (bitmap.getWidth() - textWidth)/2;
@@ -163,8 +156,10 @@ public class Bitmaps {
         return bitmap;
     }
 
-
-    public static Bitmap putTogether(Bitmap bmp1, Bitmap bmp2) {
+    /*
+     * puts two bitmaps vertically together
+     */
+    private static Bitmap putTogether(Bitmap bmp1, Bitmap bmp2) {
         Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight() + bmp2.getHeight(), bmp1.getConfig());
         Canvas canvas = new Canvas(bmOverlay);
         canvas.drawBitmap(bmp1, 0,0, null);

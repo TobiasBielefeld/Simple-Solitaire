@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.CallSuper;
 import android.support.v4.widget.TextViewCompat;
@@ -346,6 +347,7 @@ public abstract class Game {
         textView.setWidth(width);
         TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat);
         textView.setGravity(Gravity.CENTER);
+        textView.setTextColor(Color.rgb(0,0,0));
         layout.addView(textView);
         textView.measure(0,0);
 

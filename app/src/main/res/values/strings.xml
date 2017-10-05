@@ -54,12 +54,19 @@
     <string name="purple">Purple</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Longest sequence:</string> <!-- also used by golf -->
+    <string name="game_longest_run">Longest sequence:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Congratulation!</string>
     <string name="dialog_win_score">Score: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Mix cards</string>
+    <string name="dialog_mix_cards_text">Do you really want to mix the cards? This will shuffle all cards
+        (expect from foundation stacks) and deal them like a new game</string>
+
+
 
 </resources>
