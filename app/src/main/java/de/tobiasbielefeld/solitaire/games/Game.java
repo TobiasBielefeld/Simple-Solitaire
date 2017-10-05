@@ -18,12 +18,21 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.CallSuper;
+import android.support.v4.widget.TextViewCompat;
+import android.text.Layout;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -49,7 +58,7 @@ public abstract class Game {
     private boolean hasDiscardStack = false;
     private boolean hasLimitedRecycles = false;
     private boolean hasFoundationStacks = false;
-    private int discardStackID = -1;
+    private int[] discardStackIDs = new int[]{-1};
     private int lastTableauID = -1;
     private int recycleCounter = 0;
     private int totalRecycles = 0;
@@ -117,7 +126,7 @@ public abstract class Game {
      * @param isLandscape Shows if the screen is in landscape mode, so the games can set up
      *                    different layouts for this
      */
-    abstract public void setStacks(RelativeLayout layoutGame, boolean isLandscape);
+    abstract public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context);
 
     // some methods used by other classes
 
@@ -249,6 +258,14 @@ public abstract class Game {
     }
 
     /**
+     * Gets executed after a undo movement. I use it in Calculation-Game to update the text views
+     * from the foundation stacks
+     */
+    public void afterUndo(){
+
+    }
+
+    /**
      * Does stuff on game reset. By default, it resets the recycle counter (if there is one).
      * If games need to reset additional stuff, put it here
      *
@@ -285,9 +302,13 @@ public abstract class Game {
      * use this method to do something with the score, when the game is won or canceled (new game started)
      * So you can do other stuff for the high score list. For example, a game in Vegas is already won, when
      * the player makes profit, not only when all cards could be played on the foundation
+     *
+     * Return true, if you want the  addNewHighScore() method to break, so possible highscores won't
+     * be saved. (eg in Vegas, if the player keeps the current balance, only save high score when
+     * the balance is resetting). Return fals other wise (default)
      */
-    public void processScore(long currentScore){
-
+    public boolean processScore(long currentScore){
+        return false;
     }
 
     /**
@@ -308,6 +329,29 @@ public abstract class Game {
      */
     public void deleteAdditionalStatisticsData() {
 
+    }
+
+    /**
+     * Create a textView and add it to the given layout (game content). Used to add custom texts
+     * to a game. This also sets the text apperance to AppCompat and the gravity to center.
+     * The width and height is also measured, so you can use it directly.
+     *
+     * @param width The width to apply to the
+     * @param layout he textView will be added to this layout
+     * @param context Context to create view
+     * @return The created textView
+     *
+     */
+    protected TextView addTextView(int width, RelativeLayout layout, Context context){
+        TextView textView = new TextView(context);
+        textView.setWidth(width);
+        TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat);
+        textView.setGravity(Gravity.CENTER);
+        textView.setTextColor(Color.rgb(0,0,0));
+        layout.addView(textView);
+        textView.measure(0,0);
+
+        return textView;
     }
 
     /**
@@ -486,14 +530,13 @@ public abstract class Game {
     }
 
     /**
-     * Sets the given stack id as the first discard stack.
-     * Every stack with this id and above, but below the main stack id's will be treated as a discard stack.
+     * Sets the given stack ids as discard stacks.
      *
-     * @param id The stack id to apply.
+     * @param IDs The stack ids to apply.
      */
-    protected void setFirstDiscardStackID(int id) {
+    protected void setDiscardStackIDs(int... IDs){
         hasDiscardStack = true;
-        discardStackID = id;
+        discardStackIDs = IDs;
     }
 
     /**
@@ -746,13 +789,26 @@ public abstract class Game {
 
 
     //some getters,setters and simple methods, games should'nt override these
-
     public Stack getDiscardStack() throws ArrayIndexOutOfBoundsException {
-        if (discardStackID == -1) {
+        if (discardStackIDs[0] == -1) {
             throw new ArrayIndexOutOfBoundsException("No discard stack specified");
         }
 
-        return stacks[discardStackID];
+        return stacks[discardStackIDs[0]];
+    }
+
+    public ArrayList<Stack> getDiscardStacks() throws ArrayIndexOutOfBoundsException {
+        ArrayList<Stack> discardStacks = new ArrayList<>();
+
+        for (int id : discardStackIDs){
+            if (id == -1){
+                throw new ArrayIndexOutOfBoundsException("No discard stack specified");
+            }
+
+            discardStacks.add(stacks[id]);
+        }
+
+        return discardStacks;
     }
 
     protected void setLastTableauID(int id) {
@@ -851,5 +907,9 @@ public abstract class Game {
 
     protected enum testMode3 {
         ASCENDING, DESCENDING
+    }
+
+    protected void sendTestAfterMoveMessage(){
+        handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
     }
 }

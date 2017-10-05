@@ -194,6 +194,7 @@ public class GameLogic {
 
         //and finally deal the cards from the game!
         currentGame.dealCards();
+        handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
     }
 
     /**
@@ -265,6 +266,13 @@ public class GameLogic {
      */
     public void toggleRecycles() {
         currentGame.toggleRecycles();
+        showOrHideRecycles();
+    }
+
+    /**
+     * updates the recycle counter in the ui
+     */
+    public void showOrHideRecycles() {
 
         if (currentGame.hasLimitedRecycles()) {
             gm.mainTextViewRecycles.setVisibility(View.VISIBLE);

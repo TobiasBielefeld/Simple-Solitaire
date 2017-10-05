@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.widget.RelativeLayout;
 
@@ -51,9 +52,8 @@ public class TriPeaks extends Game {
 
         setNumberOfDecks(1);
         setNumberOfStacks(30);
-
         setLastTableauID(27);
-        setFirstDiscardStackID(28);
+        setDiscardStackIDs(28);
         setFirstMainStackID(29);
         setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         setSingleTapeEnabled(true);
@@ -76,7 +76,7 @@ public class TriPeaks extends Game {
 
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardDimensions(layoutGame, 11, 6);
 
@@ -229,7 +229,7 @@ public class TriPeaks extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN, 0);
+        return res.getString(R.string.game_longest_run) + " " + getInt(LONGEST_RUN, 0);
     }
 
     @Override

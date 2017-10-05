@@ -2,36 +2,49 @@
 
 <resources>
     <string name="about_name">ゲームについて</string>
-    <string name="about_Text1">開発者 Tobias Bielefeld</string>
-    <string name="about_Text2">私のゲームをプレイしていただきありがとうございます :)</string>
     <string name="about_tab_1">情報</string>
     <string name="about_tab_2">ライセンス</string>
     <string name="about_tab_3">変更履歴</string>
-    <string name="about_build_date">ビルド日</string>
-    <string name="about_license_top_text">このゲームは GPL 3.0 ライセンスの下に公開されています:</string>
-    <string name="about_program_code_text">ソースコードはこちらで利用可能です:</string>
     <string name="about_loading">読み込み中…</string>
 
+    <string name="about_developer_name">Tobias Bielefeld</string>
+    <string name="about_compiled">ビルド日</string>
+    <string name="about_source_code">ソースコード</string>
+    <string name="about_license">ライセンス</string>
     <string name="about_translations">翻訳</string>
-    <string name="about_translations_japanese">日本語: GitHubのユーザー naofum</string>
-    <string name="about_translations_esperanto_polish">エスペラントとポーランド語: GitHubのユーザー verdulo</string>
-    <string name="about_translations_french">フランス語: GitHubのユーザー romainhk と cicithesquirrel</string>
-    <string name="about_translations_finnish">フィンランド語: GitHubのユーザー winjar</string>
-    <string name="about_translations_turkish">トルコ語: GitHubのユーザー sekmenhuseyin</string>
 
-    <!-- following are translated with an online translator -->
-    <string name="about_material_icons_text">材料デザインアイコンはGoogle Incによって作成され、
-        <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 license</a>ライセンスで公開されています</string>
-    <string name="about_pixa_bay_license_text">他のカードとのテーマは、もともと
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a>ライセンスの下で
-        <a href="www.pixabay.com">pixabay.com</a>に公開されました</string>
-    <string name="about_third_party_licenses">第三者のライセンス</string>
-    <string name="about_poker_theme">ポーカーカードのテーマは: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
-        Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - ライセンスを受けた <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
-    <string name="about_custom_color_picker">カスタムカラーピッカー：<a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a>
-        ライセンスで公開されている <a href="https://github.com/yukuku/ambilwarna"> AmbilWarnaライブラリ</a> を使用します</string>
-    <string name="about_sounds">すべての音、もともと
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a>ライセンスの下で
-        <a href="https://freesound.org">freesound.org</a>に公開されました</string>
+    <string name="about_translations_japanese">日本語</string>
+    <string name="about_translations_esperanto">エスペラント</string>
+    <string name="about_translations_polish">研磨</string>
+    <string name="about_translations_french">フランス語</string>
+    <string name="about_translations_finnish">フィンランド語</string>
+    <string name="about_translations_turkish">トルコ語</string>
+
+    <!-- following values are translated with an online translator -->
+    <string name="about_developer">開発者</string>
+    <string name="about_further_contributors">その他の寄稿者</string>
+
+    <string name="about_material_icons_title">マテリアルデザインアイコン</string>
+    <string name="about_material_icons_usage">このアプリケーションのすべてのアイコンに使用されます</string>
+
+    <string name="about_card_themes_title">カードのテーマ</string>
+    <string name="about_card_themes_usage">カードのテーマは<a href="https://pixabay.com/">pixabay.com</a>から取られました,
+        詳細については、をクリックしてください<a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">ここに</a></string>
+
+    <string name="about_poker_themes_usage">ポーカーテーマとして使用 - 上で利用可能 <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
+        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
+
+    <string name="about_custom_color_picker_title">AmbilWarnaライブラリ</string>
+    <string name="about_custom_color_picker_usage">カスタムカラーピッカーに使用</string>
+
+    <string name="about_sounds_title">サウンド</string>
+    <string name="about_sounds_usage">すべての音、もともと<a href="https://freesound.org">freesound.org</a>に公開されました,
+        詳細については、をクリックしてください<a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">ここに</a></string>
+
+    <string name="about_sliding_tabs_title">PagerSlidingTabStripライブラリ</string>
+    <string name="about_sliding_tabs_usage">「ゲームについて」画面のタブに使用されます</string>
+
+    <string name="about_android_support_libraries_title">Androidサポートライブラリ</string>
+    <string name="about_android_support_libraries_usage">より良い設計とより容易な開発に使用</string>
 
 </resources>

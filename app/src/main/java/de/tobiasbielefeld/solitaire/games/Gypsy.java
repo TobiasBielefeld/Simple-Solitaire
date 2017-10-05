@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class Gypsy extends Game {
         setHasFoundationStacks(true);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardWidth(layoutGame, isLandscape, 9 + 1, 9 + 3);
         int spacing = setUpHorizontalSpacing(layoutGame, 9, 10);

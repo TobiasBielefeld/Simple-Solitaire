@@ -31,9 +31,11 @@ public class HandlerTestIfWon extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        if (animate.cardIsAnimating())
+        if (animate.cardIsAnimating()) {
             handlerTestIfWon.sendEmptyMessageDelayed(0, 100);
-        else
+        }
+        else {
             gameLogic.testIfWon();
+        }
     }
 }

@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -78,7 +79,7 @@ public class DummyGame extends Game {
 
         //if there is a discard stack, set it's id, because I need the id for the undo movement
         //(cards should be faced up when returning to discard)
-        setFirstDiscardStackID(11);
+        setDiscardStackIDs(11);
 
         //if your game has NO main stack, set where the cards are dealt from
         setDealFromID(1);
@@ -176,7 +177,7 @@ public class DummyGame extends Game {
      *
      *  Here is an example code you should follow
      */
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         //use this to set the cards width according to last two values.
         //second last is for portrait mode, last one for landscape.
@@ -530,4 +531,8 @@ public class DummyGame extends Game {
     }
 
 
+    //called after undo movement
+    public void afterUndo(){
+        //check stuff here
+    }
 }

@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class Yukon extends Game {
         setHasFoundationStacks(true);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardDimensions(layoutGame, 9, 5);
 

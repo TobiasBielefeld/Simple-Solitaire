@@ -49,12 +49,22 @@
     <string name="purple">Violet</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Plus longue série :</string> <!-- also used by golf -->
+    <string name="game_longest_run">Plus longue série :</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Félicitation!</string>
     <string name="dialog_win_score">Points: %1$d</string>
     <string name="dialog_win_bonus">Prime: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
+
+
+
+    <!-- new values -->
+    <string name="games_Calculation">Calculation</string>
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Mélanger les cartes</string>
+    <string name="dialog_mix_cards_text">Voulez-vous vraiment mélanger les cartes? Cela va mélanger toutes
+        les cartes (sauf des piles de base) et les traiter comme un nouveau jeu</string>
 
 </resources>

@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -38,13 +39,13 @@ public class AcesUp extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(6);
         setFirstMainStackID(5);
-        setFirstDiscardStackID(4);
+        setDiscardStackIDs(4);
         setLastTableauID(3);
         setDirections(1, 1, 1, 1, 0, 0);
         setHasFoundationStacks(true);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardWidth(layoutGame, isLandscape, 7 + 1, 7 + 2);
 

@@ -1,40 +1,65 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuBarPosition
-        android:key="@string/pref_key_menu_bar_position"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@string/game_confirm"
-        android:summary="Portrait: Bottom, Landscape: Right"
-        android:title="@string/settings_menu_bar_position" />
+    <PreferenceCategory android:title="@string/manual_ui">
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuBarPosition
+            android:key="@string/pref_key_menu_bar_position"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:summary="Portrait: Bottom, Landscape: Right"
+            android:title="@string/settings_menu_bar_position" />
 
-    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor
-        android:key="@string/pref_key_background_color"
-        android:negativeButtonText="@string/settings_background_color_custom"
-        android:positiveButtonText="@string/game_cancel"
-        android:summary="%s"
-        android:title="@string/settings_background_color"
-        android:widgetLayout="@layout/preference_widget_layout_background_color" />
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor
+            android:key="@string/pref_key_background_color"
+            android:negativeButtonText="@string/settings_background_color_custom"
+            android:positiveButtonText="@string/game_cancel"
+            android:summary="%s"
+            android:title="@string/settings_background_color"
+            android:widgetLayout="@layout/preference_widget_layout_background_color" />
 
-    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog
-        android:key="@string/pref_key_cards"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@null"
-        android:summary=""
-        android:title="@string/settings_cards"
-        android:widgetLayout="@layout/preference_widget_layout_cards" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_hide_time"
+            android:key="@string/pref_key_hide_time"
+            android:title="@string/settings_hide_time" />
 
-    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardBackground
-        android:key="@string/pref_key_cards_background"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@string/game_confirm"
-        android:summary=""
-        android:title="@string/settings_cards_back"
-        android:widgetLayout="@layout/preference_widget_layout_cards_background" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_hide_score"
+            android:key="@string/pref_key_hide_score"
+            android:title="@string/settings_hide_score" />
 
-    <CheckBoxPreference
-        android:defaultValue="@bool/default_4_color_mode"
-        android:key="@string/pref_key_4_color_mode"
-        android:summary="@string/settings_4_color_mode_text"
-        android:title="@string/settings_4_color_mode_title" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_force_tablet_layout"
+            android:key="@string/pref_key_force_tablet_layout"
+            android:summary="@string/settings_force_tablet_layout_text"
+            android:title="@string/settings_force_tablet_layout_title" />
+
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_cards">
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog
+            android:key="@string/pref_key_cards"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary=""
+            android:title="@string/settings_cards"
+            android:widgetLayout="@layout/preference_widget_layout_cards" />
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardBackground
+            android:key="@string/pref_key_cards_background"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:summary=""
+            android:title="@string/settings_cards_back"
+            android:widgetLayout="@layout/preference_widget_layout_cards_background" />
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_4_color_mode"
+            android:key="@string/pref_key_4_color_mode"
+            android:summary="@string/settings_4_color_mode_text"
+            android:title="@string/settings_4_color_mode_title" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

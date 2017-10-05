@@ -42,7 +42,6 @@
     <string name="games_GrandfathersClock">GrandfathersClock</string>
     <string name="games_Vegas">Vegas</string>
 
-
     <!-- colors -->
     <string name="blue">Mavi</string>
     <string name="green">Yeşil</string>
@@ -52,12 +51,22 @@
     <string name="purple">Mor</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">En uzun dizi:</string> <!-- also used by golf -->
+    <string name="game_longest_run">En uzun dizi:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Tebrikler!</string>
     <string name="dialog_win_score">Puan: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Toplam: %1$d</string>
+
+
+
+    <!-- new values -->
+    <string name="games_Calculation">Calculation</string>
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Mix cards</string>
+    <string name="dialog_mix_cards_text">Do you really want to mix the cards? This will shuffle all cards
+        (expect from foundation stacks) and deal them like a new game</string>
 
 </resources>

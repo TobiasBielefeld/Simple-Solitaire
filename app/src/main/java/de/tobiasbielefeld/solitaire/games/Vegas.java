@@ -18,22 +18,33 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.res.Resources;
+
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_DRAW;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_MONEY;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_MONEY_ENABLED;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_RESET_MONEY;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT_OLD;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW_OLD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_MONEY;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_MONEY_ENABLED;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_RESET_MONEY;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedLong;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedLong;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 /**
@@ -45,12 +56,12 @@ public class Vegas extends Klondike {
     private int betAmount=50;
 
     public Vegas(){
+        //Attention!!
+        //Vegas also calls the constructor of Klondike, don't forget it!
+
         disableBonus();
         setPointsInDollar();
-
-        betAmount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT)*10;
-        setHintCosts(betAmount/10);
-        setUndoCosts(betAmount/10);
+        loadData();
 
         PREF_KEY_DRAW_OLD = PREF_KEY_VEGAS_DRAW_OLD;
         PREF_KEY_DRAW = PREF_KEY_VEGAS_DRAW;
@@ -63,13 +74,13 @@ public class Vegas extends Klondike {
     public void dealCards() {
         super.dealCards();
 
+        loadData();
+
         putSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT, DEFAULT_VEGAS_BET_AMOUNT));
 
-        betAmount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT)*10;
-
-        setHintCosts(betAmount/10);
-        setUndoCosts(betAmount/10);
-        scores.update(-betAmount);
+        boolean moneyEnabled = getSharedBoolean(PREF_KEY_VEGAS_MONEY_ENABLED,DEFAULT_VEGAS_MONEY_ENABLED);
+        long money = moneyEnabled ? getSharedLong(PREF_KEY_VEGAS_MONEY,DEFAULT_VEGAS_MONEY) : 0;
+        scores.update(money-betAmount);
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
@@ -96,10 +107,29 @@ public class Vegas extends Klondike {
     }
 
     @Override
-    public void processScore(long currentScore) {
+    public boolean processScore(long currentScore) {
+        boolean moneyEnabled = getSharedBoolean(PREF_KEY_VEGAS_MONEY_ENABLED,DEFAULT_VEGAS_MONEY_ENABLED);
+        boolean resetMoney = getSharedBoolean(PREF_KEY_VEGAS_RESET_MONEY, DEFAULT_VEGAS_RESET_MONEY);
+
+        if (resetMoney) {
+            putSharedLong(PREF_KEY_VEGAS_MONEY, DEFAULT_VEGAS_MONEY);
+            putSharedBoolean(PREF_KEY_VEGAS_RESET_MONEY,false);
+        } else if (moneyEnabled) {
+            putSharedLong(PREF_KEY_VEGAS_MONEY, scores.getScore());
+        }
+
         if (!gameLogic.hasWon() && currentScore > 0){
             gameLogic.incrementNumberWonGames();
         }
 
+        //return false, to let the  addNewHighScore() save a possible score.
+        return !moneyEnabled || resetMoney;
+    }
+
+    private void loadData(){
+        betAmount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT)*10;
+
+        setHintCosts(betAmount/10);
+        setUndoCosts(betAmount/10);
     }
 }

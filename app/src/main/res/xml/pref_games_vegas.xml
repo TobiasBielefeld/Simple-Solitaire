@@ -1,32 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
-        android:defaultValue="3"
-        android:entries="@array/pref_draw_titles"
-        android:entryValues="@array/pref_draw_values"
-        android:key="@string/pref_key_vegas_draw"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@null"
-        android:summary="%s"
-        android:title="@string/settings_klondike_draw" />
+    <PreferenceCategory android:title="@string/settings_cards">
 
-    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceVegasBetAmount
-        android:key="@string/pref_key_vegas_bet_amount"
-        android:title="@string/settings_vegas_bet_amount"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@string/game_confirm"
-        android:summary=""/>
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="3"
+            android:entries="@array/pref_draw_titles"
+            android:entryValues="@array/pref_draw_values"
+            android:key="@string/pref_key_vegas_draw"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_klondike_draw" />
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
-        android:defaultValue="@string/default_vegas_number_of_recycles"
-        android:entries="@array/pref_number_of_recycles_values"
-        android:entryValues="@array/pref_number_of_recycles_values"
-        android:key="@string/pref_key_vegas_number_of_recycles"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@null"
-        android:summary="%s"
-        android:title="@string/settings_number_of_recycles" />
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_vegas_number_of_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_vegas_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/settings_money">
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceVegasBetAmount
+            android:key="@string/pref_key_vegas_bet_amount"
+            android:title="@string/settings_vegas_bet_amount"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:summary=""/>
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_vegas_money_enabled"
+            android:key="@string/pref_key_vegas_money_enabled"
+            android:summary="@string/settings_vegas_money_enabled_text"
+            android:title="@string/settings_vegas_money_enabled" />
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceVegasResetMoney
+            android:dependency="@string/pref_key_vegas_money_enabled"
+            android:key="@string/pref_key_vegas_reset_money"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:summary="@string/settings_vegas_money_reset_text"
+            android:title="@string/settings_vegas_money_reset" />
+
+    </PreferenceCategory>
 
 
 

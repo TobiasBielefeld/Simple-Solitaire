@@ -18,14 +18,23 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
 import android.util.Log;
 
-import java.util.ArrayList;
-
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -41,7 +50,7 @@ public class Bitmaps {
             cardBackWidth, cardBackHeight, cardFrontWidth, cardFrontHeight,
             cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
     private Resources res;
-    private Bitmap menu, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
+    private Bitmap menu, menuText, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private int savedCardTheme;
 
     public boolean checkResources() {
@@ -68,18 +77,97 @@ public class Bitmaps {
             menuHeight = menu.getHeight() / 3;
         }
 
+        if (menuText == null){
+            menuText = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu_text);
+        }
+
         int posX = index%6;
         int posY = index/6;
 
         try {
-            bitmap = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
-        } catch (IllegalArgumentException e){
+            //just the preview of the game itself
+            Bitmap gamePicture = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
+            //get the game name picture
+            Bitmap gameText = drawTextToBitmap(lg.getGameName(res,index));
+            //append both parts
+            bitmap = putTogether(gamePicture,gameText);
+        } catch (Exception e){
             Log.e("Bitmap.getMenu()","No picture for current game available\n" + e.toString());
             bitmap = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
         }
 
         return bitmap;
     }
+
+    /*
+     * draw text on the pictures.
+     *
+     * Thanks to this article for the code!
+     * https://www.skoumal.net/en/android-drawing-multiline-text-on-bitmap/
+     */
+    private Bitmap drawTextToBitmap(String text) {
+
+        // prepare canvas
+        float scale = res.getDisplayMetrics().density;
+        Bitmap bitmap = Bitmap.createBitmap(menuText);
+
+        android.graphics.Bitmap.Config bitmapConfig = bitmap.getConfig();
+
+        if(bitmapConfig == null) {                                                                  //set default bitmap config if none
+            bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
+        }
+
+        bitmap = bitmap.copy(bitmapConfig, true);                                                   //make bitmap mutable
+        Canvas canvas = new Canvas(bitmap);
+
+        TextPaint paint=new TextPaint(Paint.ANTI_ALIAS_FLAG);                                       //new antialiased Paint
+        paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);                                              //text shadow
+        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));                        //set bold
+        paint.setColor(Color.rgb(0,0,0));                                                           //set black color
+
+        int textWidth = canvas.getWidth() - (int) (5 * scale);                                      //set text width to canvas width minus 5dp padding
+        int textHeight;
+        int textScale = 80;
+        StaticLayout textLayout;
+
+        //try to generate the text with the biggest size possible first. If the text height is greater
+        //than the bitmap height, shrink it and try again. minimum scale factor is set to 10 (very small)
+        do {
+            paint.setTextSize(textScale);
+
+            textLayout = new StaticLayout(text, paint, textWidth,                                   // nit StaticLayout for text
+                    Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+
+            textHeight = textLayout.getHeight();                                                    //get height of multiline text
+
+            textScale--;                                                                            //reduce text size for possible next iteration
+        } while(textHeight >= bitmap.getHeight() && textScale >10);
+
+        // get position of text's top left corner
+        float x = (bitmap.getWidth() - textWidth)/2;
+        float y = (bitmap.getHeight() - textHeight)/2;
+
+        // draw text to the Canvas center
+        canvas.save();
+        canvas.translate(x, y);
+        textLayout.draw(canvas);
+        canvas.restore();
+
+        return bitmap;
+    }
+
+    /*
+     * puts two bitmaps vertically together
+     */
+    private static Bitmap putTogether(Bitmap bmp1, Bitmap bmp2) {
+        Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight() + bmp2.getHeight(), bmp1.getConfig());
+        Canvas canvas = new Canvas(bmOverlay);
+        canvas.drawBitmap(bmp1, 0,0, null);
+        canvas.drawBitmap(bmp2, 0, bmp1.getHeight(), null);
+        return bmOverlay;
+    }
+
+
 
     /**
      * Gets the stack backgrounds
@@ -161,7 +249,7 @@ public class Bitmaps {
     public Bitmap getCardBack(int posX, int posY) {
 
         if (cardBack == null) {
-            cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards_2);
+            cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
             cardBackWidth = cardBack.getWidth() / 9;
             cardBackHeight = cardBack.getHeight() / 4;
         }

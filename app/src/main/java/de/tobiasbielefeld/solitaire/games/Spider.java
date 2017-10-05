@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -178,7 +179,7 @@ public class Spider extends Game {
                         origins.add(currentStack);
                     }
 
-                    recordList.addAtEndOfLastEntry(cards, origins);
+                    recordList.addToLastEntry(cards, origins);
                     moveToStack(cards, foundationStack, OPTION_NO_RECORD);
 
                     //turn the card below up, if there is one
@@ -186,7 +187,6 @@ public class Spider extends Game {
                         currentStack.getTopCard().flipWithAnim();
                     }
 
-                    handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
                     scores.update(200);
                     break;
                 }
@@ -203,7 +203,7 @@ public class Spider extends Game {
         return stack.getId() < 10 && currentGame.canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 11, 12);
         int spacing = setUpHorizontalSpacing(layoutGame, 10, 11);
@@ -280,7 +280,7 @@ public class Spider extends Game {
             currentMainStackID--;
 
         //id below 18 means all main stacks are empty
-        if (currentMainStackID > 17) {
+        if (currentMainStackID >= 18) {
 
             ArrayList<Card> cards = new ArrayList<>();
             ArrayList<Stack> destinations = new ArrayList<>();

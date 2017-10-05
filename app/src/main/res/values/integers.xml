@@ -12,6 +12,7 @@
     <integer name="expand_button_anim_delay_ms">100</integer>
     <integer name="default_background_volume">100</integer>
     <integer name="default_vegas_bet_amount">5</integer>
+    <integer name="default_vegas_money">0</integer>
 
     <!-- changing these to integers would cause problems with already saved values -->
     <string name="default_menu_columns_landscape" translatable="false">5</string>
@@ -23,5 +24,6 @@
     <string name="default_pyramid_number_of_recycles" translatable="false">2</string>
     <string name="default_fortyeight_number_of_recycles" translatable="false">1</string>
     <string name="default_vegas_number_of_recycles" translatable="false">1</string>
+    <string name="default_klondike_number_of_recycles" translatable="false">3</string>
 
 </resources>

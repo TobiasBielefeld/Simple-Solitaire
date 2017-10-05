@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.RelativeLayout;
 
@@ -47,7 +48,7 @@ public class Canfield extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(13);
         setFirstMainStackID(12);
-        setFirstDiscardStackID(9);
+        setDiscardStackIDs(9,10,11);
         setLastTableauID(4);
         setHasFoundationStacks(true);
     }
@@ -62,7 +63,7 @@ public class Canfield extends Game {
         startCardValue = getInt(CANFIELD_START_CARD_VALUE, 0);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         // initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 8, 10);
@@ -359,8 +360,9 @@ public class Canfield extends Game {
             } else {
                 return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING, true);
             }
-        } else
+        } else {
             return false;
+        }
     }
 
     public boolean addCardToMovementTest(Card card) {
@@ -565,7 +567,7 @@ public class Canfield extends Game {
 
                 if (!stacks[4].isEmpty()) {
                     moveToStack(stacks[4].getTopCard(), stacks[i], OPTION_NO_RECORD);
-                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[4]);
+                    recordList.addToLastEntry(stacks[i].getTopCard(), stacks[4]);
 
                     if (!stacks[4].isEmpty()) {
                         stacks[4].getTopCard().flipWithAnim();
@@ -574,7 +576,11 @@ public class Canfield extends Game {
             }
         }
 
-        if (!sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW))
+        boolean deal1 = !sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW);
+
+        Klondike.checkEmptyDiscardStack(getMainStack(),stacks[9], stacks[10], stacks[11], deal1);
+
+        /*if (!sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW))
             return;
 
         if (stacks[10].getSize() == 0 || stacks[11].getSize() == 0) {
@@ -621,7 +627,9 @@ public class Canfield extends Game {
             }
 
             //and add it IN FRONT of the last entry
-            recordList.addInFrontOfLastEntry(cardsReversed, originReversed);
-        }
+            recordList.addToLastEntry(cardsReversed, originReversed);
+        }*/
     }
+
+
 }

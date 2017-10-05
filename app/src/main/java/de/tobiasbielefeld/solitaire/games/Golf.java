@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.widget.RelativeLayout;
 
@@ -51,7 +52,7 @@ public class Golf extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(9);
         setFirstMainStackID(8);
-        setFirstDiscardStackID(7);
+        setDiscardStackIDs(7);
         setLastTableauID(6);
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
         setSingleTapeEnabled(true);
@@ -74,7 +75,7 @@ public class Golf extends Game {
 
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 8, 9);
 
@@ -192,7 +193,7 @@ public class Golf extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN, 0);
+        return res.getString(R.string.game_longest_run) + " " + getInt(LONGEST_RUN, 0);
     }
 
     @Override

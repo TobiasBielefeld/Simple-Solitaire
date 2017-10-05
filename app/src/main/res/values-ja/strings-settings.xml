@@ -20,7 +20,6 @@
 
     <string name="settings_background">背景の番号</string>
     <string name="settings_customization">外観</string>
-    <string name="settings_customization_description">カードと背景をカスタマイズします</string>
     <string name="settings_other">全般</string>
     <string name="settings_other_description">他のすべての設定を設定します</string>
     <string name="settings_games">ゲーム</string>
@@ -108,5 +107,32 @@
 
     <string name="settings_auto_start_new_game_title">勝ったら新しいゲームを始める</string>
     <string name="settings_auto_start_new_game_text">すでに勝利したゲームに戻った場合は自動的に新しいゲームを開始します</string>
+    <string name="settings_customization_description">カードと背景をカスタマイズします</string>
+
+    <string name="settings_force_tablet_layout_title">タブレットレイアウトを強制する</string>
+    <string name="settings_force_tablet_layout_text">アプリケーションを大画面で表示する (>=10\")</string>
+
+    <string name="settings_restart_calculation">新しい計算ゲームを開始して変更を適用する</string>
+    <string name="settings_calculation_alternative_title">カードを保持する</string>
+    <string name="settings_calculation_alternative_text">メインスタックプレスで：カードを廃棄スタックからテーブルに移動する代わりに、
+        廃棄スタックに保管してください。</string>
+
+    <string name="settings_vegas_money_enabled">現在の残高を維持する</string>
+    <string name="settings_vegas_money_enabled_text">残高はベガスの次の取引に転送されますが、残高をリセットしてから高得点を保存するための新しいゲームを開始する必要があります</string>
+    <string name="settings_vegas_money_reset">リセットバランス</string>
+    <string name="settings_vegas_money_reset_text">次のVegas取引は0 $で始まります</string>
+    <string name="settings_vegas_money_reset_confirm">あなたは本当に残高をリセットしますか？ これは元に戻すことはできません。</string>
+
+    <string name="settings_auto_move_title">自動移動</string>
+    <string name="settings_mod3_auto_move_text">可能であれば、自動的にエースを廃棄スタックに移動する</string>
+
+    <string name="settings_pyramid_auto_move_text">可能であれば、キングスを廃棄物に自動的に移動する</string>
+
+    <string name="settings_rules">ルール</string>
+    <string name="settings_money">お金</string>
+    <string name="settings_support">サポート</string>
+
+    <string name="settings_hide_time">時間を隠す</string>
+    <string name="settings_hide_score">スコアを隠す</string>
 
 </resources>

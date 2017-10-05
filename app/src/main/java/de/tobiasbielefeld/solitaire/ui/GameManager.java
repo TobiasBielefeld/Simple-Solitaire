@@ -44,6 +44,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogRestart;
 import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
+import de.tobiasbielefeld.solitaire.handler.HandlerRecordListUndo;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
@@ -136,7 +137,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 boolean isLandscape = getResources().getConfiguration().orientation
                         == Configuration.ORIENTATION_LANDSCAPE;
 
-                currentGame.setStacks(layoutGame, isLandscape);
+                currentGame.setStacks(layoutGame, isLandscape, getApplicationContext());
 
                 //if left handed mode is true, mirror all stacks
                 if (getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, DEFAULT_LEFT_HANDED_MODE)) {
@@ -295,6 +296,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
             //do what the game wants to be done on a main stack press
             currentGame.mainStackTouch();
+            handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
             return resetTappedCard();
         }
 
@@ -503,7 +505,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * @return True if no movement is allowed, false otherwise
      */
     private boolean stopConditions() {
-        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking());
+        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking());
     }
 
     /**

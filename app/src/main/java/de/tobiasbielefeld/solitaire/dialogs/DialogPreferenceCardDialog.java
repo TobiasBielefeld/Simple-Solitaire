@@ -124,7 +124,7 @@ public class DialogPreferenceCardDialog extends DialogPreference implements View
     /**
      * Gets the bitmap for the card theme preference icon and also set its summary
      */
-    private void updateSummary() {
+    public void updateSummary() {
         String text;
         Bitmap cardPreview;
         int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE) ? 1 : 0;

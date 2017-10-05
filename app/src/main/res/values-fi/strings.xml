@@ -49,12 +49,22 @@
     <string name="purple">Purppura</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Pisin sarja:</string> <!-- also used by golf -->
+    <string name="game_longest_run">Pisin sarja:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Onneksi olkoon!</string>
     <string name="dialog_win_score">Tulos: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Yhteensä: %1$d</string>
+
+
+
+    <!-- new values -->
+    <string name="games_Calculation">Calculation</string>
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Mix cards</string>
+    <string name="dialog_mix_cards_text">Do you really want to mix the cards? This will shuffle all cards
+        (expect from foundation stacks) and deal them like a new game</string>
 
 </resources>
