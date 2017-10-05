@@ -79,7 +79,7 @@ public class DummyGame extends Game {
 
         //if there is a discard stack, set it's id, because I need the id for the undo movement
         //(cards should be faced up when returning to discard)
-        setFirstDiscardStackID(11);
+        setDiscardStackIDs(11);
 
         //if your game has NO main stack, set where the cards are dealt from
         setDealFromID(1);

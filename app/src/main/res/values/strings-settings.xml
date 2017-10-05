@@ -97,7 +97,6 @@
 
 
     <!-- NEWWWWW -->
-
     <string name="settings_customization_description">Customize cards, backgrounds and user interface</string>
 
     <string name="settings_force_tablet_layout_title">Force tablet layout</string>
@@ -110,15 +109,14 @@
 
     <string name="settings_vegas_money_enabled">Keep the current balance</string>
     <string name="settings_vegas_money_enabled_text">The balance will be transferred to following deals of Vegas,
-        but you need to reset the balance and then start a new game for saving the current high-score</string>
+        but you need to reset the balance and then start a new game for saving high-scores</string>
     <string name="settings_vegas_money_reset">Reset balance</string>
     <string name="settings_vegas_money_reset_text">The next Vegas deal will start with 0$</string>
     <string name="settings_vegas_money_reset_confirm">Do you really want to reset your balance? This can\'t be reverted.</string>
 
-    <string name="settings_mod3_auto_move_title">Automatic movement</string>
+    <string name="settings_auto_move_title">Automatic movement</string>
     <string name="settings_mod3_auto_move_text">Automatically move Aces to the discard stack, when possible</string>
 
-    <string name="settings_pyramid_auto_move_title">Automatic movement</string>
     <string name="settings_pyramid_auto_move_text">Automatically move Kings to the waste, when possible</string>
 
     <string name="settings_rules">Rules</string>

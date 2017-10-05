@@ -52,9 +52,8 @@ public class TriPeaks extends Game {
 
         setNumberOfDecks(1);
         setNumberOfStacks(30);
-
         setLastTableauID(27);
-        setFirstDiscardStackID(28);
+        setDiscardStackIDs(28);
         setFirstMainStackID(29);
         setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         setSingleTapeEnabled(true);

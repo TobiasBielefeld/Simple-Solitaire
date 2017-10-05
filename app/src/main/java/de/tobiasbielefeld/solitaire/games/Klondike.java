@@ -46,17 +46,15 @@ public class Klondike extends Game {
     public Klondike() {
         setNumberOfDecks(1);
         setNumberOfStacks(15);
+        setDiscardStackIDs(11,12,13);
         setFirstMainStackID(14);
-        setFirstDiscardStackID(11);
         setLastTableauID(6);
         setHasFoundationStacks(true);
 
-        if (currentGame instanceof Klondike) {                                                      //because Vegas extends Klondike, so it also calls this constructor
-            setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
+        setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
 
-            if (!getSharedBoolean(PREF_KEY_KLONDIKE_LIMITED_RECYCLES, DEFAULT_KLONDIKE_LIMITED_RECYCLES)) {
-                toggleRecycles();
-            }
+        if (!getSharedBoolean(PREF_KEY_KLONDIKE_LIMITED_RECYCLES, DEFAULT_KLONDIKE_LIMITED_RECYCLES)) {
+            toggleRecycles();
         }
 
         PREF_KEY_DRAW_OLD = PREF_KEY_KLONDIKE_DRAW_OLD;
@@ -275,7 +273,7 @@ public class Klondike extends Game {
 
         //for deal3 mode, discard and main stack have to be empty too
         if (!sharedStringEqualsDefault(PREF_KEY_DRAW_OLD, DEFAULT_DRAW) || hasLimitedRecycles()) {
-            if (getMainStack().getSize()>0 || getDiscardStack().getSize()>0){
+            if (getMainStack().getSize()>0 || stacks[11].getSize()>0 || stacks[12].getSize()>0){
                 return false;
             }
         }

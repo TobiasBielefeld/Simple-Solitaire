@@ -21,7 +21,7 @@
             android:defaultValue="@bool/default_pyramid_auto_move"
             android:key="@string/pref_key_pyramid_auto_move"
             android:summary="@string/settings_pyramid_auto_move_text"
-            android:title="@string/settings_pyramid_auto_move_title" />
+            android:title="@string/settings_auto_move_title" />
 
     </PreferenceCategory>
 

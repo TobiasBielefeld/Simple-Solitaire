@@ -98,4 +98,27 @@
     <string name="settings_money">Geld</string>
     <string name="settings_support">Unterstützung</string>
 
+    <string name="settings_force_tablet_layout_title">Erzwinge Tablet Layout</string>
+    <string name="settings_force_tablet_layout_text">Zeige die Anwendung wie auf großen Bildschirmen (>=10\")</string>
+
+    <string name="settings_restart_calculation">Starte ein neues Calculation Spiel um die Änderung anzuwenden</string>
+    <string name="settings_calculation_alternative_title">Belasse Karten</string>
+    <string name="settings_calculation_alternative_text">Beim Drücken auf dem Haupt-Stapel: Bewege Karten
+        vom Ablage-Stapel nicht zum Tableau, belasse sie auf dem Ablage-Stapel</string>
+
+    <string name="settings_vegas_money_enabled">Behalte aktuellen Kontostand</string>
+    <string name="settings_vegas_money_enabled_text">Das Geld wird zu den nachfolgenden Vegas Spielen übertragen,
+        aber man muss den Kontostand zurücksetzen und ein neues Spiel starten, damit Highscores gespeichert werden</string>
+    <string name="settings_vegas_money_reset">Setze Kontostand zurück</string>
+    <string name="settings_vegas_money_reset_text">Das nächste Vegas Spiel startet mit 0$</string>
+    <string name="settings_vegas_money_reset_confirm">Möchtest du wirklich deinen Kontostand zurücksetzen? Dies kann nicht rückgängig gemacht werden.</string>
+
+    <string name="settings_auto_move_title">Automatische Bewegung</string>
+    <string name="settings_mod3_auto_move_text">Bewege falls möglich Asse automatisch zum Ablage-Stapel</string>
+
+    <string name="settings_pyramid_auto_move_text">Bewege falls möglich Könige automatisch zum Foundation-Stapel</string>
+
+    <string name="settings_hide_time">Verstecke Zeit</string>
+    <string name="settings_hide_score">Verstecke Score</string>
+
 </resources>

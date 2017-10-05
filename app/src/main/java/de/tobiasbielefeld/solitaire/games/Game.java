@@ -57,7 +57,7 @@ public abstract class Game {
     private boolean hasDiscardStack = false;
     private boolean hasLimitedRecycles = false;
     private boolean hasFoundationStacks = false;
-    private int discardStackID = -1;
+    private int[] discardStackIDs = new int[]{-1};
     private int lastTableauID = -1;
     private int recycleCounter = 0;
     private int totalRecycles = 0;
@@ -528,14 +528,13 @@ public abstract class Game {
     }
 
     /**
-     * Sets the given stack id as the first discard stack.
-     * Every stack with this id and above, but below the main stack id's will be treated as a discard stack.
+     * Sets the given stack ids as discard stacks.
      *
-     * @param id The stack id to apply.
+     * @param IDs The stack ids to apply.
      */
-    protected void setFirstDiscardStackID(int id) {
+    protected void setDiscardStackIDs(int... IDs){
         hasDiscardStack = true;
-        discardStackID = id;
+        discardStackIDs = IDs;
     }
 
     /**
@@ -788,13 +787,26 @@ public abstract class Game {
 
 
     //some getters,setters and simple methods, games should'nt override these
-
     public Stack getDiscardStack() throws ArrayIndexOutOfBoundsException {
-        if (discardStackID == -1) {
+        if (discardStackIDs[0] == -1) {
             throw new ArrayIndexOutOfBoundsException("No discard stack specified");
         }
 
-        return stacks[discardStackID];
+        return stacks[discardStackIDs[0]];
+    }
+
+    public ArrayList<Stack> getDiscardStacks() throws ArrayIndexOutOfBoundsException {
+        ArrayList<Stack> discardStacks = new ArrayList<>();
+
+        for (int id : discardStackIDs){
+            if (id == -1){
+                throw new ArrayIndexOutOfBoundsException("No discard stack specified");
+            }
+
+            discardStacks.add(stacks[id]);
+        }
+
+        return discardStacks;
     }
 
     protected void setLastTableauID(int id) {

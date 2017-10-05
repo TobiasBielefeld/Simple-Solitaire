@@ -56,6 +56,9 @@ public class Vegas extends Klondike {
     private int betAmount=50;
 
     public Vegas(){
+        //Attention!!
+        //Vegas also calls the constructor of Klondike, don't forget it!
+
         disableBonus();
         setPointsInDollar();
         loadData();

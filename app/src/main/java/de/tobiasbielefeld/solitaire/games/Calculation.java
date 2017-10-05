@@ -61,7 +61,7 @@ public class Calculation extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(10);
         setFirstMainStackID(9);
-        setFirstDiscardStackID(8);
+        setDiscardStackIDs(8);
         setLastTableauID(3);
         setHasFoundationStacks(true);
 

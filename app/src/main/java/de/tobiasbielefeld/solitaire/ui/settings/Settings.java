@@ -145,7 +145,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
         } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
-            preferenceCards.updateSummary();
+
+            if (preferenceCards!=null) {
+                preferenceCards.updateSummary();
+            }
 
         } else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
             if (animate != null) {

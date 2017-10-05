@@ -43,7 +43,7 @@ public class FortyEight extends Game {
         setNumberOfDecks(2);
         setNumberOfStacks(18);
         setFirstMainStackID(17);
-        setFirstDiscardStackID(16);
+        setDiscardStackIDs(16);
         setLastTableauID(7);
         setHasFoundationStacks(true);
 

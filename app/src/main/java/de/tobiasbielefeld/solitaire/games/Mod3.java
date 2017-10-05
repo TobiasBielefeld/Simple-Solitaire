@@ -40,7 +40,7 @@ public class Mod3 extends Game {
         setNumberOfStacks(34);
         setFirstMainStackID(33);
         setLastTableauID(31);
-        setFirstDiscardStackID(32);
+        setDiscardStackIDs(32);
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0);
         setDirectionBorders(8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, -1, -1, -1, -1, -1, -1, -1, -1, 33, -1);
     }

@@ -32,7 +32,6 @@
     <string name="about_card_themes_usage">Die Kartenthemen wurden von <a href="https://pixabay.com/">pixabay.com</a> entnommen,
         für weitere Details klicke <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">hier</a></string>
 
-    <string name="about_poker_themes_title">Vectorized Playing Cards 2.0</string>
     <string name="about_poker_themes_usage">Wird als Poker Thema benutzt - Verfügbar auf <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
         - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
 

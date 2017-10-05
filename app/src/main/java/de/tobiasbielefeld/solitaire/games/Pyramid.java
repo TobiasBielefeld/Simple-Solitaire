@@ -45,7 +45,7 @@ public class Pyramid extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(32);
         setFirstMainStackID(31);
-        setFirstDiscardStackID(29);
+        setDiscardStackIDs(29,30);
         setLastTableauID(27);
         setDealFromID(30);
         setDirections();                                                                              //empty so all stacks have no spacing direction

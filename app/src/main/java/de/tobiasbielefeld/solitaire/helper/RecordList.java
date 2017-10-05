@@ -36,6 +36,8 @@ public class RecordList {
     public final static int MAX_RECORDS = 20;
     private ArrayList<Entry> entries = new ArrayList<>();
 
+    private boolean isWorking = false;
+
     public void reset() {                                                                                  //delete the content on reset
         entries.clear();
     }
@@ -123,6 +125,7 @@ public class RecordList {
      */
     public void undo(GameManager gm) {
         if (!entries.isEmpty()) {
+            isWorking = true;
             sounds.playSound(Sounds.names.CARD_RETURN);
             scores.update(-currentGame.getUndoCosts());
             entries.get(entries.size() - 1).undo(gm);
@@ -189,9 +192,14 @@ public class RecordList {
             return true;
         } else {
             entries.remove(entries.size() - 1);
+            isWorking = false;
             currentGame.afterUndo();
             return false;
         }
+    }
+
+    public boolean isWorking(){
+        return isWorking;
     }
 
     private class Entry {
@@ -314,10 +322,17 @@ public class RecordList {
          */
         void undo(GameManager gm) {
             //Check if the movement resulted in a increment of the redeal counter, if so, revert it
-            if (currentGame.hasLimitedRecycles()
-                    && currentOrigins.get(0) == currentGame.getDiscardStack()
-                    && currentCards.get(0).getStack() == currentGame.getDealStack()) {
-                currentGame.decrementRecycleCounter(gm);
+            if (currentGame.hasLimitedRecycles())  {
+                ArrayList<Stack> discardStacks = currentGame.getDiscardStacks();
+
+                for (int i=0;i<currentCards.size();i++){
+
+                    if (currentCards.get(i).getStack() == currentGame.getDealStack() && discardStacks.contains(currentOrigins.get(i))) {
+                            currentGame.decrementRecycleCounter(gm);
+                            break;
+
+                    }
+                }
             }
 
             for (Card card : flipCards) {
@@ -335,20 +350,26 @@ public class RecordList {
          * all cards are away. So the movements are tiered.
          */
         void undoMore() {
-            ArrayList<Card> cardsWorkCopy = new ArrayList<>(currentCards);
-            ArrayList<Stack> originsWorkCopy = new ArrayList<>(currentOrigins);
-            ArrayList<Integer> moveOrderWorkCopy = new ArrayList<>(moveOrder);
+            ArrayList<Card> cardsWorkCopy = new ArrayList<>();
+            ArrayList<Stack> originsWorkCopy = new ArrayList<>();
+            ArrayList<Integer> moveOrderWorkCopy = new ArrayList<>();
 
-            int minMoveOrder = min(moveOrderWorkCopy);
+            int minMoveOrder = min(moveOrder);
 
-            for (int j =0;j<cardsWorkCopy.size();j++){
-                if (moveOrderWorkCopy.get(j) == minMoveOrder) {
-                    moveToStack(cardsWorkCopy.get(j), originsWorkCopy.get(j), OPTION_UNDO);
-
-                    currentCards.remove(cardsWorkCopy.get(j));
-                    currentOrigins.remove(originsWorkCopy.get(j));
-                    moveOrder.remove(moveOrderWorkCopy.get(j));
+            for (int i =0;i<currentCards.size();i++){
+                if (moveOrder.get(i) == minMoveOrder) {
+                    cardsWorkCopy.add(currentCards.get(i));
+                    originsWorkCopy.add(currentOrigins.get(i));
+                    moveOrderWorkCopy.add(moveOrder.get(i));
                 }
+            }
+
+            moveToStack(cardsWorkCopy,originsWorkCopy, OPTION_UNDO);
+
+            for (int i=0;i<cardsWorkCopy.size();i++){
+                currentCards.remove(cardsWorkCopy.get(i));
+                currentOrigins.remove(originsWorkCopy.get(i));
+                moveOrder.remove(moveOrderWorkCopy.get(i));
             }
         }
 

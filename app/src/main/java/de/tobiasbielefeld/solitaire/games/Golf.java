@@ -52,7 +52,7 @@ public class Golf extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(9);
         setFirstMainStackID(8);
-        setFirstDiscardStackID(7);
+        setDiscardStackIDs(7);
         setLastTableauID(6);
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
         setSingleTapeEnabled(true);

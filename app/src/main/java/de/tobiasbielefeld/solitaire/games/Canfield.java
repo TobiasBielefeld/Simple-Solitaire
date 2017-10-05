@@ -48,7 +48,7 @@ public class Canfield extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(13);
         setFirstMainStackID(12);
-        setFirstDiscardStackID(9);
+        setDiscardStackIDs(9,10,11);
         setLastTableauID(4);
         setHasFoundationStacks(true);
     }

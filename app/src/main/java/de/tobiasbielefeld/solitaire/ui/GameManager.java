@@ -505,7 +505,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * @return True if no movement is allowed, false otherwise
      */
     private boolean stopConditions() {
-        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking());
+        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking());
     }
 
     /**
