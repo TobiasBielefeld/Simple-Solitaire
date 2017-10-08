@@ -24,14 +24,14 @@
     <string name="manual_startpage_text">Witamy w podręczniku naszej kolekcji gier! Mam nadzieję, że wszytko zostanie objaśnione.
 	\n\nUżyj menu po lewej stronie, aby dostać się do innych stron podręcznika.</string>
     <string name="manual_general_main_menu">Korzystanie z menu głównego jest względnie proste. Po prostu stuknij w grę, aby w nią zagrać.
-	\n\nProgram automatycznie wznowi ostatnio otwartą grę podczas startu, jeżeli program został na niej zatrzymany. To zachowanie można zmienić w opcjach w sekcji \"Ogólne\".
-	\n\nZnajdziesz tam też sekcję \"Menu główne\", gdzie możesz ukryć gry z menu, wybrać liczbę kolumn, tak aby więcej gier zmieściło się na ekranie jednocześnie.</string>
+	\n\nProgram automatycznie wznowi ostatnio otwartą grę podczas startu, jeżeli program został na niej zatrzymany. To zachowanie można zmienić w opcjach w sekcji „Ogólne”.
+	\n\nZnajdziesz tam też sekcję „Menu główne”, gdzie możesz ukryć gry z menu, wybrać liczbę kolumn, tak aby więcej gier zmieściło się na ekranie jednocześnie.</string>
     <string name="manual_ui_text">Gra zawsze będzie pokazywała niewielkie menu na dole ekranu (orientacja pionowa) lub po prawej stronie (orientacja pozioma). Będzie także widoczna obecna punktacja i czas gry. Jeżeli to możliwe, te wartości zostaną wpisane na listę wyników. Menu zawiera 5 elementów, które wywołują następujące akcje (przyciski od lewej do prawej):
-	\n\nPrzycisk \"Punktacja\" wywoła nowe okno z listą najlepszych wyników i liczbą rozegranych gier obecnej gry.
-	\n\nPrzycisk \"Wskazówka\" pomoże Ci wyświetlając maksymalnie 3 możliwe ruchy jednocześnie. Ale to zabierze Ci 25 punktów. Zauważ, że banalne ruchy, takie jak przeniesienie karty na puste pole lub stuknięcie w główny stos nie będą pokazane jako podpowiedź. Jeżeli żadna wskazówka nie zostanie wyświetlona, Twoje punkty nie zmaleją.
-	\n\nPrzycisk \"Menu\" umożliwi trzy różne czynności: Rozpoczęcie nowej gry przetasowując karty i rozdając je ponownie. Opcja ponownie rozdaj karty działa tak samo, ale bez przetasowania, jest to po prostu restart obecnej gry. Ostatnia opcja zakończy obecną grę i przeniesie Cię do menu głównego.
-	\n\nPrzycisk \"Cofnij\" cofnie ostatni ruch, ale będzie to kosztowało 25 punktów. Można użyć tej opcji dla 20 ostatnich ruchów.
-	\n\nPrzycisk \"Ustawienia\" zwyczajnie otworzy menu ustawień.</string>
+	\n\nPrzycisk „Punktacja” wywoła nowe okno z listą najlepszych wyników i liczbą rozegranych gier obecnej gry.
+	\n\nPrzycisk „Wskazówka” pomoże Ci wyświetlając maksymalnie 3 możliwe ruchy jednocześnie. Ale to zabierze Ci 25 punktów. Zauważ, że banalne ruchy, takie jak przeniesienie karty na puste pole lub stuknięcie w główny stos nie będą pokazane jako podpowiedź. Jeżeli żadna wskazówka nie zostanie wyświetlona, Twoje punkty nie zmaleją.
+	\n\nPrzycisk „Menu” umożliwi trzy różne czynności: Rozpoczęcie nowej gry przetasowując karty i rozdając je ponownie. Opcja ponownie rozdaj karty działa tak samo, ale bez przetasowania, jest to po prostu restart obecnej gry. Ostatnia opcja zakończy obecną grę i przeniesie Cię do menu głównego.
+	\n\nPrzycisk „Cofnij” cofnie ostatni ruch, ale będzie to kosztowało 25 punktów. Można użyć tej opcji dla 20 ostatnich ruchów.
+	\n\nPrzycisk „Ustawienia” zwyczajnie otworzy menu ustawień.</string>
     <string name="manual_feedback_text">Znalazłeś jakiś błąd? Coś powinienem ulepszyć? Może powinienem dodać jakąś grę do kolekcji? Może chcesz pomóc tłumaczyć? Masz jakiś inny pomysł?
 	\n\nBędę wdzięczny za jakikolwiek odzew. Jeżeli chcesz się ze mną skontaktować, rozważ następujące opcje:
 	\n\nZgłoś błąd na Githubie: strona projektu tego programu na GitHubie oferuje fajną funkcję zgłaszania błędów. Po prostu kliknij na przycisk po lewej stronie ekranu, aby otworzyć stronę śledzenia błędów w przeglądarce internetowej.
@@ -186,7 +186,7 @@
     <string name="manual_Canfield_rules">Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
 	    \n\nPuste pola gry są zapełniane kartami ze stosu rezerwowego. Jeżeli stos rezerwowy jest pusty, karta ze stosu głównego zostanie użyta.
 	    \n\nWartość pierwszej karty położonej na stosie bazowym determinuje jakie karty można kłaść na pozostałych pustych polach bazowych. Przykład: położono 10 kier na puste pole bazowe, więc tylko karty o wartości 10 można kłaść na pozostałych polach bazowych. Ale karty na stosach bazowych można układać cyklicznie, więc możesz położyć asa na króla.
-	    \n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś /"Rozdaj 1/", tylko pojedyncza karta zostanie przeniesiona. Przy opcji /"Rozdaj 3/", 3 karty zostaną przeniesione naraz.
+	    \n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś „Rozdaj 1”, tylko pojedyncza karta zostanie przeniesiona. Przy opcji „Rozdaj 3”, 3 karty zostaną przeniesione naraz.
 	    \n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
     <string name="manual_Canfield_scoring">Ze stosu gry na bazowy: +60
 		\n\nZe stosu odrzutów na bazowy: +45
@@ -199,7 +199,7 @@
 		\n\n8 stosów gry, 12 stosy bazowe tworzące tarczę zegara. Każdy stos bazowy już zawiera jedną kartę.</string>
     <string name="manual_GrandfathersClock_objective">Uszereguj wszystkie karty w rodziny tego samego koloru w kolejności rosnącej na stosach bazowych.
 		Ostatecznie wartości kart powinny odpowiadać wartościom na tarczy zegara.</string>
-    <string name="manual_GrandfathersClock_rules">Karty można uukładać na stosach gry w kolejności malejącej, kolor nie ma znaczenia.
+    <string name="manual_GrandfathersClock_rules">Karty można układać na stosach gry w kolejności malejącej, kolor nie ma znaczenia.
         Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru. Asy można kłaść na króli.
        \n\nMożesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól.
 		To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki,
@@ -212,37 +212,29 @@
 	<string name="manual_Vegas_rules">Zasady są identyczne jak w grze “Klondike”.
     \n\nKarty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru.
 	\n\nTylko króli można kłaść na puste pola gry i tylko asy na puste pola bazowe.
-	\n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś /"Rozdaj 1/", tylko pojedyncza karta zostanie przeniesiona. Przy opcji /"Rozdaj 3/", 3 karty zostaną przeniesione naraz.
+	\n\nKlikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś „Rozdaj 1”, tylko pojedyncza karta zostanie przeniesiona. Przy opcji „Rozdaj 3”, 3 karty zostaną przeniesione naraz.
 	\n\nJeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie.</string>
 	<string name="manual_Vegas_scoring">Ilość wygranych pieniędzy jest zależna od wysokości zakładu konfigurowalnego w opcjach. Płacisz np. 50$ za rozdanie i za każdą kartę umieszczoną na stosie bazowym otrzymujesz 1/10 kwoty zakładu.
         \n\nGra zostanie uznana jako wygrana wtedy, gdy zdobędziesz więcej niż 0 punktów. Przeniesienie karty ze stosu bazowego kosztuje 2/10 kwoty zakładu.
 		\n\nUżycie podpowiedzi lub cofnięcie także kosztuje 1/10 kwoty zakładu.
         \n\nNOTA: nie grasz o prawdziwą kasę w tej grze :)</string>
 
-	<!-- new values -->
 	<!-- Calculation -->
 	<string name="manual_Calculation_structure">1 talia po 52 karty.
 	\n\n4 stosów gry, 4 stosy bazowe, 1 główny stos i 1 stos odrzutów.</string>
-	<string name="manual_Calculation_objective">Place every card to the foundation, regardless of suit, until each foundation
-        stack shows a king. The stacks have to be build in the following order:
-        \n\n 1. stack in 1s: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     <!-- 1s means: add in each step 1 to the value-->
-		  \n 2. stack in 2s: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     <!-- 2s means: add in each step 2 to the value-->
-		  \n 3. stack in 3s: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     <!-- ... -->
-		  \n 4. stack in 4s: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
-        \n\nThe next playable cards are shown above the foundation stacks, too.
+	<string name="manual_Calculation_objective">Uszereguj wszystkie karty na stosach bazowych, kolor nie ma znaczenia, aż króle znajdą się na wszystkich stosach. Stosy buduje się w następującej kolejności:
+        \n\n 1. stos w 1. kroku: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     <!-- 1s means: add in each step 1 to the value-->
+		  \n 2. stos w 2. kroku: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     <!-- 2s means: add in each step 2 to the value-->
+		  \n 3. stos w 3. kroku: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     <!-- ... -->
+		  \n 4. stos w 4. kroku: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
+        \n\nNastępna grywalna karta jest wyświetlana nad stosem bazowym.
     </string>
-	<string name="manual_Calculation_rules">The 4 foundation stacks already start with the first cards, which are
-        randomly chosen. Cards on the foundation have to follow the order given under Objective.
-        \n\nCards from the discard stack can be moved to any tableau stack or on foundation stacks, if they
-        fulfill the correct order.
-
-        \n\nPressing the main stack will simply move the card on the discard stack to the tableau stack with the
-        fewest cards. Alternative rule: The cards on the discard stack remain there, when pressing on the main stack
-        (can be enabled in the game settings).
-
-        \n\nOn the tableau, only top cards can be moved and they can only be moved to the foundation.
+	<string name="manual_Calculation_rules">4 stosy bazowe z początku zawierają pierwsze karty wybrane losowo. Karty na stosach bazowych muszą być w kolejności opisanej w „celu gry”.
+        \n\nCKarty ze stosu odrzutów można przenieść na stosy gry lub stoy bazowe tylko w odpowiedniej kolejności.
+        \n\nStuknięcie w stos główny przeniesie kartę ze stosu odrzutów na stos gry z najmniejszą liczbą kart. Alternatywny tryb: karty pozostają na stosie odrzutów po stuknięciu (do ustawienia w opcjach gry).
+        \n\nNa stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
        </string>
-	<string name="manual_Calculation_scoring">Move a card to foundation: +50</string>
+	<string name="manual_Calculation_scoring">Przeniesienie karty na stos bazowy: +50</string>
 
 
 </resources>
