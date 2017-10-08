@@ -26,13 +26,13 @@
 	\n\nUzu menuon ĉe maldekstre por atingi aliajn paĝojn de manlibro.</string>
     <string name="manual_general_main_menu">Uzado de la ĉefmenuo estas eĉ facila. Simple frapetu ludon por komenci ĝin.
 	\n\nLa aplikaĵo aŭtomate ŝargos laste luditan ludon post restarto, se la aplikaĵo estis paŭzigita kun ĝi. Tiu ĉi agmaniero povas esti malaktivigita per agordoj en \"Ĝeneralaj\".
-    \n\nTie vi ankaŭ trovos elekton ‘Ĉefmenuo’, kiam vi povas kaŝi ludojn el menuo kaj ŝanĝi nombron da kolumnoj, do pli multe da ludoj montriĝos sur ekrano samtempe.</string>
+    \n\nTie vi ankaŭ trovos elekton “Ĉefmenuo”, kiam vi povas kaŝi ludojn el menuo kaj ŝanĝi nombron da kolumnoj, do pli multe da ludoj montriĝos sur ekrano samtempe.</string>
     <string name="manual_ui_text">La ludo ĉiam montros etan menuon sube la ekrano (vertikala reĝimo) aŭ dekstre la ekrano (horizontala reĝimo). Ĝi ankaŭ montros aktualan poentaron kaj aktuale luditan tempon. Estas eble, ke tiuj valoroj estos konservitaj en liston de la plej bonaj rezultoj. La menuo enhavas 5 elementojn, kiuj havas jenajn efikojn (butonoj de maldekstre al dekstre):
-	\n\nButono ‘Poentaro’ malfermos novan fenestron kun la plej bonaj rezultoj kaj nombro da venkitaj ludoj de aktuala lud-speco.
-	\n\nButono ‘Konsilo’ helpos al vi per montrado de maksimume 3 eblaj movoj de kartoj samtempe. Tamen tio ĉi etigos vian poentaron je 25. Rimarku, ke banalaj movoj, kiel movado de karto al malplena kampo aŭ frapeto de stako ne estas montrataj kiel konsilo. Se neniu movo estos montrata, la poentaro ne etiĝos.
-	\n\nButono ‘Menuo’ ebligos tri diversajn agojn: ekigi novan ludon miksante kartojn komencante novan disdonon. Disdoni kartojn denove igos saman efikon, sed kartoj ne estos miksitaj; do tio ĉi estas kvazaŭ restarto de aktuala ludo. La lasta elekto finos aktualan ludon kaj movos vin al la ĉefmenuo.
-	\n\nButono ‘Malfari’ malfaros eksan movon, tamen tio ĉi kostos 25 poentojn. Oni povas uzi ĝin por 20 eksaj movoj.
-	\n\nButono ‘Agordoj’ simple malfermas menuon de agrodoj.</string>
+	\n\nButono “Poentaro” malfermos novan fenestron kun la plej bonaj rezultoj kaj nombro da venkitaj ludoj de aktuala lud-speco.
+	\n\nButono “Konsilo” helpos al vi per montrado de maksimume 3 eblaj movoj de kartoj samtempe. Tamen tio ĉi etigos vian poentaron je 25. Rimarku, ke banalaj movoj, kiel movado de karto al malplena kampo aŭ frapeto de stako ne estas montrataj kiel konsilo. Se neniu movo estos montrata, la poentaro ne etiĝos.
+	\n\nButono “Menuo” ebligos tri diversajn agojn: ekigi novan ludon miksante kartojn komencante novan disdonon. Disdoni kartojn denove igos saman efikon, sed kartoj ne estos miksitaj; do tio ĉi estas kvazaŭ restarto de aktuala ludo. La lasta elekto finos aktualan ludon kaj movos vin al la ĉefmenuo.
+	\n\nButono “Malfari” malfaros eksan movon, tamen tio ĉi kostos 25 poentojn. Oni povas uzi ĝin por 20 eksaj movoj.
+	\n\nButono “Agordoj” simple malfermas menuon de agrodoj.</string>
     <string name="manual_feedback_text">Ĉu vi trovis iun problemon aŭ eraron? Ion mi povus plibonigi? Ĉu mi devus aldoni alian ludon al la kolekto? Eble vi volas helpi pri tradukoj? Eble vi havas alian ideon?
 	\n\nMi estos kontenta pro ricevo de iu ajn opinio. Se vi sentiĝas, ke vi devas kontakti min, vi devus konsideri la jenajn rimedojn:
 	\n\nUzu la erar-spurilon ĉe Github: la projekto de tiu ĉi aplikaĵo en Github havas bonan funkcion por raporti problemojn. Simple frapetu la butonon ĉe maldekstre de la ekrano por malfermi erar-spurilon per foliumilo.
@@ -212,36 +212,28 @@
 	<string name="manual_Vegas_rules">Reguloj estas samaj kiel reguloj de “Klondiko”.
     \n\nKartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
 	\n\nNur reĝojn oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
-	\n\nPer frapeto de ĉefa stako, kartoj estos movitaj al forĵeta stako, kie vi povas uzi ilin. Nombro da kartoj dependas de elektitaj agordoj. Se \"Depreni 1\" estas elektita, unu karto estos movita. Se \"Depreni 3\" estas elektita, 3 kartoj estos movitaj samtempe.
+	\n\nPer frapeto de ĉefa stako, kartoj estos movitaj al forĵeta stako, kie vi povas uzi ilin. Nombro da kartoj dependas de elektitaj agordoj. Se “Depreni 1” estas elektita, unu karto estos movita. Se “Depreni 3” estas elektita, 3 kartoj estos movitaj samtempe.
 	\n\nSe la ĉefa stako malpleniĝos, vi plue povos frapeti ĝin por movi ĉiujn kartojn de forĵeta stako al ĉefa stako kaj reuzi ilin.</string>
 	<string name="manual_Vegas_scoring">Kiomo da gajnata mono dependas de monsumo agordebla en agordoj. Vi pagas ekz. 50$ komence de ludo kaj gajnas 1/10 da monsumo por ĉiu karto enmetita al fundamentaj stakoj.
         \n\nLudo estos traktita kiel venkita kiam la poentaro pligrandas ol 0. Movado de karto reen el fundamenta stako kostas 2/10 da vetluda monsumo.
 		\n\nUzo de konsilo aŭ de butono malfari ankaŭ kostas 1/10 da vetluda monsumo.
         \n\nNOTO: vi ne ludas por vera mono en tiu ĉi ludo :)</string>
 
-	<!-- new values -->
 	<!-- Calculation -->
 	<string name="manual_Calculation_structure">1 kartaro po 52 kartoj.
 	\n\n4 tablamasoj, 4 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.</string>
-	<string name="manual_Calculation_objective">Place every card to the foundation, regardless of suit, until each foundation
-        stack shows a king. The stacks have to be build in the following order:
-        \n\n 1. stack in 1s: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     <!-- 1s means: add in each step 1 to the value-->
-		  \n 2. stack in 2s: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     <!-- 2s means: add in each step 2 to the value-->
-		  \n 3. stack in 3s: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     <!-- ... -->
-		  \n 4. stack in 4s: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
-        \n\nThe next playable cards are shown above the foundation stacks, too.
+	<string name="manual_Calculation_objective">Surmetu ĉiujn kartojn sur la fundamentajn stakojn, sendepende de emblemo, ĝis reĝo aperos sur ĉiu fundamenta stako. Ordigu stakojn en la jena ordo:
+        \n\n 1-a stako en 1-a paŝo: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     <!-- 1s means: add in each step 1 to the value-->
+		  \n 2-a stako en 2-a paŝo: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     <!-- 2s means: add in each step 2 to the value-->
+		  \n 3-a stako en 3-a paŝo: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     <!-- ... -->
+		  \n 4-a stako en 4-a paŝo: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
+        \n\nSekvaj ludeblaj kartoj estas montrataj supre de fundamentaj stakoj.
     </string>
-	<string name="manual_Calculation_rules">The 4 foundation stacks already start with the first cards, which are
-        randomly chosen. Cards on the foundation have to follow the order given under Objective.
-        \n\nCards from the discard stack can be moved to any tableau stack or on foundation stacks, if they
-        fulfill the correct order.
-
-        \n\nPressing the main stack will simply move the card on the discard stack to the tableau stack with the
-        fewest cards. Alternative rule: The cards on the discard stack remain there, when pressing on the main stack
-        (can be enabled in the game settings).
-
-        \n\nOn the tableau, only top cards can be moved and they can only be moved to the foundation.
+	<string name="manual_Calculation_rules">4 fundamentaj stakoj jam komenciĝas kun unaj kartoj, kiuj estas elektitaj hazarde. Kartoj sur fundamentaj stakoj devas esti ordigitaj laŭ ordo priskribita en “celo”.
+        \n\nKartojn de forĵeta stako oni povas movi al ĉiu tablamasa stako, nur laŭ ĝusta ordo.
+        \n\nFrapeto de ĉefa stako simple movos karton de forĵeta stako al tablamaso stako kun malpli da kartoj. Alternativa regulo: kortoj sur la forĵeta stako restas tie, dum presadado de ĉefa stako (ŝanĝebla en agordoj).
+        \n\nSur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj stakoj.
        </string>
-	<string name="manual_Calculation_scoring">Move a card to foundation: +50</string>
+	<string name="manual_Calculation_scoring">Movi karton al fundamenta stako: +50</string>
 
 </resources>
