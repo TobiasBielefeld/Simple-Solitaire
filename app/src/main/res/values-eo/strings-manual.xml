@@ -231,7 +231,7 @@
     </string>
 	<string name="manual_Calculation_rules">4 fundamentaj stakoj jam komenciĝas kun unaj kartoj, kiuj estas elektitaj hazarde. Kartoj sur fundamentaj stakoj devas esti ordigitaj laŭ ordo priskribita en “celo”.
         \n\nKartojn de forĵeta stako oni povas movi al ĉiu tablamasa stako, nur laŭ ĝusta ordo.
-        \n\nFrapeto de ĉefa stako simple movos karton de forĵeta stako al tablamaso stako kun malpli da kartoj. Alternativa regulo: kortoj sur la forĵeta stako restas tie, dum presadado de ĉefa stako (ŝanĝebla en agordoj).
+        \n\nFrapeto de ĉefa stako simple movos karton de forĵeta stako al tablamaso stako kun malpli da kartoj. Alternativa reĝimo: kartoj sur la forĵeta stako restas tie, dum presadado de ĉefa stako (ŝanĝebla en agordoj).
         \n\nSur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj stakoj.
        </string>
 	<string name="manual_Calculation_scoring">Movi karton al fundamenta stako: +50</string>
