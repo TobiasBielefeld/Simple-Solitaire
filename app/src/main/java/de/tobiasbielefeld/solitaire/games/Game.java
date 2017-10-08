@@ -368,8 +368,7 @@ public abstract class Game {
     }
 
     /**
-     * mirrors
-     * @param layoutGame
+     * mirrors the textViews, if there are any. Used for left handed mode
      */
     public void mirrorTextViews(RelativeLayout layoutGame){
         for (TextView textView : textViews){
