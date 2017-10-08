@@ -24,7 +24,6 @@ import android.util.AttributeSet;
 
 import de.tobiasbielefeld.solitaire.R;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import de.tobiasbielefeld.solitaire.games.Vegas;
 
 /*
  * custom dialog to set the background music volume. it can be set from 0 (off) to 100%.
@@ -32,22 +31,17 @@ import de.tobiasbielefeld.solitaire.games.Vegas;
 
 public class DialogPreferenceVegasResetMoney extends DialogPreference{
 
-
-
     public DialogPreferenceVegasResetMoney(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_vegas_reset_money);
         setDialogIcon(null);
     }
 
-
-
-
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         // When the user selects "OK", persist the new value
         if (positiveResult) {
-            putSharedBoolean(PREF_KEY_VEGAS_RESET_MONEY,true);
+            prefs.saveVegasResetMoney(true);
         }
     }
 }

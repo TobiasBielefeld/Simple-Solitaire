@@ -33,48 +33,15 @@ import java.util.List;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
-import de.tobiasbielefeld.solitaire.games.Calculation;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Klondike;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CALCULATION_ALTERNATIVE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_ORIENTATION;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CALCULATION_ALTERNATIVE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CANFIELD_DRAW;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_DRAW;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_LIMITED_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_ORIENTATION;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_PYRAMID_LIMITED_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_SPIDER_DIFFICULTY;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_YUKON_RULES;
-import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
-import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.isXLargeTablet;
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
-import static de.tobiasbielefeld.solitaire.SharedData.reinitializeData;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Settings activity created with the "Create settings activity" tool from Android Studio.
@@ -89,7 +56,9 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        reinitializeData(getApplicationContext());
         super.onCreate(savedInstanceState);
+
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
 
         ActionBar actionBar = getSupportActionBar();
@@ -97,7 +66,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        reinitializeData(getApplicationContext());
+        prefs.setCriticalGameSettings();
     }
 
     @Override
@@ -121,7 +90,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     public void onResume() {
         super.onResume();
 
-        savedSharedData.registerOnSharedPreferenceChangeListener(this);
+        prefs.registerListener(this);
         showOrHideStatusBar();
         setOrientation();
 
@@ -132,7 +101,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     @Override
     public void onPause() {
         super.onPause();
-        savedSharedData.unregisterOnSharedPreferenceChangeListener(this);
+        prefs.unregisterListener(this);
 
         activityCounter--;
         handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
@@ -228,17 +197,17 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
      * Applies the user setting of the screen orientation.
      */
     private void setOrientation() {
-        switch (getSharedString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION)) {
-            case "1": //follow system settings
+        switch (prefs.getSavedOrientation()) {
+            case 1: //follow system settings
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;
-            case "2": //portrait
+            case 2: //portrait
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 break;
-            case "3": //landscape
+            case 3: //landscape
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
-            case "4": //landscape upside down
+            case 4: //landscape upside down
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
@@ -248,11 +217,12 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
      * Applies the user setting of the status bar.
      */
     private void showOrHideStatusBar() {
-        if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
+        if (prefs.getSavedHideStatusBar()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        else
+        } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
     }
 
     /**
@@ -270,7 +240,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     }
 
     private void updatePreferenceVegasBetAmountSummary(){
-        int amount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
+        int amount = prefs.getSavedVegasBetAmount();
 
         preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),amount*10,amount));
     }

@@ -120,7 +120,7 @@ public class RecordList {
     }
 
     /**
-     * reverst one record, this will delete that record from the list and takes 25 points away
+     * reverts one record, this will delete that record from the list and takes 25 points away
      * from the current score
      */
     public void undo(GameManager gm) {
@@ -129,7 +129,6 @@ public class RecordList {
             sounds.playSound(Sounds.names.CARD_RETURN);
             scores.update(-currentGame.getUndoCosts());
             entries.get(entries.size() - 1).undo(gm);
-            //entries.remove(entries.size() - 1);
         }
     }
 
@@ -155,7 +154,7 @@ public class RecordList {
      * Saves every entry
      */
     public void save() {
-        putInt(RECORD_LIST_ENTRIES_SIZE, entries.size());
+        prefs.saveRecordListEntriesSize(entries.size());
 
         for (int i = 0; i < entries.size(); i++) {
             entries.get(i).save(Integer.toString(i));
@@ -170,9 +169,7 @@ public class RecordList {
 
         reset();
 
-        int size = getInt(RECORD_LIST_ENTRIES_SIZE, -1);
-
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < prefs.getSavedRecordListEntriesSize(); i++) {
             entries.add(new Entry(Integer.toString(i)));
         }
     }
@@ -193,6 +190,12 @@ public class RecordList {
         } else {
             entries.remove(entries.size() - 1);
             isWorking = false;
+
+            //check if the undo movement makes autocomplete undoable
+            if (autoComplete.buttonIsShown() && !currentGame.autoCompleteStartTest()) {
+                autoComplete.hideButton();
+            }
+
             currentGame.afterUndo();
             return false;
         }
@@ -214,9 +217,9 @@ public class RecordList {
          * @param pos The index of the saved entry to load
          */
         Entry(String pos) {
-            ArrayList<Integer> cardList = getIntList(RECORD_LIST_ENTRY + pos + CARD);
-            ArrayList<Integer> originList = getIntList(RECORD_LIST_ENTRY + pos + ORIGIN);
-            ArrayList<Integer> orderList = getIntList(RECORD_LIST_ENTRY + pos + ORDER);
+            ArrayList<Integer> cardList = prefs.getSavedRecordListCards(pos);
+            ArrayList<Integer> originList = prefs.getSavedRecordListOrigins(pos);
+            ArrayList<Integer> orderList = prefs.getSavedRecordListOrders(pos);
 
             for (int i = 0; i < cardList.size(); i++) {
                 currentCards.add(cards[cardList.get(i)]);
@@ -229,15 +232,15 @@ public class RecordList {
                 }
             }
 
-            //compability to older way of saving: changed from one possible flip card to multiple
-            try {   //new way
-                ArrayList<Integer> flipCardList = getIntList(RECORD_LIST_ENTRY + pos + FLIP_CARD);
+            //compatibility to older way of saving: changed from one possible flip card to multiple
+            try { //new way
+                ArrayList<Integer> flipCardList = prefs.getSavedRecordListFlipCards(pos);
 
                 for (Integer i : flipCardList) {
                     flipCards.add(cards[i]);
                 }
             } catch (Exception e) { //old way
-                int flipCardID = getInt(RECORD_LIST_ENTRY + pos + FLIP_CARD, -1);
+                int flipCardID = prefs.getSavedFlipCardId(pos);
 
                 if (flipCardID > 0)
                     addFlip(cards[flipCardID]);
@@ -302,18 +305,17 @@ public class RecordList {
             for (int i = 0; i < currentCards.size(); i++) {
                 listCards.add(currentCards.get(i).getId());
                 listOrigins.add(currentOrigins.get(i).getId());
-
             }
 
-            putIntList(RECORD_LIST_ENTRY + pos + CARD, listCards);
-            putIntList(RECORD_LIST_ENTRY + pos + ORIGIN, listOrigins);
-            putIntList(RECORD_LIST_ENTRY + pos + ORDER, moveOrder);
+            prefs.saveRecordListCards(listCards,pos);
+            prefs.saveRecordListOrigins(listOrigins,pos);
+            prefs.saveRecordListOrders(moveOrder,pos);
 
             for (Card card : flipCards) {
                 listFlipCards.add(card.getId());
             }
 
-            putIntList(RECORD_LIST_ENTRY + pos + FLIP_CARD, listFlipCards);
+            prefs.saveRecordListFlipCards(listFlipCards,pos);
         }
 
 

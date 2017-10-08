@@ -358,7 +358,7 @@ public class DynamicListView extends ListView {
 
                     switchView.setTranslationY(delta);
 
-                    ObjectAnimator animator = ObjectAnimator.ofFloat(switchView, View.TRANSLATION_Y, 0);
+                    ObjectAnimator animator = ObjectAnimator.ofFloat(switchView, "translationY", 0);
                     animator.setDuration(MOVE_DURATION);
                     animator.start();
 

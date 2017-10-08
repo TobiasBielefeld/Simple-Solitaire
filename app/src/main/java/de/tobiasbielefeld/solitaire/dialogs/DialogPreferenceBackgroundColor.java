@@ -65,9 +65,9 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
     @Override
     protected void onBindDialogView(View view) {
 
-        backgroundType = getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, DEFAULT_BACKGROUND_COLOR_TYPE);
-        backgroundValue = Integer.parseInt(getSharedString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR));
-        savedCustomColor = getSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM);
+        backgroundType = prefs.getSavedBackgroundColorType();
+        backgroundValue = prefs.getSavedBackgroundColor();
+        savedCustomColor = prefs.getSavedBackgroundCustomColor();
 
         linearLayouts = new ArrayList<>();
         linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorBlue));
@@ -94,8 +94,8 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
                     backgroundType = 2;
                     backgroundValue = savedCustomColor = color;
 
-                    putSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, backgroundType);
-                    putSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, backgroundValue);
+                    prefs.saveBackgroundColorType(backgroundType);
+                    prefs.saveBackgroundCustomColor(backgroundValue);
                     updateSummary();
                     getDialog().dismiss();
                 }
@@ -112,8 +112,9 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
             backgroundValue = linearLayouts.indexOf(view) + 1;
             backgroundType = 1;
 
-            putSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, backgroundType);
-            putSharedString(PREF_KEY_BACKGROUND_COLOR, Integer.toString(backgroundValue));
+            prefs.saveBackgroundColorType(backgroundType);
+            prefs.saveBackgroundColor(backgroundValue);
+
             updateSummary();
             getDialog().dismiss();
         }
@@ -145,32 +146,32 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
      */
     private void updateSummary() {
 
-        if (getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, DEFAULT_BACKGROUND_COLOR_TYPE) == 1) {
+        if (prefs.getSavedBackgroundColorType() == 1) {
             int drawableID;
             int stringID;
-            switch (getSharedString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR)) {
-                case "1":
+            switch (prefs.getSavedBackgroundColor()) {
+                case 1:
                 default:
                     stringID = R.string.blue;
                     drawableID = R.drawable.background_color_blue;
                     break;
-                case "2":
+                case 2:
                     stringID = R.string.green;
                     drawableID = R.drawable.background_color_green;
                     break;
-                case "3":
+                case 3:
                     stringID = R.string.red;
                     drawableID = R.drawable.background_color_red;
                     break;
-                case "4":
+                case 4:
                     stringID = R.string.yellow;
                     drawableID = R.drawable.background_color_yellow;
                     break;
-                case "5":
+                case 5:
                     stringID = R.string.orange;
                     drawableID = R.drawable.background_color_orange;
                     break;
-                case "6":
+                case 6:
                     stringID = R.string.purple;
                     drawableID = R.drawable.background_color_purple;
                     break;
@@ -183,7 +184,7 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
             setSummary(context.getString(R.string.settings_background_color_custom));
 
             image.setImageResource(0);
-            image.setBackgroundColor(getSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM));
+            image.setBackgroundColor(prefs.getSavedBackgroundCustomColor());
         }
     }
 }

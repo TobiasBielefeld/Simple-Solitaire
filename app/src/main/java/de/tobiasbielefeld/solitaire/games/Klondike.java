@@ -31,6 +31,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
 
 /**
  * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
@@ -40,26 +42,22 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 
 public class Klondike extends Game {
 
-    protected String PREF_KEY_DRAW_OLD, PREF_KEY_DRAW, DEFAULT_DRAW;
-    //boolean movedAllCardsBack = false;
+    protected int whichGame;
 
     public Klondike() {
         setNumberOfDecks(1);
         setNumberOfStacks(15);
         setDiscardStackIDs(11,12,13);
-        setFirstMainStackID(14);
+        setMainStackIDs(14);
         setLastTableauID(6);
         setHasFoundationStacks(true);
+        whichGame = 1;                                                                              //1 stands for Klondike, 2 for Vegas
 
         setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
 
-        if (!getSharedBoolean(PREF_KEY_KLONDIKE_LIMITED_RECYCLES, DEFAULT_KLONDIKE_LIMITED_RECYCLES)) {
+        if (!prefs.getSavedKlondikeLimitedRecycles()) {
             toggleRecycles();
         }
-
-        PREF_KEY_DRAW_OLD = PREF_KEY_KLONDIKE_DRAW_OLD;
-        PREF_KEY_DRAW = PREF_KEY_KLONDIKE_DRAW;
-        DEFAULT_DRAW = DEFAULT_KLONDIKE_DRAW;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -120,7 +118,7 @@ public class Klondike extends Game {
 
     public void dealCards() {
         //save the new settings, so it only takes effect on new deals
-        putSharedString(PREF_KEY_DRAW_OLD, getSharedString(PREF_KEY_DRAW, DEFAULT_DRAW));
+        prefs.saveKlondikeVegasDrawModeOld(whichGame);
 
         //and move cards to the tableau
         for (int i = 0; i <= 6; i++) {
@@ -132,7 +130,7 @@ public class Klondike extends Game {
         }
 
         //deal cards to trash according to the draw option
-        if (sharedStringEqualsDefault(PREF_KEY_DRAW_OLD, "1")) {
+        if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1")) {
             moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
             stacks[13].getTopCard().flipUp();
         } else {
@@ -144,8 +142,7 @@ public class Klondike extends Game {
     }
 
     public int onMainStackTouch() {
-
-        boolean deal3 = sharedStringEquals(PREF_KEY_DRAW_OLD, DEFAULT_DRAW,"3");
+        boolean deal3 = prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("3");
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
@@ -228,7 +225,7 @@ public class Klondike extends Game {
             } else {
                 //no deal3 option, just deal one card without that fucking huge amount of calculation for the recordLit
                 moveToStack(getMainStack().getTopCard(), stacks[13]);
-                stacks[13].getTopCard().flipUp();
+                //stacks[13].getTopCard().flipUp();
             }
 
             return 1;
@@ -272,7 +269,7 @@ public class Klondike extends Game {
         }
 
         //for deal3 mode, discard and main stack have to be empty too
-        if (!sharedStringEqualsDefault(PREF_KEY_DRAW_OLD, DEFAULT_DRAW) || hasLimitedRecycles()) {
+        if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("3")|| hasLimitedRecycles()) {
             if (getMainStack().getSize()>0 || stacks[11].getSize()>0 || stacks[12].getSize()>0){
                 return false;
             }
@@ -400,10 +397,6 @@ public class Klondike extends Game {
         return null;
     }
 
-    public CardAndStack autoCompletePhaseOne() {
-        return null;
-    }
-
     public CardAndStack autoCompletePhaseTwo() {
         //just go through every stack
         for (int i = 7; i <= 10; i++) {
@@ -472,7 +465,7 @@ public class Klondike extends Game {
             return;
         }
 
-        boolean deal1 = sharedStringEquals(PREF_KEY_DRAW_OLD, DEFAULT_DRAW,"1");
+        boolean deal1 = prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1");
         checkEmptyDiscardStack(getMainStack(),stacks[11], stacks[12], stacks[13], deal1);
     }
 
@@ -515,8 +508,6 @@ public class Klondike extends Game {
                 }
             }
 
-
-
             //reverse everything so the cards on the stack will be in the right order when using an undo
             //the cards from 2. and 3 trash stack are in the right order again
             ArrayList<Card> cardsReversed = new ArrayList<>();
@@ -528,7 +519,6 @@ public class Klondike extends Game {
 
             //finally add the record
             recordList.addToLastEntry(cardsReversed, originReversed);
-
         }
 
 

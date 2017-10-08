@@ -257,11 +257,7 @@ public class Freecell extends Game {
     public boolean autoCompleteStartTest() {
         //autocomplete can start if stack has cards in the right order
         for (int i = 0; i < 8; i++) {
-            if (stacks[i].isEmpty()) {
-                continue;
-            }
-
-            if (!testCardsUpToTop(stacks[i], 0, ALTERNATING_COLOR)) {
+            if (!testCardsUpToTop(stacks[i], 0, DOESNT_MATTER)) {
                 return false;
             }
         }

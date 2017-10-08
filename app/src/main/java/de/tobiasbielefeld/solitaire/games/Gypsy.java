@@ -41,7 +41,7 @@ public class Gypsy extends Game {
     public Gypsy() {
         setNumberOfDecks(2);
         setNumberOfStacks(17);
-        setFirstMainStackID(16);
+        setMainStackIDs(16);
         setLastTableauID(7);
         setHasFoundationStacks(true);
     }
@@ -208,8 +208,9 @@ public class Gypsy extends Game {
             return false;
 
         for (int i = 0; i < 8; i++) {
-            if (stacks[i].isEmpty() || !stacks[i].getCard(0).isUp() || !testCardsUpToTop(stacks[i], 0, ALTERNATING_COLOR))
+            if (!testCardsUpToTop(stacks[i], 0, DOESNT_MATTER)) {
                 return false;
+            }
         }
 
         return true;

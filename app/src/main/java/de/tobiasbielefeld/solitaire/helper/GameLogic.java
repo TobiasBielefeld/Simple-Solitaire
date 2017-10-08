@@ -19,7 +19,6 @@
 package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -38,7 +37,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class GameLogic {
 
     public Card[] randomCards;                                                                      //array to shuffle the cards
-    private int numberWonGames;                                                                     //number of won games. It's shown in the high score activity
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
@@ -64,13 +62,14 @@ public class GameLogic {
     public void save() {
         scores.save();
         recordList.save();
-        putBoolean(GAME_WON, won);
-        putBoolean(GAME_WON_AND_RELOADED, wonAndReloaded);
-        putBoolean(GAME_MOVED_FIRST_CARD, movedFirstCard);
-        putInt(GAME_NUMBER_OF_WON_GAMES, numberWonGames);
+        prefs.saveWon(won);
+        prefs.saveWonAndReloaded(wonAndReloaded);
+        prefs.saveMovedFirstCard(movedFirstCard);
         // Timer will be saved in onPause()
-        for (Stack stack : stacks)
+
+        for (Stack stack : stacks) {
             stack.save();
+        }
 
         Card.save();
         saveRandomCards();
@@ -91,12 +90,10 @@ public class GameLogic {
      * on saving/loading, it won't crash the game. (in that case, it loads a new game)
      */
     public void load() {
-
-        boolean firstRun = getBoolean(GAME_FIRST_RUN, DEFAULT_FIRST_RUN);
-        numberWonGames = getInt(GAME_NUMBER_OF_WON_GAMES, 0);
-        won = getBoolean(GAME_WON, DEFAULT_WON);
-        wonAndReloaded = getBoolean(GAME_WON_AND_RELOADED, DEFAULT_WON_AND_RELOADED);
-        movedFirstCard = getBoolean(GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
+        boolean firstRun = prefs.isFirstRun();
+        won = prefs.isWon();
+        wonAndReloaded = prefs.isWonAndReloaded();
+        movedFirstCard = prefs.hasMovedFirstCard();
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
@@ -109,8 +106,8 @@ public class GameLogic {
         try {
             if (firstRun) {
                 newGame();
-                putBoolean(GAME_FIRST_RUN, false);
-            }  else if (wonAndReloaded && getSharedBoolean(PREF_KEY_AUTO_START_NEW_GAME,DEFAULT_AUTO_START_NEW_GAME)){        //in case the game was selected from the main menu and it was already won, start a new game
+                prefs.saveFirstRun(false);
+            }  else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()){        //in case the game was selected from the main menu and it was already won, start a new game
                 newGame();
             } else if (won) {                   //in case the screen orientation changes, do not immediately start a new game
                 loadRandomCards();
@@ -126,7 +123,7 @@ public class GameLogic {
 
                 scores.load();
                 recordList.load();
-                timer.setCurrentTime(getLong(TIMER_END_TIME, 0));
+                timer.setCurrentTime(prefs.getSavedEndTime());
 
                 //timer will be loaded in onResume() of the game manager
 
@@ -166,6 +163,7 @@ public class GameLogic {
         //reset EVERYTHING
         if (!won) {                                                                                 //if the game has been won, the score was already saved
             scores.addNewHighScore();
+            currentGame.checkAlternativeWinCondition(scores.getScore());
         }
 
         movedFirstCard = false;
@@ -203,7 +201,7 @@ public class GameLogic {
      */
     public void testIfWon() {
         if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
-            numberWonGames++;
+            incrementNumberWonGames();
             scores.updateBonus();
             scores.addNewHighScore();
             recordList.reset();
@@ -247,10 +245,7 @@ public class GameLogic {
         }
 
         //move the re-deal counter too
-        if (currentGame.hasLimitedRecycles()) {
-            gm.mainTextViewRecycles.setX(currentGame.getMainStack().getX());
-            gm.mainTextViewRecycles.setY(currentGame.getMainStack().getY());
-        }
+        gm.updateLimitedRecyclesCounter();
 
         //change the arrow direction
         if (currentGame.hasArrow()) {
@@ -273,14 +268,7 @@ public class GameLogic {
      * updates the recycle counter in the ui
      */
     public void showOrHideRecycles() {
-
-        if (currentGame.hasLimitedRecycles()) {
-            gm.mainTextViewRecycles.setVisibility(View.VISIBLE);
-            gm.mainTextViewRecycles.setX(currentGame.getMainStack().getX());
-            gm.mainTextViewRecycles.setY(currentGame.getMainStack().getY());
-        } else {
-            gm.mainTextViewRecycles.setVisibility(View.GONE);
-        }
+        gm.updateLimitedRecyclesCounter();
     }
 
     public void setNumberOfRecycles(String key, String defaultValue){
@@ -293,13 +281,9 @@ public class GameLogic {
         return won;
     }
 
-    public int getNumberWonGames() {
-        return numberWonGames;
-    }
-
     public void deleteStatistics() {
-        numberWonGames = 0;
-        putInt(GAME_NUMBER_OF_PLAYED_GAMES, 0);
+        prefs.saveNumberOfWonGames(0);
+        prefs.saveNumberOfPlayedGames(0);
     }
 
     private void saveRandomCards() {
@@ -308,23 +292,18 @@ public class GameLogic {
         for (Card card : randomCards)
             list.add(card.getId());
 
-        putIntList(GAME_RANDOM_CARDS, list);
+        prefs.saveRandomCards(list);
     }
 
     private void loadRandomCards() {
-        ArrayList<Integer> list = getIntList(GAME_RANDOM_CARDS);
+        ArrayList<Integer> list = prefs.getSavedRandomCards();
 
         for (int i = 0; i < randomCards.length; i++)
             randomCards[i] = cards[list.get(i)];
     }
 
     private void incrementPlayedGames() {
-        int playedGames = getInt(GAME_NUMBER_OF_PLAYED_GAMES, numberWonGames);
-        putInt(GAME_NUMBER_OF_PLAYED_GAMES, ++playedGames);
-    }
-
-    public int getNumberOfPlayedGames() {
-        return getInt(GAME_NUMBER_OF_PLAYED_GAMES, numberWonGames);
+        prefs.saveNumberOfPlayedGames(prefs.getSavedNumberOfPlayedGames()+1);
     }
 
     public void updateMenuBar() {
@@ -332,6 +311,6 @@ public class GameLogic {
     }
 
     public void incrementNumberWonGames(){
-        numberWonGames++;
+        prefs.saveNumberOfWonGames(prefs.getSavedNumberOfWonGames()+1);
     }
 }

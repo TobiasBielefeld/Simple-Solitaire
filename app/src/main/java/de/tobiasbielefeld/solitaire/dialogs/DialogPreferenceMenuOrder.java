@@ -22,19 +22,15 @@ import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.DynamicListView;
 import de.tobiasbielefeld.solitaire.classes.StableArrayAdapter;
 
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_ORDER;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
@@ -82,7 +78,7 @@ public class DialogPreferenceMenuOrder extends DialogPreference{
                 list.add(gameList.indexOf(game));
             }
 
-            putSharedIntList(PREF_KEY_MENU_ORDER, list);
+            prefs.saveMenuOrderList(list);
         }
     }
 }

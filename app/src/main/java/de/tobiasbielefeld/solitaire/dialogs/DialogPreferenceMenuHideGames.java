@@ -118,7 +118,7 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
                 list.add(checkBoxes.get(index).isChecked() ? 1 : 0);
             }
 
-            putSharedIntList(PREF_KEY_MENU_GAMES, list);
+            prefs.saveMenuGamesList(list);
         }
     }
 }

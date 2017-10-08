@@ -29,12 +29,12 @@ import static de.tobiasbielefeld.solitaire.helper.BackgroundMusic.status.*;
 
 
 /**
- * Manages the background music. Can be played in the whole application or only in game.
+ * Manages the background music. Will be played in the whole application.
  */
 
 public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
 
-    public enum status {stopped,paused,playing};
+    public enum status {stopped,paused,playing}
 
     private MediaPlayer player;
     private String currentlyPlaying = "";
@@ -44,13 +44,13 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
     @Override
     public Void doInBackground(Context... params) {
 
-        if (!savedSharedData.getBoolean(PREF_KEY_SOUND_ENABLED, DEFAULT_SOUND_ENABLED)){
+        if (!prefs.getSavedSoundEnabled()){
             stopPlaying();
             return null;
         }
 
-        String soundToPlay = getSharedString(PREF_KEY_BACKGROUND_MUSIC, DEFAULT_BACKGROUND_MUSIC);
-        int volumeToApply = getSharedInt(PREF_KEY_BACKGROUND_VOLUME,DEFAULT_BACKGROUND_VOLUME);
+        String soundToPlay = prefs.getSavedBackgroundMusic();
+        int volumeToApply = prefs.getSavedBackgroundVolume();
 
         if (volumeToApply!=currentVolume){
             changeVolume();
@@ -71,7 +71,7 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
 
     public void changeVolume(){
         if (player!=null){
-            int currentVolume = getSharedInt(PREF_KEY_BACKGROUND_VOLUME,DEFAULT_BACKGROUND_VOLUME);
+            int currentVolume = prefs.getSavedBackgroundVolume();
             float log1 = currentVolume == 100 ? 0 : (float)(Math.log(100-currentVolume)/Math.log(100));
             float volume = 1f-log1;
 

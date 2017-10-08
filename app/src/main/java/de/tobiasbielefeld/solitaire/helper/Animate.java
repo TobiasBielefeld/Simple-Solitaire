@@ -54,11 +54,11 @@ public class Animate {
     public Animate(GameManager gm) {
         this.gm = gm;
         handlerAfterWon = new HandlerAfterWon(gm);
-        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED));
+        speedFactor = prefs.getSavedMovementSpeed();
     }
 
     public void updateMovementSpeed() {
-        speedFactor = Float.parseFloat(getSharedString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED));
+        speedFactor = prefs.getSavedMovementSpeed();
     }
 
     /**

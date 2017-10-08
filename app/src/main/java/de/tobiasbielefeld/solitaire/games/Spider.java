@@ -42,7 +42,7 @@ public class Spider extends Game {
     public Spider() {
         setNumberOfDecks(2);
         setNumberOfStacks(23);
-        setFirstMainStackID(18);
+        setMainStackIDs(18,19,20,21,22);
         setLastTableauID(9);
     }
 
@@ -241,7 +241,7 @@ public class Spider extends Game {
 
     public void dealCards() {
         //when starting a new game, load the difficulty preference in the "old" preference
-        putSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD, getSharedString(PREF_KEY_SPIDER_DIFFICULTY, DEFAULT_SPIDER_DIFFICULTY));
+        prefs.saveSpiderDifficultyOld();
         loadCards();
 
         for (int i = 0; i < 10; i++) {
@@ -317,20 +317,11 @@ public class Spider extends Game {
         return points;
     }
 
-    @Override
-    public boolean testIfMainStackTouched(float X, float Y) {
-        return (stacks[18].isOnLocation(X, Y) ||
-                stacks[19].isOnLocation(X, Y) ||
-                stacks[20].isOnLocation(X, Y) ||
-                stacks[21].isOnLocation(X, Y) ||
-                stacks[22].isOnLocation(X, Y));
-    }
-
     private void loadCards() {
         /*
          * load the card families depending on the preference
          */
-        switch (getSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD, DEFAULT_SPIDER_DIFFICULTY)) {
+        switch (prefs.getSavedSpiderDifficultyOld()) {
             case "1":
                 setCardFamilies(3, 3, 3, 3);
                 break;

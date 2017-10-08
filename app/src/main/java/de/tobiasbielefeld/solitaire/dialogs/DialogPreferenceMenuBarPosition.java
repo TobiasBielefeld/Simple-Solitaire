@@ -36,6 +36,11 @@ public class DialogPreferenceMenuBarPosition extends DialogPreference {
 
     RadioButton top, bottom, left, right;
 
+    private static String BOTTOM = "bottom";
+    private static String TOP = "top";
+    private static String LEFT = "left";
+    private static String RIGHT = "right";
+
     public DialogPreferenceMenuBarPosition(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_menu_bar_position);
@@ -51,13 +56,13 @@ public class DialogPreferenceMenuBarPosition extends DialogPreference {
 
 
         //minus 1 because the values are 1 to 10, indexes are from 0 to 9
-        if (sharedStringEqualsDefault(PREF_KEY_MENU_BAR_POS_PORTRAIT, DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
+        if (prefs.getSavedMenuBarPosPortrait().equals(BOTTOM)) {
             bottom.setChecked(true);
         } else {
             top.setChecked(true);
         }
 
-        if (sharedStringEqualsDefault(PREF_KEY_MENU_BAR_POS_LANDSCAPE, DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
+        if (prefs.getSavedMenuBarPosLandscape().equals(RIGHT)) {
             right.setChecked(true);
         } else {
             left.setChecked(true);
@@ -72,8 +77,8 @@ public class DialogPreferenceMenuBarPosition extends DialogPreference {
         super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
-            putSharedString(PREF_KEY_MENU_BAR_POS_PORTRAIT, bottom.isChecked() ? "bottom" : "top");
-            putSharedString(PREF_KEY_MENU_BAR_POS_LANDSCAPE, right.isChecked() ? "right" : "left");
+            prefs.saveMenuBarPosPortrait(bottom.isChecked() ? BOTTOM : TOP);
+            prefs.saveMenuBarPosLandscape(right.isChecked() ? RIGHT : LEFT);
         }
     }
 }

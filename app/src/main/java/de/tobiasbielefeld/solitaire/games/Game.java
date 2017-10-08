@@ -21,12 +21,9 @@ package de.tobiasbielefeld.solitaire.games;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.os.Build;
 import android.support.annotation.CallSuper;
 import android.support.v4.widget.TextViewCompat;
-import android.text.Layout;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -52,10 +49,8 @@ public abstract class Game {
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
     public Stack.SpacingDirection[] directions;
     public int[] directionBorders;
-    private boolean hasMainStack = false;
     private int dealFromID = -1;
-    private int mainStackID = -1;
-    private boolean hasDiscardStack = false;
+    private int[] mainStackIDs = new int[]{-1};
     private boolean hasLimitedRecycles = false;
     private boolean hasFoundationStacks = false;
     private int[] discardStackIDs = new int[]{-1};
@@ -281,15 +276,21 @@ public abstract class Game {
     }
 
     /**
-     * Tests if the main stack got touched. It can be overriden if there are for example
-     * multiple main stacks, like in Spider
+     * Tests if the main stack got touched. It iterates through all main stacks
+     * (eg. Spider uses 5 main stacks). You can also override it like in Pyramid
      *
      * @param X The X-coordinate of the touch event
      * @param Y The Y-coordinate of the touch event
      * @return True if the main stack got touched, false otherwise
      */
     public boolean testIfMainStackTouched(float X, float Y) {
-        return getMainStack().isOnLocation(X, Y);
+        for (int id : mainStackIDs){
+            if (stacks[id].isOnLocation(X,Y)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -303,12 +304,12 @@ public abstract class Game {
      * So you can do other stuff for the high score list. For example, a game in Vegas is already won, when
      * the player makes profit, not only when all cards could be played on the foundation
      *
-     * Return true, if you want the  addNewHighScore() method to break, so possible highscores won't
+     * Return false, if you want the  addNewHighScore() method to break, so possible high scores won't
      * be saved. (eg in Vegas, if the player keeps the current balance, only save high score when
      * the balance is resetting). Return fals other wise (default)
      */
     public boolean processScore(long currentScore){
-        return false;
+        return true;
     }
 
     /**
@@ -328,6 +329,15 @@ public abstract class Game {
      * Reset the additional statistics data, if there are any
      */
     public void deleteAdditionalStatisticsData() {
+
+    }
+
+    /**
+     * This gets called when starting a new game. You can check here if the old game is won by alternative
+     * conditions (like Vegas, game is won when score is above 0). The default win condition is checked in
+     * winTest(), which starts the win animation when won.
+     */
+    public void checkAlternativeWinCondition(long score){
 
     }
 
@@ -366,10 +376,13 @@ public abstract class Game {
      */
     protected boolean testCardsUpToTop(Stack stack, int startPos, testMode mode) {
 
-
         for (int i = startPos; i < stack.getSize() - 1; i++) {
             Card bottomCard = stack.getCard(i);
             Card upperCard = stack.getCard(i + 1);
+
+            if (!bottomCard.isUp() || !upperCard.isUp()) {
+                return false;
+            }
 
             switch (mode) {
                 case ALTERNATING_COLOR:     //eg. black on red
@@ -518,15 +531,13 @@ public abstract class Game {
     }
 
     /**
-     * Sets the given stack id as the first main stack, also sets it as the dealing stack.
-     * Every stack with this id and above will be treated as a main stack
+     * Sets the given stack ids as the main stacks, also sets the first one as the dealing stack.
      *
-     * @param id The stack id to apply.
+     * @param IDs The stack ids to apply.
      */
-    protected void setFirstMainStackID(int id) {
-        hasMainStack = true;
-        mainStackID = id;
-        dealFromID = id;
+    protected void setMainStackIDs(int... IDs) {
+        mainStackIDs = IDs;
+        dealFromID = IDs[0];
     }
 
     /**
@@ -535,7 +546,6 @@ public abstract class Game {
      * @param IDs The stack ids to apply.
      */
     protected void setDiscardStackIDs(int... IDs){
-        hasDiscardStack = true;
         discardStackIDs = IDs;
     }
 
@@ -549,7 +559,7 @@ public abstract class Game {
     }
 
     protected void disableMainStack(){
-        hasMainStack = false;
+        mainStackIDs = new int[]{-1};
     }
 
     /**
@@ -743,11 +753,11 @@ public abstract class Game {
     }
 
     public Stack getMainStack() throws ArrayIndexOutOfBoundsException {
-        if (mainStackID == -1) {
+        if (mainStackIDs[0] == -1) {
             throw new ArrayIndexOutOfBoundsException("No main stack specified");
         }
 
-        return stacks[mainStackID];
+        return stacks[mainStackIDs[0]];
     }
 
     public int getLastTableauId() throws ArrayIndexOutOfBoundsException {
@@ -767,7 +777,7 @@ public abstract class Game {
     }
 
     public void setNumberOfRecycles(String key, String defaultValue){
-        int recycles = Integer.parseInt(getSharedString(key, defaultValue));
+        int recycles = prefs.getSavedNumberOfRecycles(key, defaultValue);
         setLimitedRecycles(recycles);
     }
 
@@ -811,12 +821,27 @@ public abstract class Game {
         return discardStacks;
     }
 
+
+    public ArrayList<Stack> getMainStacks() throws ArrayIndexOutOfBoundsException {
+        ArrayList<Stack> mainStacks = new ArrayList<>();
+
+        for (int id : mainStackIDs){
+            if (id == -1){
+                throw new ArrayIndexOutOfBoundsException("No discard stack specified");
+            }
+
+            mainStacks.add(stacks[id]);
+        }
+
+        return mainStacks;
+    }
+
     protected void setLastTableauID(int id) {
         lastTableauID = id;
     }
 
     public boolean hasMainStack() {
-        return hasMainStack;
+        return mainStackIDs[0]!=-1;
     }
 
     public Stack getDealStack() {
@@ -824,7 +849,7 @@ public abstract class Game {
     }
 
     public boolean hasDiscardStack() {
-        return hasDiscardStack;
+        return discardStackIDs[0]!=-1;
     }
 
     public boolean hasLimitedRecycles() {
@@ -852,11 +877,11 @@ public abstract class Game {
     }
 
     public void saveRecycleCount() {
-        putInt(GAME_REDEAL_COUNT, recycleCounter);
+        prefs.saveRedealCount(recycleCounter);
     }
 
     public void loadRecycleCount(GameManager gm) {
-        recycleCounter = getInt(GAME_REDEAL_COUNT, totalRecycles);
+        recycleCounter = prefs.getSavedRecycleCounter(totalRecycles);
         gm.updateNumberOfRecycles();
     }
 
@@ -873,7 +898,7 @@ public abstract class Game {
     }
 
     public boolean isSingleTapEnabled() {
-        return singleTapeEnabled;
+        return singleTapeEnabled && prefs.getSavedSingleTapEnabled();
     }
 
     public void flipAllCardsUp() {
@@ -909,7 +934,11 @@ public abstract class Game {
         ASCENDING, DESCENDING
     }
 
-    protected void sendTestAfterMoveMessage(){
-        handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
+    public boolean testForDiscardStack(Stack stack){
+        return hasDiscardStack() && getDiscardStacks().contains(stack);
+    }
+
+    public boolean testForMainStack(Stack stack){
+        return hasMainStack() && getMainStacks().contains(stack);
     }
 }

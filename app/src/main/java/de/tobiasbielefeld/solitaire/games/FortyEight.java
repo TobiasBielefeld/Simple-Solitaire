@@ -28,6 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
@@ -42,14 +43,14 @@ public class FortyEight extends Game {
 
         setNumberOfDecks(2);
         setNumberOfStacks(18);
-        setFirstMainStackID(17);
+        setMainStackIDs(17);
         setDiscardStackIDs(16);
         setLastTableauID(7);
         setHasFoundationStacks(true);
 
         setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
 
-        if (!getSharedBoolean(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES, DEFAULT_FORTYEIGHT_LIMITED_RECYCLES)) {
+        if (!prefs.getSavedFortyEightLimitedRecycles()) {
             toggleRecycles();
         }
 

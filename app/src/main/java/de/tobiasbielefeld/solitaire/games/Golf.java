@@ -43,15 +43,14 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Golf extends Game {
 
     static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
-    static String RUN_COUNTER = "run_counter";
-    static String LONGEST_RUN = "longest_run";
+
     int runCounter; //to count how many cards are moved in one "run"
     ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
 
     public Golf() {
         setNumberOfDecks(1);
         setNumberOfStacks(9);
-        setFirstMainStackID(8);
+        setMainStackIDs(8);
         setDiscardStackIDs(7);
         setLastTableauID(6);
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
@@ -66,12 +65,12 @@ public class Golf extends Game {
 
     @Override
     public void save() {
-        putInt(RUN_COUNTER, runCounter);
+        prefs.saveRunCounter(runCounter);
     }
 
     @Override
     public void load() {
-        runCounter = getInt(RUN_COUNTER, 0);
+        runCounter = prefs.getSavedRunCounter();
 
     }
 
@@ -124,8 +123,7 @@ public class Golf extends Game {
          * then check the settings: if cyclic moves are set to true, check if the cards are an ace and a king, if so return true
          * or the cards values difference is 1 or -1
          */
-        return stack == getDiscardStack()
-                && ((getSharedBoolean(PREF_KEY_GOLF_CYCLIC, DEFAULT_GOLF_CYCLIC)
+        return stack == getDiscardStack() && ((prefs.getSavedGoldCyclic()
                 && (card.getValue() == 13 && stack.getTopCard().getValue() == 1 || card.getValue() == 1 && stack.getTopCard().getValue() == 13))
                 || (card.getValue() == stack.getTopCard().getValue() + 1 || card.getValue() == stack.getTopCard().getValue() - 1));
     }
@@ -193,17 +191,17 @@ public class Golf extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.game_longest_run) + " " + getInt(LONGEST_RUN, 0);
+        return res.getString(R.string.game_longest_run) + " " + prefs.getSavedLongestRun();
     }
 
     @Override
     public void deleteAdditionalStatisticsData() {
-        putInt(LONGEST_RUN, 0);
+        prefs.saveLongestRun(0);
     }
 
     private void updateLongestRun(int currentRunCount) {
-        if (currentRunCount > getInt(LONGEST_RUN, 0)) {
-            putInt(LONGEST_RUN, currentRunCount);
+        if (currentRunCount > prefs.getSavedLongestRun()) {
+            prefs.saveLongestRun(currentRunCount);
         }
     }
 }

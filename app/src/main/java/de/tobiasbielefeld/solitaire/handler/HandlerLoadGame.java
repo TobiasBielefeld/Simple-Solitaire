@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.handler;
 
 import android.os.Handler;
 import android.os.Message;
-import android.view.View;
 
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
@@ -42,11 +41,7 @@ public class HandlerLoadGame extends Handler {
         super.handleMessage(msg);
         gameLogic.load();
 
-        if (currentGame.hasLimitedRecycles()) {
-            gm.mainTextViewRecycles.setVisibility(View.VISIBLE);
-            gm.mainTextViewRecycles.setX(currentGame.getMainStack().getX());
-            gm.mainTextViewRecycles.setY(currentGame.getMainStack().getY());
-        }
+        gm.updateLimitedRecyclesCounter();
 
         gm.hasLoaded = true;
     }

@@ -73,7 +73,6 @@ public class MovingCards {
             card.setLocationWithoutMovement(X - offsetX, (Y - offsetY)
                     + currentCards.indexOf(card) * Stack.defaultSpacing / 2);
         }
-
     }
 
     public boolean moveStarted(float X, float Y) {

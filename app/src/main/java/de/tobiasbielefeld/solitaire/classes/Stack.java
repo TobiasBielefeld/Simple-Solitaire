@@ -25,8 +25,6 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.helper.Sounds;
-
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
@@ -92,9 +90,9 @@ public class Stack {
 
         updateSpacing();
 
-        if (currentGame.hasMainStack() && id >= currentGame.getMainStack().getId()) {
+        if (currentGame.testForMainStack(this)) {
             card.flipDown();
-        } else if (currentGame.hasDiscardStack() && id >= currentGame.getDiscardStack().getId()) {
+        } else if (currentGame.testForDiscardStack(this)){
             card.flipUp();
         }
     }
@@ -216,7 +214,7 @@ public class Stack {
         for (Card card : currentCards)
             list.add(card.getId());
 
-        putIntList(STACK + id, list);
+        prefs.saveStacks(list,id);
     }
 
     /**
@@ -225,7 +223,7 @@ public class Stack {
     public void load() {
         reset();
 
-        ArrayList<Integer> list = getIntList(STACK + id);
+        ArrayList<Integer> list = prefs.getSavedStacks(id);
 
         for (Integer i : list) {
             addCard(cards[i]);
@@ -354,14 +352,14 @@ public class Stack {
         if (arrowDirection != null) {
             switch (arrowDirection) {
                 case LEFT:
-                    if (getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, DEFAULT_LEFT_HANDED_MODE)) {
+                    if (prefs.getSavedLeftHandedMode()) {
                         view.setImageBitmap(Stack.arrowRight);
                     } else {
                         view.setImageBitmap(Stack.arrowLeft);
                     }
                     break;
                 case RIGHT:
-                    if (getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, DEFAULT_LEFT_HANDED_MODE)) {
+                    if (prefs.getSavedLeftHandedMode()) {
                         view.setImageBitmap(Stack.arrowLeft);
                     } else {
                         view.setImageBitmap(Stack.arrowRight);

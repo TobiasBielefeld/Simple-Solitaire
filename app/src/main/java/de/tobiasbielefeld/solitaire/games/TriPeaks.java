@@ -40,8 +40,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class TriPeaks extends Game {
 
     static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
-    static String RUN_COUNTER = "run_counter";
-    static String LONGEST_RUN = "longest_run";
     //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
     //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28
@@ -54,7 +52,7 @@ public class TriPeaks extends Game {
         setNumberOfStacks(30);
         setLastTableauID(27);
         setDiscardStackIDs(28);
-        setFirstMainStackID(29);
+        setMainStackIDs(29);
         setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         setSingleTapeEnabled(true);
     }
@@ -67,12 +65,12 @@ public class TriPeaks extends Game {
 
     @Override
     public void save() {
-        putInt(RUN_COUNTER, runCounter);
+        prefs.saveRunCounter(runCounter);
     }
 
     @Override
     public void load() {
-        runCounter = getInt(RUN_COUNTER, 0);
+        runCounter = prefs.getSavedRunCounter();
 
     }
 
@@ -229,12 +227,12 @@ public class TriPeaks extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.game_longest_run) + " " + getInt(LONGEST_RUN, 0);
+        return res.getString(R.string.game_longest_run) + " " + prefs.getSavedLongestRun();
     }
 
     @Override
     public void deleteAdditionalStatisticsData() {
-        putInt(LONGEST_RUN, 0);
+        prefs.saveLongestRun(0);
     }
 
     private boolean stackIsFree(Stack stack) {
@@ -248,8 +246,8 @@ public class TriPeaks extends Game {
     }
 
     private void updateLongestRun(int currentRunCount) {
-        if (currentRunCount > getInt(LONGEST_RUN, 0)) {
-            putInt(LONGEST_RUN, currentRunCount);
+        if (currentRunCount > prefs.getSavedLongestRun()) {
+            prefs.saveLongestRun(currentRunCount);
         }
     }
 
