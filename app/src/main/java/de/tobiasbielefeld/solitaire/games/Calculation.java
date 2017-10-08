@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.content.Context;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -35,10 +34,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  */
 
 public class Calculation extends Game {
-
-
-
-    private TextView[] textViews  = new TextView[4];
 
     public Calculation() {
         setNumberOfDecks(1);
@@ -86,10 +81,12 @@ public class Calculation extends Game {
         stacks[7].view.setImageBitmap(Stack.background4);
 
         //generate the textViews over the foundation stacks
+
+        addTextViews(4, Card.width, layoutGame, context);
+
         for (int i=0;i<4;i++){
-            textViews[i] = addTextView(Card.width, layoutGame, context);
-            textViews[i].setX(stacks[4+i].getX());
-            textViews[i].setY(stacks[4+i].getY() - textViews[i].getMeasuredHeight());
+            textViews.get(i).setX(stacks[4+i].getX());
+            textViews.get(i).setY(stacks[4+i].getY() - textViews.get(i).getMeasuredHeight());
 
         }
 
@@ -98,13 +95,13 @@ public class Calculation extends Game {
 
         if (!list.isEmpty()){
             for (int i=0;i<4;i++) {
-                textViews[i].setText(list.get(i));
+                textViews.get(i).setText(list.get(i));
             }
         } else {
-            textViews[0].setText("2");
-            textViews[1].setText("4");
-            textViews[2].setText("6");
-            textViews[3].setText("8");
+            textViews.get(0).setText("2");
+            textViews.get(1).setText("4");
+            textViews.get(2).setText("6");
+            textViews.get(3).setText("8");
         }
     }
 
@@ -145,7 +142,7 @@ public class Calculation extends Game {
         ArrayList<String> list = new ArrayList<>();
 
         for (int i=0;i<4;i++){
-            list.add(textViews[i].getText().toString());
+            list.add(textViews.get(i).getText().toString());
         }
 
         prefs.saveCalculationNextCardsList(list);
@@ -325,7 +322,7 @@ public class Calculation extends Game {
                     break;
             }
 
-            textViews[i].setText(text);
+            textViews.get(i).setText(text);
         }
     }
 }

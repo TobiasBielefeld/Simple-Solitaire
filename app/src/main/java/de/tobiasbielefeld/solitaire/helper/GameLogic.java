@@ -244,8 +244,8 @@ public class GameLogic {
             }
         }
 
-        //move the re-deal counter too
         gm.updateLimitedRecyclesCounter();
+        currentGame.mirrorTextViews(gm.layoutGame);
 
         //change the arrow direction
         if (currentGame.hasArrow()) {

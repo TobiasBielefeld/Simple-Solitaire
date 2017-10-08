@@ -63,6 +63,7 @@ public abstract class Game {
     private boolean pointsInDollar = false;
     private int hintCosts = 25;
     private int undoCosts = 25;
+    protected ArrayList<TextView> textViews = new ArrayList<>();
 
     /**
      * Called to test where the given card can be moved to
@@ -352,16 +353,28 @@ public abstract class Game {
      * @return The created textView
      *
      */
-    protected TextView addTextView(int width, RelativeLayout layout, Context context){
-        TextView textView = new TextView(context);
-        textView.setWidth(width);
-        TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat);
-        textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(Color.rgb(0,0,0));
-        layout.addView(textView);
-        textView.measure(0,0);
+    protected void addTextViews(int count, int width, RelativeLayout layout, Context context){
 
-        return textView;
+        for (int i=0;i<count;i++) {
+            TextView textView = new TextView(context);
+            textView.setWidth(width);
+            TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat);
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextColor(Color.rgb(0, 0, 0));
+            layout.addView(textView);
+            textView.measure(0, 0);
+            textViews.add(textView);
+        }
+    }
+
+    /**
+     * mirrors
+     * @param layoutGame
+     */
+    public void mirrorTextViews(RelativeLayout layoutGame){
+        for (TextView textView : textViews){
+            textView.setX(layoutGame.getWidth() - textView.getX() - Card.width);
+        }
     }
 
     /**

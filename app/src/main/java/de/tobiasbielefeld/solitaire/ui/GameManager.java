@@ -140,15 +140,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
                 //if left handed mode is true, mirror all stacks
                 if (prefs.getSavedLeftHandedMode()) {
-                    for (Stack stack : stacks) {
-                        stack.view.setX(layoutGame.getWidth() - stack.getX() - Card.width);
-                    }
-
-                    if (currentGame.hasArrow()) {
-                        for (Stack stack : stacks) {
-                            stack.applyArrow();
-                        }
-                    }
+                    gameLogic.mirrorStacks();
                 }
 
                 //calculate the spacing for cards on a stack
