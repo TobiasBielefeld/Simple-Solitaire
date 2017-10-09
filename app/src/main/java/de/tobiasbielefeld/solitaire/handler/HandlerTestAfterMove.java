@@ -36,6 +36,7 @@ public class HandlerTestAfterMove extends Handler {
         }
         else {
             currentGame.testAfterMove();
+            gameLogic.checkForAutoCompleteButton();
             handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
         }
     }

@@ -106,15 +106,9 @@ public class Freecell extends Game {
     public boolean cardTest(Stack stack, Card card) {
         if (stack.getId() < 8) {
             //if there are as many cards moving as free stacks, and one of the free stacks was choosen, dont move
-            int numberOfFreeCells = 0;
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
-            for (int i = 0; i < 12; i++) {
-                if (stacks[i].isEmpty())
-                    numberOfFreeCells++;
-            }
-
-            return !(movingCards > numberOfFreeCells && stack.isEmpty()) && canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
+            return !(movingCards >= getPowerMoveCount() && stack.isEmpty()) && canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
 
         } else if (stack.getId() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
@@ -134,21 +128,10 @@ public class Freecell extends Game {
          *  normally the player can only move one card at once, but he can also put cards to free
          *  cells and replace them on a new stack. To make this easier, the player can move more
          *  cards at once, if they are in the right order and if there are enough free cells
-         *  Use the testCardsUpToTop() method for that test
          */
-
-        int numberOfFreeCells = 0;
-        int startPos;
-
         Stack sourceStack = card.getStack();
 
-        for (int i = 0; i < 12; i++) {
-            if (stacks[i].isEmpty()) {
-                numberOfFreeCells++;
-            }
-        }
-
-        startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, card.getStack().getIndexOfCard(card));
+        int startPos = max(sourceStack.getSize() - getPowerMoveCount(), card.getStack().getIndexOfCard(card));
 
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, ALTERNATING_COLOR);
     }
@@ -167,15 +150,9 @@ public class Freecell extends Game {
 
             int startPos;
 
-            int numberOfFreeCells = 0;
 
-            for (int j = 0; j < 12; j++) {
-                if (stacks[j].isEmpty()) {
-                    numberOfFreeCells++;
-                }
-            }
 
-            startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
+            startPos = max(sourceStack.getSize() - getPowerMoveCount(), 0);
 
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
@@ -286,16 +263,39 @@ public class Freecell extends Game {
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
-        if ((originIDs[0] < 12 && destinationIDs[0] >= 12)) {                                           //to foundations
+        //to foundations
+        if ((originIDs[0] < 12 && destinationIDs[0] >= 12)) {
             return 60;
         }
-        if ((destinationIDs[0] < 12 && originIDs[0] >= 12)) {                                          //from foundations
+        //from foundations
+        if ((destinationIDs[0] < 12 && originIDs[0] >= 12)) {
             return -75;
         }
-        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize() != 1) {//king to a empty field
+        //king to a empty field
+        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize() != 1) {
             return 20;
-        } else {
-            return 0;
         }
+
+        return 0;
+    }
+
+    private int getPowerMoveCount(){
+        //thanks to matejx for providing this formula
+        int numberOfFreeCells = 0;
+        int numberOfFreeTableauStacks = 0;
+
+        for (int i=8;i<12;i++){
+            if (stacks[i].isEmpty()){
+                numberOfFreeCells++;
+            }
+        }
+
+        for (int i=0;i<8;i++){
+            if (stacks[i].isEmpty()){
+                numberOfFreeTableauStacks++;
+            }
+        }
+
+        return (numberOfFreeCells+1)*(1<<numberOfFreeTableauStacks);
     }
 }

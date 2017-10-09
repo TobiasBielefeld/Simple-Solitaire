@@ -33,6 +33,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -279,7 +280,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
             //test if the redeal counter needs to be updated
-            if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty()) {
+            if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty() && discardStacksContainCards()) {
                 if (currentGame.getRemainingNumberOfRecycles() == 0) {
                     return true;
                 } else {
@@ -656,5 +657,16 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void finish() {
         prefs.saveCurrentGame(DEFAULT_CURRENT_GAME);
         super.finish();
+    }
+
+    private boolean discardStacksContainCards(){
+
+        for (Stack stack : currentGame.getDiscardStacks()){
+            if (!stack.isEmpty()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

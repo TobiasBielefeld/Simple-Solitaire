@@ -111,7 +111,7 @@ public class Vegas extends Klondike {
     private void loadData(){
         betAmount = prefs.getSavedVegasBetAmountOld()*10;
 
-        setHintCosts(betAmount/10);
+        setHintCosts(-betAmount/10);
         setUndoCosts(-betAmount/10);
     }
 }

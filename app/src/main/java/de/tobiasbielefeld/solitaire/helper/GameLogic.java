@@ -135,14 +135,18 @@ public class GameLogic {
 
                 loadRandomCards();
 
-                if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
-                    autoComplete.showButtonWithoutSound();
-                }
+                checkForAutoCompleteButton();
             }
         } catch (Exception e) {
             Log.e(gm.getString(R.string.loading_data_failed), e.toString());
             gm.showToast(gm.getString(R.string.game_load_error));
             newGame();
+        }
+    }
+
+    public void checkForAutoCompleteButton(){
+        if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
+            autoComplete.showButton();
         }
     }
 

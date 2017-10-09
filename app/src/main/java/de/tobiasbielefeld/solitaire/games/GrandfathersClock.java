@@ -219,12 +219,9 @@ public class GrandfathersClock extends Game {
             stacks[4 + i].setX(startPosX + spacing * i + Card.width * i);
             stacks[4 + i].setY((layoutGame.getHeight() - Card.height) / 2 + Card.height / 2);
         }
-
-
     }
 
     public void dealCards() {
-
         flipAllCardsUp();
 
         for (int i = 0; i < foundationCardOrder.length; i++) {
@@ -245,42 +242,25 @@ public class GrandfathersClock extends Game {
     }
 
     public boolean cardTest(Stack stack, Card card) {
-
         //there is a invisible deal stack in the middle of the clock, which shouldn't be used for the movement
         if (card.getStackId() > getLastTableauId() || stack.getId() == getDealStack().getId()) {
             return false;
         }
 
         if (stack.getId() <= getLastTableauId()) {
-
             //if there are as many cards moving as free stacks, and one of the free stacks was chosen, don't move
-            int numberOfFreeStacks = 0;
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
-            for (int i = 0; i < 8; i++) {
-                if (stacks[i].isEmpty())
-                    numberOfFreeStacks++;
-            }
-
-            return !(movingCards > numberOfFreeStacks && stack.isEmpty()) && canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
-
+            return !(movingCards >= getPowerMoveCount() && stack.isEmpty()) && canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
         } else {
             return movingCards.hasSingleCard() && canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING, true);
         }
     }
 
     public boolean addCardToMovementTest(Card card) {
-        int numberOfFreeStacks = 0;
-        int startPos;
-
         Stack sourceStack = card.getStack();
 
-        for (int i = 0; i < 8; i++) {
-            if (stacks[i].isEmpty())
-                numberOfFreeStacks++;
-        }
-
-        startPos = max(sourceStack.getSize() - numberOfFreeStacks - 1, card.getStack().getIndexOfCard(card));
+        int startPos = max(sourceStack.getSize() - getPowerMoveCount(), card.getStack().getIndexOfCard(card));
 
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, DOESNT_MATTER);
     }
@@ -290,47 +270,41 @@ public class GrandfathersClock extends Game {
 
             Stack sourceStack = stacks[i];
 
-            if (sourceStack.isEmpty())
+            if (sourceStack.isEmpty()) {
                 continue;
-
-            int startPos;
-
-
-            int numberOfFreeCells = 0;
-
-            for (int j = 0; j < 8; j++) {
-                if (stacks[j].isEmpty())
-                    numberOfFreeCells++;
             }
 
-            startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
+            int startPos = max(sourceStack.getSize() - getPowerMoveCount(), 0);
 
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, DOESNT_MATTER))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, DOESNT_MATTER)) {
                     continue;
+                }
 
                 if (cardToMove.isTopCard()) {
                     for (int k = 8; k < 19; k++) {
-                        if (cardToMove.test(stacks[k]))
+                        if (cardToMove.test(stacks[k])) {
                             return new CardAndStack(cardToMove, stacks[k]);
+                        }
                     }
                 }
 
                 for (int k = 0; k < 8; k++) {
                     Stack destStack = stacks[k];
-                    if (i == k || destStack.isEmpty())
+
+                    if (i == k || destStack.isEmpty()) {
                         continue;
+                    }
 
                     if (cardToMove.test(destStack)) {
-
-                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE))
+                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE)) {
                             continue;
+                        }
 
                         return new CardAndStack(cardToMove, destStack);
                     }
-
                 }
             }
         }
@@ -342,8 +316,9 @@ public class GrandfathersClock extends Game {
         //first foundation
         if (card.isTopCard()) {
             for (int j = 0; j < 12; j++) {
-                if (cardTest(stacks[8 + j], card))
+                if (cardTest(stacks[8 + j], card)) {
                     return stacks[8 + j];
+                }
             }
         }
 
@@ -391,14 +366,16 @@ public class GrandfathersClock extends Game {
 
     public CardAndStack autoCompletePhaseTwo() {
         for (int i = 0; i < 8; i++) {
-            if (stacks[i].isEmpty())
+            if (stacks[i].isEmpty()) {
                 continue;
+            }
 
             Card cardToTest = stacks[i].getTopCard();
 
             for (int j = 0; j < 12; j++) {
-                if (cardTest(stacks[8 + j], cardToTest))
+                if (cardTest(stacks[8 + j], cardToTest)) {
                     return new CardAndStack(cardToTest, stacks[8 + j]);
+                }
             }
         }
 
@@ -413,5 +390,18 @@ public class GrandfathersClock extends Game {
             return 0;
         }
 
+    }
+
+    private int getPowerMoveCount(){
+        //thanks to matejx for providing this formula
+        int numberOfFreeTableauStacks = 0;
+
+        for (int i=0;i<8;i++){
+            if (stacks[i].isEmpty()){
+                numberOfFreeTableauStacks++;
+            }
+        }
+
+        return (1<<numberOfFreeTableauStacks);
     }
 }

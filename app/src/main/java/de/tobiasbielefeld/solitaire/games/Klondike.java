@@ -225,7 +225,6 @@ public class Klondike extends Game {
             } else {
                 //no deal3 option, just deal one card without that fucking huge amount of calculation for the recordLit
                 moveToStack(getMainStack().getTopCard(), stacks[13]);
-                //stacks[13].getTopCard().flipUp();
             }
 
             return 1;
@@ -270,7 +269,7 @@ public class Klondike extends Game {
 
         //for deal3 mode, discard and main stack have to be empty too
         if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("3")|| hasLimitedRecycles()) {
-            if (getMainStack().getSize()>0 || stacks[11].getSize()>0 || stacks[12].getSize()>0){
+            if (getMainStack().getSize()>0 || stacks[11].getSize()>0 || stacks[12].getSize()>0 || stacks[13].getSize()>1){
                 return false;
             }
         }

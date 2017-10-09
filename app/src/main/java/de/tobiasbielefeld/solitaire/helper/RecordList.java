@@ -211,6 +211,9 @@ public class RecordList {
         private ArrayList<Stack> currentOrigins = new ArrayList<>();
         private ArrayList<Card> flipCards = new ArrayList<>();
 
+        private GameManager gm;
+        private boolean alreadyDecremented = false;
+
         /**
          * This constructor is used to load saved entries.
          *
@@ -323,19 +326,8 @@ public class RecordList {
          * Undos the latest entry.
          */
         void undo(GameManager gm) {
-            //Check if the movement resulted in a increment of the redeal counter, if so, revert it
-            if (currentGame.hasLimitedRecycles())  {
-                ArrayList<Stack> discardStacks = currentGame.getDiscardStacks();
-
-                for (int i=0;i<currentCards.size();i++){
-
-                    if (currentCards.get(i).getStack() == currentGame.getDealStack() && discardStacks.contains(currentOrigins.get(i))) {
-                            currentGame.decrementRecycleCounter(gm);
-                            break;
-
-                    }
-                }
-            }
+            this.gm = gm;
+            alreadyDecremented = false;
 
             for (Card card : flipCards) {
                 card.flipWithAnim();
@@ -352,6 +344,20 @@ public class RecordList {
          * all cards are away. So the movements are tiered.
          */
         void undoMore() {
+            //Check if the movement resulted in a increment of the redeal counter, if so, revert it
+            if (currentGame.hasLimitedRecycles() && !alreadyDecremented)  {
+                ArrayList<Stack> discardStacks = currentGame.getDiscardStacks();
+
+                for (int i=0;i<currentCards.size();i++){
+
+                    if (currentCards.get(i).getStack() == currentGame.getDealStack() && discardStacks.contains(currentOrigins.get(i))) {
+                        currentGame.decrementRecycleCounter(gm);
+                        alreadyDecremented = true;
+                        break;
+                    }
+                }
+            }
+
             ArrayList<Card> cardsWorkCopy = new ArrayList<>();
             ArrayList<Stack> originsWorkCopy = new ArrayList<>();
             ArrayList<Integer> moveOrderWorkCopy = new ArrayList<>();

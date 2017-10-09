@@ -112,12 +112,8 @@ public class MovingCards {
             origin.getTopCard().flipWithAnim();
         }
 
-
         currentCards.clear();
-
-        if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
-            autoComplete.showButton();
-        }
+        gameLogic.checkForAutoCompleteButton();
     }
 
     /**
@@ -131,8 +127,9 @@ public class MovingCards {
     }
 
     /**
-     * Checks if only one card is moving. But the size is for example hints still zero, so return
-     * true if < 2 cards are moving.
+     * Checks if only one card is moving. But the size is eg in hints still zero
+     * (because hints call the cardTest() method in Game, which in turn calls hasSingleCard(). But
+     * in hints, the user doesn't move by himself, so return true if < 2 cards are moving)
      *
      * @return True if a single card is moving, False otherwise
      */
