@@ -103,33 +103,33 @@
     <string name="settings_auto_start_new_game_text">Mikäli palataan peliin joka on jo voitettu, käynnistä uusi peli automaattisesti</string>
 
     <!-- new values -->
-    <string name="settings_customization_description">Muuta karttoja, tausta ja Käyttöliittymä</string>
+    <string name="settings_customization_description">Muuta kortteja, taustaa ja käyttöliittymää</string>
 
-    <string name="settings_force_tablet_layout_title">Force tablet layout</string>
-    <string name="settings_force_tablet_layout_text">Show the application as on large screens (>=10\")</string>
+    <string name="settings_force_tablet_layout_title">Pakota pöydän ulkoasu</string>
+    <string name="settings_force_tablet_layout_text">Näytä sovellus samalla tavalla kuin isolla näytöllä (>=10\")</string>
 
-    <string name="settings_restart_calculation">Start a new Calculation game to apply the change</string>
-    <string name="settings_calculation_alternative_title">Keep cards</string>
-    <string name="settings_calculation_alternative_text">On main stack press: Instead of moving the card from the discard
-        stack to the tableau, keep it on the discard stack.</string>
+    <string name="settings_restart_calculation">Aloita uusi Calculation peli ottaaksesi muutokset käyttöön</string>
+    <string name="settings_calculation_alternative_title">Pidä kortit</string>
+    <string name="settings_calculation_alternative_text">Painaminen käsipakasta: Sen sijaan, että kortti siirrettäisiin kääntöpakasta pöytäpinoon,
+        pidä se kääntöpakassa.</string>
 
-    <string name="settings_vegas_money_enabled">Keep the current balance</string>
-    <string name="settings_vegas_money_enabled_text">The balance will be transferred to following deals of Vegas,
-        but you need to reset the balance and then start a new game for saving high-scores</string>
-    <string name="settings_vegas_money_reset">Reset balance</string>
-    <string name="settings_vegas_money_reset_text">The next Vegas deal will start with 0$</string>
-    <string name="settings_vegas_money_reset_confirm">Do you really want to reset your balance? This can\'t be reverted.</string>
+    <string name="settings_vegas_money_enabled">Pidä nykyinen saldo</string>
+    <string name="settings_vegas_money_enabled_text">Saldo siirretään tuleviin Vegasin jakoihin,
+        mutta ennätysten tallentamiseksi pitää saldo nollata ja aloittaa uusi peli</string>
+    <string name="settings_vegas_money_reset">Nollaa saldo</string>
+    <string name="settings_vegas_money_reset_text">Seuraava Vegasin jaon alkusaldo on 0$</string>
+    <string name="settings_vegas_money_reset_confirm">Haluatko todella nollata saldon? Tätä ei voi perua.</string>
 
-    <string name="settings_auto_move_title">Automatic movement</string>
-    <string name="settings_mod3_auto_move_text">Automatically move Aces to the discard stack, when possible</string>
+    <string name="settings_auto_move_title">Automaattiset siirrot</string>
+    <string name="settings_mod3_auto_move_text">Siirrä ässät automaattisesti kääntöpakkaan kun mahdollista</string>
 
-    <string name="settings_pyramid_auto_move_text">Automatically move Kings to the waste, when possible</string>
+    <string name="settings_pyramid_auto_move_text">Siirrä kuninkaat automaattisesti kaatopakkaan kun mahdollista</string>
 
-    <string name="settings_rules">Rules</string>
-    <string name="settings_money">Money</string>
-    <string name="settings_support">Support</string>
+    <string name="settings_rules">Säännöt</string>
+    <string name="settings_money">Raha</string>
+    <string name="settings_support">Tuki</string>
 
-    <string name="settings_hide_time">Hide Time</string>
-    <string name="settings_hide_score">Hide Score</string>
+    <string name="settings_hide_time">Piilota aika</string>
+    <string name="settings_hide_score">Piilota tulos</string>
 
 </resources>

@@ -39,6 +39,7 @@
     <string name="games_Canfield">Canfield</string>
     <string name="games_GrandfathersClock">GrandfathersClock</string>
     <string name="games_Vegas">Vegas</string>
+    <string name="games_Calculation">Calculation</string>
 
     <!-- colors -->
     <string name="blue">Sininen</string>
@@ -57,14 +58,9 @@
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Yhteensä: %1$d</string>
 
-
-
-    <!-- new values -->
-    <string name="games_Calculation">Calculation</string>
-
     <!-- dialog mix cards -->
-    <string name="dialog_mix_cards_title">Mix cards</string>
-    <string name="dialog_mix_cards_text">Do you really want to mix the cards? This will shuffle all cards
-        (expect from foundation stacks) and deal them like a new game</string>
+    <string name="dialog_mix_cards_title">Sekoita kortit</string>
+    <string name="dialog_mix_cards_text">Haluatko todella sekoittaa kortit? Tämä sekoittaa kortit
+        (paitsi niitä jotka ovat peruspinossa) ja jakaa ne kuin uudessa pelissä</string>
 
 </resources>
