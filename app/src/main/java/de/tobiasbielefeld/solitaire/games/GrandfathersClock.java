@@ -251,7 +251,7 @@ public class GrandfathersClock extends Game {
             //if there are as many cards moving as free stacks, and one of the free stacks was chosen, don't move
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
-            return !(movingCards >= getPowerMoveCount() && stack.isEmpty()) && canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
+            return movingCards <= getPowerMoveCount(stack.isEmpty()) && canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
         } else {
             return movingCards.hasSingleCard() && canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING, true);
         }
@@ -260,7 +260,7 @@ public class GrandfathersClock extends Game {
     public boolean addCardToMovementTest(Card card) {
         Stack sourceStack = card.getStack();
 
-        int startPos = max(sourceStack.getSize() - getPowerMoveCount(), card.getStack().getIndexOfCard(card));
+        int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), card.getStack().getIndexOfCard(card));
 
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, DOESNT_MATTER);
     }
@@ -274,7 +274,7 @@ public class GrandfathersClock extends Game {
                 continue;
             }
 
-            int startPos = max(sourceStack.getSize() - getPowerMoveCount(), 0);
+            int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), 0);
 
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
@@ -392,7 +392,7 @@ public class GrandfathersClock extends Game {
 
     }
 
-    private int getPowerMoveCount(){
+    private int getPowerMoveCount(boolean movingToEmptyStack){
         //thanks to matejx for providing this formula
         int numberOfFreeTableauStacks = 0;
 
@@ -400,6 +400,10 @@ public class GrandfathersClock extends Game {
             if (stacks[i].isEmpty()){
                 numberOfFreeTableauStacks++;
             }
+        }
+
+        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
+            numberOfFreeTableauStacks --;
         }
 
         return (1<<numberOfFreeTableauStacks);

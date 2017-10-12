@@ -108,7 +108,7 @@ public class Freecell extends Game {
             //if there are as many cards moving as free stacks, and one of the free stacks was choosen, dont move
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
-            return !(movingCards >= getPowerMoveCount() && stack.isEmpty()) && canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
+            return movingCards <= getPowerMoveCount(stack.isEmpty()) && canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
 
         } else if (stack.getId() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
@@ -118,9 +118,9 @@ public class Freecell extends Game {
             } else {
                 return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);
             }
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public boolean addCardToMovementTest(Card card) {
@@ -131,7 +131,7 @@ public class Freecell extends Game {
          */
         Stack sourceStack = card.getStack();
 
-        int startPos = max(sourceStack.getSize() - getPowerMoveCount(), card.getStack().getIndexOfCard(card));
+        int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), card.getStack().getIndexOfCard(card));
 
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, ALTERNATING_COLOR);
     }
@@ -150,9 +150,7 @@ public class Freecell extends Game {
 
             int startPos;
 
-
-
-            startPos = max(sourceStack.getSize() - getPowerMoveCount(), 0);
+            startPos = max(sourceStack.getSize() - getPowerMoveCount(false), 0);
 
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
@@ -279,7 +277,7 @@ public class Freecell extends Game {
         return 0;
     }
 
-    private int getPowerMoveCount(){
+    private int getPowerMoveCount(boolean movingToEmptyStack){
         //thanks to matejx for providing this formula
         int numberOfFreeCells = 0;
         int numberOfFreeTableauStacks = 0;
@@ -294,6 +292,10 @@ public class Freecell extends Game {
             if (stacks[i].isEmpty()){
                 numberOfFreeTableauStacks++;
             }
+        }
+
+        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
+            numberOfFreeTableauStacks --;
         }
 
         return (numberOfFreeCells+1)*(1<<numberOfFreeTableauStacks);
