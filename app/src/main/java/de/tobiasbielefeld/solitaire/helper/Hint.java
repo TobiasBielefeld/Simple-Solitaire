@@ -55,16 +55,19 @@ public class Hint {
         int index = origin.getIndexOfCard(card);
         ArrayList<Card> currentCards = new ArrayList<>();
 
-        if (counter == 0)
+        if (counter == 0) {
             scores.update(-currentGame.getHintCosts());
+        }
 
         visited[counter] = card;
 
-        for (int i = index; i < origin.getSize(); i++)
+        for (int i = index; i < origin.getSize(); i++) {
             currentCards.add(origin.getCard(i));
+        }
 
-        for (int i = 0; i < currentCards.size(); i++)
+        for (int i = 0; i < currentCards.size(); i++) {
             animate.cardHint(currentCards.get(i), i, destination);
+        }
     }
 
     /**
@@ -74,9 +77,11 @@ public class Hint {
      * @return True if the card has been visited, false otherwise
      */
     public boolean hasVisited(Card test_card) {
-        for (int i = 0; i < counter; i++)
-            if (test_card == visited[i])
+        for (int i = 0; i < counter; i++) {
+            if (test_card == visited[i]) {
                 return true;
+            }
+        }
 
         return false;
     }

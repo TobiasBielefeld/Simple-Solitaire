@@ -34,6 +34,8 @@ public class Preferences {
     public static String PREF_KEY_SAVED_SCORES;
     public static String OLD;
 
+    public static String PREF_KEY_VEGAS_OLD_SCORE;
+    public static String PREF_KEY_VEGAS_TIME;
     public static String PREF_KEY_GAME_REDEAL_COUNT;
     public static String PREF_KEY_GAME_WON;
     public static String PREF_KEY_GAME_WON_AND_RELOADED;
@@ -198,6 +200,8 @@ public class Preferences {
 
         OLD = "_old";
 
+        PREF_KEY_VEGAS_TIME = "pref_key_vegas_time";
+        PREF_KEY_VEGAS_OLD_SCORE = "pref_key_vegas_old_score";
         PREF_KEY_ORDER = "order";
         PREF_KEY_LONGEST_RUN = "longest_run";
         PREF_KEY_RUN_COUNTER = "run_counter";
@@ -480,6 +484,14 @@ public class Preferences {
         return savedGameData.getLong(PREF_KEY_VEGAS_MONEY,DEFAULT_VEGAS_MONEY);
     }
 
+    public long getSavedVegasOldScore(){
+        return savedGameData.getLong(PREF_KEY_VEGAS_OLD_SCORE,0);
+    }
+
+    public long getSavedVegasTime(){
+        return savedGameData.getLong(PREF_KEY_VEGAS_TIME,0);
+    }
+
     public long[][] getSavedHighScores(){
         long savedScores[][] = new long[MAX_SAVED_SCORES][3];
 
@@ -593,6 +605,14 @@ public class Preferences {
 
     public void saveVegasMoney(long value){
         savedGameData.edit().putLong(PREF_KEY_VEGAS_MONEY,value).apply();
+    }
+
+    public void saveVegasOldScore(long value){
+        savedGameData.edit().putLong(PREF_KEY_VEGAS_OLD_SCORE,value).apply();
+    }
+
+    public void saveVegasTime(long value){
+        savedGameData.edit().putLong(PREF_KEY_VEGAS_TIME,value).apply();
     }
 
     public void saveHighScores(long savedScores[][]){

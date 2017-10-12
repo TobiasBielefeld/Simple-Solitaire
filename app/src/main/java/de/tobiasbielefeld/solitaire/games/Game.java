@@ -333,12 +333,10 @@ public abstract class Game {
 
     }
 
-    /**
-     * This gets called when starting a new game. You can check here if the old game is won by alternative
-     * conditions (like Vegas, game is won when score is above 0). The default win condition is checked in
-     * winTest(), which starts the win animation when won.
+    /*
+     * gets called when starting a new game, or when a game is won
      */
-    public void checkAlternativeWinCondition(long score){
+    public void onGameEnd(){
 
     }
 

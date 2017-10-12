@@ -52,12 +52,18 @@ public class Vegas extends Klondike {
     public void dealCards() {
         super.dealCards();
 
+        prefs.saveVegasBetAmountOld();
         loadData();
 
-        prefs.saveVegasBetAmountOld();
-
         boolean saveMoneyEnabled = prefs.getSavedVegasSaveMoneyEnabled();
-        long money = saveMoneyEnabled ? prefs.getSavedVegasMoney() : 0;
+        long money =  0;
+
+        if (saveMoneyEnabled) {
+            money =  prefs.getSavedVegasMoney();
+            prefs.saveVegasOldScore(money);
+            timer.setStartTime(System.currentTimeMillis() - prefs.getSavedVegasTime()*1000);
+        }
+
         scores.update(money-betAmount);
     }
 
@@ -89,29 +95,35 @@ public class Vegas extends Klondike {
         boolean saveMoneyEnabled = prefs.getSavedVegasSaveMoneyEnabled();
         boolean resetMoney = prefs.getSavedVegasResetMoney();
 
-        if (resetMoney) {
-            prefs.saveVegasMoney(DEFAULT_VEGAS_MONEY);
-            prefs.saveVegasResetMoney(false);
-        } else if (saveMoneyEnabled) {
-            prefs.saveVegasMoney(scores.getScore());
-        }
-
         //return true, to let the  addNewHighScore() save a possible score.
         return !saveMoneyEnabled || resetMoney;
-    }
-
-    @Override
-    public void checkAlternativeWinCondition(long currentScore) {
-        if (!gameLogic.hasWon() && currentScore > 0){
-            gameLogic.incrementNumberWonGames();
-
-        }
     }
 
     private void loadData(){
         betAmount = prefs.getSavedVegasBetAmountOld()*10;
 
-        setHintCosts(-betAmount/10);
-        setUndoCosts(-betAmount/10);
+        setHintCosts(betAmount/10);
+        setUndoCosts(betAmount/10);
+    }
+
+    @Override
+    public void onGameEnd() {
+        boolean saveMoneyEnabled = prefs.getSavedVegasSaveMoneyEnabled();
+        boolean resetMoney = prefs.getSavedVegasResetMoney();
+
+        if (saveMoneyEnabled) {
+            prefs.saveVegasMoney(scores.getScore());
+            prefs.saveVegasTime(timer.getCurrentTime());
+        }
+
+        if (!gameLogic.hasWon() && scores.getScore() > (saveMoneyEnabled ?  prefs.getSavedVegasOldScore() : 0)){
+            gameLogic.incrementNumberWonGames();
+        }
+
+        if (resetMoney) {
+            prefs.saveVegasMoney(DEFAULT_VEGAS_MONEY);
+            prefs.saveVegasTime(0);
+            prefs.saveVegasResetMoney(false);
+        }
     }
 }
