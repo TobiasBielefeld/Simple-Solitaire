@@ -167,14 +167,13 @@ public class GameLogic {
         //reset EVERYTHING
         if (!won) {                                                                                 //if the game has been won, the score was already saved
             scores.addNewHighScore();
-            currentGame.checkAlternativeWinCondition(scores.getScore());
+            currentGame.onGameEnd();
         }
 
         movedFirstCard = false;
         won = false;
         wonAndReloaded = false;
         currentGame.reset(gm);
-        sounds.playSound(Sounds.names.DEAL_CARDS);
 
         animate.reset();
         scores.reset();
@@ -196,6 +195,7 @@ public class GameLogic {
 
         //and finally deal the cards from the game!
         currentGame.dealCards();
+        sounds.playSound(Sounds.names.DEAL_CARDS);
         handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
     }
 
@@ -213,6 +213,7 @@ public class GameLogic {
             autoComplete.hideButton();
             animate.winAnimation();
             won = true;
+            currentGame.onGameEnd();
         }
     }
 

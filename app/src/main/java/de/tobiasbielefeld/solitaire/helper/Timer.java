@@ -46,12 +46,15 @@ public class Timer {
     /**
      * Returns the current playing time. If a winning time was saved, show this instead.
      *
+     * The time is in seconds!! not milliseconds!
+     *
      * @return The time to show on the screen
      */
     public long getCurrentTime() {
         return winningTime != 0 ? winningTime : currentTime;
     }
 
+    //sets the time in seconds!
     public void setCurrentTime(long time) {
         currentTime = time;
     }
@@ -109,5 +112,9 @@ public class Timer {
 
     public void setWinningTime() {
         winningTime = currentTime;
+    }
+
+    public void setStartTime(long time){
+        startTime = time;
     }
 }
