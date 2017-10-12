@@ -38,7 +38,7 @@ public class AcesUp extends Game {
     public AcesUp() {
         setNumberOfDecks(1);
         setNumberOfStacks(6);
-        setFirstMainStackID(5);
+        setMainStackIDs(5);
         setDiscardStackIDs(4);
         setLastTableauID(3);
         setDirections(1, 1, 1, 1, 0, 0);

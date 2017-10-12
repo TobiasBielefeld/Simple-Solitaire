@@ -23,8 +23,6 @@ import android.graphics.PointF;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.helper.Sounds;
-
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
@@ -67,7 +65,7 @@ public class Card {
      * use another row in the bitmap file.
      */
     public static void updateCardDrawableChoice() {
-        boolean fourColors = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE);
+        boolean fourColors = prefs.getSavedFourColorMode();
 
         for (int i = 0; i < 13; i++) {
             drawables[i] = bitmaps.getCardFront(i, fourColors ? 1 : 0);
@@ -90,8 +88,8 @@ public class Card {
      */
     public static void updateCardBackgroundChoice() {
 
-        int positionX = getSharedInt(CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
-        int positionY = getSharedInt(CARD_BACKGROUND_COLOR, DEFAULT_CARD_BACKGROUND_COLOR);
+        int positionX = prefs.getSavedCardBackground();
+        int positionY = prefs.getSavedCardBackgroundColor();
         background = bitmaps.getCardBack(positionX, positionY);
 
         if (cards != null) {
@@ -110,14 +108,14 @@ public class Card {
         for (Card card : cards)
             list.add(card.isUp ? 1 : 0);
 
-        putIntList(CARDS, list);
+        prefs.saveCards(list);
     }
 
     /**
      * Load the card direction (up/down) from a string list and applies the data.
      */
     public static void load() {
-        ArrayList<Integer> list = getIntList(CARDS);
+        ArrayList<Integer> list = prefs.getSavedCards();
 
         for (int i = 0; i < cards.length; i++) {
 

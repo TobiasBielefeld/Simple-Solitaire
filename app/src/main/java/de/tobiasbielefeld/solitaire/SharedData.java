@@ -19,16 +19,12 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
-import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.handler.HandlerRecordListUndo;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
@@ -44,6 +40,7 @@ import de.tobiasbielefeld.solitaire.helper.CardHighlight;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
+import de.tobiasbielefeld.solitaire.helper.Preferences;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
@@ -56,146 +53,11 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 public class SharedData {
 
     public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
-    //Strings
-    public static String ORDER;
-    public static String SCORE;
-    public static String SAVED_SCORES;
-    public static String OLD;
-    public static String GAME;
-    public static String GAME_REDEAL_COUNT;
-    public static String GAME_WON;
-    public static String GAME_WON_AND_RELOADED;
-    public static String GAME_NUMBER_OF_WON_GAMES;
-    public static String GAME_NUMBER_OF_PLAYED_GAMES;
-    public static String GAME_RANDOM_CARDS;
-    public static String GAME_FIRST_RUN;
-    public static String GAME_MOVED_FIRST_CARD;
-    public static String RECORD_LIST_ENTRY;
-    public static String RECORD_LIST_ENTRIES_SIZE;
-    public static String FLIP_CARD;
-    public static String ORIGIN;
-    public static String CARD;
-    public static String CARDS;
-    public static String STACK;
-    public static String TIMER_END_TIME;
-    public static String TIMER_START_TIME;
-    public static String TIMER_WINNING_TIME;
-    public static String CARD_DRAWABLES;
-    public static String CARD_BACKGROUND;
-    public static String CARD_BACKGROUND_COLOR;
-    public static String MENU_COLUMNS_PORTRAIT;
-    public static String MENU_COLUMNS_LANDSCAPE;
-    public static String CANFIELD_START_CARD_VALUE;
-    public static String RESTART_DIALOG;
-    public static String WON_DIALOG;
-    public static String PREF_KEY_YUKON_RULES;
-    public static String PREF_KEY_YUKON_RULES_OLD;
-    public static String PREF_KEY_KLONDIKE_DRAW;
-    public static String PREF_KEY_KLONDIKE_DRAW_OLD;
-    public static String PREF_KEY_VEGAS_DRAW;
-    public static String PREF_KEY_VEGAS_DRAW_OLD;
-    public static String PREF_KEY_GOLF_CYCLIC;
-    public static String PREF_KEY_CANFIELD_DRAW;
-    public static String PREF_KEY_CANFIELD_DRAW_OLD;
-    public static String PREF_KEY_PYRAMID_DIFFICULTY;
-    public static String PREF_KEY_SPIDER_DIFFICULTY;
-    public static String PREF_KEY_SPIDER_DIFFICULTY_OLD;
-    public static String PREF_KEY_LANGUAGE;
-    public static String PREF_KEY_CURRENT_GAME;
-    public static String PREF_KEY_ORIENTATION;
-    public static String PREF_KEY_MENU_GAMES;
-    public static String PREF_KEY_4_COLOR_MODE;
-    public static String PREF_KEY_LEFT_HANDED_MODE;
-    public static String PREF_KEY_MENU_BAR_POS_PORTRAIT;
-    public static String PREF_KEY_MENU_BAR_POS_LANDSCAPE;
-    public static String PREF_KEY_DOUBLE_TAP_ENABLED;
-    public static String PREF_KEY_DOUBLE_TAP_ALL_CARDS;
-    public static String PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST;
-    public static String PREF_KEY_TAP_TO_SELECT_ENABLED;
-    public static String PREF_KEY_SINGLE_TAP_ENABLE;
-    public static String PREF_KEY_BACKGROUND_COLOR_TYPE;
-    public static String PREF_KEY_BACKGROUND_COLOR;
-    public static String PREF_KEY_BACKGROUND_COLOR_CUSTOM;
-    public static String PREF_KEY_MOVEMENT_SPEED;
-    public static String PREF_KEY_SOUND_ENABLED;
-    public static String PREF_KEY_WIN_SOUND;
-    public static String PREF_KEY_BACKGROUND_MUSIC;
-    public static String PREF_KEY_BACKGROUND_VOLUME;
-    public static String PREF_KEY_PYRAMID_LIMITED_RECYCLES;
-    public static String PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
-    public static String PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
-    public static String PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
-    public static String PREF_KEY_KLONDIKE_LIMITED_RECYCLES;
-    public static String PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
-    public static String PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
-    public static String PREF_KEY_VEGAS_BET_AMOUNT;
-    public static String PREF_KEY_VEGAS_BET_AMOUNT_OLD;
-    public static String PREF_KEY_MENU_ORDER;
-    public static String PREF_KEY_AUTO_START_NEW_GAME;
-    public static String PREF_KEY_FORCE_TABLET_LAYOUT;
-    public static String PREF_KEY_CALCULATION_ALTERNATIVE;
-    public static String PREF_KEY_HIDE_TIME;
-    public static String PREF_KEY_HIDE_SCORE;
-    public static String PREF_KEY_VEGAS_MONEY;
-    public static String PREF_KEY_VEGAS_MONEY_ENABLED;
-    public static String PREF_KEY_VEGAS_RESET_MONEY;
-    public static String PREF_KEY_MOD3_AUTO_MOVE;
-    public static String PREF_KEY_PYRAMID_AUTO_MOVE;
-    public static String DEFAULT_CANFIELD_DRAW;
-    public static String DEFAULT_KLONDIKE_DRAW;
-    public static String DEFAULT_VEGAS_DRAW;
-    public static String DEFAULT_YUKON_RULES;
-    public static String DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
-    public static String DEFAULT_MENU_BAR_POSITION_PORTRAIT;
-    public static String DEFAULT_PYRAMID_DIFFICULTY;
-    public static String DEFAULT_SPIDER_DIFFICULTY;
-    public static String DEFAULT_LANGUAGE;
-    public static String DEFAULT_MENU_COLUMNS_LANDSCAPE;
-    public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
-    public static String DEFAULT_ORIENTATION;
-    public static String DEFAULT_BACKGROUND_COLOR;
-    public static String DEFAULT_BACKGROUND_MUSIC;
-    public static String DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
-    public static String DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
-    public static String DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
-    public static String DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
-    public static String DEFAULT_WIN_SOUND;
-    public static String DEFAULT_MOVEMENT_SPEED;
-    public static int DEFAULT_CURRENT_GAME;
-    public static int DEFAULT_CARD_BACKGROUND;
-    public static int DEFAULT_CARD_BACKGROUND_COLOR;
-    public static int DEFAULT_WINNING_TIME;
-    public static int DEFAULT_BACKGROUND_COLOR_TYPE;
-    public static int DEFAULT_BACKGROUND_VOLUME;
-    public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
-    public static int DEFAULT_VEGAS_BET_AMOUNT;
-    public static int DEFAULT_VEGAS_MONEY;
-    public static boolean DEFAULT_GOLF_CYCLIC;
-    public static boolean DEFAULT_LEFT_HANDED_MODE;
-    public static boolean DEFAULT_DOUBLE_TAP_ENABLE;
-    public static boolean DEFAULT_DOUBLE_TAP_ALL_CARDS;
-    public static boolean DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST;
-    public static boolean DEFAULT_WON;
-    public static boolean DEFAULT_WON_AND_RELOADED;
-    public static boolean DEFAULT_FIRST_RUN;
-    public static boolean DEFAULT_MOVED_FIRST_CARD;
-    public static boolean DEFAULT_4_COLOR_MODE;
-    public static boolean DEFAULT_TAP_TO_SELECT_ENABLED;
-    public static boolean DEFAULT_SINGLE_TAP_ENABLED;
-    public static boolean DEFAULT_SOUND_ENABLED;
-    public static boolean DEFAULT_AUTO_START_NEW_GAME;
-    public static boolean DEFAULT_FORCE_TABLET_LAYOUT;
-    public static boolean DEFAULT_HIDE_TIME;
-    public static boolean DEFAULT_HIDE_SCORE;
-    public static boolean DEFAULT_VEGAS_MONEY_ENABLED;
-    public static boolean DEFAULT_VEGAS_RESET_MONEY;
 
-    public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
-    public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
-    public static boolean DEFAULT_KLONDIKE_LIMITED_RECYCLES;
-    public static boolean DEFAULT_CALCULATION_ALTERNATIVE;
-    public static boolean DEFAULT_MOD3_AUTO_MOVE;
-    public static boolean DEFAULT_PYRAMID_AUTO_MOVE;
+    //Strings
+    public static String GAME = "game";
+    public static String RESTART_DIALOG = "dialogRestart";
+    public static String WON_DIALOG = "dialogWon";
 
     public static Card[] cards;
     public static Stack[] stacks;
@@ -214,9 +76,8 @@ public class SharedData {
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
     public static CardHighlight cardHighlight = new CardHighlight();
+    public static Preferences prefs;
 
-    public static SharedPreferences savedSharedData;
-    public static SharedPreferences savedGameData;
     public static Game currentGame;
 
     public static HandlerTestAfterMove handlerTestAfterMove = new HandlerTestAfterMove();
@@ -224,9 +85,6 @@ public class SharedData {
     public static HandlerRecordListUndo handlerRecordListUndo = new HandlerRecordListUndo();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
-
-    public static int NUMBER_OF_CARD_BACKGROUNDS;
-    public static int NUMBER_OF_CARD_THEMES;
 
     /**
      * Reload the needed data. Because if the android device runs out of memory, the app gets
@@ -236,187 +94,20 @@ public class SharedData {
      * @param context Used to get the resources
      */
     public static void reinitializeData(Context context) {
-        //Strings
-        if (GAME == null) {
-            loadStrings(context.getResources());
-        }
-
         //Bitmaps
         if (!bitmaps.checkResources()) {
             bitmaps.setResources(context.getResources());
         }
 
-        //SharedPrefs
-        if (savedSharedData == null) {
-            savedSharedData = PreferenceManager.getDefaultSharedPreferences(context);
-        }
-
-        if (savedGameData == null) {
-            savedGameData = context.getSharedPreferences(lg.getSharedPrefName(), Context.MODE_PRIVATE);
-        }
-
         if (lg.getGameCount()==0){
             lg.loadAllGames();
         }
+
+        //SharedPrefs
+        if (prefs == null){
+            prefs = new Preferences(context);
+        }
     }
-
-    /**
-     * Load the static strings, so i can use them in every file instead of writing the string itself,
-     * which would be susceptible for errors. TODO manage this in a better way.
-     *
-     * @param res Used to load the strings
-     */
-    public static void loadStrings(Resources res) {
-        GAME = res.getString(R.string.game);
-        OLD = "_old";
-        ORDER = "order";
-
-        PREF_KEY_YUKON_RULES = res.getString(R.string.pref_key_yukon_rules);
-        PREF_KEY_KLONDIKE_DRAW = res.getString(R.string.pref_key_klondike_draw);
-        PREF_KEY_VEGAS_DRAW = res.getString(R.string.pref_key_vegas_draw);
-        PREF_KEY_CANFIELD_DRAW = res.getString(R.string.pref_key_canfield_draw);
-        PREF_KEY_YUKON_RULES_OLD = PREF_KEY_YUKON_RULES + OLD;
-        PREF_KEY_KLONDIKE_DRAW_OLD = PREF_KEY_KLONDIKE_DRAW + OLD;
-        PREF_KEY_VEGAS_DRAW_OLD = PREF_KEY_VEGAS_DRAW + OLD;
-        PREF_KEY_CANFIELD_DRAW_OLD = PREF_KEY_CANFIELD_DRAW + OLD;
-        PREF_KEY_GOLF_CYCLIC = res.getString(R.string.pref_key_golf_cyclic);
-        PREF_KEY_PYRAMID_DIFFICULTY = res.getString(R.string.pref_key_pyramid_difficulty);
-        PREF_KEY_SPIDER_DIFFICULTY = res.getString(R.string.pref_key_spider_difficulty);
-        PREF_KEY_SPIDER_DIFFICULTY_OLD = PREF_KEY_SPIDER_DIFFICULTY + OLD;
-        PREF_KEY_LANGUAGE = res.getString(R.string.pref_key_language);
-        PREF_KEY_CURRENT_GAME = res.getString(R.string.pref_key_current_game);
-        PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
-        PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
-        PREF_KEY_4_COLOR_MODE = res.getString(R.string.pref_key_4_color_mode);
-        PREF_KEY_LEFT_HANDED_MODE = res.getString(R.string.pref_key_left_handed_mode);
-        PREF_KEY_MENU_BAR_POS_PORTRAIT = res.getString(R.string.pref_key_menu_bar_position_portrait);
-        PREF_KEY_MENU_BAR_POS_LANDSCAPE = res.getString(R.string.pref_key_menu_bar_position_landscape);
-        PREF_KEY_DOUBLE_TAP_ENABLED = res.getString(R.string.pref_key_double_tap_enable);
-        PREF_KEY_DOUBLE_TAP_ALL_CARDS = res.getString(R.string.pref_key_double_tap_all_cards);
-        PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST = res.getString(R.string.pref_key_double_tap_foundation_first);
-        PREF_KEY_TAP_TO_SELECT_ENABLED = res.getString(R.string.pref_key_tap_to_select_enable);
-        PREF_KEY_SINGLE_TAP_ENABLE = res.getString(R.string.pref_key_single_tap_enable);
-        PREF_KEY_BACKGROUND_COLOR_TYPE = res.getString(R.string.pref_key_background_color_type);
-        PREF_KEY_BACKGROUND_COLOR = res.getString(R.string.pref_key_background_color);
-        PREF_KEY_BACKGROUND_COLOR_CUSTOM = res.getString(R.string.pref_key_background_color_custom);
-        PREF_KEY_MOVEMENT_SPEED = res.getString(R.string.pref_key_movement_speed);
-        PREF_KEY_SOUND_ENABLED = res.getString(R.string.pref_key_sound_enabled);
-        PREF_KEY_WIN_SOUND = res.getString(R.string.pref_key_win_sound);
-        PREF_KEY_BACKGROUND_MUSIC = res.getString(R.string.pref_key_background_music);
-        PREF_KEY_BACKGROUND_VOLUME = res.getString(R.string.pref_key_background_volume);
-        PREF_KEY_PYRAMID_LIMITED_RECYCLES = res.getString(R.string.pref_key_pyramid_limit_recycles);
-        PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES = res.getString(R.string.pref_key_fortyeight_limit_recycles);
-        PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_pyramid_number_of_recycles);
-        PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_fortyeight_number_of_recycles);
-        PREF_KEY_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_vegas_number_of_recycles);
-        PREF_KEY_VEGAS_BET_AMOUNT = res.getString(R.string.pref_key_vegas_bet_amount);
-        PREF_KEY_MENU_ORDER = res.getString(R.string.pref_key_menu_order);
-        PREF_KEY_VEGAS_BET_AMOUNT_OLD = PREF_KEY_VEGAS_BET_AMOUNT + OLD;
-        PREF_KEY_AUTO_START_NEW_GAME = res.getString(R.string.pref_key_auto_start_new_game);
-        PREF_KEY_FORCE_TABLET_LAYOUT = res.getString(R.string.pref_key_force_tablet_layout);
-        PREF_KEY_KLONDIKE_LIMITED_RECYCLES = res.getString(R.string.pref_key_klondike_limit_recycles);
-        PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_klondike_number_of_recycles);
-        PREF_KEY_CALCULATION_ALTERNATIVE = res.getString(R.string.pref_key_calculation_alternative);
-        PREF_KEY_HIDE_TIME = res.getString(R.string.pref_key_hide_time);
-        PREF_KEY_HIDE_SCORE = res.getString(R.string.pref_key_hide_score);
-        PREF_KEY_VEGAS_MONEY = res.getString(R.string.pref_key_vegas_money);
-        PREF_KEY_VEGAS_MONEY_ENABLED = res.getString(R.string.pref_key_vegas_money_enabled);
-        PREF_KEY_VEGAS_RESET_MONEY = res.getString(R.string.pref_key_vegas_reset_money);
-        PREF_KEY_MOD3_AUTO_MOVE = res.getString(R.string.pref_key_mod3_auto_move);
-        PREF_KEY_PYRAMID_AUTO_MOVE = res.getString(R.string.pref_key_pyramid_auto_move);
-
-        DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
-        DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
-        DEFAULT_SPIDER_DIFFICULTY = res.getStringArray(R.array.pref_spider_difficulty_values)[0];
-        DEFAULT_ORIENTATION = res.getStringArray(R.array.pref_orientation_values)[0];
-        DEFAULT_DOUBLE_TAP_ALL_CARDS = res.getBoolean(R.bool.default_double_tap_all_cards);
-        DEFAULT_DOUBLE_TAP_ENABLE = res.getBoolean(R.bool.default_double_tap_enable);
-        DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST = res.getBoolean(R.bool.default_double_tap_foundation_first);
-        DEFAULT_LEFT_HANDED_MODE = res.getBoolean(R.bool.default_left_handed_mode);
-        DEFAULT_GOLF_CYCLIC = res.getBoolean(R.bool.default_golf_cyclic);
-        DEFAULT_TAP_TO_SELECT_ENABLED = res.getBoolean(R.bool.default_tap_to_select_enable);
-        DEFAULT_SINGLE_TAP_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
-        DEFAULT_AUTO_START_NEW_GAME = res.getBoolean(R.bool.default_auto_start_new_game);
-        DEFAULT_KLONDIKE_LIMITED_RECYCLES = res.getBoolean(R.bool.default_klondike_limited_recycles);
-        DEFAULT_CALCULATION_ALTERNATIVE = res.getBoolean(R.bool.default_calculation_alternative);
-        DEFAULT_HIDE_TIME = res.getBoolean(R.bool.default_hide_time);
-        DEFAULT_HIDE_SCORE = res.getBoolean(R.bool.default_hide_score);
-        DEFAULT_VEGAS_MONEY_ENABLED = res.getBoolean(R.bool.default_vegas_money_enabled);
-        DEFAULT_VEGAS_RESET_MONEY = res.getBoolean(R.bool.default_vegas_reset_money);
-        DEFAULT_MOD3_AUTO_MOVE = res.getBoolean(R.bool.default_mod3_auto_move);
-        DEFAULT_PYRAMID_AUTO_MOVE = res.getBoolean(R.bool.default_pyramid_auto_move);
-        DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
-        DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
-        DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
-        DEFAULT_MENU_BAR_POSITION_LANDSCAPE = res.getString(R.string.default_menu_bar_position_landscape);
-        DEFAULT_MENU_BAR_POSITION_PORTRAIT = res.getString(R.string.default_menu_bar_position_portrait);
-        DEFAULT_FIRST_RUN = res.getBoolean(R.bool.default_first_run);
-        DEFAULT_WON = res.getBoolean(R.bool.default_won);
-        DEFAULT_WON_AND_RELOADED = res.getBoolean(R.bool.default_won_and_reloaded);
-        DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
-        DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
-        DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
-        DEFAULT_CARD_BACKGROUND_COLOR = res.getInteger(R.integer.default_card_background_color);
-        DEFAULT_WINNING_TIME = res.getInteger(R.integer.default_winning_time);
-        DEFAULT_BACKGROUND_COLOR_TYPE = res.getInteger(R.integer.default_background_color_type);
-        DEFAULT_BACKGROUND_COLOR = res.getString(R.string.default_background_color);
-        DEFAULT_BACKGROUND_COLOR_CUSTOM = res.getInteger(R.integer.default_background_color_custom);
-        DEFAULT_MOVEMENT_SPEED = res.getString(R.string.default_movement_speed);
-        DEFAULT_SOUND_ENABLED = res.getBoolean(R.bool.default_sound_enabled);
-        DEFAULT_FORCE_TABLET_LAYOUT = res.getBoolean(R.bool.default_force_tablet_layout);
-        DEFAULT_WIN_SOUND = res.getString(R.string.default_win_sound);
-        DEFAULT_BACKGROUND_MUSIC = res.getString(R.string.default_background_music);
-        DEFAULT_BACKGROUND_VOLUME = res.getInteger(R.integer.default_background_volume);
-        DEFAULT_VEGAS_BET_AMOUNT = res.getInteger(R.integer.default_vegas_bet_amount);
-        DEFAULT_VEGAS_MONEY = res.getInteger(R.integer.default_vegas_money);
-        DEFAULT_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.default_pyramid_number_of_recycles);
-        DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.default_fortyeight_number_of_recycles);
-        DEFAULT_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.default_vegas_number_of_recycles);
-        DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.default_klondike_number_of_recycles);
-        DEFAULT_PYRAMID_LIMITED_RECYCLES = res.getBoolean(R.bool.default_pyramid_limited_recycles);
-        DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
-        DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
-        DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
-        DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
-        DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
-
-        GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
-        GAME_WON = res.getString(R.string.game_won);
-        GAME_WON = res.getString(R.string.game_won_and_reloaded);
-        GAME_NUMBER_OF_WON_GAMES = res.getString(R.string.game_number_of_won_games);
-        GAME_NUMBER_OF_PLAYED_GAMES = res.getString(R.string.game_number_of_played_games);
-        GAME_RANDOM_CARDS = res.getString(R.string.game_random_cards);
-        GAME_FIRST_RUN = res.getString(R.string.game_first_run);
-        GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
-
-        RESTART_DIALOG = res.getString(R.string.restart_dialog);
-        WON_DIALOG = res.getString(R.string.won_dialog);
-        CANFIELD_START_CARD_VALUE = res.getString(R.string.canfield_start_value);
-        SCORE = res.getString(R.string.score);
-        SAVED_SCORES = res.getString(R.string.saved_scores);
-
-        RECORD_LIST_ENTRY = res.getString(R.string.record_list_entry);
-        RECORD_LIST_ENTRIES_SIZE = res.getString(R.string.record_list_entries_size);
-        FLIP_CARD = res.getString(R.string.flip_card);
-        ORIGIN = res.getString(R.string.origin);
-        CARD = res.getString(R.string.card);
-        CARDS = res.getString(R.string.cards);
-        STACK = res.getString(R.string.stack);
-
-        TIMER_END_TIME = res.getString(R.string.saved_current_time);
-        TIMER_START_TIME = res.getString(R.string.saved_start_time);
-        TIMER_WINNING_TIME = res.getString(R.string.saved_shown_time);
-
-        CARD_DRAWABLES = res.getString(R.string.pref_key_card_drawables);
-        CARD_BACKGROUND = res.getString(R.string.pref_key_cards_background);
-        CARD_BACKGROUND_COLOR = res.getString(R.string.pref_key_cards_background_color);
-        MENU_COLUMNS_PORTRAIT = res.getString(R.string.pref_key_menu_columns_portrait);
-        MENU_COLUMNS_LANDSCAPE = res.getString(R.string.pref_key_menu_columns_landscape);
-
-        NUMBER_OF_CARD_BACKGROUNDS = res.getInteger(R.integer.number_of_card_backgrounds);
-        NUMBER_OF_CARD_THEMES = res.getInteger(R.integer.number_of_card_themes);
-    }
-
 
     /**
      * Moves a card to a stack.
@@ -535,320 +226,12 @@ public class SharedData {
     }
 
     /**
-     * Saves data for games individually
-     * Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
-     *
-     * @param name The name in the shared pref
-     * @param list The integer list to save
-     */
-    public static void putIntList(String name, List<Integer> list) {
-
-        String s = "";
-        for (int i : list) {
-            s += i + ",";
-        }
-        savedGameData.edit().putString(name, s).apply();
-    }
-
-    /**
-     * Gets data for games individually
-     * Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
-     *
-     * @param name The name in the shared pref
-     */
-    public static ArrayList<Integer> getIntList(String name) {
-        String s = savedGameData.getString(name, "");
-        StringTokenizer st = new StringTokenizer(s, ",");
-        ArrayList<Integer> result = new ArrayList<>();
-
-        while (st.hasMoreTokens()) {
-            result.add(Integer.parseInt(st.nextToken()));
-        }
-
-        return result;
-    }
-
-    /**
-     * Saves data for games individually
-     * Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
-     *
-     * @param name The name in the shared pref
-     * @param list The long list to save
-     */
-    public static void putLongList(String name, List<Long> list) {
-        String s = "";
-        for (long i : list) {
-            s += i + ",";
-        }
-        savedGameData.edit().putString(name, s).apply();
-    }
-
-    /**
-     * Gets data for games individually
-     * Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
-     *
-     * @param name The name in the shared pref
-     */
-    public static ArrayList<Long> getLongList(String name) {
-        String s = savedGameData.getString(name, "");
-        StringTokenizer st = new StringTokenizer(s, ",");
-        ArrayList<Long> result = new ArrayList<>();
-
-        while (st.hasMoreTokens()) {
-            result.add(Long.parseLong(st.nextToken()));
-        }
-
-        return result;
-    }
-
-    /**
-     * Gets data for games individually
-     *
-     * @param name         The name in the shared pref
-     * @param defaultValue The default to apply, if not found
-     */
-    public static Long getLong(String name, long defaultValue) {
-        return savedGameData.getLong(name, defaultValue);
-    }
-
-    /**
-     * Gets data for games individually
-     *
-     * @param name         The name in the shared pref
-     * @param defaultValue The default to apply, if not found
-     */
-    public static int getInt(String name, int defaultValue) {
-        return savedGameData.getInt(name, defaultValue);
-    }
-
-    /**
-     * Gets data for games individually
-     *
-     * @param name         The name in the shared pref
-     * @param defaultValue The default to apply, if not found
-     */
-    public static boolean getBoolean(String name, boolean defaultValue) {
-        return savedGameData.getBoolean(name, defaultValue);
-    }
-
-    /**
-     * Gets data for games individually
-     *
-     * @param name         The name in the shared pref
-     * @param defaultValue The default to apply, if not found
-     */
-    public static String getString(String name, String defaultValue) {
-        return savedGameData.getString(name, defaultValue);
-    }
-
-    /**
-     * Saves data for games individually
-     *
-     * @param name  The name in the shared pref
-     * @param value The value to save
-     */
-    public static void putLong(String name, long value) {
-        savedGameData.edit().putLong(name, value).apply();
-    }
-
-    /**
-     * Saves data for games individually
-     *
-     * @param name  The name in the shared pref
-     * @param value The value to save
-     */
-    public static void putInt(String name, int value) {
-        savedGameData.edit().putInt(name, value).apply();
-    }
-
-    /**
-     * Saves data for games individually
-     *
-     * @param name  The name in the shared pref
-     * @param value The value to save
-     */
-    public static void putBoolean(String name, boolean value) {
-        savedGameData.edit().putBoolean(name, value).apply();
-    }
-
-    /**
-     * Gets data for shared data (same for every game)
-     *
-     * @param name         The name in the shared pref
-     * @param defaultValue The default to apply, if not found
-     */
-    public static int getSharedInt(String name, int defaultValue) {
-        return savedSharedData.getInt(name, defaultValue);
-    }
-
-    /**
-     * Gets data for shared data (same for every game)
-     *
-     * @param name         The name in the shared pref
-     * @param defaultValue The default to apply, if not found
-     */
-    public static String getSharedString(String name, String defaultValue) {
-        return savedSharedData.getString(name, defaultValue);
-    }
-
-    /**
-     * Gets data for shared data (same for every game)
-     *
-     * @param name         The name in the shared pref
-     * @param defaultValue The default to apply, if not found
-     */
-    public static boolean getSharedBoolean(String name, boolean defaultValue) {
-        return savedSharedData.getBoolean(name, defaultValue);
-    }
-
-    /**
-     * Gets data for shared data (same for every game)
-     *
-     * @param name         The name in the shared pref
-     * @param defaultValue The default to apply, if not found
-     */
-    public static long getSharedLong(String name, long defaultValue) {
-        return savedSharedData.getLong(name, defaultValue);
-    }
-
-    /**
-     * Saves shared data (same for every game)
-     *
-     * @param name  The name in the shared pref
-     * @param value The value to save
-     */
-    public static void putSharedInt(String name, int value) {
-        savedSharedData.edit().putInt(name, value).apply();
-    }
-
-    /**
-     * Saves shared data (same for every game)
-     *
-     * @param name  The name in the shared pref
-     * @param value The value to save
-     */
-    public static void putSharedString(String name, String value) {
-        savedSharedData.edit().putString(name, value).apply();
-    }
-
-    /**
-     * Saves shared data (same for every game)
-     *
-     * @param name  The name in the shared pref
-     * @param value The value to save
-     */
-    public static void putSharedBoolean(String name, boolean value) {
-        savedSharedData.edit().putBoolean(name, value).apply();
-    }
-
-    /**
-     * Saves shared data (same for every game)
-     *
-     * @param name  The name in the shared pref
-     * @param value The value to save
-     */
-    public static void putSharedLong(String name, long value) {
-        savedSharedData.edit().putLong(name, value).apply();
-    }
-
-    /**
-     * Saves shared data (same for every game)
-     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
-     *
-     * @param name The name in the shared pref
-     * @param list The items to save
-     */
-    public static void putSharedIntList(String name, List<Integer> list) {
-        //
-        String s = "";
-        for (int i : list) {
-            s += i + ",";
-        }
-        savedSharedData.edit().putString(name, s).apply();
-    }
-
-    /**
-     * Gets shared data (same for every game)
-     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
-     *
-     * @param name The name in the shared pref
-     */
-    public static ArrayList<Integer> getSharedIntList(String name) {
-        String s = savedSharedData.getString(name, "");
-        StringTokenizer st = new StringTokenizer(s, ",");
-        ArrayList<Integer> result = new ArrayList<>();
-
-        while (st.hasMoreTokens()) {
-            result.add(Integer.parseInt(st.nextToken()));
-        }
-
-        return result;
-    }
-
-    /**
-     * Saves shared data (same for every game)
-     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
-     *
-     * @param name The name in the shared pref
-     * @param list The items to save
-     */
-    public static void putSharedStringList(String name, List<String> list) {
-        //
-        String s = "";
-        for (String i : list) {
-            s += i + ",";
-        }
-        savedSharedData.edit().putString(name, s).apply();
-    }
-
-    /**
-     * Gets shared data (same for every game)
-     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
-     *
-     * @param name The name in the shared pref
-     */
-    public static ArrayList<String> getSharedStringList(String name) {
-        String s = savedSharedData.getString(name, "");
-        StringTokenizer st = new StringTokenizer(s, ",");
-        ArrayList<String> result = new ArrayList<>();
-
-        while (st.hasMoreTokens()) {
-            result.add(st.nextToken());
-        }
-
-        return result;
-    }
-
-    /**
      * Little method I use to test if my code reaches some point
      *
      * @param text The text to show
      */
     public static void logText(String text) {
         Log.e("hey", text);
-    }
-
-    /**
-     * Tests if the saved value equals the given default value
-     *
-     * @param name         The name of the key
-     * @param defaultValue The default value of it
-     * @return True if the current value saved is the default value
-     */
-    public static boolean sharedStringEqualsDefault(String name, String defaultValue) {
-        return savedSharedData.getString(name, defaultValue).equals(defaultValue);
-    }
-
-    /**
-     * Tests if the saved value equals the given value
-     *
-     * @param name         The name of the key
-     * @param defaultValue The default value of it
-     * @param testValue    The value to compare
-     * @return True if the current value saved is the value to compare
-     */
-    public static boolean sharedStringEquals(String name, String defaultValue, String testValue) {
-        return savedSharedData.getString(name, defaultValue).equals(testValue);
     }
 
     public static int min(int value1, int value2) {
@@ -868,12 +251,11 @@ public class SharedData {
     }
 
     public static boolean leftHandedModeEnabled() {
-        return getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, false);
+        return prefs.getSavedLeftHandedMode();
     }
 
     public static boolean isXLargeTablet(Context context) {
-        return getSharedBoolean(PREF_KEY_FORCE_TABLET_LAYOUT,DEFAULT_FORCE_TABLET_LAYOUT) ||
-                ((context.getResources().getConfiguration().screenLayout
+        return prefs.getSavedForcedTabletLayout() || ((context.getResources().getConfiguration().screenLayout
                         & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE);
     }
 

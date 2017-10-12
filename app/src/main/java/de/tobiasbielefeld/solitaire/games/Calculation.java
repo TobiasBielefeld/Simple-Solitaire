@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.content.Context;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,18 +27,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CALCULATION_ALTERNATIVE;
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CALCULATION_ALTERNATIVE;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedStringList;
-import static de.tobiasbielefeld.solitaire.SharedData.hint;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedStringList;
-import static de.tobiasbielefeld.solitaire.SharedData.recordList;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Calculation Solitaire, first game which uses custom text views in the layout
@@ -47,25 +35,15 @@ import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 public class Calculation extends Game {
 
-    private static String PREF_KEY_ALTERNATIVE_OLD = PREF_KEY_CALCULATION_ALTERNATIVE + "_old";
-    private static String PREF_KEY_NEXT_CARD_VALUES = "pref_key_next_card_values";
-
-    private TextView[] textViews  = new TextView[4];
-
-    private void updateAlternativeMode(){
-        boolean alternativeMode = getSharedBoolean(PREF_KEY_CALCULATION_ALTERNATIVE, DEFAULT_CALCULATION_ALTERNATIVE);
-        putSharedBoolean(PREF_KEY_ALTERNATIVE_OLD, alternativeMode);
-    }
-
     public Calculation() {
         setNumberOfDecks(1);
         setNumberOfStacks(10);
-        setFirstMainStackID(9);
+        setMainStackIDs(9);
         setDiscardStackIDs(8);
         setLastTableauID(3);
         setHasFoundationStacks(true);
 
-        updateAlternativeMode();
+        prefs.saveCalculationAlternativeModeOld();
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -103,25 +81,27 @@ public class Calculation extends Game {
         stacks[7].view.setImageBitmap(Stack.background4);
 
         //generate the textViews over the foundation stacks
+
+        addTextViews(4, Card.width, layoutGame, context);
+
         for (int i=0;i<4;i++){
-            textViews[i] = addTextView(Card.width, layoutGame, context);
-            textViews[i].setX(stacks[4+i].getX());
-            textViews[i].setY(stacks[4+i].getY() - textViews[i].getMeasuredHeight());
+            textViews.get(i).setX(stacks[4+i].getX());
+            textViews.get(i).setY(stacks[4+i].getY() - textViews.get(i).getMeasuredHeight());
 
         }
 
         //load the next card values for the foundation from saved games
-        ArrayList<String> list = getSharedStringList(PREF_KEY_NEXT_CARD_VALUES);
+        ArrayList<String> list = prefs.getSavedCalculationNextCardsList();
 
         if (!list.isEmpty()){
             for (int i=0;i<4;i++) {
-                textViews[i].setText(list.get(i));
+                textViews.get(i).setText(list.get(i));
             }
         } else {
-            textViews[0].setText("2");
-            textViews[1].setText("4");
-            textViews[2].setText("6");
-            textViews[3].setText("8");
+            textViews.get(0).setText("2");
+            textViews.get(1).setText("4");
+            textViews.get(2).setText("6");
+            textViews.get(3).setText("8");
         }
     }
 
@@ -136,7 +116,7 @@ public class Calculation extends Game {
     }
 
     public void dealCards() {
-        updateAlternativeMode();
+        prefs.saveCalculationAlternativeModeOld();
         gameLogic.showOrHideRecycles();
 
         //deal cards to foundation: search an ace for the first stack, a two for the second and so on
@@ -162,16 +142,15 @@ public class Calculation extends Game {
         ArrayList<String> list = new ArrayList<>();
 
         for (int i=0;i<4;i++){
-            list.add(textViews[i].getText().toString());
+            list.add(textViews.get(i).getText().toString());
         }
 
-        putSharedStringList(PREF_KEY_NEXT_CARD_VALUES, list);
+        prefs.saveCalculationNextCardsList(list);
     }
 
     public int onMainStackTouch() {
         //if alternative mode is true, use the main stack like in klondike
-        if (getSharedBoolean(PREF_KEY_ALTERNATIVE_OLD,DEFAULT_CALCULATION_ALTERNATIVE)) {
-
+        if (prefs.getSavedCalculationAlternativeModeOld()) {
             if (!getMainStack().isEmpty()) {
                 moveToStack(getMainStack().getTopCard(), getDiscardStack());
                 getDiscardStack().getTopCard().flipUp();
@@ -343,7 +322,7 @@ public class Calculation extends Game {
                     break;
             }
 
-            textViews[i].setText(text);
+            textViews.get(i).setText(text);
         }
     }
 }

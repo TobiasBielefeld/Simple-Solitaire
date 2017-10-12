@@ -9,7 +9,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.recordList;
 
 
 /**
- * Created by tobias on 03.10.17.
+ * Helper for undo movements: The undo is separated in steps: first undo moves with order 0, wait a bit,
+ * then moves with order 1 and so on
  */
 
 public class HandlerRecordListUndo extends Handler {

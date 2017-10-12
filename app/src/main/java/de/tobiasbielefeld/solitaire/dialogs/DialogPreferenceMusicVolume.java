@@ -53,7 +53,7 @@ public class DialogPreferenceMusicVolume extends DialogPreference implements See
         mSeekBar = (SeekBar) view.findViewById(R.id.seekBar);
         mSeekBar.setOnSeekBarChangeListener(this);
 
-        int volume = getSharedInt(PREF_KEY_BACKGROUND_VOLUME,DEFAULT_BACKGROUND_VOLUME);
+        int volume = prefs.getSavedBackgroundVolume();
         mSeekBar.setProgress(volume);
         setProgressText(volume);
 
@@ -70,14 +70,13 @@ public class DialogPreferenceMusicVolume extends DialogPreference implements See
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        int volume = mSeekBar.getProgress();
     }
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         // When the user selects "OK", persist the new value
         if (positiveResult) {
-            putSharedInt(PREF_KEY_BACKGROUND_VOLUME,mSeekBar.getProgress());
+            prefs.saveBackgroundVolume(mSeekBar.getProgress());
         }
     }
 

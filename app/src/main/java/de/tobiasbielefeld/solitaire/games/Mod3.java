@@ -38,7 +38,7 @@ public class Mod3 extends Game {
     public Mod3() {
         setNumberOfDecks(2);
         setNumberOfStacks(34);
-        setFirstMainStackID(33);
+        setMainStackIDs(33);
         setLastTableauID(31);
         setDiscardStackIDs(32);
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0);
@@ -198,7 +198,7 @@ public class Mod3 extends Game {
     @Override
     public void testAfterMove() {
 
-        if (getSharedBoolean(PREF_KEY_MOD3_AUTO_MOVE,DEFAULT_MOD3_AUTO_MOVE)) {
+        if (prefs.getSavedMod3AutoMove()) {
             ArrayList<Card> cardsToMove = new ArrayList<>();
             ArrayList<Stack> origins = new ArrayList<>();
 

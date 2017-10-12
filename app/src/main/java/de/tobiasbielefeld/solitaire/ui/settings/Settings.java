@@ -37,9 +37,11 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
+import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Settings activity created with the "Create settings activity" tool from Android Studio.
@@ -57,7 +59,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        reinitializeData(getApplicationContext());
         super.onCreate(savedInstanceState);
+
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
 
         ActionBar actionBar = getSupportActionBar();
@@ -65,7 +69,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        reinitializeData(getApplicationContext());
+        prefs.setCriticalSettings();
 
         settingsSounds = new Sounds(this);
     }
@@ -91,7 +95,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     public void onResume() {
         super.onResume();
 
-        savedSharedData.registerOnSharedPreferenceChangeListener(this);
+        prefs.registerListener(this);
         showOrHideStatusBar();
         setOrientation();
 
@@ -102,7 +106,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     @Override
     public void onPause() {
         super.onPause();
-        savedSharedData.unregisterOnSharedPreferenceChangeListener(this);
+        prefs.unregisterListener(this);
 
         activityCounter--;
         handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
@@ -114,16 +118,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      * I would need to write the strings manually in the cases.
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(CARD_DRAWABLES)) {
+        if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
 
-        } else if (key.equals(CARD_BACKGROUND) || key.equals(CARD_BACKGROUND_COLOR)) {
+        } else if (key.equals(PREF_KEY_CARD_BACKGROUND) || key.equals(PREF_KEY_CARD_BACKGROUND_COLOR)) {
             Card.updateCardBackgroundChoice();
 
-        } else if (key.equals(getString(R.string.pref_key_hide_status_bar))) {
+        } else if (key.equals(PREF_KEY_HIDE_STATUS_BAR)) {
             showOrHideStatusBar();
 
-        } else if (key.equals(getString(R.string.pref_key_orientation))) {
+        } else if (key.equals(PREF_KEY_ORIENTATION)) {
             setOrientation();
 
         } else if (key.equals(PREF_KEY_LEFT_HANDED_MODE)) {
@@ -131,13 +135,14 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 gameLogic.mirrorStacks();
             }
 
-        } else if (key.equals(MENU_COLUMNS_PORTRAIT) || key.equals(MENU_COLUMNS_LANDSCAPE)) {
+        } else if (key.equals(PREF_KEY_MENU_COLUMNS_PORTRAIT) || key.equals(PREF_KEY_MENU_COLUMNS_LANDSCAPE)) {
             updatePreferenceMenuColumnsSummary();
 
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
+            bitmaps.resetMenuPreviews();
             restartApplication();
 
-        } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
+        } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();
             if (gameLogic != null) {
                 gameLogic.updateMenuBar();
@@ -194,17 +199,17 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      * Applies the user setting of the screen orientation.
      */
     private void setOrientation() {
-        switch (getSharedString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION)) {
-            case "1": //follow system settings
+        switch (prefs.getSavedOrientation()) {
+            case 1: //follow system settings
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;
-            case "2": //portrait
+            case 2: //portrait
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 break;
-            case "3": //landscape
+            case 3: //landscape
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
-            case "4": //landscape upside down
+            case 4: //landscape upside down
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
@@ -214,25 +219,28 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      * Applies the user setting of the status bar.
      */
     private void showOrHideStatusBar() {
-        if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
+        if (prefs.getSavedHideStatusBar()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        else
+        } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
     }
 
     /**
      * Restarts the app to apply the new locale settings
      */
     private void restartApplication() {
-        Intent intent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        finish();
+        startActivity(i);
     }
 
     private void updatePreferenceMenuColumnsSummary() {
-        int portraitValue = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT));
-        int landscapeValue = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE));
+        int portraitValue = prefs.getSavedMenuColumnsPortrait();
+        int landscapeValue = prefs.getSavedMenuColumnsLandscape();
 
         String text = String.format(Locale.getDefault(), "%s: %d\n%s: %d",
                 getString(R.string.portrait), portraitValue, getString(R.string.landscape), landscapeValue);
@@ -242,13 +250,13 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     private void updatePreferenceMenuBarPositionSummary() {
         String portrait, landscape;
-        if (sharedStringEqualsDefault(getString(R.string.pref_key_menu_bar_position_portrait), DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
+        if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
             portrait = getString(R.string.settings_menu_bar_position_bottom);
         } else {
             portrait = getString(R.string.settings_menu_bar_position_top);
         }
 
-        if (sharedStringEqualsDefault(getString(R.string.pref_key_menu_bar_position_landscape), DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
+        if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
             landscape = getString(R.string.settings_menu_bar_position_right);
         } else {
             landscape = getString(R.string.settings_menu_bar_position_left);
@@ -261,7 +269,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     private void updatePreferenceBackgroundVolumeSummary(){
-        int volume = getSharedInt(PREF_KEY_BACKGROUND_VOLUME,DEFAULT_BACKGROUND_VOLUME);
+        int volume = prefs.getSavedBackgroundVolume();
 
         preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(),"%s %%",volume));
     }

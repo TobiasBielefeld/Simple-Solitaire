@@ -29,6 +29,8 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
 
 /**
  * Pyramid Solitaire! It has a lot of stacks.
@@ -44,7 +46,7 @@ public class Pyramid extends Game {
     public Pyramid() {
         setNumberOfDecks(1);
         setNumberOfStacks(32);
-        setFirstMainStackID(31);
+        setMainStackIDs(31);
         setDiscardStackIDs(29,30);
         setLastTableauID(27);
         setDealFromID(30);
@@ -52,7 +54,7 @@ public class Pyramid extends Game {
 
         setNumberOfRecycles(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
 
-        if (!getSharedBoolean(PREF_KEY_PYRAMID_LIMITED_RECYCLES, DEFAULT_PYRAMID_LIMITED_RECYCLES)) {
+        if (!prefs.getSavedPyramidLimitedRecycles()) {
             toggleRecycles();
         }
     }
@@ -100,7 +102,7 @@ public class Pyramid extends Game {
             if (!stacks[i].isEmpty())
                 return false;
 
-        return sharedStringEqualsDefault(PREF_KEY_PYRAMID_DIFFICULTY, DEFAULT_PYRAMID_DIFFICULTY) || getDiscardStack().isEmpty() && stacks[30].isEmpty();
+        return prefs.getSavedPyramidDifficulty().equals("1") || getDiscardStack().isEmpty() && stacks[30].isEmpty();
     }
 
     public void dealCards() {
@@ -275,7 +277,7 @@ public class Pyramid extends Game {
 
             handlerTestAfterMove.sendEmptyMessageDelayed(0, 200);
 
-        } else if (getSharedBoolean(PREF_KEY_PYRAMID_AUTO_MOVE,DEFAULT_PYRAMID_AUTO_MOVE)) {
+        } else if (prefs.getSavedPyramidAutoMove()) {
             ArrayList<Card> tempCards = new ArrayList<>();
             ArrayList<Stack> origins = new ArrayList<>();
 

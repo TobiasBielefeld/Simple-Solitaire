@@ -18,15 +18,12 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.text.Layout;
 import android.text.StaticLayout;
@@ -34,7 +31,6 @@ import android.text.TextPaint;
 import android.util.Log;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.SharedData;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -51,6 +47,7 @@ public class Bitmaps {
             cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
     private Resources res;
     private Bitmap menu, menuText, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
+    private Bitmap[] menuBitMaps;
     private int savedCardTheme;
 
     public boolean checkResources() {
@@ -68,8 +65,14 @@ public class Bitmaps {
      * @return a single bitmap
      */
     public Bitmap getMenu(int index) {
-
         Bitmap bitmap;
+
+        if (menuBitMaps == null){
+            menuBitMaps = new Bitmap[lg.getGameCount()];
+        } else if (menuBitMaps[index]!=null){
+            logText("returned saved data");
+            return menuBitMaps[index];
+        }
 
         if (menu == null) {
             menu = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu);
@@ -95,6 +98,8 @@ public class Bitmaps {
             Log.e("Bitmap.getMenu()","No picture for current game available\n" + e.toString());
             bitmap = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
         }
+
+        menuBitMaps[index] = bitmap;
 
         return bitmap;
     }
@@ -167,8 +172,6 @@ public class Bitmaps {
         return bmOverlay;
     }
 
-
-
     /**
      * Gets the stack backgrounds
      *
@@ -197,9 +200,9 @@ public class Bitmaps {
      */
     public Bitmap getCardFront(int posX, int posY) {
 
-        if (cardFront == null || savedCardTheme != getSharedInt(CARD_DRAWABLES, 1)) {
+        if (cardFront == null || savedCardTheme != prefs.getSavedCardTheme()) {
 
-            savedCardTheme = getSharedInt(CARD_DRAWABLES, 1);
+            savedCardTheme = prefs.getSavedCardTheme();
             int resID;
 
             switch (savedCardTheme) {
@@ -302,7 +305,7 @@ public class Bitmaps {
     /**
      * Resets the menu preview. Used after changing the locale, so the correct new previews will be shown
      */
-    public void resetMenuPreview() {
-        menu = null;
+    public void resetMenuPreviews() {
+        menuBitMaps = null;
     }
 }

@@ -163,26 +163,7 @@ public class Scores {
     }
 
     public void save() {
-        putLong(SCORE, score);
-    }
-
-    /**
-     * Save the high score list.
-     */
-    private void saveHighScore() {
-        ArrayList<Long> listScores = new ArrayList<>();
-        ArrayList<Long> listTimes = new ArrayList<>();
-        ArrayList<Long> listDates = new ArrayList<>();
-
-        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-            listScores.add(savedScores[i][0]);
-            listTimes.add(savedScores[i][1]);
-            listDates.add(savedScores[i][2]);
-        }
-
-        putLongList(SAVED_SCORES + 0, listScores);
-        putLongList(SAVED_SCORES + 1, listTimes);
-        putLongList(SAVED_SCORES + 2, listDates);
+        prefs.saveScore(score);
     }
 
     /**
@@ -190,11 +171,7 @@ public class Scores {
      * and moved in direction of the highest score until it is in the correct position
      */
     public void addNewHighScore(long newScore, long timeTaken) {
-        if (!currentGame.processScore(newScore)){
-            return;
-        }
-
-        if (newScore < 0) {
+        if (!currentGame.processScore(newScore) || newScore < 0){
             return;
         }
 
@@ -220,7 +197,7 @@ public class Scores {
                 index--;
             }
 
-            saveHighScore();
+            prefs.saveHighScores(savedScores);
         }
     }
 
@@ -237,18 +214,9 @@ public class Scores {
      * Loads the saved high score list
      */
     public void load() {
-        score = getLong(SCORE, 0);
+        score = prefs.getSavedScore();
         output();
-
-        ArrayList<Long> listScores = getLongList(SAVED_SCORES + 0);
-        ArrayList<Long> listTimes = getLongList(SAVED_SCORES + 1);
-        ArrayList<Long> listDates = getLongList(SAVED_SCORES + 2);
-
-        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-            savedScores[i][0] = listScores.size() > i ? listScores.get(i) : 0;
-            savedScores[i][1] = listTimes.size() > i ? listTimes.get(i) : 0;
-            savedScores[i][2] = listDates.size() > i ? listDates.get(i) : 0;
-        }
+        savedScores = prefs.getSavedHighScores();
     }
 
     /**
@@ -266,7 +234,7 @@ public class Scores {
      */
     public void deleteHighScores() {
         savedScores = new long[MAX_SAVED_SCORES][3];
-        saveHighScore();
+        prefs.saveHighScores(savedScores);
     }
 
     /**
@@ -285,7 +253,7 @@ public class Scores {
     public void output() {
         gm.mainTextViewScore.post(new Runnable() {
             public void run() {
-                if (getSharedBoolean(PREF_KEY_HIDE_SCORE, DEFAULT_HIDE_SCORE)) {
+                if (prefs.getSavedHideScore()) {
                             gm.mainTextViewScore.setText("");
                 } else {
                     final String dollar = currentGame.isPointsInDollar() ? "$" : "";

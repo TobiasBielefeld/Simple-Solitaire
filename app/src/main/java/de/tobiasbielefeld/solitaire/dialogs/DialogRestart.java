@@ -18,7 +18,6 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -68,7 +67,6 @@ public class DialogRestart extends DialogFragment {
                                     gameLogic.save();
                                 }
 
-                                putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);          //otherwise the menu would load the current game again, because last played game will start
                                 gameManager.finish();
                                 break;
                         }

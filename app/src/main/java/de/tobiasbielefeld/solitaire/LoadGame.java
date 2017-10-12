@@ -23,7 +23,6 @@ import android.content.res.Resources;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.games.AcesUp;
 import de.tobiasbielefeld.solitaire.games.Calculation;
@@ -43,9 +42,9 @@ import de.tobiasbielefeld.solitaire.games.TriPeaks;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
 
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_GAMES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_ORDER;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
+import static de.tobiasbielefeld.solitaire.SharedData.logText;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+
 
 /**
  * Everything about loading a game should be here. If you want to add a game, just expand the switch
@@ -131,7 +130,7 @@ public class LoadGame {
 
     /**
      * Gets the list of shown games in the game selection menu.
-     * The order of the game is the DEFAULT ORDER!
+     * The order of the game is the DEFAULT PREF_KEY_ORDER!
      *
      * If you add a game, the list lacks the newly added game. so you can insert it at the right
      * position, or it will be automatically added at the end.
@@ -141,13 +140,7 @@ public class LoadGame {
      * @return the list of shown/not shown in the game selection menu
      */
     public ArrayList<Integer> getMenuShownList(){
-        String s = savedSharedData.getString(PREF_KEY_MENU_GAMES, "");
-        StringTokenizer st = new StringTokenizer(s, ",");
-        ArrayList<Integer> result = new ArrayList<>();
-
-        while (st.hasMoreTokens()) {
-            result.add(Integer.parseInt(st.nextToken()));
-        }
+        ArrayList<Integer> result = prefs.getSavedMenuGamesList();
 
         /*
          * If added more games, insert them here in the correct order. Don't forget to add it also
@@ -182,14 +175,7 @@ public class LoadGame {
      * @return the game list in order of the user settings.
      */
     public ArrayList<Integer> getOrderedGameList(){
-        String s = savedSharedData.getString(PREF_KEY_MENU_ORDER, "");
-        StringTokenizer st = new StringTokenizer(s, ",");
-        ArrayList<Integer> result = new ArrayList<>();
-
-        while (st.hasMoreTokens()) {
-            result.add(Integer.parseInt(st.nextToken()));
-        }
-
+        ArrayList<Integer> result = prefs.getSavedMenuOrderList();
 
         if (result.isEmpty()){                                                                      //get default order
             for (int i=0;i<getGameCount();i++){

@@ -48,10 +48,8 @@ public class DialogPreferenceMenuRows extends DialogPreference {
         spinnerLandscape = (Spinner) view.findViewById(R.id.dialogSettingsMenuColumnsLandscape);
 
         //minus 1 because the values are 1 to 10, indexes are from 0 to 9
-        spinnerPortrait.setSelection(Integer.parseInt(
-                getSharedString(MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT)) - 1);
-        spinnerLandscape.setSelection(Integer.parseInt(
-                getSharedString(MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE)) - 1);
+        spinnerPortrait.setSelection(prefs.getSavedMenuColumnsPortrait()-1);
+        spinnerLandscape.setSelection(prefs.getSavedMenuColumnsLandscape() - 1);
 
         super.onBindDialogView(view);
     }
@@ -62,8 +60,8 @@ public class DialogPreferenceMenuRows extends DialogPreference {
         super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
-            putSharedString(MENU_COLUMNS_PORTRAIT, spinnerPortrait.getSelectedItem().toString());
-            putSharedString(MENU_COLUMNS_LANDSCAPE, spinnerLandscape.getSelectedItem().toString());
+            prefs.saveMenuColumnsPortrait(spinnerPortrait.getSelectedItem().toString());
+            prefs.saveMenuColumnsLandscape(spinnerLandscape.getSelectedItem().toString());
         }
     }
 }

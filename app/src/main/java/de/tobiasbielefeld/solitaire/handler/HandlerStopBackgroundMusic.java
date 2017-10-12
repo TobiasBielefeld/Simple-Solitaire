@@ -21,10 +21,8 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
 import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
 
 /**

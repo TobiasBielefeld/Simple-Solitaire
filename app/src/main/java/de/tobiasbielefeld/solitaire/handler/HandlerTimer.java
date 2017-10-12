@@ -50,7 +50,7 @@ public class HandlerTimer extends Handler {
             timer.handlerTimer.sendEmptyMessageDelayed(0, 1000);
         }
 
-        if (getSharedBoolean(PREF_KEY_HIDE_TIME, DEFAULT_HIDE_TIME)) {
+        if (prefs.getSavedHideTime()) {
             gm.mainTextViewTime.setText("");
         }
         else {

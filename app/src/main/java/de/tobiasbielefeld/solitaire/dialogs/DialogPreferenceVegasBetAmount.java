@@ -29,13 +29,7 @@ import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_BACKGROUND_VOLUME;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_VOLUME;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
-
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * custom dialog to set the background music volume. it can be set from 0 (off) to 100%.
@@ -58,7 +52,7 @@ public class DialogPreferenceVegasBetAmount extends DialogPreference implements 
         mSeekBar = (SeekBar) view.findViewById(R.id.seekBar);
         mSeekBar.setOnSeekBarChangeListener(this);
 
-        int amount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
+        int amount = prefs.getSavedVegasBetAmount();
         mSeekBar.setProgress(amount);
         setProgressText(amount);
 
@@ -81,7 +75,7 @@ public class DialogPreferenceVegasBetAmount extends DialogPreference implements 
     protected void onDialogClosed(boolean positiveResult) {
         // When the user selects "OK", persist the new value
         if (positiveResult) {
-            putSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,mSeekBar.getProgress());
+            prefs.saveVegasBetAmount(mSeekBar.getProgress());
         }
     }
 

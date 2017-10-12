@@ -75,7 +75,7 @@ public class DummyGame extends Game {
         setNumberOfStacks(13);
 
         //if you game has a main stack, set its id here. Cards will be automatically dealt from there.
-        setFirstMainStackID(12);
+        setMainStackIDs(12);
 
         //if there is a discard stack, set it's id, because I need the id for the undo movement
         //(cards should be faced up when returning to discard)
@@ -128,8 +128,9 @@ public class DummyGame extends Game {
 
         //if you used setLimitedRecycles(), you can also use toggleRecycles like this to disable the limitation
         //from the settings
-        if (!getSharedBoolean("your_pref_key_for_limited_recycles", false))
+        /*if (!getSavedGAMENAMELimitedRecycles){        //add a method to Preferences.java for this
             toggleRecycles();
+        } */
     }
 
     /*

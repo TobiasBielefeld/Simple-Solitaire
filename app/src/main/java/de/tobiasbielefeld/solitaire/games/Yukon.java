@@ -84,7 +84,7 @@ public class Yukon extends Game {
          * because there is no main stack, use the stack from getDealStack()
          */
 
-        putSharedString(PREF_KEY_YUKON_RULES_OLD, getSharedString(PREF_KEY_YUKON_RULES, DEFAULT_YUKON_RULES));
+        prefs.saveYukonRulesOld();
 
         for (int i = 1; i <= 6; i++) {
             for (int j = 0; j < 5 + i; j++) {
@@ -123,10 +123,10 @@ public class Yukon extends Game {
     }
 
     boolean checkRules(Stack stack, Card card) {
-        boolean defaultRules = sharedStringEqualsDefault(PREF_KEY_YUKON_RULES_OLD, DEFAULT_YUKON_RULES);
+        boolean defaultRules = prefs.getSavedYukonRulesOld().equals("default");
 
-        return defaultRules ? canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING) :
-                canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);
+        return canCardBePlaced(stack, card, defaultRules ? ALTERNATING_COLOR : SAME_FAMILY, DESCENDING);
+
     }
 
     public boolean addCardToMovementTest(Card card) {
@@ -209,18 +209,8 @@ public class Yukon extends Game {
          * start auto complete if every card is in the right order
          */
         for (int i = 0; i < 7; i++) {
-            if (stacks[i].isEmpty())
-                continue;
-
-            for (int j = 0; j < stacks[i].getSize() - 1; j++) {
-                Card cardBottom = stacks[i].getCard(j);
-                Card cardTop = stacks[i].getCard(j + 1);
-
-                if (!cardBottom.isUp() || !cardTop.isUp())
-                    return false;
-
-                if ((cardBottom.getColor() % 2 == cardTop.getColor() % 2) || (cardBottom.getValue() != cardTop.getValue() + 1))
-                    return false;
+            if (!testCardsUpToTop(stacks[i], 0, DOESNT_MATTER)) {
+                return false;
             }
         }
 
