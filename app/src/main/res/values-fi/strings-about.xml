@@ -14,6 +14,8 @@
     <string name="about_license">Lisenssi</string>
     <string name="about_translations">Käännökset</string>
 
+
+
     <string name="about_translations_japanese">Japani</string>
     <string name="about_translations_esperanto">Esperanto</string>
     <string name="about_translations_polish">Puola</string>
@@ -43,5 +45,8 @@
 
     <string name="about_sliding_tabs_title">PagerSlidingTabStrip kirjasto</string>
     <string name="about_sliding_tabs_usage">Käytetään \"tietoa pelistä\" välilehdissä</string>
+
+    <string name="about_developer">Kehittäjä</string>
+    <string name="about_further_contributors">Muita avustajia</string>
 
 </resources>

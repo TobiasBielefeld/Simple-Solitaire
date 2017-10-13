@@ -14,9 +14,10 @@
         \n• Empty discard stacks will now be filled by the next card from the main stack in games which support it
         \n• Vegas: Added the ability to keep the current balance between games
         \n• Added automatic movements of Aces in Mod3 and Kings in Pyramid, can be disabled in the settings
-        \n• Changed the pictures of the main menu to reduce application size
+        \n• Fixed the amount of movable cards in Freecell, Forty&amp;Eight and GrandfathersClock
+        \n• Changed the pictures of the main menu to reduce application size a bit
         \n• Changed the appearance of the about screen
-        \n• Some little bug fixes and changes
+        \n• Bug fixes and little changes changes
     </string>
 
     <string name="changelog_38" translatable="false">

@@ -295,8 +295,8 @@
         \n\EROTUSLAUSUMA: Pelissä ei pelata oikeilla rahoilla :)</string>
 
     <!-- Calculation -->
-    <string name="manual_Calculation_structure">Yksi pakka jossa 52 kortia.\n\n
-        neljä pöytäpinoa, neljä peruspinoa, yksi käsipakka ja yksi kääntöpakka.</string>
+    <string name="manual_Calculation_structure">Yksi pakka jossa 52 kortia.
+        \n\nneljä pöytäpinoa, neljä peruspinoa, yksi käsipakka ja yksi kääntöpakka.</string>
     <string name="manual_Calculation_objective">Aseta kaikki kortit peruspinoihin, maasta välittämättä, kunnes jokaisen peruspinon
         päällimmäisenä korttina on kuningas. Pinot pitää rakentaa seuraavassa järjestyksessä:
         \n\n 1. pino yhden välein: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     <!-- 1s means: add in each step 1 to the value-->
