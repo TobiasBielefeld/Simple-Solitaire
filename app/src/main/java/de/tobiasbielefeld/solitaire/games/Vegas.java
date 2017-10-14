@@ -43,7 +43,7 @@ public class Vegas extends Klondike {
         setPointsInDollar();
         loadData();
 
-        whichGame = 1;
+        whichGame = 2;
 
         setNumberOfRecycles(PREF_KEY_VEGAS_NUMBER_OF_RECYCLES,DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
     }

@@ -9,8 +9,8 @@ android {
         applicationId "de.tobiasbielefeld.solitaire"
         minSdkVersion 11
         targetSdkVersion 25
-        versionCode 57
-        versionName "3.9"
+        versionCode 58
+        versionName "3.9.1"
 
         vectorDrawables.useSupportLibrary = true
     }
