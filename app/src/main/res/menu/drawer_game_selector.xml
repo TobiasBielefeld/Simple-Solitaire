@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/idgroup1">
         <item
             android:id="@+id/item_manual"
             android:icon="@drawable/icon_manual"
@@ -18,11 +20,12 @@
             android:icon="@drawable/icon_about"
             android:title="@string/about_name" />
 
+    </group>
+    <group android:id="@+id/idgroup2">
         <item
             android:id="@+id/item_close"
             android:icon="@drawable/icon_close"
             android:title="@string/game_close" />
+
     </group>
-
-
 </menu>
