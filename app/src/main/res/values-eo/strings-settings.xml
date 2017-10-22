@@ -50,10 +50,10 @@
 
     <string name="settings_icon_theme">Piktograma etoso</string>
     <string name="settings_menu_bar_position">Pozicio de menua breto</string>
-    <string name="settings_menu_bar_position_top">Supre</string>
-    <string name="settings_menu_bar_position_bottom">Sube</string>
-    <string name="settings_menu_bar_position_left">Maldekstre</string>
-    <string name="settings_menu_bar_position_right">Dekstre</string>
+    <string name="settings_menu_bar_position_top">supre</string>
+    <string name="settings_menu_bar_position_bottom">sube</string>
+    <string name="settings_menu_bar_position_left">maldekstre</string>
+    <string name="settings_menu_bar_position_right">dekstre</string>
 
     <string name="settings_yukon_rules">Meti kartojn sur…</string>
     <string name="settings_4_color_mode_title">4 ludkartaj emblemoj</string>
