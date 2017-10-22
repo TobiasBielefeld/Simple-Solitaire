@@ -110,7 +110,7 @@
     <string name="settings_customization_description">Alĝustigi kartojn, fonojn kaj fasadon</string>
 
     <string name="settings_force_tablet_layout_title">Devigi tabulkomputilan reĝimon</string>
-    <string name="settings_force_tablet_layout_text">Vidigi la aplikaĵon same kiel sur grandaj ekranoj (>=10\")</string>
+    <string name="settings_force_tablet_layout_text">Vidigi la aplikaĵon same kiel sur grandaj ekranoj (≥10\")</string>
 
     <string name="settings_restart_calculation">Komencu novan ludon Calculation por apliki ŝanĝojn</string>
     <string name="settings_calculation_alternative_title">Teni kartojn</string>
