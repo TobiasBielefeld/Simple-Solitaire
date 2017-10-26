@@ -300,26 +300,25 @@
     <!-- new values -->
     <!-- Calculation -->
     <string name="manual_Calculation_structure">1 jeu de 52 cartes.\n\n4 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse.</string>
-    <string name="manual_Calculation_objective">Place every card to the foundation, regardless of suit, until each foundation
-        stack shows a king. The stacks have to be build in the following order:
-        \n\n 1. stack in 1s: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     <!-- 1s means: add in each step 1 to the value-->
-          \n 2. stack in 2s: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     <!-- 2s means: add in each step 2 to the value-->
-          \n 3. stack in 3s: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     <!-- ... -->
-          \n 4. stack in 4s: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
-        \n\nThe next playable cards are shown above the foundation stacks, too.
+    <string name="manual_Calculation_objective">Déplacer les cartes vers la fondation, indépendamment des couleurs, jusqu'à ce que chaque pile contienne
+        un roi. Les fondations doivent être construites dans l'ordre suivant :
+        \n\n Pile n°1 de un en un : A, 2, 3, 4, 5, 6, 7, 8, 9, 10, V, D, R     <!-- 1s means: add in each step 1 to the value-->
+          \n Pile n°2 de deux en deux : 2, 4, 6, 8, 10, D, A, 3, 5, 7, 9, V, R     <!-- 2s means: add in each step 2 to the value-->
+          \n Pile n°3 de trois en trois : 3, 6, 9, D, 2, 5, 8, V, A, 4, 7, 10, R     <!-- ... -->
+          \n Pile n°4 de quatre en quatre : 4, 8, D, 3, 7, V, 2, 6, 10, A, 5, 9, R
+        \n\nLes prochaines cartes jouables sont indiquées au-dessus des piles.
     </string>
-    <string name="manual_Calculation_rules">The 4 foundation stacks already start with the first cards, which are
-        randomly chosen. Cards on the foundation have to follow the order given under Objective.
-        \n\nCards from the discard stack can be moved to any tableau stack or on foundation stacks, if they
-        fulfill the correct order.
+    <string name="manual_Calculation_rules">Les 4 piles de la fondation commencent avec leurs cartes de départ, choisies au hasard. Les cartes dans la fondation
+        doivent suivre l'ordre indiqué dans les Objectifs.
+        \n\nLes cartes de la défausse peuvent être déplacées vers n'importe quelle pile du tableau ou de la fondation si elles respectent l'ordre demandé.
 
-        \n\nPressing the main stack will simply move the card on the discard stack to the tableau stack with the
-        fewest cards. Alternative rule: The cards on the discard stack remain there, when pressing on the main stack
-        (can be enabled in the game settings).
+        \n\nPiocher une carte du talon déplace la carte de la défausse vers la pile du tableau qui contient le moins de cartes.
+		Règle alternative : les cartes de la défausse peuvent y rester quand on pioche depuis le talon
+        (peut être activé dans les paramètres du jeu).
 
-        \n\nOn the tableau, only top cards can be moved and they can only be moved to the foundation.
+        \n\nSur le tableau, seules les cartes du dessus peuvent être déplacées, et uniquement vers la fondation.
        </string>
-    <string name="manual_Calculation_scoring">Move a card to foundation: +50</string>
+    <string name="manual_Calculation_scoring">Déplacer une carte vers la fondation : +50</string>
 
 
 </resources>
