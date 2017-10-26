@@ -50,10 +50,10 @@
 
     <string name="settings_icon_theme">Piktograma etoso</string>
     <string name="settings_menu_bar_position">Pozicio de menua breto</string>
-    <string name="settings_menu_bar_position_top">Supre</string>
-    <string name="settings_menu_bar_position_bottom">Sube</string>
-    <string name="settings_menu_bar_position_left">Maldekstre</string>
-    <string name="settings_menu_bar_position_right">Dekstre</string>
+    <string name="settings_menu_bar_position_top">supre</string>
+    <string name="settings_menu_bar_position_bottom">sube</string>
+    <string name="settings_menu_bar_position_left">maldekstre</string>
+    <string name="settings_menu_bar_position_right">dekstre</string>
 
     <string name="settings_yukon_rules">Meti kartojn sur…</string>
     <string name="settings_4_color_mode_title">4 ludkartaj emblemoj</string>
@@ -110,7 +110,7 @@
     <string name="settings_customization_description">Alĝustigi kartojn, fonojn kaj fasadon</string>
 
     <string name="settings_force_tablet_layout_title">Devigi tabulkomputilan reĝimon</string>
-    <string name="settings_force_tablet_layout_text">Vidigi la aplikaĵon same kiel sur grandaj ekranoj (>=10\")</string>
+    <string name="settings_force_tablet_layout_text">Vidigi la aplikaĵon same kiel sur grandaj ekranoj (≥10\")</string>
 
     <string name="settings_restart_calculation">Komencu novan ludon Calculation por apliki ŝanĝojn</string>
     <string name="settings_calculation_alternative_title">Teni kartojn</string>
