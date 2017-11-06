@@ -54,7 +54,7 @@ public class Golf extends Game {
         setDiscardStackIDs(7);
         setLastTableauID(6);
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
-        setSingleTapeEnabled(true);
+        setSingleTapEnabled(true);
     }
 
     @Override
@@ -166,7 +166,7 @@ public class Golf extends Game {
 
                 savedRunRecords.add(runCounter * 50);
                 points += runCounter * 50;
-            } else {
+            } else if (savedRunRecords.size()>0){
                 points += savedRunRecords.get(savedRunRecords.size() - 1);                            //get last entry
                 savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
 

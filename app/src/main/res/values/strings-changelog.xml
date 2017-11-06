@@ -7,6 +7,17 @@
      -
     -->
 
+    <string name="changelog_40" translatable="false">
+        • Added a new Single-Tap settings entry. It is like Double-Tap, but with one tap less!
+        \n• Disabled recycles (limited to 0) aren\'t shown anymore over the main stack
+        \n• Vegas bet and win amount can now be changed separately
+        \n• Adjusted the Vegas default rules
+        \n• Changed the drawer menu, thanks to  dankan1890!
+        \n• Added some French translations, thanks to cicithesquirrel!
+        \n• Correcting some bugs and force close issues
+
+    </string>
+
     <string name="changelog_39" translatable="false">
         • Added a new game: Calculation Solitaire!
         \n• Fixed Finnish translations, thanks to winjar!

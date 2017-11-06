@@ -92,7 +92,8 @@
     <string name="settings_number_of_recycles">Nombre de retours</string>
 
     <string name="settings_vegas_bet_amount">Montant du pari</string>
-    <string name="settings_vegas_bet_amount_progress_text">La donne initiale coûte %1$d$, chaque carte jouée vers la fondation fait gagner %2$d$.</string>
+    <string name="settings_vegas_bet_amount_text_1">La donne initiale coûte :</string>
+    <string name="settings_vegas_bet_amount_text_2">Chaque carte jouée vers la fondation fait gagner :</string>
     <string name="settings_vegas_bet_amount_summary">Donne initiale : -%1$d$, carte vers la fondation : +%2$d$</string>
 
     <string name="settings_menu_order_title">Ordre du menu</string>
@@ -101,7 +102,6 @@
 
     <string name="settings_auto_start_new_game_title">Démarre une nouvelle partie en cas de victoire</string>
     <string name="settings_auto_start_new_game_text">En cas de retour vers un jeu gagné, démarrer automatiquement un nouvelle partie</string>
-
 
     <!-- new values -->
     <string name="settings_customization_description">Modifier les cartes, les arrière-plans et l\'interface utilisateur</string>
@@ -132,5 +132,8 @@
 
     <string name="settings_hide_time">Hide Time</string>
     <string name="settings_hide_score">Hide Score</string>
+
+    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
+    <string name="settings_vegas_bet_amount_error">Can\'t save the numbers!</string>
 
 </resources>

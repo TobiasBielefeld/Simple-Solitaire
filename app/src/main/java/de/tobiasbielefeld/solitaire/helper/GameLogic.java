@@ -40,6 +40,7 @@ public class GameLogic {
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
+    private Random rand = new Random(System.currentTimeMillis());
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -225,7 +226,6 @@ public class GameLogic {
     private void randomize(Card[] array) {
         int index;
         Card dummy;
-        Random rand = new Random();
 
         for (int i = array.length - 1; i > 0; i--) {
             if ((index = rand.nextInt(i + 1)) != i) {
@@ -241,8 +241,6 @@ public class GameLogic {
      * positions.
      */
     public void mirrorStacks() {
-
-
         if (stacks != null) {
             for (Stack stack : stacks) {
                 stack.mirrorStack(gm.layoutGame);
@@ -280,6 +278,7 @@ public class GameLogic {
         currentGame.setNumberOfRecycles(key,defaultValue);
 
         gm.updateNumberOfRecycles();
+        gm.updateLimitedRecyclesCounter();
     }
 
     public boolean hasWon() {

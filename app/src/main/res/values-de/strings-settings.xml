@@ -86,7 +86,8 @@
     <string name="settings_limit_number_of_recycles_text">Das Zurücklegen der Karten zum Hauptstapel ist limitiert</string>
     <string name="settings_number_of_recycles">Anzahl der Rückgaben</string>
     <string name="settings_vegas_bet_amount">Höhe des Einsatzes</string>
-    <string name="settings_vegas_bet_amount_progress_text">Ein Spiel kostet %1$d$. Jede Karte, die zur Foundation gespielt wird, bringt %2$d$.</string>
+    <string name="settings_vegas_bet_amount_text_1">Ein Spiel kostet:</string>
+    <string name="settings_vegas_bet_amount_text_2">Jede Karte, die zur Foundation gespielt wird, bringt:</string>
     <string name="settings_vegas_bet_amount_summary">Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$</string>
     <string name="settings_menu_order_title">Menü Reihenfolge</string>
     <string name="settings_menu_order_summary">Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern</string>
@@ -120,5 +121,9 @@
 
     <string name="settings_hide_time">Verstecke Zeit</string>
     <string name="settings_hide_score">Verstecke Score</string>
+
+    <string name="settings_single_tap_all_games_text">Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen.
+        Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert.</string>
+    <string name="settings_vegas_bet_amount_error">Kann die Zahlen nicht speichern!</string>
 
 </resources>

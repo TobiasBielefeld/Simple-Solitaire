@@ -313,25 +313,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 if (prefs.getSavedDoubleTapEnabled() && tapped.getStack() == cards[v.getId()].getStack()
                         && System.currentTimeMillis() - firstTapTime < DOUBLE_TAP_SPEED) {
 
-                    CardAndStack cardAndStack = null;
+                    boolean result = doubleTapCalculation(event.getX(),event.getY());
 
-                    if (prefs.getSavedDoubleTapAllCards() && tapped.getStackId() <= currentGame.getLastTableauId()) {
-                        if (prefs.getSavedDoubleTapFoundationFirst() && currentGame.hasFoundationStacks()) {
-                            cardAndStack = currentGame.doubleTap(tapped.getStack().getTopCard());
-                        }
-
-                        if (cardAndStack == null || cardAndStack.getStackId() <= currentGame.getLastTableauStack().getId()) {
-                            cardAndStack = currentGame.doubleTap(tapped.getStack());
-                        }
-                    } else if (currentGame.addCardToMovementTest(tapped.getCard())) {
-                        cardAndStack = currentGame.doubleTap(tapped.getCard());
-                    }
-
-                    if (cardAndStack != null) {
-                        movingCards.add(cardAndStack.getCard(), event.getX(), event.getY());
-                        movingCards.moveToDestination(cardAndStack.getStack());
-
-                        return resetTappedCard();
+                    //do not directly return from double tap calculation, addCardToMovementTest()
+                    // needs to run in case the calculation returns false
+                    if (result){
+                        return true;
                     }
                 }
                 //tap to select
@@ -362,6 +349,32 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
         }
         return true;
+    }
+
+    private boolean doubleTapCalculation(float X, float Y){
+        CardAndStack cardAndStack = null;
+
+        if (prefs.getSavedDoubleTapAllCards() && tapped.getStackId() <= currentGame.getLastTableauId()) {
+            if (prefs.getSavedDoubleTapFoundationFirst() && currentGame.hasFoundationStacks()) {
+                cardAndStack = currentGame.doubleTap(tapped.getStack().getTopCard());
+            }
+
+            if (cardAndStack == null || cardAndStack.getStackId() <= currentGame.getLastTableauStack().getId()) {
+                cardAndStack = currentGame.doubleTap(tapped.getStack());
+            }
+        } else if (currentGame.addCardToMovementTest(tapped.getCard())) {
+            cardAndStack = currentGame.doubleTap(tapped.getCard());
+        }
+
+        if (cardAndStack != null) {
+            movingCards.reset();
+            movingCards.add(cardAndStack.getCard(), X, Y);
+            movingCards.moveToDestination(cardAndStack.getStack());
+
+            return resetTappedCard();
+        }
+
+        return false;
     }
 
     /**
@@ -405,13 +418,22 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
 
             return resetTappedCard();
+        } else if (prefs.getSingleTapAllGames()){
+            boolean result = doubleTapCalculation(X,Y);
+
+            //do not directly return from double tap calculation, movingCards.returnToPos()
+            // needs to run in case the calculation returns false
+            if (result){
+                return true;
+            }
         } else if (currentGame.isSingleTapEnabled() && tapped.getCard().test(currentGame.getDiscardStack())) {
             movingCards.moveToDestination(currentGame.getDiscardStack());
             return resetTappedCard();
-        } else {
-            movingCards.returnToPos();
-            return true;
         }
+
+        movingCards.returnToPos();
+        return true;
+
     }
 
     /**
@@ -638,7 +660,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     public void updateLimitedRecyclesCounter(){
-        if (currentGame.hasLimitedRecycles()) {
+        if (currentGame.hasLimitedRecycles() && !currentGame.hidesRecycleCounter()) {
             mainTextViewRecycles.setVisibility(View.VISIBLE);
             mainTextViewRecycles.setX(currentGame.getMainStack().getX());
             mainTextViewRecycles.setY(currentGame.getMainStack().getY());

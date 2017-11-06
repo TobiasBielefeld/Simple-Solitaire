@@ -88,7 +88,8 @@
     <string name="settings_number_of_recycles">Geri gönderme miktarı</string>
 
     <string name="settings_vegas_bet_amount">Bahis Miktarı</string>
-    <string name="settings_vegas_bet_amount_progress_text">İlk sağıtım masrafı: %1$d$. Toplanan her kartın kazandırdığı: %2$d$.</string>
+    <string name="settings_vegas_bet_amount_text_1">İlk sağıtım masrafı:</string>
+    <string name="settings_vegas_bet_amount_text_2">Toplanan her kartın kazandırdığı:</string>
     <string name="settings_vegas_bet_amount_summary">İlk sağıtım: -%1$d$, Toplanan kart: +%2$d$</string>
     <string name="settings_menu_order_title">Menü sırası</string>
     <string name="settings_menu_order_summary">Bir linke uzun süre tıklayın, ardından menü girişlerini yeniden sıralamak için sürükleyip bırakın</string>
@@ -126,5 +127,8 @@
 
     <string name="settings_hide_time">Hide Time</string>
     <string name="settings_hide_score">Hide Score</string>
+
+    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
+    <string name="settings_vegas_bet_amount_error">Can\'t save the numbers!</string>
 
 </resources>

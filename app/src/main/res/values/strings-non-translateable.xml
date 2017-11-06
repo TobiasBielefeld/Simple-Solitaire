@@ -40,7 +40,7 @@
     <string name="pref_key_4_color_mode" translatable="false">pref_key_4_color_mode</string>
     <string name="pref_key_tap_to_select_enable" translatable="false">pref_key_tap_to_select_enable</string>
     <string name="pref_key_tap_to_select_all_cards" translatable="false">pref_key_tap_to_select_all_cards</string>
-    <string name="pref_key_single_tap_enable" translatable="false">pref_key_single_tap_enable</string>
+    <string name="pref_key_single_tap_special_games" translatable="false">pref_key_single_tap_enable</string>
     <string name="pref_key_background_color_type" translatable="false">pref_key_background_color_type</string>
     <string name="pref_key_background_color_custom" translatable="false">pref_key_background_color_custom</string>
     <string name="pref_key_movement_speed" translatable="false">pref_key_movement_speed</string>
@@ -53,7 +53,8 @@
     <string name="pref_key_pyramid_number_of_recycles" translatable="false">pref_key_pyramid_number_of_recycles</string>
     <string name="pref_key_fortyeight_number_of_recycles" translatable="false">pref_key_fortyeight_number_of_recycles</string>
     <string name="pref_key_vegas_number_of_recycles" translatable="false">pref_key_vegas_number_of_recycles</string>
-    <string name="pref_key_vegas_bet_amount" translatable="false">pref_key_vegas_bet_amount</string>
+    <string name="pref_key_vegas_bet_amount" translatable="false">pref_key_vegas_bet_amount_v2</string>
+    <string name="pref_key_vegas_win_amount" translatable="false">pref_key_vegas_win_amount</string>
     <string name="pref_key_menu_order" translatable="false">pref_key_menu_order</string>
     <string name="pref_key_auto_start_new_game" translatable="false">pref_key_auto_start_new_game</string>
     <string name="pref_key_force_tablet_layout" translatable="false">pref_key_force_tablet_layout</string>
@@ -67,6 +68,7 @@
     <string name="pref_key_vegas_reset_money" translatable="false">pref_key_vegas_reset_money</string>
     <string name="pref_key_mod3_auto_move" translatable="false">pref_key_mod3_auto_move</string>
     <string name="pref_key_pyramid_auto_move" translatable="false">pref_key_pyramid_auto_move</string>
+    <string name="pref_key_single_tap_all_games" translatable="false">pref_key_single_tap_all_games</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

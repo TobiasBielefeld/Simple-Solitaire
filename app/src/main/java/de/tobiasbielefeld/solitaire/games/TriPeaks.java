@@ -54,7 +54,7 @@ public class TriPeaks extends Game {
         setDiscardStackIDs(28);
         setMainStackIDs(29);
         setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        setSingleTapeEnabled(true);
+        setSingleTapEnabled(true);
     }
 
     @Override
@@ -204,7 +204,7 @@ public class TriPeaks extends Game {
 
                 savedRunRecords.add(runCounter * 50);
                 points += runCounter * 50;
-            } else {
+            } else if (savedRunRecords.size()>0) {
                 points += savedRunRecords.get(savedRunRecords.size() - 1);                            //get last entry
                 savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
 

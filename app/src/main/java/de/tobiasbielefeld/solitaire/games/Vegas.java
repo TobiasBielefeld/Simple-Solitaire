@@ -33,7 +33,8 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_VEGAS_NUM
 
 public class Vegas extends Klondike {
 
-    private int betAmount=50;
+    private int betAmount;
+    private int winAmount;
 
     public Vegas(){
         //Attention!!
@@ -53,6 +54,7 @@ public class Vegas extends Klondike {
         super.dealCards();
 
         prefs.saveVegasBetAmountOld();
+        prefs.saveVegasWinAmountOld();
         loadData();
 
         boolean saveMoneyEnabled = prefs.getSavedVegasSaveMoneyEnabled();
@@ -75,16 +77,16 @@ public class Vegas extends Klondike {
         //the first id wouldn't be enough
         for (int i=0;i<originIDs.length;i++){
             if (originIDs[i] >=11 && originIDs[i]<=13 && destinationIDs[i] >=7 && destinationIDs[i] <=10){//stock to foundation
-                return betAmount/10;
+                return winAmount;
             }
         }
 
         if (originID < 7 && destinationID >= 7 && destinationID <= 10){                             //from tableau to foundation
-            return betAmount/10;
+            return winAmount;
         }
 
         if (originID >= 7 && originID <= 10 && destinationID < 7){                                  //from foundation to tableau
-            return -2*betAmount/10;
+            return -2*winAmount;
         }
 
         return 0;
@@ -100,10 +102,11 @@ public class Vegas extends Klondike {
     }
 
     private void loadData(){
-        betAmount = prefs.getSavedVegasBetAmountOld()*10;
+        betAmount = prefs.getSavedVegasBetAmountOld();
+        winAmount = prefs.getSavedVegasWinAmountOld();
 
-        setHintCosts(betAmount/10);
-        setUndoCosts(betAmount/10);
+        setHintCosts(winAmount);
+        setUndoCosts(winAmount);
     }
 
     @Override

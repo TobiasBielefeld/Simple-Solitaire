@@ -106,14 +106,14 @@
         android:id="@+id/linearLayout"
         android:layout_width="?attr/actionBarSize"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:background="#e7e7e7"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <FrameLayout
             android:id="@+id/mainButtonScores"
@@ -202,7 +202,7 @@
                 android:contentDescription="@string/menu_settings"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_settings" />
+                app:srcCompat="@drawable/icon_settings_black" />
         </FrameLayout>
 
     </LinearLayout>

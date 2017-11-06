@@ -153,7 +153,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
                 gameLogic.setNumberOfRecycles(key, DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
             }
 
-        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT)){
+        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT) || key.equals(PREF_KEY_VEGAS_WIN_AMOUNT)){
             updatePreferenceVegasBetAmountSummary();
             showToast(getString(R.string.settings_restart_vegas));
 
@@ -240,9 +240,10 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     }
 
     private void updatePreferenceVegasBetAmountSummary(){
-        int amount = prefs.getSavedVegasBetAmount();
+        int betAmount = prefs.getSavedVegasBetAmount();
+        int winAmount = prefs.getSavedVegasWinAmount();
 
-        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),amount*10,amount));
+        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),betAmount,winAmount));
     }
 
     public static class CalculationPreferenceFragment extends CustomPreferenceFragment {

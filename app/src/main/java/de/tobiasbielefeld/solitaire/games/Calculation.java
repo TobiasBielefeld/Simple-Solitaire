@@ -290,6 +290,9 @@ public class Calculation extends Game {
 
     private void setTexts(){
         for (int i = 0;i <4; i++) {
+            if (stacks[4 + i].isEmpty()){
+                continue;
+            }
 
             int topCardValue = stacks[4 + i].getTopCard().getValue();
             int value;

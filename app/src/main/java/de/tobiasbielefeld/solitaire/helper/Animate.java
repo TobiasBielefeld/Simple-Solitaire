@@ -241,7 +241,13 @@ public class Animate {
 
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());
 
-        animation.setDuration((long) (distance * 100 / Card.width));
+        try {
+            animation.setDuration((long) (distance * 100 / Card.width));
+        } catch (ArithmeticException e) {
+            animation.setDuration(200);
+            Log.e("Animate moveCard()", e.toString());
+        }
+
         animation.setFillEnabled(true);
 
         view.setDestination(pX, pY);

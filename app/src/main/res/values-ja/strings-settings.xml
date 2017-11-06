@@ -98,7 +98,8 @@
     <string name="settings_number_of_recycles">リサイクル量</string>
 
     <string name="settings_vegas_bet_amount">ベット額</string>
-    <string name="settings_vegas_bet_amount_progress_text">最初の取引には%1$d$がかかり、基金に支払われた各カードは%2$d$を獲得します。</string>
+    <string name="settings_vegas_bet_amount_text_1">最初の取引には:</string>
+    <string name="settings_vegas_bet_amount_text_2">基礎に遊んだ各カードは稼いだ:</string>
     <string name="settings_vegas_bet_amount_summary">最初の取引：-%1$d$、基金：+%2$d$</string>
 
     <string name="settings_menu_order_title">メニュー順</string>
@@ -134,5 +135,8 @@
 
     <string name="settings_hide_time">時間を隠す</string>
     <string name="settings_hide_score">スコアを隠す</string>
+
+    <string name="settings_single_tap_all_games_text">カードを一度押すと、次のスタックに移動します。 ダブルタップの動きと同じ設定になります。 これにより、タップ・トゥ・セレクト・ムーブが無効になります。</string>
+    <string name="settings_vegas_bet_amount_error">数字を保存できません！</string>
 
 </resources>

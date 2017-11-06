@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
@@ -37,7 +38,6 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
-import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -52,6 +52,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
+    private CheckBoxPreference preferenceSingleTapAllGames;
+    private CheckBoxPreference preferenceTapToSelect;
     private DialogPreferenceCardDialog preferenceCards;
     private Sounds settingsSounds;
 
@@ -177,6 +179,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             if (scores!=null) {
                 scores.output();
             }
+        } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
+            if (sharedPreferences.getBoolean(key,false)) {
+                preferenceTapToSelect.setChecked(false);
+            }
+
+        } else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)){
+            if (sharedPreferences.getBoolean(key,false)) {
+                preferenceSingleTapAllGames.setChecked(false);
+            }
+
         }
     }
 
@@ -342,6 +354,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_movement_methods);
             setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceSingleTapAllGames = (CheckBoxPreference) findPreference(getString(R.string.pref_key_single_tap_all_games));
+            settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
         }
     }
 }

@@ -137,9 +137,6 @@ public class Freecell extends Game {
     }
 
     public CardAndStack hintTest() {
-        /*
-         * showing hints also depends on the settings. It can also show multiple cards at once
-         */
         for (int i = 0; i < 12; i++) {
 
             Stack sourceStack = stacks[i];

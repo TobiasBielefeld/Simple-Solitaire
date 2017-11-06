@@ -58,9 +58,10 @@ public abstract class Game {
     private int recycleCounter = 0;
     private int totalRecycles = 0;
     private boolean hasArrow = false;
-    private boolean singleTapeEnabled = false;
+    private boolean singleTapEnabled = false;
     private boolean bonusEnabled = true;
     private boolean pointsInDollar = false;
+    private boolean hideRecycleCounter = false;
     private int hintCosts = 25;
     private int undoCosts = 25;
     protected ArrayList<TextView> textViews = new ArrayList<>();
@@ -348,8 +349,6 @@ public abstract class Game {
      * @param width The width to apply to the
      * @param layout he textView will be added to this layout
      * @param context Context to create view
-     * @return The created textView
-     *
      */
     protected void addTextViews(int count, int width, RelativeLayout layout, Context context){
 
@@ -423,7 +422,7 @@ public abstract class Game {
     }
 
     /**
-     * Sets the number of limited recycles for this game. Use a zero as the parameter to disable
+     * Sets the number of limited recycles for this game. Use -1 as the parameter to disable
      * the limited recycles.
      *
      * @param number The maximum number of recycles
@@ -432,6 +431,7 @@ public abstract class Game {
         if (number >= 0) {
             hasLimitedRecycles = true;
             totalRecycles = number;
+            hideRecycleCounter = number==0;
         } else {
             hasLimitedRecycles = false;
         }
@@ -903,12 +903,12 @@ public abstract class Game {
         hasLimitedRecycles = !hasLimitedRecycles;
     }
 
-    public void setSingleTapeEnabled(boolean value) {
-        singleTapeEnabled = value;
+    public void setSingleTapEnabled(boolean value) {
+        singleTapEnabled = value;
     }
 
     public boolean isSingleTapEnabled() {
-        return singleTapeEnabled && prefs.getSavedSingleTapEnabled();
+        return singleTapEnabled && prefs.getSavedSingleTapSpecialGames();
     }
 
     public void flipAllCardsUp() {
@@ -950,5 +950,9 @@ public abstract class Game {
 
     public boolean testForMainStack(Stack stack){
         return hasMainStack() && getMainStacks().contains(stack);
+    }
+
+    public boolean hidesRecycleCounter(){
+        return hideRecycleCounter;
     }
 }

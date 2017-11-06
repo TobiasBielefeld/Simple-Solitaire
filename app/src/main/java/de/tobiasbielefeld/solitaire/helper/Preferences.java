@@ -85,7 +85,7 @@ public class Preferences {
     public static String PREF_KEY_DOUBLE_TAP_ALL_CARDS;
     public static String PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST;
     public static String PREF_KEY_TAP_TO_SELECT_ENABLED;
-    public static String PREF_KEY_SINGLE_TAP_ENABLE;
+    public static String PREF_KEY_SINGLE_TAP_SPECIAL_GAMES;
     public static String PREF_KEY_BACKGROUND_COLOR_TYPE;
     public static String PREF_KEY_BACKGROUND_COLOR;
     public static String PREF_KEY_BACKGROUND_COLOR_CUSTOM;
@@ -103,6 +103,8 @@ public class Preferences {
     public static String PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_VEGAS_BET_AMOUNT;
     public static String PREF_KEY_VEGAS_BET_AMOUNT_OLD;
+    public static String PREF_KEY_VEGAS_WIN_AMOUNT;
+    public static String PREF_KEY_VEGAS_WIN_AMOUNT_OLD;
     public static String PREF_KEY_MENU_ORDER;
     public static String PREF_KEY_AUTO_START_NEW_GAME;
     public static String PREF_KEY_FORCE_TABLET_LAYOUT;
@@ -115,6 +117,7 @@ public class Preferences {
     public static String PREF_KEY_VEGAS_RESET_MONEY;
     public static String PREF_KEY_MOD3_AUTO_MOVE;
     public static String PREF_KEY_PYRAMID_AUTO_MOVE;
+    public static String PREF_KEY_SINGLE_TAP_ALL_GAMES;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -143,6 +146,7 @@ public class Preferences {
     public static int DEFAULT_BACKGROUND_VOLUME;
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
     public static int DEFAULT_VEGAS_BET_AMOUNT;
+    public static int DEFAULT_VEGAS_WIN_AMOUNT;
     public static int DEFAULT_VEGAS_MONEY;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_LEFT_HANDED_MODE;
@@ -155,7 +159,7 @@ public class Preferences {
     public static boolean DEFAULT_MOVED_FIRST_CARD;
     public static boolean DEFAULT_4_COLOR_MODE;
     public static boolean DEFAULT_TAP_TO_SELECT_ENABLED;
-    public static boolean DEFAULT_SINGLE_TAP_ENABLED;
+    public static boolean DEFAULT_SINGLE_TAP_SPECIAL_GAMES_ENABLED;
     public static boolean DEFAULT_SOUND_ENABLED;
     public static boolean DEFAULT_AUTO_START_NEW_GAME;
     public static boolean DEFAULT_FORCE_TABLET_LAYOUT;
@@ -163,6 +167,7 @@ public class Preferences {
     public static boolean DEFAULT_HIDE_SCORE;
     public static boolean DEFAULT_VEGAS_MONEY_ENABLED;
     public static boolean DEFAULT_VEGAS_RESET_MONEY;
+    public static boolean DEFAULT_SINGLE_TAP_ALL_GAMES;
 
     public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
     public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
@@ -232,7 +237,7 @@ public class Preferences {
         PREF_KEY_DOUBLE_TAP_ALL_CARDS = res.getString(R.string.pref_key_double_tap_all_cards);
         PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST = res.getString(R.string.pref_key_double_tap_foundation_first);
         PREF_KEY_TAP_TO_SELECT_ENABLED = res.getString(R.string.pref_key_tap_to_select_enable);
-        PREF_KEY_SINGLE_TAP_ENABLE = res.getString(R.string.pref_key_single_tap_enable);
+        PREF_KEY_SINGLE_TAP_SPECIAL_GAMES = res.getString(R.string.pref_key_single_tap_special_games);
         PREF_KEY_BACKGROUND_COLOR_TYPE = res.getString(R.string.pref_key_background_color_type);
         PREF_KEY_BACKGROUND_COLOR = res.getString(R.string.pref_key_background_color);
         PREF_KEY_BACKGROUND_COLOR_CUSTOM = res.getString(R.string.pref_key_background_color_custom);
@@ -247,8 +252,10 @@ public class Preferences {
         PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_fortyeight_number_of_recycles);
         PREF_KEY_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_vegas_number_of_recycles);
         PREF_KEY_VEGAS_BET_AMOUNT = res.getString(R.string.pref_key_vegas_bet_amount);
+        PREF_KEY_VEGAS_WIN_AMOUNT = res.getString(R.string.pref_key_vegas_win_amount);
         PREF_KEY_MENU_ORDER = res.getString(R.string.pref_key_menu_order);
         PREF_KEY_VEGAS_BET_AMOUNT_OLD = PREF_KEY_VEGAS_BET_AMOUNT + OLD;
+        PREF_KEY_VEGAS_WIN_AMOUNT_OLD = PREF_KEY_VEGAS_WIN_AMOUNT + OLD;
         PREF_KEY_AUTO_START_NEW_GAME = res.getString(R.string.pref_key_auto_start_new_game);
         PREF_KEY_FORCE_TABLET_LAYOUT = res.getString(R.string.pref_key_force_tablet_layout);
         PREF_KEY_KLONDIKE_LIMITED_RECYCLES = res.getString(R.string.pref_key_klondike_limit_recycles);
@@ -262,6 +269,7 @@ public class Preferences {
         PREF_KEY_VEGAS_RESET_MONEY = res.getString(R.string.pref_key_vegas_reset_money);
         PREF_KEY_MOD3_AUTO_MOVE = res.getString(R.string.pref_key_mod3_auto_move);
         PREF_KEY_PYRAMID_AUTO_MOVE = res.getString(R.string.pref_key_pyramid_auto_move);
+        PREF_KEY_SINGLE_TAP_ALL_GAMES = res.getString(R.string.pref_key_single_tap_all_games);
 
         PREF_KEY_GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         PREF_KEY_GAME_WON = res.getString(R.string.game_won);
@@ -304,7 +312,7 @@ public class Preferences {
         DEFAULT_LEFT_HANDED_MODE = res.getBoolean(R.bool.default_left_handed_mode);
         DEFAULT_GOLF_CYCLIC = res.getBoolean(R.bool.default_golf_cyclic);
         DEFAULT_TAP_TO_SELECT_ENABLED = res.getBoolean(R.bool.default_tap_to_select_enable);
-        DEFAULT_SINGLE_TAP_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
+        DEFAULT_SINGLE_TAP_SPECIAL_GAMES_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
         DEFAULT_AUTO_START_NEW_GAME = res.getBoolean(R.bool.default_auto_start_new_game);
         DEFAULT_KLONDIKE_LIMITED_RECYCLES = res.getBoolean(R.bool.default_klondike_limited_recycles);
         DEFAULT_CALCULATION_ALTERNATIVE = res.getBoolean(R.bool.default_calculation_alternative);
@@ -314,6 +322,7 @@ public class Preferences {
         DEFAULT_VEGAS_RESET_MONEY = res.getBoolean(R.bool.default_vegas_reset_money);
         DEFAULT_MOD3_AUTO_MOVE = res.getBoolean(R.bool.default_mod3_auto_move);
         DEFAULT_PYRAMID_AUTO_MOVE = res.getBoolean(R.bool.default_pyramid_auto_move);
+        DEFAULT_SINGLE_TAP_ALL_GAMES = res.getBoolean(R.bool.default_single_tap_all_games);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
@@ -337,6 +346,7 @@ public class Preferences {
         DEFAULT_BACKGROUND_MUSIC = res.getString(R.string.default_background_music);
         DEFAULT_BACKGROUND_VOLUME = res.getInteger(R.integer.default_background_volume);
         DEFAULT_VEGAS_BET_AMOUNT = res.getInteger(R.integer.default_vegas_bet_amount);
+        DEFAULT_VEGAS_WIN_AMOUNT = res.getInteger(R.integer.default_vegas_win_amount);
         DEFAULT_VEGAS_MONEY = res.getInteger(R.integer.default_vegas_money);
         DEFAULT_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.default_pyramid_number_of_recycles);
         DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.default_fortyeight_number_of_recycles);
@@ -733,9 +743,18 @@ public class Preferences {
         return savedSharedData.getInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
     }
 
+    public int getSavedVegasWinAmount(){
+        return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT,DEFAULT_VEGAS_WIN_AMOUNT);
+    }
+
     public int getSavedVegasBetAmountOld(){
         return savedSharedData.getInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD,DEFAULT_VEGAS_BET_AMOUNT);
     }
+
+    public int getSavedVegasWinAmountOld(){
+        return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD,DEFAULT_VEGAS_WIN_AMOUNT);
+    }
+
 
     public int getSavedCurrentGame(){
         return savedSharedData.getInt(PREF_KEY_CURRENT_GAME,DEFAULT_CURRENT_GAME);
@@ -913,8 +932,8 @@ public class Preferences {
         return savedSharedData.getBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST,DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST);
     }
 
-    public boolean getSavedSingleTapEnabled(){
-        return savedSharedData.getBoolean(PREF_KEY_SINGLE_TAP_ENABLE,DEFAULT_SINGLE_TAP_ENABLED);
+    public boolean getSavedSingleTapSpecialGames(){
+        return savedSharedData.getBoolean(PREF_KEY_SINGLE_TAP_SPECIAL_GAMES, DEFAULT_SINGLE_TAP_SPECIAL_GAMES_ENABLED);
     }
 
     public boolean getSavedStartWithMenu(){
@@ -923,6 +942,10 @@ public class Preferences {
 
     public boolean getSavedSoundEnabled(){
         return savedSharedData.getBoolean(PREF_KEY_SOUND_ENABLED, DEFAULT_SOUND_ENABLED);
+    }
+
+    public boolean getSingleTapAllGames(){
+        return savedSharedData.getBoolean(PREF_KEY_SINGLE_TAP_ALL_GAMES, DEFAULT_SINGLE_TAP_ALL_GAMES);
     }
 
     public ArrayList<String> getSavedCalculationNextCardsList(){
@@ -971,9 +994,18 @@ public class Preferences {
         savedSharedData.edit().putInt(PREF_KEY_VEGAS_BET_AMOUNT,value).apply();
     }
 
+    public void saveVegasWinAmount(int value){
+        savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT,value).apply();
+    }
+
     public void saveVegasBetAmountOld(){
         savedSharedData.edit().putInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD,getSavedVegasBetAmount()).apply();
     }
+
+    public void saveVegasWinAmountOld(){
+        savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD,getSavedVegasWinAmount()).apply();
+    }
+
 
     public void saveCurrentGame(int value){
         savedSharedData.edit().putInt(PREF_KEY_CURRENT_GAME,value).apply();

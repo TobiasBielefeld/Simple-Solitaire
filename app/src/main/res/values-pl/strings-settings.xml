@@ -98,7 +98,8 @@
     <string name="settings_number_of_recycles">Liczba ponownych rozdań</string>
 
     <string name="settings_vegas_bet_amount">Kwota zakładu</string>
-    <string name="settings_vegas_bet_amount_progress_text">Płacisz %1$d$ za pierwsze rozdanie kart, za przeniesienie każdej karty na stos bazowy dostajesz %2$d$.</string>
+    <string name="settings_vegas_bet_amount_text_1">Za pierwsze rozdanie kart płacisz:</string>
+    <string name="settings_vegas_bet_amount_text_2">Za przeniesienie każdej karty na stos bazowy dostajesz:</string>
     <string name="settings_vegas_bet_amount_summary">Rozdanie -%1$d$, wrzucenie karty: +%2$d$</string>
 
     <string name="settings_menu_order_title">Kolejność menu</string>
@@ -134,5 +135,9 @@
 
     <string name="settings_hide_time">Ukryj czas</string>
     <string name="settings_hide_score">Ukryj punktację</string>
+
+    <!-- new values -->
+    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
+    <string name="settings_vegas_bet_amount_error">Can\'t save the numbers!</string>
 
 </resources>

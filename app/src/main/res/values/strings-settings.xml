@@ -71,7 +71,7 @@
     <string name="settings_tap_to_select_enable">Enable Tap-To-Select movements</string>
     <string name="settings_tap_to_select_enable_text">Tap on a card to select it, then tap the destination stack to move it there</string>
     <string name="settings_single_tap">Single-Tap</string>
-    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
+
     <string name="settings_single_tap_enable_text">Only for Golf and TriPeaks: Press a card once to move it to the discard stack</string>
     <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
     <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
@@ -87,8 +87,7 @@
     <string name="settings_limit_number_of_recycles_text">Recycling the waste back to the main stack is limited</string>
     <string name="settings_number_of_recycles">Amount of recycles</string>
     <string name="settings_vegas_bet_amount">Bet Amount</string>
-    <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
-    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+
     <string name="settings_menu_order_title">Menu order</string>
     <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
     <string name="settings_menu_order_set_default">Reset order</string>
@@ -124,4 +123,12 @@
     <string name="settings_hide_time">Hide Time</string>
     <string name="settings_hide_score">Hide Score</string>
 
+    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
+
+    <string name="settings_vegas_bet_amount_text_1">Initial deal costs:</string>
+    <string name="settings_vegas_bet_amount_text_2">Each card played to the foundation earns:</string>
+    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+
+    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
+    <string name="settings_vegas_bet_amount_error">Can\'t save the numbers!</string>
 </resources>
