@@ -112,7 +112,7 @@
     <string name="settings_customization_description">Dostosuj karty, tła i interfejs użytkownika</string>
 
     <string name="settings_force_tablet_layout_title">Wymuś tryb tabletu</string>
-    <string name="settings_force_tablet_layout_text">Wyświetl aplikację tak jak na dużych ekranach (>=10\")</string>
+    <string name="settings_force_tablet_layout_text">Wyświetl aplikację tak jak na dużych ekranach (≥10\")</string>
 
     <string name="settings_restart_calculation">Aby zastosować zmiany, rozpocznij nową grę Calculation</string>
     <string name="settings_calculation_alternative_title">Trzymaj karty</string>
@@ -136,8 +136,7 @@
     <string name="settings_hide_time">Ukryj czas</string>
     <string name="settings_hide_score">Ukryj punktację</string>
 
-    <!-- new values -->
-    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
-    <string name="settings_vegas_bet_amount_error">Can\'t save the numbers!</string>
+    <string name="settings_single_tap_all_games_text">Stuknij pojedynczo w kartę, aby przenieść ją na następny możliwy stos. Ustawienie takie same jak ruchów podwójnych. Wyłączone zostaną ruchy „wybierz przez stuknięcie”.</string>
+    <string name="settings_vegas_bet_amount_error">Nie można zapisać liczby!</string>
 
 </resources>
