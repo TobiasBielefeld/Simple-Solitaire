@@ -224,15 +224,25 @@ public class GameLogic {
      * @param array The array to randomize
      */
     private void randomize(Card[] array) {
+        /*ArrayList<Card> cardArrayList = new ArrayList<>();
+
+        Collections.addAll(cardArrayList, array);
+
+        Collections.shuffle(cardArrayList);
+        //Collections.shuffle(cardArrayList);
+
+        for (int i=0;i<array.length;i++) {
+            array[i] = cardArrayList.get(i);
+        }*/
+
         int index;
         Card dummy;
 
         for (int i = array.length - 1; i > 0; i--) {
-            if ((index = rand.nextInt(i + 1)) != i) {
-                dummy = array[i];
-                array[i] = array[index];
-                array[index] = dummy;
-            }
+            index = rand.nextInt(i);
+            dummy = array[i];
+            array[i] = array[index];
+            array[index] = dummy;
         }
     }
 
