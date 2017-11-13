@@ -7,6 +7,10 @@
      -
     -->
 
+    <string name="changelog_41" translatable="false">
+        • Added missing Esperanto and Polish translations, thanks to verdulo!
+    </string>
+
     <string name="changelog_40" translatable="false">
         • Added a new Single-Tap settings entry. It is like Double-Tap, but with one tap less!
         \n• Disabled recycles (limited to 0) aren\'t shown anymore over the main stack
