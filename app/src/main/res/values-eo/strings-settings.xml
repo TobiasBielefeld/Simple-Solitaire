@@ -135,8 +135,7 @@
     <string name="settings_hide_time">Kaŝi tempon</string>
     <string name="settings_hide_score">Kaŝi poentaron</string>
 
-    <!-- new values -->
-    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
-    <string name="settings_vegas_bet_amount_error">Can\'t save the numbers!</string>
+    <string name="settings_single_tap_all_games_text">Unuoble frapetu karton por movi ĝin al la sekva ebla stako. Samaj agordoj kiel por duobla frapeto. Tio ĉi malaktivigos movojn “elekti-per-frapeto”.</string>
+    <string name="settings_vegas_bet_amount_error">Ne povas konservi numerojn!</string>
 
 </resources>
