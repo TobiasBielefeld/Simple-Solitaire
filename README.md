@@ -53,6 +53,9 @@ Reintroduce the hall of shame, where I will list blatant copies of this app! Eve
 - https://play.google.com/store/apps/details?id=de.allinone.solitairegame
 - https://play.google.com/store/apps/details?id=de.collectionof.newsolitairegame
 - https://play.google.com/store/apps/details?id=startandroid.ru.solitairepack
+- https://play.google.com/store/apps/details?id=com.ponglos.solitaire
+- https://play.google.com/store/apps/details?id=net.sekmetech.solitaire
+- https://play.google.com/store/apps/details?id=com.generic.solitaireallinone
 
 ## Installation Guide
 The instructions to compile this app are very easy. Just download the project and open Android Studio. Then go to File -> Open -> Navigate to the download location -> Choose the folder -> If you try to start the app, Android Studio should install all necessary dependencies and you are ready to go.
