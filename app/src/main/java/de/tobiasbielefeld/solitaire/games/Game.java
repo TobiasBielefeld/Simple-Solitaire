@@ -92,7 +92,6 @@ public abstract class Game {
             cardToChange.getStack().exchangeCard(cardToChange,cardsToMix.get(i));
         }
 
-
         recordList.reset();
     }
 
