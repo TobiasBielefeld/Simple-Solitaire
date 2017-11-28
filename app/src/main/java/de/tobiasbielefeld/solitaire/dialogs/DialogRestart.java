@@ -56,11 +56,15 @@ public class DialogRestart extends DialogFragment {
                                 gameLogic.redeal();
                                 break;
                             case 2:
+                                DialogMixCards dialogMixCards = new DialogMixCards();
+                                dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
+                                break;
+                            case 3:
                                 Intent intent = new Intent(gameManager, Manual.class);
                                 intent.putExtra(GAME,lg.getSharedPrefName());
                                 startActivity(intent);
                                 break;
-                            case 3:
+                            case 4:
                                 if (gameManager.hasLoaded) {
                                     timer.save();
                                     gameLogic.setWonAndReloaded();

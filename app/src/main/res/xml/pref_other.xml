@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/pref_key_hide_status_bar"
+        android:title="@string/settings_hide_status_bar" />
+
     <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
         android:defaultValue="1"
         android:entries="@array/pref_orientation_titles"
@@ -31,10 +36,7 @@
         android:summary="%s"
         android:title="@string/settings_movement_speed" />
 
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="@string/pref_key_hide_status_bar"
-        android:title="@string/settings_hide_status_bar" />
+
 
     <CheckBoxPreference
         android:defaultValue="false"

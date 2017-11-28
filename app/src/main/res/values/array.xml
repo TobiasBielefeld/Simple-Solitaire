@@ -84,6 +84,7 @@
     <string-array name="restart_menu">
         <item>Start new game</item>
         <item>Give cards again</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Game rules</item>
         <item>Return to main menu</item>
     </string-array>

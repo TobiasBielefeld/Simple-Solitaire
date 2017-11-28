@@ -20,12 +20,12 @@ package de.tobiasbielefeld.solitaire;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
+import de.tobiasbielefeld.solitaire.handler.HandlerDealCards;
 import de.tobiasbielefeld.solitaire.handler.HandlerRecordListUndo;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -83,6 +83,7 @@ public class SharedData {
     public static HandlerTestAfterMove handlerTestAfterMove = new HandlerTestAfterMove();
     public static HandlerTestIfWon handlerTestIfWon = new HandlerTestIfWon();
     public static HandlerRecordListUndo handlerRecordListUndo = new HandlerRecordListUndo();
+    public static HandlerDealCards handlerDealCards = new HandlerDealCards();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
 

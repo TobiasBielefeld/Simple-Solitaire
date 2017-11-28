@@ -38,10 +38,11 @@ public class Calculation extends Game {
     public Calculation() {
         setNumberOfDecks(1);
         setNumberOfStacks(10);
-        setMainStackIDs(9);
+
+        setTableauStackIDs(0,1,2,3);
+        setFoundationStackIDs(4,5,6,7);
         setDiscardStackIDs(8);
-        setLastTableauID(3);
-        setHasFoundationStacks(true);
+        setMainStackIDs(9);
 
         prefs.saveCalculationAlternativeModeOld();
     }
@@ -122,17 +123,19 @@ public class Calculation extends Game {
         //deal cards to foundation: search an ace for the first stack, a two for the second and so on
         for (int i = 0; i < 4; i++) {
             for (Card card : getMainStack().currentCards){
-                if (card.getValue()==(i+1)){
+                if (card.getValue()==(i+1) && stacks[4+i].isEmpty()){
                     moveToStack(card, stacks[4+i], OPTION_NO_RECORD);
-                    stacks[4+i].getTopCard().flipUp();
+                    stacks[4+i].flipTopCardUp();
                     break;
                 }
             }
         }
 
         //card to trash
-        moveToStack(getMainStack().getTopCard(),stacks[8],OPTION_NO_RECORD);
-        stacks[8].getTopCard().flipUp();
+        if (!getMainStack().isEmpty()) {
+            moveToStack(getMainStack().getTopCard(), stacks[8], OPTION_NO_RECORD);
+            stacks[8].flipTopCardUp();
+        }
 
         setTexts();
     }

@@ -29,7 +29,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  *  Contains everything around the cards. The current cards on it and the list of bitmaps for the
- *  backgroudns.
+ *  backgrounds.
  */
 
 public class Stack {
@@ -244,10 +244,11 @@ public class Stack {
         }
 
         switch (spacingDirection) {
-            case NONE:
             default:
-                if (!isEmpty()) {
-                    getTopCard().setLocation(view.getX(), view.getY());
+            case NONE:
+                for (int i = 0; i < currentCards.size(); i++) {
+                    currentCards.get(i).setLocation(view.getX(), view.getY());
+                    currentCards.get(i).view.bringToFront();
                 }
                 break;
             case DOWN:
@@ -260,6 +261,7 @@ public class Stack {
                 for (int i = 1; i < currentCards.size(); i++) {
                     posY += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                     currentCards.get(i).setLocation(view.getX(), posY);
+                    currentCards.get(i).view.bringToFront();
                 }
                 break;
             case UP:
@@ -272,6 +274,7 @@ public class Stack {
                 for (int i = 1; i < currentCards.size(); i++) {
                     posY -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                     currentCards.get(i).setLocation(view.getX(), posY);
+                    currentCards.get(i).view.bringToFront();
                 }
                 break;
             case LEFT:
@@ -285,6 +288,7 @@ public class Stack {
                     for (int i = 1; i < currentCards.size(); i++) {
                         posX += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                         currentCards.get(i).setLocation(posX, view.getY());
+                        currentCards.get(i).view.bringToFront();
                     }
                 } else {
                     spacing = min((view.getX() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
@@ -293,6 +297,7 @@ public class Stack {
                     for (int i = 1; i < currentCards.size(); i++) {
                         posX -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                         currentCards.get(i).setLocation(posX, view.getY());
+                        currentCards.get(i).view.bringToFront();
                     }
                 }
                 break;
@@ -307,6 +312,7 @@ public class Stack {
                     for (int i = 1; i < currentCards.size(); i++) {
                         posX -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                         currentCards.get(i).setLocation(posX, view.getY());
+                        currentCards.get(i).view.bringToFront();
                     }
                 } else {
                     spacing = min((spacingMax - view.getX()) / (currentCards.size() + 1), defaultSpacing);
@@ -315,6 +321,7 @@ public class Stack {
                     for (int i = 1; i < currentCards.size(); i++) {
                         posX += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
                         currentCards.get(i).setLocation(posX, view.getY());
+                        currentCards.get(i).view.bringToFront();
                     }
                 }
                 break;
@@ -549,5 +556,64 @@ public class Stack {
 
     public void applyDefaultSpacing(){
         spacing = defaultSpacing;
+    }
+
+    public void flipTopCardUp(){
+        if (getSize() > 0){
+            getTopCard().flipUp();
+        }
+    }
+
+    /*public void exchangeCard(int index, Card newCard){
+
+        if (currentCards.get(index).isUp()){
+            newCard.flipUp();
+        } else {
+            newCard.flipDown();
+        }
+
+        newCard.setStack(this);
+
+        currentCards.set(index,newCard);
+        updateSpacing();
+    }*/
+
+    public void exchangeCard(Card oldCard, Card newCard){
+
+        logText("moving card " + newCard.getId() + " from " + newCard.getStackId() + " to " + getId() +". Card " + oldCard.getId() +" is now on " + newCard.getStackId());
+        int oldCardPreviousIndexOnStack = oldCard.getIndexOnStack();
+        int newCardPreviousIndexOnStack = newCard.getIndexOnStack();
+
+        Stack newCardPreviousStack = newCard.getStack();
+
+        boolean newCardPreviousDirection = newCard.isUp();
+        boolean oldCardPreviousDirection = oldCard.isUp();
+
+
+
+        if (oldCardPreviousDirection){
+            newCard.flipUp();
+        } else {
+            newCard.flipDown();
+        }
+
+        newCard.setStack(this);
+
+        currentCards.set(oldCardPreviousIndexOnStack,newCard);
+        updateSpacing();
+
+
+
+
+        newCardPreviousStack.currentCards.set(newCardPreviousIndexOnStack,oldCard);
+        oldCard.setStack(newCardPreviousStack);
+
+        if (newCardPreviousDirection){
+            oldCard.flipUp();
+        } else {
+            oldCard.flipDown();
+        }
+
+        newCardPreviousStack.updateSpacing();
     }
 }

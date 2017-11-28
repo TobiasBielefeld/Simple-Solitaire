@@ -42,10 +42,11 @@ public class FortyEight extends Game {
     public FortyEight() {
         setNumberOfDecks(2);
         setNumberOfStacks(18);
-        setMainStackIDs(17);
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7);
+        setFoundationStackIDs(8,9,10,11,12,13,14,15);
         setDiscardStackIDs(16);
-        setLastTableauID(7);
-        setHasFoundationStacks(true);
+        setMainStackIDs(17);
 
         setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
 
@@ -94,14 +95,18 @@ public class FortyEight extends Game {
     }
 
     public void dealCards() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 4; j++) {
-                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getTopCard().flipUp();
-            }
+        if (!getMainStack().isEmpty()) {
+            moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
         }
 
-        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (!getMainStack().isEmpty()) {
+                    moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                    stacks[i].flipTopCardUp();
+                }
+            }
+        }
     }
 
 

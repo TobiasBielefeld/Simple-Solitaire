@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -156,6 +157,9 @@ public class GameLogic {
      */
     public void newGame() {
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
+
+        randomize(randomCards);
+        randomize(randomCards);
         randomize(randomCards);
 
         redeal();
@@ -183,21 +187,25 @@ public class GameLogic {
         timer.reset();
         autoComplete.hideButton();
 
-        for (Stack stack : stacks)
+        for (Stack stack : stacks) {
             stack.reset();
+        }
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
-            ///TODO there is an error somewhere here "null pointer exception"
-            card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
+            card.setLocation(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
             currentGame.getDealStack().addCard(card);
             card.flipDown();
         }
 
+
+
+        handlerDealCards.sendEmptyMessage(0);
+
         //and finally deal the cards from the game!
-        currentGame.dealCards();
+        /*currentGame.dealCards();
         sounds.playSound(Sounds.names.DEAL_CARDS);
-        handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
+        handlerTestAfterMove.sendEmptyMessageDelayed(0,100);*/
     }
 
     /**
@@ -224,14 +232,27 @@ public class GameLogic {
      * @param array The array to randomize
      */
     private void randomize(Card[] array) {
+        SecureRandom secureRandom;
         int index;
         Card dummy;
 
-        for (int i = array.length - 1; i > 0; i--) {
-            index = rand.nextInt(i+1);
-            dummy = array[i];
-            array[i] = array[index];
-            array[index] = dummy;
+
+        if (prefs.getSavedSecureRng()){
+            secureRandom = new SecureRandom();
+
+            for (int i = array.length - 1; i > 0; i--) {
+                index = secureRandom.nextInt(i+1);
+                dummy = array[i];
+                array[i] = array[index];
+                array[index] = dummy;
+            }
+        } else {
+            for (int i = array.length - 1; i > 0; i--) {
+                index = rand.nextInt(i + 1);
+                dummy = array[i];
+                array[i] = array[index];
+                array[index] = dummy;
+            }
         }
     }
 

@@ -50,9 +50,11 @@ public class Golf extends Game {
     public Golf() {
         setNumberOfDecks(1);
         setNumberOfStacks(9);
-        setMainStackIDs(8);
+
+        setTableauStackIDs(0,1,2,3,4,5,6);
         setDiscardStackIDs(7);
-        setLastTableauID(6);
+        setMainStackIDs(8);
+
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
         setSingleTapEnabled(true);
     }
@@ -106,15 +108,20 @@ public class Golf extends Game {
     }
 
     public void dealCards() {
+        if (!getMainStack().isEmpty()) {
+            moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+        }
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 5; j++) {
-                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getTopCard().flipUp();
+                if (!getMainStack().isEmpty()) {
+                    moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                    stacks[i].flipTopCardUp();
+                }
             }
         }
 
-        moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+
     }
 
     public boolean cardTest(Stack stack, Card card) {

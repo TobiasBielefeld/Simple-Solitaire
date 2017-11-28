@@ -47,10 +47,11 @@ public class Canfield extends Game {
     public Canfield() {
         setNumberOfDecks(1);
         setNumberOfStacks(13);
-        setMainStackIDs(12);
+
+        setTableauStackIDs(0,1,2,3,4);
+        setFoundationStackIDs(5,6,7,8);
         setDiscardStackIDs(9,10,11);
-        setLastTableauID(4);
-        setHasFoundationStacks(true);
+        setMainStackIDs(12);
     }
 
     @Override
@@ -176,35 +177,47 @@ public class Canfield extends Game {
         //save the new settings, so it only takes effect on new deals
         prefs.saveCanfieldDrawModeOld();
 
-        //and move cards to the tableau
-        for (int i = 0; i < 4; i++) {
-            moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-            stacks[i].getTopCard().flipUp();
+
+
+        //one card to foundation, and save its value (but only if the foundation is empty, for remixing cards)
+        if (stacks[5].isEmpty()) {
+            moveToStack(getMainStack().getTopCard(), stacks[5], OPTION_NO_RECORD);
+            stacks[5].getTopCard().flipUp();
+            startCardValue = stacks[5].getTopCard().getValue();
+            setFoundationBackgrounds();
         }
-
-        //one card to reserve
-        for (int i = 0; i < 13; i++) {
-            moveToStack(getMainStack().getTopCard(), stacks[4], OPTION_NO_RECORD);
-        }
-
-        stacks[4].getTopCard().flipUp();
-
-        //one card to foundation, and save its value
-        moveToStack(getMainStack().getTopCard(), stacks[5], OPTION_NO_RECORD);
-        stacks[5].getTopCard().flipUp();
-        startCardValue = stacks[5].getTopCard().getValue();
-        setFoundationBackgrounds();
 
         //deal cards to trash according to the draw option
         if (prefs.getSavedCanfieldDrawModeOld().equals("3")) {
             for (int i = 0; i < 3; i++) {
-                moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
-                stacks[9 + i].getTopCard().flipUp();
+                if (!getMainStack().isEmpty()) {
+                    moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
+                    stacks[9 + i].flipTopCardUp();
+                }
             }
         } else {
-            moveToStack(getMainStack().getTopCard(), stacks[11], OPTION_NO_RECORD);
-            stacks[11].getTopCard().flipUp();
+            if (!getMainStack().isEmpty()) {
+                moveToStack(getMainStack().getTopCard(), stacks[11], OPTION_NO_RECORD);
+                stacks[11].flipTopCardUp();
+            }
         }
+
+        //and move cards to the tableau
+        for (int i = 0; i < 4; i++) {
+            if (!getMainStack().isEmpty()) {
+                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                stacks[i].flipTopCardUp();
+            }
+        }
+
+        //cards to reserve
+        for (int i = 0; i < 13; i++) {
+            if (!getMainStack().isEmpty()) {
+                moveToStack(getMainStack().getTopCard(), stacks[4], OPTION_NO_RECORD);
+            }
+        }
+
+        stacks[4].flipTopCardUp();
     }
 
     public int onMainStackTouch() {

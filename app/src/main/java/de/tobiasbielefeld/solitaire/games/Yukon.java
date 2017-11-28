@@ -41,9 +41,10 @@ public class Yukon extends Game {
     public Yukon() {
         setNumberOfDecks(1);
         setNumberOfStacks(11);
+
+        setTableauStackIDs(0,1,2,3,4,5,6);
+        setFoundationStackIDs(7,8,9,10);
         setDealFromID(0);
-        setLastTableauID(6);
-        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -88,14 +89,18 @@ public class Yukon extends Game {
 
         for (int i = 1; i <= 6; i++) {
             for (int j = 0; j < 5 + i; j++) {
-                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
-                if (j >= i)
-                    stacks[i].getTopCard().flipUp();
+                if (!getDealStack().isEmpty()) {
+                    moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+
+                    if (j >= i) {
+                        stacks[i].getTopCard().flipUp();
+                    }
+                }
             }
         }
 
-        getDealStack().getTopCard().flipUp();
+        getDealStack().flipTopCardUp();
     }
 
     public int onMainStackTouch() {

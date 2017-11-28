@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/default_secure_rng"
+        android:key="@string/pref_key_secure_rng"
+        android:title="@string/settings_developer_otpions_secure_rng" />
+
+
+</PreferenceScreen>

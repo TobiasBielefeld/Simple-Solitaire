@@ -69,6 +69,8 @@
     <string name="pref_key_mod3_auto_move" translatable="false">pref_key_mod3_auto_move</string>
     <string name="pref_key_pyramid_auto_move" translatable="false">pref_key_pyramid_auto_move</string>
     <string name="pref_key_single_tap_all_games" translatable="false">pref_key_single_tap_all_games</string>
+    <string name="pref_key_secure_rng" translatable="false">pref_key_secure_rng</string>
+
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

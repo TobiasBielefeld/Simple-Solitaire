@@ -30,6 +30,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Locale;
 
@@ -54,6 +55,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceBackgroundVolume;
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
+    private CheckBoxPreference preferenceSecureRng;
     private DialogPreferenceCardDialog preferenceCards;
     private Sounds settingsSounds;
 
@@ -204,7 +206,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 || OtherPreferenceFragment.class.getName().equals(fragmentName)
                 || MenuPreferenceFragment.class.getName().equals(fragmentName)
                 || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
-                || SoundPreferenceFragment.class.getName().equals(fragmentName);
+                || SoundPreferenceFragment.class.getName().equals(fragmentName)
+                || DeveloperOptionsPreferenceFragment.class.getName().equals(fragmentName);
+
     }
 
     /**
@@ -359,6 +363,24 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
             settings.preferenceSingleTapAllGames = (CheckBoxPreference) findPreference(getString(R.string.pref_key_single_tap_all_games));
             settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
+        }
+    }
+
+    public static class DeveloperOptionsPreferenceFragment extends CustomPreferenceFragment {
+
+        SecureRandom secureRandom = new SecureRandom();
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_developer_options);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceSecureRng = (CheckBoxPreference) findPreference(getString(R.string.pref_key_secure_rng));
+            settings.preferenceSecureRng.setSummary(secureRandom.getAlgorithm());
+            //settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
         }
     }
 }

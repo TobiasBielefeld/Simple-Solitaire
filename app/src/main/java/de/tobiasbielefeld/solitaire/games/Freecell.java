@@ -40,10 +40,11 @@ public class Freecell extends Game {
 
     public Freecell() {
         setNumberOfDecks(1);
-        setNumberOfStacks(16);
-        setDealFromID(0);
-        setLastTableauID(11);
-        setHasFoundationStacks(true);
+        setNumberOfStacks(17);  //one extra stack only for dealing cards
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11);
+        setFoundationStackIDs(12,13,14,15);
+        setDealFromID(16);
 
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0);
     }
@@ -70,6 +71,12 @@ public class Freecell extends Game {
         for (int i = 12; i < 16; i++) {
             stacks[i].view.setImageBitmap(Stack.background1);
         }
+
+        //only used for dealing cards
+        stacks[16].setX(stacks[0].getX());
+        stacks[16].setY(stacks[0].getY());
+        stacks[16].view.setImageBitmap(Stack.backgroundTransparent);
+
     }
 
     public boolean winTest() {
@@ -89,9 +96,9 @@ public class Freecell extends Game {
             card.flipUp();
         }
 
-        for (int i = 1; i < 8; i++) {
+        for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 7; j++) {
-                if (!(i >= 4 && j == 6)) {
+                if (!getDealStack().isEmpty() && !(i >= 4 && j == 6)) {
                     moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
                 }
             }
@@ -112,7 +119,7 @@ public class Freecell extends Game {
 
         } else if (stack.getId() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
-        } else if (movingCards.hasSingleCard()) {
+        } else if (movingCards.hasSingleCard() && stack.getId() < 16) {
             if (stack.isEmpty()) {
                 return card.getValue() == 1;
             } else {

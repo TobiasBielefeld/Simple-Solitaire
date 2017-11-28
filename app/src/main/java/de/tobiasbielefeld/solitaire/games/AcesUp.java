@@ -38,11 +38,12 @@ public class AcesUp extends Game {
     public AcesUp() {
         setNumberOfDecks(1);
         setNumberOfStacks(6);
+
+        setTableauStackIDs(0,1,2,3);
+        setFoundationStackIDs(4);
         setMainStackIDs(5);
-        setDiscardStackIDs(4);
-        setLastTableauID(3);
+
         setDirections(1, 1, 1, 1, 0, 0);
-        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -85,7 +86,7 @@ public class AcesUp extends Game {
         for (int i = 0; i < 4; i++) {
             if (!getMainStack().isEmpty()) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getTopCard().flipUp();
+                stacks[i].flipTopCardUp();
             }
         }
     }
@@ -115,7 +116,7 @@ public class AcesUp extends Game {
             return true;
         } else if (stack.getId() == getMainStack().getId() || card.getValue() == 1) {
             return false;
-        } else if (stack.getId() == getDiscardStack().getId()) {
+        } else if (stack.getId() == 4) {
             for (int i = 0; i < 4; i++) {
                 if (stacks[i].isEmpty() || i == card.getStack().getId()) {
                     continue;
@@ -133,7 +134,7 @@ public class AcesUp extends Game {
     }
 
     public boolean addCardToMovementTest(Card card) {
-        return card.isTopCard() && card.getStack() != getDiscardStack();
+        return card.isTopCard() && card.getStack() != stacks[4];
     }
 
     public CardAndStack hintTest() {
@@ -170,7 +171,7 @@ public class AcesUp extends Game {
                 }
 
                 if (success) {
-                    return new CardAndStack(cardToTest, getDiscardStack());
+                    return new CardAndStack(cardToTest, stacks[4]);
                 }
             }
         }
@@ -198,7 +199,7 @@ public class AcesUp extends Game {
             }
 
             if (success) {
-                return getDiscardStack();
+                return stacks[4];
             }
         }
 
@@ -216,7 +217,7 @@ public class AcesUp extends Game {
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
-        if (destinationIDs[0] == getDiscardStack().getId()) {
+        if (destinationIDs[0] == 4) {
             return 50;
         }
 

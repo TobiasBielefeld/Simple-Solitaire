@@ -118,6 +118,7 @@ public class Preferences {
     public static String PREF_KEY_MOD3_AUTO_MOVE;
     public static String PREF_KEY_PYRAMID_AUTO_MOVE;
     public static String PREF_KEY_SINGLE_TAP_ALL_GAMES;
+    public static String PREF_KEY_SECURE_RNG;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -168,6 +169,7 @@ public class Preferences {
     public static boolean DEFAULT_VEGAS_MONEY_ENABLED;
     public static boolean DEFAULT_VEGAS_RESET_MONEY;
     public static boolean DEFAULT_SINGLE_TAP_ALL_GAMES;
+    public static boolean DEFAULT_SECURE_RNG;
 
     public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
     public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
@@ -270,6 +272,7 @@ public class Preferences {
         PREF_KEY_MOD3_AUTO_MOVE = res.getString(R.string.pref_key_mod3_auto_move);
         PREF_KEY_PYRAMID_AUTO_MOVE = res.getString(R.string.pref_key_pyramid_auto_move);
         PREF_KEY_SINGLE_TAP_ALL_GAMES = res.getString(R.string.pref_key_single_tap_all_games);
+        PREF_KEY_SECURE_RNG = res.getString(R.string.pref_key_secure_rng);
 
         PREF_KEY_GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         PREF_KEY_GAME_WON = res.getString(R.string.game_won);
@@ -323,6 +326,7 @@ public class Preferences {
         DEFAULT_MOD3_AUTO_MOVE = res.getBoolean(R.bool.default_mod3_auto_move);
         DEFAULT_PYRAMID_AUTO_MOVE = res.getBoolean(R.bool.default_pyramid_auto_move);
         DEFAULT_SINGLE_TAP_ALL_GAMES = res.getBoolean(R.bool.default_single_tap_all_games);
+        DEFAULT_SECURE_RNG = res.getBoolean(R.bool.default_secure_rng);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
@@ -946,6 +950,10 @@ public class Preferences {
 
     public boolean getSingleTapAllGames(){
         return savedSharedData.getBoolean(PREF_KEY_SINGLE_TAP_ALL_GAMES, DEFAULT_SINGLE_TAP_ALL_GAMES);
+    }
+
+    public boolean getSavedSecureRng(){
+        return savedSharedData.getBoolean(PREF_KEY_SECURE_RNG, DEFAULT_SECURE_RNG);
     }
 
     public ArrayList<String> getSavedCalculationNextCardsList(){

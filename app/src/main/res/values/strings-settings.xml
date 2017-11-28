@@ -131,4 +131,8 @@
 
     <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
     <string name="settings_vegas_bet_amount_error">Can\'t save the numbers!</string>
+
+    <string name="settings_developer_options">Developer options</string>
+    <string name="settings_developer_options_description">Play around with crazy settings!</string>
+    <string name="settings_developer_otpions_secure_rng">Use a Secure random number generator</string>
 </resources>

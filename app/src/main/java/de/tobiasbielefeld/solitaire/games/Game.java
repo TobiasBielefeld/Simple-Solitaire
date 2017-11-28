@@ -28,6 +28,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -50,10 +52,14 @@ public abstract class Game {
     public Stack.SpacingDirection[] directions;
     public int[] directionBorders;
     private int dealFromID = -1;
+
+    private int[] tableauStackIDs = new int[]{-1};
+    private int[] foundationStackIDs = new int[]{-1};
+    private int[] discardStackIDs = new int[]{-1};
     private int[] mainStackIDs = new int[]{-1};
+
     private boolean hasLimitedRecycles = false;
     private boolean hasFoundationStacks = false;
-    private int[] discardStackIDs = new int[]{-1};
     private int lastTableauID = -1;
     private int recycleCounter = 0;
     private int totalRecycles = 0;
@@ -65,6 +71,31 @@ public abstract class Game {
     private int hintCosts = 25;
     private int undoCosts = 25;
     protected ArrayList<TextView> textViews = new ArrayList<>();
+
+    /**
+     * Used eg. if the player gets stuck and can't move any further:
+     *
+     */
+    public void mixCards(){
+        Random rand = new Random(System.currentTimeMillis());
+
+        ArrayList<Card> cardsToMix = new ArrayList<>();
+
+        for (Card card : cards){
+            if (!foundationStacksContain(card.getStackId())){
+                cardsToMix.add(card);
+            }
+        }
+
+        for (int i = cardsToMix.size() -1 ; i>=0;i--){
+            Card cardToChange = cardsToMix.get(rand.nextInt(i+1));
+            cardToChange.getStack().exchangeCard(cardToChange,cardsToMix.get(i));
+        }
+
+
+        recordList.reset();
+    }
+
 
     /**
      * Called to test where the given card can be moved to
@@ -551,6 +582,26 @@ public abstract class Game {
     }
 
     /**
+     * Sets the given stack ids as the foundation stacks
+     *
+     * @param IDs The stack ids to apply.
+     */
+    protected void setFoundationStackIDs(int... IDs) {
+        foundationStackIDs = IDs;
+        hasFoundationStacks = true;
+    }
+
+    /**
+     * Sets the given stack ids as the tableau stacks
+     *
+     * @param IDs The stack ids to apply.
+     */
+    protected void setTableauStackIDs(int... IDs) {
+        tableauStackIDs = IDs;
+        lastTableauID = IDs[IDs.length-1];
+    }
+
+    /**
      * Sets the given stack ids as discard stacks.
      *
      * @param IDs The stack ids to apply.
@@ -954,5 +1005,49 @@ public abstract class Game {
 
     public boolean hidesRecycleCounter(){
         return hideRecycleCounter;
+    }
+
+    public boolean tableauStacksContain(int ID){
+
+        for (int stackID : tableauStackIDs){
+            if (stackID == ID){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean foundationStacksContain(int ID){
+
+        for (int stackID : foundationStackIDs){
+            if (stackID == ID){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean discardStacksContain(int ID){
+
+        for (int stackID : discardStackIDs){
+            if (stackID == ID){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean mainStacksContain(int ID){
+
+        for (int stackID : mainStackIDs){
+            if (stackID == ID){
+                return true;
+            }
+        }
+
+        return false;
     }
 }

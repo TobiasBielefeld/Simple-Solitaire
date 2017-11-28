@@ -70,7 +70,6 @@ public class Bitmaps {
         if (menuBitMaps == null){
             menuBitMaps = new Bitmap[lg.getGameCount()];
         } else if (menuBitMaps[index]!=null){
-            logText("returned saved data");
             return menuBitMaps[index];
         }
 

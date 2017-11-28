@@ -3,6 +3,7 @@
     <string-array name="restart_menu">
         <item>Neues Spiel starten</item>
         <item>Spiel wiederholen</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Spielregeln</item>
         <item>Zurück zum Hauptmenü</item>
     </string-array>

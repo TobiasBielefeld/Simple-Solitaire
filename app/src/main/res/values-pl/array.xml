@@ -3,6 +3,7 @@
     <string-array name="restart_menu">
         <item>Rozpocznij nową grę</item>
         <item>Ponownie rozdaj karty</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Zasady gry</item>
         <item>Powrót do menu głównego</item>
     </string-array>

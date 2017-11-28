@@ -3,6 +3,7 @@
     <string-array name="restart_menu">
         <item>Yeni oyun</item>
         <item>Tekrar kart ver</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Oyun kuralları</item>
         <item>Anasayfaya geri dön</item>
     </string-array>

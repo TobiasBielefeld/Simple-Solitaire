@@ -47,11 +47,14 @@ public class Klondike extends Game {
     public Klondike() {
         setNumberOfDecks(1);
         setNumberOfStacks(15);
+
+        setTableauStackIDs(0,1,2,3,4,5,6);
+        setFoundationStackIDs(7,8,9,10);
         setDiscardStackIDs(11,12,13);
         setMainStackIDs(14);
-        setLastTableauID(6);
-        setHasFoundationStacks(true);
-        whichGame = 1;                                                                              //1 stands for Klondike, 2 for Vegas
+
+        //1 stands for Klondike, 2 for Vegas
+        whichGame = 1;
 
         setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
 
@@ -120,25 +123,33 @@ public class Klondike extends Game {
         //save the new settings, so it only takes effect on new deals
         prefs.saveKlondikeVegasDrawModeOld(whichGame);
 
-        //and move cards to the tableau
-        for (int i = 0; i <= 6; i++) {
-            for (int j = 0; j < i + 1; j++) {
-                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                if (j == i)
-                    stacks[i].getTopCard().flipUp();
+        //deal cards to trash according to the draw option
+        if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1") && !getMainStack().isEmpty()) {
+            moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
+            stacks[13].flipTopCardUp();
+        } else {
+            for (int i = 0; i < 3; i++) {
+                if (!getMainStack().isEmpty()) {
+                    moveToStack(getMainStack().getTopCard(), stacks[11 + i], OPTION_NO_RECORD);
+                    stacks[11 + i].flipTopCardUp();
+                }
             }
         }
 
-        //deal cards to trash according to the draw option
-        if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1")) {
-            moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
-            stacks[13].getTopCard().flipUp();
-        } else {
-            for (int i = 0; i < 3; i++) {
-                moveToStack(getMainStack().getTopCard(), stacks[11 + i], OPTION_NO_RECORD);
-                stacks[11 + i].getTopCard().flipUp();
+        //and move cards to the tableau
+        for (int i = 0; i <= 6; i++) {
+            for (int j = 0; j < i + 1; j++) {
+                if (!getMainStack().isEmpty()) {
+                    moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                }
             }
         }
+
+        for (int i = 0; i<=6; i++){
+            stacks[i].flipTopCardUp();
+        }
+
+
     }
 
     public int onMainStackTouch() {
