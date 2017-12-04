@@ -62,7 +62,7 @@
     <string name="game_longest_run">Longest sequence:</string>
 
     <!-- dialog won-->
-    <string name="dialog_win_titel">Congratulation!</string>
+    <string name="dialog_win_titel">Congratulations!</string>
     <string name="dialog_win_score">Score: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
