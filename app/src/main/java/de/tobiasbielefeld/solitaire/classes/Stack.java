@@ -83,12 +83,17 @@ public class Stack {
      * is a main- or discard stack.
      *
      * @param card The card to add.
+     * @param shouldUpdate tells if the stack should update its spacing and card views. Use false
+     *                     If you take care of it at another place. Eg after the asigning loop
+     *                     another loop with stacks[i].updateSpacing()
      */
-    public void addCard(Card card) {
+    public void addCard(Card card, boolean shouldUpdate) {
         card.setStack(this);
         currentCards.add(card);
 
-        updateSpacing();
+        if (shouldUpdate) {
+            updateSpacing();
+        }
 
         if (currentGame.testForMainStack(this)) {
             card.flipDown();
@@ -226,16 +231,18 @@ public class Stack {
         ArrayList<Integer> list = prefs.getSavedStacks(id);
 
         for (Integer i : list) {
-            addCard(cards[i]);
-            cards[i].view.bringToFront();
+            addCard(cards[i],false);
+            //cards[i].view.bringToFront();
         }
+
+        updateSpacing();
     }
 
     /**
      * Updates the spacing according to the direction. Left handed mode will affect the direction
      * for left and right direction.
      */
-    private void updateSpacing() {
+    public void updateSpacing() {
         float posX, posY;
         float facedDownSpacing;
 
@@ -564,23 +571,12 @@ public class Stack {
         }
     }
 
-    /*public void exchangeCard(int index, Card newCard){
-
-        if (currentCards.get(index).isUp()){
-            newCard.flipUp();
-        } else {
-            newCard.flipDown();
-        }
-
-        newCard.setStack(this);
-
-        currentCards.set(index,newCard);
-        updateSpacing();
-    }*/
-
+    /**
+     * Exchanges oldCard (which is currently on THIS stack) with another card newCard.
+     * newCard takes the position and direction of oldCard, and vise versa.
+     * Card images views aren't updated here, because they get updated after all the calculation.
+     */
     public void exchangeCard(Card oldCard, Card newCard){
-
-        logText("moving card " + newCard.getId() + " from " + newCard.getStackId() + " to " + getId() +". Card " + oldCard.getId() +" is now on " + newCard.getStackId());
         int oldCardPreviousIndexOnStack = oldCard.getIndexOnStack();
         int newCardPreviousIndexOnStack = newCard.getIndexOnStack();
 
@@ -588,7 +584,6 @@ public class Stack {
 
         boolean newCardPreviousDirection = newCard.isUp();
         boolean oldCardPreviousDirection = oldCard.isUp();
-
 
 
         if (oldCardPreviousDirection){
@@ -600,10 +595,6 @@ public class Stack {
         newCard.setStack(this);
 
         currentCards.set(oldCardPreviousIndexOnStack,newCard);
-        updateSpacing();
-
-
-
 
         newCardPreviousStack.currentCards.set(newCardPreviousIndexOnStack,oldCard);
         oldCard.setStack(newCardPreviousStack);
@@ -613,7 +604,5 @@ public class Stack {
         } else {
             oldCard.flipDown();
         }
-
-        newCardPreviousStack.updateSpacing();
     }
 }

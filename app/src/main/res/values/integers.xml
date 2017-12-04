@@ -15,6 +15,7 @@
     <integer name="default_vegas_win_amount">5</integer>
     <integer name="default_vegas_money">0</integer>
 
+
     <!-- changing these to integers would cause problems with already saved values -->
     <string name="default_menu_columns_landscape" translatable="false">5</string>
     <string name="default_menu_columns_portrait" translatable="false">3</string>
@@ -26,5 +27,6 @@
     <string name="default_fortyeight_number_of_recycles" translatable="false">1</string>
     <string name="default_vegas_number_of_recycles" translatable="false">0</string>
     <string name="default_klondike_number_of_recycles" translatable="false">3</string>
+    <string name="default_canfield_size_of_reserve" translatable="false">13</string>
 
 </resources>

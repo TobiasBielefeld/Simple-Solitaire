@@ -65,6 +65,6 @@
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Mélanger les cartes</string>
     <string name="dialog_mix_cards_text">Voulez-vous vraiment mélanger les cartes? Cela va mélanger toutes
-        les cartes (sauf des piles de base) et les traiter comme un nouveau jeu</string>
+        les cartes expect correct sequences and cards on the foundation.</string>
 
 </resources>

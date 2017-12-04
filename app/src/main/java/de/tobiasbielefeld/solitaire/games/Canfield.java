@@ -52,6 +52,8 @@ public class Canfield extends Game {
         setFoundationStackIDs(5,6,7,8);
         setDiscardStackIDs(9,10,11);
         setMainStackIDs(12);
+
+        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
     }
 
     @Override
@@ -177,44 +179,35 @@ public class Canfield extends Game {
         //save the new settings, so it only takes effect on new deals
         prefs.saveCanfieldDrawModeOld();
 
-
-
-        //one card to foundation, and save its value (but only if the foundation is empty, for remixing cards)
-        if (stacks[5].isEmpty()) {
-            moveToStack(getMainStack().getTopCard(), stacks[5], OPTION_NO_RECORD);
-            stacks[5].getTopCard().flipUp();
-            startCardValue = stacks[5].getTopCard().getValue();
-            setFoundationBackgrounds();
-        }
+        //one card to foundation, and save its value
+        moveToStack(getMainStack().getTopCard(), stacks[5], OPTION_NO_RECORD);
+        stacks[5].getTopCard().flipUp();
+        startCardValue = stacks[5].getTopCard().getValue();
+        setFoundationBackgrounds();
 
         //deal cards to trash according to the draw option
         if (prefs.getSavedCanfieldDrawModeOld().equals("3")) {
             for (int i = 0; i < 3; i++) {
-                if (!getMainStack().isEmpty()) {
                     moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
-                    stacks[9 + i].flipTopCardUp();
-                }
+                    stacks[9 + i].getCard(0).flipUp();
             }
         } else {
             if (!getMainStack().isEmpty()) {
                 moveToStack(getMainStack().getTopCard(), stacks[11], OPTION_NO_RECORD);
-                stacks[11].flipTopCardUp();
+                stacks[11].getCard(0).flipUp();
             }
         }
 
         //and move cards to the tableau
         for (int i = 0; i < 4; i++) {
-            if (!getMainStack().isEmpty()) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].flipTopCardUp();
-            }
+                stacks[i].getCard(0).flipUp();
+
         }
 
         //cards to reserve
-        for (int i = 0; i < 13; i++) {
-            if (!getMainStack().isEmpty()) {
+        for (int i = 0; i < prefs.getSavedCanfieldSizeOfReserve(); i++) {
                 moveToStack(getMainStack().getTopCard(), stacks[4], OPTION_NO_RECORD);
-            }
         }
 
         stacks[4].flipTopCardUp();
@@ -374,7 +367,7 @@ public class Canfield extends Game {
         }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //don't move cards from the discard stacks if there is a card on top of them
         //for example: if touched a card on stack 11 (first discard stack) but there is a card
         //on stack 12 (second discard stack) don't move if.

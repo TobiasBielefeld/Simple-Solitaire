@@ -28,7 +28,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -71,28 +70,66 @@ public abstract class Game {
     private int hintCosts = 25;
     private int undoCosts = 25;
     protected ArrayList<TextView> textViews = new ArrayList<>();
+    private testMode mixCardsTestMode = testMode.DOESNT_MATTER;
+
+    /*
+     * override this in your games to customize behavior
+     */
+    protected boolean excludeCardFromMixing(Card card){
+        Stack stack = card.getStack();
+
+        if (!card.isUp()) {
+            return false;
+        }
+
+        if (foundationStacksContain(stack.getId())){
+            return true;
+        }
+
+        //do not exclude anything, if the testMode is null
+        if (mixCardsTestMode == null){
+            return false;
+        }
+
+        if (card.getIndexOnStack() == 0 && stack.getSize()==1){
+            return false;
+        }
+
+        int indexToTest = card.getIndexOnStack() - (card.isTopCard() && stack.getSize() > 1 ? 1 : 0);
+
+        return testCardsUpToTop(stack, indexToTest, mixCardsTestMode);
+    }
 
     /**
-     * Used eg. if the player gets stuck and can't move any further:
-     *
+     * Used eg. if the player gets stuck and can't move any further: Mix all cards randomly by
+     * exchanging them with other cards. The games can exclude cards to mix, like all cards on the
+     * foundation, or complete sequences.
      */
     public void mixCards(){
-        Random rand = new Random(System.currentTimeMillis());
-
+        Random random = getPrng();
         ArrayList<Card> cardsToMix = new ArrayList<>();
 
+        //get the cards to mix
         for (Card card : cards){
-            if (!foundationStacksContain(card.getStackId())){
+            if (!excludeCardFromMixing(card)){
                 cardsToMix.add(card);
             }
         }
 
+        //exchange cards. A bit like Fisher-Yate Shuffle, but the iterating array doesn't shuffle.
         for (int i = cardsToMix.size() -1 ; i>=0;i--){
-            Card cardToChange = cardsToMix.get(rand.nextInt(i+1));
+            Card cardToChange = cardsToMix.get(random.nextInt(i+1));
             cardToChange.getStack().exchangeCard(cardToChange,cardsToMix.get(i));
         }
 
+        //After every card got a new place, update the card image views
+        for (Stack stack : stacks){
+            stack.updateSpacing();
+        }
+
+        //delete the record list, otherwise undoing movements would result in strange behavior
         recordList.reset();
+        handlerTestAfterMove.sendEmptyMessageDelayed(0,200);
     }
 
 
@@ -183,11 +220,12 @@ public abstract class Game {
 
     /**
      * Tests if the card can be added to the movement to place on another stack.
+     * Games have to implement this method.
      *
      * @param card The card to test
      * @return True if it can be added, false otherwise
      */
-    abstract public boolean addCardToMovementTest(Card card);
+    abstract public boolean addCardToMovementGameTest(Card card);
 
     /**
      * Checks every card of the game, if one can be moved as a hint.
@@ -953,8 +991,8 @@ public abstract class Game {
         hasLimitedRecycles = !hasLimitedRecycles;
     }
 
-    public void setSingleTapEnabled(boolean value) {
-        singleTapEnabled = value;
+    public void setSingleTapEnabled() {
+        singleTapEnabled = true;
     }
 
     public boolean isSingleTapEnabled() {
@@ -1048,5 +1086,13 @@ public abstract class Game {
         }
 
         return false;
+    }
+
+    public boolean addCardToMovementTest(Card card){
+        return prefs.isDeveloperOptionPlayEveryCardEnabled() || addCardToMovementGameTest(card);
+    }
+
+    protected void setMixingCardsTestMode(testMode mode){
+        mixCardsTestMode = mode;
     }
 }

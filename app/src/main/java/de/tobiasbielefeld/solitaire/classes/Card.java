@@ -245,6 +245,10 @@ public class Card {
      * @return True if movement is possible, false otherwise
      */
     public boolean test(Stack destination) {
+        if (prefs.isDeveloperOptionMoveCardsEverywhereEnabled()){
+            return true;
+        }
+
         return !((!isUp() || (destination.getSize() != 0 && !destination.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(destination, this);
         //return currentGame.cardTest(destination, this) && destination.topCardIsUp();
     }

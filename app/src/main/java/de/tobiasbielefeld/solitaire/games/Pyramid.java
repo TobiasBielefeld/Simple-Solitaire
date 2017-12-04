@@ -112,14 +112,10 @@ public class Pyramid extends Game {
         flipAllCardsUp();
 
         for (int i = 0; i < 28; i++) {
-            if (!getDealStack().isEmpty()) {
-                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-            }
+            moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
         }
 
-        if (!getDealStack().isEmpty()) {
-            moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
-        }
+        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
     public boolean testIfMainStackTouched(float X, float Y) {
@@ -172,7 +168,7 @@ public class Pyramid extends Game {
     }
 
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
 
         if (card.getStackId() == 28)
             return false;
@@ -312,5 +308,12 @@ public class Pyramid extends Game {
         Stack stackAbove2 = stacks[stackAboveID[stack.getId()] + 1];
 
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
+    }
+
+    /*
+     * override this in your games to customize behavior
+     */
+    protected boolean excludeCardFromMixing(Card card){
+        return card.getStack() == stacks[28];
     }
 }

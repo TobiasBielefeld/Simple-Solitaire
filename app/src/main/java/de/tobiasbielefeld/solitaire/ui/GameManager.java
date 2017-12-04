@@ -237,8 +237,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         CustomImageView v = (CustomImageView) view;
         //if something important happens don't accept input
-        if (stopConditions())
+        if (gameLogic.stopConditions()) {
             return true;
+        }
 
         //also don't do anything with a second touch point
         if (event.getPointerId(0) != 0) {
@@ -332,8 +333,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     } else {
                         movingCards.reset();
                     }
-
-
                 }
             }
 
@@ -509,15 +508,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
-    /**
-     * Tests if movements shouldn't be allowed. For example. If a hint is currently shown, don't
-     * accept input, or otherwise something will go wrong
-     *
-     * @return True if no movement is allowed, false otherwise
-     */
-    private boolean stopConditions() {
-        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking());
-    }
+
 
     /**
      * Shows a text as a toast, on ui thread, because some of my static helper stuff use this too.
@@ -581,12 +572,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     public void menuClick(View view) {
         //if something important happens don't accept input
-        if (stopConditions())
+        if (gameLogic.stopConditions()) {
             return;
-
+        }
         //also return moving cards, to prevent bugs
-        if (movingCards.hasCards())
+        if (movingCards.hasCards()) {
             movingCards.returnToPos();
+        }
 
         resetTappedCard();
 

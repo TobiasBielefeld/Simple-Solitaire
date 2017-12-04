@@ -89,13 +89,10 @@ public class Yukon extends Game {
 
         for (int i = 1; i <= 6; i++) {
             for (int j = 0; j < 5 + i; j++) {
+                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
-                if (!getDealStack().isEmpty()) {
-                    moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-
-                    if (j >= i) {
-                        stacks[i].getTopCard().flipUp();
-                    }
+                if (j >= i) {
+                    stacks[i].getTopCard().flipUp();
                 }
             }
         }
@@ -134,7 +131,7 @@ public class Yukon extends Game {
 
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //yukon is simple in this way: you can move every card
         return true;
     }
@@ -251,5 +248,13 @@ public class Yukon extends Game {
             return 20;
         else
             return 0;
+    }
+
+    @Override
+    protected boolean excludeCardFromMixing(Card card) {
+        boolean defaultRules = prefs.getSavedYukonRulesOld().equals("default");
+        setMixingCardsTestMode(defaultRules ? ALTERNATING_COLOR : SAME_FAMILY);
+
+        return super.excludeCardFromMixing(card);
     }
 }

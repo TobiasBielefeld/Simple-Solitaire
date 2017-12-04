@@ -56,8 +56,10 @@ public class DialogRestart extends DialogFragment {
                                 gameLogic.redeal();
                                 break;
                             case 2:
-                                DialogMixCards dialogMixCards = new DialogMixCards();
-                                dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
+                                if (!gameLogic.hasWon()) {
+                                    DialogMixCards dialogMixCards = new DialogMixCards();
+                                    dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
+                                }
                                 break;
                             case 3:
                                 Intent intent = new Intent(gameManager, Manual.class);

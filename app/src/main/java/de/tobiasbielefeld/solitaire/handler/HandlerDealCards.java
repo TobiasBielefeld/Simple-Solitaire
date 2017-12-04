@@ -19,7 +19,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 
 public class HandlerDealCards extends Handler {
 
-
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
@@ -30,9 +29,5 @@ public class HandlerDealCards extends Handler {
         } else {
             handlerDealCards.sendEmptyMessageDelayed(0,100);
         }
-
-
-
-
     }
 }

@@ -118,7 +118,13 @@ public class Preferences {
     public static String PREF_KEY_MOD3_AUTO_MOVE;
     public static String PREF_KEY_PYRAMID_AUTO_MOVE;
     public static String PREF_KEY_SINGLE_TAP_ALL_GAMES;
-    public static String PREF_KEY_SECURE_RNG;
+    public static String PREF_KEY_CANFIELD_SIZE_OF_RESERVE;
+    public static String PREF_KEY_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE;
+    public static String PREF_KEY_DEVELOPER_OPTION_PLAY_EVERY_CARD;
+    public static String PREF_KEY_DEVELOPER_OPTION_INSTANT_WIN;
+    public static String PREF_KEY_USE_TRUE_RANDOMISATION;
+    public static String PREF_KEY_DEVELOPER_OPTION_NO_SAVING;
+    public static String PREF_KEY_DEVELOPER_OPTION_LOCK;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -139,6 +145,7 @@ public class Preferences {
     public static String DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
     public static String DEFAULT_WIN_SOUND;
     public static String DEFAULT_MOVEMENT_SPEED;
+    public static String DEFAULT_CANFIELD_SIZE_OF_RESERVE;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_CARD_BACKGROUND_COLOR;
@@ -169,14 +176,18 @@ public class Preferences {
     public static boolean DEFAULT_VEGAS_MONEY_ENABLED;
     public static boolean DEFAULT_VEGAS_RESET_MONEY;
     public static boolean DEFAULT_SINGLE_TAP_ALL_GAMES;
-    public static boolean DEFAULT_SECURE_RNG;
-
     public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
     public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
     public static boolean DEFAULT_KLONDIKE_LIMITED_RECYCLES;
     public static boolean DEFAULT_CALCULATION_ALTERNATIVE;
     public static boolean DEFAULT_MOD3_AUTO_MOVE;
     public static boolean DEFAULT_PYRAMID_AUTO_MOVE;
+    public static boolean DEFAULT_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE;
+    public static boolean DEFAULT_DEVELOPER_OPTION_PLAY_EVERY_CARD;
+    public static boolean DEFAULT_DEVELOPER_OPTION_INSTANT_WIN;
+    public static boolean DEFAULT_DEVELOPER_OPTION_NO_SAVING;
+    public static boolean DEFAULT_DEVELOPER_OPTION_LOCK;
+    public static boolean DEFAULT_USE_TRUE_RANDOMISATION;
 
     public Preferences(Context context){
         loadStrings(context.getResources());
@@ -272,7 +283,9 @@ public class Preferences {
         PREF_KEY_MOD3_AUTO_MOVE = res.getString(R.string.pref_key_mod3_auto_move);
         PREF_KEY_PYRAMID_AUTO_MOVE = res.getString(R.string.pref_key_pyramid_auto_move);
         PREF_KEY_SINGLE_TAP_ALL_GAMES = res.getString(R.string.pref_key_single_tap_all_games);
-        PREF_KEY_SECURE_RNG = res.getString(R.string.pref_key_secure_rng);
+        PREF_KEY_CANFIELD_SIZE_OF_RESERVE = res.getString(R.string.pref_key_canfield_size_of_reserve);
+        PREF_KEY_USE_TRUE_RANDOMISATION = res.getString(R.string.pref_key_use_true_randomisation);
+
 
         PREF_KEY_GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         PREF_KEY_GAME_WON = res.getString(R.string.game_won);
@@ -303,7 +316,13 @@ public class Preferences {
         PREF_KEY_CARD_BACKGROUND = res.getString(R.string.pref_key_cards_background);
         PREF_KEY_CARD_BACKGROUND_COLOR = res.getString(R.string.pref_key_cards_background_color);
         PREF_KEY_MENU_COLUMNS_PORTRAIT = res.getString(R.string.pref_key_menu_columns_portrait);
-        PREF_KEY_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.pref_key_menu_columns_landscape);//*/
+        PREF_KEY_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.pref_key_menu_columns_landscape);
+
+        PREF_KEY_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE = res.getString(R.string.pref_key_developer_option_move_cards_everywhere);
+        PREF_KEY_DEVELOPER_OPTION_PLAY_EVERY_CARD = res.getString(R.string.pref_key_developer_option_play_every_card);
+        PREF_KEY_DEVELOPER_OPTION_INSTANT_WIN = res.getString(R.string.pref_key_developer_option_instant_win);
+        PREF_KEY_DEVELOPER_OPTION_NO_SAVING = res.getString(R.string.pref_key_developer_option_no_saving);
+        PREF_KEY_DEVELOPER_OPTION_LOCK = res.getString(R.string.pref_key_developer_option_lock);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -326,7 +345,8 @@ public class Preferences {
         DEFAULT_MOD3_AUTO_MOVE = res.getBoolean(R.bool.default_mod3_auto_move);
         DEFAULT_PYRAMID_AUTO_MOVE = res.getBoolean(R.bool.default_pyramid_auto_move);
         DEFAULT_SINGLE_TAP_ALL_GAMES = res.getBoolean(R.bool.default_single_tap_all_games);
-        DEFAULT_SECURE_RNG = res.getBoolean(R.bool.default_secure_rng);
+        DEFAULT_DEVELOPER_OPTION_NO_SAVING = res.getBoolean(R.bool.default_developer_option_no_saving);
+        DEFAULT_DEVELOPER_OPTION_LOCK = res.getBoolean(R.bool.default_developer_option_lock);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
@@ -337,10 +357,15 @@ public class Preferences {
         DEFAULT_WON_AND_RELOADED = res.getBoolean(R.bool.default_won_and_reloaded);
         DEFAULT_MOVED_FIRST_CARD = res.getBoolean(R.bool.default_moved_first_card);
         DEFAULT_4_COLOR_MODE = res.getBoolean(R.bool.default_4_color_mode);
+        DEFAULT_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE = res.getBoolean(R.bool.default_developer_option_move_cards_everywhere);
+        DEFAULT_DEVELOPER_OPTION_PLAY_EVERY_CARD = res.getBoolean(R.bool.default_developer_option_play_every_card);
+        DEFAULT_DEVELOPER_OPTION_INSTANT_WIN = res.getBoolean(R.bool.default_developer_option_instant_win);
+        DEFAULT_USE_TRUE_RANDOMISATION = res.getBoolean(R.bool.default_use_true_randomisation);
         DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
         DEFAULT_CARD_BACKGROUND_COLOR = res.getInteger(R.integer.default_card_background_color);
         DEFAULT_WINNING_TIME = res.getInteger(R.integer.default_winning_time);
         DEFAULT_BACKGROUND_COLOR_TYPE = res.getInteger(R.integer.default_background_color_type);
+        DEFAULT_CANFIELD_SIZE_OF_RESERVE = res.getString(R.string.default_canfield_size_of_reserve);
         DEFAULT_BACKGROUND_COLOR = res.getString(R.string.default_background_color);
         DEFAULT_BACKGROUND_COLOR_CUSTOM = res.getInteger(R.integer.default_background_color_custom);
         DEFAULT_MOVEMENT_SPEED = res.getString(R.string.default_movement_speed);
@@ -367,40 +392,40 @@ public class Preferences {
     private void putIntList(String name, List<Integer> list) {
         //Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
 
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (int i : list) {
-            s += i + ",";
+            s.append(i).append(",");
         }
 
-        savedGameData.edit().putString(name, s).apply();
+        savedGameData.edit().putString(name, s.toString()).apply();
     }
 
     private void putLongList(String name, List<Long> list) {
         //Thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
 
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (long i : list) {
-            s += i + ",";
+            s.append(i).append(",");
         }
-        savedGameData.edit().putString(name, s).apply();
+        savedGameData.edit().putString(name, s.toString()).apply();
     }
 
     private void putSharedIntList(String name, List<Integer> list) {
         //
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (int i : list) {
-            s += i + ",";
+            s.append(i).append(",");
         }
-        savedSharedData.edit().putString(name, s).apply();
+        savedSharedData.edit().putString(name, s.toString()).apply();
     }
 
     private void putSharedStringList(String name, List<String> list) {
         //
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (String i : list) {
-            s += i + ",";
+            s.append(i).append(",");
         }
-        savedSharedData.edit().putString(name, s).apply();
+        savedSharedData.edit().putString(name, s.toString()).apply();
     }
 
     private ArrayList<Integer> getIntList(String name) {
@@ -569,6 +594,26 @@ public class Preferences {
 
     public boolean hasMovedFirstCard(){
         return savedGameData.getBoolean(PREF_KEY_GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
+    }
+
+    public boolean isDeveloperOptionMoveCardsEverywhereEnabled(){
+        return isDeveloperOptionLockEnabled() && savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE, DEFAULT_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE);
+    }
+
+    public boolean isDeveloperOptionPlayEveryCardEnabled(){
+        return isDeveloperOptionLockEnabled() && savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_PLAY_EVERY_CARD, DEFAULT_DEVELOPER_OPTION_PLAY_EVERY_CARD);
+    }
+
+    public boolean isDeveloperOptionInstantWinEnabled(){
+        return isDeveloperOptionLockEnabled() && savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_INSTANT_WIN, DEFAULT_DEVELOPER_OPTION_INSTANT_WIN);
+    }
+
+    public boolean isDeveloperOptionSavingDisabled(){
+        return isDeveloperOptionLockEnabled() && savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_NO_SAVING, DEFAULT_DEVELOPER_OPTION_NO_SAVING);
+    }
+
+    public boolean isDeveloperOptionLockEnabled(){
+        return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_LOCK, DEFAULT_DEVELOPER_OPTION_LOCK);
     }
 
     public ArrayList<Integer> getSavedCards(){
@@ -784,6 +829,10 @@ public class Preferences {
         return Integer.parseInt(savedSharedData.getString(Key,defaulValue));
     }
 
+    public int getSavedCanfieldSizeOfReserve(){
+        return Integer.parseInt(savedSharedData.getString(PREF_KEY_CANFIELD_SIZE_OF_RESERVE, DEFAULT_CANFIELD_SIZE_OF_RESERVE));
+    }
+
     public float getSavedMovementSpeed(){
         return Float.parseFloat(savedSharedData.getString(PREF_KEY_MOVEMENT_SPEED,DEFAULT_MOVEMENT_SPEED));
     }
@@ -952,8 +1001,8 @@ public class Preferences {
         return savedSharedData.getBoolean(PREF_KEY_SINGLE_TAP_ALL_GAMES, DEFAULT_SINGLE_TAP_ALL_GAMES);
     }
 
-    public boolean getSavedSecureRng(){
-        return savedSharedData.getBoolean(PREF_KEY_SECURE_RNG, DEFAULT_SECURE_RNG);
+    public boolean getSavedUseTrueRandomisation(){
+        return savedSharedData.getBoolean(PREF_KEY_USE_TRUE_RANDOMISATION, DEFAULT_USE_TRUE_RANDOMISATION);
     }
 
     public ArrayList<String> getSavedCalculationNextCardsList(){
@@ -1004,6 +1053,10 @@ public class Preferences {
 
     public void saveVegasWinAmount(int value){
         savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT,value).apply();
+    }
+
+    public void saveCanfieldSizeOfReserve(int value){
+        savedSharedData.edit().putString(PREF_KEY_CANFIELD_SIZE_OF_RESERVE,Integer.toString(value)).apply();
     }
 
     public void saveVegasBetAmountOld(){

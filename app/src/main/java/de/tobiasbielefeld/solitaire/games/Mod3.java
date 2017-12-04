@@ -43,8 +43,10 @@ public class Mod3 extends Game {
         setDiscardStackIDs(32);
         setMainStackIDs(33);
 
-        setDirections(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0);
-        setDirectionBorders(8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, -1, -1, -1, -1, -1, -1, -1, -1, 33, -1);
+        setDirections(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 0);
+        setDirectionBorders(8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+                26, 27, 28, 29, 30, 31, -1, -1, -1, -1, -1, -1, -1, -1, 33, -1);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -81,12 +83,9 @@ public class Mod3 extends Game {
     }
 
     public void dealCards() {
-
         for (int i = 0; i < 32; i++) {
-            if (!getDealStack().isEmpty()) {
-                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getCard(0).flipUp();
-            }
+            moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+            stacks[i].getCard(0).flipUp();
         }
     }
 
@@ -136,7 +135,7 @@ public class Mod3 extends Game {
             return stack.getCard(0).getValue() == 4;
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return card.isTopCard() && card.getStack() != getDiscardStack();
     }
 
@@ -234,5 +233,22 @@ public class Mod3 extends Game {
             return -75;
 
         return 0;
+    }
+
+    /*
+     * override this in your games to customize behavior
+     */
+    protected boolean excludeCardFromMixing(Card card){
+        Stack stack = card.getStack();
+
+        if (!card.isUp()) {
+            return false;
+        }
+
+        if (foundationStacksContain(stack.getId()) || stack == getDiscardStack()){
+            return true;
+        }
+
+        return stack.getId()<24 && !stack.isEmpty() && validOrder(stack);
     }
 }

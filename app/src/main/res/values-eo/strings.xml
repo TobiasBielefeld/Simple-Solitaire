@@ -61,6 +61,7 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Miksi kartojn</string>
-    <string name="dialog_mix_cards_text">Ĉu vi certe volas miksi kartojn? Tio ĉi miksos ĉiujn kartojn (escepte de fundamentaj stakoj) kaj redisdonos ilin kiel por la nova ludo</string>
+    <string name="dialog_mix_cards_text">Ĉu vi certe volas miksi kartojn? This will shuffle all cards,
+        expect correct sequences and cards on the foundation.</string>
 
 </resources>

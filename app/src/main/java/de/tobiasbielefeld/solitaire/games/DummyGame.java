@@ -319,7 +319,7 @@ public class DummyGame extends Game {
      * Test if the player can even pick up a card (faced down cards are never moved)
      * If yes, every card from the touched card to the stack top card will be moved
      */
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //in case of Klondike it's easy: If a card is faced up, every card on top of it in the stack
         //has the correct order. So return true if a card is up. But because faced down cards aren't even
         //tested here, just return true
@@ -535,5 +535,31 @@ public class DummyGame extends Game {
     //called after undo movement
     public void afterUndo(){
         //check stuff here
+    }
+
+    /*
+     * This method controls the card mixing. It gets a card, checks if it should be excluded from
+     * the mixing, in this case, return true. The standard way is, that faced down cards should
+     * always be mixed, and cards on the foundation stack never. You can also exclude correct
+     * sequences on the tableau or something like that.
+     */
+    @Override
+    protected boolean excludeCardFromMixing(Card card) {
+        /*
+         * this is the content of the default method, you dont need to override it, if you don't
+         * change anything
+         */
+
+        Stack stack = card.getStack();
+
+        if (!card.isUp()) {
+            return false;
+        }
+
+        if (foundationStacksContain(stack.getId())){
+            return true;
+        }
+
+        return false;
     }
 }

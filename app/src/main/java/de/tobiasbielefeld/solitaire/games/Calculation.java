@@ -44,6 +44,7 @@ public class Calculation extends Game {
         setDiscardStackIDs(8);
         setMainStackIDs(9);
 
+        setMixingCardsTestMode(null);
         prefs.saveCalculationAlternativeModeOld();
     }
 
@@ -123,19 +124,17 @@ public class Calculation extends Game {
         //deal cards to foundation: search an ace for the first stack, a two for the second and so on
         for (int i = 0; i < 4; i++) {
             for (Card card : getMainStack().currentCards){
-                if (card.getValue()==(i+1) && stacks[4+i].isEmpty()){
+                if (card.getValue()==(i+1)){
                     moveToStack(card, stacks[4+i], OPTION_NO_RECORD);
-                    stacks[4+i].flipTopCardUp();
+                    stacks[4+i].getCard(0).flipUp();
                     break;
                 }
             }
         }
 
         //card to trash
-        if (!getMainStack().isEmpty()) {
-            moveToStack(getMainStack().getTopCard(), stacks[8], OPTION_NO_RECORD);
-            stacks[8].flipTopCardUp();
-        }
+        moveToStack(getMainStack().getTopCard(), stacks[8], OPTION_NO_RECORD);
+        stacks[8].getCard(0).flipUp();
 
         setTexts();
     }
@@ -206,7 +205,7 @@ public class Calculation extends Game {
         return false;
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return card.getStackId()<4 && card.isTopCard() || card.getStack()==getDiscardStack();
     }
 

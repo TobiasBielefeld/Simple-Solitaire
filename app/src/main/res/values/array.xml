@@ -51,6 +51,15 @@
         <item>4</item>
     </string-array>
 
+
+    <string-array name="pref_canfield_size_of_reserve_values" translatable="false">
+        <item>13</item>
+        <item>10</item>
+        <item>7</item>
+        <item>4</item>
+        <item>1</item>
+    </string-array>
+
     <string-array name="pref_yukon_rules_values" translatable="false">
         <item>default</item>
         <item>russian</item>
@@ -131,11 +140,11 @@
     </string-array>
 
     <!-- for translations: you can order pref_language_titles alphabetically in the new language,
-    if you want. Then the order of the values have to be changed too!-->
+    if you want. Then the order of the values have to be adjusted too!-->
     <string-array name="pref_language_values">
         <item>default</item>    <!-- do not translate this one! -->
         <item>en</item>         <!-- English -->
-        <item>eo</item>         <!-- Ssperanto -->
+        <item>eo</item>         <!-- Esperanto -->
         <item>fi</item>         <!-- Finnish -->
         <item>fr</item>         <!-- French-->
         <item>de</item>         <!-- German -->
@@ -169,6 +178,14 @@
         <item>Theme 2</item>
         <item>Theme 3</item>
         <item>Music Box</item>
+    </string-array>
+
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>13 Cards (default)</item>
+        <item>10 Cards</item>
+        <item>7 Cards</item>
+        <item>4 Cards</item>
+        <item>1 Card</item>
     </string-array>
 
 </resources>

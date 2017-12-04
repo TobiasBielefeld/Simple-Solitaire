@@ -69,8 +69,13 @@
     <string name="pref_key_mod3_auto_move" translatable="false">pref_key_mod3_auto_move</string>
     <string name="pref_key_pyramid_auto_move" translatable="false">pref_key_pyramid_auto_move</string>
     <string name="pref_key_single_tap_all_games" translatable="false">pref_key_single_tap_all_games</string>
-    <string name="pref_key_secure_rng" translatable="false">pref_key_secure_rng</string>
-
+    <string name="pref_key_canfield_size_of_reserve" translatable="false">pref_key_canfield_size_of_reserve</string>
+    <string name="pref_key_developer_option_move_cards_everywhere" translatable="false">pref_key_developer_option_move_cards_everywhere</string>
+    <string name="pref_key_developer_option_play_every_card" translatable="false">pref_key_developer_option_play_every_card</string>
+    <string name="pref_key_developer_option_instant_win" translatable="false">pref_key_developer_option_instant_win</string>
+    <string name="pref_key_developer_option_no_saving" translatable="false">pref_key_developer_option_no_saving</string>
+    <string name="pref_key_developer_option_lock" translatable="false">pref_key_developer_option_lock</string>
+    <string name="pref_key_use_true_randomisation" translatable="false">pref_key_use_true_randomisation</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

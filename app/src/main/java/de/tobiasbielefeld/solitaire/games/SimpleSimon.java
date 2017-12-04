@@ -45,8 +45,9 @@ public class SimpleSimon extends Spider {
         setFoundationStackIDs(10,11,12,13);
         setDealFromID(0);
 
-        //because this game inherents from Spider, I have to disable the main stack from it
+        //because this game inherits from Spider, I have to disable the main stack from it
         disableMainStack();
+        setMixingCardsTestMode(testMode.DOESNT_MATTER);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -54,11 +55,13 @@ public class SimpleSimon extends Spider {
         setUpCardWidth(layoutGame, isLandscape, 11, 12);
         int spacing = setUpHorizontalSpacing(layoutGame, 10, 11);
         int startPos = layoutGame.getWidth() / 2 - 2 * Card.width - (int) (1.5 * spacing);
+
         //foundation stacks
         for (int i = 0; i < 4; i++) {
             stacks[10 + i].setX(startPos + spacing * i + Card.width * i);
             stacks[10 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
+
         //tableau stacks
         startPos = layoutGame.getWidth() / 2 - 5 * Card.width - 4 * spacing - spacing / 2;
         for (int i = 0; i < 10; i++) {
@@ -72,27 +75,19 @@ public class SimpleSimon extends Spider {
     }
 
     public void dealCards() {
-        //flipAllCardsUp() isn't used because there would remain one card with the wrong spacing on stack 1
+        flipAllCardsUp();
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 1; i < 7; i++) {
             for (int j = 0; j < 1 + i; j++) {
-                if (!getDealStack().isEmpty()) {
-                    getDealStack().getTopCard().flipUp();
-                    moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                }
+                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
         }
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 8; j++) {
-                if (!getDealStack().isEmpty()) {
-                    getDealStack().getTopCard().flipUp();
-                    moveToStack(getDealStack().getTopCard(), stacks[7 + i], OPTION_NO_RECORD);
-                }
+                moveToStack(getDealStack().getTopCard(), stacks[7 + i], OPTION_NO_RECORD);
             }
         }
-
-        getDealStack().flipTopCardUp();
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {

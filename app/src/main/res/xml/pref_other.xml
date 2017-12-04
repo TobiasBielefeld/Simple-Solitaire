@@ -36,8 +36,6 @@
         android:summary="%s"
         android:title="@string/settings_movement_speed" />
 
-
-
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="@string/pref_key_left_handed_mode"
@@ -49,6 +47,12 @@
         android:key="@string/pref_key_start_menu"
         android:summary="@string/settings_show_main_menu_description"
         android:title="@string/settings_show_main_menu" />
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/default_use_true_randomisation"
+        android:key="@string/pref_key_use_true_randomisation"
+        android:summary="@string/settings_use_true_randomisation_text"
+        android:title="@string/settings_use_true_randomisation_title" />
 
     <CheckBoxPreference
         android:defaultValue="@bool/default_auto_start_new_game"

@@ -54,7 +54,7 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Karten mischen</string>
-    <string name="dialog_mix_cards_text">Möchtest du wirklich die Karten mischen? Dies wird alle Karten
-        (außer von Foundation-Stapel) mischen und wie ein neues Spiel ausgeben</string>
+    <string name="dialog_mix_cards_text">Do you really want to mix the cards? This will shuffle all cards,
+        expect correct sequences and cards on the foundation.</string>
 
 </resources>

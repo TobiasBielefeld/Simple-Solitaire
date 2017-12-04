@@ -60,7 +60,7 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">ミックスカード</string>
-    <string name="dialog_mix_cards_text">あなたは本当にカードを混ぜたいですか？ これはすべてのカードをシャッフルし
-        （基礎スタックからの期待）、新しいゲームのように扱います</string>
+    <string name="dialog_mix_cards_text">Do you really want to mix the cards? This will shuffle all cards,
+        expect correct sequences and cards on the foundation.</string>
 
 </resources>

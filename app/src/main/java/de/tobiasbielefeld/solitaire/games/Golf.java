@@ -56,7 +56,7 @@ public class Golf extends Game {
         setMainStackIDs(8);
 
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
-        setSingleTapEnabled(true);
+        setSingleTapEnabled();
     }
 
     @Override
@@ -108,16 +108,12 @@ public class Golf extends Game {
     }
 
     public void dealCards() {
-        if (!getMainStack().isEmpty()) {
-            moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
-        }
+        moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 5; j++) {
-                if (!getMainStack().isEmpty()) {
-                    moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                    stacks[i].flipTopCardUp();
-                }
+                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                stacks[i].getCard(j).flipUp();
             }
         }
 
@@ -135,7 +131,7 @@ public class Golf extends Game {
                 || (card.getValue() == stack.getTopCard().getValue() + 1 || card.getValue() == stack.getTopCard().getValue() - 1));
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return card.getStackId() < 7 && card.isTopCard();
     }
 
@@ -210,5 +206,10 @@ public class Golf extends Game {
         if (currentRunCount > prefs.getSavedLongestRun()) {
             prefs.saveLongestRun(currentRunCount);
         }
+    }
+
+    @Override
+    protected boolean excludeCardFromMixing(Card card){
+        return false;
     }
 }

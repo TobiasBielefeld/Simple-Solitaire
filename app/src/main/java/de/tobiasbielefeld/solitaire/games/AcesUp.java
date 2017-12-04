@@ -43,6 +43,7 @@ public class AcesUp extends Game {
         setFoundationStackIDs(4);
         setMainStackIDs(5);
 
+        setMixingCardsTestMode(null);
         setDirections(1, 1, 1, 1, 0, 0);
     }
 
@@ -84,10 +85,8 @@ public class AcesUp extends Game {
     public void dealCards() {
 
         for (int i = 0; i < 4; i++) {
-            if (!getMainStack().isEmpty()) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].flipTopCardUp();
-            }
+                stacks[i].getCard(0).flipUp();
         }
     }
 
@@ -133,7 +132,7 @@ public class AcesUp extends Game {
         return false;
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return card.isTopCard() && card.getStack() != stacks[4];
     }
 

@@ -55,7 +55,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceBackgroundVolume;
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
-    private CheckBoxPreference preferenceSecureRng;
     private DialogPreferenceCardDialog preferenceCards;
     private Sounds settingsSounds;
 
@@ -248,10 +247,13 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      */
     private void restartApplication() {
         Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        finish();
-        startActivity(i);
+
+        if (i!=null) {
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(i);
+        }
     }
 
     private void updatePreferenceMenuColumnsSummary() {
@@ -368,19 +370,11 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     public static class DeveloperOptionsPreferenceFragment extends CustomPreferenceFragment {
 
-        SecureRandom secureRandom = new SecureRandom();
-
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_developer_options);
             setHasOptionsMenu(true);
-
-            Settings settings = (Settings) getActivity();
-
-            settings.preferenceSecureRng = (CheckBoxPreference) findPreference(getString(R.string.pref_key_secure_rng));
-            settings.preferenceSecureRng.setSummary(secureRandom.getAlgorithm());
-            //settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
         }
     }
 }

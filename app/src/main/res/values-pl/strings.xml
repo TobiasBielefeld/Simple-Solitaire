@@ -62,6 +62,7 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Tasuj karty</string>
-    <string name="dialog_mix_cards_text">Czy na pewno chcesz przetasować karty? Wszystkie karty (z wyjątkiem tych na stosach bazowych) zostaną przetasowane i rozdane ponownie jak dla nowej gry.</string>
+    <string name="dialog_mix_cards_text">Czy na pewno chcesz przetasować karty? This will shuffle all cards,
+        expect correct sequences and cards on the foundation.</string>
 
 </resources>

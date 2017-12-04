@@ -51,6 +51,7 @@ public class GrandfathersClock extends Game {
         setTableauStackIDs(0,1,2,3,4,5,7);
         setFoundationStackIDs(8,9,10,11,12,13,14,15,16,17,18,19);
         setDealFromID(20);
+        setMixingCardsTestMode(testMode.DOESNT_MATTER);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -226,19 +227,14 @@ public class GrandfathersClock extends Game {
     public void dealCards() {
         flipAllCardsUp();
 
-        //test stack 8 to see if the deal action is for mixing cards. In this case, the foundation already has cards
-        if (stacks[8].isEmpty()) {
-            for (int i = 0; i < foundationCardOrder.length; i++) {
-                Card cardToMove = cards[foundationFamilyOrder[i] * 13 + foundationCardOrder[i] - 1];
-                moveToStack(cardToMove, stacks[8 + i], OPTION_NO_RECORD);
-            }
+        for (int i = 0; i < foundationCardOrder.length; i++) {
+            Card cardToMove = cards[foundationFamilyOrder[i] * 13 + foundationCardOrder[i] - 1];
+            moveToStack(cardToMove, stacks[8 + i], OPTION_NO_RECORD);
         }
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 5; j++) {
-                if (!getDealStack().isEmpty()) {
-                    moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                }
+                moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
         }
     }
@@ -264,7 +260,7 @@ public class GrandfathersClock extends Game {
         }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         Stack sourceStack = card.getStack();
 
         int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), card.getStack().getIndexOfCard(card));

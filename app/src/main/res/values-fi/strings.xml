@@ -61,6 +61,6 @@
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Sekoita kortit</string>
     <string name="dialog_mix_cards_text">Haluatko todella sekoittaa kortit? Tämä sekoittaa kortit
-        (paitsi niitä jotka ovat peruspinossa) ja jakaa ne kuin uudessa pelissä</string>
+        expect correct sequences and cards on the foundation.</string>
 
 </resources>
