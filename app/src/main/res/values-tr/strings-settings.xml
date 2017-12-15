@@ -109,6 +109,8 @@
     <string name="settings_calculation_alternative_text">On main stack press: Instead of moving the card from the discard
         stack to the tableau, keep it on the discard stack.</string>
 
+    <!-- need translations -->
+
     <string name="settings_vegas_money_enabled">Keep the current balance</string>
     <string name="settings_vegas_money_enabled_text">The balance will be transferred to following deals of Vegas,
         but you need to reset the balance and then start a new game for saving high-scores</string>
@@ -129,6 +131,31 @@
     <string name="settings_hide_score">Hide Score</string>
 
     <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
-    <string name="settings_vegas_bet_amount_error">Can\'t save the numbers!</string>
+    <string name="settings_vegas_bet_amount_error">Can\'t save those numbers!</string>
+
+    <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
+
+    <string name="settings_use_true_randomisation_title">Use true randomisation</string>
+    <string name="settings_use_true_randomisation_text">The default randomisation avoids similar cards next to each other.
+        Check to enable a truly uniform randomisation</string>
+
+    <string name="settings_developer_options">Developer options</string>
+    <string name="settings_developer_options_description">Play around with crazy settings!</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">Move cards everywhere</string>
+    <string name="settings_developer_options_move_card_everwhere_text">You can place cards on any stack</string>
+
+    <string name="settings_developer_options_lock_title">Unlock developer options</string>
+    <string name="settings_developer_options_lock_text">These settings are intended for testing purpose only, the usage can result in strange behavior and crashes!</string>
+    <string name="settings_developer_options_play_every_card_title">Play every card</string>
+    <string name="settings_developer_options_play_every_card_text">You can play every revealed card</string>
+
+    <string name="settings_developer_options_instant_win_title">Instant win</string>
+    <string name="settings_developer_options_instant_win_text">Win every game after moving a card</string>
+
+    <string name="settings_developer_options_no_saving_title">Disable saving game state</string>
+    <string name="settings_developer_options_no_saving_text">Movements in a game won\'t be saved anymore</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">Deal correct sequences</string>
 
 </resources>

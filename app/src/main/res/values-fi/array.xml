@@ -88,5 +88,21 @@
         <item>Soittorasia</item>
     </string-array>
 
+    <!-- new values -->
+
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>13 korttia (oletus)</item>
+        <item>10 korttia</item>
+        <item>7 korttia</item>
+        <item>4 korttia</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>Deaktivoitu</item>
+        <item>Vaihtoehtoinen väri</item>
+        <item>Sama perhe</item>
+        <item>Käänteinen vaihtoehtoinen väri</item>
+        <item>Käänteinen sama perhe</item>
+    </string-array>
 
 </resources>

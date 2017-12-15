@@ -63,6 +63,6 @@
 
     <!-- dialog redeal -->
     <string name="dialog_redeal_title">Spiel wiederholen</string>
-    <string name="dialog_redeal_text">Dein aktueller Fortschritt geht verloren, aber die Karten werden wieder wie im aktuellen Spiel ausgegeben.</string>
+    <string name="dialog_redeal_text">Dein aktueller Fortschritt geht verloren, aber die Karten werden wie im aktuellen Spiel ausgegeben.</string>
 
 </resources>

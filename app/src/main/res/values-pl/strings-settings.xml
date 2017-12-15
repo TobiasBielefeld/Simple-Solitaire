@@ -139,4 +139,31 @@
     <string name="settings_single_tap_all_games_text">Stuknij pojedynczo w kartę, aby przenieść ją na następny możliwy stos. Ustawienie takie same jak ruchów podwójnych. Wyłączone zostaną ruchy „wybierz przez stuknięcie”.</string>
     <string name="settings_vegas_bet_amount_error">Nie można zapisać liczby!</string>
 
+    <!-- new values translated with DeepL, maybe it's better than the google translator-->
+
+    <string name="settings_canfield_size_of_reserve_title">Zmiana wielkości rezerwy (łatwiejsza)</string>
+
+    <string name="settings_use_true_randomisation_title">Stosowanie prawdziwej randomizacji</string>
+    <string name="settings_use_true_randomisation_text">Domyślna randomizacja pozwala uniknąć podobnych kart obok siebie.
+        Kontrola w celu umożliwienia prawdziwie jednolitej randomizacji</string>
+
+    <string name="settings_developer_options">Opcje dewelopera</string>
+    <string name="settings_developer_options_description">Zagraj w szalone scenerie!</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">Przenieś karty wszędzie.</string>
+    <string name="settings_developer_options_move_card_everwhere_text">Karty można umieszczać na dowolnym stosie</string>
+
+    <string name="settings_developer_options_lock_title">Odblokować opcje dewelopera</string>
+    <string name="settings_developer_options_lock_text">Ustawienia te są przeznaczone wyłącznie do celów testowych, użycie może powodować dziwne zachowania i awarie!</string>
+    <string name="settings_developer_options_play_every_card_title">Odtwórz każdą kartę</string>
+    <string name="settings_developer_options_play_every_card_text">Można odtworzyć każdą ujawnioną kartę</string>
+
+    <string name="settings_developer_options_instant_win_title">Natychmiastowe zwycięstwo</string>
+    <string name="settings_developer_options_instant_win_text">Wygraj każdą grę po przeniesieniu karty</string>
+
+    <string name="settings_developer_options_no_saving_title">Wyłączenie zapisywania stanu gry</string>
+    <string name="settings_developer_options_no_saving_text">Ruchy w grze nie będą już zapisywane</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">Usuwanie prawidłowych sekwencji</string>
+
 </resources>

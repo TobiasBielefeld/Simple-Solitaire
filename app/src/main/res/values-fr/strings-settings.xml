@@ -103,7 +103,8 @@
     <string name="settings_auto_start_new_game_title">Démarre une nouvelle partie en cas de victoire</string>
     <string name="settings_auto_start_new_game_text">En cas de retour vers un jeu gagné, démarrer automatiquement un nouvelle partie</string>
 
-    <!-- new values, online translated -->
+    <!-- new values translated with DeepL, maybe it's better than the google translator-->
+
     <string name="settings_customization_description">Modifier les cartes, les arrière-plans et l\'interface utilisateur</string>
 
     <string name="settings_force_tablet_layout_title">Forcer la disposition de la tablette</string>
@@ -134,6 +135,31 @@
     <string name="settings_hide_score">Masquer les points</string>
 
     <string name="settings_single_tap_all_games_text">Appuyez une fois sur une carte pour la déplacer vers la pile suivante. Il suit les mêmes réglages que les mouvements Double-Tap. Ceci désactive la sélection par un appui rapide.</string>
-    <string name="settings_vegas_bet_amount_error">On ne peut pas sauvegarder les numéros!</string>
+    <string name="settings_vegas_bet_amount_error">On ne peut pas sauver ces numéros!</string>
+
+    <string name="settings_canfield_size_of_reserve_title">Changer la taille de la réserve (plus facile)</string>
+
+    <string name="settings_use_true_randomisation_title">Utiliser la vraie randomisation</string>
+    <string name="settings_use_true_randomisation_text">La randomisation par défaut permet d\'éviter les cartes similaires les unes à côté des autres.
+        Vérification permettant une randomisation vraiment uniforme</string>
+
+    <string name="settings_developer_options">Options de développement</string>
+    <string name="settings_developer_options_description">Jouez avec des décors délirants!</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">Déplacer les cartes partout</string>
+    <string name="settings_developer_options_move_card_everwhere_text">Vous pouvez placer des cartes sur n\'importe quelle pile</string>
+
+    <string name="settings_developer_options_lock_title">Déverrouiller les options de développement</string>
+    <string name="settings_developer_options_lock_text">Ces paramètres sont destinés à des fins de test uniquement, l\'utilisation peut entraîner un comportement étrange et des plantages!</string>
+    <string name="settings_developer_options_play_every_card_title">Jouez chaque carte</string>
+    <string name="settings_developer_options_play_every_card_text">Vous pouvez jouer chaque carte révélée</string>
+
+    <string name="settings_developer_options_instant_win_title">Gagner instantanément</string>
+    <string name="settings_developer_options_instant_win_text">Gagnez chaque partie après avoir déplacé une carte</string>
+
+    <string name="settings_developer_options_no_saving_title">Désactiver l\'état du jeu de sauvegarde</string>
+    <string name="settings_developer_options_no_saving_text">Les mouvements d\'un jeu ne seront plus sauvegardés</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">Traiter les séquences correctes</string>
 
 </resources>

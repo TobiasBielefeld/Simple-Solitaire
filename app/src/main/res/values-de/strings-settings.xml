@@ -124,6 +124,31 @@
 
     <string name="settings_single_tap_all_games_text">Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen.
         Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert.</string>
-    <string name="settings_vegas_bet_amount_error">Kann die Zahlen nicht speichern!</string>
+    <string name="settings_vegas_bet_amount_error">Kann diese Zahlen nicht speichern!</string>
+
+    <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
+
+    <string name="settings_use_true_randomisation_title">Use true randomisation</string>
+    <string name="settings_use_true_randomisation_text">The default randomisation avoids similar cards next to each other.
+        Check to enable a truly uniform randomisation.</string>
+
+    <string name="settings_developer_options">Entwickler Optionen</string>
+    <string name="settings_developer_options_description">Spielen mit verrückten Einstellungen herum!</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">Bewege Karten überall hin</string>
+    <string name="settings_developer_options_move_card_everwhere_text">Man kann Karten auf jeden Stapel platzieren</string>
+
+    <string name="settings_developer_options_lock_title">Schalte Entwickler Optionen frei</string>
+    <string name="settings_developer_options_lock_text">Diese Einstellungen sind nur für Testzwecke gedacht, die Verwendung kann zu merkwürdigem Verhalten und Abstürzen führen!</string>
+    <string name="settings_developer_options_play_every_card_title">Spiele jede Karte</string>
+    <string name="settings_developer_options_play_every_card_text">Man kann jede aufgedeckte Karte spielen</string>
+
+    <string name="settings_developer_options_instant_win_title">Sofortiger Gewinn</string>
+    <string name="settings_developer_options_instant_win_text">Gewinne jedes Spiel nach einer Kartenbewegung</string>
+
+    <string name="settings_developer_options_no_saving_title">Deaktivere Spielstand Speicherung</string>
+    <string name="settings_developer_options_no_saving_text">Bewegungen in den Spielen werden nicht mehr gespeichert</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">Gebe korrekte Sequenzen aus</string>
 
 </resources>

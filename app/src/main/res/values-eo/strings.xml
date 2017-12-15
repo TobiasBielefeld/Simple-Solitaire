@@ -59,6 +59,8 @@
     <string name="dialog_win_bonus">Premio: %1$d</string>
     <string name="dialog_win_total">Tute: %1$d</string>
 
+    <!-- new values -->
+
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Miksi kartojn</string>
     <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>

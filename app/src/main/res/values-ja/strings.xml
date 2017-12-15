@@ -60,15 +60,15 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">ミックスカード</string>
-    <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>
-    <string name="dialog_mix_cards_not_available">There are still possible moves! (Use the hint function to show them)</string>
+    <string name="dialog_mix_cards_text">これにより、すべてのカードがシャッフルされ、正しいシーケンスとカードが基盤上にあることが期待されます。</string>
+    <string name="dialog_mix_cards_not_available">まだ動きはあります！ （ヒント機能を使って表示する）</string>
 
     <!-- dialog start new game -->
     <string name="dialog_start_new_game_title">新しいゲームを開始する</string>
-    <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
+    <string name="dialog_start_new_game_text">あなたの現在の進行状況は失われ、新しいランダムゲームが処理されます。</string>
 
     <!-- dialog redeal -->
     <string name="dialog_redeal_title">カードをもう一度配る</string>
-    <string name="dialog_redeal_text">Your current progress will be lost, but the cards are dealt like in the current game.</string>
+    <string name="dialog_redeal_text">あなたの現在の進歩は失われますが、カードは現在のゲームのように扱われます。</string>
 
 </resources>

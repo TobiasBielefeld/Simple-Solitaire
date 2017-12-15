@@ -89,4 +89,19 @@
         <item>オルゴール</item>
     </string-array>
 
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>カード13枚（デフォルト）</item>
+        <item>カード10枚</item>
+        <item>カード7枚</item>
+        <item>カード4枚</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>無効化された</item>
+        <item>交互の色</item>
+        <item>同じ家族</item>
+        <item>逆転交互の色</item>
+        <item>逆転同じ家族</item>
+    </string-array>
+
 </resources>

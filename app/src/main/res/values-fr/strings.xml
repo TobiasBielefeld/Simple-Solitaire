@@ -58,21 +58,19 @@
     <string name="dialog_win_bonus">Prime: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
 
-
-
-    <!-- new values -->
+    <!-- new values translated with DeepL, maybe it's better than the google translator-->
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Mélanger les cartes</string>
-    <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>
-    <string name="dialog_mix_cards_not_available">There are still possible moves! (Use the hint function to show them)</string>
+    <string name="dialog_mix_cards_text">Ceci mélangera toutes les cartes, attendez-vous à des séquences et des cartes correctes sur les piles de bases.</string>
+    <string name="dialog_mix_cards_not_available">Il y a encore des mouvements possibles! (Utilisez la fonction conseil pour les afficher)</string>
 
     <!-- dialog start new game -->
     <string name="dialog_start_new_game_title">Démarrer une nouvelle partie</string>
-    <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
+    <string name="dialog_start_new_game_text">Votre progression actuelle sera perdue et une nouvelle partie au hasard sera distribuée.</string>
 
     <!-- dialog redeal -->
     <string name="dialog_redeal_title">Redistribuer les cartes</string>
-    <string name="dialog_redeal_text">Your current progress will be lost, but the cards are dealt like in the current game.</string>
+    <string name="dialog_redeal_text">Votre progression actuelle sera perdue, mais les cartes sont distribuées comme dans la partie en cours.</string>
 
 </resources>

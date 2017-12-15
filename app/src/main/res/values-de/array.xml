@@ -88,4 +88,19 @@
         <item>Musikbox</item>
     </string-array>
 
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>13 Karten (Standard)</item>
+        <item>10 Karten</item>
+        <item>7 Karten</item>
+        <item>4 Karten</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>Deaktiviert</item>
+        <item>Abwechselnde Farbe</item>
+        <item>Gleiche Familie</item>
+        <item>Umgekehrt abwechselnde Farbe</item>
+        <item>Umgekehrt gleiche Familie</item>
+    </string-array>
+
 </resources>
