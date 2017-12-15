@@ -83,6 +83,8 @@ public abstract class Game {
     public void mixCards(){
         Random random = getPrng();
         ArrayList<Card> cardsToMix = new ArrayList<>();
+        int counter;
+        Card cardToChange;
 
         //get the cards to mix
         for (Card card : cards){
@@ -93,7 +95,26 @@ public abstract class Game {
 
         //exchange cards. A bit like Fisher-Yate Shuffle, but the iterating array doesn't change.
         for (int i = cardsToMix.size() -1 ; i>=0;i--){
-            Card cardToChange = cardsToMix.get(random.nextInt(i+1));
+
+            if (prefs.getSavedUseTrueRandomisation()){
+                cardToChange = cardsToMix.get(random.nextInt(i+1));
+            } else {
+                //choose a new card as long the chosen card is too similar to the previous and following card in the array
+                //(same value or color) also limit the loop to max 10 iterations to avoid infinite loops
+                counter = 0;
+
+                do {
+                    cardToChange = cardsToMix.get(random.nextInt(i+1));
+                    counter++;
+                }
+                while ( //the card below cardToChange shouldn't be too similar (but only if there is a card below)
+                        (!cardToChange.isFirstCard() && (cardToChange.getCardBelow().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardBelow().getColor() == cardsToMix.get(i).getColor())
+                        //the card on top cardToChange shouldn't be too similar (but only if there is a card on top)
+                        || !cardToChange.isTopCard() &&      (cardToChange.getCardOnTop().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardOnTop().getColor() == cardsToMix.get(i).getColor()))
+                        //and the loop shouldn't take too long
+                        && counter < 10);
+            }
+
             cardToChange.getStack().exchangeCard(cardToChange,cardsToMix.get(i));
         }
 

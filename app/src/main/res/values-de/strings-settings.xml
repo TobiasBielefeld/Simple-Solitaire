@@ -126,7 +126,7 @@
         Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert.</string>
     <string name="settings_vegas_bet_amount_error">Kann diese Zahlen nicht speichern!</string>
 
-    <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
+    <string name="settings_canfield_size_of_reserve_title">Ändere Größe der Reserve (Einfacher)</string>
 
     <string name="settings_use_true_randomisation_title">Benutze echten Zufall</string>
     <string name="settings_use_true_randomisation_text">Die Standard Randomisierung vermeidet ähnliche Karten nebeneinander.

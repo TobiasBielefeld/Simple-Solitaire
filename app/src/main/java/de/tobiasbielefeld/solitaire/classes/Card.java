@@ -315,4 +315,16 @@ public class Card {
             stack = null;
         }
     }
+
+    public Card getCardOnTop(){
+        if (getIndexOnStack() < stack.getSize() -1){
+            return stack.getCard(getIndexOnStack()+1);
+        } else {
+            return this;
+        }
+    }
+
+    public Card getCardBelow(){
+        return getIndexOnStack() == 0 ? this : stack.getCard(getIndexOnStack()-1);
+    }
 }

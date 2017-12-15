@@ -391,7 +391,7 @@ public class Canfield extends Game {
 
             if (!hint.hasVisited(card) && card.getValue() != startCardValue) {
                 for (int j = 0; j <= 3; j++) {
-                    if (j == i) {
+                    if (j == i || stacks[j].isEmpty()) {
                         continue;
                     }
 
