@@ -6,8 +6,6 @@
 
     <string name="settings_background_color">Background colour</string>
     <string name="settings_hide_status_bar">Hide status bar</string>
-    <string name="settings_hide_time">Hide Time</string>
-    <string name="settings_hide_score">Hide Score</string>
     <string name="settings_left_handed_mode">Left handed mode</string>
     <string name="settings_left_handed_mode_description">Mirrors the card and stack positions to the left side</string>
     <string name="settings_back_press">Confirm closing game</string>
@@ -26,7 +24,6 @@
 
     <string name="settings_background">Background number</string>
     <string name="settings_customization">Appearance</string>
-    <string name="settings_customization_description">Customize cards and background</string>
     <string name="settings_other">General</string>
     <string name="settings_other_description">Set all other settings</string>
     <string name="settings_games">Games</string>
@@ -74,7 +71,7 @@
     <string name="settings_tap_to_select_enable">Enable Tap-To-Select movements</string>
     <string name="settings_tap_to_select_enable_text">Tap on a card to select it, then tap the destination stack to move it there</string>
     <string name="settings_single_tap">Single-Tap</string>
-    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
+
     <string name="settings_single_tap_enable_text">Only for Golf and TriPeaks: Press a card once to move it to the discard stack</string>
     <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
     <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
@@ -89,15 +86,74 @@
     <string name="settings_limit_number_of_recycles">Limit number of recycles</string>
     <string name="settings_limit_number_of_recycles_text">Recycling the waste back to the main stack is limited</string>
     <string name="settings_number_of_recycles">Amount of recycles</string>
-
     <string name="settings_vegas_bet_amount">Bet Amount</string>
-    <string name="settings_vegas_bet_amount_progress_text">Initial deal costs %1$d$, each card played to the foundation earns %2$d$.</string>
-    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+
     <string name="settings_menu_order_title">Menu order</string>
     <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
     <string name="settings_menu_order_set_default">Reset order</string>
-
     <string name="settings_auto_start_new_game_title">Start a new game when won</string>
     <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
 
+    <string name="settings_customization_description">Customize cards, backgrounds and user interface</string>
+
+    <string name="settings_force_tablet_layout_title">Force tablet layout</string>
+    <string name="settings_force_tablet_layout_text">Show the application as on large screens (>=10\")</string>
+
+    <string name="settings_restart_calculation">Start a new Calculation game to apply the change</string>
+    <string name="settings_calculation_alternative_title">Keep cards</string>
+    <string name="settings_calculation_alternative_text">On main stack press: Instead of moving the card from the discard
+        stack to the tableau, keep it on the discard stack.</string>
+
+    <string name="settings_vegas_money_enabled">Keep the current balance</string>
+    <string name="settings_vegas_money_enabled_text">The balance will be transferred to following deals of Vegas,
+        but you need to reset the balance and then start a new game for saving high-scores</string>
+    <string name="settings_vegas_money_reset">Reset balance</string>
+    <string name="settings_vegas_money_reset_text">The next Vegas deal will start with 0$</string>
+    <string name="settings_vegas_money_reset_confirm">Do you really want to reset your balance? This can\'t be reverted.</string>
+
+    <string name="settings_auto_move_title">Automatic movement</string>
+    <string name="settings_mod3_auto_move_text">Automatically move Aces to the discard stack, when possible</string>
+
+    <string name="settings_pyramid_auto_move_text">Automatically move Kings to the waste, when possible</string>
+
+    <string name="settings_rules">Rules</string>
+    <string name="settings_money">Money</string>
+    <string name="settings_support">Support</string>
+
+    <string name="settings_hide_time">Hide Time</string>
+    <string name="settings_hide_score">Hide Score</string>
+
+    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
+
+    <string name="settings_vegas_bet_amount_text_1">Initial deal costs:</string>
+    <string name="settings_vegas_bet_amount_text_2">Each card played to the foundation earns:</string>
+    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
+
+    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
+    <string name="settings_vegas_bet_amount_error">Can\'t save those numbers!</string>
+
+    <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
+
+    <string name="settings_use_true_randomisation_title">Use true randomization</string>
+    <string name="settings_use_true_randomisation_text">The default randomization avoids similar cards next to each other.
+        Check this to enable a truly uniform randomisation</string>
+
+    <string name="settings_developer_options">Developer options</string>
+    <string name="settings_developer_options_description">Play around with crazy settings!</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">Move cards everywhere</string>
+    <string name="settings_developer_options_move_card_everwhere_text">You can place cards on any stack</string>
+
+    <string name="settings_developer_options_lock_title">Unlock developer options</string>
+    <string name="settings_developer_options_lock_text">These settings are intended for testing purpose only, the usage can result in strange behavior and crashes!</string>
+    <string name="settings_developer_options_play_every_card_title">Play every card</string>
+    <string name="settings_developer_options_play_every_card_text">You can play every revealed card</string>
+
+    <string name="settings_developer_options_instant_win_title">Instant win</string>
+    <string name="settings_developer_options_instant_win_text">Win every game after moving a card</string>
+
+    <string name="settings_developer_options_no_saving_title">Disable saving game state</string>
+    <string name="settings_developer_options_no_saving_text">Movements in a game won\'t be saved anymore</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">Deal correct sequences</string>
 </resources>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+     -
+     -  No need in translating the changelog! because nearly no one reads this.
+     -
+    -->
+
+    <string name="changelog_42" translatable="false">
+        • Added a new option to mix the cards, if no movement is possible
+        \n• Randomization now avoids similar cards next to each other, can be disabled in the general settings.
+        \n• Added new confirmation dialogs for starting new games
+        \n• Added developer options to play around (Use with care!)
+        \n• Canfield: The size of the reserve can now be changed (makes the game easier to win)
+    </string>
+
+    <string name="changelog_41" translatable="false">
+        • Added missing Esperanto and Polish translations, thanks to verdulo!
+    </string>
+
+    <string name="changelog_40" translatable="false">
+        • Added a new Single-Tap settings entry. It is like Double-Tap, but with one tap less!
+        \n• Disabled recycles (limited to 0) aren\'t shown anymore over the main stack
+        \n• Vegas bet and win amount can now be changed separately
+        \n• Adjusted the Vegas default rules
+        \n• Changed the drawer menu, thanks to  dankan1890!
+        \n• Added some French translations, thanks to cicithesquirrel!
+        \n• Correcting some bugs and force close issues
+
+    </string>
+
+    <string name="changelog_39" translatable="false">
+        • Added a new game: Calculation Solitaire!
+        \n• Fixed Finnish translations, thanks to winjar!
+        \n• In game time and score can now be hidden, thanks to tryton-vanmee for this feature!
+        \n• Empty discard stacks will now be filled by the next card from the main stack in games which support it
+        \n• Vegas: Added the ability to keep the current balance between games
+        \n• Added automatic movements of Aces in Mod3 and Kings in Pyramid, can be disabled in the settings
+        \n• Fixed the amount of movable cards in Freecell, Forty&amp;Eight and GrandfathersClock
+        \n• Changed the pictures of the main menu to reduce application size a bit
+        \n• Changed the appearance of the about screen
+        \n• Bug fixes and little changes
+    </string>
+
+    <string name="changelog_38" translatable="false">
+        • Game settings are now in separated sub menus for better clarity
+        \n• Updated Esperanto and Polish translations. Thanks to verdulo!
+        \n• Added Turkish translations, thanks to sekmenhuseyin!
+    </string>
+
+    <string name="changelog_37" translatable="false">
+        • Updated French translations. Thanks to cicithesquirrel!
+        \n• Changed the bonus calculation and the bonus will be shown after winning a game
+    </string>
+
+
+    <string name="changelog_36" translatable="false">
+        • Fixed an issue related to high-scores.
+    </string>
+
+    <string name="changelog_35" translatable="false">
+        • Fixed some issues related to scoring
+    </string>
+
+    <string name="changelog_34" translatable="false">
+        • The order of the games in the main menu can now be changed in the settings!
+        \n• Updated Esperanto, Polish and Finnish translations. Thanks to verdulo and winjar!
+        \n• Bug fixes
+    </string>
+
+
+    <string name="changelog_33" translatable="false">
+        • Added a Settings entry to disable the new automatically start a new game behavior
+    </string>
+
+    <string name="changelog_32" translatable="false">
+        • Added the new game Vegas: Like Klondike, but play for (not real) money!
+        \n• Added a shortcut to the in game menu to the corresponding manual entry
+        \n• Added some basic sounds with an extra submenu in the settings
+        \n• Increased the default card moving speed
+        \n• Changed the behavior of limited recycles of the waste in Pyramid and Forty&amp;Eight
+        \n• Fixed error: Rotating screen in game and then leave to the main menu, the game did show up again
+        \n• New behavior: Starting a game, which was left won, will automatically start a new game
+        \n• Bug fixes
+    </string>
+
+    <string name="changelog_31" translatable="false">
+        •  Fix for space between faced down cards
+        \n• Fix for force-close when rotating the screen, while the win animation is showing
+    </string>
+
+    <string name="changelog_30" translatable="false">
+        •  Bug fixes in Canfield
+        \n• Fixed some force-close issues
+    </string>
+
+    <string name="changelog_29" translatable="false">
+        •  Canfield: If the reserve is empty, cards from the stock won\'t be used anymore. (Because it was possible anyway to choose which card to move)
+        \n• Spider and SimpleSimon: Hint and Double-Tap now prefer cards with the same color as the moving card
+        \n• You can now change the card movement speed in the settings
+        \n• Faced down cards will now take less place on the screen than faced up cards.
+        \n• Improved double tap movement: Foundation stacks are now preferred (can be disabled in settings)
+        \n• Calculation of points in Golf and TriPeaks now account the length of the sequence and also display the longest sequence in the statistics
+        \n• Improved the card background chooser: Now you can select a theme and the color separately. This also resets the saved settings (Sorry!)
+        \n• A lot of bug fixes
+    </string>
+
+    <string name="changelog_28" translatable="false">
+        • Fix multiple card movement in Forty&amp;Eight
+    </string>
+
+    <string name="changelog_27" translatable="false">
+        • Updated French and Finnish translations, thanks to romainhk and winjar!
+        \n• Redesigned the main menu and app icon
+        \n• Removed the option to change the icon theme to simplify the program
+    </string>
+
+    <string name="changelog_26" translatable="false">
+        • Added a custom color picker for the background color
+        \n• Added a new game: Grandfathers Clock
+        \n• Updated the menu icons
+    </string>
+
+    <string name="changelog_25" translatable="false">
+        • Added Tap-To-Select movements: Tap a card to select it and then tap the destination stack to move it
+        \n• Added Single-Tap movements for Golf and TriPeaks: Tap a card once to move it to the discard stack
+        \n• Changed the double tap settings menu to add the new movement methods
+        \n• Made the Drag-And-Drop movement more intelligent: It now uses the stack with the highest intersection rate which can add the card
+        \n• Some small bug fixes
+        \n• Small updates to Esperanto and Polish translations, thanks to verdulo!
+    </string>
+
+    <string name="changelog_24" translatable="false">
+        • Added Finnish translations, thanks to winjar!
+        \n• Added 2 new card themes and 6 new card backgrounds
+        \n• Card themes can now be changed to a 4 color version
+        \n• Improved quality of used pictures
+        \n• The high score list has a new appearance and shows date and time stamps
+        \n• High Scores will also be saved when ending a game, not only when winning a game
+        \n• Added an option to change the rules from \'Yukon\' to \'Russian Solitaire\'
+        \n• Some little changes
+    </string>
+
+    <string name="changelog_23" translatable="false">
+        •  Updated french translations (Thanks to romainhk!)
+    </string>
+
+    <string name="changelog_22" translatable="false">
+        • Canfield: Empty foundation stacks now show which card can be placed on them
+        \n• Improved drag-and-drop: Cards will be added to the stack with the highest intersection rate
+    </string>
+
+    <string name="changelog_21" translatable="false">
+        • Bug fix for double tap movement in \'Yukon\'
+    </string>
+
+    <string name="changelog_20" translatable="false">
+        • Fixed not being able to place Kings on Aces in \'Canfield\'
+    </string>
+
+    <string name="changelog_19" translatable="false">
+        • Bug fix for moving aces to the discard stack in \'Aces Up\'
+    </string>
+
+    <string name="changelog_18" translatable="false">
+        • Replaced the old icons with Material design icons
+        \n• Added an option to change the position of the menu bar
+    </string>
+
+    <string name="changelog_17" translatable="false">
+        • Added a new game: Canfield
+        \n• The High-Scores now show the total number of games and the winning rate
+        \n• Added a Double-Tap-To-Move option, can be disabled in the settings
+        \n• Added options to disable the limited Re-deals in Forty&amp;Eight and Pyramid
+        \n• Multiple cards can be moved in Forty&amp;Eight, if there are enough free stacks (like in Freecell)
+        \n• Removed the option to disable multiple card movements from Freecell, because it doesn\'t affect the rules
+    </string>
+
+    <string name="changelog_16" translatable="false">
+        • Bug fix in Klondike draw 3 mode
+    </string>
+
+    <string name="changelog_15" translatable="false">
+        • Added french translations by romainhk from GitHub!
+    </string>
+
+    <string name="changelog_14" translatable="false">
+        • Fix for force closes caused by too less allocated memory
+    </string>
+
+    <string name="changelog_13" translatable="false">
+        • Improved japanese translations (Thanks to naofum from GitHub!)
+    </string>
+
+    <string name="changelog_12" translatable="false">
+        • Fixed win condition on Spider and SimpleSimon
+        \n• Also fixed auto completion on Spider and SimpleSimon
+    </string>
+
+    <string name="changelog_11" translatable="false">
+        • Added an option to change the language in the settings
+        \n• Thanks to GitHub user verdulo, this app is now translated to Polish and Esperanto!
+        \n• Fixed a bug which occurred when choosing a fixed orientation
+    </string>
+
+    <string name="changelog_10" translatable="false">
+        • Error correction while saving high-scores
+    </string>
+
+    <string name="changelog_9" translatable="false">
+        • Changed app name and icon
+        \n• Added more games: Pyramid, TriPeaks, Forty&amp;Eight, Mod3, Gypsy and AcesUp!
+        \n• Added an manual
+        \n• Games in the main menu are now alphabetically sorted
+        \n• You can now change the appearance of the main menu
+        \n• A lot of little improvements
+    </string>
+
+    <string name="changelog_8" translatable="false">
+        • More bug fixes
+    </string>
+
+    <string name="changelog_7" translatable="false">
+        • Some bug fixes
+    </string>
+
+    <string name="changelog_6" translatable="false">
+        • Added more games: Freecell, Yukon, Spider, Simple Simon and Golf!
+        \n• Added a new basic card set with larger icon
+        \n• Changed the settings and added more options
+        \n• Also improved the about screen
+    </string>
+
+    <string name="changelog_5" translatable="false">
+        • Fixed an error when deleting high scores
+        \n• Added an option to set screen orientation
+    </string>
+
+    <string name="changelog_4" translatable="false">
+        • Moved the about button to the settings
+        \n• Some visual changes
+        \n• Game is now licensed under GPL 3.0!
+    </string>
+
+    <string name="changelog_3" translatable="false">
+        • Added 2 new background colors
+        \n• Changed the auto complete question to a button
+        \n• Drawable updates for foundation and stock
+    </string>
+
+    <string name="changelog_2" translatable="false">
+        • Improved settings
+    </string>
+
+    <string name="changelog_1" translatable="false">
+        • Initial Release
+    </string>
+
+</resources>
