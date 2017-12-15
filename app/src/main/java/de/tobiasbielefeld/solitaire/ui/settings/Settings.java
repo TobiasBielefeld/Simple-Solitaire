@@ -30,6 +30,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Locale;
 
@@ -204,7 +205,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 || OtherPreferenceFragment.class.getName().equals(fragmentName)
                 || MenuPreferenceFragment.class.getName().equals(fragmentName)
                 || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
-                || SoundPreferenceFragment.class.getName().equals(fragmentName);
+                || SoundPreferenceFragment.class.getName().equals(fragmentName)
+                || DeveloperOptionsPreferenceFragment.class.getName().equals(fragmentName);
+
     }
 
     /**
@@ -244,10 +247,13 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      */
     private void restartApplication() {
         Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        finish();
-        startActivity(i);
+
+        if (i!=null) {
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(i);
+        }
     }
 
     private void updatePreferenceMenuColumnsSummary() {
@@ -359,6 +365,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
             settings.preferenceSingleTapAllGames = (CheckBoxPreference) findPreference(getString(R.string.pref_key_single_tap_all_games));
             settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
+        }
+    }
+
+    public static class DeveloperOptionsPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_developer_options);
+            setHasOptionsMenu(true);
         }
     }
 }

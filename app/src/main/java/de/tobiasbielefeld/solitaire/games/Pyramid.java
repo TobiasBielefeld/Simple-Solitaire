@@ -46,11 +46,14 @@ public class Pyramid extends Game {
     public Pyramid() {
         setNumberOfDecks(1);
         setNumberOfStacks(32);
-        setMainStackIDs(31);
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27);
         setDiscardStackIDs(29,30);
-        setLastTableauID(27);
+        setMainStackIDs(31);
         setDealFromID(30);
-        setDirections();                                                                              //empty so all stacks have no spacing direction
+
+        //empty so all stacks have no spacing direction
+        setDirections();
 
         setNumberOfRecycles(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
 
@@ -106,9 +109,7 @@ public class Pyramid extends Game {
     }
 
     public void dealCards() {
-        for (Card card : cards) {
-            card.flipUp();
-        }
+        flipAllCardsUp();
 
         for (int i = 0; i < 28; i++) {
             moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
@@ -167,7 +168,7 @@ public class Pyramid extends Game {
     }
 
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
 
         if (card.getStackId() == 28)
             return false;
@@ -307,5 +308,12 @@ public class Pyramid extends Game {
         Stack stackAbove2 = stacks[stackAboveID[stack.getId()] + 1];
 
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
+    }
+
+    /*
+     * override this in your games to customize behavior
+     */
+    protected boolean excludeCardFromMixing(Card card){
+        return card.getStack() == stacks[28];
     }
 }

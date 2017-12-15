@@ -38,11 +38,13 @@ public class Calculation extends Game {
     public Calculation() {
         setNumberOfDecks(1);
         setNumberOfStacks(10);
-        setMainStackIDs(9);
-        setDiscardStackIDs(8);
-        setLastTableauID(3);
-        setHasFoundationStacks(true);
 
+        setTableauStackIDs(0,1,2,3);
+        setFoundationStackIDs(4,5,6,7);
+        setDiscardStackIDs(8);
+        setMainStackIDs(9);
+
+        setMixingCardsTestMode(null);
         prefs.saveCalculationAlternativeModeOld();
     }
 
@@ -124,15 +126,15 @@ public class Calculation extends Game {
             for (Card card : getMainStack().currentCards){
                 if (card.getValue()==(i+1)){
                     moveToStack(card, stacks[4+i], OPTION_NO_RECORD);
-                    stacks[4+i].getTopCard().flipUp();
+                    stacks[4+i].getCard(0).flipUp();
                     break;
                 }
             }
         }
 
         //card to trash
-        moveToStack(getMainStack().getTopCard(),stacks[8],OPTION_NO_RECORD);
-        stacks[8].getTopCard().flipUp();
+        moveToStack(getMainStack().getTopCard(), stacks[8], OPTION_NO_RECORD);
+        stacks[8].getCard(0).flipUp();
 
         setTexts();
     }
@@ -203,7 +205,7 @@ public class Calculation extends Game {
         return false;
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return card.getStackId()<4 && card.isTopCard() || card.getStack()==getDiscardStack();
     }
 

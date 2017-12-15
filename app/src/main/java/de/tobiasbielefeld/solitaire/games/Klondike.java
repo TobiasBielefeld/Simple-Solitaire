@@ -47,12 +47,16 @@ public class Klondike extends Game {
     public Klondike() {
         setNumberOfDecks(1);
         setNumberOfStacks(15);
+
+        setTableauStackIDs(0,1,2,3,4,5,6);
+        setFoundationStackIDs(7,8,9,10);
         setDiscardStackIDs(11,12,13);
         setMainStackIDs(14);
-        setLastTableauID(6);
-        setHasFoundationStacks(true);
-        whichGame = 1;                                                                              //1 stands for Klondike, 2 for Vegas
 
+        //1 stands for Klondike, 2 for Vegas
+        whichGame = 1;
+
+        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
         setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
 
         if (!prefs.getSavedKlondikeLimitedRecycles()) {
@@ -120,24 +124,23 @@ public class Klondike extends Game {
         //save the new settings, so it only takes effect on new deals
         prefs.saveKlondikeVegasDrawModeOld(whichGame);
 
-        //and move cards to the tableau
-        for (int i = 0; i <= 6; i++) {
-            for (int j = 0; j < i + 1; j++) {
-                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                if (j == i)
-                    stacks[i].getTopCard().flipUp();
-            }
-        }
-
         //deal cards to trash according to the draw option
         if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1")) {
             moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
-            stacks[13].getTopCard().flipUp();
+            stacks[13].getCard(0).flipUp();
         } else {
             for (int i = 0; i < 3; i++) {
-                moveToStack(getMainStack().getTopCard(), stacks[11 + i], OPTION_NO_RECORD);
-                stacks[11 + i].getTopCard().flipUp();
+                    moveToStack(getMainStack().getTopCard(), stacks[11 + i], OPTION_NO_RECORD);
+                    stacks[11 + i].getCard(0).flipUp();
             }
+        }
+
+        //and move cards to the tableau
+        for (int i = 0; i <= 6; i++) {
+            for (int j = 0; j < i + 1; j++) {
+                    moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+            }
+            stacks[i].getCard(i).flipUp();
         }
     }
 
@@ -223,7 +226,7 @@ public class Klondike extends Game {
                 //finally add the record
                 recordList.add(cardsReversed, originReversed);
             } else {
-                //no deal3 option, just deal one card without that fucking huge amount of calculation for the recordLit
+                //no deal3 option, just deal one card without that huge amount of calculation for the recordLit
                 moveToStack(getMainStack().getTopCard(), stacks[13]);
             }
 
@@ -296,7 +299,7 @@ public class Klondike extends Game {
         }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //don't move cards from the discard stacks if there is a card on top of them
         //for example: if touched a card on stack 11 (first discard stack) but there is a card
         //on stack 12 (second discard stack) don't move if.
@@ -473,9 +476,7 @@ public class Klondike extends Game {
         if (deal1 && discard3.isEmpty() && !mainStack.isEmpty()){
             recordList.addToLastEntry(mainStack.getTopCard(), mainStack);
             moveToStack(mainStack.getTopCard(),discard3, OPTION_NO_RECORD);
-        }
-
-        if (!deal1 && discard1.isEmpty() && discard2.isEmpty() && discard3.isEmpty() && !mainStack.isEmpty()){
+        } else if (!deal1 && discard1.isEmpty() && discard2.isEmpty() && discard3.isEmpty() && !mainStack.isEmpty()){
 
             int size = min(3, mainStack.getSize());
 
@@ -514,6 +515,13 @@ public class Klondike extends Game {
             for (int i = 0; i < cards.size(); i++) {
                 cardsReversed.add(cards.get(cards.size() - 1 - i));
                 originReversed.add(origin.get(cards.size() - 1 - i));
+            }
+
+            if (!discard2.isEmpty()) {
+                discard2.getTopCard().view.bringToFront();
+            }
+            if (!discard3.isEmpty()) {
+                discard3.getTopCard().view.bringToFront();
             }
 
             //finally add the record

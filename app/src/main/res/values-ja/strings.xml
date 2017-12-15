@@ -60,7 +60,15 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">ミックスカード</string>
-    <string name="dialog_mix_cards_text">あなたは本当にカードを混ぜたいですか？ これはすべてのカードをシャッフルし
-        （基礎スタックからの期待）、新しいゲームのように扱います</string>
+    <string name="dialog_mix_cards_text">これにより、すべてのカードがシャッフルされ、正しいシーケンスとカードが基盤上にあることが期待されます。</string>
+    <string name="dialog_mix_cards_not_available">まだ動きはあります！ （ヒント機能を使って表示する）</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">新しいゲームを開始する</string>
+    <string name="dialog_start_new_game_text">あなたの現在の進行状況は失われ、新しいランダムゲームが処理されます。</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">カードをもう一度配る</string>
+    <string name="dialog_redeal_text">あなたの現在の進歩は失われますが、カードは現在のゲームのように扱われます。</string>
 
 </resources>

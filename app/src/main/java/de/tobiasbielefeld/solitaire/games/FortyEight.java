@@ -42,11 +42,13 @@ public class FortyEight extends Game {
     public FortyEight() {
         setNumberOfDecks(2);
         setNumberOfStacks(18);
-        setMainStackIDs(17);
-        setDiscardStackIDs(16);
-        setLastTableauID(7);
-        setHasFoundationStacks(true);
 
+        setTableauStackIDs(0,1,2,3,4,5,6,7);
+        setFoundationStackIDs(8,9,10,11,12,13,14,15);
+        setDiscardStackIDs(16);
+        setMainStackIDs(17);
+
+        setMixingCardsTestMode(testMode.SAME_FAMILY);
         setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
 
         if (!prefs.getSavedFortyEightLimitedRecycles()) {
@@ -94,14 +96,14 @@ public class FortyEight extends Game {
     }
 
     public void dealCards() {
+        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 4; j++) {
                 moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getTopCard().flipUp();
+                stacks[i].getCard(j).flipUp();
             }
         }
-
-        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
     }
 
 
@@ -143,7 +145,7 @@ public class FortyEight extends Game {
         return false;
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         Stack sourceStack = card.getStack();
 
         int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), card.getStack().getIndexOfCard(card));
@@ -253,7 +255,7 @@ public class FortyEight extends Game {
         for (int i = 0; i < 8; i++) {
             Stack stack = stacks[i];
 
-            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, SAME_FAMILY)) {
+            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, DOESNT_MATTER)) {
                 return false;
             }
         }

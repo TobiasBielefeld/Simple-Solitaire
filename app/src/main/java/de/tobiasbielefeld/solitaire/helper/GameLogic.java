@@ -20,6 +20,9 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
 
+import org.uncommons.maths.random.AESCounterRNG;
+
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -31,7 +34,7 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Contains stuff for the game which i didn't know where i should put it.
+ * Contains stuff for the game which I didn't know where I should put it.
  */
 
 public class GameLogic {
@@ -40,7 +43,6 @@ public class GameLogic {
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
-    private Random rand = new Random(System.currentTimeMillis());
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -61,21 +63,23 @@ public class GameLogic {
      * when resuming the game, called in onPause() of the GameManager
      */
     public void save() {
-        scores.save();
-        recordList.save();
-        prefs.saveWon(won);
-        prefs.saveWonAndReloaded(wonAndReloaded);
-        prefs.saveMovedFirstCard(movedFirstCard);
-        // Timer will be saved in onPause()
+        if (!prefs.isDeveloperOptionSavingDisabled()) {
+            scores.save();
+            recordList.save();
+            prefs.saveWon(won);
+            prefs.saveWonAndReloaded(wonAndReloaded);
+            prefs.saveMovedFirstCard(movedFirstCard);
+            // Timer will be saved in onPause()
 
-        for (Stack stack : stacks) {
-            stack.save();
+            for (Stack stack : stacks) {
+                stack.save();
+            }
+
+            Card.save();
+            saveRandomCards();
+            currentGame.save();
+            currentGame.saveRecycleCount();
         }
-
-        Card.save();
-        saveRandomCards();
-        currentGame.save();
-        currentGame.saveRecycleCount();
     }
 
     public void setWonAndReloaded(){
@@ -156,6 +160,7 @@ public class GameLogic {
      */
     public void newGame() {
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
+
         randomize(randomCards);
 
         redeal();
@@ -171,11 +176,7 @@ public class GameLogic {
             currentGame.onGameEnd();
         }
 
-        movedFirstCard = false;
-        won = false;
-        wonAndReloaded = false;
         currentGame.reset(gm);
-
         animate.reset();
         scores.reset();
         movingCards.reset();
@@ -183,21 +184,33 @@ public class GameLogic {
         timer.reset();
         autoComplete.hideButton();
 
-        for (Stack stack : stacks)
+        for (Stack stack : stacks) {
             stack.reset();
+        }
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
-            ///TODO there is an error somewhere here "null pointer exception"
-            card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
-            currentGame.getDealStack().addCard(card);
+            if (won) {
+                card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
+            } else {
+                card.setLocation(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
+            }
+
+            currentGame.getDealStack().addCard(card,false);
             card.flipDown();
         }
 
+        //update the card images views after assigning them to the stacks.
+        /*for (Stack stack : stacks) {
+            stack.updateSpacing();
+        }*/
+
+        movedFirstCard = false;
+        won = false;
+        wonAndReloaded = false;
+
         //and finally deal the cards from the game!
-        currentGame.dealCards();
-        sounds.playSound(Sounds.names.DEAL_CARDS);
-        handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
+        handlerDealCards.sendEmptyMessage(0);
     }
 
     /**
@@ -205,7 +218,7 @@ public class GameLogic {
      * is reseted, so the player can't revert card movements after the animation
      */
     public void testIfWon() {
-        if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
+        if (!won && !autoComplete.isRunning() && ((prefs.isDeveloperOptionInstantWinEnabled() && movedFirstCard) || currentGame.winTest())) {
             incrementNumberWonGames();
             scores.updateBonus();
             scores.addNewHighScore();
@@ -226,9 +239,31 @@ public class GameLogic {
     private void randomize(Card[] array) {
         int index;
         Card dummy;
+        Random random = getPrng();
 
-        for (int i = array.length - 1; i > 0; i--) {
-            index = rand.nextInt(i+1);
+        int counter;
+
+        //swap first card outside the loop
+        index = random.nextInt(array.length);
+        dummy = array[array.length-1];
+        array[array.length-1] = array[index];
+        array[index] = dummy;
+
+        for (int i = array.length - 2; i > 0; i--) {
+            if (prefs.getSavedUseTrueRandomisation()){
+                index = random.nextInt(i+1);
+            } else {
+                //choose a new card as long the chosen card is too similar to the previous card in the array
+                //(same value or color) also limit the loop to max 10 iterations to avoid infinite loops
+                counter = 0;
+
+                do {
+                    index = random.nextInt(i + 1);
+                    counter++;
+                }
+                while ((array[index].getValue() == array[i + 1].getValue() || array[index].getColor() == array[i + 1].getColor()) && counter < 10);
+            }
+
             dummy = array[i];
             array[i] = array[index];
             array[index] = dummy;
@@ -315,5 +350,15 @@ public class GameLogic {
 
     public void incrementNumberWonGames(){
         prefs.saveNumberOfWonGames(prefs.getSavedNumberOfWonGames()+1);
+    }
+
+    /**
+     * Tests if movements shouldn't be allowed. For example. If a hint is currently shown, don't
+     * accept input, or otherwise something will go wrong
+     *
+     * @return True if no movement is allowed, false otherwise
+     */
+    public boolean stopConditions() {
+        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking());
     }
 }

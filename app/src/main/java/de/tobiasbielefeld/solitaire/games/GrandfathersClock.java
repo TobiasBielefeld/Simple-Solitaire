@@ -47,8 +47,11 @@ public class GrandfathersClock extends Game {
     public GrandfathersClock() {
         setNumberOfDecks(1);
         setNumberOfStacks(21);
+
+        setTableauStackIDs(0,1,2,3,4,5,7);
+        setFoundationStackIDs(8,9,10,11,12,13,14,15,16,17,18,19);
         setDealFromID(20);
-        setLastTableauID(7);
+        setMixingCardsTestMode(testMode.DOESNT_MATTER);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -257,7 +260,7 @@ public class GrandfathersClock extends Game {
         }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         Stack sourceStack = card.getStack();
 
         int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), card.getStack().getIndexOfCard(card));

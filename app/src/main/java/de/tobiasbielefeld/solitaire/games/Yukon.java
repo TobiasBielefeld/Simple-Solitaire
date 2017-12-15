@@ -41,9 +41,10 @@ public class Yukon extends Game {
     public Yukon() {
         setNumberOfDecks(1);
         setNumberOfStacks(11);
+
+        setTableauStackIDs(0,1,2,3,4,5,6);
+        setFoundationStackIDs(7,8,9,10);
         setDealFromID(0);
-        setLastTableauID(6);
-        setHasFoundationStacks(true);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -90,12 +91,13 @@ public class Yukon extends Game {
             for (int j = 0; j < 5 + i; j++) {
                 moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
-                if (j >= i)
+                if (j >= i) {
                     stacks[i].getTopCard().flipUp();
+                }
             }
         }
 
-        getDealStack().getTopCard().flipUp();
+        getDealStack().flipTopCardUp();
     }
 
     public int onMainStackTouch() {
@@ -129,7 +131,7 @@ public class Yukon extends Game {
 
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //yukon is simple in this way: you can move every card
         return true;
     }
@@ -246,5 +248,13 @@ public class Yukon extends Game {
             return 20;
         else
             return 0;
+    }
+
+    @Override
+    protected boolean excludeCardFromMixing(Card card) {
+        boolean defaultRules = prefs.getSavedYukonRulesOld().equals("default");
+        setMixingCardsTestMode(defaultRules ? ALTERNATING_COLOR : SAME_FAMILY);
+
+        return super.excludeCardFromMixing(card);
     }
 }

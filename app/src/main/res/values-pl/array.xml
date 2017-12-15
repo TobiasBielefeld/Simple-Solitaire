@@ -1,8 +1,9 @@
 <resources>
 
     <string-array name="restart_menu">
-        <item>Rozpocznij nową grę</item>
-        <item>Ponownie rozdaj karty</item>
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Zasady gry</item>
         <item>Powrót do menu głównego</item>
     </string-array>
@@ -85,6 +86,23 @@
         <item>Temat 2</item>
         <item>Temat 3</item>
         <item>Pozytywka</item>
+    </string-array>
+
+    <!-- new values -->
+
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>13 Karty (domyślnie)</item>
+        <item>10 Karty</item>
+        <item>7 Karty</item>
+        <item>4 Karty</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>Wyłączony</item>
+        <item>Alternatywny kolor</item>
+        <item>Sama rodzina</item>
+        <item>Odwrócony alternatywny kolor</item>
+        <item>Odwrócony sama rodzina</item>
     </string-array>
 
 </resources>

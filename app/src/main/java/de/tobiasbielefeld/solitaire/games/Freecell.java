@@ -40,11 +40,13 @@ public class Freecell extends Game {
 
     public Freecell() {
         setNumberOfDecks(1);
-        setNumberOfStacks(16);
-        setDealFromID(0);
-        setLastTableauID(11);
-        setHasFoundationStacks(true);
+        setNumberOfStacks(16);  //one extra stack only for dealing cards
 
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11);
+        setFoundationStackIDs(12,13,14,15);
+        setDealFromID(0);
+
+        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0);
     }
 
@@ -84,11 +86,10 @@ public class Freecell extends Game {
     }
 
     public void dealCards() {
-        //flip every card up the move them to the tableau
-        for (Card card : cards) {
-            card.flipUp();
-        }
+        //flip every card up then move them to the tableau
+        flipAllCardsUp();
 
+        //dealstack is stack 0, so don't need to cover that stack in  the loop
         for (int i = 1; i < 8; i++) {
             for (int j = 0; j < 7; j++) {
                 if (!(i >= 4 && j == 6)) {
@@ -112,7 +113,7 @@ public class Freecell extends Game {
 
         } else if (stack.getId() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
-        } else if (movingCards.hasSingleCard()) {
+        } else if (movingCards.hasSingleCard() && stack.getId() < 16) {
             if (stack.isEmpty()) {
                 return card.getValue() == 1;
             } else {
@@ -123,7 +124,7 @@ public class Freecell extends Game {
         return false;
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         /*
          *  normally the player can only move one card at once, but he can also put cards to free
          *  cells and replace them on a new stack. To make this easier, the player can move more

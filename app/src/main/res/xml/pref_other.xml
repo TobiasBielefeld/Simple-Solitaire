@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/pref_key_hide_status_bar"
+        android:title="@string/settings_hide_status_bar" />
+
     <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
         android:defaultValue="1"
         android:entries="@array/pref_orientation_titles"
@@ -33,11 +38,6 @@
 
     <CheckBoxPreference
         android:defaultValue="false"
-        android:key="@string/pref_key_hide_status_bar"
-        android:title="@string/settings_hide_status_bar" />
-
-    <CheckBoxPreference
-        android:defaultValue="false"
         android:key="@string/pref_key_left_handed_mode"
         android:summary="@string/settings_left_handed_mode_description"
         android:title="@string/settings_left_handed_mode" />
@@ -47,6 +47,12 @@
         android:key="@string/pref_key_start_menu"
         android:summary="@string/settings_show_main_menu_description"
         android:title="@string/settings_show_main_menu" />
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/default_use_true_randomisation"
+        android:key="@string/pref_key_use_true_randomisation"
+        android:summary="@string/settings_use_true_randomisation_text"
+        android:title="@string/settings_use_true_randomisation_title" />
 
     <CheckBoxPreference
         android:defaultValue="@bool/default_auto_start_new_game"

@@ -70,11 +70,6 @@ public class AutoComplete {
         animate.showAutoCompleteButton();
     }
 
-    public void showButtonWithoutSound() {
-        buttonShown = true;
-        animate.showAutoCompleteButton();
-    }
-
     public void hideButton() {
         buttonShown = false;
         if (gm.buttonAutoComplete.getVisibility() == View.VISIBLE) {

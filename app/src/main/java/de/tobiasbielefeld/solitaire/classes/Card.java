@@ -245,6 +245,10 @@ public class Card {
      * @return True if movement is possible, false otherwise
      */
     public boolean test(Stack destination) {
+        if (prefs.isDeveloperOptionMoveCardsEverywhereEnabled()){
+            return true;
+        }
+
         return !((!isUp() || (destination.getSize() != 0 && !destination.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(destination, this);
         //return currentGame.cardTest(destination, this) && destination.topCardIsUp();
     }
@@ -306,6 +310,21 @@ public class Card {
     }
 
     public void removeFromCurrentStack(){
-        getStack().removeCard(this);
+        if (stack!=null) {
+            stack.removeCard(this);
+            stack = null;
+        }
+    }
+
+    public Card getCardOnTop(){
+        if (getIndexOnStack() < stack.getSize() -1){
+            return stack.getCard(getIndexOnStack()+1);
+        } else {
+            return this;
+        }
+    }
+
+    public Card getCardBelow(){
+        return getIndexOnStack() == 0 ? this : stack.getCard(getIndexOnStack()-1);
     }
 }

@@ -41,9 +41,12 @@ public class Gypsy extends Game {
     public Gypsy() {
         setNumberOfDecks(2);
         setNumberOfStacks(17);
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7);
+        setFoundationStackIDs(8,9,10,11,12,13,14,15);
         setMainStackIDs(16);
-        setLastTableauID(7);
-        setHasFoundationStacks(true);
+
+        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -84,8 +87,10 @@ public class Gypsy extends Game {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 3; j++) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                if (j > 0)
-                    stacks[i].getTopCard().flipUp();
+
+                if (j>0){
+                    stacks[i].getCard(j).flipUp();
+                }
             }
         }
     }
@@ -123,7 +128,7 @@ public class Gypsy extends Game {
         }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return testCardsUpToTop(card.getStack(), card.getIndexOnStack(), ALTERNATING_COLOR);
     }
 

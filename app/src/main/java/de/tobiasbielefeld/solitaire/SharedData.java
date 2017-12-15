@@ -20,12 +20,13 @@ package de.tobiasbielefeld.solitaire;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Random;
 
+import de.tobiasbielefeld.solitaire.handler.HandlerDealCards;
 import de.tobiasbielefeld.solitaire.handler.HandlerRecordListUndo;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -83,6 +84,7 @@ public class SharedData {
     public static HandlerTestAfterMove handlerTestAfterMove = new HandlerTestAfterMove();
     public static HandlerTestIfWon handlerTestIfWon = new HandlerTestIfWon();
     public static HandlerRecordListUndo handlerRecordListUndo = new HandlerRecordListUndo();
+    public static HandlerDealCards handlerDealCards = new HandlerDealCards();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
 
@@ -197,9 +199,9 @@ public class SharedData {
 
             recordList.add(cardsReversed);
             scores.move(cards, destinations);
-        } else if (option == OPTION_NO_RECORD){
-            //nothing
         }
+        //else if (option == OPTION_NO_RECORD), do nothing
+
 
         for (int i = 0; i < cards.size(); i++) {
             if (cards.get(i).getStack() == destinations.get(i)) {                                     //this means to flip a card
@@ -210,8 +212,12 @@ public class SharedData {
         for (int i = 0; i < cards.size(); i++) {
             if (cards.get(i).getStack() != destinations.get(i)) {
                 cards.get(i).removeFromCurrentStack();
-                destinations.get(i).addCard(cards.get(i));
+                destinations.get(i).addCard(cards.get(i),false);
             }
+        }
+
+        for (Stack stack : destinations){
+            stack.updateSpacing();
         }
 
         for (Card card : cards) {
@@ -285,5 +291,26 @@ public class SharedData {
         }
 
         return min;
+    }
+
+    public static Random getPrng(){
+        return new Random();
+
+
+        /*Random random;                        //this one for testing
+
+        try {
+            logText("getting random data...");
+            random = new AESCounterRNG();
+        } catch (GeneralSecurityException e) {
+            Log.e("PRNG Error", e.toString());
+            random = new Random();
+        }
+
+        return random;*/
+
+
+
+        //return new SecureRandom();        //or maybe use this
     }
 }

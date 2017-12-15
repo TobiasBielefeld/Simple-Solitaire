@@ -50,11 +50,13 @@ public class TriPeaks extends Game {
 
         setNumberOfDecks(1);
         setNumberOfStacks(30);
-        setLastTableauID(27);
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27);
         setDiscardStackIDs(28);
         setMainStackIDs(29);
+
         setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        setSingleTapEnabled(true);
+        setSingleTapEnabled();
     }
 
     @Override
@@ -131,8 +133,9 @@ public class TriPeaks extends Game {
         for (int i = 0; i < 28; i++) {
             moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
-            if (i > 17)
+            if (i > 17) {
                 stacks[i].getTopCard().flipUp();
+            }
         }
 
         moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
@@ -157,7 +160,7 @@ public class TriPeaks extends Game {
                         || card.getValue() == stack.getTopCard().getValue() - 1));
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
 
         return card.getStackId() != getDiscardStack().getId();
     }
@@ -251,4 +254,8 @@ public class TriPeaks extends Game {
         }
     }
 
+    @Override
+    protected boolean excludeCardFromMixing(Card card){
+        return false;
+    }
 }

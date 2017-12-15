@@ -1,8 +1,9 @@
 <resources>
 
     <string-array name="restart_menu">
-        <item>Yeni oyun</item>
-        <item>Tekrar kart ver</item>
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Oyun kuralları</item>
         <item>Anasayfaya geri dön</item>
     </string-array>
@@ -85,6 +86,23 @@
         <item>Tema 2</item>
         <item>Tema 3</item>
         <item>Müzik Kutusu</item>
+    </string-array>
+
+    <!-- new values -->
+
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>13 Kartlar (varsayılan)</item>
+        <item>10 Kartlar</item>
+        <item>7 Kartlar</item>
+        <item>4 Kartlar</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>Devre dışı</item>
+        <item>Değişken renk</item>
+        <item>Aynı aile</item>
+        <item>Ters değişken renk</item>
+        <item>Ters aynı aile</item>
     </string-array>
 
 </resources>

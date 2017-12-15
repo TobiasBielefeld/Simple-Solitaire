@@ -42,8 +42,12 @@ public class Spider extends Game {
     public Spider() {
         setNumberOfDecks(2);
         setNumberOfStacks(23);
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9);
+        setFoundationStackIDs(10,11,12,13,14,15,16,17);
         setMainStackIDs(18,19,20,21,22);
-        setLastTableauID(9);
+
+        setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
 
     public CardAndStack hintTest() {
@@ -194,7 +198,7 @@ public class Spider extends Game {
         }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //do not accept cards from foundation and test if the cards are in the right order.
         return card.getStackId() < 10 && currentGame.testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_FAMILY);
     }
@@ -253,7 +257,7 @@ public class Spider extends Game {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
 
-            stacks[i].getTopCard().flipUp();
+            stacks[i].flipTopCardUp();
         }
 
         for (int i = 0; i < 5; i++) {
@@ -264,7 +268,9 @@ public class Spider extends Game {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
-                stacks[18 + i].getCard(i).view.bringToFront();
+                if (stacks[18+i].getSize()>j) {
+                    stacks[18 + i].getCard(j).view.bringToFront();
+                }
             }
         }
     }

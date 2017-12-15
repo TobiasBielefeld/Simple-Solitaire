@@ -50,11 +50,13 @@ public class Golf extends Game {
     public Golf() {
         setNumberOfDecks(1);
         setNumberOfStacks(9);
-        setMainStackIDs(8);
+
+        setTableauStackIDs(0,1,2,3,4,5,6);
         setDiscardStackIDs(7);
-        setLastTableauID(6);
+        setMainStackIDs(8);
+
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
-        setSingleTapEnabled(true);
+        setSingleTapEnabled();
     }
 
     @Override
@@ -106,15 +108,16 @@ public class Golf extends Game {
     }
 
     public void dealCards() {
+        moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 5; j++) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getTopCard().flipUp();
+                stacks[i].getCard(j).flipUp();
             }
         }
 
-        moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+
     }
 
     public boolean cardTest(Stack stack, Card card) {
@@ -128,7 +131,7 @@ public class Golf extends Game {
                 || (card.getValue() == stack.getTopCard().getValue() + 1 || card.getValue() == stack.getTopCard().getValue() - 1));
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return card.getStackId() < 7 && card.isTopCard();
     }
 
@@ -203,5 +206,10 @@ public class Golf extends Game {
         if (currentRunCount > prefs.getSavedLongestRun()) {
             prefs.saveLongestRun(currentRunCount);
         }
+    }
+
+    @Override
+    protected boolean excludeCardFromMixing(Card card){
+        return false;
     }
 }

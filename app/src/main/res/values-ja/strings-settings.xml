@@ -48,6 +48,7 @@
     <string name="settings_change_language">言語の変更</string>
 
     <!-- following values are translated with an online translator -->
+
     <string name="settings_icon_theme">アイコンのテーマ</string>
     <string name="settings_menu_bar_position">メニューバーの位置</string>
     <string name="settings_menu_bar_position_top">上</string>
@@ -138,5 +139,30 @@
 
     <string name="settings_single_tap_all_games_text">カードを一度押すと、次のスタックに移動します。 ダブルタップの動きと同じ設定になります。 これにより、タップ・トゥ・セレクト・ムーブが無効になります。</string>
     <string name="settings_vegas_bet_amount_error">数字を保存できません！</string>
+
+    <string name="settings_canfield_size_of_reserve_title">予備のサイズを変更する（簡単に）</string>
+
+    <string name="settings_use_true_randomisation_title">真のランダム化を使用する</string>
+    <string name="settings_use_true_randomisation_text">デフォルトのランダム化は、類似したカードを互いに隣り合うように避けます。
+         これをチェックすると、本当に均一なランダム化が可能になります</string>
+
+    <string name="settings_developer_options">開発者オプション</string>
+    <string name="settings_developer_options_description">狂った設定で遊んでください！</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">どこにでもカードを移動する</string>
+    <string name="settings_developer_options_move_card_everwhere_text">任意のスタックにカードを置くことができます</string>
+
+    <string name="settings_developer_options_lock_title">開発者のオプションのロックを解除する</string>
+    <string name="settings_developer_options_lock_text">これらの設定はテスト目的にのみ使用されていますが、使用方法が奇妙な動作やクラッシュにつながる可能性があります。</string>
+    <string name="settings_developer_options_play_every_card_title">すべてのカードを再生する</string>
+    <string name="settings_developer_options_play_every_card_text">公開されたすべてのカードをプレイできます</string>
+
+    <string name="settings_developer_options_instant_win_title">インスタント・ウィン</string>
+    <string name="settings_developer_options_instant_win_text">カードを動かした後にすべてのゲームに勝つ</string>
+
+    <string name="settings_developer_options_no_saving_title">ゲーム状態の保存を無効にする</string>
+    <string name="settings_developer_options_no_saving_text">ゲーム内の動きはもう保存されません</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">正しい順序を扱う</string>
 
 </resources>

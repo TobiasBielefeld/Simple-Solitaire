@@ -6,7 +6,7 @@
     <bool name="default_pyramid_limited_recycles">true</bool>
     <bool name="default_golf_cyclic">true</bool>
     <bool name="default_first_run">true</bool>
-    <bool name="default_won">false</bool>
+    <bool name="default_won">true</bool>
     <bool name="default_won_and_reloaded">false</bool>
     <bool name="default_moved_first_card">false</bool>
     <bool name="default_4_color_mode">false</bool>
@@ -24,8 +24,14 @@
     <bool name="default_vegas_money_enabled">false</bool>
     <bool name="default_vegas_reset_money">false</bool>
     <bool name="default_single_tap_all_games">false</bool>
-
+    <bool name="default_secure_rng">false</bool>
+    <bool name="default_developer_option_move_cards_everywhere">false</bool>
+    <bool name="default_developer_option_play_every_card">false</bool>
+    <bool name="default_developer_option_instant_win">false</bool>
+    <bool name="default_developer_option_no_saving">false</bool>
+    <bool name="default_developer_option_lock">false</bool>
     <bool name="default_mod3_auto_move">true</bool>
     <bool name="default_pyramid_auto_move">true</bool>
+    <bool name="default_use_true_randomisation">false</bool>
 </resources>
 
