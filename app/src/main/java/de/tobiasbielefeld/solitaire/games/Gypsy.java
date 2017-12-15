@@ -190,9 +190,9 @@ public class Gypsy extends Game {
             }
         }
 
-        //tableau without the same card
+        //non empty tableau without the same card
         for (int k = 0; k < 8; k++) {
-            if (card.test(stacks[k]) && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR)) {
+            if (card.test(stacks[k]) && !sameCardOnOtherStack(card, stacks[k], SAME_VALUE_AND_COLOR) && !stacks[k].isEmpty()) {
                 return stacks[k];
             }
         }
