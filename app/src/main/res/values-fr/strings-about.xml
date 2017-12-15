@@ -3,35 +3,50 @@
 <resources>
 
     <string name="about_name">À propos du jeu</string>
-    <string name="about_Text1">développé par Tobias Bielefeld</string>
-    <string name="about_Text2">merci de jouer avec mon jeu :)</string>
     <string name="about_tab_1">Information</string>
-    <string name="about_tab_2">Licence</string>
+    <string name="about_tab_2">Licences</string>
     <string name="about_tab_3">Versions</string>
-    <string name="about_build_date">Date de la construction</string>
-    <string name="about_license_top_text">Ce jeu est publié sous licence GPL 3.0 :</string>
-    <string name="about_program_code_text">Code source disponible sur :</string>
     <string name="about_loading">Chargement…</string>
 
+    <string name="about_developer_name">Tobias Bielefeld</string>
+    <string name="about_compiled">Date de la construction</string>
+    <string name="about_source_code">Code source</string>
+    <string name="about_license">Licence</string>
     <string name="about_translations">Traductions</string>
-    <string name="about_translations_japanese">Japonais: par le compte GitHub naofum</string>
-    <string name="about_translations_esperanto_polish">Esperanto et Polonais: par le compte GitHub verdulo</string>
-    <string name="about_translations_french">Français: par le compte GitHub romainhk et cicithesquirrel</string>
-    <string name="about_translations_finnish">Finnois: par le compte GitHub winjar</string>
-    <string name="about_translations_turkish">Turc: par le compte GitHub sekmenhuseyin</string>
 
-    <string name="about_material_icons_text">Les icônes « Material Design » sont la propriété de Google Inc. et publiées sous licence
-        <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>
-    <string name="about_pixa_bay_license_text">Les autres thèmes de cartes ont été publiés sur <a href="www.pixabay.com">pixabay.com</a> sous la licence
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
-    <string name="about_third_party_licenses">Licences tierces</string>
+    <string name="about_translations_japanese">Japonais</string>
+    <string name="about_translations_esperanto">Esperanto</string>
+    <string name="about_translations_polish">Polonais</string>
+    <string name="about_translations_french">Français</string>
+    <string name="about_translations_finnish">Finnois</string>
+    <string name="about_translations_turkish">Turc</string>
 
-    <string name="about_poker_theme">Thème de carte \'Poker\' : Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
-        Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - Licence <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
 
-    <string name="about_custom_color_picker">Le sélecteur de couleur personnalisé : utilisation de la <a href="https://github.com/yukuku/ambilwarna">bibliothèque AmbilWarna</a>
-        publiée sous licence <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
+    <!-- new values, translated with an online translator and a bit of my little french knowledge :D -->
+    <string name="about_developer">Développeur</string>
+    <string name="about_further_contributors">Contributeurs supplémentaires</string>
 
-    <string name="about_sounds">Tous les sons ont été publiés à l\'origine sur <a href="https://freesound.org">freesound.org</a> sous la licence
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
+    <string name="about_material_icons_title">icônes « Material Design »</string>
+    <string name="about_material_icons_usage">Utilisé pour toutes les icônes de cette application</string>
+
+    <string name="about_card_themes_title">Thèmes de cartes</string>
+    <string name="about_card_themes_usage">Les thèmes de cartes ont été tirés sur <a href="https://pixabay.com/">pixabay.com</a>,
+        pour plus d\'informations, cliquez <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">ici</a></string>
+
+    <string name="about_poker_themes_usage">Utilisé comme thème \'Poker\' - Disponible sur <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
+        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
+
+    <string name="about_custom_color_picker_title">Bibliothèque AmbilWarna</string>
+    <string name="about_custom_color_picker_usage">Utilisé pour le sélecteur de couleur personnalisé</string>
+
+    <string name="about_sounds_title">Sons</string>
+    <string name="about_sounds_usage">Tous les sons ont été publiés à l\'origine sur <a href="https://freesound.org">freesound.org</a>,
+        pour plus d\'informations, cliquez <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">ici</a></string>
+
+    <string name="about_sliding_tabs_title">Bibliothèque PagerSlidingTabStrip</string>
+    <string name="about_sliding_tabs_usage">Utilisé pour les onglets dans l\'écran \'À propos du jeu\'</string>
+
+    <string name="about_android_support_libraries_title">Bibliothèque de support Android</string>
+    <string name="about_android_support_libraries_usage">Utilisé pour une meilleure conception et un développement plus facile</string>
+
 </resources>

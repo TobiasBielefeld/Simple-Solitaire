@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
-        android:defaultValue="3"
-        android:entries="@array/pref_draw_titles"
-        android:entryValues="@array/pref_draw_values"
-        android:key="@string/pref_key_canfield_draw"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@null"
-        android:summary="%s"
-        android:title="@string/settings_canfield_draw" />
+    <PreferenceCategory android:title="@string/settings_cards">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="3"
+            android:entries="@array/pref_draw_titles"
+            android:entryValues="@array/pref_draw_values"
+            android:key="@string/pref_key_canfield_draw"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_canfield_draw" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_canfield_size_of_reserve"
+            android:entries="@array/pref_canfield_size_of_reserve_titles"
+            android:entryValues="@array/pref_canfield_size_of_reserve_values"
+            android:key="@string/pref_key_canfield_size_of_reserve"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_canfield_size_of_reserve_title" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

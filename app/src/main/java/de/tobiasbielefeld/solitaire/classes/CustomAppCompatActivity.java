@@ -25,7 +25,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
@@ -47,17 +46,17 @@ public class CustomAppCompatActivity extends AppCompatActivity {
      * @param activity The activity to apply the orientation on.
      */
     public static void setOrientation(Activity activity) {
-        switch (getSharedString("pref_key_orientation", "1")) {
-            case "1": //follow system settings
+        switch (prefs.getSavedOrientation()) {
+            case 1: //follow system settings
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;
-            case "2": //portrait
+            case 2: //portrait
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 break;
-            case "3": //landscape
+            case 3: //landscape
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
-            case "4": //landscape upside down
+            case 4: //landscape upside down
                 activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
@@ -108,10 +107,12 @@ public class CustomAppCompatActivity extends AppCompatActivity {
      * @param activity The activity to apply the changes on.
      */
     public void showOrHideStatusBar(Activity activity) {
-        if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
+        if (prefs.getSavedHideStatusBar()) {
             activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        else
+        }
+        else {
             activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
     }
 }

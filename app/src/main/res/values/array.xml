@@ -51,6 +51,14 @@
         <item>4</item>
     </string-array>
 
+
+    <string-array name="pref_canfield_size_of_reserve_values" translatable="false">
+        <item>13</item>
+        <item>10</item>
+        <item>7</item>
+        <item>4</item>
+    </string-array>
+
     <string-array name="pref_yukon_rules_values" translatable="false">
         <item>default</item>
         <item>russian</item>
@@ -81,9 +89,18 @@
         <item>5</item>
     </string-array>
 
+    <string-array name="pref_developer_option_deal_correct_sequences_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
     <string-array name="restart_menu">
-        <item>Start new game</item>
-        <item>Give cards again</item>
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Game rules</item>
         <item>Return to main menu</item>
     </string-array>
@@ -130,11 +147,11 @@
     </string-array>
 
     <!-- for translations: you can order pref_language_titles alphabetically in the new language,
-    if you want. Then the order of the values have to be changed too!-->
+    if you want. Then the order of the values have to be adjusted too!-->
     <string-array name="pref_language_values">
         <item>default</item>    <!-- do not translate this one! -->
         <item>en</item>         <!-- English -->
-        <item>eo</item>         <!-- Ssperanto -->
+        <item>eo</item>         <!-- Esperanto -->
         <item>fi</item>         <!-- Finnish -->
         <item>fr</item>         <!-- French-->
         <item>de</item>         <!-- German -->
@@ -168,6 +185,21 @@
         <item>Theme 2</item>
         <item>Theme 3</item>
         <item>Music Box</item>
+    </string-array>
+
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>13 Cards (default)</item>
+        <item>10 Cards</item>
+        <item>7 Cards</item>
+        <item>4 Cards</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>Deactivated</item>
+        <item>Alternating color</item>
+        <item>Same family</item>
+        <item>Reversed alternating color</item>
+        <item>Reversed same family</item>
     </string-array>
 
 </resources>

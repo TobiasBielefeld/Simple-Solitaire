@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
@@ -38,24 +40,25 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 public class FortyEight extends Game {
 
     public FortyEight() {
-
         setNumberOfDecks(2);
         setNumberOfStacks(18);
-        setFirstMainStackID(17);
-        setFirstDiscardStackID(16);
-        setLastTableauID(7);
-        setHasFoundationStacks(true);
 
+        setTableauStackIDs(0,1,2,3,4,5,6,7);
+        setFoundationStackIDs(8,9,10,11,12,13,14,15);
+        setDiscardStackIDs(16);
+        setMainStackIDs(17);
+
+        setMixingCardsTestMode(testMode.SAME_FAMILY);
         setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
 
-        if (!getSharedBoolean(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES, DEFAULT_FORTYEIGHT_LIMITED_RECYCLES)) {
+        if (!prefs.getSavedFortyEightLimitedRecycles()) {
             toggleRecycles();
         }
 
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardWidth(layoutGame, isLandscape, 8 + 1, 8 + 4);
 
@@ -83,23 +86,24 @@ public class FortyEight extends Game {
     }
 
     public boolean winTest() {
-        for (int i = 0; i < 8; i++)
-            if (stacks[8 + i].getSize() != 13)
+        for (int i = 0; i < 8; i++) {
+            if (stacks[8 + i].getSize() != 13) {
                 return false;
+            }
+        }
 
         return true;
     }
 
     public void dealCards() {
+        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 4; j++) {
                 moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getTopCard().flipUp();
+                stacks[i].getCard(j).flipUp();
             }
         }
-
-        moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
-        getDiscardStack().getTopCard().flipUp();
     }
 
 
@@ -112,8 +116,9 @@ public class FortyEight extends Game {
         } else if (getDiscardStack().getSize() != 0) {
             recordList.add(getDiscardStack().currentCards);
 
-            while (getDiscardStack().getSize() > 0)
+            while (getDiscardStack().getSize() > 0) {
                 moveToStack(getDiscardStack().getTopCard(), getMainStack(), OPTION_NO_RECORD);
+            }
 
             scores.update(-200);    //because of no record, it isn't updated automatically
             return 2;
@@ -125,41 +130,25 @@ public class FortyEight extends Game {
 
     public boolean cardTest(Stack stack, Card card) {
         if (stack.getId() < 8) {
-
             //if there are as many cards moving as free stacks, and one of the free stacks was chosen, don't move
-            int numberOfFreeStacks = 0;
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
-            for (int i = 0; i < 8; i++) {
-                if (stacks[i].isEmpty())
-                    numberOfFreeStacks++;
-            }
-
-            return !(movingCards > numberOfFreeStacks && stack.isEmpty()) && canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);
-
-
+            return movingCards <= getPowerMoveCount(stack.isEmpty()) && canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);
         } else if (stack.getId() < 16 && movingCards.hasSingleCard()) {
-            if (stack.isEmpty())
+            if (stack.isEmpty()) {
                 return card.getValue() == 1;
-            else
+            } else {
                 return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);
-        } else
-            return false;
-    }
-
-
-    public boolean addCardToMovementTest(Card card) {
-        int numberOfFreeStacks = 0;
-        int startPos;
-
-        Stack sourceStack = card.getStack();
-
-        for (int i = 0; i < 8; i++) {
-            if (stacks[i].isEmpty())
-                numberOfFreeStacks++;
+            }
         }
 
-        startPos = max(sourceStack.getSize() - numberOfFreeStacks - 1, card.getStack().getIndexOfCard(card));
+        return false;
+    }
+
+    public boolean addCardToMovementGameTest(Card card) {
+        Stack sourceStack = card.getStack();
+
+        int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), card.getStack().getIndexOfCard(card));
 
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, SAME_FAMILY);
     }
@@ -170,50 +159,44 @@ public class FortyEight extends Game {
 
             Stack sourceStack = stacks[i];
 
-            if (sourceStack.isEmpty())
+            if (sourceStack.isEmpty()) {
                 continue;
-
-            int startPos;
-
-
-            int numberOfFreeCells = 0;
-
-            for (int j = 0; j < 8; j++) {
-                if (stacks[j].isEmpty())
-                    numberOfFreeCells++;
             }
 
-            startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
+            int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), 0);
 
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY))
+                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
                     continue;
+                }
 
                 if (cardToMove.isTopCard()) {
                     for (int k = 8; k < 16; k++) {
-                        if (cardToMove.test(stacks[k]))
+                        if (cardToMove.test(stacks[k])) {
                             return new CardAndStack(cardToMove, stacks[k]);
+                        }
                     }
                 }
 
-                if (cardToMove.getValue() == 13 && cardToMove.isFirstCard())
+                if (cardToMove.getValue() == 13 && cardToMove.isFirstCard()) {
                     continue;
+                }
 
                 for (int k = 0; k < 8; k++) {
                     Stack destStack = stacks[k];
-                    if (i == k || destStack.isEmpty())
+                    if (i == k || destStack.isEmpty()) {
                         continue;
+                    }
 
                     if (cardToMove.test(destStack)) {
-
-                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY))
+                        if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
                             continue;
+                        }
 
                         return new CardAndStack(cardToMove, destStack);
                     }
-
                 }
             }
         }
@@ -222,13 +205,15 @@ public class FortyEight extends Game {
             Card cardToTest = getDiscardStack().getTopCard();
 
             for (int j = 0; j < 8; j++) {
-                if (!stacks[j].isEmpty() && cardTest(stacks[j], cardToTest) && cardToTest.getValue() != 1)
+                if (!stacks[j].isEmpty() && cardTest(stacks[j], cardToTest) && cardToTest.getValue() != 1) {
                     return new CardAndStack(cardToTest, stacks[j]);
+                }
             }
 
             for (int j = 0; j < 8; j++) {
-                if (cardTest(stacks[8 + j], cardToTest))
+                if (cardTest(stacks[8 + j], cardToTest)) {
                     return new CardAndStack(cardToTest, stacks[8 + j]);
+                }
             }
         }
 
@@ -241,8 +226,9 @@ public class FortyEight extends Game {
         //first foundation
         if (card.isTopCard()) {
             for (int j = 0; j < 8; j++) {
-                if (cardTest(stacks[8 + j], card))
+                if (cardTest(stacks[8 + j], card)) {
                     return stacks[8 + j];
+                }
             }
         }
 
@@ -269,8 +255,9 @@ public class FortyEight extends Game {
         for (int i = 0; i < 8; i++) {
             Stack stack = stacks[i];
 
-            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, SAME_FAMILY))
+            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, DOESNT_MATTER)) {
                 return false;
+            }
         }
 
         return getMainStack().isEmpty() && getDiscardStack().isEmpty();
@@ -278,14 +265,16 @@ public class FortyEight extends Game {
 
     public CardAndStack autoCompletePhaseTwo() {
         for (int i = 0; i < 8; i++) {
-            if (stacks[i].isEmpty())
+            if (stacks[i].isEmpty()) {
                 continue;
+            }
 
             Card cardToTest = stacks[i].getTopCard();
 
             for (int j = 0; j < 8; j++) {
-                if (cardTest(stacks[8 + j], cardToTest))
+                if (cardTest(stacks[8 + j], cardToTest)) {
                     return new CardAndStack(cardToTest, stacks[8 + j]);
+                }
             }
         }
 
@@ -293,20 +282,49 @@ public class FortyEight extends Game {
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
-
         //anywhere to foundation
-        if (destinationIDs[0] >= 8 && destinationIDs[0] < 16)
+        if (destinationIDs[0] >= 8 && destinationIDs[0] < 16 && (originIDs[0] < 8 || originIDs[0] >=16)) {
             return 45;
+        }
         //foundation to tableau
-        if (originIDs[0] >= 8 && originIDs[0] < 16 && destinationIDs[0] < 8)
+        if (originIDs[0] >= 8 && originIDs[0] < 16 && destinationIDs[0] < 8) {
             return -60;
+        }
         //discard to tableau
-        if (originIDs[0] == getDiscardStack().getId() && destinationIDs[0] < 8)
+        if (originIDs[0] == getDiscardStack().getId() && destinationIDs[0] < 8) {
             return 60;
+        }
         //redeal cards from discard to main stack
-        if (originIDs[0] == getDiscardStack().getId() && destinationIDs[0] == getMainStack().getId() && originIDs.length > 0)
+        if (originIDs[0] == getDiscardStack().getId() && destinationIDs[0] == getMainStack().getId() && originIDs.length > 0) {
             return -200;
+        }
 
         return 0;
+    }
+
+    @Override
+    public void testAfterMove() {
+        //automatically move a card from main stack to discard stack, if discard stack is empty
+        if (getDiscardStack().isEmpty() && !getMainStack().isEmpty()){
+            recordList.addToLastEntry(getMainStack().getTopCard(), getMainStack());
+            moveToStack(getMainStack().getTopCard(),getDiscardStack(), OPTION_NO_RECORD);
+        }
+    }
+
+    private int getPowerMoveCount(boolean movingToEmptyStack){
+        //thanks to matejx for providing this formula
+        int numberOfFreeTableauStacks = 0;
+
+        for (int i=0;i<8;i++){
+            if (stacks[i].isEmpty()){
+                numberOfFreeTableauStacks++;
+            }
+        }
+
+        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
+            numberOfFreeTableauStacks --;
+        }
+
+        return (1<<numberOfFreeTableauStacks);
     }
 }

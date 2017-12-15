@@ -31,9 +31,16 @@ public class HandlerTestAfterMove extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        if (animate.cardIsAnimating())
+        if (animate.cardIsAnimating()) {
             handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
-        else
+        }
+        else {
             currentGame.testAfterMove();
+            handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
+
+            if (!autoComplete.isRunning() && !gameLogic.hasWon())  {
+                gameLogic.checkForAutoCompleteButton();
+            }
+        }
     }
 }

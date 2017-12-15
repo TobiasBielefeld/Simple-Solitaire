@@ -40,7 +40,7 @@
     <string name="pref_key_4_color_mode" translatable="false">pref_key_4_color_mode</string>
     <string name="pref_key_tap_to_select_enable" translatable="false">pref_key_tap_to_select_enable</string>
     <string name="pref_key_tap_to_select_all_cards" translatable="false">pref_key_tap_to_select_all_cards</string>
-    <string name="pref_key_single_tap_enable" translatable="false">pref_key_single_tap_enable</string>
+    <string name="pref_key_single_tap_special_games" translatable="false">pref_key_single_tap_enable</string>
     <string name="pref_key_background_color_type" translatable="false">pref_key_background_color_type</string>
     <string name="pref_key_background_color_custom" translatable="false">pref_key_background_color_custom</string>
     <string name="pref_key_movement_speed" translatable="false">pref_key_movement_speed</string>
@@ -53,11 +53,30 @@
     <string name="pref_key_pyramid_number_of_recycles" translatable="false">pref_key_pyramid_number_of_recycles</string>
     <string name="pref_key_fortyeight_number_of_recycles" translatable="false">pref_key_fortyeight_number_of_recycles</string>
     <string name="pref_key_vegas_number_of_recycles" translatable="false">pref_key_vegas_number_of_recycles</string>
-    <string name="pref_key_vegas_bet_amount" translatable="false">pref_key_vegas_bet_amount</string>
+    <string name="pref_key_vegas_bet_amount" translatable="false">pref_key_vegas_bet_amount_v2</string>
+    <string name="pref_key_vegas_win_amount" translatable="false">pref_key_vegas_win_amount</string>
     <string name="pref_key_menu_order" translatable="false">pref_key_menu_order</string>
     <string name="pref_key_auto_start_new_game" translatable="false">pref_key_auto_start_new_game</string>
+    <string name="pref_key_force_tablet_layout" translatable="false">pref_key_force_tablet_layout</string>
+    <string name="pref_key_klondike_limit_recycles" translatable="false">pref_key_klondike_limit_recycles</string>
+    <string name="pref_key_klondike_number_of_recycles" translatable="false">pref_key_klondike_number_of_recycles</string>
+    <string name="pref_key_calculation_alternative" translatable="false">pref_key_calculation_alternative</string>
     <string name="pref_key_hide_time" translatable="false">pref_key_hide_time</string>
     <string name="pref_key_hide_score" translatable="false">pref_key_hide_score</string>
+    <string name="pref_key_vegas_money" translatable="false">pref_key_vegas_money</string>
+    <string name="pref_key_vegas_money_enabled" translatable="false">pref_key_vegas_money_enabled</string>
+    <string name="pref_key_vegas_reset_money" translatable="false">pref_key_vegas_reset_money</string>
+    <string name="pref_key_mod3_auto_move" translatable="false">pref_key_mod3_auto_move</string>
+    <string name="pref_key_pyramid_auto_move" translatable="false">pref_key_pyramid_auto_move</string>
+    <string name="pref_key_single_tap_all_games" translatable="false">pref_key_single_tap_all_games</string>
+    <string name="pref_key_canfield_size_of_reserve" translatable="false">pref_key_canfield_size_of_reserve</string>
+    <string name="pref_key_developer_option_move_cards_everywhere" translatable="false">pref_key_developer_option_move_cards_everywhere</string>
+    <string name="pref_key_developer_option_play_every_card" translatable="false">pref_key_developer_option_play_every_card</string>
+    <string name="pref_key_developer_option_instant_win" translatable="false">pref_key_developer_option_instant_win</string>
+    <string name="pref_key_developer_option_no_saving" translatable="false">pref_key_developer_option_no_saving</string>
+    <string name="pref_key_developer_option_lock" translatable="false">pref_key_developer_option_lock</string>
+    <string name="pref_key_developer_option_deal_correct_sequences" translatable="false">pref_key_developer_option_deal_correct_sequences</string>
+    <string name="pref_key_use_true_randomisation" translatable="false">pref_key_use_true_randomisation</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>
@@ -66,14 +85,12 @@
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <string name="changelog_URL" translatable="false">file:///android_asset/changelog.html</string>
-    <string name="license_URL" translatable="false">file:///android_asset/license.html"</string>
     <string name="app_market_URL" translatable="false">market://details?id=de.tobiasbielefeld.solitaire</string>
     <string name="app_web_URL" translatable="false">https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire</string>
     <string name="github_issues_URL" translatable="false">https://github.com/TobiasBielefeld/Simple-Solitaire/issues</string>
+    <string name="about_app_github_link" translatable="false"><a href="https://github.com/TobiasBielefeld/Simple-Solitaire">GitHub</a></string>
+    <string name="about_app_license_link" translatable="false"><a href="https://www.gnu.org/licenses/gpl.html">GPL 3.0+</a></string>
 
-    <string name="game" translatable="false">game</string>
-    <string name="restart_dialog" translatable="false">dialogRestart</string>
-    <string name="won_dialog" translatable="false">dialogWon</string>
     <string name="canfield_start_value" translatable="false">canfield_startCardValue</string>
     <string name="old" translatable="false">_old</string>
     <string name="default_menu_bar_position_landscape" translatable="false">right</string>
@@ -99,5 +116,24 @@
     <string name="saved_scores" translatable="false">SavedScores</string>
     <string name="score" translatable="false">Score</string>
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
+
+    <!-- github profiles of contributers -->
+    <string name="contributers_verdulo" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
+    <string name="contributers_winjar" translatable="false"><a href="https://github.com/winjar">winjar</a></string>
+    <string name="contributers_dankan1890" translatable="false"><a href="https://github.com/dankan1890">dankan1890</a></string>
+    <string name="contributers_tryton_vanmeer" translatable="false"><a href="https://github.com/tryton-vanmeer">tryton-vanmeer</a></string>
+    <string name="contributers_naofum" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
+    <string name="contributers_sekmenhuseyin" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
+    <string name="contributers_romainhk_cicithesquirrel" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
+
+    <!-- urls in about screen -->
+    <string name="about_material_icons_license" translatable="false"><a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>
+    <string name="about_card_themes_license" translatable="false"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
+    <string name="about_poker_themes_title" translatable="false">Vectorized Playing Cards 2.0</string>  <!-- not translatable, because name of the software-->
+    <string name="about_poker_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
+    <string name="about_sounds_license" translatable="false"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
+    <string name="about_custom_color_picker_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
+    <string name="about_sliding_tabs_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
+    <string name="about_android_support_libraries_license" translatable="false"><a href="https://github.com/android/platform_frameworks_support/blob/master/LICENSE.txt">Apache 2.0</a></string>
 
 </resources>

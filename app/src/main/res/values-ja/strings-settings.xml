@@ -20,7 +20,6 @@
 
     <string name="settings_background">背景の番号</string>
     <string name="settings_customization">外観</string>
-    <string name="settings_customization_description">カードと背景をカスタマイズします</string>
     <string name="settings_other">全般</string>
     <string name="settings_other_description">他のすべての設定を設定します</string>
     <string name="settings_games">ゲーム</string>
@@ -49,6 +48,7 @@
     <string name="settings_change_language">言語の変更</string>
 
     <!-- following values are translated with an online translator -->
+
     <string name="settings_icon_theme">アイコンのテーマ</string>
     <string name="settings_menu_bar_position">メニューバーの位置</string>
     <string name="settings_menu_bar_position_top">上</string>
@@ -99,7 +99,8 @@
     <string name="settings_number_of_recycles">リサイクル量</string>
 
     <string name="settings_vegas_bet_amount">ベット額</string>
-    <string name="settings_vegas_bet_amount_progress_text">最初の取引には%1$d$がかかり、基金に支払われた各カードは%2$d$を獲得します。</string>
+    <string name="settings_vegas_bet_amount_text_1">最初の取引には:</string>
+    <string name="settings_vegas_bet_amount_text_2">基礎に遊んだ各カードは稼いだ:</string>
     <string name="settings_vegas_bet_amount_summary">最初の取引：-%1$d$、基金：+%2$d$</string>
 
     <string name="settings_menu_order_title">メニュー順</string>
@@ -108,5 +109,60 @@
 
     <string name="settings_auto_start_new_game_title">勝ったら新しいゲームを始める</string>
     <string name="settings_auto_start_new_game_text">すでに勝利したゲームに戻った場合は自動的に新しいゲームを開始します</string>
+    <string name="settings_customization_description">カードと背景をカスタマイズします</string>
+
+    <string name="settings_force_tablet_layout_title">タブレットレイアウトを強制する</string>
+    <string name="settings_force_tablet_layout_text">アプリケーションを大画面で表示する (>=10\")</string>
+
+    <string name="settings_restart_calculation">新しい計算ゲームを開始して変更を適用する</string>
+    <string name="settings_calculation_alternative_title">カードを保持する</string>
+    <string name="settings_calculation_alternative_text">メインスタックプレスで：カードを廃棄スタックからテーブルに移動する代わりに、
+        廃棄スタックに保管してください。</string>
+
+    <string name="settings_vegas_money_enabled">現在の残高を維持する</string>
+    <string name="settings_vegas_money_enabled_text">残高はベガスの次の取引に転送されますが、残高をリセットしてから高得点を保存するための新しいゲームを開始する必要があります</string>
+    <string name="settings_vegas_money_reset">リセットバランス</string>
+    <string name="settings_vegas_money_reset_text">次のVegas取引は0 $で始まります</string>
+    <string name="settings_vegas_money_reset_confirm">あなたは本当に残高をリセットしますか？ これは元に戻すことはできません。</string>
+
+    <string name="settings_auto_move_title">自動移動</string>
+    <string name="settings_mod3_auto_move_text">可能であれば、自動的にエースを廃棄スタックに移動する</string>
+
+    <string name="settings_pyramid_auto_move_text">可能であれば、キングスを廃棄物に自動的に移動する</string>
+
+    <string name="settings_rules">ルール</string>
+    <string name="settings_money">お金</string>
+    <string name="settings_support">サポート</string>
+
+    <string name="settings_hide_time">時間を隠す</string>
+    <string name="settings_hide_score">スコアを隠す</string>
+
+    <string name="settings_single_tap_all_games_text">カードを一度押すと、次のスタックに移動します。 ダブルタップの動きと同じ設定になります。 これにより、タップ・トゥ・セレクト・ムーブが無効になります。</string>
+    <string name="settings_vegas_bet_amount_error">数字を保存できません！</string>
+
+    <string name="settings_canfield_size_of_reserve_title">予備のサイズを変更する（簡単に）</string>
+
+    <string name="settings_use_true_randomisation_title">真のランダム化を使用する</string>
+    <string name="settings_use_true_randomisation_text">デフォルトのランダム化は、類似したカードを互いに隣り合うように避けます。
+         これをチェックすると、本当に均一なランダム化が可能になります</string>
+
+    <string name="settings_developer_options">開発者オプション</string>
+    <string name="settings_developer_options_description">狂った設定で遊んでください！</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">どこにでもカードを移動する</string>
+    <string name="settings_developer_options_move_card_everwhere_text">任意のスタックにカードを置くことができます</string>
+
+    <string name="settings_developer_options_lock_title">開発者のオプションのロックを解除する</string>
+    <string name="settings_developer_options_lock_text">これらの設定はテスト目的にのみ使用されていますが、使用方法が奇妙な動作やクラッシュにつながる可能性があります。</string>
+    <string name="settings_developer_options_play_every_card_title">すべてのカードを再生する</string>
+    <string name="settings_developer_options_play_every_card_text">公開されたすべてのカードをプレイできます</string>
+
+    <string name="settings_developer_options_instant_win_title">インスタント・ウィン</string>
+    <string name="settings_developer_options_instant_win_text">カードを動かした後にすべてのゲームに勝つ</string>
+
+    <string name="settings_developer_options_no_saving_title">ゲーム状態の保存を無効にする</string>
+    <string name="settings_developer_options_no_saving_text">ゲーム内の動きはもう保存されません</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">正しい順序を扱う</string>
 
 </resources>

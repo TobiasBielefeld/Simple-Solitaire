@@ -293,4 +293,28 @@
         \n\nPeli tulkitaan voitetuksi, kun tulos on yli 0. Kortin siirtäminen pois peruspinosta maksaa 2/10 panoksesta.
         \n\nVihje ja kumoa-toiminto maksavat 1/10 panoksesta.
         \n\EROTUSLAUSUMA: Pelissä ei pelata oikeilla rahoilla :)</string>
+
+    <!-- Calculation -->
+    <string name="manual_Calculation_structure">Yksi pakka jossa 52 kortia.
+        \n\nneljä pöytäpinoa, neljä peruspinoa, yksi käsipakka ja yksi kääntöpakka.</string>
+    <string name="manual_Calculation_objective">Aseta kaikki kortit peruspinoihin, maasta välittämättä, kunnes jokaisen peruspinon
+        päällimmäisenä korttina on kuningas. Pinot pitää rakentaa seuraavassa järjestyksessä:
+        \n\n 1. pino yhden välein: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     <!-- 1s means: add in each step 1 to the value-->
+          \n 2. pino kahden välein: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     <!-- 2s means: add in each step 2 to the value-->
+          \n 3. pino kolmen välein: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     <!-- ... -->
+          \n 4. pino neljän välein: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
+        \n\nSeuraavat pelattavat kortit näkyvät peruspinojen yläpuolella.
+    </string>
+    <string name="manual_Calculation_rules">Alussa jokaisessa neljässä peruspinossa on satunnaisesti valitut ensimmäiset kortit.
+        Peruspinoissa korttien pitää noudattaa Tavoitteissa määriteltyä järjestystä.
+        \n\nKääntöpakasta kortit voidaan siirtää mihin tahansa pöytäpinoon tai peruspinoon, mikäli oikean järjestyksen vaatimus täytyy.
+
+        \n\nPainamalla käsipakasta kortti siirtyy lyhimpään pöytäpinoon.
+        Vaihtoehtoinen sääntö: Painamalla käsipakasta kääntöpakan kortit pysyvät paikoillaan
+        (tämä voidaan asettaa asetuksista).
+
+        \n\nPöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa ainoastaan peruspinoon.
+       </string>
+    <string name="manual_Calculation_scoring">Kortin siirto peruspinoon: +50</string>
+
 </resources>

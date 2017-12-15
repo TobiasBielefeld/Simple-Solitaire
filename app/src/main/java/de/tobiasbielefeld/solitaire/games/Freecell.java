@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -39,15 +40,17 @@ public class Freecell extends Game {
 
     public Freecell() {
         setNumberOfDecks(1);
-        setNumberOfStacks(16);
-        setDealFromID(0);
-        setLastTableauID(11);
-        setHasFoundationStacks(true);
+        setNumberOfStacks(16);  //one extra stack only for dealing cards
 
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11);
+        setFoundationStackIDs(12,13,14,15);
+        setDealFromID(0);
+
+        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 9, 10);
 
@@ -83,11 +86,10 @@ public class Freecell extends Game {
     }
 
     public void dealCards() {
-        //flip every card up the move them to the tableau
-        for (Card card : cards) {
-            card.flipUp();
-        }
+        //flip every card up then move them to the tableau
+        flipAllCardsUp();
 
+        //dealstack is stack 0, so don't need to cover that stack in  the loop
         for (int i = 1; i < 8; i++) {
             for (int j = 0; j < 7; j++) {
                 if (!(i >= 4 && j == 6)) {
@@ -105,57 +107,37 @@ public class Freecell extends Game {
     public boolean cardTest(Stack stack, Card card) {
         if (stack.getId() < 8) {
             //if there are as many cards moving as free stacks, and one of the free stacks was choosen, dont move
-            int numberOfFreeCells = 0;
             int movingCards = card.getStack().getSize() - card.getIndexOnStack();
 
-            for (int i = 0; i < 12; i++) {
-                if (stacks[i].isEmpty())
-                    numberOfFreeCells++;
-            }
-
-            return !(movingCards > numberOfFreeCells && stack.isEmpty()) && canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
+            return movingCards <= getPowerMoveCount(stack.isEmpty()) && canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING);
 
         } else if (stack.getId() < 12) {
             return movingCards.hasSingleCard() && stack.isEmpty();
-        } else if (movingCards.hasSingleCard()) {
+        } else if (movingCards.hasSingleCard() && stack.getId() < 16) {
             if (stack.isEmpty()) {
                 return card.getValue() == 1;
             } else {
                 return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING);
             }
-        } else {
-            return false;
         }
+
+        return false;
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         /*
          *  normally the player can only move one card at once, but he can also put cards to free
          *  cells and replace them on a new stack. To make this easier, the player can move more
          *  cards at once, if they are in the right order and if there are enough free cells
-         *  Use the testCardsUpToTop() method for that test
          */
-
-        int numberOfFreeCells = 0;
-        int startPos;
-
         Stack sourceStack = card.getStack();
 
-        for (int i = 0; i < 12; i++) {
-            if (stacks[i].isEmpty()) {
-                numberOfFreeCells++;
-            }
-        }
-
-        startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, card.getStack().getIndexOfCard(card));
+        int startPos = max(sourceStack.getSize() - getPowerMoveCount(false), card.getStack().getIndexOfCard(card));
 
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, ALTERNATING_COLOR);
     }
 
     public CardAndStack hintTest() {
-        /*
-         * showing hints also depends on the settings. It can also show multiple cards at once
-         */
         for (int i = 0; i < 12; i++) {
 
             Stack sourceStack = stacks[i];
@@ -166,15 +148,7 @@ public class Freecell extends Game {
 
             int startPos;
 
-            int numberOfFreeCells = 0;
-
-            for (int j = 0; j < 12; j++) {
-                if (stacks[j].isEmpty()) {
-                    numberOfFreeCells++;
-                }
-            }
-
-            startPos = max(sourceStack.getSize() - numberOfFreeCells - 1, 0);
+            startPos = max(sourceStack.getSize() - getPowerMoveCount(false), 0);
 
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
@@ -256,11 +230,7 @@ public class Freecell extends Game {
     public boolean autoCompleteStartTest() {
         //autocomplete can start if stack has cards in the right order
         for (int i = 0; i < 8; i++) {
-            if (stacks[i].isEmpty()) {
-                continue;
-            }
-
-            if (!testCardsUpToTop(stacks[i], 0, ALTERNATING_COLOR)) {
+            if (!testCardsUpToTop(stacks[i], 0, DOESNT_MATTER)) {
                 return false;
             }
         }
@@ -289,16 +259,43 @@ public class Freecell extends Game {
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
-        if ((originIDs[0] < 12 && destinationIDs[0] >= 12)) {                                           //to foundations
+        //to foundations
+        if ((originIDs[0] < 12 && destinationIDs[0] >= 12)) {
             return 60;
         }
-        if ((destinationIDs[0] < 12 && originIDs[0] >= 12)) {                                          //from foundations
+        //from foundations
+        if ((destinationIDs[0] < 12 && originIDs[0] >= 12)) {
             return -75;
         }
-        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize() != 1) {//king to a empty field
+        //king to a empty field
+        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize() != 1) {
             return 20;
-        } else {
-            return 0;
         }
+
+        return 0;
+    }
+
+    private int getPowerMoveCount(boolean movingToEmptyStack){
+        //thanks to matejx for providing this formula
+        int numberOfFreeCells = 0;
+        int numberOfFreeTableauStacks = 0;
+
+        for (int i=8;i<12;i++){
+            if (stacks[i].isEmpty()){
+                numberOfFreeCells++;
+            }
+        }
+
+        for (int i=0;i<8;i++){
+            if (stacks[i].isEmpty()){
+                numberOfFreeTableauStacks++;
+            }
+        }
+
+        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
+            numberOfFreeTableauStacks --;
+        }
+
+        return (numberOfFreeCells+1)*(1<<numberOfFreeTableauStacks);
     }
 }

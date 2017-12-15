@@ -22,6 +22,7 @@ import de.tobiasbielefeld.solitaire.handler.HandlerTimer;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_WINNING_TIME;
 
 /**
  * Handles the timer, updates, saves and load the current time of playing.
@@ -45,12 +46,15 @@ public class Timer {
     /**
      * Returns the current playing time. If a winning time was saved, show this instead.
      *
+     * The time is in seconds!! not milliseconds!
+     *
      * @return The time to show on the screen
      */
     public long getCurrentTime() {
         return winningTime != 0 ? winningTime : currentTime;
     }
 
+    //sets the time in seconds!
     public void setCurrentTime(long time) {
         currentTime = time;
     }
@@ -61,10 +65,10 @@ public class Timer {
     public void save() {
         running = false;
         if (!gameLogic.hasWon()) {
-            putLong(TIMER_END_TIME, System.currentTimeMillis());
-            putLong(TIMER_START_TIME, startTime);
+            prefs.saveEndTime(System.currentTimeMillis());
+            prefs.saveStartTime(startTime);
         } else {
-            putLong(TIMER_WINNING_TIME, winningTime);
+            prefs.saveWinningTime(winningTime);
         }
     }
 
@@ -75,11 +79,9 @@ public class Timer {
     public void load() {
         running = true;
 
-        startTime = getLong(TIMER_START_TIME, System.currentTimeMillis())
-                + System.currentTimeMillis()
-                - getLong(TIMER_END_TIME, System.currentTimeMillis());
+        startTime = prefs.getSavedStartTime() + System.currentTimeMillis() - prefs.getSavedEndTime();
 
-        winningTime = getLong(TIMER_WINNING_TIME, DEFAULT_WINNING_TIME);
+        winningTime = prefs.getSavedWinningTime();
 
         handlerTimer.sendEmptyMessage(0);
     }
@@ -89,10 +91,11 @@ public class Timer {
      */
     public void reset() {
         running = true;
-        putLong(TIMER_START_TIME, System.currentTimeMillis());
-        putLong(TIMER_END_TIME, System.currentTimeMillis());
 
-        putLong(TIMER_WINNING_TIME, DEFAULT_WINNING_TIME);
+        prefs.saveStartTime(System.currentTimeMillis());
+        prefs.saveEndTime(System.currentTimeMillis());
+        prefs.saveWinningTime(DEFAULT_WINNING_TIME);
+
         winningTime = 0;
 
         startTime = System.currentTimeMillis();
@@ -109,5 +112,9 @@ public class Timer {
 
     public void setWinningTime() {
         winningTime = currentTime;
+    }
+
+    public void setStartTime(long time){
+        startTime = time;
     }
 }

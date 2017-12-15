@@ -63,10 +63,7 @@ public class HandlerAutoComplete extends Handler {
         else if (autoComplete.isRunning()) {
             CardAndStack cardAndStack;
 
-            if (phase == 1)
-                cardAndStack = currentGame.autoCompletePhaseOne();
-            else
-                cardAndStack = currentGame.autoCompletePhaseTwo();
+            cardAndStack = phase == 1 ? currentGame.autoCompletePhaseOne() : currentGame.autoCompletePhaseTwo();
 
             if (cardAndStack == null) {
                 if (phase == 1) {
@@ -82,14 +79,23 @@ public class HandlerAutoComplete extends Handler {
                     ArrayList<Card> cards = new ArrayList<>();
                     Stack origin = cardAndStack.getCard().getStack();
 
-                    for (int i = origin.getIndexOfCard(cardAndStack.getCard()); i < origin.getSize(); i++)
+                    for (int i = origin.getIndexOfCard(cardAndStack.getCard()); i < origin.getSize(); i++) {
                         cards.add(cardAndStack.getCard().getStack().getCard(i));
+                    }
 
                     moveToStack(cards, cardAndStack.getStack());
                 }
-                //else phase 2, move only one card
+                //else phase 2, move only one card but without the moveToStack method, it would
+                //result in card flickering
                 else {
-                    moveToStack(cardAndStack.getCard(), cardAndStack.getStack());
+                    Card card = cardAndStack.getCard();
+                    Stack destination = cardAndStack.getStack();
+
+                    scores.move(card, destination);
+                    card.removeFromCurrentStack();
+                    destination.addCard(card,false);
+                    card.view.bringToFront();
+                    card.setLocation(destination.getX(),destination.getY());
                 }
 
                 currentTime = max(currentTime - DELTA_TIME, MIN_TIME);

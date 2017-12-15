@@ -20,7 +20,6 @@
 
     <string name="settings_background">Malantaŭo numero</string>
     <string name="settings_customization">Aspekto</string>
-    <string name="settings_customization_description">Alĝustigi kartojn kaj fonojn</string>
     <string name="settings_other">Ĝeneralaj</string>
     <string name="settings_other_description">Agordi ĉion alian</string>
     <string name="settings_games">Ludoj</string>
@@ -51,10 +50,10 @@
 
     <string name="settings_icon_theme">Piktograma etoso</string>
     <string name="settings_menu_bar_position">Pozicio de menua breto</string>
-    <string name="settings_menu_bar_position_top">Supre</string>
-    <string name="settings_menu_bar_position_bottom">Sube</string>
-    <string name="settings_menu_bar_position_left">Maldekstre</string>
-    <string name="settings_menu_bar_position_right">Dekstre</string>
+    <string name="settings_menu_bar_position_top">supre</string>
+    <string name="settings_menu_bar_position_bottom">sube</string>
+    <string name="settings_menu_bar_position_left">maldekstre</string>
+    <string name="settings_menu_bar_position_right">dekstre</string>
 
     <string name="settings_yukon_rules">Meti kartojn sur…</string>
     <string name="settings_4_color_mode_title">4 ludkartaj emblemoj</string>
@@ -98,7 +97,8 @@
     <string name="settings_number_of_recycles">Nombro de reuzoj</string>
 
     <string name="settings_vegas_bet_amount">Vetluda monsumo</string>
-    <string name="settings_vegas_bet_amount_progress_text">Unua redisdono kostas %1$d$, por movi karton al fundamenta stako gajnas %2$d$.</string>
+    <string name="settings_vegas_bet_amount_text_1">Unua redisdono kostas:</string>
+    <string name="settings_vegas_bet_amount_text_2">Por movi karton al fundamenta stako gajnas:</string>
     <string name="settings_vegas_bet_amount_summary">Redisdono: -%1$d$, karto al fundamenta stako: +%2$d$</string>
 
     <string name="settings_menu_order_title">Ordo de menuo</string>
@@ -107,5 +107,61 @@
 
     <string name="settings_auto_start_new_game_title">Komenci novan ludon post venko</string>
     <string name="settings_auto_start_new_game_text">Je reveno al ĵus-venkita ludo, aŭtomate komenci novan ludon</string>
+
+    <string name="settings_customization_description">Alĝustigi kartojn, fonojn kaj fasadon</string>
+
+    <string name="settings_force_tablet_layout_title">Devigi tabulkomputilan reĝimon</string>
+    <string name="settings_force_tablet_layout_text">Vidigi la aplikaĵon same kiel sur grandaj ekranoj (≥10\")</string>
+
+    <string name="settings_restart_calculation">Komencu novan ludon Calculation por apliki ŝanĝojn</string>
+    <string name="settings_calculation_alternative_title">Teni kartojn</string>
+    <string name="settings_calculation_alternative_text">Je premado sur ĉefa stako: anstataŭ movi karton de forĵeta stako al tablamasa stako, teni ĝin sur la forĵeta stako.</string>
+
+    <string name="settings_vegas_money_enabled">Konservi nunan monstaton</string>
+    <string name="settings_vegas_money_enabled_text">La monstato estos konservata tra sekvaj redisdonoj de Vegaso, tamen vi devu rekomencigi la mon-staton kaj komenci novan ludon por konservi rekordojn</string>
+    <string name="settings_vegas_money_reset">Rekomencigi monstaton</string>
+    <string name="settings_vegas_money_reset_text">La sekva redisdono de Vegas komenciĝos kun 0$</string>
+    <string name="settings_vegas_money_reset_confirm">Ĉu vi certe volas rekomencigi vian monstaton? Tio ĉi estas neinversigebla.</string>
+
+    <string name="settings_auto_move_title">Aŭtomataj movoj</string>
+    <string name="settings_mod3_auto_move_text">Aŭtomate movi asojn al la forĵeta stako, kiam tio eblas</string>
+
+    <string name="settings_pyramid_auto_move_text">Aŭtomate movi reĝojn al la ruba stako, kiam tio eblas</string>
+
+    <string name="settings_rules">Reguloj</string>
+    <string name="settings_money">Mono</string>
+    <string name="settings_support">Subteno</string>
+
+    <string name="settings_hide_time">Kaŝi tempon</string>
+    <string name="settings_hide_score">Kaŝi poentaron</string>
+
+    <string name="settings_single_tap_all_games_text">Unuoble frapetu karton por movi ĝin al la sekva ebla stako. Samaj agordoj kiel por duobla frapeto. Tio ĉi malaktivigos movojn “elekti-per-frapeto”.</string>
+    <string name="settings_vegas_bet_amount_error">Ne povas konservi numerojn!</string>
+
+    <!-- new values -->
+    <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
+
+    <string name="settings_use_true_randomisation_title">Use true randomisation</string>
+    <string name="settings_use_true_randomisation_text">The default randomisation avoids similar cards next to each other.
+        Check this to enable a truly uniform randomisation</string>
+
+    <string name="settings_developer_options">Developer options</string>
+    <string name="settings_developer_options_description">Play around with crazy settings!</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">Move cards everywhere</string>
+    <string name="settings_developer_options_move_card_everwhere_text">You can place cards on any stack</string>
+
+    <string name="settings_developer_options_lock_title">Unlock developer options</string>
+    <string name="settings_developer_options_lock_text">These settings are intended for testing purpose only, the usage can result in strange behavior and crashes!</string>
+    <string name="settings_developer_options_play_every_card_title">Play every card</string>
+    <string name="settings_developer_options_play_every_card_text">You can play every revealed card</string>
+
+    <string name="settings_developer_options_instant_win_title">Instant win</string>
+    <string name="settings_developer_options_instant_win_text">Win every game after moving a card</string>
+
+    <string name="settings_developer_options_no_saving_title">Disable saving game state</string>
+    <string name="settings_developer_options_no_saving_text">Movements in a game won\'t be saved anymore</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">Deal correct sequences</string>
 
 </resources>

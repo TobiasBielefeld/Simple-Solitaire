@@ -35,7 +35,7 @@ public class Sounds {
 
     public void playSound(names name) {
 
-        if (savedSharedData.getBoolean(PREF_KEY_SOUND_ENABLED, DEFAULT_SOUND_ENABLED)) {
+        if (prefs.getSavedSoundEnabled()) {
             switch (name){
                 case CARD_RETURN:
                     sp.play(soundList[0], 1, 1, 0, 0, 1);
@@ -57,8 +57,8 @@ public class Sounds {
     }
 
     public void playWinSound() {
-        if (savedSharedData.getBoolean(PREF_KEY_SOUND_ENABLED, DEFAULT_SOUND_ENABLED)) {
-            switch (savedSharedData.getString(PREF_KEY_WIN_SOUND, DEFAULT_WIN_SOUND)) {
+        if (prefs.getSavedSoundEnabled()) {
+            switch (prefs.getSavedWinSound()) {
                 case "0":
                     sp.play(soundList[5], 1, 1, 0, 0, 1);
                     break;

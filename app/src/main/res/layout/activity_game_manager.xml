@@ -262,7 +262,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/menu_settings"
-                app:srcCompat="@drawable/icon_settings" />
+                app:srcCompat="@drawable/icon_settings_black" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"

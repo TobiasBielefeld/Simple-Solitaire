@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -41,8 +42,12 @@ public class Spider extends Game {
     public Spider() {
         setNumberOfDecks(2);
         setNumberOfStacks(23);
-        setFirstMainStackID(18);
-        setLastTableauID(9);
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9);
+        setFoundationStackIDs(10,11,12,13,14,15,16,17);
+        setMainStackIDs(18,19,20,21,22);
+
+        setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
 
     public CardAndStack hintTest() {
@@ -178,7 +183,7 @@ public class Spider extends Game {
                         origins.add(currentStack);
                     }
 
-                    recordList.addAtEndOfLastEntry(cards, origins);
+                    recordList.addToLastEntry(cards, origins);
                     moveToStack(cards, foundationStack, OPTION_NO_RECORD);
 
                     //turn the card below up, if there is one
@@ -186,7 +191,6 @@ public class Spider extends Game {
                         currentStack.getTopCard().flipWithAnim();
                     }
 
-                    handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
                     scores.update(200);
                     break;
                 }
@@ -194,7 +198,7 @@ public class Spider extends Game {
         }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //do not accept cards from foundation and test if the cards are in the right order.
         return card.getStackId() < 10 && currentGame.testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_FAMILY);
     }
@@ -203,7 +207,7 @@ public class Spider extends Game {
         return stack.getId() < 10 && currentGame.canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 11, 12);
         int spacing = setUpHorizontalSpacing(layoutGame, 10, 11);
@@ -241,7 +245,7 @@ public class Spider extends Game {
 
     public void dealCards() {
         //when starting a new game, load the difficulty preference in the "old" preference
-        putSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD, getSharedString(PREF_KEY_SPIDER_DIFFICULTY, DEFAULT_SPIDER_DIFFICULTY));
+        prefs.saveSpiderDifficultyOld();
         loadCards();
 
         for (int i = 0; i < 10; i++) {
@@ -253,7 +257,7 @@ public class Spider extends Game {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
 
-            stacks[i].getTopCard().flipUp();
+            stacks[i].flipTopCardUp();
         }
 
         for (int i = 0; i < 5; i++) {
@@ -264,7 +268,9 @@ public class Spider extends Game {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
-                stacks[18 + i].getCard(i).view.bringToFront();
+                if (stacks[18+i].getSize()>j) {
+                    stacks[18 + i].getCard(j).view.bringToFront();
+                }
             }
         }
     }
@@ -280,7 +286,7 @@ public class Spider extends Game {
             currentMainStackID--;
 
         //id below 18 means all main stacks are empty
-        if (currentMainStackID > 17) {
+        if (currentMainStackID >= 18) {
 
             ArrayList<Card> cards = new ArrayList<>();
             ArrayList<Stack> destinations = new ArrayList<>();
@@ -317,20 +323,11 @@ public class Spider extends Game {
         return points;
     }
 
-    @Override
-    public boolean testIfMainStackTouched(float X, float Y) {
-        return (stacks[18].isOnLocation(X, Y) ||
-                stacks[19].isOnLocation(X, Y) ||
-                stacks[20].isOnLocation(X, Y) ||
-                stacks[21].isOnLocation(X, Y) ||
-                stacks[22].isOnLocation(X, Y));
-    }
-
     private void loadCards() {
         /*
          * load the card families depending on the preference
          */
-        switch (getSharedString(PREF_KEY_SPIDER_DIFFICULTY_OLD, DEFAULT_SPIDER_DIFFICULTY)) {
+        switch (prefs.getSavedSpiderDifficultyOld()) {
             case "1":
                 setCardFamilies(3, 3, 3, 3);
                 break;

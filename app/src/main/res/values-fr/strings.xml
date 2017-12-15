@@ -24,6 +24,7 @@
     <string name="menu_settings">Réglages</string>
 
     <!-- game names -->
+    <string name="games_Calculation">Calculation</string>
     <string name="games_Klondike">Solitaire</string>
     <string name="games_Freecell">FreeCell</string>
     <string name="games_Yukon">Yukon</string>
@@ -49,12 +50,27 @@
     <string name="purple">Violet</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Plus longue série :</string> <!-- also used by golf -->
+    <string name="game_longest_run">Plus longue série :</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Félicitation!</string>
     <string name="dialog_win_score">Points: %1$d</string>
     <string name="dialog_win_bonus">Prime: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
+
+    <!-- new values translated with DeepL, maybe it's better than the google translator-->
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Mélanger les cartes</string>
+    <string name="dialog_mix_cards_text">Ceci mélangera toutes les cartes, attendez-vous à des séquences et des cartes correctes sur les piles de bases.</string>
+    <string name="dialog_mix_cards_not_available">Il y a encore des mouvements possibles! (Utilisez la fonction conseil pour les afficher)</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">Démarrer une nouvelle partie</string>
+    <string name="dialog_start_new_game_text">Votre progression actuelle sera perdue et une nouvelle partie au hasard sera distribuée.</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">Redistribuer les cartes</string>
+    <string name="dialog_redeal_text">Votre progression actuelle sera perdue, mais les cartes sont distribuées comme dans la partie en cours.</string>
 
 </resources>

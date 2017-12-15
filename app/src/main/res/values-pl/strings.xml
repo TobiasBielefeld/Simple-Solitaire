@@ -41,6 +41,7 @@
     <string name="games_Canfield">Canfield</string>
     <string name="games_GrandfathersClock">ZegarekDziadka</string>
     <string name="games_Vegas">Vegas</string>
+    <string name="games_Calculation">Calculation</string>
 
     <!-- colors -->
     <string name="blue">Niebieski</string>
@@ -51,12 +52,27 @@
     <string name="purple">Purpurowy</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Najdłuższa seria:</string> <!-- also used by golf -->
+    <string name="game_longest_run">Najdłuższa seria:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Gratulacje!</string>
     <string name="dialog_win_score">Punkty: %1$d</string>
     <string name="dialog_win_bonus">Premia: %1$d</string>
     <string name="dialog_win_total">Ogółem: %1$d</string>
+
+    <!-- new values translated with DeepL, maybe it's better than the google translator-->
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Tasuj karty</string>
+    <string name="dialog_mix_cards_text">Spowoduje to mieszanie wszystkich karteczek, oczekiwanie poprawnych sekwencji i karteczek na fundamencie.</string>
+    <string name="dialog_mix_cards_not_available">Nadal możliwe są ruchy! (Wykorzystaj funkcję podpowiedzi, aby je pokazać)</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">Rozpocznij nową grę</string>
+    <string name="dialog_start_new_game_text">Twój bieżący postęp zostanie utracony i zostanie rozegrana nowa losowa gra.</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">Ponownie rozdaj karty</string>
+    <string name="dialog_redeal_text">Twój bieżący postęp zostanie utracony, ale karty zostaną rozdane jak w bieżącej grze.</string>
 
 </resources>

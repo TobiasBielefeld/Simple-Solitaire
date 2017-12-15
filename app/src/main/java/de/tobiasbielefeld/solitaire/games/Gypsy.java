@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -40,12 +41,15 @@ public class Gypsy extends Game {
     public Gypsy() {
         setNumberOfDecks(2);
         setNumberOfStacks(17);
-        setFirstMainStackID(16);
-        setLastTableauID(7);
-        setHasFoundationStacks(true);
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7);
+        setFoundationStackIDs(8,9,10,11,12,13,14,15);
+        setMainStackIDs(16);
+
+        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardWidth(layoutGame, isLandscape, 9 + 1, 9 + 3);
         int spacing = setUpHorizontalSpacing(layoutGame, 9, 10);
@@ -83,8 +87,10 @@ public class Gypsy extends Game {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 3; j++) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                if (j > 0)
-                    stacks[i].getTopCard().flipUp();
+
+                if (j>0){
+                    stacks[i].getCard(j).flipUp();
+                }
             }
         }
     }
@@ -122,7 +128,7 @@ public class Gypsy extends Game {
         }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return testCardsUpToTop(card.getStack(), card.getIndexOnStack(), ALTERNATING_COLOR);
     }
 
@@ -207,8 +213,9 @@ public class Gypsy extends Game {
             return false;
 
         for (int i = 0; i < 8; i++) {
-            if (stacks[i].isEmpty() || !stacks[i].getCard(0).isUp() || !testCardsUpToTop(stacks[i], 0, ALTERNATING_COLOR))
+            if (!testCardsUpToTop(stacks[i], 0, DOESNT_MATTER)) {
                 return false;
+            }
         }
 
         return true;

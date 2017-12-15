@@ -23,7 +23,6 @@
 
     <string name="settings_background">Taustanumero</string>
     <string name="settings_customization">Ulkoasu</string>
-    <string name="settings_customization_description">Muuta kortteja ja taustaa</string>
     <string name="settings_other">Yleistä</string>
     <string name="settings_other_description">Aseta kaikki muut asetukset</string>
     <string name="settings_games">Pelit</string>
@@ -93,7 +92,8 @@
     <string name="settings_number_of_recycles">Kääntämisten määrä</string>
 
     <string name="settings_vegas_bet_amount">Panos</string>
-    <string name="settings_vegas_bet_amount_progress_text">Alkujako maksaa %1$d$, jokainen peruspinoon siirretty kortti tuottaa %2$d$.</string>
+    <string name="settings_vegas_bet_amount_text_1">Alkujako maksaa:</string>
+    <string name="settings_vegas_bet_amount_text_2">Jokainen peruspinoon siirretty kortti tuottaa:</string>
     <string name="settings_vegas_bet_amount_summary">Alkujako: -%1$d$, kortti peruspinoon: +%2$d$</string>
 
     <string name="settings_menu_order_title">Valikon järjestys</string>
@@ -102,5 +102,64 @@
   
     <string name="settings_auto_start_new_game_title">Aloita uusi peli voiton jälkeen</string>
     <string name="settings_auto_start_new_game_text">Mikäli palataan peliin joka on jo voitettu, käynnistä uusi peli automaattisesti</string>
+
+    <string name="settings_customization_description">Muuta kortteja, taustaa ja käyttöliittymää</string>
+
+    <string name="settings_force_tablet_layout_title">Pakota pöydän ulkoasu</string>
+    <string name="settings_force_tablet_layout_text">Näytä sovellus samalla tavalla kuin isolla näytöllä (>=10\")</string>
+
+    <string name="settings_restart_calculation">Aloita uusi Calculation peli ottaaksesi muutokset käyttöön</string>
+    <string name="settings_calculation_alternative_title">Pidä kortit</string>
+    <string name="settings_calculation_alternative_text">Painaminen käsipakasta: Sen sijaan, että kortti siirrettäisiin kääntöpakasta pöytäpinoon,
+        pidä se kääntöpakassa.</string>
+
+    <string name="settings_vegas_money_enabled">Pidä nykyinen saldo</string>
+    <string name="settings_vegas_money_enabled_text">Saldo siirretään tuleviin Vegasin jakoihin,
+        mutta ennätysten tallentamiseksi pitää saldo nollata ja aloittaa uusi peli</string>
+    <string name="settings_vegas_money_reset">Nollaa saldo</string>
+    <string name="settings_vegas_money_reset_text">Seuraava Vegasin jaon alkusaldo on 0$</string>
+    <string name="settings_vegas_money_reset_confirm">Haluatko todella nollata saldon? Tätä ei voi perua.</string>
+
+    <string name="settings_auto_move_title">Automaattiset siirrot</string>
+    <string name="settings_mod3_auto_move_text">Siirrä ässät automaattisesti kääntöpakkaan kun mahdollista</string>
+
+    <string name="settings_pyramid_auto_move_text">Siirrä kuninkaat automaattisesti kaatopakkaan kun mahdollista</string>
+
+    <string name="settings_rules">Säännöt</string>
+    <string name="settings_money">Raha</string>
+    <string name="settings_support">Tuki</string>
+
+    <string name="settings_hide_time">Piilota aika</string>
+    <string name="settings_hide_score">Piilota tulos</string>
+
+    <!-- new values -->
+
+    <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
+
+    <string name="settings_use_true_randomisation_title">Use true randomisation</string>
+    <string name="settings_use_true_randomisation_text">The default randomisation avoids similar cards next to each other.
+        Check this to enable a truly uniform randomisation</string>
+
+    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
+    <string name="settings_vegas_bet_amount_error">Can\'t save those numbers!</string>
+
+    <string name="settings_developer_options">Developer options</string>
+    <string name="settings_developer_options_description">Play around with crazy settings!</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">Move cards everywhere</string>
+    <string name="settings_developer_options_move_card_everwhere_text">You can place cards on any stack</string>
+
+    <string name="settings_developer_options_lock_title">Unlock developer options</string>
+    <string name="settings_developer_options_lock_text">These settings are intended for testing purpose only, the usage can result in strange behavior and crashes!</string>
+    <string name="settings_developer_options_play_every_card_title">Play every card</string>
+    <string name="settings_developer_options_play_every_card_text">You can play every revealed card</string>
+
+    <string name="settings_developer_options_instant_win_title">Instant win</string>
+    <string name="settings_developer_options_instant_win_text">Win every game after moving a card</string>
+
+    <string name="settings_developer_options_no_saving_title">Disable saving game state</string>
+    <string name="settings_developer_options_no_saving_text">Movements in a game won\'t be saved anymore</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">Deal correct sequences</string>
 
 </resources>

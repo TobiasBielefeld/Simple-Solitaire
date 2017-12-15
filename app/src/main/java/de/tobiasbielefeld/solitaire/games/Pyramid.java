@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
 
 /**
  * Pyramid Solitaire! It has a lot of stacks.
@@ -43,20 +46,23 @@ public class Pyramid extends Game {
     public Pyramid() {
         setNumberOfDecks(1);
         setNumberOfStacks(32);
-        setFirstMainStackID(31);
-        setFirstDiscardStackID(29);
-        setLastTableauID(27);
+
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27);
+        setDiscardStackIDs(29,30);
+        setMainStackIDs(31);
         setDealFromID(30);
-        setDirections();                                                                              //empty so all stacks have no spacing direction
+
+        //empty so all stacks have no spacing direction
+        setDirections();
 
         setNumberOfRecycles(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
 
-        if (!getSharedBoolean(PREF_KEY_PYRAMID_LIMITED_RECYCLES, DEFAULT_PYRAMID_LIMITED_RECYCLES)) {
+        if (!prefs.getSavedPyramidLimitedRecycles()) {
             toggleRecycles();
         }
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardDimensions(layoutGame, 7 + 1, 5 + 1);
 
@@ -99,13 +105,11 @@ public class Pyramid extends Game {
             if (!stacks[i].isEmpty())
                 return false;
 
-        return sharedStringEqualsDefault(PREF_KEY_PYRAMID_DIFFICULTY, DEFAULT_PYRAMID_DIFFICULTY) || getDiscardStack().isEmpty() && stacks[30].isEmpty();
+        return prefs.getSavedPyramidDifficulty().equals("1") || getDiscardStack().isEmpty() && stacks[30].isEmpty();
     }
 
     public void dealCards() {
-        for (Card card : cards) {
-            card.flipUp();
-        }
+        flipAllCardsUp();
 
         for (int i = 0; i < 28; i++) {
             moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
@@ -164,7 +168,7 @@ public class Pyramid extends Game {
     }
 
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
 
         if (card.getStackId() == 28)
             return false;
@@ -272,7 +276,27 @@ public class Pyramid extends Game {
             cardsToMove.clear();
             origins.clear();
 
-            handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
+            handlerTestAfterMove.sendEmptyMessageDelayed(0, 200);
+
+        } else if (prefs.getSavedPyramidAutoMove()) {
+            ArrayList<Card> tempCards = new ArrayList<>();
+            ArrayList<Stack> origins = new ArrayList<>();
+
+            for (int i=0;i<32;i++){
+                if (i==28){
+                    continue;
+                }
+
+                if (!stacks[i].isEmpty() && stackIsFree(stacks[i]) && stacks[i].getTopCard().getValue()==13){
+                    tempCards.add(stacks[i].getTopCard());
+                    origins.add(stacks[i]);
+                }
+            }
+
+            if (!tempCards.isEmpty()) {
+                recordList.addToLastEntry(tempCards, origins);
+                moveToStack(tempCards, stacks[28], OPTION_NO_RECORD);
+            }
         }
     }
 
@@ -284,5 +308,12 @@ public class Pyramid extends Game {
         Stack stackAbove2 = stacks[stackAboveID[stack.getId()] + 1];
 
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
+    }
+
+    /*
+     * override this in your games to customize behavior
+     */
+    protected boolean excludeCardFromMixing(Card card){
+        return card.getStack() == stacks[28];
     }
 }

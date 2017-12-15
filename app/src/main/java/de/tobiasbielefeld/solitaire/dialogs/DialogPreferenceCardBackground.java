@@ -41,6 +41,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class DialogPreferenceCardBackground extends DialogPreference implements View.OnClickListener {
 
+    private static int NUMBER_OF_CARD_BACKGROUNDS = 9;
+
     private LinearLayout[] linearLayoutsBackgrounds = new LinearLayout[NUMBER_OF_CARD_BACKGROUNDS];
     private ImageView[] imageViews = new ImageView[NUMBER_OF_CARD_BACKGROUNDS];
 
@@ -89,8 +91,8 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
             linearLayoutsColors[i].setOnClickListener(this);
         }
 
-        selectedBackground = getSharedInt(CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
-        selectedBackgroundColor = getSharedInt(CARD_BACKGROUND_COLOR, DEFAULT_CARD_BACKGROUND_COLOR);
+        selectedBackground = prefs.getSavedCardBackground();
+        selectedBackgroundColor = prefs.getSavedCardBackgroundColor();
         updateDialog();
 
         super.onBindDialogView(view);
@@ -177,8 +179,8 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
      * save the selected background and update the summary
      */
     private void save() {
-        putSharedInt(CARD_BACKGROUND, selectedBackground);
-        putSharedInt(CARD_BACKGROUND_COLOR, selectedBackgroundColor);
+        prefs.saveCardBackground(selectedBackground);
+        prefs.saveCardBackgroundColor(selectedBackgroundColor);
 
         updateSummary();
     }
@@ -189,8 +191,8 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
     private void updateSummary() {
         Bitmap cardBack;
 
-        int selectedBackground = getSharedInt(CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
-        int selectedBackgroundColor = getSharedInt(CARD_BACKGROUND_COLOR, DEFAULT_CARD_BACKGROUND_COLOR);
+        int selectedBackground = prefs.getSavedCardBackground();
+        int selectedBackgroundColor = prefs.getSavedCardBackgroundColor();
 
         cardBack = bitmaps.getCardBack(selectedBackground, selectedBackgroundColor);
 

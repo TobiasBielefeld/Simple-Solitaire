@@ -3,38 +3,47 @@
 <resources>
 
     <string name="about_name">About Game</string>
-    <string name="about_Text1">developed by Tobias Bielefeld</string>
-    <string name="about_Text2">thanks for playing my game :)</string>
     <string name="about_tab_1">Information</string>
-    <string name="about_tab_2">License</string>
+    <string name="about_tab_2">Licenses</string>
     <string name="about_tab_3">Changelog</string>
-    <string name="about_build_date">Build date</string>
-    <string name="about_license_top_text">This game is published under the GPL 3.0 license:</string>
-    <string name="about_program_code_text">Source code available on:</string>
-    <string name="about_program_code_text2" translatable="false"><a href="https://github.com/TobiasBielefeld/Simple-Solitaire">GitHub</a></string>
     <string name="about_loading">Loading…</string>
 
+    <string name="about_developer">Developer</string>
+    <string name="about_developer_name">Tobias Bielefeld</string>
+    <string name="about_compiled">Compiled on</string>
+    <string name="about_source_code">Source code</string>
+    <string name="about_license">License</string>
     <string name="about_translations">Translations</string>
-    <string name="about_translations_japanese">Japanese: By GitHub User naofum</string>
-    <string name="about_translations_esperanto_polish">Esperanto and Polish: By GitHub User verdulo</string>
-    <string name="about_translations_french">French: By GitHub User romainhk and cicithesquirrel</string>
-    <string name="about_translations_finnish">Finnish: By GitHub User winjar</string>
-    <string name="about_translations_turkish">Turkish: By GitHub User sekmenhuseyin</string>
+    <string name="about_further_contributors">Further contributors</string>
 
-    <string name="about_material_icons_text">The Material design icons are made by Google Inc and published under the
-        <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 license</a></string>
+    <string name="about_translations_japanese">Japanese</string>
+    <string name="about_translations_esperanto">Esperanto</string>
+    <string name="about_translations_polish">Polish</string>
+    <string name="about_translations_french">French</string>
+    <string name="about_translations_finnish">Finnish</string>
+    <string name="about_translations_turkish">Turkish</string>
 
-    <string name="about_pixa_bay_license_text">The other card themes were originally published on <a href="www.pixabay.com">pixabay.com</a> under the
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 license</a></string>
-    <string name="about_third_party_licenses">Third party licenses</string>
+    <string name="about_android_support_libraries_title">Android support library</string>
+    <string name="about_android_support_libraries_usage">Used for better design and easier development</string>
 
-    <string name="about_poker_theme">Poker card theme: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
-        Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - Licensed under <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
+    <string name="about_material_icons_title">Material design icons</string>
+    <string name="about_material_icons_usage">Used for all icons in this application</string>
 
-    <string name="about_custom_color_picker">Custom color picker: Uses the <a href="https://github.com/yukuku/ambilwarna">AmbilWarna library</a>
-        published under the <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0 license</a></string>
+    <string name="about_card_themes_title">Card themes</string>
+    <string name="about_card_themes_usage">The card themes were taken from <a href="https://pixabay.com/">pixabay.com</a>,
+        for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">here</a></string>
 
-    <string name="about_sounds">All sounds were originally published on <a href="https://freesound.org">freesound.org</a> under the
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 license</a></string>
+    <string name="about_poker_themes_usage">Used as Poker theme - Available on <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
+        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
+
+    <string name="about_custom_color_picker_title">AmbilWarna library</string>
+    <string name="about_custom_color_picker_usage">Used for the custom color picker</string>
+
+    <string name="about_sounds_title">Sounds</string>
+    <string name="about_sounds_usage">All sounds were originally published on <a href="https://freesound.org">freesound.org</a>,
+        for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">here</a></string>
+
+    <string name="about_sliding_tabs_title">PagerSlidingTabStrip library</string>
+    <string name="about_sliding_tabs_usage">Used for the tabs in the \"about game\" screen</string>
 
 </resources>

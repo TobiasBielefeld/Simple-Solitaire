@@ -23,9 +23,9 @@ import android.content.res.Resources;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.games.AcesUp;
+import de.tobiasbielefeld.solitaire.games.Calculation;
 import de.tobiasbielefeld.solitaire.games.Canfield;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Freecell;
@@ -42,9 +42,7 @@ import de.tobiasbielefeld.solitaire.games.TriPeaks;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
 
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_GAMES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MENU_ORDER;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * Everything about loading a game should be here. If you want to add a game, just expand the switch
@@ -61,8 +59,7 @@ public class LoadGame {
 
     /**
      * load the game class and set the shown name and the name used for the sharedPref of the
-     * current game. These names can be the same, but i used different ones and i don't want
-     * to loose the saved data, if I changed that.
+     * current game.
      *
      * @param activity The activity to get the strings from the xml file
      * @param index The index of the game to start
@@ -75,20 +72,21 @@ public class LoadGame {
         switch (index) {
             default: Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");//fallthrough
             case 0: return new AcesUp();
-            case 1: return new Canfield();
-            case 2: return new FortyEight();
-            case 3: return new Freecell();
-            case 4: return new Golf();
-            case 5: return new GrandfathersClock();
-            case 6: return new Gypsy();
-            case 7: return new Klondike();
-            case 8: return new Mod3();
-            case 9: return new Pyramid();
-            case 10:return new SimpleSimon();
-            case 11:return new Spider();
-            case 12:return new TriPeaks();
-            case 13:return new Vegas();
-            case 14:return new Yukon();
+            case 1: return new Calculation();
+            case 2: return new Canfield();
+            case 3: return new FortyEight();
+            case 4: return new Freecell();
+            case 5: return new Golf();
+            case 6: return new GrandfathersClock();
+            case 7: return new Gypsy();
+            case 8: return new Klondike();
+            case 9: return new Mod3();
+            case 10: return new Pyramid();
+            case 11:return new SimpleSimon();
+            case 12:return new Spider();
+            case 13:return new TriPeaks();
+            case 14:return new Vegas();
+            case 15:return new Yukon();
         }
     }
 
@@ -100,12 +98,14 @@ public class LoadGame {
      *
      * If you add a game at the end, no further actions has to be done, expect updating the game
      * selector images and adding a manual entry. If you add it somewhere else (eg to get an
-     * alphabetical default order) you need to update getMenuShownList() and getOrderedGameList()!
+     * alphabetical default order) you need to update getMenuShownList(), getOrderedGameList() and
+     * loadClass() !
      */
     public void loadAllGames(){
         allGameInformation.clear();
 
         allGameInformation.add(new AllGameInformation(R.string.games_AcesUp,"AcesUp"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Calculation,"Calculation"));
         allGameInformation.add(new AllGameInformation(R.string.games_Canfield,"Canfield"));
         allGameInformation.add(new AllGameInformation(R.string.games_FortyEight,"FortyEight"));
         allGameInformation.add(new AllGameInformation(R.string.games_Freecell,"Freecell"));
@@ -121,13 +121,12 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_Vegas,"Vegas"));
         allGameInformation.add(new AllGameInformation(R.string.games_Yukon,"Yukon"));
 
-
         GAME_COUNT = allGameInformation.size();
     }
 
     /**
      * Gets the list of shown games in the game selection menu.
-     * The order of the game is the DEFAULT ORDER!
+     * The order of the game is the DEFAULT PREF_KEY_ORDER!
      *
      * If you add a game, the list lacks the newly added game. so you can insert it at the right
      * position, or it will be automatically added at the end.
@@ -137,13 +136,7 @@ public class LoadGame {
      * @return the list of shown/not shown in the game selection menu
      */
     public ArrayList<Integer> getMenuShownList(){
-        String s = savedSharedData.getString(PREF_KEY_MENU_GAMES, "");
-        StringTokenizer st = new StringTokenizer(s, ",");
-        ArrayList<Integer> result = new ArrayList<>();
-
-        while (st.hasMoreTokens()) {
-            result.add(Integer.parseInt(st.nextToken()));
-        }
+        ArrayList<Integer> result = prefs.getSavedMenuGamesList();
 
         /*
          * If added more games, insert them here in the correct order. Don't forget to add it also
@@ -159,6 +152,9 @@ public class LoadGame {
         }
         if (result.size() == 14) {                                                                  //new vegas game
             result.add(13, 1);
+        }
+        if (result.size() == 15) {                                                                  //new calculation game
+            result.add(1, 1);
         }
 
         if (result.size() < getGameCount()){
@@ -178,14 +174,7 @@ public class LoadGame {
      * @return the game list in order of the user settings.
      */
     public ArrayList<Integer> getOrderedGameList(){
-        String s = savedSharedData.getString(PREF_KEY_MENU_ORDER, "");
-        StringTokenizer st = new StringTokenizer(s, ",");
-        ArrayList<Integer> result = new ArrayList<>();
-
-        while (st.hasMoreTokens()) {
-            result.add(Integer.parseInt(st.nextToken()));
-        }
-
+        ArrayList<Integer> result = prefs.getSavedMenuOrderList();
 
         if (result.isEmpty()){                                                                      //get default order
             for (int i=0;i<getGameCount();i++){
@@ -201,11 +190,11 @@ public class LoadGame {
          * This is an example, if a new game has been added at the second last position. In the
          * ordered game list, it has to appear at the very end:
          */
-        //if (result.size()==15){
-        //    result.add(14,result.size());
-        //}
+        if (result.size()==15){                                                                     //added Calculation at index 1
+            result.add(1,result.size());
+        }
 
-        if (result.size() < getGameCount()){                                                 //add new games at the end
+        if (result.size() < getGameCount()){                                                        //add new games at the end
             for (int i=result.size();i<getGameCount();i++){
                 result.add(i);
             }
@@ -269,6 +258,10 @@ public class LoadGame {
 
     public String getGameName() {
         return gameName;
+    }
+
+    public String getGameName(Resources res, int index) {
+        return allGameInformation.get(index).getName(res);
     }
 
     public String getSharedPrefName() {

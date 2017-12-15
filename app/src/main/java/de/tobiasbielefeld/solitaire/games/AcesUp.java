@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -37,14 +38,16 @@ public class AcesUp extends Game {
     public AcesUp() {
         setNumberOfDecks(1);
         setNumberOfStacks(6);
-        setFirstMainStackID(5);
-        setFirstDiscardStackID(4);
-        setLastTableauID(3);
+
+        setTableauStackIDs(0,1,2,3);
+        setFoundationStackIDs(4);
+        setMainStackIDs(5);
+
+        setMixingCardsTestMode(null);
         setDirections(1, 1, 1, 1, 0, 0);
-        setHasFoundationStacks(true);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardWidth(layoutGame, isLandscape, 7 + 1, 7 + 2);
 
@@ -82,10 +85,8 @@ public class AcesUp extends Game {
     public void dealCards() {
 
         for (int i = 0; i < 4; i++) {
-            if (!getMainStack().isEmpty()) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getTopCard().flipUp();
-            }
+                stacks[i].getCard(0).flipUp();
         }
     }
 
@@ -114,7 +115,7 @@ public class AcesUp extends Game {
             return true;
         } else if (stack.getId() == getMainStack().getId() || card.getValue() == 1) {
             return false;
-        } else if (stack.getId() == getDiscardStack().getId()) {
+        } else if (stack.getId() == 4) {
             for (int i = 0; i < 4; i++) {
                 if (stacks[i].isEmpty() || i == card.getStack().getId()) {
                     continue;
@@ -131,8 +132,8 @@ public class AcesUp extends Game {
         return false;
     }
 
-    public boolean addCardToMovementTest(Card card) {
-        return card.isTopCard() && card.getStack() != getDiscardStack();
+    public boolean addCardToMovementGameTest(Card card) {
+        return card.isTopCard() && card.getStack() != stacks[4];
     }
 
     public CardAndStack hintTest() {
@@ -169,7 +170,7 @@ public class AcesUp extends Game {
                 }
 
                 if (success) {
-                    return new CardAndStack(cardToTest, getDiscardStack());
+                    return new CardAndStack(cardToTest, stacks[4]);
                 }
             }
         }
@@ -197,7 +198,7 @@ public class AcesUp extends Game {
             }
 
             if (success) {
-                return getDiscardStack();
+                return stacks[4];
             }
         }
 
@@ -215,7 +216,7 @@ public class AcesUp extends Game {
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
-        if (destinationIDs[0] == getDiscardStack().getId()) {
+        if (destinationIDs[0] == 4) {
             return 50;
         }
 

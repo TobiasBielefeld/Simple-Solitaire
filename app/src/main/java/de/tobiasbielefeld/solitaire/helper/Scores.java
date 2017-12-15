@@ -163,40 +163,18 @@ public class Scores {
     }
 
     public void save() {
-        putLong(SCORE, score);
-    }
-
-    /**
-     * Save the high score list.
-     */
-    private void saveHighScore() {
-        ArrayList<Long> listScores = new ArrayList<>();
-        ArrayList<Long> listTimes = new ArrayList<>();
-        ArrayList<Long> listDates = new ArrayList<>();
-
-        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-            listScores.add(savedScores[i][0]);
-            listTimes.add(savedScores[i][1]);
-            listDates.add(savedScores[i][2]);
-        }
-
-        putLongList(SAVED_SCORES + 0, listScores);
-        putLongList(SAVED_SCORES + 1, listTimes);
-        putLongList(SAVED_SCORES + 2, listDates);
+        prefs.saveScore(score);
     }
 
     /**
      * Adds a new high score to the list. New score will be inserted at the last position
      * and moved in direction of the highest score until it is in the correct position
      */
-    public void addNewHighScore() {
-
-        currentGame.processScore(score);
-
-        if (score < 0)
+    public void addNewHighScore(long newScore, long timeTaken) {
+        if (!currentGame.processScore(newScore) || newScore < 0){
             return;
+        }
 
-        long timeTaken = timer.getCurrentTime();
         long systemTime = System.currentTimeMillis();
         int index = MAX_SAVED_SCORES - 1;
 
@@ -204,9 +182,9 @@ public class Scores {
         //The new score is larger than the saved one OR
         //the new score is the same as the saved one BUT the time taken for the game is less than or equals the saved one OR
         //The saved score equals zero (so it is empty, nothing saved yet)
-        if (score > savedScores[index][0] || savedScores[index][0] == 0 ||
-                (score == savedScores[index][0] && timeTaken <= savedScores[index][1])) {
-            savedScores[index] = new long[]{score, timeTaken, systemTime};
+        if (newScore > savedScores[index][0] || savedScores[index][0] == 0 ||
+                (newScore == savedScores[index][0] && timeTaken <= savedScores[index][1])) {
+            savedScores[index] = new long[]{newScore, timeTaken, systemTime};
 
             while (index > 0 && (savedScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
                     || savedScores[index - 1][0] < savedScores[index][0]                            //or the score at index is less than the score before it
@@ -219,26 +197,26 @@ public class Scores {
                 index--;
             }
 
-            saveHighScore();
+            prefs.saveHighScores(savedScores);
         }
+    }
+
+
+    /**
+     * Adds a new high score to the list. New score will be inserted at the last position
+     * and moved in direction of the highest score until it is in the correct position
+     */
+    public void addNewHighScore() {
+        addNewHighScore(score,timer.getCurrentTime());
     }
 
     /**
      * Loads the saved high score list
      */
     public void load() {
-        score = getLong(SCORE, 0);
+        score = prefs.getSavedScore();
         output();
-
-        ArrayList<Long> listScores = getLongList(SAVED_SCORES + 0);
-        ArrayList<Long> listTimes = getLongList(SAVED_SCORES + 1);
-        ArrayList<Long> listDates = getLongList(SAVED_SCORES + 2);
-
-        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
-            savedScores[i][0] = listScores.size() > i ? listScores.get(i) : 0;
-            savedScores[i][1] = listTimes.size() > i ? listTimes.get(i) : 0;
-            savedScores[i][2] = listDates.size() > i ? listDates.get(i) : 0;
-        }
+        savedScores = prefs.getSavedHighScores();
     }
 
     /**
@@ -256,7 +234,7 @@ public class Scores {
      */
     public void deleteHighScores() {
         savedScores = new long[MAX_SAVED_SCORES][3];
-        saveHighScore();
+        prefs.saveHighScores(savedScores);
     }
 
     /**
@@ -273,17 +251,18 @@ public class Scores {
     }
 
     public void output() {
-        if (getSharedBoolean(PREF_KEY_HIDE_SCORE, DEFAULT_HIDE_SCORE)) {
-            gm.mainTextViewScore.setText("");
-        } else {
-            final String dollar = currentGame.isPointsInDollar() ? "$" : "";
-            gm.mainTextViewScore.post(new Runnable() {
-                public void run() {
-                    gm.mainTextViewScore.setText(String.format("%s: %s %s",
-                            gm.getString(R.string.game_score), score, dollar));
+        gm.mainTextViewScore.post(new Runnable() {
+            public void run() {
+                if (prefs.getSavedHideScore()) {
+                            gm.mainTextViewScore.setText("");
+                } else {
+                    final String dollar = currentGame.isPointsInDollar() ? "$" : "";
+                            gm.mainTextViewScore.setText(String.format("%s: %s %s",
+                                    gm.getString(R.string.game_score), score, dollar));
+
                 }
-            });
-        }
+            }
+        });
     }
 
     public long getScore(){

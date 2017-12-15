@@ -39,6 +39,7 @@
     <string name="games_Canfield">Canfield</string>
     <string name="games_GrandfathersClock">GrandfathersClock</string>
     <string name="games_Vegas">Vegas</string>
+    <string name="games_Calculation">Calculation</string>
 
     <!-- colors -->
     <string name="blue">Sininen</string>
@@ -49,12 +50,27 @@
     <string name="purple">Purppura</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Pisin sarja:</string> <!-- also used by golf -->
+    <string name="game_longest_run">Pisin sarja:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Onneksi olkoon!</string>
     <string name="dialog_win_score">Tulos: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Yhteensä: %1$d</string>
+
+    <!-- new values translated using Google -->
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Sekoita kortit</string>
+    <string name="dialog_mix_cards_text">Tämä sekoittaa kaikki kortit, odottaa oikeita sekvenssejä ja kortteja säätiössä.</string>
+    <string name="dialog_mix_cards_not_available">On vielä mahdollista liikkua! (Käytä vihje-toimintoa nähdäksesi ne)</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">Aloita uusi peli</string>
+    <string name="dialog_start_new_game_text">Nykyinen edistys menetetään ja uutta satunnaista peliä käsitellään.</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">Jaa kortit uudelleen</string>
+    <string name="dialog_redeal_text">Nykyinen edistys menetetään, mutta kortteja käsitellään nykyisessä pelissä.</string>
 
 </resources>

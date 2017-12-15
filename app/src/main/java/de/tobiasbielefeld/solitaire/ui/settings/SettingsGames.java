@@ -18,11 +18,8 @@
 
 package de.tobiasbielefeld.solitaire.ui.settings;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -36,62 +33,15 @@ import java.util.List;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
-import de.tobiasbielefeld.solitaire.games.Canfield;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Klondike;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
-import de.tobiasbielefeld.solitaire.helper.Sounds;
 
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND_COLOR;
-import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_BACKGROUND_VOLUME;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_ORIENTATION;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_LANDSCAPE;
-import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_PORTRAIT;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_4_COLOR_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_MUSIC;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_VOLUME;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CANFIELD_DRAW;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_DRAW;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_LANGUAGE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_LEFT_HANDED_MODE;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MOVEMENT_SPEED;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_ORIENTATION;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_PYRAMID_LIMITED_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_SOUND_ENABLED;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_SPIDER_DIFFICULTY;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_WIN_SOUND;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_YUKON_RULES;
-import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
-import static de.tobiasbielefeld.solitaire.SharedData.reinitializeData;
-import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
-import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEqualsDefault;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Settings activity created with the "Create settings activity" tool from Android Studio.
@@ -104,14 +54,11 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
 
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
 
-    private static boolean isXLargeTablet(Context context) {
-        return (context.getResources().getConfiguration().screenLayout
-                & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        reinitializeData(getApplicationContext());
         super.onCreate(savedInstanceState);
+
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
 
         ActionBar actionBar = getSupportActionBar();
@@ -119,7 +66,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        reinitializeData(getApplicationContext());
+        prefs.setCriticalGameSettings();
     }
 
     @Override
@@ -143,7 +90,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     public void onResume() {
         super.onResume();
 
-        savedSharedData.registerOnSharedPreferenceChangeListener(this);
+        prefs.registerListener(this);
         showOrHideStatusBar();
         setOrientation();
 
@@ -154,7 +101,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     @Override
     public void onPause() {
         super.onPause();
-        savedSharedData.unregisterOnSharedPreferenceChangeListener(this);
+        prefs.unregisterListener(this);
 
         activityCounter--;
         handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
@@ -206,9 +153,22 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
                 gameLogic.setNumberOfRecycles(key, DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
             }
 
-        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT)){
+        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT) || key.equals(PREF_KEY_VEGAS_WIN_AMOUNT)){
             updatePreferenceVegasBetAmountSummary();
             showToast(getString(R.string.settings_restart_vegas));
+
+        } else if (key.equals(PREF_KEY_KLONDIKE_LIMITED_RECYCLES)) {
+            if (currentGame instanceof Klondike) {
+                gameLogic.toggleRecycles();
+            }
+
+        } else if (key.equals(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES)){
+            if (currentGame instanceof Klondike) {
+                gameLogic.setNumberOfRecycles(key,DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
+            }
+
+        } else if (key.equals(PREF_KEY_CALCULATION_ALTERNATIVE)){
+            showToast(getString(R.string.settings_restart_calculation));
 
         }
     }
@@ -221,6 +181,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
      */
     protected boolean isValidFragment(String fragmentName) {
         return PreferenceFragment.class.getName().equals(fragmentName)
+                || CalculationPreferenceFragment.class.getName().equals(fragmentName)
                 || CanfieldPreferenceFragment.class.getName().equals(fragmentName)
                 || FortyEightPreferenceFragment.class.getName().equals(fragmentName)
                 || GolfPreferenceFragment.class.getName().equals(fragmentName)
@@ -228,24 +189,25 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
                 || PyramidPreferenceFragment.class.getName().equals(fragmentName)
                 || VegasPreferenceFragment.class.getName().equals(fragmentName)
                 || YukonPreferenceFragment.class.getName().equals(fragmentName)
-                || SpiderPreferenceFragment.class.getName().equals(fragmentName);
+                || SpiderPreferenceFragment.class.getName().equals(fragmentName)
+                || Mod3PreferenceFragment.class.getName().equals(fragmentName);
     }
 
     /**
      * Applies the user setting of the screen orientation.
      */
     private void setOrientation() {
-        switch (getSharedString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION)) {
-            case "1": //follow system settings
+        switch (prefs.getSavedOrientation()) {
+            case 1: //follow system settings
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;
-            case "2": //portrait
+            case 2: //portrait
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 break;
-            case "3": //landscape
+            case 3: //landscape
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
-            case "4": //landscape upside down
+            case 4: //landscape upside down
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
@@ -255,11 +217,12 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
      * Applies the user setting of the status bar.
      */
     private void showOrHideStatusBar() {
-        if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
+        if (prefs.getSavedHideStatusBar()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        else
+        } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
     }
 
     /**
@@ -277,9 +240,20 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     }
 
     private void updatePreferenceVegasBetAmountSummary(){
-        int amount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
+        int betAmount = prefs.getSavedVegasBetAmount();
+        int winAmount = prefs.getSavedVegasWinAmount();
 
-        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),amount*10,amount));
+        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),betAmount,winAmount));
+    }
+
+    public static class CalculationPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_games_calculation);
+            setHasOptionsMenu(true);
+        }
     }
 
     public static class CanfieldPreferenceFragment extends CustomPreferenceFragment {
@@ -363,6 +337,16 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_games_yukon);
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public static class Mod3PreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_games_mod3);
             setHasOptionsMenu(true);
         }
     }

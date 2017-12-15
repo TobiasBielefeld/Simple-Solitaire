@@ -22,29 +22,25 @@ import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_BACKGROUND_VOLUME;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_VOLUME;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
-
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
- * custom dialog to set the background music volume. it can be set from 0 (off) to 100%.
+ * custom dialog to set the bet and win amount in Vegas
  */
 
-public class DialogPreferenceVegasBetAmount extends DialogPreference implements SeekBar.OnSeekBarChangeListener{
+public class DialogPreferenceVegasBetAmount extends DialogPreference{
 
-    private SeekBar mSeekBar;
-    private TextView mTextView;
+    private EditText input1, input2;
+    private Toast toast;
 
     public DialogPreferenceVegasBetAmount(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -54,38 +50,43 @@ public class DialogPreferenceVegasBetAmount extends DialogPreference implements 
 
     @Override
     protected void onBindDialogView(View view) {
-        mTextView = (TextView) view.findViewById(R.id.textView);
-        mSeekBar = (SeekBar) view.findViewById(R.id.seekBar);
-        mSeekBar.setOnSeekBarChangeListener(this);
+        input1 = (EditText) view.findViewById(R.id.settings_vegas_bet_amount_input_1);
+        input2 = (EditText) view.findViewById(R.id.settings_vegas_bet_amount_input_2);
 
-        int amount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
-        mSeekBar.setProgress(amount);
-        setProgressText(amount);
+        input1.setText(stringFormat(Integer.toString(prefs.getSavedVegasBetAmount())));
+        input2.setText(stringFormat(Integer.toString(prefs.getSavedVegasWinAmount())));
 
         super.onBindDialogView(view);
     }
 
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {}
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-        setProgressText(i);
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-    }
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         // When the user selects "OK", persist the new value
         if (positiveResult) {
-            putSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,mSeekBar.getProgress());
+
+            try {
+                prefs.saveVegasBetAmount(Integer.parseInt(input1.getText().toString()));
+                prefs.saveVegasWinAmount(Integer.parseInt(input2.getText().toString()));
+            } catch (Exception e){
+                showToast(getContext().getString(R.string.settings_vegas_bet_amount_error));
+            }
         }
     }
 
-    private void setProgressText(int value){
-        mTextView.setText(String.format(Locale.getDefault(),getContext().getString(R.string.settings_vegas_bet_amount_progress_text),value*10,value));
+    /**
+     * Shows the given text as a toast. New texts override the old one.
+     *
+     * @param text The text to show
+     */
+    private void showToast(String text) {
+        if (toast == null) {
+            toast = Toast.makeText(getContext(), text, Toast.LENGTH_LONG);
+        } else
+            toast.setText(text);
+
+        toast.show();
     }
+
 }

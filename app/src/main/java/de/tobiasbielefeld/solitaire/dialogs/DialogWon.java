@@ -33,13 +33,7 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CURRENT_GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CURRENT_GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
@@ -47,7 +41,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 public class DialogWon extends DialogFragment {
 
-    private static String KEY_SCORE = "SCORE";
+    private static String KEY_SCORE = "PREF_KEY_SCORE";
     private static String KEY_BONUS = "BONUS";
     private static String KEY_TOTAL = "TOTAL";
 
@@ -80,7 +74,6 @@ public class DialogWon extends DialogFragment {
                                     gameLogic.save();
                                 }
 
-                                putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);          //otherwise the menu would load the current game again, because last played game will start
                                 gameManager.finish();
                                 break;
                         }

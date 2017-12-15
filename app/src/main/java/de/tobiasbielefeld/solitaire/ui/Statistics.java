@@ -39,9 +39,7 @@ import de.tobiasbielefeld.solitaire.dialogs.DialogHighScoreDelete;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 
 import static android.view.View.GONE;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Statistics extends CustomAppCompatActivity {
 
@@ -136,8 +134,8 @@ public class Statistics extends CustomAppCompatActivity {
      * loads the other shown data
      */
     private void loadData() {
-        int wonGames = gameLogic.getNumberWonGames();
-        int totalGames = gameLogic.getNumberOfPlayedGames();
+        int wonGames = prefs.getSavedNumberOfWonGames();
+        int totalGames = prefs.getSavedNumberOfPlayedGames();
 
         textWonGames.setText(String.format(Locale.getDefault(), getString(R.string.statistics_text_won_games), wonGames, totalGames));
         textWinPercentage.setText(String.format(Locale.getDefault(), getString(R.string.statistics_win_percentage), totalGames > 0 ? ((float) wonGames * 100 / totalGames) : 0.0));

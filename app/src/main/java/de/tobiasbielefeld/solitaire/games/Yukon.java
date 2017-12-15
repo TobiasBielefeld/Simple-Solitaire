@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -40,12 +41,13 @@ public class Yukon extends Game {
     public Yukon() {
         setNumberOfDecks(1);
         setNumberOfStacks(11);
+
+        setTableauStackIDs(0,1,2,3,4,5,6);
+        setFoundationStackIDs(7,8,9,10);
         setDealFromID(0);
-        setLastTableauID(6);
-        setHasFoundationStacks(true);
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardDimensions(layoutGame, 9, 5);
 
@@ -83,18 +85,19 @@ public class Yukon extends Game {
          * because there is no main stack, use the stack from getDealStack()
          */
 
-        putSharedString(PREF_KEY_YUKON_RULES_OLD, getSharedString(PREF_KEY_YUKON_RULES, DEFAULT_YUKON_RULES));
+        prefs.saveYukonRulesOld();
 
         for (int i = 1; i <= 6; i++) {
             for (int j = 0; j < 5 + i; j++) {
                 moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
-                if (j >= i)
+                if (j >= i) {
                     stacks[i].getTopCard().flipUp();
+                }
             }
         }
 
-        getDealStack().getTopCard().flipUp();
+        getDealStack().flipTopCardUp();
     }
 
     public int onMainStackTouch() {
@@ -122,13 +125,13 @@ public class Yukon extends Game {
     }
 
     boolean checkRules(Stack stack, Card card) {
-        boolean defaultRules = sharedStringEqualsDefault(PREF_KEY_YUKON_RULES_OLD, DEFAULT_YUKON_RULES);
+        boolean defaultRules = prefs.getSavedYukonRulesOld().equals("default");
 
-        return defaultRules ? canCardBePlaced(stack, card, ALTERNATING_COLOR, DESCENDING) :
-                canCardBePlaced(stack, card, SAME_FAMILY, DESCENDING);
+        return canCardBePlaced(stack, card, defaultRules ? ALTERNATING_COLOR : SAME_FAMILY, DESCENDING);
+
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //yukon is simple in this way: you can move every card
         return true;
     }
@@ -208,18 +211,8 @@ public class Yukon extends Game {
          * start auto complete if every card is in the right order
          */
         for (int i = 0; i < 7; i++) {
-            if (stacks[i].isEmpty())
-                continue;
-
-            for (int j = 0; j < stacks[i].getSize() - 1; j++) {
-                Card cardBottom = stacks[i].getCard(j);
-                Card cardTop = stacks[i].getCard(j + 1);
-
-                if (!cardBottom.isUp() || !cardTop.isUp())
-                    return false;
-
-                if ((cardBottom.getColor() % 2 == cardTop.getColor() % 2) || (cardBottom.getValue() != cardTop.getValue() + 1))
-                    return false;
+            if (!testCardsUpToTop(stacks[i], 0, DOESNT_MATTER)) {
+                return false;
             }
         }
 
@@ -255,5 +248,13 @@ public class Yukon extends Game {
             return 20;
         else
             return 0;
+    }
+
+    @Override
+    protected boolean excludeCardFromMixing(Card card) {
+        boolean defaultRules = prefs.getSavedYukonRulesOld().equals("default");
+        setMixingCardsTestMode(defaultRules ? ALTERNATING_COLOR : SAME_FAMILY);
+
+        return super.excludeCardFromMixing(card);
     }
 }

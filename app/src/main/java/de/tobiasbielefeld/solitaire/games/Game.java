@@ -18,12 +18,20 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.support.annotation.CallSuper;
+import android.support.v4.widget.TextViewCompat;
+import android.util.Log;
+import android.view.Gravity;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -43,22 +51,143 @@ public abstract class Game {
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
     public Stack.SpacingDirection[] directions;
     public int[] directionBorders;
-    private boolean hasMainStack = false;
     private int dealFromID = -1;
-    private int mainStackID = -1;
-    private boolean hasDiscardStack = false;
+
+    private int[] tableauStackIDs = new int[]{-1};
+    private int[] foundationStackIDs = new int[]{-1};
+    private int[] discardStackIDs = new int[]{-1};
+    private int[] mainStackIDs = new int[]{-1};
+
     private boolean hasLimitedRecycles = false;
     private boolean hasFoundationStacks = false;
-    private int discardStackID = -1;
     private int lastTableauID = -1;
     private int recycleCounter = 0;
     private int totalRecycles = 0;
     private boolean hasArrow = false;
-    private boolean singleTapeEnabled = false;
+    private boolean singleTapEnabled = false;
     private boolean bonusEnabled = true;
     private boolean pointsInDollar = false;
+    private boolean hideRecycleCounter = false;
     private int hintCosts = 25;
     private int undoCosts = 25;
+    protected ArrayList<TextView> textViews = new ArrayList<>();
+    private testMode mixCardsTestMode = testMode.DOESNT_MATTER;
+
+    // some methods used by other classes
+
+    /**
+     * Used eg. if the player gets stuck and can't move any further: Mix all cards randomly by
+     * exchanging them with other cards. The games can exclude cards to mix, like all cards on the
+     * foundation, or complete sequences.
+     */
+    public void mixCards(){
+        Random random = getPrng();
+        ArrayList<Card> cardsToMix = new ArrayList<>();
+        int counter;
+        Card cardToChange;
+
+        //get the cards to mix
+        for (Card card : cards){
+            if (!excludeCardFromMixing(card)){
+                cardsToMix.add(card);
+            }
+        }
+
+        //exchange cards. A bit like Fisher-Yate Shuffle, but the iterating array doesn't change.
+        for (int i = cardsToMix.size() -1 ; i>=0;i--){
+
+            if (prefs.getSavedUseTrueRandomisation()){
+                cardToChange = cardsToMix.get(random.nextInt(i+1));
+            } else {
+                //choose a new card as long the chosen card is too similar to the previous and following card in the array
+                //(same value or color) also limit the loop to max 10 iterations to avoid infinite loops
+                counter = 0;
+
+                do {
+                    cardToChange = cardsToMix.get(random.nextInt(i+1));
+                    counter++;
+                }
+                while ( //the card below cardToChange shouldn't be too similar (but only if there is a card below)
+                        (!cardToChange.isFirstCard() && (cardToChange.getCardBelow().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardBelow().getColor() == cardsToMix.get(i).getColor())
+                        //the card on top cardToChange shouldn't be too similar (but only if there is a card on top)
+                        || !cardToChange.isTopCard() &&      (cardToChange.getCardOnTop().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardOnTop().getColor() == cardsToMix.get(i).getColor()))
+                        //and the loop shouldn't take too long
+                        && counter < 10);
+            }
+
+            cardToChange.getStack().exchangeCard(cardToChange,cardsToMix.get(i));
+        }
+
+        //After every card got a new place, update the card image views
+        for (Stack stack : stacks){
+            stack.updateSpacing();
+        }
+
+        //delete the record list, otherwise undoing movements would result in strange behavior
+        recordList.reset();
+        handlerTestAfterMove.sendEmptyMessageDelayed(0,200);
+    }
+
+    public void dealNewGame(){
+        dealCards();
+
+        switch (prefs.getDeveloperOptionDealCorrectSequences()){
+            case 1: //alternating color
+                flipAllCardsUp();
+
+                for (int i = 0; i < (cards.length/13); i++) {
+                    for (int j = 0; j < 13; j++) {
+                        int color = (j % 2 == 0) ? i : (i==0) ? (cards.length/13) -1 : i-1;
+                        int cardIndex = (13 * (color + 1)) - j - 1;
+                        cards[cardIndex].removeFromCurrentStack();
+                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                    }
+                }
+
+                break;
+            case 2: //same family
+                flipAllCardsUp();
+
+                for (int i = 0; i < (cards.length/13); i++) {
+                    for (int j = 0; j < 13; j++) {
+                            int cardIndex = (13 * (i + 1)) - j - 1;
+                            cards[cardIndex].removeFromCurrentStack();
+                            moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                    }
+                }
+
+                break;
+            case 3: //reversed alternating color
+                flipAllCardsUp();
+
+                for (int i = 0; i < (cards.length/13); i++) {
+                    for (int j = 0; j < 13; j++) {
+                        int color = (j % 2 == 0) ? i : (i==0) ? (cards.length/13) -1 : i-1;
+                        int cardIndex = 13 * color + j;
+                        cards[cardIndex].removeFromCurrentStack();
+                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                    }
+                }
+
+                break;
+            case 4: //reversed same family
+                flipAllCardsUp();
+
+                for (int i = 0; i < (cards.length/13); i++) {
+                    for (int j = 0; j < 13; j++) {
+                        int cardIndex = 13 * i + j;
+                        cards[cardIndex].removeFromCurrentStack();
+                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                    }
+                }
+
+                break;
+            default:
+                //nothing, developer option not set
+                break;
+        }
+    }
+
 
     /**
      * Called to test where the given card can be moved to
@@ -109,17 +238,17 @@ public abstract class Game {
         return cardAndStack;
     }
 
+    //methods games must implement
+
     /**
      * Sets the layouts and position of the stacks on the screen.
      *
      * @param layoutGame  The layout, where the stacks and cards are showed in. Used to calculate
-     *                    the widht/height
+     *                    the width/height
      * @param isLandscape Shows if the screen is in landscape mode, so the games can set up
      *                    different layouts for this
      */
-    abstract public void setStacks(RelativeLayout layoutGame, boolean isLandscape);
-
-    // some methods used by other classes
+    abstract public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context);
 
     /**
      * Tests if the currently played game is won. Called after every movement. If the game is won,
@@ -134,8 +263,6 @@ public abstract class Game {
      */
     abstract public void dealCards();
 
-    //methods games must implement
-
     /**
      * Tests a card if it can be placed on the given stack.
      *
@@ -147,11 +274,12 @@ public abstract class Game {
 
     /**
      * Tests if the card can be added to the movement to place on another stack.
+     * Games have to implement this method.
      *
      * @param card The card to test
      * @return True if it can be added, false otherwise
      */
-    abstract public boolean addCardToMovementTest(Card card);
+    abstract public boolean addCardToMovementGameTest(Card card);
 
     /**
      * Checks every card of the game, if one can be moved as a hint.
@@ -249,6 +377,14 @@ public abstract class Game {
     }
 
     /**
+     * Gets executed after a undo movement. I use it in Calculation-Game to update the text views
+     * from the foundation stacks
+     */
+    public void afterUndo(){
+
+    }
+
+    /**
      * Does stuff on game reset. By default, it resets the recycle counter (if there is one).
      * If games need to reset additional stuff, put it here
      *
@@ -264,15 +400,21 @@ public abstract class Game {
     }
 
     /**
-     * Tests if the main stack got touched. It can be overriden if there are for example
-     * multiple main stacks, like in Spider
+     * Tests if the main stack got touched. It iterates through all main stacks
+     * (eg. Spider uses 5 main stacks). You can also override it like in Pyramid
      *
      * @param X The X-coordinate of the touch event
      * @param Y The Y-coordinate of the touch event
      * @return True if the main stack got touched, false otherwise
      */
     public boolean testIfMainStackTouched(float X, float Y) {
-        return getMainStack().isOnLocation(X, Y);
+        for (int id : mainStackIDs){
+            if (stacks[id].isOnLocation(X,Y)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -285,9 +427,13 @@ public abstract class Game {
      * use this method to do something with the score, when the game is won or canceled (new game started)
      * So you can do other stuff for the high score list. For example, a game in Vegas is already won, when
      * the player makes profit, not only when all cards could be played on the foundation
+     *
+     * Return false, if you want the  addNewHighScore() method to break, so possible high scores won't
+     * be saved. (eg in Vegas, if the player keeps the current balance, only save high score when
+     * the balance is resetting). Return fals other wise (default)
      */
-    public void processScore(long currentScore){
-
+    public boolean processScore(long currentScore){
+        return true;
     }
 
     /**
@@ -310,6 +456,75 @@ public abstract class Game {
 
     }
 
+    /*
+     * gets called when starting a new game, or when a game is won
+     */
+    public void onGameEnd(){
+
+    }
+
+    /*
+     * this method tests cards, if they are excluded from the card mixing function. (Eg. cards on the foundation)
+     * You can override it to customise the behavior. Eg this method in the game Golf is empty, because no
+     * cards should be excluded there
+     */
+    protected boolean excludeCardFromMixing(Card card){
+        Stack stack = card.getStack();
+
+        if (!card.isUp()) {
+            return false;
+        }
+
+        if (foundationStacksContain(stack.getId())){
+            return true;
+        }
+
+        //do not exclude anything, if the testMode is null
+        if (mixCardsTestMode == null){
+            return false;
+        }
+
+        if (card.getIndexOnStack() == 0 && stack.getSize()==1){
+            return false;
+        }
+
+        int indexToTest = card.getIndexOnStack() - (card.isTopCard() && stack.getSize() > 1 ? 1 : 0);
+
+        return testCardsUpToTop(stack, indexToTest, mixCardsTestMode);
+    }
+
+    /**
+     * Create a textView and add it to the given layout (game content). Used to add custom texts
+     * to a game. This also sets the text apperance to AppCompat and the gravity to center.
+     * The width and height is also measured, so you can use it directly.
+     *
+     * @param width The width to apply to the
+     * @param layout he textView will be added to this layout
+     * @param context Context to create view
+     */
+    protected void addTextViews(int count, int width, RelativeLayout layout, Context context){
+
+        for (int i=0;i<count;i++) {
+            TextView textView = new TextView(context);
+            textView.setWidth(width);
+            TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat);
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextColor(Color.rgb(0, 0, 0));
+            layout.addView(textView);
+            textView.measure(0, 0);
+            textViews.add(textView);
+        }
+    }
+
+    /**
+     * mirrors the textViews, if there are any. Used for left handed mode
+     */
+    public void mirrorTextViews(RelativeLayout layoutGame){
+        for (TextView textView : textViews){
+            textView.setX(layoutGame.getWidth() - textView.getX() - Card.width);
+        }
+    }
+
     /**
      * tests card from startPos to stack top if the cards are in the right order
      * (For example, first a red 10, then a black 9, then a red 8 and so on)
@@ -322,10 +537,13 @@ public abstract class Game {
      */
     protected boolean testCardsUpToTop(Stack stack, int startPos, testMode mode) {
 
-
         for (int i = startPos; i < stack.getSize() - 1; i++) {
             Card bottomCard = stack.getCard(i);
             Card upperCard = stack.getCard(i + 1);
+
+            if (!bottomCard.isUp() || !upperCard.isUp()) {
+                return false;
+            }
 
             switch (mode) {
                 case ALTERNATING_COLOR:     //eg. black on red
@@ -356,7 +574,7 @@ public abstract class Game {
     }
 
     /**
-     * Sets the number of limited recycles for this game. Use a zero as the parameter to disable
+     * Sets the number of limited recycles for this game. Use -1 as the parameter to disable
      * the limited recycles.
      *
      * @param number The maximum number of recycles
@@ -365,6 +583,7 @@ public abstract class Game {
         if (number >= 0) {
             hasLimitedRecycles = true;
             totalRecycles = number;
+            hideRecycleCounter = number==0;
         } else {
             hasLimitedRecycles = false;
         }
@@ -474,26 +693,42 @@ public abstract class Game {
     }
 
     /**
-     * Sets the given stack id as the first main stack, also sets it as the dealing stack.
-     * Every stack with this id and above will be treated as a main stack
+     * Sets the given stack ids as the main stacks, also sets the first one as the dealing stack.
      *
-     * @param id The stack id to apply.
+     * @param IDs The stack ids to apply.
      */
-    protected void setFirstMainStackID(int id) {
-        hasMainStack = true;
-        mainStackID = id;
-        dealFromID = id;
+    protected void setMainStackIDs(int... IDs) {
+        mainStackIDs = IDs;
+        dealFromID = IDs[0];
     }
 
     /**
-     * Sets the given stack id as the first discard stack.
-     * Every stack with this id and above, but below the main stack id's will be treated as a discard stack.
+     * Sets the given stack ids as the foundation stacks
      *
-     * @param id The stack id to apply.
+     * @param IDs The stack ids to apply.
      */
-    protected void setFirstDiscardStackID(int id) {
-        hasDiscardStack = true;
-        discardStackID = id;
+    protected void setFoundationStackIDs(int... IDs) {
+        foundationStackIDs = IDs;
+        hasFoundationStacks = true;
+    }
+
+    /**
+     * Sets the given stack ids as the tableau stacks
+     *
+     * @param IDs The stack ids to apply.
+     */
+    protected void setTableauStackIDs(int... IDs) {
+        tableauStackIDs = IDs;
+        lastTableauID = IDs[IDs.length-1];
+    }
+
+    /**
+     * Sets the given stack ids as discard stacks.
+     *
+     * @param IDs The stack ids to apply.
+     */
+    protected void setDiscardStackIDs(int... IDs){
+        discardStackIDs = IDs;
     }
 
     /**
@@ -506,7 +741,7 @@ public abstract class Game {
     }
 
     protected void disableMainStack(){
-        hasMainStack = false;
+        mainStackIDs = new int[]{-1};
     }
 
     /**
@@ -616,25 +851,13 @@ public abstract class Game {
             for (int i = 0; i < directionBorders.length; i++) {
                 if (directionBorders[i] != -1)    //-1 means no border
                     stacks[i].setSpacingMax(directionBorders[i]);
-                else
-                    stacks[i].setSpacingMax(layoutGame);
+                else stacks[i].setSpacingMax(layoutGame);
             }
         } else {
             for (Stack stack : stacks) {
                 stack.setSpacingMax(layoutGame);
             }
         }
-    }
-
-    /**
-     * Tell that this game has foundation stacks. Used for double tap, to move to the foundation
-     * first. Games like Spider and SimpleSimon, where the player can't move directly to the foundation,
-     * don't need this
-     *
-     * @param value The value to apply
-     */
-    protected void setHasFoundationStacks(boolean value) {
-        hasFoundationStacks = value;
     }
 
     /**
@@ -700,11 +923,11 @@ public abstract class Game {
     }
 
     public Stack getMainStack() throws ArrayIndexOutOfBoundsException {
-        if (mainStackID == -1) {
+        if (mainStackIDs[0] == -1) {
             throw new ArrayIndexOutOfBoundsException("No main stack specified");
         }
 
-        return stacks[mainStackID];
+        return stacks[mainStackIDs[0]];
     }
 
     public int getLastTableauId() throws ArrayIndexOutOfBoundsException {
@@ -724,7 +947,7 @@ public abstract class Game {
     }
 
     public void setNumberOfRecycles(String key, String defaultValue){
-        int recycles = Integer.parseInt(getSharedString(key, defaultValue));
+        int recycles = prefs.getSavedNumberOfRecycles(key, defaultValue);
         setLimitedRecycles(recycles);
     }
 
@@ -746,13 +969,41 @@ public abstract class Game {
 
 
     //some getters,setters and simple methods, games should'nt override these
-
     public Stack getDiscardStack() throws ArrayIndexOutOfBoundsException {
-        if (discardStackID == -1) {
+        if (discardStackIDs[0] == -1) {
             throw new ArrayIndexOutOfBoundsException("No discard stack specified");
         }
 
-        return stacks[discardStackID];
+        return stacks[discardStackIDs[0]];
+    }
+
+    public ArrayList<Stack> getDiscardStacks() throws ArrayIndexOutOfBoundsException {
+        ArrayList<Stack> discardStacks = new ArrayList<>();
+
+        for (int id : discardStackIDs){
+            if (id == -1){
+                throw new ArrayIndexOutOfBoundsException("No discard stack specified");
+            }
+
+            discardStacks.add(stacks[id]);
+        }
+
+        return discardStacks;
+    }
+
+
+    public ArrayList<Stack> getMainStacks() throws ArrayIndexOutOfBoundsException {
+        ArrayList<Stack> mainStacks = new ArrayList<>();
+
+        for (int id : mainStackIDs){
+            if (id == -1){
+                throw new ArrayIndexOutOfBoundsException("No discard stack specified");
+            }
+
+            mainStacks.add(stacks[id]);
+        }
+
+        return mainStacks;
     }
 
     protected void setLastTableauID(int id) {
@@ -760,7 +1011,7 @@ public abstract class Game {
     }
 
     public boolean hasMainStack() {
-        return hasMainStack;
+        return mainStackIDs[0]!=-1;
     }
 
     public Stack getDealStack() {
@@ -768,7 +1019,7 @@ public abstract class Game {
     }
 
     public boolean hasDiscardStack() {
-        return hasDiscardStack;
+        return discardStackIDs[0]!=-1;
     }
 
     public boolean hasLimitedRecycles() {
@@ -796,11 +1047,11 @@ public abstract class Game {
     }
 
     public void saveRecycleCount() {
-        putInt(GAME_REDEAL_COUNT, recycleCounter);
+        prefs.saveRedealCount(recycleCounter);
     }
 
     public void loadRecycleCount(GameManager gm) {
-        recycleCounter = getInt(GAME_REDEAL_COUNT, totalRecycles);
+        recycleCounter = prefs.getSavedRecycleCounter(totalRecycles);
         gm.updateNumberOfRecycles();
     }
 
@@ -812,12 +1063,12 @@ public abstract class Game {
         hasLimitedRecycles = !hasLimitedRecycles;
     }
 
-    public void setSingleTapeEnabled(boolean value) {
-        singleTapeEnabled = value;
+    public void setSingleTapEnabled() {
+        singleTapEnabled = true;
     }
 
     public boolean isSingleTapEnabled() {
-        return singleTapeEnabled;
+        return singleTapEnabled && prefs.getSavedSingleTapSpecialGames();
     }
 
     public void flipAllCardsUp() {
@@ -851,5 +1102,69 @@ public abstract class Game {
 
     protected enum testMode3 {
         ASCENDING, DESCENDING
+    }
+
+    public boolean testForDiscardStack(Stack stack){
+        return hasDiscardStack() && getDiscardStacks().contains(stack);
+    }
+
+    public boolean testForMainStack(Stack stack){
+        return hasMainStack() && getMainStacks().contains(stack);
+    }
+
+    public boolean hidesRecycleCounter(){
+        return hideRecycleCounter;
+    }
+
+    public boolean tableauStacksContain(int ID){
+
+        for (int stackID : tableauStackIDs){
+            if (stackID == ID){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean foundationStacksContain(int ID){
+
+        for (int stackID : foundationStackIDs){
+            if (stackID == ID){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean discardStacksContain(int ID){
+
+        for (int stackID : discardStackIDs){
+            if (stackID == ID){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean mainStacksContain(int ID){
+
+        for (int stackID : mainStackIDs){
+            if (stackID == ID){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean addCardToMovementTest(Card card){
+        return prefs.isDeveloperOptionPlayEveryCardEnabled() || addCardToMovementGameTest(card);
+    }
+
+    protected void setMixingCardsTestMode(testMode mode){
+        mixCardsTestMode = mode;
     }
 }

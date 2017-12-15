@@ -18,33 +18,31 @@
 
 package de.tobiasbielefeld.solitaire.ui.settings;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Toast;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
-import de.tobiasbielefeld.solitaire.games.FortyEight;
-import de.tobiasbielefeld.solitaire.games.Pyramid;
-import de.tobiasbielefeld.solitaire.games.Vegas;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Settings activity created with the "Create settings activity" tool from Android Studio.
@@ -52,23 +50,21 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private Toast toast;
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
-    private Preference preferenceVegasBetAmount;
+    private CheckBoxPreference preferenceSingleTapAllGames;
+    private CheckBoxPreference preferenceTapToSelect;
+    private DialogPreferenceCardDialog preferenceCards;
     private Sounds settingsSounds;
 
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
 
-    private static boolean isXLargeTablet(Context context) {
-        return (context.getResources().getConfiguration().screenLayout
-                & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        reinitializeData(getApplicationContext());
         super.onCreate(savedInstanceState);
+
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
 
         ActionBar actionBar = getSupportActionBar();
@@ -76,7 +72,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        reinitializeData(getApplicationContext());
+        prefs.setCriticalSettings();
 
         settingsSounds = new Sounds(this);
     }
@@ -102,7 +98,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     public void onResume() {
         super.onResume();
 
-        savedSharedData.registerOnSharedPreferenceChangeListener(this);
+        prefs.registerListener(this);
         showOrHideStatusBar();
         setOrientation();
 
@@ -113,7 +109,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     @Override
     public void onPause() {
         super.onPause();
-        savedSharedData.unregisterOnSharedPreferenceChangeListener(this);
+        prefs.unregisterListener(this);
 
         activityCounter--;
         handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
@@ -125,16 +121,16 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      * I would need to write the strings manually in the cases.
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(CARD_DRAWABLES)) {
+        if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
 
-        } else if (key.equals(CARD_BACKGROUND) || key.equals(CARD_BACKGROUND_COLOR)) {
+        } else if (key.equals(PREF_KEY_CARD_BACKGROUND) || key.equals(PREF_KEY_CARD_BACKGROUND_COLOR)) {
             Card.updateCardBackgroundChoice();
 
-        } else if (key.equals(getString(R.string.pref_key_hide_status_bar))) {
+        } else if (key.equals(PREF_KEY_HIDE_STATUS_BAR)) {
             showOrHideStatusBar();
 
-        } else if (key.equals(getString(R.string.pref_key_orientation))) {
+        } else if (key.equals(PREF_KEY_ORIENTATION)) {
             setOrientation();
 
         } else if (key.equals(PREF_KEY_LEFT_HANDED_MODE)) {
@@ -142,13 +138,14 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 gameLogic.mirrorStacks();
             }
 
-        } else if (key.equals(MENU_COLUMNS_PORTRAIT) || key.equals(MENU_COLUMNS_LANDSCAPE)) {
+        } else if (key.equals(PREF_KEY_MENU_COLUMNS_PORTRAIT) || key.equals(PREF_KEY_MENU_COLUMNS_LANDSCAPE)) {
             updatePreferenceMenuColumnsSummary();
 
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
-            setLocale();
+            bitmaps.resetMenuPreviews();
+            restartApplication();
 
-        } else if (key.equals(getString(R.string.pref_key_menu_bar_position_landscape)) || key.equals(getString(R.string.pref_key_menu_bar_position_portrait))) {
+        } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();
             if (gameLogic != null) {
                 gameLogic.updateMenuBar();
@@ -156,6 +153,10 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
         } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
+
+            if (preferenceCards!=null) {
+                preferenceCards.updateSummary();
+            }
 
         } else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
             if (animate != null) {
@@ -172,8 +173,23 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             updatePreferenceBackgroundVolumeSummary();
             backgroundSound.doInBackground(this);
 
+        } else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)){
+            restartApplication();
+
         } else if (key.equals(PREF_KEY_HIDE_SCORE)) {
-            scores.output();
+            if (scores!=null) {
+                scores.output();
+            }
+        } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
+            if (sharedPreferences.getBoolean(key,false)) {
+                preferenceTapToSelect.setChecked(false);
+            }
+
+        } else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)){
+            if (sharedPreferences.getBoolean(key,false)) {
+                preferenceSingleTapAllGames.setChecked(false);
+            }
+
         }
     }
 
@@ -189,24 +205,26 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 || OtherPreferenceFragment.class.getName().equals(fragmentName)
                 || MenuPreferenceFragment.class.getName().equals(fragmentName)
                 || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
-                || SoundPreferenceFragment.class.getName().equals(fragmentName);
+                || SoundPreferenceFragment.class.getName().equals(fragmentName)
+                || DeveloperOptionsPreferenceFragment.class.getName().equals(fragmentName);
+
     }
 
     /**
      * Applies the user setting of the screen orientation.
      */
     private void setOrientation() {
-        switch (getSharedString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION)) {
-            case "1": //follow system settings
+        switch (prefs.getSavedOrientation()) {
+            case 1: //follow system settings
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;
-            case "2": //portrait
+            case 2: //portrait
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 break;
-            case "3": //landscape
+            case 3: //landscape
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
-            case "4": //landscape upside down
+            case 4: //landscape upside down
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
@@ -216,39 +234,31 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
      * Applies the user setting of the status bar.
      */
     private void showOrHideStatusBar() {
-        if (getSharedBoolean(getString(R.string.pref_key_hide_status_bar), false))
+        if (prefs.getSavedHideStatusBar()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        else
+        } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    }
-
-    /**
-     * Shows the given text as a toast. New texts override the old one.
-     *
-     * @param text The text to show
-     */
-    private void showToast(String text) {
-        if (toast == null) {
-            toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
-        } else
-            toast.setText(text);
-
-        toast.show();
+        }
     }
 
     /**
      * Restarts the app to apply the new locale settings
      */
-    private void setLocale() {
-        Intent intent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+    private void restartApplication() {
+        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+
+        if (i!=null) {
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(i);
+        }
     }
 
     private void updatePreferenceMenuColumnsSummary() {
-        int portraitValue = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT));
-        int landscapeValue = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE));
+        int portraitValue = prefs.getSavedMenuColumnsPortrait();
+        int landscapeValue = prefs.getSavedMenuColumnsLandscape();
 
         String text = String.format(Locale.getDefault(), "%s: %d\n%s: %d",
                 getString(R.string.portrait), portraitValue, getString(R.string.landscape), landscapeValue);
@@ -258,13 +268,13 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     private void updatePreferenceMenuBarPositionSummary() {
         String portrait, landscape;
-        if (sharedStringEqualsDefault(getString(R.string.pref_key_menu_bar_position_portrait), DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
+        if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
             portrait = getString(R.string.settings_menu_bar_position_bottom);
         } else {
             portrait = getString(R.string.settings_menu_bar_position_top);
         }
 
-        if (sharedStringEqualsDefault(getString(R.string.pref_key_menu_bar_position_landscape), DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
+        if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
             landscape = getString(R.string.settings_menu_bar_position_right);
         } else {
             landscape = getString(R.string.settings_menu_bar_position_left);
@@ -277,15 +287,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     private void updatePreferenceBackgroundVolumeSummary(){
-        int volume = getSharedInt(PREF_KEY_BACKGROUND_VOLUME,DEFAULT_BACKGROUND_VOLUME);
+        int volume = prefs.getSavedBackgroundVolume();
 
         preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(),"%s %%",volume));
-    }
-
-    private void updatePreferenceVegasBetAmountSummary(){
-        int amount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
-
-        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),amount*10,amount));
     }
 
     public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
@@ -299,6 +303,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             Settings settings = (Settings) getActivity();
 
             settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
+            settings.preferenceCards = (DialogPreferenceCardDialog) findPreference(getString(R.string.pref_key_cards));
 
             settings.updatePreferenceMenuBarPositionSummary();
         }
@@ -354,6 +359,21 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_movement_methods);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceSingleTapAllGames = (CheckBoxPreference) findPreference(getString(R.string.pref_key_single_tap_all_games));
+            settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
+        }
+    }
+
+    public static class DeveloperOptionsPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_developer_options);
             setHasOptionsMenu(true);
         }
     }

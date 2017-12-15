@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_support">
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/default_mod3_auto_move"
+        android:key="@string/pref_key_mod3_auto_move"
+        android:summary="@string/settings_mod3_auto_move_text"
+        android:title="@string/settings_auto_move_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

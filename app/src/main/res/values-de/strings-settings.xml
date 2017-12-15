@@ -17,15 +17,15 @@
     <string name="settings_back_press_description">Zum Beenden Zurück Taste zwei mal drücken</string>
     <string name="settings_left_handed_mode_description">Spiegelt die Karten und Stapel Positionen zur linken Seite</string>
     <string name="settings_background">Hintergrund Nummer</string>
-    <string name="settings_customization_description">Passe Karten und Hintergrund an</string>
+    <string name="settings_customization_description">Passe Karten, Hintergründe und Benutzeroberfläche an</string>
     <string name="settings_other_description">Nehme alle anderen Einstellungen vor</string>
     <string name="settings_games">Spiele</string>
     <string name="settings_games_description">Nehme Einstellungen der Spielvarianten vor</string>
     <string name="settings_show_main_menu">Mit Hauptmenü starten</string>
     <string name="settings_show_main_menu_description">Beim Starten nicht das zuletzt gespielte Spiel öffnen</string>
     <string name="settings_spider_difficulty">Anzahl verschiedener Karten Familien</string>
-    <string name="settings_klondike_draw">Anzahl Karten zum Ziehen</string>
-    <string name="settings_canfield_draw">Anzahl Karten zum Ziehen</string>
+    <string name="settings_klondike_draw">Anzahl der zu ziehenden Karten</string>
+    <string name="settings_canfield_draw">Anzahl der zu ziehenden Karten</string>
     <string name="settings_golf_easy">Zyklische Bewegungen (Einfacher)</string>
     <string name="settings_golf_easy_description">Erlaube das Setzen von Assen auf Könige und umgekehrt</string>
     <string name="settings_basic">Basic</string>
@@ -82,19 +82,73 @@
     <string name="Settings_win_sound_title">Gewinn Ton</string>
     <string name="Settings_background_music">Hintergrundmusik</string>
     <string name="Settings_background_volume">Hintergrundmusik Lautstärke</string>
-
     <string name="settings_limit_number_of_recycles">Begrenzte Kartenrückgabe</string>
     <string name="settings_limit_number_of_recycles_text">Das Zurücklegen der Karten zum Hauptstapel ist limitiert</string>
     <string name="settings_number_of_recycles">Anzahl der Rückgaben</string>
-
     <string name="settings_vegas_bet_amount">Höhe des Einsatzes</string>
-    <string name="settings_vegas_bet_amount_progress_text">Ein Spiel kostet %1$d$. Jede Karte, die zur Foundation gespielt wird, bringt %2$d$.</string>
+    <string name="settings_vegas_bet_amount_text_1">Ein Spiel kostet:</string>
+    <string name="settings_vegas_bet_amount_text_2">Jede Karte, die zur Foundation gespielt wird, bringt:</string>
     <string name="settings_vegas_bet_amount_summary">Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$</string>
     <string name="settings_menu_order_title">Menü Reihenfolge</string>
     <string name="settings_menu_order_summary">Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern</string>
     <string name="settings_menu_order_set_default">Setze Reihenfolge zurück</string>
-
     <string name="settings_auto_start_new_game_title">Starte ein neues Spiel</string>
     <string name="settings_auto_start_new_game_text">Falls zu einem bereits gewonnenen Spiel zurückgekehrt wird, starte ein neues Spiel</string>
+
+    <string name="settings_rules">Regeln</string>
+    <string name="settings_money">Geld</string>
+    <string name="settings_support">Unterstützung</string>
+
+    <string name="settings_force_tablet_layout_title">Erzwinge Tablet Layout</string>
+    <string name="settings_force_tablet_layout_text">Zeige die Anwendung wie auf großen Bildschirmen (>=10\")</string>
+
+    <string name="settings_restart_calculation">Starte ein neues Calculation Spiel um die Änderung anzuwenden</string>
+    <string name="settings_calculation_alternative_title">Behalte Karten</string>
+    <string name="settings_calculation_alternative_text">Beim Drücken auf dem Haupt-Stapel: Bewege Karten
+        vom Ablage-Stapel nicht zum Tableau, behalte sie auf dem Ablage-Stapel</string>
+
+    <string name="settings_vegas_money_enabled">Behalte aktuellen Kontostand</string>
+    <string name="settings_vegas_money_enabled_text">Das Geld wird zu den nachfolgenden Vegas Spielen übertragen,
+        aber man muss den Kontostand zurücksetzen und ein neues Spiel starten, damit Highscores gespeichert werden</string>
+    <string name="settings_vegas_money_reset">Setze Kontostand zurück</string>
+    <string name="settings_vegas_money_reset_text">Das nächste Vegas Spiel startet mit 0$</string>
+    <string name="settings_vegas_money_reset_confirm">Möchtest du wirklich deinen Kontostand zurücksetzen? Dies kann nicht rückgängig gemacht werden.</string>
+
+    <string name="settings_auto_move_title">Automatische Bewegung</string>
+    <string name="settings_mod3_auto_move_text">Bewege falls möglich Asse automatisch zum Ablage-Stapel</string>
+
+    <string name="settings_pyramid_auto_move_text">Bewege falls möglich Könige automatisch zum Foundation-Stapel</string>
+
+    <string name="settings_hide_time">Verstecke Zeit</string>
+    <string name="settings_hide_score">Verstecke Score</string>
+
+    <string name="settings_single_tap_all_games_text">Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen.
+        Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert.</string>
+    <string name="settings_vegas_bet_amount_error">Kann diese Zahlen nicht speichern!</string>
+
+    <string name="settings_canfield_size_of_reserve_title">Ändere Größe der Reserve (Einfacher)</string>
+
+    <string name="settings_use_true_randomisation_title">Benutze echten Zufall</string>
+    <string name="settings_use_true_randomisation_text">Die Standard Randomisierung vermeidet ähnliche Karten nebeneinander.
+        Setze das Häkchen, um eine uniforme Randomisierung zu nutzen.</string>
+
+    <string name="settings_developer_options">Entwickler Optionen</string>
+    <string name="settings_developer_options_description">Spielen mit verrückten Einstellungen herum!</string>
+
+    <string name="settings_developer_options_move_card_everwhere_title">Bewege Karten überall hin</string>
+    <string name="settings_developer_options_move_card_everwhere_text">Man kann Karten auf jeden Stapel platzieren</string>
+
+    <string name="settings_developer_options_lock_title">Schalte Entwickler Optionen frei</string>
+    <string name="settings_developer_options_lock_text">Diese Einstellungen sind nur für Testzwecke gedacht, die Verwendung kann zu merkwürdigem Verhalten und Abstürzen führen!</string>
+    <string name="settings_developer_options_play_every_card_title">Spiele jede Karte</string>
+    <string name="settings_developer_options_play_every_card_text">Man kann jede aufgedeckte Karte spielen</string>
+
+    <string name="settings_developer_options_instant_win_title">Sofortiger Gewinn</string>
+    <string name="settings_developer_options_instant_win_text">Gewinne jedes Spiel nach einer Kartenbewegung</string>
+
+    <string name="settings_developer_options_no_saving_title">Deaktivere Spielstand Speicherung</string>
+    <string name="settings_developer_options_no_saving_text">Bewegungen in den Spielen werden nicht mehr gespeichert</string>
+
+    <string name="settings_developer_options_deal_correct_sequences_title">Gebe korrekte Sequenzen aus</string>
 
 </resources>

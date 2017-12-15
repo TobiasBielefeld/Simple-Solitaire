@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.RelativeLayout;
 
@@ -46,23 +47,26 @@ public class Canfield extends Game {
     public Canfield() {
         setNumberOfDecks(1);
         setNumberOfStacks(13);
-        setFirstMainStackID(12);
-        setFirstDiscardStackID(9);
-        setLastTableauID(4);
-        setHasFoundationStacks(true);
+
+        setTableauStackIDs(0,1,2,3,4);
+        setFoundationStackIDs(5,6,7,8);
+        setDiscardStackIDs(9,10,11);
+        setMainStackIDs(12);
+
+        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
     }
 
     @Override
     public void save() {
-        putInt(CANFIELD_START_CARD_VALUE, startCardValue);
+        prefs.saveStartCardValueCanfield(startCardValue);
     }
 
     @Override
     public void load() {
-        startCardValue = getInt(CANFIELD_START_CARD_VALUE, 0);
+        startCardValue = prefs.getSavedStartCardValueCanfield();
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         // initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 8, 10);
@@ -173,20 +177,7 @@ public class Canfield extends Game {
     public void dealCards() {
 
         //save the new settings, so it only takes effect on new deals
-        putSharedString(PREF_KEY_CANFIELD_DRAW_OLD, getSharedString(PREF_KEY_CANFIELD_DRAW, DEFAULT_CANFIELD_DRAW));
-
-        //and move cards to the tableau
-        for (int i = 0; i < 4; i++) {
-            moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-            stacks[i].getTopCard().flipUp();
-        }
-
-        //one card to reserve
-        for (int i = 0; i < 13; i++) {
-            moveToStack(getMainStack().getTopCard(), stacks[4], OPTION_NO_RECORD);
-        }
-
-        stacks[4].getTopCard().flipUp();
+        prefs.saveCanfieldDrawModeOld();
 
         //one card to foundation, and save its value
         moveToStack(getMainStack().getTopCard(), stacks[5], OPTION_NO_RECORD);
@@ -195,24 +186,36 @@ public class Canfield extends Game {
         setFoundationBackgrounds();
 
         //deal cards to trash according to the draw option
-        if (sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW)) {
+        if (prefs.getSavedCanfieldDrawModeOld().equals("3")) {
             for (int i = 0; i < 3; i++) {
-                moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
-                stacks[9 + i].getTopCard().flipUp();
+                    moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
+                    stacks[9 + i].getCard(0).flipUp();
             }
         } else {
-            moveToStack(getMainStack().getTopCard(), stacks[11], OPTION_NO_RECORD);
-            stacks[11].getTopCard().flipUp();
+            if (!getMainStack().isEmpty()) {
+                moveToStack(getMainStack().getTopCard(), stacks[11], OPTION_NO_RECORD);
+                stacks[11].getCard(0).flipUp();
+            }
         }
+
+        //and move cards to the tableau
+        for (int i = 0; i < 4; i++) {
+                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                stacks[i].getCard(0).flipUp();
+
+        }
+
+        //cards to reserve
+        for (int i = 0; i < prefs.getSavedCanfieldSizeOfReserve(); i++) {
+                moveToStack(getMainStack().getTopCard(), stacks[4], OPTION_NO_RECORD);
+        }
+
+        stacks[4].flipTopCardUp();
     }
 
     public int onMainStackTouch() {
-
-        boolean deal3 = sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW);
-
-        //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
-            if (deal3) {
+            if (prefs.getSavedCanfieldDrawModeOld().equals("3")) {
                 int size = min(3, getMainStack().getSize());
                 ArrayList<Card> cardsReversed = new ArrayList<>();
                 ArrayList<Stack> originReversed = new ArrayList<>();
@@ -359,11 +362,12 @@ public class Canfield extends Game {
             } else {
                 return canCardBePlaced(stack, card, SAME_FAMILY, ASCENDING, true);
             }
-        } else
+        } else {
             return false;
+        }
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //don't move cards from the discard stacks if there is a card on top of them
         //for example: if touched a card on stack 11 (first discard stack) but there is a card
         //on stack 12 (second discard stack) don't move if.
@@ -387,7 +391,7 @@ public class Canfield extends Game {
 
             if (!hint.hasVisited(card) && card.getValue() != startCardValue) {
                 for (int j = 0; j <= 3; j++) {
-                    if (j == i) {
+                    if (j == i || stacks[j].isEmpty()) {
                         continue;
                     }
 
@@ -410,25 +414,6 @@ public class Canfield extends Game {
 
         }
 
-        /*for (int i = 5; i <= 8; i++) {
-
-            Stack origin = stacks[i];
-
-            if (origin.isEmpty())
-                continue;
-
-            // last card of a stack to move to the foundation
-            card = origin.getTopCard();
-
-            if (!hint.hasVisited(card)) {
-                for (int j = 0; j <= 3; j++) {
-                    if (card.test(stacks[j]))
-                        return new CardAndStack(card, stacks[j]);
-                }
-            }
-
-        }*/
-
         /* card from trash of stock to every other stack*/
         for (int i = 0; i < 3; i++) {
             if ((i < 2 && !stacks[11].isEmpty()) || (i == 0 && !stacks[10].isEmpty())) {
@@ -436,13 +421,13 @@ public class Canfield extends Game {
             }
 
             if (stacks[9 + i].getSize() > 0 && !hint.hasVisited(stacks[9 + i].getTopCard())) {
-                for (int j = 0; j <= 3; j++) {
+                for (int j = 5; j <= 8; j++) {
                     if (stacks[9 + i].getTopCard().test(stacks[j])) {
                         return new CardAndStack(stacks[9 + i].getTopCard(), stacks[j]);
                     }
                 }
 
-                for (int j = 5; j <= 8; j++) {
+                for (int j = 0; j <= 3; j++) {
                     if (stacks[9 + i].getTopCard().test(stacks[j])) {
                         return new CardAndStack(stacks[9 + i].getTopCard(), stacks[j]);
                     }
@@ -565,7 +550,7 @@ public class Canfield extends Game {
 
                 if (!stacks[4].isEmpty()) {
                     moveToStack(stacks[4].getTopCard(), stacks[i], OPTION_NO_RECORD);
-                    recordList.addAtEndOfLastEntry(stacks[i].getTopCard(), stacks[4]);
+                    recordList.addToLastEntry(stacks[i].getTopCard(), stacks[4]);
 
                     if (!stacks[4].isEmpty()) {
                         stacks[4].getTopCard().flipWithAnim();
@@ -574,54 +559,8 @@ public class Canfield extends Game {
             }
         }
 
-        if (!sharedStringEqualsDefault(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW))
-            return;
+        boolean deal1 = prefs.getSavedCanfieldDrawModeOld().equals("1");
 
-        if (stacks[10].getSize() == 0 || stacks[11].getSize() == 0) {
-            ArrayList<Card> cards = new ArrayList<>();
-            ArrayList<Stack> origin = new ArrayList<>();
-
-            //add the cards to the first discard pile
-            while (!stacks[10].isEmpty()) {
-                cards.add(stacks[10].getTopCard());
-                origin.add(stacks[10]);
-                moveToStack(stacks[10].getTopCard(), stacks[9], OPTION_NO_RECORD);
-            }
-
-            //and then move cards from there to fill the discard stacks
-            if (stacks[9].getSize() > 1) {
-                moveToStack(stacks[9].getCardFromTop(1), stacks[10], OPTION_NO_RECORD);
-                if (!cards.contains(stacks[10].getTopCard())) {
-                    cards.add(stacks[10].getTopCard());
-                    origin.add(stacks[9]);
-                }
-            }
-            if (!stacks[9].isEmpty()) {
-                moveToStack(stacks[9].getTopCard(), stacks[11], OPTION_NO_RECORD);
-                if (!cards.contains(stacks[11].getTopCard())) {
-                    cards.add(stacks[11].getTopCard());
-                    origin.add(stacks[9]);
-                }
-            }
-
-            //reverse order for the record
-            ArrayList<Card> cardsReversed = new ArrayList<>();
-            ArrayList<Stack> originReversed = new ArrayList<>();
-            for (int i = 0; i < cards.size(); i++) {
-                cardsReversed.add(cards.get(cards.size() - 1 - i));
-                originReversed.add(origin.get(cards.size() - 1 - i));
-            }
-
-            if (!stacks[10].isEmpty()) {
-                stacks[10].getTopCard().view.bringToFront();
-            }
-
-            if (!stacks[11].isEmpty()) {
-                stacks[11].getTopCard().view.bringToFront();
-            }
-
-            //and add it IN FRONT of the last entry
-            recordList.addInFrontOfLastEntry(cardsReversed, originReversed);
-        }
+        Klondike.checkEmptyDiscardStack(getMainStack(),stacks[9], stacks[10], stacks[11], deal1);
     }
 }

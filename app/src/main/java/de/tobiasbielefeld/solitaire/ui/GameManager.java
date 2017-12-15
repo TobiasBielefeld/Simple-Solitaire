@@ -41,7 +41,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.dialogs.DialogRestart;
+import de.tobiasbielefeld.solitaire.dialogs.DialogInGameMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
@@ -53,6 +53,7 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.DOWN;
 import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.NONE;
 
@@ -107,7 +108,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         timer = new Timer(gm);
         sounds = new Sounds(gm);
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
-        savedGameData = getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
+        prefs.setGamePreferences(this);
         Stack.loadBackgrounds();
 
         updateMenuBar();
@@ -133,21 +134,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         layoutGame.post(new Runnable() {                                                           //post a runnable to set the dimensions of cards and stacks when the layout has loaded
             @Override
             public void run() {
-                boolean isLandscape = getResources().getConfiguration().orientation
-                        == Configuration.ORIENTATION_LANDSCAPE;
+                boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
-                currentGame.setStacks(layoutGame, isLandscape);
+                currentGame.setStacks(layoutGame, isLandscape, getApplicationContext());
 
                 //if left handed mode is true, mirror all stacks
-                if (getSharedBoolean(PREF_KEY_LEFT_HANDED_MODE, DEFAULT_LEFT_HANDED_MODE)) {
-                    for (Stack stack : stacks)
-                        stack.view.setX(layoutGame.getWidth() - stack.getX() - Card.width);
-
-                    if (currentGame.hasArrow()) {
-                        for (Stack stack : stacks) {
-                            stack.applyArrow();
-                        }
-                    }
+                if (prefs.getSavedLeftHandedMode()) {
+                    gameLogic.mirrorStacks();
                 }
 
                 //calculate the spacing for cards on a stack
@@ -243,8 +236,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         CustomImageView v = (CustomImageView) view;
         //if something important happens don't accept input
-        if (stopConditions())
+        if (gameLogic.stopConditions()) {
             return true;
+        }
 
         //also don't do anything with a second touch point
         if (event.getPointerId(0) != 0) {
@@ -282,11 +276,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * @return True to end the input
      */
     private boolean motionActionDown(CustomImageView v, MotionEvent event, float X, float Y) {
-
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
             //test if the redeal counter needs to be updated
-            if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty()) {
+            if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty() && discardStacksContainCards()) {
                 if (currentGame.getRemainingNumberOfRecycles() == 0) {
                     return true;
                 } else {
@@ -295,10 +288,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
             //do what the game wants to be done on a main stack press
             currentGame.mainStackTouch();
+            gameLogic.checkForAutoCompleteButton();
+            handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
             return resetTappedCard();
         }
 
-        if (v.belongsToStack() && getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, DEFAULT_TAP_TO_SELECT_ENABLED)) {
+        if (v.belongsToStack() && prefs.getSavedTapToSelectEnabled()) {
             if (tapped != null && tapped.getStack() != stacks[v.getId()] && currentGame.addCardToMovementTest(tapped.getCard())) {
 
                 movingCards.add(tapped.getCard(), event.getX(), event.getY());
@@ -315,34 +310,19 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         } else if (v.belongsToCard() && cards[v.getId()].isUp()) {
             if (tapped != null) {
                 //double tap
-                if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_ENABLED, DEFAULT_DOUBLE_TAP_ENABLE)
-                        && tapped.getStack() == cards[v.getId()].getStack()
+                if (prefs.getSavedDoubleTapEnabled() && tapped.getStack() == cards[v.getId()].getStack()
                         && System.currentTimeMillis() - firstTapTime < DOUBLE_TAP_SPEED) {
 
-                    CardAndStack cardAndStack = null;
+                    boolean result = doubleTapCalculation(event.getX(),event.getY());
 
-                    if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_ALL_CARDS, DEFAULT_DOUBLE_TAP_ALL_CARDS) && tapped.getStackId() <= currentGame.getLastTableauId()) {
-                        if (getSharedBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST, DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST) && currentGame.hasFoundationStacks()) {
-                            cardAndStack = currentGame.doubleTap(tapped.getStack().getTopCard());
-                        }
-
-                        if (cardAndStack == null || cardAndStack.getStackId() <= currentGame.getLastTableauStack().getId()) {
-                            cardAndStack = currentGame.doubleTap(tapped.getStack());
-                        }
-                    } else if (currentGame.addCardToMovementTest(tapped.getCard())) {
-                        cardAndStack = currentGame.doubleTap(tapped.getCard());
-                    }
-
-                    if (cardAndStack != null) {
-                        movingCards.add(cardAndStack.getCard(), event.getX(), event.getY());
-                        movingCards.moveToDestination(cardAndStack.getStack());
-
-                        return resetTappedCard();
+                    //do not directly return from double tap calculation, addCardToMovementTest()
+                    // needs to run in case the calculation returns false
+                    if (result){
+                        return true;
                     }
                 }
                 //tap to select
-                else if (getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, DEFAULT_TAP_TO_SELECT_ENABLED)
-                        && tapped.getStack() != cards[v.getId()].getStack() && currentGame.addCardToMovementTest(tapped.getCard())) {
+                else if (prefs.getSavedTapToSelectEnabled() && tapped.getStack() != cards[v.getId()].getStack() && currentGame.addCardToMovementTest(tapped.getCard())) {
 
                     movingCards.add(tapped.getCard(), event.getX(), event.getY());
 
@@ -352,8 +332,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     } else {
                         movingCards.reset();
                     }
-
-
                 }
             }
 
@@ -369,6 +347,32 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
         }
         return true;
+    }
+
+    private boolean doubleTapCalculation(float X, float Y){
+        CardAndStack cardAndStack = null;
+
+        if (prefs.getSavedDoubleTapAllCards() && tapped.getStackId() <= currentGame.getLastTableauId()) {
+            if (prefs.getSavedDoubleTapFoundationFirst() && currentGame.hasFoundationStacks()) {
+                cardAndStack = currentGame.doubleTap(tapped.getStack().getTopCard());
+            }
+
+            if (cardAndStack == null || cardAndStack.getStackId() <= currentGame.getLastTableauStack().getId()) {
+                cardAndStack = currentGame.doubleTap(tapped.getStack());
+            }
+        } else if (currentGame.addCardToMovementTest(tapped.getCard())) {
+            cardAndStack = currentGame.doubleTap(tapped.getCard());
+        }
+
+        if (cardAndStack != null) {
+            movingCards.reset();
+            movingCards.add(cardAndStack.getCard(), X, Y);
+            movingCards.moveToDestination(cardAndStack.getStack());
+
+            return resetTappedCard();
+        }
+
+        return false;
     }
 
     /**
@@ -412,15 +416,22 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
 
             return resetTappedCard();
-        } else if (currentGame.isSingleTapEnabled() && tapped.getCard().test(currentGame.getDiscardStack())
-                && getSharedBoolean(PREF_KEY_SINGLE_TAP_ENABLE, DEFAULT_SINGLE_TAP_ENABLED)) {
+        } else if (prefs.getSingleTapAllGames()){
+            boolean result = doubleTapCalculation(X,Y);
 
+            //do not directly return from double tap calculation, movingCards.returnToPos()
+            // needs to run in case the calculation returns false
+            if (result){
+                return true;
+            }
+        } else if (currentGame.isSingleTapEnabled() && tapped.getCard().test(currentGame.getDiscardStack())) {
             movingCards.moveToDestination(currentGame.getDiscardStack());
             return resetTappedCard();
-        } else {
-            movingCards.returnToPos();
-            return true;
         }
+
+        movingCards.returnToPos();
+        return true;
+
     }
 
     /**
@@ -468,43 +479,35 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private void loadBackgroundColor() {
 
         if (mainRelativeLayoutBackground != null) {
-            if (getSharedInt(PREF_KEY_BACKGROUND_COLOR_TYPE, DEFAULT_BACKGROUND_COLOR_TYPE) == 1) {
-                switch (getSharedString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR)) {
-                    case "1":
+            if (prefs.getSavedBackgroundColorType()== 1) {
+                switch (prefs.getSavedBackgroundColor()) {
+                    case 1:
                         mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_blue);
                         break;
-                    case "2":
+                    case 2:
                         mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_green);
                         break;
-                    case "3":
+                    case 3:
                         mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_red);
                         break;
-                    case "4":
+                    case 4:
                         mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_yellow);
                         break;
-                    case "5":
+                    case 5:
                         mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_orange);
                         break;
-                    case "6":
+                    case 6:
                         mainRelativeLayoutBackground.setBackgroundResource(R.drawable.background_color_purple);
                         break;
                 }
             } else {
                 mainRelativeLayoutBackground.setBackgroundResource(0);
-                mainRelativeLayoutBackground.setBackgroundColor(getSharedInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM));
+                mainRelativeLayoutBackground.setBackgroundColor(prefs.getSavedBackgroundCustomColor());
             }
         }
     }
 
-    /**
-     * Tests if movements shouldn't be allowed. For example. If a hint is currently shown, don't
-     * accept input, or otherwise something will go wrong
-     *
-     * @return True if no movement is allowed, false otherwise
-     */
-    private boolean stopConditions() {
-        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking());
-    }
+
 
     /**
      * Shows a text as a toast, on ui thread, because some of my static helper stuff use this too.
@@ -541,10 +544,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         if (isLandscape) {
             params1 = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.menuBarWidht), ViewGroup.LayoutParams.MATCH_PARENT);
 
-            if (sharedStringEqualsDefault(getString(R.string.pref_key_menu_bar_position_landscape), DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
+            if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
                 params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
-
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
                 params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayout);
@@ -552,7 +554,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         } else {
             params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.menuBarHeight));
 
-            if (sharedStringEqualsDefault(getString(R.string.pref_key_menu_bar_position_portrait), DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
+            if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
                 params2.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
 
@@ -569,12 +571,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     public void menuClick(View view) {
         //if something important happens don't accept input
-        if (stopConditions())
+        if (gameLogic.stopConditions()) {
             return;
-
+        }
         //also return moving cards, to prevent bugs
-        if (movingCards.hasCards())
+        if (movingCards.hasCards()) {
             movingCards.returnToPos();
+        }
 
         resetTappedCard();
 
@@ -613,8 +616,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     public void showRestartDialog() {
         try {
-            DialogRestart dialogRestart = new DialogRestart();
-            dialogRestart.show(getSupportFragmentManager(), RESTART_DIALOG);
+            DialogInGameMenu dialogInGameMenu = new DialogInGameMenu();
+            dialogInGameMenu.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e){
             Log.e("showRestartDialog: ", e.toString());
         }
@@ -645,5 +648,38 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     public boolean isActivityPaused() {
         return activityPaused;
+    }
+
+    public void updateLimitedRecyclesCounter(){
+        if (currentGame.hasLimitedRecycles() && !currentGame.hidesRecycleCounter()) {
+            mainTextViewRecycles.setVisibility(View.VISIBLE);
+            mainTextViewRecycles.setX(currentGame.getMainStack().getX());
+            mainTextViewRecycles.setY(currentGame.getMainStack().getY());
+        } else {
+            mainTextViewRecycles.setVisibility(View.GONE);
+        }
+
+    }
+
+
+    /*
+     * set the current game to 0, otherwise the menu would load the current game again,
+     * because last played game will start
+     */
+    @Override
+    public void finish() {
+        prefs.saveCurrentGame(DEFAULT_CURRENT_GAME);
+        super.finish();
+    }
+
+    private boolean discardStacksContainCards(){
+
+        for (Stack stack : currentGame.getDiscardStacks()){
+            if (!stack.isEmpty()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

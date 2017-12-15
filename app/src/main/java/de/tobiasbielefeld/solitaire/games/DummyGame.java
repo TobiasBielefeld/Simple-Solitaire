@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -74,11 +75,11 @@ public class DummyGame extends Game {
         setNumberOfStacks(13);
 
         //if you game has a main stack, set its id here. Cards will be automatically dealt from there.
-        setFirstMainStackID(12);
+        setMainStackIDs(12);
 
         //if there is a discard stack, set it's id, because I need the id for the undo movement
         //(cards should be faced up when returning to discard)
-        setFirstDiscardStackID(11);
+        setDiscardStackIDs(11);
 
         //if your game has NO main stack, set where the cards are dealt from
         setDealFromID(1);
@@ -127,8 +128,9 @@ public class DummyGame extends Game {
 
         //if you used setLimitedRecycles(), you can also use toggleRecycles like this to disable the limitation
         //from the settings
-        if (!getSharedBoolean("your_pref_key_for_limited_recycles", false))
+        /*if (!getSavedGAMENAMELimitedRecycles){        //add a method to Preferences.java for this
             toggleRecycles();
+        } */
     }
 
     /*
@@ -176,7 +178,7 @@ public class DummyGame extends Game {
      *
      *  Here is an example code you should follow
      */
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         //use this to set the cards width according to last two values.
         //second last is for portrait mode, last one for landscape.
@@ -317,7 +319,7 @@ public class DummyGame extends Game {
      * Test if the player can even pick up a card (faced down cards are never moved)
      * If yes, every card from the touched card to the stack top card will be moved
      */
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         //in case of Klondike it's easy: If a card is faced up, every card on top of it in the stack
         //has the correct order. So return true if a card is up. But because faced down cards aren't even
         //tested here, just return true
@@ -530,4 +532,34 @@ public class DummyGame extends Game {
     }
 
 
+    //called after undo movement
+    public void afterUndo(){
+        //check stuff here
+    }
+
+    /*
+     * This method controls the card mixing. It gets a card, checks if it should be excluded from
+     * the mixing, in this case, return true. The standard way is, that faced down cards should
+     * always be mixed, and cards on the foundation stack never. You can also exclude correct
+     * sequences on the tableau or something like that.
+     */
+    @Override
+    protected boolean excludeCardFromMixing(Card card) {
+        /*
+         * this is the content of the default method, you dont need to override it, if you don't
+         * change anything
+         */
+
+        Stack stack = card.getStack();
+
+        if (!card.isUp()) {
+            return false;
+        }
+
+        if (foundationStacksContain(stack.getId())){
+            return true;
+        }
+
+        return false;
+    }
 }

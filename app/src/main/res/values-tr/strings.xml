@@ -41,7 +41,7 @@
     <string name="games_Canfield">Canfield</string>
     <string name="games_GrandfathersClock">GrandfathersClock</string>
     <string name="games_Vegas">Vegas</string>
-
+    <string name="games_Calculation">Calculation</string>
 
     <!-- colors -->
     <string name="blue">Mavi</string>
@@ -52,12 +52,27 @@
     <string name="purple">Mor</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">En uzun dizi:</string> <!-- also used by golf -->
+    <string name="game_longest_run">En uzun dizi:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Tebrikler!</string>
     <string name="dialog_win_score">Puan: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Toplam: %1$d</string>
+
+    <!-- new values translated using Google-->
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Karıştırma kartları</string>
+    <string name="dialog_mix_cards_text">Bu, tüm kartları karıştırır, temel üzerinde doğru diziler ve kartlar bekler.</string>
+    <string name="dialog_mix_cards_not_available">Hareketsiz hamleler var! (Onları göstermek için ipucu işlevini kullanın)</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">Yeni oyun</string>
+    <string name="dialog_start_new_game_text">Mevcut ilerlemeniz kaybolacak ve yeni bir rastgele oyun ele alınacaktır.</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">Tekrar kart ver</string>
+    <string name="dialog_redeal_text">Mevcut ilerlemeniz kaybolacak, ancak kartlar mevcut oyunda beğeni kazanıyor.</string>
 
 </resources>

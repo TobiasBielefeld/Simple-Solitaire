@@ -40,6 +40,7 @@
     <string name="games_Canfield">Canfield</string>
     <string name="games_GrandfathersClock">AvaHorloĝo</string>
     <string name="games_Vegas">Vegaso</string>
+    <string name="games_Calculation">Calculation</string>
 
     <!-- colors -->
     <string name="blue">Blua</string>
@@ -50,12 +51,27 @@
     <string name="purple">Purpura</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">Plej longa serio:</string> <!-- also used by golf -->
+    <string name="game_longest_run">Plej longa serio:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Gratulon!!</string>
     <string name="dialog_win_score">Poentaro: %1$d</string>
     <string name="dialog_win_bonus">Premio: %1$d</string>
     <string name="dialog_win_total">Tute: %1$d</string>
+
+    <!-- new values -->
+
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">Miksi kartojn</string>
+    <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>
+    <string name="dialog_mix_cards_not_available">There are still possible moves! (Use the hint function to show them)</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">Komenci novan ludon</string>
+    <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">Disdoni kartojn ree</string>
+    <string name="dialog_redeal_text">Your current progress will be lost, but the cards are dealt like in the current game.</string>
 
 </resources>

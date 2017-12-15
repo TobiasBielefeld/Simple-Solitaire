@@ -35,6 +35,7 @@
     <string name="games_Canfield">カンフィールド</string>
     <string name="games_GrandfathersClock">祖父の時計</string>
     <string name="games_Vegas">ベガス</string>
+    <string name="games_Calculation">計算</string>
 
     <!-- colors -->
     <string name="blue">青</string>
@@ -49,7 +50,7 @@
     <string name="game_main_menu">メインメニュー</string>
 
     <!-- game stuff -->
-    <string name="canfield_longest_run">最長シーケンス:</string> <!-- also used by golf -->
+    <string name="game_longest_run">最長シーケンス:</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">おめでとう！</string>
@@ -57,5 +58,17 @@
     <string name="dialog_win_bonus">ボーナス: %1$d</string>
     <string name="dialog_win_total">合計: %1$d</string>
 
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">ミックスカード</string>
+    <string name="dialog_mix_cards_text">これにより、すべてのカードがシャッフルされ、正しいシーケンスとカードが基盤上にあることが期待されます。</string>
+    <string name="dialog_mix_cards_not_available">まだ動きはあります！ （ヒント機能を使って表示する）</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">新しいゲームを開始する</string>
+    <string name="dialog_start_new_game_text">あなたの現在の進行状況は失われ、新しいランダムゲームが処理されます。</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">カードをもう一度配る</string>
+    <string name="dialog_redeal_text">あなたの現在の進歩は失われますが、カードは現在のゲームのように扱われます。</string>
 
 </resources>

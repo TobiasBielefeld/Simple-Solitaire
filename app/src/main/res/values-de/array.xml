@@ -1,8 +1,9 @@
 <resources>
 
     <string-array name="restart_menu">
-        <item>Neues Spiel starten</item>
-        <item>Spiel wiederholen</item>
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Spielregeln</item>
         <item>Zurück zum Hauptmenü</item>
     </string-array>
@@ -85,6 +86,21 @@
         <item>Melodie 2</item>
         <item>Melodie 3</item>
         <item>Musikbox</item>
+    </string-array>
+
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>13 Karten (Standard)</item>
+        <item>10 Karten</item>
+        <item>7 Karten</item>
+        <item>4 Karten</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>Deaktiviert</item>
+        <item>Abwechselnde Farbe</item>
+        <item>Gleiche Familie</item>
+        <item>Umgekehrt abwechselnde Farbe</item>
+        <item>Umgekehrt gleiche Familie</item>
     </string-array>
 
 </resources>

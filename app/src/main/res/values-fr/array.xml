@@ -1,8 +1,9 @@
 <resources>
 
     <string-array name="restart_menu">
-        <item>Démarrer une nouvelle partie</item>
-        <item>Redistribuer les cartes</item>
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
+        <item>@string/dialog_mix_cards_title</item>
         <item>Règles du jeu</item>
         <item>Revenir au menu principal</item>
     </string-array>
@@ -88,5 +89,19 @@
         <item>Boîte à musique</item>
     </string-array>
 
+    <string-array name="pref_canfield_size_of_reserve_titles">
+        <item>13 Cartes (par défaut)</item>
+        <item>10 Cartes</item>
+        <item>7 Cartes</item>
+        <item>4 Cartes</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>Désactivé</item>
+        <item>Couleur alternative</item>
+        <item>>Même famille</item>
+        <item>Inversé couleur alternative</item>
+        <item>Inversé Même familley</item>
+    </string-array>
 
 </resources>

@@ -296,4 +296,29 @@
         \n\nUne partie sera gagnée quand les gains dépassent le pari (score supérieur à 0). Déplacer des cartes depuis la fondation coûte 2/10 du pari.
         \n\nUtiliser un indice ou le bouton \"Annuler\" coûte également 1/10 du pari.
         \n\nAVERTISSEMENT: Vous ne gagnerez pas vraiment d\'argent dans ce jeu :)</string>
+
+    <!-- new values -->
+    <!-- Calculation -->
+    <string name="manual_Calculation_structure">1 jeu de 52 cartes.\n\n4 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse.</string>
+    <string name="manual_Calculation_objective">Déplacer les cartes vers la fondation, indépendamment des couleurs, jusqu\'à ce que chaque pile contienne
+        un roi. Les fondations doivent être construites dans l\'ordre suivant :
+        \n\n Pile n°1 de un en un : A, 2, 3, 4, 5, 6, 7, 8, 9, 10, V, D, R
+          \n Pile n°2 de deux en deux : 2, 4, 6, 8, 10, D, A, 3, 5, 7, 9, V, R
+          \n Pile n°3 de trois en trois : 3, 6, 9, D, 2, 5, 8, V, A, 4, 7, 10, R
+          \n Pile n°4 de quatre en quatre : 4, 8, D, 3, 7, V, 2, 6, 10, A, 5, 9, R
+        \n\nLes prochaines cartes jouables sont indiquées au-dessus des piles.
+    </string>
+    <string name="manual_Calculation_rules">Les 4 piles de la fondation commencent avec leurs cartes de départ, choisies au hasard. Les cartes dans la fondation
+        doivent suivre l\'ordre indiqué dans les Objectifs.
+        \n\nLes cartes de la défausse peuvent être déplacées vers n\'importe quelle pile du tableau ou de la fondation si elles respectent l\'ordre demandé.
+
+        \n\nPiocher une carte du talon déplace la carte de la défausse vers la pile du tableau qui contient le moins de cartes.
+		Règle alternative : les cartes de la défausse peuvent y rester quand on pioche depuis le talon
+        (peut être activé dans les paramètres du jeu).
+
+        \n\nSur le tableau, seules les cartes du dessus peuvent être déplacées, et uniquement vers la fondation.
+       </string>
+    <string name="manual_Calculation_scoring">Déplacer une carte vers la fondation : +50</string>
+
+
 </resources>

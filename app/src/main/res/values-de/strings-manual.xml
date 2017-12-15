@@ -278,4 +278,27 @@
         \n\nDas Benutzen der Undo- und Hinweisfunktion kostet ebenfalls 1/10 des Einsatzes.
         \n\nHINWEIS: Es wird nicht für echtes Geld gespielt :)</string>
 
+    <!-- Calculation -->
+    <string name="manual_Calculation_structure">1 Deck aus 52 Karten.\n\n4 Tableau-Stapel, 4
+        Foundation-Stapel, 1 Haupt- und 1 Ablage-Stapel.</string>
+    <string name="manual_Calculation_objective">Spiele jede Karte zur Foundation, unbeachtet der Familie,
+        bis jeder Foundation-Stapel einen König zeigt. Dabei müssen die Stapel in der folgenden Reihenfolge aufgebaut sein:
+        \n\n 1. Stapel: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+          \n 2. Stapel: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K
+          \n 3. Stapel: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K
+          \n 4. Stapel: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
+        \n\nDie  nächsten spielbaren Karten werden auch direkt über der Foundation angezeigt.
+    </string>
+    <string name="manual_Calculation_rules">Die 4 Foundation-Stapel starten mit jeweils der ersten Karte ihrer Sequenz. Die Familie wird dabei
+        zufällig gewählt. Karten auf der Foundation müssen die oben angegebene Reihenfolge beachten.
+
+        \n\nKarten vom Ablage-Stapel können auf jeden Tableau-Stapel oder unter Beachtung der Reihenfolge zur Foundation gespielt werden.
+
+        \n\nDas Drücken auf dem Haupt-Stapel wird die Karte vom Ablage-Stapel zum Tableau-Stapel mit den wenigsten Karten bewegen.
+        Alternativ: Die Karte auf dem Ablage-Stapel bleibt dort (kann in den Einstellungen aktiviert werden).
+
+        \n\nAuf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur Foundation.
+       </string>
+    <string name="manual_Calculation_scoring">Bewege eine Karte zur Foundation: +50</string>
+
 </resources>

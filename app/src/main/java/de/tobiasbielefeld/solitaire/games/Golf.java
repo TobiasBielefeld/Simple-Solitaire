@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.widget.RelativeLayout;
 
@@ -42,19 +43,20 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Golf extends Game {
 
     static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
-    static String RUN_COUNTER = "run_counter";
-    static String LONGEST_RUN = "longest_run";
+
     int runCounter; //to count how many cards are moved in one "run"
     ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
 
     public Golf() {
         setNumberOfDecks(1);
         setNumberOfStacks(9);
-        setFirstMainStackID(8);
-        setFirstDiscardStackID(7);
-        setLastTableauID(6);
+
+        setTableauStackIDs(0,1,2,3,4,5,6);
+        setDiscardStackIDs(7);
+        setMainStackIDs(8);
+
         setDirections(1, 1, 1, 1, 1, 1, 1, 3);
-        setSingleTapeEnabled(true);
+        setSingleTapEnabled();
     }
 
     @Override
@@ -65,16 +67,16 @@ public class Golf extends Game {
 
     @Override
     public void save() {
-        putInt(RUN_COUNTER, runCounter);
+        prefs.saveRunCounter(runCounter);
     }
 
     @Override
     public void load() {
-        runCounter = getInt(RUN_COUNTER, 0);
+        runCounter = prefs.getSavedRunCounter();
 
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 8, 9);
 
@@ -106,15 +108,16 @@ public class Golf extends Game {
     }
 
     public void dealCards() {
+        moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 5; j++) {
                 moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getTopCard().flipUp();
+                stacks[i].getCard(j).flipUp();
             }
         }
 
-        moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
+
     }
 
     public boolean cardTest(Stack stack, Card card) {
@@ -123,13 +126,12 @@ public class Golf extends Game {
          * then check the settings: if cyclic moves are set to true, check if the cards are an ace and a king, if so return true
          * or the cards values difference is 1 or -1
          */
-        return stack == getDiscardStack()
-                && ((getSharedBoolean(PREF_KEY_GOLF_CYCLIC, DEFAULT_GOLF_CYCLIC)
+        return stack == getDiscardStack() && ((prefs.getSavedGoldCyclic()
                 && (card.getValue() == 13 && stack.getTopCard().getValue() == 1 || card.getValue() == 1 && stack.getTopCard().getValue() == 13))
                 || (card.getValue() == stack.getTopCard().getValue() + 1 || card.getValue() == stack.getTopCard().getValue() - 1));
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
         return card.getStackId() < 7 && card.isTopCard();
     }
 
@@ -167,7 +169,7 @@ public class Golf extends Game {
 
                 savedRunRecords.add(runCounter * 50);
                 points += runCounter * 50;
-            } else {
+            } else if (savedRunRecords.size()>0){
                 points += savedRunRecords.get(savedRunRecords.size() - 1);                            //get last entry
                 savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
 
@@ -192,17 +194,22 @@ public class Golf extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN, 0);
+        return res.getString(R.string.game_longest_run) + " " + prefs.getSavedLongestRun();
     }
 
     @Override
     public void deleteAdditionalStatisticsData() {
-        putInt(LONGEST_RUN, 0);
+        prefs.saveLongestRun(0);
     }
 
     private void updateLongestRun(int currentRunCount) {
-        if (currentRunCount > getInt(LONGEST_RUN, 0)) {
-            putInt(LONGEST_RUN, currentRunCount);
+        if (currentRunCount > prefs.getSavedLongestRun()) {
+            prefs.saveLongestRun(currentRunCount);
         }
+    }
+
+    @Override
+    protected boolean excludeCardFromMixing(Card card){
+        return false;
     }
 }

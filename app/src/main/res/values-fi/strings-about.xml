@@ -3,36 +3,50 @@
 <resources>
 
     <string name="about_name">Tietoa pelistä</string>
-    <string name="about_Text1">kehittänyt Tobias Bielefeld</string>
-    <string name="about_Text2">kiitos kun pelaat peliäni :)</string>
     <string name="about_tab_1">Tietoa</string>
-    <string name="about_tab_2">Lisenssi</string>
+    <string name="about_tab_2">Lisenssit</string>
     <string name="about_tab_3">Muutosloki</string>
-    <string name="about_build_date">Käännöspäivä</string>
-    <string name="about_license_top_text">Tämä peli on julkaistu GPL 3.0 lisensillä:</string>
-    <string name="about_program_code_text">Lähdekoodi on saatavilla:</string>
     <string name="about_loading">Ladataan…</string>
 
+    <string name="about_developer_name">Tobias Bielefeld</string>
+    <string name="about_compiled">Käännöspäivä</string>
+    <string name="about_source_code">Lähdekoodi</string>
+    <string name="about_license">Lisenssi</string>
     <string name="about_translations">Käännökset</string>
-    <string name="about_translations_japanese">Japani: Github käyttäjä naofum</string>
-    <string name="about_translations_esperanto_polish">Esperanto ja Puola: Github käyttäjä verdulo</string>
-    <string name="about_translations_french">Ranska: Github käyttäjä romainhk ja cicithesquirrel</string>
-    <string name="about_translations_finnish">Suomi: Github käyttäjä winjar</string>
-    <string name="about_translations_turkish">Turkki: Github käyttäjä sekmenhuseyin</string>
 
-    <string name="about_material_icons_text">Material Design teeman ikonit ovat Google Inc:n tekemiä ja julkaistu
-        <a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0 lisenssillä</a></string>
-    <string name="about_pixa_bay_license_text">Muut korttiteemat olivat alkujaan julkaistu
-        <a href="www.pixabay.com">pixabay.com</a> sivulla
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 lisenssillä</a></string>
-    <string name="about_third_party_licenses">Kolmannen osapuolen lisenssit</string>
 
-    <string name="about_poker_theme">Poker card teema: Vectorized Playing Cards 2.0 - <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> -
-        Copyright 2015 - Chris Aguilar - conjurenation@gmail.com - Lisensoitu <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a> lisessillä</string>
 
-    <string name="about_custom_color_picker">Mukautettu värivalitsin: Käyttää <a href="https://github.com/yukuku/ambilwarna">AmbilWarna kirjastoa</a>
-        joka on julkaistu <a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0 lisenssillä</a></string>
+    <string name="about_translations_japanese">Japani</string>
+    <string name="about_translations_esperanto">Esperanto</string>
+    <string name="about_translations_polish">Puola</string>
+    <string name="about_translations_french">Ranska</string>
+    <string name="about_translations_finnish">Suomi</string>
+    <string name="about_translations_turkish">Turkki</string>
 
-    <string name="about_sounds">Kaikki äänet on alkujaan julkaistu <a href="https://freesound.org">freesound.org</a> sivustolla
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 lisenssissä</a></string>
+    <string name="about_android_support_libraries_title">Android tuki kirjasto</string>
+    <string name="about_android_support_libraries_usage">Paremman ulkoasun aikaansaamiseksi ja helpottamaan kehittämistä</string>
+
+    <string name="about_material_icons_title">Material design ikonit</string>
+    <string name="about_material_icons_usage">Käytetään kaikissa sovelluksen ikoneissa</string>
+
+    <string name="about_card_themes_title">Korttiteemat</string>
+    <string name="about_card_themes_usage">Korttiteemat ovat <a href="https://pixabay.com/">pixabay.com</a> sivustolta,
+        lisätietoa löytyy <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">täältä</a></string>
+
+    <string name="about_poker_themes_usage">Käytetään Poker teemana - saatavilla <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> sivustolta
+        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
+
+    <string name="about_custom_color_picker_title">AmbilWarna kirjasto</string>
+    <string name="about_custom_color_picker_usage">Käytetään mukautetussa värivalitsimessa</string>
+
+    <string name="about_sounds_title">Äänet</string>
+    <string name="about_sounds_usage">Kaikki äänet ovat alkujaan julkaistu <a href="https://freesound.org">freesound.org</a> sivustolla,
+        lisätietoa löytyy <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">täältä</a></string>
+
+    <string name="about_sliding_tabs_title">PagerSlidingTabStrip kirjasto</string>
+    <string name="about_sliding_tabs_usage">Käytetään \"tietoa pelistä\" välilehdissä</string>
+
+    <string name="about_developer">Kehittäjä</string>
+    <string name="about_further_contributors">Muita avustajia</string>
+
 </resources>

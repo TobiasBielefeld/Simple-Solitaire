@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -27,6 +28,7 @@ import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_CURRENT_GAME;
 
 public class GameSelector extends CustomAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener {
 
@@ -39,6 +41,8 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_selector);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,8 +57,8 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
 
         tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
 
-        if (!getSharedBoolean(getString(R.string.pref_key_start_menu), false)) {
-            int savedGame = getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
+        if (!prefs.getSavedStartWithMenu()) {
+            int savedGame = prefs.getSavedCurrentGame();
 
             if (savedGame != 0) {
                 Intent intent = new Intent(getApplicationContext(), GameManager.class);
@@ -62,7 +66,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
                 startActivityForResult(intent, 0);
             }
         } else {
-            putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
+            prefs.saveCurrentGame(DEFAULT_CURRENT_GAME);
         }
     }
 
@@ -77,7 +81,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.item_settings:
@@ -111,9 +115,9 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         int counter = 0;
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            menuColumns = Integer.parseInt(getSharedString(MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE));
+            menuColumns = prefs.getSavedMenuColumnsLandscape();
         } else {
-            menuColumns = Integer.parseInt(getSharedString(MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT));
+            menuColumns = prefs.getSavedMenuColumnsPortrait();
         }
 
         //clear the complete layout first
@@ -161,7 +165,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //if the player returns from a game to the main menu, save it.
-        putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
+        prefs.saveCurrentGame(DEFAULT_CURRENT_GAME);
     }
 
     @Override
@@ -237,11 +241,11 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         index = orderedList.indexOf(index);
 
         //avoid loading two games at once when pressing two buttons at once
-        if (getSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME) != 0) {
+        if (prefs.getSavedCurrentGame() != 0) {
             return;
         }
 
-        putSharedInt(PREF_KEY_CURRENT_GAME, index);
+        prefs.saveCurrentGame(index);
         Intent intent = new Intent(getApplicationContext(), GameManager.class);
         intent.putExtra(GAME, index);
         startActivityForResult(intent, 0);

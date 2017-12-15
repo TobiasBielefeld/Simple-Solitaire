@@ -22,19 +22,10 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_DRAW;
-import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT_OLD;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_DRAW_OLD;
-import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
-import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_VEGAS_MONEY;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
 
 /**
  * Vegas game! It's like Klondike, but with some changes and different scoring.
@@ -42,19 +33,18 @@ import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 public class Vegas extends Klondike {
 
-    private int betAmount=50;
+    private int betAmount;
+    private int winAmount;
 
     public Vegas(){
+        //Attention!!
+        //Vegas also calls the constructor of Klondike, don't forget it!
+
         disableBonus();
         setPointsInDollar();
+        loadData();
 
-        betAmount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT)*10;
-        setHintCosts(betAmount/10);
-        setUndoCosts(betAmount/10);
-
-        PREF_KEY_DRAW_OLD = PREF_KEY_VEGAS_DRAW_OLD;
-        PREF_KEY_DRAW = PREF_KEY_VEGAS_DRAW;
-        DEFAULT_DRAW = DEFAULT_VEGAS_DRAW;
+        whichGame = 2;
 
         setNumberOfRecycles(PREF_KEY_VEGAS_NUMBER_OF_RECYCLES,DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
     }
@@ -63,13 +53,20 @@ public class Vegas extends Klondike {
     public void dealCards() {
         super.dealCards();
 
-        putSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT, DEFAULT_VEGAS_BET_AMOUNT));
+        prefs.saveVegasBetAmountOld();
+        prefs.saveVegasWinAmountOld();
+        loadData();
 
-        betAmount = getSharedInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT)*10;
+        boolean saveMoneyEnabled = prefs.getSavedVegasSaveMoneyEnabled();
+        long money =  0;
 
-        setHintCosts(betAmount/10);
-        setUndoCosts(betAmount/10);
-        scores.update(-betAmount);
+        if (saveMoneyEnabled) {
+            money =  prefs.getSavedVegasMoney();
+            prefs.saveVegasOldScore(money);
+            timer.setStartTime(System.currentTimeMillis() - prefs.getSavedVegasTime()*1000);
+        }
+
+        scores.update(money-betAmount);
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
@@ -80,26 +77,56 @@ public class Vegas extends Klondike {
         //the first id wouldn't be enough
         for (int i=0;i<originIDs.length;i++){
             if (originIDs[i] >=11 && originIDs[i]<=13 && destinationIDs[i] >=7 && destinationIDs[i] <=10){//stock to foundation
-                return betAmount/10;
+                return winAmount;
             }
         }
 
         if (originID < 7 && destinationID >= 7 && destinationID <= 10){                             //from tableau to foundation
-            return betAmount/10;
+            return winAmount;
         }
 
         if (originID >= 7 && originID <= 10 && destinationID < 7){                                  //from foundation to tableau
-            return -2*betAmount/10;
+            return -2*winAmount;
         }
 
         return 0;
     }
 
     @Override
-    public void processScore(long currentScore) {
-        if (!gameLogic.hasWon() && currentScore > 0){
+    public boolean processScore(long currentScore) {
+        boolean saveMoneyEnabled = prefs.getSavedVegasSaveMoneyEnabled();
+        boolean resetMoney = prefs.getSavedVegasResetMoney();
+
+        //return true, to let the  addNewHighScore() save a possible score.
+        return !saveMoneyEnabled || resetMoney;
+    }
+
+    private void loadData(){
+        betAmount = prefs.getSavedVegasBetAmountOld();
+        winAmount = prefs.getSavedVegasWinAmountOld();
+
+        setHintCosts(winAmount);
+        setUndoCosts(winAmount);
+    }
+
+    @Override
+    public void onGameEnd() {
+        boolean saveMoneyEnabled = prefs.getSavedVegasSaveMoneyEnabled();
+        boolean resetMoney = prefs.getSavedVegasResetMoney();
+
+        if (saveMoneyEnabled) {
+            prefs.saveVegasMoney(scores.getScore());
+            prefs.saveVegasTime(timer.getCurrentTime());
+        }
+
+        if (!gameLogic.hasWon() && scores.getScore() > (saveMoneyEnabled ?  prefs.getSavedVegasOldScore() : 0)){
             gameLogic.incrementNumberWonGames();
         }
 
+        if (resetMoney) {
+            prefs.saveVegasMoney(DEFAULT_VEGAS_MONEY);
+            prefs.saveVegasTime(0);
+            prefs.saveVegasResetMoney(false);
+        }
     }
 }

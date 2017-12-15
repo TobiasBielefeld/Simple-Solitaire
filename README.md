@@ -4,8 +4,8 @@
 
 [<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire)
 
-#### Now contains 15 different Solitaire games!
-AcesUp, Canfield, Forty&Eight, FreeCell, Golf, GrandfathersClock, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
+#### Now contains 16 different Solitaire games!
+AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, GrandfathersClock, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
 
 # Simple Solitaire
 
@@ -53,6 +53,9 @@ Reintroduce the hall of shame, where I will list blatant copies of this app! Eve
 - https://play.google.com/store/apps/details?id=de.allinone.solitairegame
 - https://play.google.com/store/apps/details?id=de.collectionof.newsolitairegame
 - https://play.google.com/store/apps/details?id=startandroid.ru.solitairepack
+- https://play.google.com/store/apps/details?id=com.ponglos.solitaire
+- https://play.google.com/store/apps/details?id=net.sekmetech.solitaire
+- https://play.google.com/store/apps/details?id=com.generic.solitaireallinone
 
 ## Installation Guide
 The instructions to compile this app are very easy. Just download the project and open Android Studio. Then go to File -> Open -> Navigate to the download location -> Choose the folder -> If you try to start the app, Android Studio should install all necessary dependencies and you are ready to go.

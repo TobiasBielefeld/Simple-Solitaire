@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.widget.RelativeLayout;
 
@@ -39,8 +40,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class TriPeaks extends Game {
 
     static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
-    static String RUN_COUNTER = "run_counter";
-    static String LONGEST_RUN = "longest_run";
     //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
     //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28
@@ -52,11 +51,12 @@ public class TriPeaks extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(30);
 
-        setLastTableauID(27);
-        setFirstDiscardStackID(28);
-        setFirstMainStackID(29);
+        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27);
+        setDiscardStackIDs(28);
+        setMainStackIDs(29);
+
         setDirections(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        setSingleTapeEnabled(true);
+        setSingleTapEnabled();
     }
 
     @Override
@@ -67,16 +67,16 @@ public class TriPeaks extends Game {
 
     @Override
     public void save() {
-        putInt(RUN_COUNTER, runCounter);
+        prefs.saveRunCounter(runCounter);
     }
 
     @Override
     public void load() {
-        runCounter = getInt(RUN_COUNTER, 0);
+        runCounter = prefs.getSavedRunCounter();
 
     }
 
-    public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
+    public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         setUpCardDimensions(layoutGame, 11, 6);
 
@@ -133,8 +133,9 @@ public class TriPeaks extends Game {
         for (int i = 0; i < 28; i++) {
             moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
 
-            if (i > 17)
+            if (i > 17) {
                 stacks[i].getTopCard().flipUp();
+            }
         }
 
         moveToStack(getDealStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
@@ -159,7 +160,7 @@ public class TriPeaks extends Game {
                         || card.getValue() == stack.getTopCard().getValue() - 1));
     }
 
-    public boolean addCardToMovementTest(Card card) {
+    public boolean addCardToMovementGameTest(Card card) {
 
         return card.getStackId() != getDiscardStack().getId();
     }
@@ -206,7 +207,7 @@ public class TriPeaks extends Game {
 
                 savedRunRecords.add(runCounter * 50);
                 points += runCounter * 50;
-            } else {
+            } else if (savedRunRecords.size()>0) {
                 points += savedRunRecords.get(savedRunRecords.size() - 1);                            //get last entry
                 savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
 
@@ -229,12 +230,12 @@ public class TriPeaks extends Game {
 
     @Override
     public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.canfield_longest_run) + " " + getInt(LONGEST_RUN, 0);
+        return res.getString(R.string.game_longest_run) + " " + prefs.getSavedLongestRun();
     }
 
     @Override
     public void deleteAdditionalStatisticsData() {
-        putInt(LONGEST_RUN, 0);
+        prefs.saveLongestRun(0);
     }
 
     private boolean stackIsFree(Stack stack) {
@@ -248,9 +249,13 @@ public class TriPeaks extends Game {
     }
 
     private void updateLongestRun(int currentRunCount) {
-        if (currentRunCount > getInt(LONGEST_RUN, 0)) {
-            putInt(LONGEST_RUN, currentRunCount);
+        if (currentRunCount > prefs.getSavedLongestRun()) {
+            prefs.saveLongestRun(currentRunCount);
         }
     }
 
+    @Override
+    protected boolean excludeCardFromMixing(Card card){
+        return false;
+    }
 }

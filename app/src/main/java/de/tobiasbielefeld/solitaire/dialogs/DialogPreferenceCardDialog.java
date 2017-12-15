@@ -38,6 +38,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class DialogPreferenceCardDialog extends DialogPreference implements View.OnClickListener {
 
+    private static int NUMBER_OF_CARD_THEMES = 8;
+
     private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_THEMES];
     private Context context;
     private ImageView image;
@@ -51,7 +53,7 @@ public class DialogPreferenceCardDialog extends DialogPreference implements View
 
     @Override
     protected void onBindDialogView(View view) {
-        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE) ? 1 : 0;
+        int row = prefs.getSavedFourColorMode() ? 1 : 0;
 
         linearLayouts[0] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsBasic);
         linearLayouts[1] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsClassic);
@@ -103,7 +105,7 @@ public class DialogPreferenceCardDialog extends DialogPreference implements View
 
         }
 
-        putSharedInt(CARD_DRAWABLES, choice);
+        prefs.saveCardTheme(choice);
         updateSummary();
         getDialog().dismiss();
     }
@@ -124,11 +126,11 @@ public class DialogPreferenceCardDialog extends DialogPreference implements View
     /**
      * Gets the bitmap for the card theme preference icon and also set its summary
      */
-    private void updateSummary() {
+    public void updateSummary() {
         String text;
         Bitmap cardPreview;
-        int row = getSharedBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE) ? 1 : 0;
-        int selectedTheme = getSharedInt(CARD_DRAWABLES, 1);
+        int row = prefs.getSavedFourColorMode() ? 1 : 0;
+        int selectedTheme = prefs.getSavedCardTheme();
 
         switch (selectedTheme) {
             case 1:
