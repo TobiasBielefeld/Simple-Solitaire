@@ -23,6 +23,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.annotation.CallSuper;
 import android.support.v4.widget.TextViewCompat;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -72,33 +73,7 @@ public abstract class Game {
     protected ArrayList<TextView> textViews = new ArrayList<>();
     private testMode mixCardsTestMode = testMode.DOESNT_MATTER;
 
-    /*
-     * override this in your games to customize behavior
-     */
-    protected boolean excludeCardFromMixing(Card card){
-        Stack stack = card.getStack();
-
-        if (!card.isUp()) {
-            return false;
-        }
-
-        if (foundationStacksContain(stack.getId())){
-            return true;
-        }
-
-        //do not exclude anything, if the testMode is null
-        if (mixCardsTestMode == null){
-            return false;
-        }
-
-        if (card.getIndexOnStack() == 0 && stack.getSize()==1){
-            return false;
-        }
-
-        int indexToTest = card.getIndexOnStack() - (card.isTopCard() && stack.getSize() > 1 ? 1 : 0);
-
-        return testCardsUpToTop(stack, indexToTest, mixCardsTestMode);
-    }
+    // some methods used by other classes
 
     /**
      * Used eg. if the player gets stuck and can't move any further: Mix all cards randomly by
@@ -116,7 +91,7 @@ public abstract class Game {
             }
         }
 
-        //exchange cards. A bit like Fisher-Yate Shuffle, but the iterating array doesn't shuffle.
+        //exchange cards. A bit like Fisher-Yate Shuffle, but the iterating array doesn't change.
         for (int i = cardsToMix.size() -1 ; i>=0;i--){
             Card cardToChange = cardsToMix.get(random.nextInt(i+1));
             cardToChange.getStack().exchangeCard(cardToChange,cardsToMix.get(i));
@@ -130,6 +105,66 @@ public abstract class Game {
         //delete the record list, otherwise undoing movements would result in strange behavior
         recordList.reset();
         handlerTestAfterMove.sendEmptyMessageDelayed(0,200);
+    }
+
+    public void dealNewGame(){
+        dealCards();
+
+        switch (prefs.getDeveloperOptionDealCorrectSequences()){
+            case 1: //alternating color
+                flipAllCardsUp();
+
+                for (int i = 0; i < (cards.length/13); i++) {
+                    for (int j = 0; j < 13; j++) {
+                        int color = (j % 2 == 0) ? i : (i==0) ? (cards.length/13) -1 : i-1;
+                        int cardIndex = (13 * (color + 1)) - j - 1;
+                        cards[cardIndex].removeFromCurrentStack();
+                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                    }
+                }
+
+                break;
+            case 2: //same family
+                flipAllCardsUp();
+
+                for (int i = 0; i < (cards.length/13); i++) {
+                    for (int j = 0; j < 13; j++) {
+                            int cardIndex = (13 * (i + 1)) - j - 1;
+                            cards[cardIndex].removeFromCurrentStack();
+                            moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                    }
+                }
+
+                break;
+            case 3: //reversed alternating color
+                flipAllCardsUp();
+
+                for (int i = 0; i < (cards.length/13); i++) {
+                    for (int j = 0; j < 13; j++) {
+                        int color = (j % 2 == 0) ? i : (i==0) ? (cards.length/13) -1 : i-1;
+                        int cardIndex = 13 * color + j;
+                        cards[cardIndex].removeFromCurrentStack();
+                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                    }
+                }
+
+                break;
+            case 4: //reversed same family
+                flipAllCardsUp();
+
+                for (int i = 0; i < (cards.length/13); i++) {
+                    for (int j = 0; j < 13; j++) {
+                        int cardIndex = 13 * i + j;
+                        cards[cardIndex].removeFromCurrentStack();
+                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                    }
+                }
+
+                break;
+            default:
+                //nothing, developer option not set
+                break;
+        }
     }
 
 
@@ -182,17 +217,17 @@ public abstract class Game {
         return cardAndStack;
     }
 
+    //methods games must implement
+
     /**
      * Sets the layouts and position of the stacks on the screen.
      *
      * @param layoutGame  The layout, where the stacks and cards are showed in. Used to calculate
-     *                    the widht/height
+     *                    the width/height
      * @param isLandscape Shows if the screen is in landscape mode, so the games can set up
      *                    different layouts for this
      */
     abstract public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context);
-
-    // some methods used by other classes
 
     /**
      * Tests if the currently played game is won. Called after every movement. If the game is won,
@@ -206,8 +241,6 @@ public abstract class Game {
      * Deals the initial layout of cards at game start.
      */
     abstract public void dealCards();
-
-    //methods games must implement
 
     /**
      * Tests a card if it can be placed on the given stack.
@@ -407,6 +440,36 @@ public abstract class Game {
      */
     public void onGameEnd(){
 
+    }
+
+    /*
+     * this method tests cards, if they are excluded from the card mixing function. (Eg. cards on the foundation)
+     * You can override it to customise the behavior. Eg this method in the game Golf is empty, because no
+     * cards should be excluded there
+     */
+    protected boolean excludeCardFromMixing(Card card){
+        Stack stack = card.getStack();
+
+        if (!card.isUp()) {
+            return false;
+        }
+
+        if (foundationStacksContain(stack.getId())){
+            return true;
+        }
+
+        //do not exclude anything, if the testMode is null
+        if (mixCardsTestMode == null){
+            return false;
+        }
+
+        if (card.getIndexOnStack() == 0 && stack.getSize()==1){
+            return false;
+        }
+
+        int indexToTest = card.getIndexOnStack() - (card.isTopCard() && stack.getSize() > 1 ? 1 : 0);
+
+        return testCardsUpToTop(stack, indexToTest, mixCardsTestMode);
     }
 
     /**
@@ -767,25 +830,13 @@ public abstract class Game {
             for (int i = 0; i < directionBorders.length; i++) {
                 if (directionBorders[i] != -1)    //-1 means no border
                     stacks[i].setSpacingMax(directionBorders[i]);
-                else
-                    stacks[i].setSpacingMax(layoutGame);
+                else stacks[i].setSpacingMax(layoutGame);
             }
         } else {
             for (Stack stack : stacks) {
                 stack.setSpacingMax(layoutGame);
             }
         }
-    }
-
-    /**
-     * Tell that this game has foundation stacks. Used for double tap, to move to the foundation
-     * first. Games like Spider and SimpleSimon, where the player can't move directly to the foundation,
-     * don't need this
-     *
-     * @param value The value to apply
-     */
-    protected void setHasFoundationStacks(boolean value) {
-        hasFoundationStacks = value;
     }
 
     /**

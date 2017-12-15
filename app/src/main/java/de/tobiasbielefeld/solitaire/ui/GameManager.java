@@ -33,7 +33,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -42,7 +41,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.dialogs.DialogRestart;
+import de.tobiasbielefeld.solitaire.dialogs.DialogInGameMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
@@ -617,8 +616,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     public void showRestartDialog() {
         try {
-            DialogRestart dialogRestart = new DialogRestart();
-            dialogRestart.show(getSupportFragmentManager(), RESTART_DIALOG);
+            DialogInGameMenu dialogInGameMenu = new DialogInGameMenu();
+            dialogInGameMenu.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e){
             Log.e("showRestartDialog: ", e.toString());
         }

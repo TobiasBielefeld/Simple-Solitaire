@@ -75,6 +75,7 @@
     <string name="pref_key_developer_option_instant_win" translatable="false">pref_key_developer_option_instant_win</string>
     <string name="pref_key_developer_option_no_saving" translatable="false">pref_key_developer_option_no_saving</string>
     <string name="pref_key_developer_option_lock" translatable="false">pref_key_developer_option_lock</string>
+    <string name="pref_key_developer_option_deal_correct_sequences" translatable="false">pref_key_developer_option_deal_correct_sequences</string>
     <string name="pref_key_use_true_randomisation" translatable="false">pref_key_use_true_randomisation</string>
 
     <!-- internal stuff only used in program code -->

@@ -35,4 +35,15 @@
         android:title="@string/settings_developer_options_no_saving_title"
         android:summary="@string/settings_developer_options_no_saving_text"/>
 
+    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        android:dependency="@string/pref_key_developer_option_lock"
+        android:defaultValue="0"
+        android:entries="@array/pref_developer_option_deal_correct_sequences_titles"
+        android:entryValues="@array/pref_developer_option_deal_correct_sequences_values"
+        android:key="@string/pref_key_developer_option_deal_correct_sequences"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@null"
+        android:summary="%s"
+        android:title="@string/settings_developer_options_deal_correct_sequences_title" />
+
 </PreferenceScreen>

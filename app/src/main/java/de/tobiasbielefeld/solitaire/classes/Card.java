@@ -310,6 +310,9 @@ public class Card {
     }
 
     public void removeFromCurrentStack(){
-        getStack().removeCard(this);
+        if (stack!=null) {
+            stack.removeCard(this);
+            stack = null;
+        }
     }
 }

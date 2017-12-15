@@ -90,9 +90,25 @@
         <item>5</item>
     </string-array>
 
+    <string-array name="pref_developer_option_deal_correct_sequences_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="pref_developer_option_deal_correct_sequences_titles">
+        <item>Disabled</item>
+        <item>Alternating color</item>
+        <item>Same family</item>
+        <item>Reversed alternating color</item>
+        <item>Reversed same family</item>
+    </string-array>
+
     <string-array name="restart_menu">
-        <item>Start new game</item>
-        <item>Give cards again</item>
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
         <item>@string/dialog_mix_cards_title</item>
         <item>Game rules</item>
         <item>Return to main menu</item>

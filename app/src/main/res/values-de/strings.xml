@@ -54,7 +54,15 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Karten mischen</string>
-    <string name="dialog_mix_cards_text">Do you really want to mix the cards? This will shuffle all cards,
-        expect correct sequences and cards on the foundation.</string>
+    <string name="dialog_mix_cards_text">Dies wird alle Karten mischen, bis auf korrekte Sequenzen und Karten auf der Foundation.</string>
+    <string name="dialog_mix_cards_not_available">Es sind noch Bewegungen möglich! (Benutze die Hinweisfunktion um sie zu zeigen)</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">Neues Spiel starten</string>
+    <string name="dialog_start_new_game_text">Dein aktueller Fortschritt geht verloren und ein neues zufälliges Spiel wird ausgegeben.</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">Spiel wiederholen</string>
+    <string name="dialog_redeal_text">Dein aktueller Fortschritt geht verloren, aber die Karten werden wieder wie im aktuellen Spiel ausgegeben.</string>
 
 </resources>

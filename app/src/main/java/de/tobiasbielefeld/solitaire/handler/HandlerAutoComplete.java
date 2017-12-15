@@ -85,9 +85,17 @@ public class HandlerAutoComplete extends Handler {
 
                     moveToStack(cards, cardAndStack.getStack());
                 }
-                //else phase 2, move only one card
+                //else phase 2, move only one card but without the moveToStack method, it would
+                //result in card flickering
                 else {
-                    moveToStack(cardAndStack.getCard(), cardAndStack.getStack());
+                    Card card = cardAndStack.getCard();
+                    Stack destination = cardAndStack.getStack();
+
+                    scores.move(card, destination);
+                    card.removeFromCurrentStack();
+                    destination.addCard(card,false);
+                    card.view.bringToFront();
+                    card.setLocation(destination.getX(),destination.getY());
                 }
 
                 currentTime = max(currentTime - DELTA_TIME, MIN_TIME);

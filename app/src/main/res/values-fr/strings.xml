@@ -24,6 +24,7 @@
     <string name="menu_settings">Réglages</string>
 
     <!-- game names -->
+    <string name="games_Calculation">Calculation</string>
     <string name="games_Klondike">Solitaire</string>
     <string name="games_Freecell">FreeCell</string>
     <string name="games_Yukon">Yukon</string>
@@ -60,11 +61,18 @@
 
 
     <!-- new values -->
-    <string name="games_Calculation">Calculation</string>
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Mélanger les cartes</string>
-    <string name="dialog_mix_cards_text">Voulez-vous vraiment mélanger les cartes? Cela va mélanger toutes
-        les cartes expect correct sequences and cards on the foundation.</string>
+    <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>
+    <string name="dialog_mix_cards_not_available">There are still possible moves! (Use the hint function to show them)</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">Démarrer une nouvelle partie</string>
+    <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">Redistribuer les cartes</string>
+    <string name="dialog_redeal_text">Your current progress will be lost, but the cards are dealt like in the current game.</string>
 
 </resources>

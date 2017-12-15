@@ -255,7 +255,7 @@ public class FortyEight extends Game {
         for (int i = 0; i < 8; i++) {
             Stack stack = stacks[i];
 
-            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, SAME_FAMILY)) {
+            if ((!stack.isEmpty() && !stack.getCard(0).isUp()) || !testCardsUpToTop(stack, 0, DOESNT_MATTER)) {
                 return false;
             }
         }

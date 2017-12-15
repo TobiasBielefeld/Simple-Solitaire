@@ -26,32 +26,31 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.ui.Statistics;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 
 /**
- * Dialog for deleting all high scores
+ * Little confirmation dialog for redealing the current game
  */
 
-public class DialogMixCards extends DialogFragment {
+public class DialogRedeal extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.dialog_mix_cards_title)
-            .setMessage(R.string.dialog_mix_cards_text)
-            .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    currentGame.mixCards();
-                }
-            })
-            .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    // User cancelled the dialog
-                }
-            });
+        builder.setTitle(R.string.dialog_redeal_title)
+                .setMessage(R.string.dialog_redeal_text)
+                .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        gameLogic.redeal();
+                    }
+                })
+                .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
 
         return builder.create();
     }

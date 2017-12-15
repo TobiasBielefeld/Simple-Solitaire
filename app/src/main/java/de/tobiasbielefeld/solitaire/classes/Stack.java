@@ -110,6 +110,7 @@ public class Stack {
     public void removeCard(Card card) {
         currentCards.remove(currentCards.indexOf(card));
         updateSpacing();
+
     }
 
     /**

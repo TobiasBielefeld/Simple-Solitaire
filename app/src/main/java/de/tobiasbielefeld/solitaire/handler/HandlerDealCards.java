@@ -13,8 +13,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 
 
 /**
- * Helper for undo movements: The undo is separated in steps: first undo moves with order 0, wait a bit,
- * then moves with order 1 and so on
+ * Helper for re-dealing cards. cards are first moved back to the stack, then a new game is dealt.
  */
 
 public class HandlerDealCards extends Handler {
@@ -23,7 +22,7 @@ public class HandlerDealCards extends Handler {
         super.handleMessage(msg);
 
         if (!animate.cardIsAnimating()) {
-            currentGame.dealCards();
+            currentGame.dealNewGame();
             sounds.playSound(Sounds.names.DEAL_CARDS);
             handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
         } else {

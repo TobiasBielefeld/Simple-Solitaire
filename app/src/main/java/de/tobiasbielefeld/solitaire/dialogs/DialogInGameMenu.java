@@ -36,7 +36,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
  */
 
-public class DialogRestart extends DialogFragment {
+public class DialogInGameMenu extends DialogFragment {
 
     @Override
     @NonNull
@@ -50,15 +50,22 @@ public class DialogRestart extends DialogFragment {
                         // "which" argument contains index of selected item
                         switch (which) {
                             case 0:
-                                gameLogic.newGame();
+                                DialogStartNewGame dialogStartNewGame = new DialogStartNewGame();
+                                dialogStartNewGame.show(getFragmentManager(),"START_NEW_GAME_DIALOG");
                                 break;
                             case 1:
-                                gameLogic.redeal();
+                                DialogRedeal dialogRedeal = new DialogRedeal();
+                                dialogRedeal.show(getFragmentManager(), "REDEAL_DIALOG");
                                 break;
                             case 2:
                                 if (!gameLogic.hasWon()) {
-                                    DialogMixCards dialogMixCards = new DialogMixCards();
-                                    dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
+                                    if (currentGame.hintTest() == null) {
+                                        DialogMixCards dialogMixCards = new DialogMixCards();
+                                        dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
+                                    } else {
+                                        DialogMixCardsMovesAvailable dialogMixCardsStillMovesAvailable = new DialogMixCardsMovesAvailable();
+                                        dialogMixCardsStillMovesAvailable.show(getFragmentManager(),"MIX_DIALOG_MOVES_AVAILABLE");
+                                    }
                                 }
                                 break;
                             case 3:

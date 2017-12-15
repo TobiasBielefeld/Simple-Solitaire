@@ -60,7 +60,15 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Sekoita kortit</string>
-    <string name="dialog_mix_cards_text">Haluatko todella sekoittaa kortit? Tämä sekoittaa kortit
-        expect correct sequences and cards on the foundation.</string>
+    <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>
+    <string name="dialog_mix_cards_not_available">There are still possible moves! (Use the hint function to show them)</string>
+
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">Aloita uusi peli</string>
+    <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
+
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">Jaa kortit uudelleen</string>
+    <string name="dialog_redeal_text">Your current progress will be lost, but the cards are dealt like in the current game.</string>
 
 </resources>

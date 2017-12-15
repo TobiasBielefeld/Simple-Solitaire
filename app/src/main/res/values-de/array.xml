@@ -1,8 +1,8 @@
 <resources>
 
     <string-array name="restart_menu">
-        <item>Neues Spiel starten</item>
-        <item>Spiel wiederholen</item>
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
         <item>@string/dialog_mix_cards_title</item>
         <item>Spielregeln</item>
         <item>Zurück zum Hauptmenü</item>

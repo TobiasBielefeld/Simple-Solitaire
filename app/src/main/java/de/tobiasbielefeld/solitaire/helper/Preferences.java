@@ -125,6 +125,7 @@ public class Preferences {
     public static String PREF_KEY_USE_TRUE_RANDOMISATION;
     public static String PREF_KEY_DEVELOPER_OPTION_NO_SAVING;
     public static String PREF_KEY_DEVELOPER_OPTION_LOCK;
+    public static String PREF_KEY_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -146,6 +147,7 @@ public class Preferences {
     public static String DEFAULT_WIN_SOUND;
     public static String DEFAULT_MOVEMENT_SPEED;
     public static String DEFAULT_CANFIELD_SIZE_OF_RESERVE;
+    public static String DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_CARD_BACKGROUND_COLOR;
@@ -323,6 +325,7 @@ public class Preferences {
         PREF_KEY_DEVELOPER_OPTION_INSTANT_WIN = res.getString(R.string.pref_key_developer_option_instant_win);
         PREF_KEY_DEVELOPER_OPTION_NO_SAVING = res.getString(R.string.pref_key_developer_option_no_saving);
         PREF_KEY_DEVELOPER_OPTION_LOCK = res.getString(R.string.pref_key_developer_option_lock);
+        PREF_KEY_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES = res.getString(R.string.pref_key_developer_option_deal_correct_sequences);
 
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
@@ -360,6 +363,7 @@ public class Preferences {
         DEFAULT_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE = res.getBoolean(R.bool.default_developer_option_move_cards_everywhere);
         DEFAULT_DEVELOPER_OPTION_PLAY_EVERY_CARD = res.getBoolean(R.bool.default_developer_option_play_every_card);
         DEFAULT_DEVELOPER_OPTION_INSTANT_WIN = res.getBoolean(R.bool.default_developer_option_instant_win);
+        DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES = res.getString(R.string.default_developer_option_deal_correct_sequences);
         DEFAULT_USE_TRUE_RANDOMISATION = res.getBoolean(R.bool.default_use_true_randomisation);
         DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
         DEFAULT_CARD_BACKGROUND_COLOR = res.getInteger(R.integer.default_card_background_color);
@@ -491,7 +495,9 @@ public class Preferences {
     }
 
     /**
-     * see description of setCriticalSettings()
+     * see description of setCriticalSettings(). Without setting these before loading the settings-activity,
+     * the activity would show toasts to start a new game. (Because the preferences get created and trigger
+     * the toast notification)
      */
     public void setCriticalGameSettings(){
         saveCanfieldDrawMode(getSavedCanfieldDrawMode());
@@ -614,6 +620,11 @@ public class Preferences {
 
     public boolean isDeveloperOptionLockEnabled(){
         return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_LOCK, DEFAULT_DEVELOPER_OPTION_LOCK);
+    }
+
+    public int getDeveloperOptionDealCorrectSequences(){
+        String value = savedSharedData.getString(PREF_KEY_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES, DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES);
+        return isDeveloperOptionLockEnabled() ? Integer.parseInt(value) : 0;
     }
 
     public ArrayList<Integer> getSavedCards(){

@@ -250,13 +250,13 @@ public class GameLogic {
         array[index] = dummy;
 
         for (int i = array.length - 2; i > 0; i--) {
-            counter = 0;
-
             if (prefs.getSavedUseTrueRandomisation()){
                 index = random.nextInt(i+1);
             } else {
                 //choose a new card as long the chosen card is too similar to the previous card in the array
                 //(same value or color) also limit the loop to max 10 iterations to avoid infinite loops
+                counter = 0;
+
                 do {
                     index = random.nextInt(i + 1);
                     counter++;

@@ -1,8 +1,8 @@
 <resources>
 
     <string-array name="restart_menu">
-        <item>Aloita uusi peli</item>
-        <item>Jaa kortit uudelleen</item>
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
         <item>@string/dialog_mix_cards_title</item>
         <item>Pelin säännöt</item>
         <item>Palaa päävalikkoon</item>

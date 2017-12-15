@@ -26,7 +26,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.ui.Statistics;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 
@@ -34,24 +33,18 @@ import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
  * Dialog for deleting all high scores
  */
 
-public class DialogMixCards extends DialogFragment {
+public class DialogMixCardsMovesAvailable extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.dialog_mix_cards_title)
-            .setMessage(R.string.dialog_mix_cards_text)
-            .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    currentGame.mixCards();
-                }
-            })
-            .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    // User cancelled the dialog
-                }
-            });
+                .setMessage(R.string.dialog_mix_cards_not_available)
+                .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
 
         return builder.create();
     }
