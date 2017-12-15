@@ -145,7 +145,7 @@
 
     <string name="settings_use_true_randomisation_title">Stosowanie prawdziwej randomizacji</string>
     <string name="settings_use_true_randomisation_text">Domyślna randomizacja pozwala uniknąć podobnych kart obok siebie.
-        Kontrola w celu umożliwienia prawdziwie jednolitej randomizacji</string>
+        Należy to sprawdzić, aby umożliwić prawdziwie jednolitą randomizację</string>
 
     <string name="settings_developer_options">Opcje dewelopera</string>
     <string name="settings_developer_options_description">Zagraj w szalone scenerie!</string>

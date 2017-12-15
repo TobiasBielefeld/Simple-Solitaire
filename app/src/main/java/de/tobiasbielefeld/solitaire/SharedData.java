@@ -22,12 +22,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.util.Log;
 
-import org.uncommons.maths.random.AESCounterRNG;
-
-import java.security.GeneralSecurityException;
-import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
 
@@ -204,9 +199,9 @@ public class SharedData {
 
             recordList.add(cardsReversed);
             scores.move(cards, destinations);
-        } else if (option == OPTION_NO_RECORD){
-            //nothing
         }
+        //else if (option == OPTION_NO_RECORD), do nothing
+
 
         for (int i = 0; i < cards.size(); i++) {
             if (cards.get(i).getStack() == destinations.get(i)) {                                     //this means to flip a card

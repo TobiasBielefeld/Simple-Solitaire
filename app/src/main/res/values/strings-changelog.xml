@@ -7,6 +7,14 @@
      -
     -->
 
+    <string name="changelog_42" translatable="false">
+        • Added a new option to mix the cards, if no movement is possible
+        \n• Randomisation now avoids similar cards next to each other, can be disabled in the general settings.
+        \n• Added new confirmation dialogs for starting new games
+        \n• Added developer options to play around (Use with care!)
+        \n• Canfield: The size of the reserve can now be changed (makes the game easier to win)
+    </string>
+
     <string name="changelog_41" translatable="false">
         • Added missing Esperanto and Polish translations, thanks to verdulo!
     </string>

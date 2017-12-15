@@ -141,7 +141,7 @@
 
     <string name="settings_use_true_randomisation_title">Utiliser la vraie randomisation</string>
     <string name="settings_use_true_randomisation_text">La randomisation par défaut permet d\'éviter les cartes similaires les unes à côté des autres.
-        Vérification permettant une randomisation vraiment uniforme</string>
+        Cochez cette case pour permettre une randomisation vraiment uniforme.</string>
 
     <string name="settings_developer_options">Options de développement</string>
     <string name="settings_developer_options_description">Jouez avec des décors délirants!</string>

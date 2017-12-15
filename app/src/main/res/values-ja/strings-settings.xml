@@ -144,7 +144,7 @@
 
     <string name="settings_use_true_randomisation_title">真のランダム化を使用する</string>
     <string name="settings_use_true_randomisation_text">デフォルトのランダム化は、類似したカードを互いに隣り合うように避けます。
-         本当に均一なランダム化を有効にするにはチェックしてください</string>
+         これをチェックすると、本当に均一なランダム化が可能になります</string>
 
     <string name="settings_developer_options">開発者オプション</string>
     <string name="settings_developer_options_description">狂った設定で遊んでください！</string>

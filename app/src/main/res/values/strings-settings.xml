@@ -136,7 +136,7 @@
 
     <string name="settings_use_true_randomisation_title">Use true randomisation</string>
     <string name="settings_use_true_randomisation_text">The default randomisation avoids similar cards next to each other.
-        Check to enable a truly uniform randomisation</string>
+        Check this to enable a truly uniform randomisation</string>
 
     <string name="settings_developer_options">Developer options</string>
     <string name="settings_developer_options_description">Play around with crazy settings!</string>

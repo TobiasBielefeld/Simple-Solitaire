@@ -128,9 +128,9 @@
 
     <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
 
-    <string name="settings_use_true_randomisation_title">Use true randomisation</string>
-    <string name="settings_use_true_randomisation_text">The default randomisation avoids similar cards next to each other.
-        Check to enable a truly uniform randomisation.</string>
+    <string name="settings_use_true_randomisation_title">Benutze echten Zufall</string>
+    <string name="settings_use_true_randomisation_text">Die Standard Randomisierung vermeidet ähnliche Karten nebeneinander.
+        Setze das Häkchen, um eine uniforme Randomisierung zu nutzen.</string>
 
     <string name="settings_developer_options">Entwickler Optionen</string>
     <string name="settings_developer_options_description">Spielen mit verrückten Einstellungen herum!</string>

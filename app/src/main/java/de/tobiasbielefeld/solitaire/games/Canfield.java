@@ -414,25 +414,6 @@ public class Canfield extends Game {
 
         }
 
-        /*for (int i = 5; i <= 8; i++) {
-
-            Stack origin = stacks[i];
-
-            if (origin.isEmpty())
-                continue;
-
-            // last card of a stack to move to the foundation
-            card = origin.getTopCard();
-
-            if (!hint.hasVisited(card)) {
-                for (int j = 0; j <= 3; j++) {
-                    if (card.test(stacks[j]))
-                        return new CardAndStack(card, stacks[j]);
-                }
-            }
-
-        }*/
-
         /* card from trash of stock to every other stack*/
         for (int i = 0; i < 3; i++) {
             if ((i < 2 && !stacks[11].isEmpty()) || (i == 0 && !stacks[10].isEmpty())) {
@@ -440,13 +421,13 @@ public class Canfield extends Game {
             }
 
             if (stacks[9 + i].getSize() > 0 && !hint.hasVisited(stacks[9 + i].getTopCard())) {
-                for (int j = 0; j <= 3; j++) {
+                for (int j = 5; j <= 8; j++) {
                     if (stacks[9 + i].getTopCard().test(stacks[j])) {
                         return new CardAndStack(stacks[9 + i].getTopCard(), stacks[j]);
                     }
                 }
 
-                for (int j = 5; j <= 8; j++) {
+                for (int j = 0; j <= 3; j++) {
                     if (stacks[9 + i].getTopCard().test(stacks[j])) {
                         return new CardAndStack(stacks[9 + i].getTopCard(), stacks[j]);
                     }
