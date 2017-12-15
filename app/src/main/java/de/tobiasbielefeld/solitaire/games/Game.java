@@ -128,6 +128,10 @@ public abstract class Game {
         handlerTestAfterMove.sendEmptyMessageDelayed(0,200);
     }
 
+    protected void dealWinnableGame(){
+
+    }
+
     public void dealNewGame(){
         dealCards();
 
