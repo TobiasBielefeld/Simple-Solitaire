@@ -33,4 +33,14 @@
         android:summary="@string/settings_other_description"
         android:title="@string/settings_other" />
 
+    <header
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$ExpertSettingsPreferenceFragment"
+        android:summary="@string/settings_expert_settings_text"
+        android:title="@string/settings_expert_settings" />
+
+    <header
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$DeveloperOptionsPreferenceFragment"
+        android:summary="@string/settings_developer_options_description"
+        android:title="@string/settings_developer_options" />
+
 </preference-headers>

@@ -47,6 +47,7 @@ import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
+import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.helper.Timer;
@@ -101,6 +102,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //initialize my static helper stuff
         final GameManager gm = this;
 
+
         scores = new Scores(gm);
         gameLogic = new GameLogic(gm);
         animate = new Animate(gm);
@@ -110,6 +112,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
         prefs.setGamePreferences(this);
         Stack.loadBackgrounds();
+        recordList = new RecordList();
 
         updateMenuBar();
 

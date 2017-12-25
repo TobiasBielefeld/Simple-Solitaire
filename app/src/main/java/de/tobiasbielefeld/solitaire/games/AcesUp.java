@@ -91,8 +91,7 @@ public class AcesUp extends Game {
     }
 
     public int onMainStackTouch() {
-
-        if (getMainStack().isEmpty() == true) {
+        if (getMainStack().isEmpty()) {
             return 0;
         }
 

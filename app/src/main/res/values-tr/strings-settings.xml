@@ -145,7 +145,6 @@
     <string name="settings_developer_options_move_card_everwhere_title">Move cards everywhere</string>
     <string name="settings_developer_options_move_card_everwhere_text">You can place cards on any stack</string>
 
-    <string name="settings_developer_options_lock_title">Unlock developer options</string>
     <string name="settings_developer_options_lock_text">These settings are intended for testing purpose only, the usage can result in strange behavior and crashes!</string>
     <string name="settings_developer_options_play_every_card_title">Play every card</string>
     <string name="settings_developer_options_play_every_card_text">You can play every revealed card</string>
@@ -157,5 +156,12 @@
     <string name="settings_developer_options_no_saving_text">Movements in a game won\'t be saved anymore</string>
 
     <string name="settings_developer_options_deal_correct_sequences_title">Deal correct sequences</string>
+
+    <string name="settings_show_advanced_settings">Show advanced settings</string>
+    <string name="settings_show_advanced_settings_text">Unlock the expert and developer categories</string>
+
+    <string name="settings_max_number_undos">Maximum amount of undo movements</string>
+    <string name="settings_expert_settings">Expert settings</string>
+    <string name="settings_expert_settings_text">May be useful for some people</string>
 
 </resources>

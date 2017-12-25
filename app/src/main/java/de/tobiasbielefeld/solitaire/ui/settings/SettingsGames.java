@@ -70,13 +70,6 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        //only item is the back arrow
-        finish();
-        return true;
-    }
-
-    @Override
     public boolean onIsMultiPane() {
         return isXLargeTablet(this);
     }
