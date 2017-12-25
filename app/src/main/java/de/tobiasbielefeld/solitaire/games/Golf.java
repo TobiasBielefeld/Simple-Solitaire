@@ -42,7 +42,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Golf extends Game {
 
-    static int MAX_SAVED_RUN_RECORDS = RecordList.maxRecords;
+    static int MAX_SAVED_RUN_RECORDS;
 
     int runCounter; //to count how many cards are moved in one "run"
     ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
@@ -72,8 +72,8 @@ public class Golf extends Game {
 
     @Override
     public void load() {
+        MAX_SAVED_RUN_RECORDS = RecordList.maxRecords;
         runCounter = prefs.getSavedRunCounter();
-
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -163,7 +163,7 @@ public class Golf extends Game {
                 runCounter++;
                 updateLongestRun(runCounter);
 
-                if (savedRunRecords.size() == MAX_SAVED_RUN_RECORDS) {
+                if (savedRunRecords.size() >= MAX_SAVED_RUN_RECORDS) {
                     savedRunRecords.remove(0);
                 }
 
