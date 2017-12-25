@@ -180,12 +180,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 scores.output();
             }
         } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
-            if (sharedPreferences.getBoolean(key,false)) {
+            if (sharedPreferences.getBoolean(key,false) && preferenceTapToSelect!=null) {
                 preferenceTapToSelect.setChecked(false);
             }
 
         } else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)){
-            if (sharedPreferences.getBoolean(key,false)) {
+            if (sharedPreferences.getBoolean(key,false) && preferenceSingleTapAllGames!=null) {
                 preferenceSingleTapAllGames.setChecked(false);
             }
 
