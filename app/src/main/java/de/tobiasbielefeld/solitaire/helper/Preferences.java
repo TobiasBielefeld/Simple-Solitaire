@@ -496,6 +496,8 @@ public class Preferences {
         saveLocale(getSavedLocale());
         saveForcedTabletLayout(getSavedForcedTabletLayout());
         saveShowExpertSettings(getShowAdvancedSettings());
+        saveSingleTapAllGames(getSingleTapAllGames());
+        saveTapToSelectEnabled(getSavedTapToSelectEnabled());
     }
 
     /**
@@ -1165,6 +1167,14 @@ public class Preferences {
 
     public void saveVegasResetMoney(boolean value){
         savedSharedData.edit().putBoolean(PREF_KEY_VEGAS_RESET_MONEY,value).apply();
+    }
+
+    public void saveSingleTapAllGames(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_SINGLE_TAP_ALL_GAMES,value).apply();
+    }
+
+    public void saveTapToSelectEnabled(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED,value).apply();
     }
 
     public void saveCalculationNextCardsList(ArrayList<String> list){
