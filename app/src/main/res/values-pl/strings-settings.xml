@@ -153,7 +153,6 @@
     <string name="settings_developer_options_move_card_everwhere_title">Przenieś karty wszędzie.</string>
     <string name="settings_developer_options_move_card_everwhere_text">Karty można umieszczać na dowolnym stosie</string>
 
-    <string name="settings_developer_options_lock_title">Odblokować opcje dewelopera</string>
     <string name="settings_developer_options_lock_text">Ustawienia te są przeznaczone wyłącznie do celów testowych, użycie może powodować dziwne zachowania i awarie!</string>
     <string name="settings_developer_options_play_every_card_title">Odtwórz każdą kartę</string>
     <string name="settings_developer_options_play_every_card_text">Można odtworzyć każdą ujawnioną kartę</string>
@@ -165,5 +164,12 @@
     <string name="settings_developer_options_no_saving_text">Ruchy w grze nie będą już zapisywane</string>
 
     <string name="settings_developer_options_deal_correct_sequences_title">Usuwanie prawidłowych sekwencji</string>
+
+    <string name="settings_show_advanced_settings">Pokaż zaawansowane ustawienia</string>
+    <string name="settings_show_advanced_settings_text">Odblokowanie kategorii ekspertów i deweloperów</string>
+
+    <string name="settings_max_number_undos">Maksymalna liczba cofnięć</string>
+    <string name="settings_expert_settings">Ustawienia specjalistyczne</string>
+    <string name="settings_expert_settings_text">Może być przydatna dla niektórych ludzi</string>
 
 </resources>

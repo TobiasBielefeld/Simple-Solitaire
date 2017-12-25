@@ -39,7 +39,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class TriPeaks extends Game {
 
-    static int MAX_SAVED_RUN_RECORDS = RecordList.MAX_RECORDS;
+    static int MAX_SAVED_RUN_RECORDS = RecordList.maxRecords;
     //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
     //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28

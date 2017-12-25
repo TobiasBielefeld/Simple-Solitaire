@@ -20,9 +20,6 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
 
-import org.uncommons.maths.random.AESCounterRNG;
-
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Random;
 
