@@ -264,9 +264,9 @@ public class SharedData {
         return prefs.getSavedLeftHandedMode();
     }
 
-    public static boolean isXLargeTablet(Context context) {
+    public static boolean isLargeTablet(Context context) {
         return prefs.getSavedForcedTabletLayout() || ((context.getResources().getConfiguration().screenLayout
-                        & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE);
+                        & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE);
     }
 
     public static String stringFormat(String text){

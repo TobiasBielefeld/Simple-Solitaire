@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -71,7 +70,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
 
     @Override
     public boolean onIsMultiPane() {
-        return isXLargeTablet(this);
+        return isLargeTablet(this);
     }
 
     @Override
@@ -123,12 +122,12 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
 
         } else if (key.equals(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES)) {
             if (currentGame instanceof FortyEight) {
-                gameLogic.toggleRecycles();
+                gameLogic.toggleRecycles(prefs.getSavedFortyEightLimitedRecycles());
             }
 
         } else if (key.equals(PREF_KEY_PYRAMID_LIMITED_RECYCLES)) {
             if (currentGame instanceof Pyramid) {
-                gameLogic.toggleRecycles();
+                gameLogic.toggleRecycles(prefs.getSavedPyramidLimitedRecycles());
             }
 
         } else if (key.equals(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES)){
@@ -152,7 +151,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
 
         } else if (key.equals(PREF_KEY_KLONDIKE_LIMITED_RECYCLES)) {
             if (currentGame instanceof Klondike) {
-                gameLogic.toggleRecycles();
+                gameLogic.toggleRecycles(prefs.getSavedKlondikeLimitedRecycles());
             }
 
         } else if (key.equals(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES)){

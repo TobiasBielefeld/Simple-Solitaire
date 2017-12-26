@@ -112,7 +112,7 @@
     <string name="settings_customization_description">カードと背景をカスタマイズします</string>
 
     <string name="settings_force_tablet_layout_title">タブレットレイアウトを強制する</string>
-    <string name="settings_force_tablet_layout_text">アプリケーションを大画面で表示する (>=10\")</string>
+    <string name="settings_force_tablet_layout_text">アプリケーションを大画面で表示する (≥7\")</string>
 
     <string name="settings_restart_calculation">新しい計算ゲームを開始して変更を適用する</string>
     <string name="settings_calculation_alternative_title">カードを保持する</string>

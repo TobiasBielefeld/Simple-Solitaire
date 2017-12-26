@@ -112,7 +112,7 @@
     <string name="settings_customization_description">Dostosuj karty, tła i interfejs użytkownika</string>
 
     <string name="settings_force_tablet_layout_title">Wymuś tryb tabletu</string>
-    <string name="settings_force_tablet_layout_text">Wyświetl aplikację tak jak na dużych ekranach (≥10\")</string>
+    <string name="settings_force_tablet_layout_text">Wyświetl aplikację tak jak na dużych ekranach (≥7\")</string>
 
     <string name="settings_restart_calculation">Aby zastosować zmiany, rozpocznij nową grę Calculation</string>
     <string name="settings_calculation_alternative_title">Trzymaj karty</string>

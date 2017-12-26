@@ -102,7 +102,7 @@
     <!-- new values -->
     <string name="settings_customization_description">Kartları, arkaplanı ve kullanıcı arayüzüözelleştir</string>
     <string name="settings_force_tablet_layout_title">Force tablet layout</string>
-    <string name="settings_force_tablet_layout_text">Show the application as on large screens (>=10\")</string>
+    <string name="settings_force_tablet_layout_text">Show the application as on large screens (≥7\")</string>
 
     <string name="settings_restart_calculation">Start a new Calculation game to apply the change</string>
     <string name="settings_calculation_alternative_title">Keep cards</string>

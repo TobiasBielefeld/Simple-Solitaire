@@ -36,8 +36,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
 import static de.tobiasbielefeld.solitaire.SharedData.GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.isXLargeTablet;
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
+import static de.tobiasbielefeld.solitaire.SharedData.isLargeTablet;
 
 /**
  * Manual Activity: Uses some fragments to show the manual pages.
@@ -65,7 +64,7 @@ public class Manual extends CustomAppCompatActivity
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(isXLargeTablet(getApplicationContext()) ? R.layout.activity_manual_xlarge : R.layout.activity_manual);
+        setContentView(isLargeTablet(getApplicationContext()) ? R.layout.activity_manual_xlarge : R.layout.activity_manual);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         listView = (ListView) findViewById(R.id.manual_listView);

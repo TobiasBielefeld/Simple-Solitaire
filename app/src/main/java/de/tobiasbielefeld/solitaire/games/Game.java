@@ -1060,8 +1060,8 @@ public abstract class Game {
         return hasArrow;
     }
 
-    public void toggleRecycles() {
-        hasLimitedRecycles = !hasLimitedRecycles;
+    public void toggleRecycles(boolean value) {
+        hasLimitedRecycles = value;
     }
 
     public void setSingleTapEnabled() {
