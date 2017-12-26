@@ -100,7 +100,7 @@
     <string name="settings_support">Unterstützung</string>
 
     <string name="settings_force_tablet_layout_title">Erzwinge Tablet Layout</string>
-    <string name="settings_force_tablet_layout_text">Zeige die Anwendung wie auf großen Bildschirmen (>=10\")</string>
+    <string name="settings_force_tablet_layout_text">Zeige die Anwendung wie auf großen Bildschirmen (≥7\")</string>
 
     <string name="settings_restart_calculation">Starte ein neues Calculation Spiel um die Änderung anzuwenden</string>
     <string name="settings_calculation_alternative_title">Behalte Karten</string>

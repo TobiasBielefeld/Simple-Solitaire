@@ -108,7 +108,7 @@
     <string name="settings_customization_description">Modifier les cartes, les arrière-plans et l\'interface utilisateur</string>
 
     <string name="settings_force_tablet_layout_title">Forcer la disposition de la tablette</string>
-    <string name="settings_force_tablet_layout_text">Afficher l\'application sur grand écran (>=10\")</string>
+    <string name="settings_force_tablet_layout_text">Afficher l\'application sur grand écran (≥7\")</string>
 
     <string name="settings_restart_calculation">Démarrer une nouvelle parte de Calculation pour appliquer les modifications</string>
     <string name="settings_calculation_alternative_title">Conserver les cartes</string>

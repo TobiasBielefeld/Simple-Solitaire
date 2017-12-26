@@ -106,7 +106,7 @@
     <string name="settings_customization_description">Muuta kortteja, taustaa ja käyttöliittymää</string>
 
     <string name="settings_force_tablet_layout_title">Pakota pöydän ulkoasu</string>
-    <string name="settings_force_tablet_layout_text">Näytä sovellus samalla tavalla kuin isolla näytöllä (>=10\")</string>
+    <string name="settings_force_tablet_layout_text">Näytä sovellus samalla tavalla kuin isolla näytöllä (≥7\")</string>
 
     <string name="settings_restart_calculation">Aloita uusi Calculation peli ottaaksesi muutokset käyttöön</string>
     <string name="settings_calculation_alternative_title">Pidä kortit</string>

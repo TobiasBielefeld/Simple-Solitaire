@@ -26,11 +26,9 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import java.security.SecureRandom;
 import java.util.List;
 import java.util.Locale;
 
@@ -40,7 +38,6 @@ import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
@@ -80,7 +77,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
     @Override
     public boolean onIsMultiPane() {
-        return isXLargeTablet(this);
+        return isLargeTablet(this);
     }
 
     @Override

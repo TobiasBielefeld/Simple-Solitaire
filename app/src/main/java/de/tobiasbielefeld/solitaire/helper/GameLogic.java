@@ -293,8 +293,8 @@ public class GameLogic {
      * toggle the redeal counter: From enabled to disabled and vice versa. When enabled, the location
      * is also updated.
      */
-    public void toggleRecycles() {
-        currentGame.toggleRecycles();
+    public void toggleRecycles(boolean value) {
+        currentGame.toggleRecycles(value);
         showOrHideRecycles();
     }
 
@@ -306,10 +306,12 @@ public class GameLogic {
     }
 
     public void setNumberOfRecycles(String key, String defaultValue){
-        currentGame.setNumberOfRecycles(key,defaultValue);
+        if (currentGame.hasLimitedRecycles()) {
+            currentGame.setNumberOfRecycles(key, defaultValue);
 
-        gm.updateNumberOfRecycles();
-        gm.updateLimitedRecyclesCounter();
+            gm.updateNumberOfRecycles();
+            gm.updateLimitedRecyclesCounter();
+        }
     }
 
     public boolean hasWon() {
