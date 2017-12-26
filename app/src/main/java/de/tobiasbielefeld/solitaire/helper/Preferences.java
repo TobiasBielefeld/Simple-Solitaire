@@ -498,6 +498,7 @@ public class Preferences {
         saveShowExpertSettings(getShowAdvancedSettings());
         saveSingleTapAllGames(getSingleTapAllGames());
         saveTapToSelectEnabled(getSavedTapToSelectEnabled());
+        saveLeftHandedMode(getSavedLeftHandedMode());
     }
 
     /**
@@ -1175,6 +1176,10 @@ public class Preferences {
 
     public void saveTapToSelectEnabled(boolean value){
         savedSharedData.edit().putBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED,value).apply();
+    }
+
+    public void saveLeftHandedMode(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_LEFT_HANDED_MODE,value).apply();
     }
 
     public void saveCalculationNextCardsList(ArrayList<String> list){
