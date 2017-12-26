@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:installLocation="auto"
     package="de.tobiasbielefeld.solitaire">
 
     <application
@@ -7,7 +8,6 @@
         android:allowBackup="true"
         android:fullBackupContent="@xml/my_backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:installLocation="auto"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppThemeNoActionBar">
