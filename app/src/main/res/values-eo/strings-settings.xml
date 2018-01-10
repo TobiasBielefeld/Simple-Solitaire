@@ -138,7 +138,6 @@
     <string name="settings_single_tap_all_games_text">Unuoble frapetu karton por movi ĝin al la sekva ebla stako. Samaj agordoj kiel por duobla frapeto. Tio ĉi malaktivigos movojn “elekti-per-frapeto”.</string>
     <string name="settings_vegas_bet_amount_error">Ne povas konservi numerojn!</string>
 
-    <!-- new values -->
     <string name="settings_canfield_size_of_reserve_title">Ŝanĝi amplekson da rezerva stako (pli facile)</string>
 
     <string name="settings_use_true_randomisation_title">Uzi veran hazardecon</string>
