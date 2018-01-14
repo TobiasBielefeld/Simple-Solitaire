@@ -445,13 +445,15 @@ public abstract class Game {
      * Use this to add stuff to the statistics screen of the game, like longest run.
      * Save and load the data withing the game. It will be shown in a textView under the
      * "your win rate" text
-     * <p>
      * IMPORTANT: Also implement deleteAdditionalStatisticsData() for reseting the data!
-     *
-     * @return the text to show
+     * <p>
+     * @param res   The ressources to get the string id's
+     * @param title the view for the title of your data, eg "Longest run"
+     * @param value the view for the value of the data
+     * @return True, if you actually set something, false to ignore this method
      */
-    public String getAdditionalStatisticsData(Resources res) {
-        return null;
+    public boolean setAdditionalStatisticsData(Resources res, TextView title, TextView value) {
+        return false;
     }
 
     /**

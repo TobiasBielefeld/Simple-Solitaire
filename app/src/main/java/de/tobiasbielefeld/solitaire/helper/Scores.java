@@ -209,7 +209,7 @@ public class Scores {
      * and moved in direction of the highest score until it is in the correct position
      */
     public void addNewRecentScore(long newScore, long timeTaken) {
-        if (!currentGame.processScore(newScore) || newScore < 0) {
+        if (!currentGame.processScore(newScore)) {
             return;
         }
 
@@ -324,6 +324,10 @@ public class Scores {
     }
 
     private void setTotalPointsEarned(long score){
+        if (score < 0){
+            return;
+        }
+
         long totalPoints = prefs.getSavedTotalPointsEarned() + score;
         prefs.saveTotalPointsEarned(totalPoints);
     }

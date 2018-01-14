@@ -13,9 +13,10 @@
 
     <string name="statistics_time_of_day">Time of day</string>
     <string name="statistics_date">Date</string>
-    <string name="statistics_total_time">Total time played:</string>
-    <string name="statistics_total_hints_shown">Total hints shown:</string>
-    <string name="statistics_total_number_undos">Total undo movements:</string>
-    <string name="statistics_total_points_earned">Total points earned:</string>
+
+    <string name="statistics_total_time">Total time played</string>
+    <string name="statistics_total_hints_shown">Total hints shown</string>
+    <string name="statistics_total_number_undos">Total undo movements</string>
+    <string name="statistics_total_points_earned">Total points earned</string>
     <string name="statistics_no_entries">No entries, go play some games!</string>
 </resources>

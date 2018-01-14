@@ -20,27 +20,18 @@ package de.tobiasbielefeld.solitaire.ui.statistics;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.helper.Scores;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 /**
  * Shows the high scores of the current game
@@ -48,10 +39,10 @@ import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 public class StatisticsFragment extends Fragment{
 
-    private TextView textWonGames, textWinPercentage, textAdditonalStatistics, textTotalTimePlayed,
-        textTotalPointsEarned, textTotalHintsShown, textTotalNumberUndos;
+    private TextView textWonGames, textWinPercentage, textAdditionalStatisticsTitle, textAdditionalStatisticsValue,
+            textTotalTimePlayed, textTotalPointsEarned, textTotalHintsShown, textTotalNumberUndos;
 
-    private CardView cardViewAdditional;
+    private TableRow tableRowAdditionalText;
 
 
     /**
@@ -63,12 +54,13 @@ public class StatisticsFragment extends Fragment{
 
         textWonGames = (TextView) view.findViewById(R.id.statisticsTextViewGamesWon);
         textWinPercentage = (TextView) view.findViewById(R.id.statisticsTextViewWinPercentage);
-        textAdditonalStatistics = (TextView) view.findViewById(R.id.statisticsAdditionalText);
+        textAdditionalStatisticsTitle = (TextView) view.findViewById(R.id.statisticsAdditionalText);
+        textAdditionalStatisticsValue = (TextView) view.findViewById(R.id.statisticsAdditionalTextValue);
         textTotalTimePlayed = (TextView) view.findViewById(R.id.statisticsTotalTimePlayed);
         textTotalPointsEarned = (TextView) view.findViewById(R.id.statisticsTotalPointsEarned);
         textTotalHintsShown = (TextView) view.findViewById(R.id.statisticsTotalHintsShown);
         textTotalNumberUndos = (TextView) view.findViewById(R.id.statisticsTotalUndoMovements);
-        cardViewAdditional = (CardView) view.findViewById(R.id.statisticsAdditionalCardView);
+        tableRowAdditionalText = (TableRow) view.findViewById(R.id.statisticsAdditionalRow);
 
         //if the app got killed while the statistics are open and then the user restarts the app,
         //my helper classes aren't initialized so they can't be used. In this case, simply
@@ -101,14 +93,12 @@ public class StatisticsFragment extends Fragment{
         textTotalTimePlayed.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d", totalTime / 3600, (totalTime % 3600) / 60, totalTime % 60));
         textTotalHintsShown.setText(String.format(Locale.getDefault(), "%d", totalHintsShown));
         textTotalNumberUndos.setText(String.format(Locale.getDefault(), "%d", totalNumberUndos));
-        textTotalPointsEarned.setText(String.format(Locale.getDefault(), "%d", totalPoints));
+        textTotalPointsEarned.setText(String.format(Locale.getDefault(), currentGame.isPointsInDollar() ? "%d $" : "%d", totalPoints));
 
+        boolean added = currentGame.setAdditionalStatisticsData(getResources(), textAdditionalStatisticsTitle, textAdditionalStatisticsValue);
 
-        String additionalText = currentGame.getAdditionalStatisticsData(getResources());
-
-        if (additionalText != null) {
-            textAdditonalStatistics.setText(additionalText);
-            cardViewAdditional.setVisibility(View.VISIBLE);
+        if (added) {
+            tableRowAdditionalText.setVisibility(View.VISIBLE);
         }
     }
 }

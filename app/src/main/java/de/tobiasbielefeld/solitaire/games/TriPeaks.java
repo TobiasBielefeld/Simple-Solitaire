@@ -21,8 +21,10 @@ package de.tobiasbielefeld.solitaire.games;
 import android.content.Context;
 import android.content.res.Resources;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -230,8 +232,11 @@ public class TriPeaks extends Game {
     }
 
     @Override
-    public String getAdditionalStatisticsData(Resources res) {
-        return res.getString(R.string.game_longest_run) + " " + prefs.getSavedLongestRun();
+    public boolean setAdditionalStatisticsData(Resources res, TextView title, TextView value) {
+        title.setText(res.getString(R.string.game_longest_run));
+        value.setText(String.format(Locale.getDefault(), "%d", prefs.getSavedLongestRun()));
+
+        return true;
     }
 
     @Override

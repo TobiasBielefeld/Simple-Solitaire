@@ -59,7 +59,7 @@
     <string name="purple">Purple</string>
 
     <!-- game stuff -->
-    <string name="game_longest_run">Longest sequence:</string>
+    <string name="game_longest_run">Longest sequence</string>
 
     <!-- dialog won-->
     <string name="dialog_win_titel">Congratulations!</string>
