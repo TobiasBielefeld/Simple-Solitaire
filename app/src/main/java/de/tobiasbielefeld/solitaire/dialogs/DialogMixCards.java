@@ -26,7 +26,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.ui.Statistics;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 

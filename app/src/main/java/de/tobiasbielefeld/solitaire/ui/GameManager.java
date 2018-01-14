@@ -54,6 +54,7 @@ import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.helper.Timer;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
+import de.tobiasbielefeld.solitaire.ui.statistics.StatisticsActivity;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
@@ -599,7 +600,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         switch (view.getId()) {
             case R.id.mainButtonScores:         //open high scores activity
-                startActivity(new Intent(getApplicationContext(), Statistics.class));
+                startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
                 break;
             case R.id.mainButtonUndo:           //undo last movement
                 if (!gameLogic.hasWon()) {

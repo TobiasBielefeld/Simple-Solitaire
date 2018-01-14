@@ -170,7 +170,7 @@ public class Golf extends Game {
                 savedRunRecords.add(runCounter * 50);
                 points += runCounter * 50;
             } else if (savedRunRecords.size()>0){
-                points += savedRunRecords.get(savedRunRecords.size() - 1);                            //get last entry
+                points += savedRunRecords.get(savedRunRecords.size() - 1);                            //getHighScore last entry
                 savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
 
                 if (runCounter > 0) {

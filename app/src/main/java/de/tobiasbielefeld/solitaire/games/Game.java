@@ -85,7 +85,7 @@ public abstract class Game {
         int counter;
         Card cardToChange;
 
-        //get the cards to mix
+        //getHighScore the cards to mix
         for (Card card : cards){
             if (!excludeCardFromMixing(card)){
                 cardsToMix.add(card);
@@ -433,9 +433,9 @@ public abstract class Game {
      * So you can do other stuff for the high score list. For example, a game in Vegas is already won, when
      * the player makes profit, not only when all cards could be played on the foundation
      *
-     * Return false, if you want the  addNewHighScore() method to break, so possible high scores won't
+     * Return false, if you want the  addNewScore() method to break, so possible high scores won't
      * be saved. (eg in Vegas, if the player keeps the current balance, only save high score when
-     * the balance is resetting). Return fals other wise (default)
+     * the balance is resetting). Return false other wise (default)
      */
     public boolean processScore(long currentScore){
         return true;

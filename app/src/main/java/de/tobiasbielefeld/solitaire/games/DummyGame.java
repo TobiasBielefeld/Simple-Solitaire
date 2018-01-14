@@ -99,7 +99,7 @@ public class DummyGame extends Game {
         setCardFamilies(1, 1, 1, 1);
 
         //you can set up how the cards on a stack are stacked. With an offset to the right, down and so on
-        //Put an int array with values for each stack that should get a direction
+        //Put an int array with values for each stack that should getHighScore a direction
         //int value at array pos 0 will be assigned to stack[0] and so on
         //tableau stacks are set to "down" by default, so you don't need to call this method for them
         //but if you use this method, don't forget to set the tableau stacks to "1" again
@@ -173,7 +173,7 @@ public class DummyGame extends Game {
 
     /*
      *  here you need to set the cards and stacks on the screen with the dimensions.
-     *  You get the game layout to use its width and height and you get a boolean value
+     *  You getHighScore the game layout to use its width and height and you getHighScore a boolean value
      *  to show if the phone is currently in landscape
      *
      *  Here is an example code you should follow
@@ -202,7 +202,7 @@ public class DummyGame extends Game {
         //of stacks +1) It also uses a maximum value of Card.widht/2, so the cards won't be too far apart
         int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
 
-        //now get the start position to place the stacks, so they are centered around the middle of
+        //now getHighScore the start position to place the stacks, so they are centered around the middle of
         //the screen. I use this way: Get the half of the layout width, minus how many stacks are on the
         //left to it times the card width, minus how many spacings are left to it times the spacing
         //width. (Do not use the spacing from the left screen edge to the first stack).
@@ -332,7 +332,7 @@ public class DummyGame extends Game {
      * If so, return the card and then the destination stack.
      * If no card can be found, return null at the end of the method, so the hint will stop.
      *
-     * Use hint.hasVisited(card) to get if the card has been visited, so it won't result in an endless loop
+     * Use hint.hasVisited(card) to getHighScore if the card has been visited, so it won't result in an endless loop
      */
     public CardAndStack hintTest() {
         //Short example from Klondike
@@ -346,7 +346,7 @@ public class DummyGame extends Game {
                 continue;
 
             /* last card of a stack to move to the foundation */
-            card = origin.getTopCard();                                                             //in this part, get the top card of a stack
+            card = origin.getTopCard();                                                             //in this part, getHighScore the top card of a stack
 
             if (!hint.hasVisited(card)) {                                                           //if this card hasn't been visited
                 for (int j = 7; j <= 10; j++) {                                                     //loop through every foundation stack as destination
@@ -412,10 +412,10 @@ public class DummyGame extends Game {
      */
     public CardAndStack autoCompletePhaseTwo() {
         for (int i = 7; i <= 10; i++) {                                                             //foundation fields
-            Stack destination = stacks[i];                                                          //get the destination for more visibility
+            Stack destination = stacks[i];                                                          //getHighScore the destination for more visibility
 
             for (int j = 0; j <= 6; j++) {                                                          //tableau fields
-                Stack origin = stacks[j];                                                           //get the origin for more visibility
+                Stack origin = stacks[j];                                                           //getHighScore the origin for more visibility
 
                 if (origin.getSize() > 0 && origin.getTopCard().test(destination)) {                //test if there are still cards on it and if the card test is successful
                     return new CardAndStack(origin.getTopCard(), destination);                      //and return
@@ -423,7 +423,7 @@ public class DummyGame extends Game {
             }
 
             for (int j = 11; j <= 12; j++) {                                                        //stock
-                Stack origin = stacks[j];                                                           //get the origin for more visibility
+                Stack origin = stacks[j];                                                           //getHighScore the origin for more visibility
 
                 for (int k = 0; k < origin.getSize(); k++) {                                        //loop through every card
                     if (origin.getCard(k).test(destination)) {                                      //then test every card

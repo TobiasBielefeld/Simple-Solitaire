@@ -161,7 +161,7 @@ public class Calculation extends Game {
                 return 0;                                                                           //no moving cards back to main stack
                 /*ArrayList<Card> cardsReversed = new ArrayList<>();
                 for (int i = 0; i < getDiscardStack().currentCards.size(); i++) {
-                    cardsReversed.add(getDiscardStack().currentCards.get(getDiscardStack().currentCards.size() - 1 - i));
+                    cardsReversed.add(getDiscardStack().currentCards.getHighScore(getDiscardStack().currentCards.size() - 1 - i));
                 }
 
                 moveToStack(cardsReversed, getMainStack(), OPTION_REVERSED_RECORD);
@@ -303,7 +303,7 @@ public class Calculation extends Game {
             if (topCardValue == 13) {
                 value = -1;                                                                         //signalise that the stack is full
             } else {
-                value = (topCardValue + i+1) % 13;                                                  //get the value of the next playable card
+                value = (topCardValue + i+1) % 13;                                                  //getHighScore the value of the next playable card
             }
 
             switch (value) {

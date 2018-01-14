@@ -135,6 +135,9 @@ public class RecordList {
             sounds.playSound(Sounds.names.CARD_RETURN);
             scores.update(-currentGame.getUndoCosts());
             entries.get(entries.size() - 1).undo(gm);
+
+            int amount = prefs.getSavedTotalNumberUndos() + 1;
+            prefs.saveTotalNumberUndos(amount);
         }
     }
 
