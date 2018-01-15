@@ -61,7 +61,7 @@
 
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Miksi kartojn</string>
-    <string name="dialog_mix_cards_text">Tio ĉi miksos ĉiujn kartojn, ekspektu nur venkablajn disdonojn sur la ludejo.</string>
+    <string name="dialog_mix_cards_text">Tio ĉi miksos ĉiujn kartojn, ekspektu nur venkablajn disdonojn sur la ludejo.</string> <!-- korektenda --->
     <string name="dialog_mix_cards_not_available">Plue eblaj movoj ekzistas! (Uzu konsilon por montri ilin)</string>
 
     <!-- dialog start new game -->
