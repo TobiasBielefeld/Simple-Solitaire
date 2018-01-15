@@ -160,7 +160,7 @@
     <string name="settings_developer_options_no_saving_title">Wyłączenie zapisywania stanu gry</string>
     <string name="settings_developer_options_no_saving_text">Ruchy w grze nie będą już zapisywane</string>
 
-    <string name="settings_developer_options_deal_correct_sequences_title">Tylko wygrywalne rozdania</string>
+    <string name="settings_developer_options_deal_correct_sequences_title">Rozdaj w kolejności końcowej</string>
 
     <string name="settings_show_advanced_settings">Pokaż zaawansowane ustawienia</string>
     <string name="settings_show_advanced_settings_text">Odblokuj ustawienia deweloperskie i zaawansowane/string>
