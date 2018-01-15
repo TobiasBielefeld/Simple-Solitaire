@@ -159,7 +159,7 @@
     <string name="settings_developer_options_no_saving_title">Ne konservi staton de ludo</string>
     <string name="settings_developer_options_no_saving_text">Movoj dum ludado ne estos konservitaj</string>
 
-    <string name="settings_developer_options_deal_correct_sequences_title">Nur venkeblaj disdonoj</string>
+    <string name="settings_developer_options_deal_correct_sequences_title">Disdoni en fina ordo</string>
 
     <string name="settings_show_advanced_settings">Montri spertajn agordojn</string>
     <string name="settings_show_advanced_settings_text">Malŝlosi altnivelajn kaj programistajn agordojn</string>
