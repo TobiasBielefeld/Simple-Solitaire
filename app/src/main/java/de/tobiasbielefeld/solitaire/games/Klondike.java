@@ -120,7 +120,7 @@ public class Klondike extends Game {
 
     public void dealCards() {
 
-        //dealWinnableGame();
+        //dealWinnableGame() ;
 
         //save the new settings, so it only takes effect on new deals
         prefs.saveKlondikeVegasDrawModeOld(whichGame);
