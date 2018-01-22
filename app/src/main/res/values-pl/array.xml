@@ -91,18 +91,18 @@
     <!-- new values -->
 
     <string-array name="pref_canfield_size_of_reserve_titles">
-        <item>13 Karty (domyślnie)</item>
-        <item>10 Karty</item>
-        <item>7 Karty</item>
-        <item>4 Karty</item>
+        <item>13 kart (domyślnie)</item>
+        <item>10 kart</item>
+        <item>7 kart</item>
+        <item>4 karty</item>
     </string-array>
 
     <string-array name="pref_developer_option_deal_correct_sequences_titles">
         <item>Wyłączony</item>
-        <item>Alternatywny kolor</item>
-        <item>Sama rodzina</item>
-        <item>Odwrócony alternatywny kolor</item>
-        <item>Odwrócony sama rodzina</item>
+        <item>Naprzemienny kolor</item>
+        <item>Ten sam kolor kart</item>
+        <item>Odwrócony naprzemienny kolor</item>
+        <item>Odwrócony ten sam kolor kart</item>
     </string-array>
 
 </resources>

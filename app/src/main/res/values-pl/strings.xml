@@ -60,12 +60,10 @@
     <string name="dialog_win_bonus">Premia: %1$d</string>
     <string name="dialog_win_total">Ogółem: %1$d</string>
 
-    <!-- new values translated with DeepL, maybe it's better than the google translator-->
-
     <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Tasuj karty</string>
-    <string name="dialog_mix_cards_text">Spowoduje to mieszanie wszystkich karteczek, oczekiwanie poprawnych sekwencji i karteczek na fundamencie.</string>
-    <string name="dialog_mix_cards_not_available">Nadal możliwe są ruchy! (Wykorzystaj funkcję podpowiedzi, aby je pokazać)</string>
+    <string name="dialog_mix_cards_text">Spowoduje to przetasowanie wszystkich kart, oczekuj kart w poprawnej kolejności i kart na stosach bazowych.</string>
+    <string name="dialog_mix_cards_not_available">Nadal możliwe są ruchy! (Użyj funkcji podpowiedzi, aby je pokazać)</string>
 
     <!-- dialog start new game -->
     <string name="dialog_start_new_game_title">Rozpocznij nową grę</string>
@@ -73,6 +71,6 @@
 
     <!-- dialog redeal -->
     <string name="dialog_redeal_title">Ponownie rozdaj karty</string>
-    <string name="dialog_redeal_text">Twój bieżący postęp zostanie utracony, ale karty zostaną rozdane jak w bieżącej grze.</string>
+    <string name="dialog_redeal_text">Twój bieżący postęp zostanie utracony, ale karty zostaną rozdane tak jak w bieżącej grze.</string>
 
 </resources>
