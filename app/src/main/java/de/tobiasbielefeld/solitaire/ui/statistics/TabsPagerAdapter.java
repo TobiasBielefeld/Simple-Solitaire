@@ -23,9 +23,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.ui.about.ChangeLogFragment;
-import de.tobiasbielefeld.solitaire.ui.about.InformationFragment;
-import de.tobiasbielefeld.solitaire.ui.about.LicenseFragment;
 
 /**
  * Adapter for the tabs
@@ -59,7 +56,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return new HighScoresFragment();
             case 2:
-                return new ScoresFragment();
+                return new RecentScoresFragment();
         }
 
         return null;

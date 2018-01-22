@@ -174,7 +174,7 @@ public class Scores {
      * and moved in direction of the highest score until it is in the correct position
      */
     public void addNewHighScore(long newScore, long timeTaken) {
-        if (!currentGame.processScore(newScore) || newScore < 0){
+        if (!currentGame.processScore(newScore) || newScore <= 0){
             return;
         }
 
@@ -234,10 +234,13 @@ public class Scores {
      * Adds a new high score to the list. New score will be inserted at the last position
      * and moved in direction of the highest score until it is in the correct position
      */
-    public void addNewScore() {
+    public void addNewScore(boolean movedFirstCard) {
         long time = timer.getCurrentTime();
         addNewHighScore(score,time);
-        addNewRecentScore(score,time);
+
+        if (movedFirstCard) {
+            addNewRecentScore(score, time);
+        }
 
         setTotalTimePlayed(time);
         setTotalPointsEarned(score);

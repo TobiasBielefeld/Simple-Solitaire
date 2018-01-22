@@ -170,7 +170,7 @@ public class GameLogic {
         //reset EVERYTHING
         if (!won) {                                                                                 //if the game has been won, the score was already saved
             incrementPlayedGames();
-            scores.addNewScore();
+            scores.addNewScore(movedFirstCard);
             currentGame.onGameEnd();
         }
 
@@ -220,7 +220,7 @@ public class GameLogic {
             incrementPlayedGames();
             incrementNumberWonGames();
             scores.updateBonus();
-            scores.addNewScore();
+            scores.addNewScore(movedFirstCard);
             recordList.reset();
             timer.setWinningTime();
             autoComplete.hideButton();
