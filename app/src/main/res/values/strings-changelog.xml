@@ -7,6 +7,11 @@
      -
     -->
 
+    <string name="changelog_43" translatable="false">
+        • Added missing Esperanto and fixed Polish translations, thanks to verdulo!
+        \n• The confirmation dialogs for starting new games now only show once
+    </string>
+
     <string name="changelog_42" translatable="false">
         • Added a new option to mix the cards, if no movement is possible
         \n• Added expert and developer settings categories, can be enabled in the general settings

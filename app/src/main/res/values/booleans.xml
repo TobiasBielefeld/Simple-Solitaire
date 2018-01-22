@@ -33,5 +33,8 @@
     <bool name="default_mod3_auto_move">true</bool>
     <bool name="default_pyramid_auto_move">true</bool>
     <bool name="default_use_true_randomisation">false</bool>
+    <bool name="default_show_dialog_new_game">true</bool>
+    <bool name="default_show_dialog_redeal">true</bool>
+    <bool name="default_show_dialog_mix_cards">true</bool>
 </resources>
 

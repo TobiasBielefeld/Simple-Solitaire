@@ -127,6 +127,9 @@ public class Preferences {
     public static String PREF_KEY_DEVELOPER_OPTION_NO_SAVING;
     public static String PREF_KEY_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES;
     public static String PREF_KEY_MAX_NUMBER_UNDOS;
+    public static String PREF_KEY_SHOW_DIALOG_NEW_GAME;
+    public static String PREF_KEY_SHOW_DIALOG_REDEAL;
+    public static String PREF_KEY_SHOW_DIALOG_MIX_CARDS;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -160,6 +163,9 @@ public class Preferences {
     public static int DEFAULT_VEGAS_WIN_AMOUNT;
     public static int DEFAULT_VEGAS_MONEY;
     public static int DEFAULT_MAX_NUMBER_UNDOS;
+    public static boolean DEFAULT_SHOW_DIALOG_NEW_GAME;
+    public static boolean DEFAULT_SHOW_DIALOG_REDEAL;
+    public static boolean DEFAULT_SHOW_DIALOG_MIX_CARDS;
     public static boolean DEFAULT_SHOW_ADVANCED_SETTINGS;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_LEFT_HANDED_MODE;
@@ -291,6 +297,9 @@ public class Preferences {
         PREF_KEY_CANFIELD_SIZE_OF_RESERVE = res.getString(R.string.pref_key_canfield_size_of_reserve);
         PREF_KEY_USE_TRUE_RANDOMISATION = res.getString(R.string.pref_key_use_true_randomisation);
         PREF_KEY_MAX_NUMBER_UNDOS = res.getString(R.string.pref_key_max_number_undos);
+        PREF_KEY_SHOW_DIALOG_NEW_GAME = res.getString(R.string.pref_key_show_dialog_new_game);
+        PREF_KEY_SHOW_DIALOG_REDEAL = res.getString(R.string.pref_key_show_dialog_redeal);
+        PREF_KEY_SHOW_DIALOG_MIX_CARDS = res.getString(R.string.pref_key_show_dialog_mix_cards);
 
         PREF_KEY_GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         PREF_KEY_GAME_WON = res.getString(R.string.game_won);
@@ -352,6 +361,9 @@ public class Preferences {
         DEFAULT_SINGLE_TAP_ALL_GAMES = res.getBoolean(R.bool.default_single_tap_all_games);
         DEFAULT_DEVELOPER_OPTION_NO_SAVING = res.getBoolean(R.bool.default_developer_option_no_saving);
         DEFAULT_SHOW_ADVANCED_SETTINGS = res.getBoolean(R.bool.default_show_advaced_settings);
+        DEFAULT_SHOW_DIALOG_NEW_GAME = res.getBoolean(R.bool.default_show_dialog_new_game);
+        DEFAULT_SHOW_DIALOG_REDEAL = res.getBoolean(R.bool.default_show_dialog_redeal);
+        DEFAULT_SHOW_DIALOG_MIX_CARDS = res.getBoolean(R.bool.default_show_dialog_mix_cards);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
@@ -1027,6 +1039,18 @@ public class Preferences {
         return savedSharedData.getBoolean(PREF_KEY_USE_TRUE_RANDOMISATION, DEFAULT_USE_TRUE_RANDOMISATION);
     }
 
+    public boolean getShowDialogNewGame(){
+        return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_NEW_GAME, DEFAULT_SHOW_DIALOG_NEW_GAME);
+    }
+
+    public boolean getShowDialogRedeal(){
+        return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_REDEAL, DEFAULT_SHOW_DIALOG_REDEAL);
+    }
+
+    public boolean getShowDialogMixCards(){
+        return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_MIX_CARDS, DEFAULT_SHOW_DIALOG_MIX_CARDS);
+    }
+
     public ArrayList<String> getSavedCalculationNextCardsList(){
         return getSharedStringList(PREF_KEY_NEXT_CARD_VALUES);
     }
@@ -1180,6 +1204,18 @@ public class Preferences {
 
     public void saveLeftHandedMode(boolean value){
         savedSharedData.edit().putBoolean(PREF_KEY_LEFT_HANDED_MODE,value).apply();
+    }
+
+    public void putShowDialogNewGame(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_NEW_GAME,value).apply();
+    }
+
+    public void putShowDialogRedeal(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_REDEAL,value).apply();
+    }
+
+    public void putShowDialogMixCards(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_MIX_CARDS,value).apply();
     }
 
     public void saveCalculationNextCardsList(ArrayList<String> list){
