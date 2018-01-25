@@ -14,13 +14,6 @@
     <string name="about_license">Licence</string>
     <string name="about_translations">Traductions</string>
 
-    <string name="about_translations_japanese">Japonais</string>
-    <string name="about_translations_esperanto">Esperanto</string>
-    <string name="about_translations_polish">Polonais</string>
-    <string name="about_translations_french">Français</string>
-    <string name="about_translations_finnish">Finnois</string>
-    <string name="about_translations_turkish">Turc</string>
-
 
     <!-- new values, translated with an online translator and a bit of my little french knowledge :D -->
     <string name="about_developer">Développeur</string>

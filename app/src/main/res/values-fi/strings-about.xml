@@ -14,15 +14,6 @@
     <string name="about_license">Lisenssi</string>
     <string name="about_translations">Käännökset</string>
 
-
-
-    <string name="about_translations_japanese">Japani</string>
-    <string name="about_translations_esperanto">Esperanto</string>
-    <string name="about_translations_polish">Puola</string>
-    <string name="about_translations_french">Ranska</string>
-    <string name="about_translations_finnish">Suomi</string>
-    <string name="about_translations_turkish">Turkki</string>
-
     <string name="about_android_support_libraries_title">Android tuki kirjasto</string>
     <string name="about_android_support_libraries_usage">Paremman ulkoasun aikaansaamiseksi ja helpottamaan kehittämistä</string>
 

@@ -16,13 +16,6 @@
     <string name="about_translations">Translations</string>
     <string name="about_further_contributors">Further contributors</string>
 
-    <string name="about_translations_japanese">Japanese</string>
-    <string name="about_translations_esperanto">Esperanto</string>
-    <string name="about_translations_polish">Polish</string>
-    <string name="about_translations_french">French</string>
-    <string name="about_translations_finnish">Finnish</string>
-    <string name="about_translations_turkish">Turkish</string>
-
     <string name="about_android_support_libraries_title">Android support library</string>
     <string name="about_android_support_libraries_usage">Used for better design and easier development</string>
 

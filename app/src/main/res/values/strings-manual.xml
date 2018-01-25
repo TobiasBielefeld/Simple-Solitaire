@@ -16,7 +16,6 @@
     <string name="page_load_error">No page for this game available…</string>
     <string name="manual_bonus">After winning a game, you get a bonus: The faster you win, the higher the bonus will be.</string>
 
-
     <!-- Feedback -->
     <string name="manual_open_google_play">Open Google Play</string>
     <string name="manual_open_github">Open GitHub Repo</string>
