@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/portrait" />
+            android:text="@string/settings_portrait" />
 
         <Spinner
             android:id="@+id/dialogSettingsMenuColumnsPortrait"
@@ -33,7 +33,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/landscape" />
+            android:text="@string/settings_landscape" />
 
         <Spinner
             android:id="@+id/dialogSettingsMenuColumnsLandscape"

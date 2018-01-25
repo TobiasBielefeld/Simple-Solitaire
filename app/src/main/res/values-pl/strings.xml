@@ -2,8 +2,8 @@
 <resources>
     <string name="app_version">Wersja</string>
 
-    <string name="portrait">Pionowo</string>
-    <string name="landscape">Poziomo</string>
+    <string name="item_game_rules">Zasady gry</string>
+    <string name="item_return_to_main_menu">Powrót do menu głównego</string>
 
     <string name="settings">Ustawienia</string>
     <string name="game_manual">Podręcznik</string>

@@ -105,10 +105,10 @@
     <string name="settings_menu_order_title">Kolejność menu</string>
     <string name="settings_menu_order_summary">Stuknij i przytrzymaj wpis, a następnie przeciągnij i upuść go w żądane miejsce</string>
     <string name="settings_menu_order_set_default">Domyślny układ</string>
-  
+
     <string name="settings_auto_start_new_game_title">Rozpocznij nową grę po wygranej</string>
     <string name="settings_auto_start_new_game_text">Po powrocie do właśnie wygranej gry, automatycznie rozpoczynaj nową grę</string>
-    
+
     <string name="settings_customization_description">Dostosuj karty, tła i interfejs użytkownika</string>
 
     <string name="settings_force_tablet_layout_title">Wymuś tryb tabletu</string>
@@ -168,5 +168,60 @@
     <string name="settings_max_number_undos">Maksymalna liczba cofnięć</string>
     <string name="settings_expert_settings">Ustawienia specjalistyczne</string>
     <string name="settings_expert_settings_text">Może być przydatna dla niektórych ludzi</string>
+
+    <string name="settings_follow_system_settings">Ustawienia systemu</string>
+    <string name="settings_portrait">Pionowo</string>
+    <string name="settings_landscape">Poziomo</string>
+    <string name="settings_landscape_upside_down">Pozioma do góry nogami</string>
+
+    <string name="settings_spider_difficultiy_1">1 (łatwy)</string>
+    <string name="settings_spider_difficultiy_2">2 (średni)</string>
+    <string name="settings_spider_difficultiy_3">4 (trudny)</string>
+
+    <string name="settings_draw_1">Rozdaj 1</string>
+    <string name="settings_draw_3">Rozdaj 3</string>
+
+    <string name="settings_pyramid_difficulty_1">Łatwy: gra jest wygrana gdy pole gry jest puste</string>
+    <string name="settings_pyramid_difficulty_2">Trudny: gra jest wygrana gdy pole gry i stos są puste</string>
+
+    <string name="settings_language_default">Domyślny</string>
+    <string name="settings_language_english">Angielski</string>
+    <string name="settings_language_esperanto">Esperanto</string>
+    <string name="settings_language_finnish">Fiński</string>
+    <string name="settings_language_french">Francuski</string>
+    <string name="settings_language_german">Niemiecki</string>
+    <string name="settings_language_japanese">Japoński</string>
+    <string name="settings_language_polish">Polski</string>
+    <string name="settings_language_turkish">Turecki</string>
+
+    <string name="settings_yukon_rules_1">Różne kolory (domyślnie)</string>
+    <string name="settings_yukon_rules_2">Ten sam kolor (ruski pasjans)</string>
+
+    <string name="settings_movement_speed_1">Bardzo powolne</string>
+    <string name="settings_movement_speed_2">Powolne</string>
+    <string name="settings_movement_speed_3">Normalne</string>
+    <string name="settings_movement_speed_4">Szybkie</string>
+
+    <string name="settings_win_sounds_1">Domyślny</string>
+    <string name="settings_win_sounds_2">Pianino</string>
+    <string name="settings_win_sounds_3">8-bitowy głos „You win”</string>
+    <string name="settings_win_sounds_4">Oklaski</string>
+
+    <string name="settings_background_music_1">Brak</string>
+    <string name="settings_background_music_2">Temat 1</string>
+    <string name="settings_background_music_3">Temat 2</string>
+    <string name="settings_background_music_4">Temat 3</string>
+    <string name="settings_background_music_5">Pozytywka</string>
+
+    <string name="settings_canfield_size_of_reserve_1">13 kart (domyślnie)</string>
+    <string name="settings_canfield_size_of_reserve_2">10 kart</string>
+    <string name="settings_canfield_size_of_reserve_3">7 kart</string>
+    <string name="settings_canfield_size_of_reserve_4">4 kart</string>
+
+    <string name="settings_developer_option_deal_correct_sequences_1">Wyłączony</string>
+    <string name="settings_developer_option_deal_correct_sequences_2">Naprzemienny kolor</string>
+    <string name="settings_developer_option_deal_correct_sequences_3">Ten sam kolor kart</string>
+    <string name="settings_developer_option_deal_correct_sequences_4">Odwrócony naprzemienny kolor</string>
+    <string name="settings_developer_option_deal_correct_sequences_5">Odwrócony ten sam kolor kart</string>
 
 </resources>

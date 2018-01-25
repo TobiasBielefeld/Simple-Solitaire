@@ -2,8 +2,8 @@
 <resources>
     <string name="app_version">Versio</string>
 
-    <string name="portrait">Vertikale</string>
-    <string name="landscape">Horizontale</string>
+    <string name="item_game_rules">Reguloj de ludo</string>
+    <string name="item_return_to_main_menu">Reveni al ĉefmenuo</string>
 
     <string name="settings">Agordoj</string>
     <string name="game_manual">Manlibro</string>

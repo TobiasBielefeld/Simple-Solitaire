@@ -1,8 +1,8 @@
 <resources>
     <string name="app_version">Versiyon</string>
 
-    <string name="portrait">Dikey</string>
-    <string name="landscape">Yatay</string>
+    <string name="item_game_rules">Oyun kuralları</string>
+    <string name="item_return_to_main_menu">Anasayfaya geri dön</string>
 
     <string name="settings">Ayarlar</string>
     <string name="game_manual">Kılavuz</string>

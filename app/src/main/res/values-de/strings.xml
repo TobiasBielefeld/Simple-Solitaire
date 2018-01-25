@@ -27,13 +27,15 @@
     <string name="games_Gypsy">Gypsy</string>
     <string name="game_manual">Handbuch</string>
     <string name="app_version">Version</string>
-    <string name="portrait">Hochformat</string>
-    <string name="landscape">Querformat</string>
+
     <string name="games_GrandfathersClock">GrandfathersClock</string>
     <string name="game_close">Spiel beenden</string>
     <string name="game_main_menu">Hauptmenü</string>
     <string name="games_Vegas">Vegas</string>
     <string name="games_Calculation">Calculation</string>
+
+    <string name="item_game_rules">Spielregeln</string>
+    <string name="item_return_to_main_menu">Zurück zum Hauptmenü</string>
 
     <!-- colors -->
     <string name="blue">Blau</string>

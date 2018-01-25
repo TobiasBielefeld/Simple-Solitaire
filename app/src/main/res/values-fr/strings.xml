@@ -1,8 +1,8 @@
 <resources>
     <string name="app_version">Version</string>
 
-    <string name="portrait">Portrait</string>
-    <string name="landscape">Paysage</string>
+    <string name="item_game_rules">Règles du jeu</string>
+    <string name="item_return_to_main_menu">Revenir au menu principal</string>
 
     <string name="settings">Réglages</string>
     <string name="game_manual">Manuels</string>

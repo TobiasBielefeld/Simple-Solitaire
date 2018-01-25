@@ -164,4 +164,59 @@
     <string name="settings_expert_settings">Expert settings</string>
     <string name="settings_expert_settings_text">May be useful for some people</string>
 
+    <string name="settings_follow_system_settings">Sistem ayarlarını uygula</string>
+    <string name="settings_portrait">Dikey</string>
+    <string name="settings_landscape">Yatay</string>
+    <string name="settings_landscape_upside_down">Ters Yatay</string>
+
+    <string name="settings_spider_difficultiy_1">1 (Kolay)</string>
+    <string name="settings_spider_difficultiy_2">2 (Normal)</string>
+    <string name="settings_spider_difficultiy_3">4 (Zor)</string>
+
+    <string name="settings_draw_1">1 Kart</string>
+    <string name="settings_draw_3">3 Kart</string>
+
+    <string name="settings_pyramid_difficulty_1">Kolay: Tablo boşaldığında oyun kazanılır</string>
+    <string name="settings_pyramid_difficulty_2">Hard: Tablo ve stok boşaldığında oyun kazanılır</string>
+
+    <string name="settings_language_default">Varsayılan Dil</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_language_esperanto">Esperanto</string>
+    <string name="settings_language_finnish">Finnish</string>
+    <string name="settings_language_french">French</string>
+    <string name="settings_language_german">German</string>
+    <string name="settings_language_japanese">Japanese</string>
+    <string name="settings_language_polish">Polish</string>
+    <string name="settings_language_turkish">Türkçe</string>
+
+    <string name="settings_yukon_rules_1">farklı renkler (Varsayılan)</string>
+    <string name="settings_yukon_rules_2">aynı takım (Rus)</string>
+
+    <string name="settings_movement_speed_1">Very slow</string>
+    <string name="settings_movement_speed_2">Slow</string>
+    <string name="settings_movement_speed_3">Normal</string>
+    <string name="settings_movement_speed_4">Fast</string>
+
+    <string name="settings_win_sounds_1">Varsayılan</string>
+    <string name="settings_win_sounds_2">Piano</string>
+    <string name="settings_win_sounds_3">8-Bit ses \"You win\"</string>
+    <string name="settings_win_sounds_4">Kalabalığın Tezahüratı</string>
+
+    <string name="settings_background_music_1">Kapalı</string>
+    <string name="settings_background_music_2">Tema 1</string>
+    <string name="settings_background_music_3">Tema 2</string>
+    <string name="settings_background_music_4">Tema 3</string>
+    <string name="settings_background_music_5">Müzik Kutusu</string>
+
+    <string name="settings_canfield_size_of_reserve_1">13 Kartlar (varsayılan)</string>
+    <string name="settings_canfield_size_of_reserve_2">10 Kartlar</string>
+    <string name="settings_canfield_size_of_reserve_3">7 Kartlar</string>
+    <string name="settings_canfield_size_of_reserve_4">4 Kartlar</string>
+
+    <string name="settings_developer_option_deal_correct_sequences_1">Devre dışı</string>
+    <string name="settings_developer_option_deal_correct_sequences_2">Değişken renk</string>
+    <string name="settings_developer_option_deal_correct_sequences_3">Same family</string>
+    <string name="settings_developer_option_deal_correct_sequences_4">Aynı aile</string>
+    <string name="settings_developer_option_deal_correct_sequences_5">Ters aynı aile</string>
+
 </resources>

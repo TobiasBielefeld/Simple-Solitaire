@@ -1,8 +1,8 @@
 <resources>
     <string name="app_version">バージョン</string>
 
-    <string name="portrait">縦向き</string>
-    <string name="landscape">横向き</string>
+    <string name="item_game_rules">ゲームのルール</string>
+    <string name="item_return_to_main_menu">メインメニューに戻る</string>
 
     <string name="settings">設定</string>
     <string name="game_manual">マニュアル</string>

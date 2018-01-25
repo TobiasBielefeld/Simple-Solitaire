@@ -168,4 +168,59 @@
     <string name="settings_expert_settings">Altnivelaj agordoj</string>
     <string name="settings_expert_settings_text">Eble uzeblaj por iuj homoj</string>
 
+    <string name="settings_follow_system_settings">Laŭ sistema agordo</string>
+    <string name="settings_portrait">Vertikale</string>
+    <string name="settings_landscape">Horizontale</string>
+    <string name="settings_landscape_upside_down">Horizontala inversa</string>
+
+    <string name="settings_spider_difficultiy_1">1 (facila)</string>
+    <string name="settings_spider_difficultiy_2">2 (meza)</string>
+    <string name="settings_spider_difficultiy_3">4 (malfacila)</string>
+
+    <string name="settings_draw_1">Depreni 1</string>
+    <string name="settings_draw_3">Depreni 3</string>
+
+    <string name="settings_pyramid_difficulty_1">Facila: ludo estas venkita kiam tablamaso estas malplena</string>
+    <string name="settings_pyramid_difficulty_2">Malfacila: ludo estas venkita kiam tablamaso kaj stako estas malplenaj</string>
+
+    <string name="settings_language_default">Implicita</string>
+    <string name="settings_language_english">Angla</string>
+    <string name="settings_language_esperanto">Esperanto</string>
+    <string name="settings_language_finnish">Suoma</string>
+    <string name="settings_language_french">Franca</string>
+    <string name="settings_language_german">Germana</string>
+    <string name="settings_language_japanese">Japana</string>
+    <string name="settings_language_polish">Pola</string>
+    <string name="settings_language_turkish">Turka</string>
+
+    <string name="settings_yukon_rules_1">Diferencaj koloroj (implicite)</string>
+    <string name="settings_yukon_rules_2">Sama emblemo (rusa paciencoludo)</string>
+
+    <string name="settings_movement_speed_1">Tre malrapida</string>
+    <string name="settings_movement_speed_2">Malrapida</string>
+    <string name="settings_movement_speed_3">Meza</string>
+    <string name="settings_movement_speed_4">Rapida</string>
+
+    <string name="settings_win_sounds_1">Implicita</string>
+    <string name="settings_win_sounds_2">Piano</string>
+    <string name="settings_win_sounds_3">8-bitoka voĉo “You win”</string>
+    <string name="settings_win_sounds_4">Aplaŭdo</string>
+
+    <string name="settings_background_music_1">Malaktiva</string>
+    <string name="settings_background_music_2">Muzikaĵo 1</string>
+    <string name="settings_background_music_3">Muzikaĵo 2</string>
+    <string name="settings_background_music_4">Muzikaĵo 3</string>
+    <string name="settings_background_music_5">Muzikskatolo</string>
+
+    <string name="settings_canfield_size_of_reserve_1">13 kartoj (implicite)</string>
+    <string name="settings_canfield_size_of_reserve_2">10 kartoj</string>
+    <string name="settings_canfield_size_of_reserve_3">7 kartoj</string>
+    <string name="settings_canfield_size_of_reserve_4">4 kartoj</string>
+
+    <string name="settings_developer_option_deal_correct_sequences_1">Malaktiva</string>
+    <string name="settings_developer_option_deal_correct_sequences_2">Alterna koloro</string>
+    <string name="settings_developer_option_deal_correct_sequences_3">Sama familio</string>
+    <string name="settings_developer_option_deal_correct_sequences_4">Inverse altern-kolora</string>
+    <string name="settings_developer_option_deal_correct_sequences_5">Inverse sam-familia</string>
+
 </resources>

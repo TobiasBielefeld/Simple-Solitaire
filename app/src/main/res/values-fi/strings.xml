@@ -1,7 +1,8 @@
 <resources>
     <string name="app_version">Versio</string>
-    <string name="portrait">Pystysuunta</string>
-    <string name="landscape">Vaakataso</string>
+
+    <string name="item_game_rules">Pelin säännöt</string>
+    <string name="item_return_to_main_menu">Palaa päävalikkoon</string>
 
     <string name="settings">Asetukset</string>
     <string name="game_manual">Ohje</string>
