@@ -73,6 +73,8 @@
 <!-- dialog redeal -->
 <string name="dialog_redeal_title">"Spiel wiederholen"</string>
 <string name="dialog_redeal_text">"Dein aktueller Fortschritt geht verloren, aber die Karten werden wie im aktuellen Spiel ausgegeben."</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="title_activity_manual">"Handbuch"</string>
 <string name="title_activity_settings">"Einstellungen"</string>
 <string name="title_activity_about">"Über das Spiel"</string>
