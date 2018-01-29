@@ -1,554 +1,761 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_activity_about">Über das Spiel</string>
-    <string name="title_activity_manual">Handbuch</string>
-    <string name="title_activity_settings">Einstellungen</string>
-    <string name="title_activity_statistics">High Scores</string>
+<string name="app_version">"Version"</string>
+<string name="settings">"Einstellungen"</string>
+<string name="game_manual">"Handbuch"</string>
+<string name="game_score">"Score"</string>
+<string name="game_time">"Zeit"</string>
+<string name="game_cancel">"Abbrechen"</string>
+<string name="game_confirm">"Bestätigen"</string>
+<string name="game_auto_complete_text">"Autovervollständigen"</string>
+<string name="game_press_again">"Zum Beenden erneut drücken"</string>
+<string name="game_load_error">"Laden der Daten ist fehlgeschlagen, starte neues Spiel…"</string>
+<string name="game_close">"Spiel beenden"</string>
+<string name="game_main_menu">"Hauptmenü"</string>
+<string name="item_game_rules">"Spielregeln"</string>
+<string name="item_return_to_main_menu">"Zurück zum Hauptmenü"</string>
 
-    <string name="game_score">Score</string>
-    <string name="game_time">Zeit</string>
-    <string name="game_press_again">Zum Beenden erneut drücken</string>
-    <string name="game_auto_complete_text">Autovervollständigen</string>
-    <string name="game_cancel">Abbrechen</string>
-    <string name="game_confirm">Bestätigen</string>
-    <string name="game_load_error">Laden der Daten ist fehlgeschlagen, starte neues Spiel…</string>
-    <string name="games_Freecell">FreeCell</string>
-    <string name="games_Klondike">Klondike</string>
-    <string name="games_Spider">Spider</string>
-    <string name="games_Canfield">Canfield</string>
-    <string name="games_Yukon">Yukon</string>
-    <string name="menu_main_menu">Menü</string>
-    <string name="menu_hint">Hinweis</string>
-    <string name="menu_statistics">Punkte</string>
-    <string name="menu_settings">Optionen</string>
-    <string name="menu_undo">Zurück</string>
-    <string name="games_Golf">Golf</string>
-    <string name="games_SimpleSimon">SimpleSimon</string>
-    <string name="games_TriPeaks">TriPeaks</string>
-    <string name="games_Pyramid">Pyramid</string>
-    <string name="games_FortyEight">Forty&amp;Eight</string>
-    <string name="games_AcesUp">AcesUp</string>
-    <string name="games_mod3">Mod3</string>
-    <string name="games_Gypsy">Gypsy</string>
-    <string name="game_manual">Handbuch</string>
-    <string name="app_version">Version</string>
-    <string name="games_GrandfathersClock">GrandfathersClock</string>
-    <string name="game_close">Spiel beenden</string>
-    <string name="game_main_menu">Hauptmenü</string>
-    <string name="games_Vegas">Vegas</string>
-    <string name="games_Calculation">Calculation</string>
-    <string name="item_game_rules">Spielregeln</string>
-    <string name="item_return_to_main_menu">Zurück zum Hauptmenü</string>
+<!-- Menu -->
+<string name="menu_statistics">"Punkte"</string>
+<string name="menu_undo">"Zurück"</string>
+<string name="menu_hint">"Hinweis"</string>
+<string name="menu_main_menu">"Menü"</string>
+<string name="menu_settings">"Optionen"</string>
 
-    <!-- colors -->
+<!-- game names 
 
-    <string name="blue">Blau</string>
-    <string name="green">Grün</string>
-    <string name="red">Rot</string>
-    <string name="yellow">Gelb</string>
-    <string name="orange">Orange</string>
-    <string name="purple">Violett</string>
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Klondike"</string>
+<string name="games_Freecell">"FreeCell"</string>
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Spider"</string>
+<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_Golf">"Golf"</string>
+<string name="games_Pyramid">"Pyramid"</string>
+<string name="games_TriPeaks">"TriPeaks"</string>
+<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_Gypsy">"Gypsy"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"Canfield"</string>
+<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_Vegas">"Vegas"</string>
+<string name="games_Calculation">"Calculation"</string>
 
-    <!-- game stuff -->
+<!-- colors -->
+<string name="blue">"Blau"</string>
+<string name="green">"Grün"</string>
+<string name="red">"Rot"</string>
+<string name="yellow">"Gelb"</string>
+<string name="orange">"Orange"</string>
+<string name="purple">"Violett"</string>
 
-    <string name="game_longest_run">Längste Kartenfolge:</string>
+<!-- game stuff -->
+<string name="game_longest_run">"Längste Kartenfolge:"</string>
 
-    <!-- dialogs-->
+<!-- dialog won -->
+<string name="dialog_win_titel">"Glückwunsch!"</string>
+<string name="dialog_win_score">"Score: %1$d"</string>
+<string name="dialog_win_bonus">"Bonus: %1$d"</string>
+<string name="dialog_win_total">"Gesamt: %1$d"</string>
 
-    <string name="dialog_win_titel">Glückwunsch!</string>
-    <string name="dialog_win_score">Score: %1$d</string>
-    <string name="dialog_win_bonus">Bonus: %1$d</string>
-    <string name="dialog_win_total">Gesamt: %1$d</string>
-    <string name="dialog_mix_cards_title">Karten mischen</string>
-    <string name="dialog_mix_cards_text">Dies wird alle Karten mischen, bis auf korrekte Sequenzen und Karten auf der Foundation.</string>
-    <string name="dialog_mix_cards_not_available">Es sind noch Bewegungen möglich! (Benutze die Hinweisfunktion um sie zu zeigen)</string>
-    <string name="dialog_start_new_game_title">Neues Spiel starten</string>
-    <string name="dialog_start_new_game_text">Dein aktueller Fortschritt geht verloren und ein neues zufälliges Spiel wird ausgegeben.</string>
-    <string name="dialog_redeal_title">Spiel wiederholen</string>
-    <string name="dialog_redeal_text">Dein aktueller Fortschritt geht verloren, aber die Karten werden wie im aktuellen Spiel ausgegeben.</string>
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Karten mischen"</string>
+<string name="dialog_mix_cards_text">"Dies wird alle Karten mischen, bis auf korrekte Sequenzen und Karten auf der Foundation."</string>
+<string name="dialog_mix_cards_not_available">"Es sind noch Bewegungen möglich! (Benutze die Hinweisfunktion um sie zu zeigen)"</string>
 
-    <!-- About activity -->
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Neues Spiel starten"</string>
+<string name="dialog_start_new_game_text">"Dein aktueller Fortschritt geht verloren und ein neues zufälliges Spiel wird ausgegeben."</string>
 
-    <string name="about_tab_1">Informationen</string>
-    <string name="about_tab_2">Lizenzen</string>
-    <string name="about_tab_3">Änderungen</string>
-    <string name="about_license">Lizenz</string>
-    <string name="about_loading">Lade…</string>
-    <string name="about_developer">Entwickler</string>
-    <string name="about_developer_name">Tobias Bielefeld</string>
-    <string name="about_compiled">Kompiliert am</string>
-    <string name="about_source_code">Quelltext</string>
-    <string name="about_translations">Übersetzungen</string>
-    <string name="about_further_contributors">Weitere Beitragende</string>
-    <string name="about_android_support_libraries_title">Android Support Bibliothek</string>
-    <string name="about_android_support_libraries_usage">Wird für besseres Design und leichtere Entwicklung benutzt</string>
-    <string name="about_material_icons_title">Material Design Symbole</string>
-    <string name="about_material_icons_usage">Werden für alle Symbole in dieser Anwendung verwendet</string>
-    <string name="about_card_themes_title">Kartenthemen</string>
-    <string name="about_card_themes_usage">Die Kartenthemen wurden von <a href="https://pixabay.com/">pixabay.com</a> entnommen,
-        für weitere Details klicke <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">hier</a></string>
-    <string name="about_poker_themes_usage">Wird als Poker Thema benutzt - Verfügbar auf <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
-        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
-    <string name="about_custom_color_picker_title">AmbilWarna Bibliothek</string>
-    <string name="about_custom_color_picker_usage">Wird für die benutzerdefinierte Farbauswahl benutzt</string>
-    <string name="about_sounds_title">Töne</string>
-    <string name="about_sounds_usage">Alle Töne wurden auf <a href="https://freesound.org">freesound.org</a> veröffentlicht,
-        für weitere Details klicke <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">hier</a></string>
-    <string name="about_sliding_tabs_title">PagerSlidingTabStrip Bibliothek</string>
-    <string name="about_sliding_tabs_usage">Wird für die Tabs im \"Über das Spiel\" Bildschirm verwendet</string>
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Spiel wiederholen"</string>
+<string name="dialog_redeal_text">"Dein aktueller Fortschritt geht verloren, aber die Karten werden wie im aktuellen Spiel ausgegeben."</string>
+<string name="title_activity_manual">"Handbuch"</string>
+<string name="title_activity_settings">"Einstellungen"</string>
+<string name="title_activity_about">"Über das Spiel"</string>
+<string name="title_activity_statistics">"High Scores"</string>
 
-    <!-- Manual -->
+<!-- About activity -->
+<string name="about_tab_1">"Informationen"</string>
+<string name="about_tab_2">"Lizenzen"</string>
+<string name="about_tab_3">"Änderungen"</string>
+<string name="about_loading">"Lade…"</string>
+<string name="about_developer">"Entwickler"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Kompiliert am"</string>
+<string name="about_source_code">"Quelltext"</string>
+<string name="about_license">"Lizenz"</string>
+<string name="about_translations">"Übersetzungen"</string>
+<string name="about_further_contributors">"Weitere Beitragende"</string>
+<string name="about_android_support_libraries_title">"Android Support Bibliothek"</string>
+<string name="about_android_support_libraries_usage">"Wird für besseres Design und leichtere Entwicklung benutzt"</string>
+<string name="about_material_icons_title">"Material Design Symbole"</string>
+<string name="about_material_icons_usage">"Werden für alle Symbole in dieser Anwendung verwendet"</string>
+<string name="about_card_themes_title">"Kartenthemen"</string>
+<string name="about_card_themes_usage">"Die Kartenthemen wurden von &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt; entnommen,
+        für weitere Details klicke &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;hier&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"Wird als Poker Thema benutzt - Verfügbar auf &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt;
+        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna Bibliothek"</string>
+<string name="about_custom_color_picker_usage">"Wird für die benutzerdefinierte Farbauswahl benutzt"</string>
+<string name="about_sounds_title">"Töne"</string>
+<string name="about_sounds_usage">"Alle Töne wurden auf &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt; veröffentlicht,
+        für weitere Details klicke &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;hier&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip Bibliothek"</string>
+<string name="about_sliding_tabs_usage">"Wird für die Tabs im \"Über das Spiel\" Bildschirm verwendet"</string>
 
-    <string name="manual_structure">Aufbau</string>
-    <string name="manual_objective">Ziel</string>
-    <string name="manual_rules">Regeln</string>
-    <string name="manual_scoring">Punkte</string>
-    <string name="manual_games">Spiele</string>
-    <string name="manual_feedback">Feedback</string>
-    <string name="manual_startpage">Startseite</string>
-    <string name="manual_back_to_game">Zurück zum Spiel</string>
-    <string name="manual_open_google_play">Öffne Google Play</string>
-    <string name="manual_open_github">Öffne GitHub Repo</string>
-    <string name="page_load_error">Keine Seite für dieses Spiel verfügbar…</string>
-    <string name="manual_bonus">Wenn ein Spiel gewonnen ist, wird ein Bonus berechnet: Je schneller gewonnen wird, desto höher wird der Bonus.</string>
-    <string name="manual_games_text1">Wähle ein Spiel aus um Aufbau, Ziel, Regeln und Punktzahlen anzuzeigen.</string>
-    <string name="manual_startpage_text">Willkommen zum Handbuch von dieser Spiele-Sammlung! Ich hoffe
-        es wird alles wichtige erklären.\n\nBenutze das Menü auf der linken Seite um die anderen
-        Handbuchseiten zu öffnen.</string>
-    <string name="manual_main_menu">Hauptmenü</string>
-    <string name="manual_general_main_menu">Die Benutzung des Hauptmenüs ist recht einfach. Tippe auf
-        ein Spiel um es zu starten.\n\nDie App wird bei einem Neustart automatisch das zuletzt gespielte
+<!-- Manual -->
+<string name="manual_games">"Spiele"</string>
+<string name="manual_feedback">"Feedback"</string>
+<string name="manual_startpage">"Startseite"</string>
+<string name="manual_back_to_game">"Zurück zum Spiel"</string>
+<string name="manual_structure">"Aufbau"</string>
+<string name="manual_objective">"Ziel"</string>
+<string name="manual_rules">"Regeln"</string>
+<string name="manual_scoring">"Punkte"</string>
+<string name="manual_main_menu">"Hauptmenü"</string>
+<string name="manual_ui">"Benutzeroberfläche"</string>
+<string name="page_load_error">"Keine Seite für dieses Spiel verfügbar…"</string>
+<string name="manual_bonus">"Wenn ein Spiel gewonnen ist, wird ein Bonus berechnet: Je schneller gewonnen wird, desto höher wird der Bonus."</string>
+<string name="manual_open_google_play">"Öffne Google Play"</string>
+<string name="manual_open_github">"Öffne GitHub Repo"</string>
+<string name="manual_games_text1">"Wähle ein Spiel aus um Aufbau, Ziel, Regeln und Punktzahlen anzuzeigen."</string>
+<string name="manual_startpage_text">"Willkommen zum Handbuch von dieser Spiele-Sammlung! Ich hoffe
+        es wird alles wichtige erklären.
+
+Benutze das Menü auf der linken Seite um die anderen
+        Handbuchseiten zu öffnen."</string>
+<string name="manual_general_main_menu">"Die Benutzung des Hauptmenüs ist recht einfach. Tippe auf
+        ein Spiel um es zu starten.
+
+Die App wird bei einem Neustart automatisch das zuletzt gespielte
         Spiel öffnen, falls die App innerhalb eines Spiels pausiert wird. Dieses Verhalten kann in den
-        Einstellungen unter \"Allgemein\" deaktivert werden.\n\nDort befindet sich auch unter \"Hauptmenü\"
+        Einstellungen unter \"Allgemein\" deaktivert werden.
+
+Dort befindet sich auch unter \"Hauptmenü\"
         die Möglichkeit alle Spiele im Menü zu verstecken und die Anzahl der Spalten zu verändern, sodass
-        mehr Spiele auf einmal auf dem Bildschirm passen.</string>
-    <string name="manual_ui">Benutzeroberfläche</string>
-    <string name="manual_ui_text">Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms
+        mehr Spiele auf einmal auf dem Bildschirm passen."</string>
+<string name="manual_ui_text">"Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms
         (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand
         und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert.
         Das Menü enthält 5 Punkte, die die folgendenen Zwecke erfüllen (Punkte von links
-        nach rechts):\n\nDer \"Punkte\" Punkt zeigt ein neues Fenster mit den High-Scores und der Anzahl
-        der gewonnen Spiele an.\n\nDer \"Hinweis\" Punkt hilft dir im Spiel, indem es bis zu 3 mögliche Karten
+        nach rechts):
+
+Der \"Punkte\" Punkt zeigt ein neues Fenster mit den High-Scores und der Anzahl
+        der gewonnen Spiele an.
+
+Der \"Hinweis\" Punkt hilft dir im Spiel, indem es bis zu 3 mögliche Karten
         Bewegungen anzeigt. Aber diese Aktion wird die aktuelle Punktzahl um 25 reduzieren. Bemerke,
         dass triviale Bewegungen wie das Bewegen von einer beliebigen Karte auf einen leeren Platz
         oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis
-        angezeigt wird, wird auch die Punktzahl nicht reduziert.\n\nDer \"Menü\" Punkt zeigt drei mögliche
+        angezeigt wird, wird auch die Punktzahl nicht reduziert.
+
+Der \"Menü\" Punkt zeigt drei mögliche
         Aktionen an: Starte ein neues Spiel, indem die Karten gemischt werden und neu ausgegeben werden.
         Spiel wiederholen geben hat denselben Effekt, aber die Karten werden nicht gemischt. Das entspricht
         einem Neustart des aktuellen Spiels. Der letzte Punkt wird das aktuelle Spiel beenden und zurück
-        zum Hauptmenü versetzen.\n\nDer \"Zurück\" Punkt wird die letzte Kartenbewegung rückgängig machen,
+        zum Hauptmenü versetzen.
+
+Der \"Zurück\" Punkt wird die letzte Kartenbewegung rückgängig machen,
         aber dies wird 25 Punkte kosten. Diese Aktion kann für die letzten 20 Kartenbewegungen genutzt
-        werden.\n\nDer \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü.</string>
-    <string name="manual_feedback_text">Hast du einen Fehler gefunden? Etwas was ich verbessern sollte?
+        werden.
+
+Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
+<string name="manual_feedback_text">"Hast du einen Fehler gefunden? Etwas was ich verbessern sollte?
         Soll ich noch ein weiteres Spiel zur Sammlung hinzufügen? Vielleicht möchtest du mit Übersetzungen
-        helfen? Oder hast du ein anderes Anliegen?\n\nIch freue mich über jede Art von Feedback. Falls
-        du mich kontaktieren willst, solltest du diese zwei Optionen in Erwägung ziehen:\n\nBenutze den
+        helfen? Oder hast du ein anderes Anliegen?
+
+Ich freue mich über jede Art von Feedback. Falls
+        du mich kontaktieren willst, solltest du diese zwei Optionen in Erwägung ziehen:
+
+Benutze den
         Issue Tracker von GitHub: Das Projekt auf GitHub hat eine nette Funktion zum Berichten von Fehlern.
         Drücke auf den Button in der linken unteren Ecke des Bildschirms um den Issue Tracker mit dem
-        Internet Browser zu öffnen.\n\nBenutze eine Bewertung im Google Play Store: Hinterlasse eine
+        Internet Browser zu öffnen.
+
+Benutze eine Bewertung im Google Play Store: Hinterlasse eine
         Bewertung zu dieser App und schreibe rein was du möchtest. Drücke auf den Button in der rechten
-        Ecke um den Google Play Store zu öffnen (falls installiert).\n\nVielen Dank im Vorraus für dein
-        Feedback :)</string>
-    <string name="manual_Klondike_structure">1 Deck aus 52 Karten.\n\n7 Tableau-Stapel, 4
-        Foundation-Stapel, 1 Haupt- und 1 Ablage-Stapel.</string>
-    <string name="manual_Klondike_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
-    <string name="manual_Klondike_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        Ecke um den Google Play Store zu öffnen (falls installiert).
+
+Vielen Dank im Vorraus für dein
+        Feedback :)"</string>
+<string name="manual_Klondike_structure">"1 Deck aus 52 Karten.
+
+7 Tableau-Stapel, 4
+        Foundation-Stapel, 1 Haupt- und 1 Ablage-Stapel."</string>
+<string name="manual_Klondike_objective">"Ordne jede Karte als echte Kartenfamilie auf der Foundation an."</string>
+<string name="manual_Klondike_rules">"Karten können auf dem Tableau in abfallender Reihenfolge
         und alternierenden Farben gespielt werden. Man kann eine ganze Kartensequenz auf einmal bewegen.
-        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.\n\nNur
+        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.
+
+Nur
         Könige können auf leeren Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
-        werden.\n\nTippe den Haupt-Stapel an um Karten auf den Ablage-Stapel zu bewegen. Die Anzahl der Karten
+        werden.
+
+Tippe den Haupt-Stapel an um Karten auf den Ablage-Stapel zu bewegen. Die Anzahl der Karten
         hängt dabei von den gewählten Einstellungen ab. Falls \"Draw 1\" aktiviert ist, wird nur eine Karte
-        bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.\n\nFalls der Haupt-Stapel leer ist, tippe
+        bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.
+
+Falls der Haupt-Stapel leer ist, tippe
         drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten
-        erneut verwendet werden.</string>
-    <string name="manual_Klondike_scoring">Vom Tableau zur Foundation: +60\n\nVom Ablage-Stapel zur
-        Foundation: +45\n\nVon der Foundation zum Tableau: -75\n\nEine Karte umdrehen: +25\n\nBewege alle Karten
-        vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
-    <string name="manual_Freecell_structure">1 Deck aus 52 Karten.\n\n8 Tableau Stapel, 4 Foundation-Stapel und 4 freie Zellen.</string>
-    <string name="manual_Freecell_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
-    <string name="manual_Freecell_rules">Karten können auf dem Tableau in absteigender Reihenfolge  und
+        erneut verwendet werden."</string>
+<string name="manual_Klondike_scoring">"Vom Tableau zur Foundation: +60
+
+Vom Ablage-Stapel zur
+        Foundation: +45
+
+Von der Foundation zum Tableau: -75
+
+Eine Karte umdrehen: +25
+
+Bewege alle Karten
+        vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
+<string name="manual_Freecell_structure">"1 Deck aus 52 Karten.
+
+8 Tableau Stapel, 4 Foundation-Stapel und 4 freie Zellen."</string>
+<string name="manual_Freecell_objective">"Ordne jede Karte als echte Kartenfamilie auf der Foundation an."</string>
+<string name="manual_Freecell_rules">"Karten können auf dem Tableau in absteigender Reihenfolge  und
         alternierenden Farben gespielt werden. Auf der Foundation können Karten hingegen nur in aufsteigender
         Reihenfolge derselben Kartenfamilie gespielt werden. Die 4 Zellen auf der oberen linken Seite
-        können jeweils nur eine Karte auf einmal enthalten.\n\nMan kann so viele Karten einer korrekten
+        können jeweils nur eine Karte auf einmal enthalten.
+
+Man kann so viele Karten einer korrekten
         Sequenz auf einmal bewegen, wie es freie Spielfelder gibt. Dies entspricht der Regel, dass nur eine
         Karte auf einmal bewegt werden darf, aber Karten einer Sequenz können zuerst auf die freien Felder
-        aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden.\n\nAuf einen
+        aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden.
+
+Auf einen
         leeren Tableau-Stapel kann jede Karte gespielt werden, auf leere Foundation-Stapel hingegen nur
-        Asse.</string>
-    <string name="manual_Freecell_scoring">Bewege eine Karte zur Foundation: +60\n\nBewege eine Karte von der
-        Foundation weg: -75\n\nBewege ein König auf ein leeres Feld: +20</string>
-    <string name="manual_Yukon_structure">1 Deck aus 52 Karten.\n\n7 Tableau-Stapel und 4 Foundation-Stapel.</string>
-    <string name="manual_Yukon_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
-    <string name="manual_Yukon_rules">Karten können auf dem Tableau in absteigender Reihenfolge  und
+        Asse."</string>
+<string name="manual_Freecell_scoring">"Bewege eine Karte zur Foundation: +60
+
+Bewege eine Karte von der
+        Foundation weg: -75
+
+Bewege ein König auf ein leeres Feld: +20"</string>
+<string name="manual_Yukon_structure">"1 Deck aus 52 Karten.
+
+7 Tableau-Stapel und 4 Foundation-Stapel."</string>
+<string name="manual_Yukon_objective">"Ordne jede Karte als echte Kartenfamilie auf der Foundation an."</string>
+<string name="manual_Yukon_rules">"Karten können auf dem Tableau in absteigender Reihenfolge  und
         alternierenden Farben gespielt werden. Auf der Foundation können Karten hingegen nur in aufsteigender
-        Reihenfolge derselben Kartenfamilie gespielt werden.\n\nMan kann jede aufgedeckte Karte bewegen, egal
-        wie viele und welche Karten auf ihr liegen.\n\nNur Könige können auf leeren Tableau-Stapel
+        Reihenfolge derselben Kartenfamilie gespielt werden.
+
+Man kann jede aufgedeckte Karte bewegen, egal
+        wie viele und welche Karten auf ihr liegen.
+
+Nur Könige können auf leeren Tableau-Stapel
         und nur Asse können auf leere Foundation-Stapel gespielt
-        werden.</string>
-    <string name="manual_Yukon_scoring">Bewege eine Karte zur Foundation: +60\n\nBewege eine Karte von der
-        Foundation weg: -75\n\nBewege ein König auf ein leeres Feld: +20\n\nDrehe eine Karte um: +25</string>
-    <string name="manual_Spider_structure">2 Decks aus 52 Karten.\n\n10 Tableau-Stapel und 8 Foundation-Stapel.\n\n1
-        Haupt-Stapel, der in 5 verschiedenen Stapel aufgeteilt ist.\n\nAbhängig von den Einstellungen: Nur 1, 2
-        oder 4 verschiedene Kartenfamilien.</string>
-    <string name="manual_Spider_objective">Platziere jede Karte in einer echten absteigenden Kartenfamilie
-        irgendwo auf dem Tableau. Die gebildeten Kartenfamilien werden automatisch zur Foundation bewegt.</string>
-    <string name="manual_Spider_rules">Karten können auf jede andere Karte in absteigende Reihenfolge gelegt werden,
-        jedoch können nur echte Kartenfamilien-Sequenzen auf einmal bewegt werden.\n\nJede Karte kann auf einen
-        leeren Tableau-Stapel gelegt werden. Tippe auf den Haupt-Stapel um eine Karte auf jeden Tableau-Stapel zu spielen.</string>
-    <string name="manual_Spider_scoring">Bewege eine Kartenfamilie zur Foundation: +200\n\nDrehe eine Karte um: +25</string>
-    <string name="manual_SimpleSimon_structure">1 Deck aus 52 Karten\n\n10 Tableau-Stapel, 4 Foundation-Stapel</string>
-    <string name="manual_SimpleSimon_objective">Platziere jede Karte in einer echten absteigenden Kartenfamilie
-        irgendwo auf dem Tableau. Die gebildeten Kartenfamilien werden automatisch zur Foundation bewegt.</string>
-    <string name="manual_SimpleSimon_rules">Karten können auf jede andere Karte in absteigende Reihenfolge gelegt werden,
-        jedoch können nur echte Kartenfamilien-Sequenzen auf einmal bewegt werden.\n\nJede Karte kann auf einen
-        leeren Tableau-Stapel gelegt werden.</string>
-    <string name="manual_SimpleSimon_scoring">Bewege eine Kartenfamilie zur Foundation: +200</string>
-    <string name="manual_Golf_structure">1 Deck aus 52 Karten.\n\n7 Tableau-Stapel, 1 Haupt- und 1 Ablage-Stapel\n\nBewegen
+        werden."</string>
+<string name="manual_Yukon_scoring">"Bewege eine Karte zur Foundation: +60
+
+Bewege eine Karte von der
+        Foundation weg: -75
+
+Bewege ein König auf ein leeres Feld: +20
+
+Drehe eine Karte um: +25"</string>
+<string name="manual_Spider_structure">"2 Decks aus 52 Karten.
+
+10 Tableau-Stapel und 8 Foundation-Stapel.
+
+1
+        Haupt-Stapel, der in 5 verschiedenen Stapel aufgeteilt ist.
+
+Abhängig von den Einstellungen: Nur 1, 2
+        oder 4 verschiedene Kartenfamilien."</string>
+<string name="manual_Spider_objective">"Platziere jede Karte in einer echten absteigenden Kartenfamilie
+        irgendwo auf dem Tableau. Die gebildeten Kartenfamilien werden automatisch zur Foundation bewegt."</string>
+<string name="manual_Spider_rules">"Karten können auf jede andere Karte in absteigende Reihenfolge gelegt werden,
+        jedoch können nur echte Kartenfamilien-Sequenzen auf einmal bewegt werden.
+
+Jede Karte kann auf einen
+        leeren Tableau-Stapel gelegt werden. Tippe auf den Haupt-Stapel um eine Karte auf jeden Tableau-Stapel zu spielen."</string>
+<string name="manual_Spider_scoring">"Bewege eine Kartenfamilie zur Foundation: +200
+
+Drehe eine Karte um: +25"</string>
+<string name="manual_SimpleSimon_structure">"1 Deck aus 52 Karten
+
+10 Tableau-Stapel, 4 Foundation-Stapel"</string>
+<string name="manual_SimpleSimon_objective">"Platziere jede Karte in einer echten absteigenden Kartenfamilie
+        irgendwo auf dem Tableau. Die gebildeten Kartenfamilien werden automatisch zur Foundation bewegt."</string>
+<string name="manual_SimpleSimon_rules">"Karten können auf jede andere Karte in absteigende Reihenfolge gelegt werden,
+        jedoch können nur echte Kartenfamilien-Sequenzen auf einmal bewegt werden.
+
+Jede Karte kann auf einen
+        leeren Tableau-Stapel gelegt werden."</string>
+<string name="manual_SimpleSimon_scoring">"Bewege eine Kartenfamilie zur Foundation: +200"</string>
+<string name="manual_Golf_structure">"1 Deck aus 52 Karten.
+
+7 Tableau-Stapel, 1 Haupt- und 1 Ablage-Stapel
+
+Bewegen
         von Karten des Ablage-Stapels zurück zum Haupt-Stapel ist nicht möglich (Außer über die \"Undo\"
-        Funktion).</string>
-    <string name="manual_Golf_objective">Bewege alle Karten vom Tableau auf den Ablage-Stapel.</string>
-    <string name="manual_Golf_rules">Jede Karte an der Spitze eines Stapels kann gespielt werden.
+        Funktion)."</string>
+<string name="manual_Golf_objective">"Bewege alle Karten vom Tableau auf den Ablage-Stapel."</string>
+<string name="manual_Golf_rules">"Jede Karte an der Spitze eines Stapels kann gespielt werden.
         Karten können nur auf den Ablage-Stapel in absteigender oder fallender Reihenfolge egal welcher
-        Farbe gespielt werden.\n\nAbhängig von den Einstellungen: Könige können auf Asse gespielt
-        und Asse auf Könige (Spiel ist so einfacher).\n\nFalls keine Karte bewegt werden kann, tippe auf
-        den Haupt-Stapel um eine Karte von dort auf den Ablage-Stapel zu bewegen.</string>
-    <string name="manual_Golf_scoring">Bewege eine Karte auf den Ablage-Stapel: +50</string>
-    <string name="manual_Pyramid_structure">1 Deck aus 52 Karten.\n\n28 Tableau-Stapel, 1 Haupt- 1 Ablage und
+        Farbe gespielt werden.
+
+Abhängig von den Einstellungen: Könige können auf Asse gespielt
+        und Asse auf Könige (Spiel ist so einfacher).
+
+Falls keine Karte bewegt werden kann, tippe auf
+        den Haupt-Stapel um eine Karte von dort auf den Ablage-Stapel zu bewegen."</string>
+<string name="manual_Golf_scoring">"Bewege eine Karte auf den Ablage-Stapel: +50"</string>
+<string name="manual_Pyramid_structure">"1 Deck aus 52 Karten.
+
+28 Tableau-Stapel, 1 Haupt- 1 Ablage und
         1 Foundation-Stapel. Karten vom Ablage-Stapel können nur 2 mal pro Spiel zum Haupt-Stapel
-        zurückgeleget werden.</string>
-    <string name="manual_Pyramid_objective">Bewege alle Karten vom Tableau auf den Foundation-Stapel.
-        Abhänging von den Einstellungen müssen auch Haupt- und Ablage-Stapel leer sein.</string>
-    <string name="manual_Pyramid_rules">Dieses Spiel hat leicht andere Regeln als die anderen Spiele.
+        zurückgeleget werden."</string>
+<string name="manual_Pyramid_objective">"Bewege alle Karten vom Tableau auf den Foundation-Stapel.
+        Abhänging von den Einstellungen müssen auch Haupt- und Ablage-Stapel leer sein."</string>
+<string name="manual_Pyramid_rules">"Dieses Spiel hat leicht andere Regeln als die anderen Spiele.
         Jede Karten, die nicht von einer anderen verdeckt ist, kann zum Spielen verwendet werden. Zwei
         Karten, dessen Werte addiert 13 ergeben, können zur Foundation bewegt werden. Um dies zu
         erreichen bewege eine Karte auf die andere, falls die Werte stimmen werden beide Karten automatisch
-        zum Foundation-Stapel bewegt.\n\nEs ist auch möglich die Karten von Haupt- und Ablage-Stapel zu verwenden.
+        zum Foundation-Stapel bewegt.
+
+Es ist auch möglich die Karten von Haupt- und Ablage-Stapel zu verwenden.
         Falls keine Bewegung mehr möglich ist, drücke auf den Pfeil neben dem Haupt-Stapel um eine Karte
-        vom Haupt-Stapel zum Ablage-Stapel zu bewegen.\n\nFalls der Haupt-Stapel leer ist, tippe drauf oder
+        vom Haupt-Stapel zum Ablage-Stapel zu bewegen.
+
+Falls der Haupt-Stapel leer ist, tippe drauf oder
         auf dem Pfeil um jede Karte vom Ablage-Stapel zurück zu bewegen. Diese Aktion ist nur zwei mal
-        pro Spiel möglich, die verbleibenden Aktionen werden über den Pfeil angezeigt.</string>
-    <string name="manual_Pyramid_scoring">Bewege eine Karte zum Foundation-Stapel: +50\n\nBewege alle Karten
-        vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
-    <string name="manual_TriPeaks_structure">1 Deck aus 52 Karten.\n\n28 Tableau-Stapel, 1 Haupt- und 1
-        Ablage-Stapel\n\nBewegen von Karten des Ablage-Stapels zurück zum Haupt-Stapel ist nicht möglich
-        (Außer über die \"Undo\"Funktion)</string>
-    <string name="manual_TriPeaks_objective">Bewege alle Karten vom Tableau auf den Ablage-Stapel</string>
-    <string name="manual_TriPeaks_rules">Die Regeln sind ähnlich zu den Regeln von \"Golf\".
+        pro Spiel möglich, die verbleibenden Aktionen werden über den Pfeil angezeigt."</string>
+<string name="manual_Pyramid_scoring">"Bewege eine Karte zum Foundation-Stapel: +50
+
+Bewege alle Karten
+        vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
+<string name="manual_TriPeaks_structure">"1 Deck aus 52 Karten.
+
+28 Tableau-Stapel, 1 Haupt- und 1
+        Ablage-Stapel
+
+Bewegen von Karten des Ablage-Stapels zurück zum Haupt-Stapel ist nicht möglich
+        (Außer über die \"Undo\"Funktion)"</string>
+<string name="manual_TriPeaks_objective">"Bewege alle Karten vom Tableau auf den Ablage-Stapel"</string>
+<string name="manual_TriPeaks_rules">"Die Regeln sind ähnlich zu den Regeln von \"Golf\".
         Jede nicht verdeckte Karte kann gespielt werden.
         Karten können auf den Ablage-Stapel in absteigender oder fallender Reihenfolge egal welcher
-        Farbe gespielt werden.\n\nKönige können auf Asse gespielt und Asse auf Könige.\n\nFalls keine
+        Farbe gespielt werden.
+
+Könige können auf Asse gespielt und Asse auf Könige.
+
+Falls keine
         Karte bewegt werden kann, tippe auf
-        den Haupt-Stapel und eine Karte von dort zum Ablage-Stapel zu bewegen.</string>
-    <string name="manual_TriPeaks_scoring">Bewege eine Karte auf den Ablage-Stapel: +50</string>
-    <string name="manual_FortyEight_structure">2 Decks aus 52 Karten.\n\n8 Tableau-Stapel, 8 Foundation-Stapel,
-        1 Haupt- und ein Ablage-Stapel\n\nKarten vom Ablage-Stapel können nur 1 mal pro Spiel zum Haupt-Stapel
-        zurückgeleget werden.</string>
-    <string name="manual_FortyEight_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
-    <string name="manual_FortyEight_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        den Haupt-Stapel und eine Karte von dort zum Ablage-Stapel zu bewegen."</string>
+<string name="manual_TriPeaks_scoring">"Bewege eine Karte auf den Ablage-Stapel: +50"</string>
+<string name="manual_FortyEight_structure">"2 Decks aus 52 Karten.
+
+8 Tableau-Stapel, 8 Foundation-Stapel,
+        1 Haupt- und ein Ablage-Stapel
+
+Karten vom Ablage-Stapel können nur 1 mal pro Spiel zum Haupt-Stapel
+        zurückgeleget werden."</string>
+<string name="manual_FortyEight_objective">"Ordne jede Karte als echte Kartenfamilie auf der Foundation an."</string>
+<string name="manual_FortyEight_rules">"Karten können auf dem Tableau in abfallender Reihenfolge
         derselben Kartenfamilie gespielt werden.Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.
-        \n\nMan kann so viele Karten einer korrekten
+        
+
+Man kann so viele Karten einer korrekten
         Sequenz auf einmal bewegen, wie es freie Spielfelder gibt. Dies entspricht der Regel, dass nur eine
         Karte auf einmal bewegt werden darf, aber Karten einer Sequenz können zuerst auf die freien Felder
         aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden.
-        \n\nJede
+        
+
+Jede
         Karte kann auf leere Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
-        werden.\n\nTippe den Haupt-Stapel an um eine Karte zum Ablage-Stapel zu bewegen.\n\nFalls der Haupt-Stapel leer ist, tippe
+        werden.
+
+Tippe den Haupt-Stapel an um eine Karte zum Ablage-Stapel zu bewegen.
+
+Falls der Haupt-Stapel leer ist, tippe
         drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten
-        erneut verwendet werden, aber dies ist nur einmal pro Spiel möglich.</string>
-    <string name="manual_FortyEight_scoring">Vom Tableau zur Foundation: +45\n\nVom Ablage-Stapel zur
-        Foundation: +60\n\nVon der Foundation zum Tableau: -60\n\nBewege alle Karten
-        vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
-    <string name="manual_mod3_structure">2 Decks aus 52 Karten.\n\n32 Tableau-Stapel, 1 Haupt-Stapel und ein Asse-Stapel</string>
-    <string name="manual_mod3_objective">Ordne alle Karten in den oberen 3 Reihen des Tableaus als Sequenzen derselben Farbe und in
-        dieser Reihenfolge an:\n\nErste Reihe: Sequenzen aus 2–5–8–J\nZweite Reihe: Sequenzen aus 3–6–9–Q\nDritte Reihe:
-        Sequenzen aus 4–7–10–K\n\nAsse werden vorher entfernt.</string>
-    <string name="manual_mod3_rules">Man kann nur die oberste Karte eines Stapels bewegen, zudem können Karten nur
+        erneut verwendet werden, aber dies ist nur einmal pro Spiel möglich."</string>
+<string name="manual_FortyEight_scoring">"Vom Tableau zur Foundation: +45
+
+Vom Ablage-Stapel zur
+        Foundation: +60
+
+Von der Foundation zum Tableau: -60
+
+Bewege alle Karten
+        vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
+<string name="manual_mod3_structure">"2 Decks aus 52 Karten.
+
+32 Tableau-Stapel, 1 Haupt-Stapel und ein Asse-Stapel"</string>
+<string name="manual_mod3_objective">"Ordne alle Karten in den oberen 3 Reihen des Tableaus als Sequenzen derselben Farbe und in
+        dieser Reihenfolge an:
+
+Erste Reihe: Sequenzen aus 2–5–8–J
+Zweite Reihe: Sequenzen aus 3–6–9–Q
+Dritte Reihe:
+        Sequenzen aus 4–7–10–K
+
+Asse werden vorher entfernt."</string>
+<string name="manual_mod3_rules">"Man kann nur die oberste Karte eines Stapels bewegen, zudem können Karten nur
         in den unter \"Ziel\" gezeigten Sequenzen gelegt werden. So kann zum Beispiel eine Karo 5 auf eine Karo 2 gelegt werden,
         aber nur wenn die Karo 2 in der ersten Reihe des Tableaus ist. Verschiedene Karten Familien sind auch nicht
-        erlaubt.\n\nErlange freie Plätze zum Spielen durch das Entfernen von Assen auf den Asse-Stapel
-        über den Haupt-Stapel.\n\nDie vierte Reihe des Tableaus dient auch als Ablagereihe des Haupt-Stapels.
+        erlaubt.
+
+Erlange freie Plätze zum Spielen durch das Entfernen von Assen auf den Asse-Stapel
+        über den Haupt-Stapel.
+
+Die vierte Reihe des Tableaus dient auch als Ablagereihe des Haupt-Stapels.
         Falls keine Bewegung mehr möglich ist, tippe auf den Haupt-Stapel um jeweils eine Karte auf die
-        Stapel der vierten Reihe zu bewegen.\n\nJede Karte kann auf einen freien Platz der vierten Reihe gelegt werden.</string>
-    <string name="manual_mod3_scoring">Bewege eine Karte auf ein korrektes Feld des Tableaus: +50\n\nBewege
-        eine Karte zurück zur vierten Reihe des Tableaus: -75</string>
-    <string name="manual_Gypsy_structure">2 Decks aus 52 Karten.\n\n8 Tableau-Stapel, 8 Foundation-Stapel und 1 Haupt-Stapel.</string>
-    <string name="manual_Gypsy_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
-    <string name="manual_Gypsy_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        Stapel der vierten Reihe zu bewegen.
+
+Jede Karte kann auf einen freien Platz der vierten Reihe gelegt werden."</string>
+<string name="manual_mod3_scoring">"Bewege eine Karte auf ein korrektes Feld des Tableaus: +50
+
+Bewege
+        eine Karte zurück zur vierten Reihe des Tableaus: -75"</string>
+<string name="manual_Gypsy_structure">"2 Decks aus 52 Karten.
+
+8 Tableau-Stapel, 8 Foundation-Stapel und 1 Haupt-Stapel."</string>
+<string name="manual_Gypsy_objective">"Ordne jede Karte als echte Kartenfamilie auf der Foundation an."</string>
+<string name="manual_Gypsy_rules">"Karten können auf dem Tableau in abfallender Reihenfolge
         und alternierenden Farben gespielt werden. Man kann eine ganze korrekte Kartensequenz auf einmal bewegen.
-        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.\n\nJede
+        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.
+
+Jede
         Karte kann auf leere Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
-        werden.\n\nTippe den Haupt-Stapel an um jeweils eine Karte auf die Tableau-Stapel zu spielen.</string>
-    <string name="manual_Gypsy_scoring">Bewege eine Karte zur Foundation: +75\n\nBewege eine Karte von der
-        Foundation zum Tableau: -100\n\nDrehe eine Karte um: +50</string>
-    <string name="manual_AcesUp_structure">1 Deck aus 52 Karten.\n\n4 Tableau-Stapel, 1 Haupt- und 1
-        Foundation-Stapel.\n\nAsse haben den Wert 14, sind also höher als Könige</string>
-    <string name="manual_AcesUp_objective">Bewege alle Karten außer den Assen zur Foundation, sodass
-        auf dem Tableau-Stapeln jeweils ein Ass übrig bleibt.</string>
-    <string name="manual_AcesUp_rules">Man kann nur die oberste Karte eines Stapels bewegen. Bewege
+        werden.
+
+Tippe den Haupt-Stapel an um jeweils eine Karte auf die Tableau-Stapel zu spielen."</string>
+<string name="manual_Gypsy_scoring">"Bewege eine Karte zur Foundation: +75
+
+Bewege eine Karte von der
+        Foundation zum Tableau: -100
+
+Drehe eine Karte um: +50"</string>
+<string name="manual_AcesUp_structure">"1 Deck aus 52 Karten.
+
+4 Tableau-Stapel, 1 Haupt- und 1
+        Foundation-Stapel.
+
+Asse haben den Wert 14, sind also höher als Könige"</string>
+<string name="manual_AcesUp_objective">"Bewege alle Karten außer den Assen zur Foundation, sodass
+        auf dem Tableau-Stapeln jeweils ein Ass übrig bleibt."</string>
+<string name="manual_AcesUp_rules">"Man kann nur die oberste Karte eines Stapels bewegen. Bewege
         Karten zur Foundation, die einen niedrigeren Wert als eine andere oberste Karte eines Stapels haben.
         Zum Beispiel sind ein Kreuz 3 und ein Kreuz 10 oberste Karten eines Stapels,
         dann kann die Kreuz 3 auf den Foundation-Stapel bewegt werden. Asse haben höhere Werte als
-        jede andere Karte.</string>
-    <string name="manual_AcesUp_scoring">Bewege eine Karte zur Foundation: +50</string>
-    <string name="manual_Canfield_structure">1 Deck aus 52 Karten.\n\n4 Tableau-Stapel, 4
-        Foundation-Stapel, 1 Haupt- 1 Ablage- und 1 Reserve-Stapel.</string>
-    <string name="manual_Canfield_objective">Ordne jede Karte als echte Kartenfamilie auf der Foundation an.</string>
-    <string name="manual_Canfield_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        jede andere Karte."</string>
+<string name="manual_AcesUp_scoring">"Bewege eine Karte zur Foundation: +50"</string>
+<string name="manual_Canfield_structure">"1 Deck aus 52 Karten.
+
+4 Tableau-Stapel, 4
+        Foundation-Stapel, 1 Haupt- 1 Ablage- und 1 Reserve-Stapel."</string>
+<string name="manual_Canfield_objective">"Ordne jede Karte als echte Kartenfamilie auf der Foundation an."</string>
+<string name="manual_Canfield_rules">"Karten können auf dem Tableau in abfallender Reihenfolge
         und alternierenden Farben gespielt werden. Man kann eine komplette Kartensequenz auf einmal bewegen.
-        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.\n\nLeere
-        Tableau Felder werden mit einer Karte von der Reserve gefüllt. Falls die Reserve leer ist, wird eine Karte vom Haupt-Stapel benutzt.\n\nDer
+        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.
+
+Leere
+        Tableau Felder werden mit einer Karte von der Reserve gefüllt. Falls die Reserve leer ist, wird eine Karte vom Haupt-Stapel benutzt.
+
+Der
         Wert der ersten Karte, die zur Foundation bewegt wurde, legt fest welche Karten auf leere Foundation Felder gespielt werden dürfen.
         Zum Beispiel: Falls eine Herz 10 gespielt wurde, dürfen nur Karten mit dem Wert 10 auf leere Foundation Felder gespielt werden.
-        Aber die Karten auf der Foundation können zyklisch gespielt werden, so ist es möglich ein Ass auf einen König zu spielen.\n\nTippe
+        Aber die Karten auf der Foundation können zyklisch gespielt werden, so ist es möglich ein Ass auf einen König zu spielen.
+
+Tippe
         den Haupt-Stapel an um Karten auf den Ablage-Stapel zu bewegen. Die Anzahl der Karten
         hängt dabei von den gewählten Einstellungen ab. Falls \"Draw 1\" aktiviert ist, wird nur eine Karte
-        bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.\n\nFalls der Haupt-Stapel leer ist, tippe
+        bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.
+
+Falls der Haupt-Stapel leer ist, tippe
         drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten
-        erneut verwendet werden.</string>
-    <string name="manual_Canfield_scoring">Vom Tableau zur Foundation: +60\n\nVom Ablage-Stapel zur
-        Foundation: +45\n\nVon der Foundation zum Tableau: -75\n\nEine Karte umdrehen: +25\n\nBewege alle Karten
-        vom Ablage-Stapel zurück zum Haupt-Stapel: -200</string>
-    <string name="manual_GrandfathersClock_structure">1 Deck aus 52 Karten.\n\n8 Tableau-Stapel, 12
-        Foundation-Stapel in Form einer Uhr. Jeder Foundation-Stapel enthält bereits eine Karte</string>
-    <string name="manual_GrandfathersClock_objective">Ordne jede Karte als echte Kartenfamilie auf
-        der Foundation an. Am Ende entsprechen die Kartenwerte auf der Foundation der Zahlen einer Uhr.</string>
-    <string name="manual_GrandfathersClock_rules">Karten können auf dem Tableau in abfallender Reihenfolge
+        erneut verwendet werden."</string>
+<string name="manual_Canfield_scoring">"Vom Tableau zur Foundation: +60
+
+Vom Ablage-Stapel zur
+        Foundation: +45
+
+Von der Foundation zum Tableau: -75
+
+Eine Karte umdrehen: +25
+
+Bewege alle Karten
+        vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
+<string name="manual_GrandfathersClock_structure">"1 Deck aus 52 Karten.
+
+8 Tableau-Stapel, 12
+        Foundation-Stapel in Form einer Uhr. Jeder Foundation-Stapel enthält bereits eine Karte"</string>
+<string name="manual_GrandfathersClock_objective">"Ordne jede Karte als echte Kartenfamilie auf
+        der Foundation an. Am Ende entsprechen die Kartenwerte auf der Foundation der Zahlen einer Uhr."</string>
+<string name="manual_GrandfathersClock_rules">"Karten können auf dem Tableau in abfallender Reihenfolge
         gespielt werden, die Farbe ist egal. Auf der Foundation müssen Karten in aufsteigender Reihenfolge
         derselben Familie gespielt werden. Aber Asse können auf Könige gelegt werden.
-        \n\nMan kann so viele Karten einer korrekten
+        
+
+Man kann so viele Karten einer korrekten
         Sequenz auf einmal bewegen, wie es freie Spielfelder gibt. Dies entspricht der Regel, dass nur eine
         Karte auf einmal bewegt werden darf, aber Karten einer Sequenz können zuerst auf die freien Felder
         aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden.
-       </string>
-    <string name="manual_GrandfathersClock_scoring">Vom Tableau zur Foundation: +50</string>
-    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-    <string name="manual_Vegas_objective">Spiele Karten zur Foundation um mehr Geld zu gewinnen.</string>
-    <string name="manual_Vegas_rules">Die Regeln sind identisch zu den \"Klondike\"-Regeln.
-        \n\nKarten können auf dem Tableau in abfallender Reihenfolge
+       "</string>
+<string name="manual_GrandfathersClock_scoring">"Vom Tableau zur Foundation: +50"</string>
+<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+<string name="manual_Vegas_objective">"Spiele Karten zur Foundation um mehr Geld zu gewinnen."</string>
+<string name="manual_Vegas_rules">"Die Regeln sind identisch zu den \"Klondike\"-Regeln.
+        
+
+Karten können auf dem Tableau in abfallender Reihenfolge
         und alternierenden Farben gespielt werden. Man kann eine ganze Kartensequenz auf einmal bewegen.
-        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.\n\nNur
+        Auf der Foundation müssen Karten in aufsteigender Reihenfolge derselben Familie gespielt werden.
+
+Nur
         Könige können auf leeren Tableau-Stapel und nur Asse können auf leere Foundation-Stapel gespielt
-        werden.\n\nTippe den Haupt-Stapel an um Karten auf den Ablage-Stapel zu bewegen. Die Anzahl der Karten
+        werden.
+
+Tippe den Haupt-Stapel an um Karten auf den Ablage-Stapel zu bewegen. Die Anzahl der Karten
         hängt dabei von den gewählten Einstellungen ab. Falls \"Draw 1\" aktiviert ist, wird nur eine Karte
-        bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.\n\nFalls der Haupt-Stapel leer ist, tippe
+        bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.
+
+Falls der Haupt-Stapel leer ist, tippe
         drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten
-        erneut verwendet werden.</string>
-    <string name="manual_Vegas_scoring">Die Höhe des gewinnbaren Geldbetrages hängt von dem Einsatz ab, welcher in den Einstellungen festgelegt wird.
+        erneut verwendet werden."</string>
+<string name="manual_Vegas_scoring">"Die Höhe des gewinnbaren Geldbetrages hängt von dem Einsatz ab, welcher in den Einstellungen festgelegt wird.
         Man zahl zum Beispiel 50$ zu Beginn des Spiels und mit jeder Karte, die zur Foundation gespielt wird, gewinnt man 1/10 des Einsatzes.
-        \n\nEin Spiel wird als \"Gewonnen\" gespeichert, falls die Punktzahl über 0$ liegt. Karten von der Foundation wegzubewegen kostet 2/10 des Einsatzes.
-        \n\nDas Benutzen der Undo- und Hinweisfunktion kostet ebenfalls 1/10 des Einsatzes.
-        \n\nHINWEIS: Es wird nicht für echtes Geld gespielt :)</string>
-    <string name="manual_Calculation_structure">1 Deck aus 52 Karten.\n\n4 Tableau-Stapel, 4
-        Foundation-Stapel, 1 Haupt- und 1 Ablage-Stapel.</string>
-    <string name="manual_Calculation_objective">Spiele jede Karte zur Foundation, unbeachtet der Familie,
+        
+
+Ein Spiel wird als \"Gewonnen\" gespeichert, falls die Punktzahl über 0$ liegt. Karten von der Foundation wegzubewegen kostet 2/10 des Einsatzes.
+        
+
+Das Benutzen der Undo- und Hinweisfunktion kostet ebenfalls 1/10 des Einsatzes.
+        
+
+HINWEIS: Es wird nicht für echtes Geld gespielt :)"</string>
+<string name="manual_Calculation_structure">"1 Deck aus 52 Karten.
+
+4 Tableau-Stapel, 4
+        Foundation-Stapel, 1 Haupt- und 1 Ablage-Stapel."</string>
+<string name="manual_Calculation_objective">"Spiele jede Karte zur Foundation, unbeachtet der Familie,
         bis jeder Foundation-Stapel einen König zeigt. Dabei müssen die Stapel in der folgenden Reihenfolge aufgebaut sein:
-        \n\n 1. Stapel: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
-          \n 2. Stapel: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K
-          \n 3. Stapel: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K
-          \n 4. Stapel: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
-        \n\nDie  nächsten spielbaren Karten werden auch direkt über der Foundation angezeigt.
-    </string>
-    <string name="manual_Calculation_rules">Die 4 Foundation-Stapel starten mit jeweils der ersten Karte ihrer Sequenz. Die Familie wird dabei
+        
+
+ 1. Stapel: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+          
+ 2. Stapel: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K
+          
+ 3. Stapel: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K
+          
+ 4. Stapel: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
+        
+
+Die  nächsten spielbaren Karten werden auch direkt über der Foundation angezeigt.
+    "</string>
+<string name="manual_Calculation_rules">"Die 4 Foundation-Stapel starten mit jeweils der ersten Karte ihrer Sequenz. Die Familie wird dabei
         zufällig gewählt. Karten auf der Foundation müssen die oben angegebene Reihenfolge beachten.
-        \n\nKarten vom Ablage-Stapel können auf jeden Tableau-Stapel oder unter Beachtung der Reihenfolge zur Foundation gespielt werden.
-        \n\nDas Drücken auf dem Haupt-Stapel wird die Karte vom Ablage-Stapel zum Tableau-Stapel mit den wenigsten Karten bewegen.
+        
+
+Karten vom Ablage-Stapel können auf jeden Tableau-Stapel oder unter Beachtung der Reihenfolge zur Foundation gespielt werden.
+        
+
+Das Drücken auf dem Haupt-Stapel wird die Karte vom Ablage-Stapel zum Tableau-Stapel mit den wenigsten Karten bewegen.
         Alternativ: Die Karte auf dem Ablage-Stapel bleibt dort (kann in den Einstellungen aktiviert werden).
-        \n\nAuf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur Foundation.
-       </string>
-    <string name="manual_Calculation_scoring">Bewege eine Karte zur Foundation: +50</string>
+        
 
-    <!-- Settings -->
+Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur Foundation.
+       "</string>
+<string name="manual_Calculation_scoring">"Bewege eine Karte zur Foundation: +50"</string>
 
-    <string name="settings_back_press">Beenden des Spiels bestätigen</string>
-    <string name="settings_background_color">Hintergrundfarbe</string>
-    <string name="settings_hide_status_bar">Statusleiste verbergen</string>
-    <string name="settings_left_handed_mode">Linkshändler Modus</string>
-    <string name="settings_cards">Karten</string>
-    <string name="settings_cards_back">Kartenhintergrund</string>
-    <string name="settings_classic">Klassisch</string>
-    <string name="settings_modern">Modern</string>
-    <string name="settings_simple">Einfach</string>
-    <string name="settings_abstract">Abstrakt</string>
-    <string name="settings_customization">Aussehen</string>
-    <string name="settings_other">Allgemein</string>
-    <string name="settings_back_press_description">Zum Beenden Zurück Taste zwei mal drücken</string>
-    <string name="settings_left_handed_mode_description">Spiegelt die Karten und Stapel Positionen zur linken Seite</string>
-    <string name="settings_background">Hintergrund Nummer</string>
-    <string name="settings_customization_description">Passe Karten, Hintergründe und Benutzeroberfläche an</string>
-    <string name="settings_other_description">Nehme alle anderen Einstellungen vor</string>
-    <string name="settings_games">Spiele</string>
-    <string name="settings_games_description">Nehme Einstellungen der Spielvarianten vor</string>
-    <string name="settings_show_main_menu">Mit Hauptmenü starten</string>
-    <string name="settings_show_main_menu_description">Beim Starten nicht das zuletzt gespielte Spiel öffnen</string>
-    <string name="settings_spider_difficulty">Anzahl verschiedener Karten Familien</string>
-    <string name="settings_klondike_draw">Anzahl der zu ziehenden Karten</string>
-    <string name="settings_canfield_draw">Anzahl der zu ziehenden Karten</string>
-    <string name="settings_golf_easy">Zyklische Bewegungen (Einfacher)</string>
-    <string name="settings_golf_easy_description">Erlaube das Setzen von Assen auf Könige und umgekehrt</string>
-    <string name="settings_basic">Basic</string>
-    <string name="settings_restart_klondike">Starte ein neues Klondike Spiel um die Änderung anzuwenden</string>
-    <string name="settings_restart_canfield">Starte ein neues Canfield Spiel um die Änderung anzuwenden</string>
-    <string name="settings_restart_spider">Starte ein neues Spider Spiel um die Änderung anzuwenden</string>
-    <string name="settings_restart_yukon">Starte ein neues Yukon Spiel um die Änderung anzuwenden</string>
-    <string name="settings">Einstellungen</string>
-    <string name="settings_menu">Hauptmenü</string>
-    <string name="settings_menu_columns">Anzahl der Spalten</string>
-    <string name="settings_menu_description">Ändere Anzahl der Spalten, zeige und verstecke Spiele</string>
-    <string name="settings_menu_games">Zeige und verstecke Spiele</string>
-    <string name="settings_menu_games_description">Wähle aus, welche Spiele im Menü angezeigt werden</string>
-    <string name="settings_pyramid_difficulty">Schwierigkeit</string>
-    <string name="settings_restart_fortyeight">Starte ein neues Forty&amp;Eight Spiel um die Änderung anzuwenden</string>
-    <string name="settings_restart_vegas">Starte ein neues Vegas Spiel um die Änderung anzuwenden</string>
-    <string name="settings_orientation">Bildschirmausrichtung</string>
-    <string name="settings_about_description">Zeige Informationen über das Spiel wie Lizenzen und Änderungen</string>
-    <string name="settings_show_manual_in_menu">Handbuchseite im Spielemenü</string>
-    <string name="settings_show_manual_in_menu_description">Zeige einen Punkt im Menü, um das aktuelle Spiel im Handbuch zu öffnen</string>
-    <string name="settings_change_language">Sprache ändern</string>
-    <string name="settings_yukon_rules">Lege Karten auf…</string>
-    <string name="settings_icon_theme">Symbol Thema</string>
-    <string name="settings_menu_bar_position">Menüleistenposition</string>
-    <string name="settings_menu_bar_position_top">Oben</string>
-    <string name="settings_menu_bar_position_bottom">Unten</string>
-    <string name="settings_menu_bar_position_left">Links</string>
-    <string name="settings_menu_bar_position_right">Rechts</string>
-    <string name="settings_4_color_mode_title">4 Farben Decks</string>
-    <string name="settings_4_color_mode_text">Ändere die Farben von Kreuz zu Grün und von Karo zu Blau</string>
-    <string name="settings_oxygen_dark">Oxygen Dark</string>
-    <string name="settings_oxygen_light">Oxygen Light</string>
-    <string name="settings_poker">Poker</string>
-    <string name="settings_additional_movements">Weitere Karten Bewegungen</string>
-    <string name="settings_additional_movements_description">Aktiviere und deaktivere Doppeltipp- und weitere Bewegungsmöglichkeiten</string>
-    <string name="settings_double_tap">Doppeltippen</string>
-    <string name="settings_double_tap_enable">Erlaube Doppeltipp-Bewegungen</string>
-    <string name="settings_double_tap_enable_text">Tippe eine Karte zweimal an, um sie zum nächstbesten Stapel zu bewegen</string>
-    <string name="settings_double_tap_all_cards">Bewege alle Karten</string>
-    <string name="settings_double_tap_all_cards_text">Bewege so viele Karten wie möglich vom Stapel, nicht nur die berührte Karte</string>
-    <string name="settings_tap_to_select">Zur Auswahl antippen</string>
-    <string name="settings_tap_to_select_enable">Erlaube Auswahl-Bewegungen</string>
-    <string name="settings_tap_to_select_enable_text">Tippe eine Karte an um sie auszuwählen. Anschließend tippe auf einen Stapel um sie dorthin zu bewegen.</string>
-    <string name="settings_single_tap">Einmaltippen</string>
-    <string name="settings_single_tap_enable">Erlaube Einmaltipp-Bewegungen</string>
-    <string name="settings_single_tap_enable_text">Nur für Golf und TriPeaks: Tippe Karten einmal an, um sie zum Ablagestapel zu bewegen.</string>
-    <string name="settings_background_color_custom">Benutzerdefiniert</string>
-    <string name="settings_double_tap_foundation_first">Zuerst zur Foundation bewegen</string>
-    <string name="settings_double_tap_foundation_first_text">Versuche die oberste Karte des angetippten Stapels zur Foundation zu bewegen, bevor die anderen Karten bewegt werden</string>
-    <string name="settings_movement_speed">Kartenbewegungsgeschwindigkeit</string>
-    <string name="Settings_sound">Ton im Spiel erlauben</string>
-    <string name="Settings_sounds_title">Töne</string>
-    <string name="Settings_sounds_text">Aktivere Töne, ändere Effekte</string>
-    <string name="Settings_win_sound_title">Gewinn Ton</string>
-    <string name="Settings_background_music">Hintergrundmusik</string>
-    <string name="Settings_background_volume">Hintergrundmusik Lautstärke</string>
-    <string name="settings_limit_number_of_recycles">Begrenzte Kartenrückgabe</string>
-    <string name="settings_limit_number_of_recycles_text">Das Zurücklegen der Karten zum Hauptstapel ist limitiert</string>
-    <string name="settings_number_of_recycles">Anzahl der Rückgaben</string>
-    <string name="settings_vegas_bet_amount">Höhe des Einsatzes</string>
-    <string name="settings_vegas_bet_amount_text_1">Ein Spiel kostet:</string>
-    <string name="settings_vegas_bet_amount_text_2">Jede Karte, die zur Foundation gespielt wird, bringt:</string>
-    <string name="settings_vegas_bet_amount_summary">Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$</string>
-    <string name="settings_menu_order_title">Menü Reihenfolge</string>
-    <string name="settings_menu_order_summary">Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern</string>
-    <string name="settings_menu_order_set_default">Setze Reihenfolge zurück</string>
-    <string name="settings_auto_start_new_game_title">Starte ein neues Spiel</string>
-    <string name="settings_auto_start_new_game_text">Falls zu einem bereits gewonnenen Spiel zurückgekehrt wird, starte ein neues Spiel</string>
-    <string name="settings_rules">Regeln</string>
-    <string name="settings_money">Geld</string>
-    <string name="settings_support">Unterstützung</string>
-    <string name="settings_force_tablet_layout_title">Erzwinge Tablet Layout</string>
-    <string name="settings_force_tablet_layout_text">Zeige die Anwendung wie auf großen Bildschirmen (≥7\")</string>
-    <string name="settings_restart_calculation">Starte ein neues Calculation Spiel um die Änderung anzuwenden</string>
-    <string name="settings_calculation_alternative_title">Behalte Karten</string>
-    <string name="settings_calculation_alternative_text">Beim Drücken auf dem Haupt-Stapel: Bewege Karten
-        vom Ablage-Stapel nicht zum Tableau, behalte sie auf dem Ablage-Stapel</string>
-    <string name="settings_vegas_money_enabled">Behalte aktuellen Kontostand</string>
-    <string name="settings_vegas_money_enabled_text">Das Geld wird zu den nachfolgenden Vegas Spielen übertragen,
-        aber man muss den Kontostand zurücksetzen und ein neues Spiel starten, damit Highscores gespeichert werden</string>
-    <string name="settings_vegas_money_reset">Setze Kontostand zurück</string>
-    <string name="settings_vegas_money_reset_text">Das nächste Vegas Spiel startet mit 0$</string>
-    <string name="settings_vegas_money_reset_confirm">Möchtest du wirklich deinen Kontostand zurücksetzen? Dies kann nicht rückgängig gemacht werden.</string>
-    <string name="settings_auto_move_title">Automatische Bewegung</string>
-    <string name="settings_mod3_auto_move_text">Bewege falls möglich Asse automatisch zum Ablage-Stapel</string>
-    <string name="settings_pyramid_auto_move_text">Bewege falls möglich Könige automatisch zum Foundation-Stapel</string>
-    <string name="settings_hide_time">Verstecke Zeit</string>
-    <string name="settings_hide_score">Verstecke Score</string>
-    <string name="settings_single_tap_all_games_text">Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen.
-        Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert.</string>
-    <string name="settings_vegas_bet_amount_error">Kann diese Zahlen nicht speichern!</string>
-    <string name="settings_canfield_size_of_reserve_title">Ändere Größe der Reserve (Einfacher)</string>
-    <string name="settings_use_true_randomisation_title">Benutze echten Zufall</string>
-    <string name="settings_use_true_randomisation_text">Die Standard Randomisierung vermeidet ähnliche Karten nebeneinander.
-        Setze das Häkchen, um eine uniforme Randomisierung zu nutzen.</string>
-    <string name="settings_developer_options">Entwickler Optionen</string>
-    <string name="settings_developer_options_description">Spiele mit verrückten Einstellungen herum!</string>
-    <string name="settings_developer_options_move_card_everwhere_title">Bewege Karten überall hin</string>
-    <string name="settings_developer_options_move_card_everwhere_text">Man kann Karten auf jeden Stapel platzieren</string>
-    <string name="settings_developer_options_lock_text">Diese Einstellungen sind nur für Testzwecke gedacht, die Verwendung kann zu merkwürdigem Verhalten und Abstürzen führen!</string>
-    <string name="settings_developer_options_play_every_card_title">Spiele jede Karte</string>
-    <string name="settings_developer_options_play_every_card_text">Man kann jede aufgedeckte Karte spielen</string>
-    <string name="settings_developer_options_instant_win_title">Sofortiger Gewinn</string>
-    <string name="settings_developer_options_instant_win_text">Gewinne jedes Spiel nach einer Kartenbewegung</string>
-    <string name="settings_developer_options_no_saving_title">Deaktivere Spielstand Speicherung</string>
-    <string name="settings_developer_options_no_saving_text">Bewegungen in den Spielen werden nicht mehr gespeichert</string>
-    <string name="settings_developer_options_deal_correct_sequences_title">Gebe korrekte Sequenzen aus</string>
-    <string name="settings_show_advanced_settings">Zeige fortgeschrittene Einstellungen</string>
-    <string name="settings_show_advanced_settings_text">Schalte Experten und Entwickler Kategorien frei</string>
-    <string name="settings_max_number_undos">Maximale Anzahl der umkehrbaren Bewegungen</string>
-    <string name="settings_expert_settings">Experten Einstellungen</string>
-    <string name="settings_expert_settings_text">Könnten für Einige nützlich sein</string>
-    <string name="settings_follow_system_settings">System Einstellungen folgen</string>
-    <string name="settings_portrait">Hochformat</string>
-    <string name="settings_landscape">Querformat</string>
-    <string name="settings_landscape_upside_down">Querformat umgedreht</string>
-    <string name="settings_spider_difficultiy_1">1 (Einfach)</string>
-    <string name="settings_spider_difficultiy_2">2 (Mittel)</string>
-    <string name="settings_spider_difficultiy_3">4 (Schwer)</string>
-    <string name="settings_draw_1">Draw 1</string>
-    <string name="settings_draw_3">Draw 3</string>
-    <string name="settings_pyramid_difficulty_1">Leicht: Spiel ist gewonnen, falls das Tableau leer ist</string>
-    <string name="settings_pyramid_difficulty_2">Schwer: Spiel ist gewonnen, falls Tableau und Haupt-Stapel leer sind</string>
-    <string name="settings_language_default">Standard Sprache</string>
-    <string name="settings_language_english">Englisch</string>
-    <string name="settings_language_esperanto">Esperanto</string>
-    <string name="settings_language_finnish">Finnisch</string>
-    <string name="settings_language_french">Französisch</string>
-    <string name="settings_language_german">Deutsch</string>
-    <string name="settings_language_japanese">Japanisch</string>
-    <string name="settings_language_polish">Polnisch</string>
-    <string name="settings_language_turkish">Türkisch</string>
-    <string name="settings_yukon_rules_1">unterschiedliche Farben (Standard)</string>
-    <string name="settings_yukon_rules_2">selbe Familie (Russian Solitare)</string>
-    <string name="settings_movement_speed_1">Sehr langsam</string>
-    <string name="settings_movement_speed_2">Langsam</string>
-    <string name="settings_movement_speed_3">Normal</string>
-    <string name="settings_movement_speed_4">Schnell</string>
-    <string name="settings_win_sounds_1">Standard</string>
-    <string name="settings_win_sounds_2">Piano</string>
-    <string name="settings_win_sounds_3">8-Bit Stimme \"You win\"</string>
-    <string name="settings_win_sounds_4">Jubelnde Menge</string>
-    <string name="settings_background_music_1">Deaktiviert</string>
-    <string name="settings_background_music_2">Melodie 1</string>
-    <string name="settings_background_music_3">Melodie 2</string>
-    <string name="settings_background_music_4">Melodie 3</string>
-    <string name="settings_background_music_5">Musikbox</string>
-    <string name="settings_canfield_size_of_reserve_1">13 Karten (Standard)</string>
-    <string name="settings_canfield_size_of_reserve_2">10 Karten</string>
-    <string name="settings_canfield_size_of_reserve_3">7 Karten</string>
-    <string name="settings_canfield_size_of_reserve_4">4 Karten</string>
-    <string name="settings_developer_option_deal_correct_sequences_1">Deaktiviert</string>
-    <string name="settings_developer_option_deal_correct_sequences_2">Abwechselnde Farbe</string>
-    <string name="settings_developer_option_deal_correct_sequences_3">Gleiche Familie</string>
-    <string name="settings_developer_option_deal_correct_sequences_4">Umgekehrt abwechselnde Farbe</string>
-    <string name="settings_developer_option_deal_correct_sequences_5">Umgekehrt gleiche Familie</string>
+<!-- Settings -->
+<string name="settings_background_color">"Hintergrundfarbe"</string>
+<string name="settings_hide_status_bar">"Statusleiste verbergen"</string>
+<string name="settings_left_handed_mode">"Linkshändler Modus"</string>
+<string name="settings_left_handed_mode_description">"Spiegelt die Karten und Stapel Positionen zur linken Seite"</string>
+<string name="settings_back_press">"Beenden des Spiels bestätigen"</string>
+<string name="settings_back_press_description">"Zum Beenden Zurück Taste zwei mal drücken"</string>
+<string name="settings_orientation">"Bildschirmausrichtung"</string>
+<string name="settings_cards">"Karten"</string>
+<string name="settings_classic">"Klassisch"</string>
+<string name="settings_simple">"Einfach"</string>
+<string name="settings_cards_back">"Kartenhintergrund"</string>
+<string name="settings_modern">"Modern"</string>
+<string name="settings_abstract">"Abstrakt"</string>
+<string name="settings_basic">"Basic"</string>
+<string name="settings_oxygen_dark">"Oxygen Dark"</string>
+<string name="settings_oxygen_light">"Oxygen Light"</string>
+<string name="settings_poker">"Poker"</string>
+<string name="settings_background">"Hintergrund Nummer"</string>
+<string name="settings_customization">"Aussehen"</string>
+<string name="settings_other">"Allgemein"</string>
+<string name="settings_other_description">"Nehme alle anderen Einstellungen vor"</string>
+<string name="settings_games">"Spiele"</string>
+<string name="settings_games_description">"Nehme Einstellungen der Spielvarianten vor"</string>
+<string name="settings_spider_difficulty">"Anzahl verschiedener Karten Familien"</string>
+<string name="settings_klondike_draw">"Anzahl der zu ziehenden Karten"</string>
+<string name="settings_canfield_draw">"Anzahl der zu ziehenden Karten"</string>
+<string name="settings_show_main_menu">"Mit Hauptmenü starten"</string>
+<string name="settings_show_main_menu_description">"Beim Starten nicht das zuletzt gespielte Spiel öffnen"</string>
+<string name="settings_golf_easy">"Zyklische Bewegungen (Einfacher)"</string>
+<string name="settings_golf_easy_description">"Erlaube das Setzen von Assen auf Könige und umgekehrt"</string>
+<string name="settings_restart_klondike">"Starte ein neues Klondike Spiel um die Änderung anzuwenden"</string>
+<string name="settings_restart_canfield">"Starte ein neues Canfield Spiel um die Änderung anzuwenden"</string>
+<string name="settings_restart_spider">"Starte ein neues Spider Spiel um die Änderung anzuwenden"</string>
+<string name="settings_restart_vegas">"Starte ein neues Vegas Spiel um die Änderung anzuwenden"</string>
+<string name="settings_restart_fortyeight">"Starte ein neues Forty&amp;Eight Spiel um die Änderung anzuwenden"</string>
+<string name="settings_restart_yukon">"Starte ein neues Yukon Spiel um die Änderung anzuwenden"</string>
+<string name="settings_menu">"Hauptmenü"</string>
+<string name="settings_menu_description">"Ändere Anzahl der Spalten, zeige und verstecke Spiele"</string>
+<string name="settings_pyramid_difficulty">"Schwierigkeit"</string>
+<string name="settings_menu_columns">"Anzahl der Spalten"</string>
+<string name="settings_menu_games">"Zeige und verstecke Spiele"</string>
+<string name="settings_menu_games_description">"Wähle aus, welche Spiele im Menü angezeigt werden"</string>
+<string name="settings_about_description">"Zeige Informationen über das Spiel wie Lizenzen und Änderungen"</string>
+<string name="settings_show_manual_in_menu">"Handbuchseite im Spielemenü"</string>
+<string name="settings_show_manual_in_menu_description">"Zeige einen Punkt im Menü, um das aktuelle Spiel im Handbuch zu öffnen"</string>
+<string name="settings_change_language">"Sprache ändern"</string>
+<string name="settings_yukon_rules">"Lege Karten auf…"</string>
+<string name="settings_icon_theme">"Symbol Thema"</string>
+<string name="settings_menu_bar_position">"Menüleistenposition"</string>
+<string name="settings_menu_bar_position_top">"Oben"</string>
+<string name="settings_menu_bar_position_bottom">"Unten"</string>
+<string name="settings_menu_bar_position_left">"Links"</string>
+<string name="settings_menu_bar_position_right">"Rechts"</string>
+<string name="settings_4_color_mode_title">"4 Farben Decks"</string>
+<string name="settings_4_color_mode_text">"Ändere die Farben von Kreuz zu Grün und von Karo zu Blau"</string>
+<string name="settings_additional_movements">"Weitere Karten Bewegungen"</string>
+<string name="settings_additional_movements_description">"Aktiviere und deaktivere Doppeltipp- und weitere Bewegungsmöglichkeiten"</string>
+<string name="settings_double_tap">"Doppeltippen"</string>
+<string name="settings_double_tap_enable">"Erlaube Doppeltipp-Bewegungen"</string>
+<string name="settings_double_tap_enable_text">"Tippe eine Karte zweimal an, um sie zum nächstbesten Stapel zu bewegen"</string>
+<string name="settings_double_tap_all_cards">"Bewege alle Karten"</string>
+<string name="settings_double_tap_all_cards_text">"Bewege so viele Karten wie möglich vom Stapel, nicht nur die berührte Karte"</string>
+<string name="settings_tap_to_select">"Zur Auswahl antippen"</string>
+<string name="settings_tap_to_select_enable">"Erlaube Auswahl-Bewegungen"</string>
+<string name="settings_tap_to_select_enable_text">"Tippe eine Karte an um sie auszuwählen. Anschließend tippe auf einen Stapel um sie dorthin zu bewegen."</string>
+<string name="settings_single_tap">"Einmaltippen"</string>
+<string name="settings_single_tap_enable_text">"Nur für Golf und TriPeaks: Tippe Karten einmal an, um sie zum Ablagestapel zu bewegen."</string>
+<string name="settings_double_tap_foundation_first">"Zuerst zur Foundation bewegen"</string>
+<string name="settings_double_tap_foundation_first_text">"Versuche die oberste Karte des angetippten Stapels zur Foundation zu bewegen, bevor die anderen Karten bewegt werden"</string>
+<string name="settings_movement_speed">"Kartenbewegungsgeschwindigkeit"</string>
+<string name="Settings_sound">"Ton im Spiel erlauben"</string>
+<string name="Settings_sounds_title">"Töne"</string>
+<string name="Settings_sounds_text">"Aktivere Töne, ändere Effekte"</string>
+<string name="Settings_win_sound_title">"Gewinn Ton"</string>
+<string name="Settings_background_music">"Hintergrundmusik"</string>
+<string name="settings_background_color_custom">"Benutzerdefiniert"</string>
+<string name="Settings_background_volume">"Hintergrundmusik Lautstärke"</string>
+<string name="settings_limit_number_of_recycles">"Begrenzte Kartenrückgabe"</string>
+<string name="settings_limit_number_of_recycles_text">"Das Zurücklegen der Karten zum Hauptstapel ist limitiert"</string>
+<string name="settings_number_of_recycles">"Anzahl der Rückgaben"</string>
+<string name="settings_vegas_bet_amount">"Höhe des Einsatzes"</string>
+<string name="settings_menu_order_title">"Menü Reihenfolge"</string>
+<string name="settings_menu_order_summary">"Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern"</string>
+<string name="settings_menu_order_set_default">"Setze Reihenfolge zurück"</string>
+<string name="settings_auto_start_new_game_title">"Starte ein neues Spiel"</string>
+<string name="settings_auto_start_new_game_text">"Falls zu einem bereits gewonnenen Spiel zurückgekehrt wird, starte ein neues Spiel"</string>
+<string name="settings_customization_description">"Passe Karten, Hintergründe und Benutzeroberfläche an"</string>
+<string name="settings_force_tablet_layout_title">"Erzwinge Tablet Layout"</string>
+<string name="settings_force_tablet_layout_text">"Zeige die Anwendung wie auf großen Bildschirmen (≥7\")"</string>
+<string name="settings_restart_calculation">"Starte ein neues Calculation Spiel um die Änderung anzuwenden"</string>
+<string name="settings_calculation_alternative_title">"Behalte Karten"</string>
+<string name="settings_calculation_alternative_text">"Beim Drücken auf dem Haupt-Stapel: Bewege Karten
+        vom Ablage-Stapel nicht zum Tableau, behalte sie auf dem Ablage-Stapel"</string>
+<string name="settings_vegas_money_enabled">"Behalte aktuellen Kontostand"</string>
+<string name="settings_vegas_money_enabled_text">"Das Geld wird zu den nachfolgenden Vegas Spielen übertragen,
+        aber man muss den Kontostand zurücksetzen und ein neues Spiel starten, damit Highscores gespeichert werden"</string>
+<string name="settings_vegas_money_reset">"Setze Kontostand zurück"</string>
+<string name="settings_vegas_money_reset_text">"Das nächste Vegas Spiel startet mit 0$"</string>
+<string name="settings_vegas_money_reset_confirm">"Möchtest du wirklich deinen Kontostand zurücksetzen? Dies kann nicht rückgängig gemacht werden."</string>
+<string name="settings_auto_move_title">"Automatische Bewegung"</string>
+<string name="settings_mod3_auto_move_text">"Bewege falls möglich Asse automatisch zum Ablage-Stapel"</string>
+<string name="settings_pyramid_auto_move_text">"Bewege falls möglich Könige automatisch zum Foundation-Stapel"</string>
+<string name="settings_rules">"Regeln"</string>
+<string name="settings_money">"Geld"</string>
+<string name="settings_support">"Unterstützung"</string>
+<string name="settings_hide_time">"Verstecke Zeit"</string>
+<string name="settings_hide_score">"Verstecke Score"</string>
+<string name="settings_single_tap_enable">"Erlaube Einmaltipp-Bewegungen"</string>
+<string name="settings_vegas_bet_amount_text_1">"Ein Spiel kostet:"</string>
+<string name="settings_vegas_bet_amount_text_2">"Jede Karte, die zur Foundation gespielt wird, bringt:"</string>
+<string name="settings_vegas_bet_amount_summary">"Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$"</string>
+<string name="settings_single_tap_all_games_text">"Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen.
+        Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert."</string>
+<string name="settings_vegas_bet_amount_error">"Kann diese Zahlen nicht speichern!"</string>
+<string name="settings_canfield_size_of_reserve_title">"Ändere Größe der Reserve (Einfacher)"</string>
+<string name="settings_use_true_randomisation_title">"Benutze echten Zufall"</string>
+<string name="settings_use_true_randomisation_text">"Die Standard Randomisierung vermeidet ähnliche Karten nebeneinander.
+        Setze das Häkchen, um eine uniforme Randomisierung zu nutzen."</string>
+<string name="settings_developer_options">"Entwickler Optionen"</string>
+<string name="settings_developer_options_description">"Spiele mit verrückten Einstellungen herum!"</string>
+<string name="settings_developer_options_move_card_everwhere_title">"Bewege Karten überall hin"</string>
+<string name="settings_developer_options_move_card_everwhere_text">"Man kann Karten auf jeden Stapel platzieren"</string>
+<string name="settings_developer_options_lock_text">"Diese Einstellungen sind nur für Testzwecke gedacht, die Verwendung kann zu merkwürdigem Verhalten und Abstürzen führen!"</string>
+<string name="settings_developer_options_play_every_card_title">"Spiele jede Karte"</string>
+<string name="settings_developer_options_play_every_card_text">"Man kann jede aufgedeckte Karte spielen"</string>
+<string name="settings_developer_options_instant_win_title">"Sofortiger Gewinn"</string>
+<string name="settings_developer_options_instant_win_text">"Gewinne jedes Spiel nach einer Kartenbewegung"</string>
+<string name="settings_developer_options_no_saving_title">"Deaktivere Spielstand Speicherung"</string>
+<string name="settings_developer_options_no_saving_text">"Bewegungen in den Spielen werden nicht mehr gespeichert"</string>
+<string name="settings_developer_options_deal_correct_sequences_title">"Gebe korrekte Sequenzen aus"</string>
+<string name="settings_show_advanced_settings">"Zeige fortgeschrittene Einstellungen"</string>
+<string name="settings_show_advanced_settings_text">"Schalte Experten und Entwickler Kategorien frei"</string>
+<string name="settings_max_number_undos">"Maximale Anzahl der umkehrbaren Bewegungen"</string>
+<string name="settings_expert_settings">"Experten Einstellungen"</string>
+<string name="settings_expert_settings_text">"Könnten für Einige nützlich sein"</string>
+<string name="settings_follow_system_settings">"System Einstellungen folgen"</string>
+<string name="settings_portrait">"Hochformat"</string>
+<string name="settings_landscape">"Querformat"</string>
+<string name="settings_landscape_upside_down">"Querformat umgedreht"</string>
+<string name="settings_spider_difficultiy_1">"1 (Einfach)"</string>
+<string name="settings_spider_difficultiy_2">"2 (Mittel)"</string>
+<string name="settings_spider_difficultiy_3">"4 (Schwer)"</string>
+<string name="settings_draw_1">"Draw 1"</string>
+<string name="settings_draw_3">"Draw 3"</string>
+<string name="settings_pyramid_difficulty_1">"Leicht: Spiel ist gewonnen, falls das Tableau leer ist"</string>
+<string name="settings_pyramid_difficulty_2">"Schwer: Spiel ist gewonnen, falls Tableau und Haupt-Stapel leer sind"</string>
+<string name="settings_language_default">"Standard Sprache"</string>
+<string name="settings_language_english">"Englisch"</string>
+<string name="settings_language_esperanto">"Esperanto"</string>
+<string name="settings_language_finnish">"Finnisch"</string>
+<string name="settings_language_french">"Französisch"</string>
+<string name="settings_language_german">"Deutsch"</string>
+<string name="settings_language_japanese">"Japanisch"</string>
+<string name="settings_language_polish">"Polnisch"</string>
+<string name="settings_language_turkish">"Türkisch"</string>
+<string name="settings_yukon_rules_1">"unterschiedliche Farben (Standard)"</string>
+<string name="settings_yukon_rules_2">"selbe Familie (Russian Solitare)"</string>
+<string name="settings_movement_speed_1">"Sehr langsam"</string>
+<string name="settings_movement_speed_2">"Langsam"</string>
+<string name="settings_movement_speed_3">"Normal"</string>
+<string name="settings_movement_speed_4">"Schnell"</string>
+<string name="settings_win_sounds_1">"Standard"</string>
+<string name="settings_win_sounds_2">"Piano"</string>
+<string name="settings_win_sounds_3">"8-Bit Stimme \"You win\""</string>
+<string name="settings_win_sounds_4">"Jubelnde Menge"</string>
+<string name="settings_background_music_1">"Deaktiviert"</string>
+<string name="settings_background_music_2">"Melodie 1"</string>
+<string name="settings_background_music_3">"Melodie 2"</string>
+<string name="settings_background_music_4">"Melodie 3"</string>
+<string name="settings_background_music_5">"Musikbox"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 Karten (Standard)"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 Karten"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 Karten"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 Karten"</string>
+<string name="settings_developer_option_deal_correct_sequences_1">"Deaktiviert"</string>
+<string name="settings_developer_option_deal_correct_sequences_2">"Abwechselnde Farbe"</string>
+<string name="settings_developer_option_deal_correct_sequences_3">"Gleiche Familie"</string>
+<string name="settings_developer_option_deal_correct_sequences_4">"Umgekehrt abwechselnde Farbe"</string>
+<string name="settings_developer_option_deal_correct_sequences_5">"Umgekehrt gleiche Familie"</string>
 
-    <!-- Statistics -->
+<!-- Statistics -->
+<string name="statistics_text_won_games">"%1$d aus %2$d Spiele gewonnen"</string>
 
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"Deine Gewinnrate: %1$.0f%%"</string>
 
-    <string name="statistics_text_won_games">%1$d aus %2$d Spiele gewonnen</string>  <!-- %1$d and %2$d are placeholders for the values-->
-    <string name="statistics_win_percentage">Deine Gewinnrate: %1$.0f%%</string> <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
-    <string name="statistics_button_delete">Alle Einträge löschen!</string>
-    <string name="statistics_button_delete_text">Alle Einträge für dieses Spiel löschen! Bist du dir sicher?</string>
-    <string name="statistics_button_deleted_all_entries">Alle Einträge gelöscht</string>
-    <string name="statistics_date">Datum</string>
-    <string name="statistics_time_of_day">Uhrzeit</string>
-
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"Alle Einträge löschen!"</string>
+<string name="statistics_button_delete_text">"Alle Einträge für dieses Spiel löschen! Bist du dir sicher?"</string>
+<string name="statistics_button_deleted_all_entries">"Alle Einträge gelöscht"</string>
+<string name="statistics_time_of_day">"Uhrzeit"</string>
+<string name="statistics_date">"Datum"</string>
 </resources>
