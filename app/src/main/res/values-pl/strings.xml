@@ -383,10 +383,10 @@ NOTA: nie grasz o prawdziwą kasę w tej grze :)"</string>
 4 stosów gry, 4 stosy bazowe, 1 główny stos i 1 stos odrzutów."</string>
 <string name="manual_Calculation_objective">"Uszereguj wszystkie karty na stosach bazowych, kolor nie ma znaczenia, aż króle znajdą się na wszystkich stosach. Stosy buduje się w następującej kolejności: 
 
- 1. stos w 1. kroku: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     &lt;!-- 1s means: add in each step 1 to the value--&gt; 
- 2. stos w 2. kroku: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     &lt;!-- 2s means: add in each step 2 to the value--&gt; 
- 3. stos w 3. kroku: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     &lt;!-- ... --&gt; 
- 4. stos w 4. kroku: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K 
+ 1. stos w 1. kroku: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+ 2. stos w 2. kroku: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K
+ 3. stos w 3. kroku: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K
+ 4. stos w 4. kroku: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
 
 Następna grywalna karta jest wyświetlana nad stosem bazowym. "</string>
 <string name="manual_Calculation_rules">"4 stosy bazowe z początku zawierają pierwsze karty wybrane losowo. Karty na stosach bazowych muszą być w kolejności opisanej w „celu gry”. 

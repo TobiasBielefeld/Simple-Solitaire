@@ -130,7 +130,7 @@ Benutze das Menü auf der linken Seite um die anderen Handbuchseiten zu öffnen.
 Die App wird bei einem Neustart automatisch das zuletzt gespielte Spiel öffnen, falls die App innerhalb eines Spiels pausiert wird. Dieses Verhalten kann in den Einstellungen unter \"Allgemein\" deaktivert werden.
 
 Dort befindet sich auch unter \"Hauptmenü\" die Möglichkeit alle Spiele im Menü zu verstecken und die Anzahl der Spalten zu verändern, sodass mehr Spiele auf einmal auf dem Bildschirm passen."</string>
-<string name="manual_ui_text">"Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert. Das Menü enthält 5 Punkte, die die folgendenen Zwecke erfüllen (Punkte von links nach rechts):
+<string name="manual_ui_text">"Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert. Das Menü enthält 5 Punkte, die folgendenen Zwecke erfüllen (Punkte von links nach rechts):
 
 Der \"Punkte\" Punkt zeigt ein neues Fenster mit den High-Scores und der Anzahl der gewonnen Spiele an.
 

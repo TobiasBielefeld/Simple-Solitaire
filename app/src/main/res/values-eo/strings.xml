@@ -383,10 +383,10 @@ NOTO: vi ne ludas por vera mono en tiu ĉi ludo :)"</string>
 4 tablamasoj, 4 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj."</string>
 <string name="manual_Calculation_objective">"Surmetu ĉiujn kartojn sur la fundamentajn stakojn, sendepende de emblemo, ĝis reĝo aperos sur ĉiu fundamenta stako. Ordigu stakojn en la jena ordo: 
 
- 1-a stako en 1-a paŝo: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     &lt;!-- 1s means: add in each step 1 to the value--&gt; 
- 2-a stako en 2-a paŝo: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     &lt;!-- 2s means: add in each step 2 to the value--&gt; 
- 3-a stako en 3-a paŝo: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     &lt;!-- ... --&gt; 
- 4-a stako en 4-a paŝo: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K 
+ 1-a stako en 1-a paŝo: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+ 2-a stako en 2-a paŝo: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K
+ 3-a stako en 3-a paŝo: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K
+ 4-a stako en 4-a paŝo: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
 
 Sekvaj ludeblaj kartoj estas montrataj supre de fundamentaj stakoj. "</string>
 <string name="manual_Calculation_rules">"4 fundamentaj stakoj jam komenciĝas kun unaj kartoj, kiuj estas elektitaj hazarde. Kartoj sur fundamentaj stakoj devas esti ordigitaj laŭ ordo priskribita en “celo”. 

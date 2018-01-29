@@ -382,10 +382,10 @@ neljä pöytäpinoa, neljä peruspinoa, yksi käsipakka ja yksi kääntöpakka."
 <string name="manual_Calculation_objective">"Aseta kaikki kortit peruspinoihin, maasta välittämättä, kunnes jokaisen peruspinon
         päällimmäisenä korttina on kuningas. Pinot pitää rakentaa seuraavassa järjestyksessä: 
 
- 1. pino yhden välein: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     &lt;!-- 1s means: add in each step 1 to the value--&gt; 
- 2. pino kahden välein: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     &lt;!-- 2s means: add in each step 2 to the value--&gt; 
- 3. pino kolmen välein: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     &lt;!-- ... --&gt; 
- 4. pino neljän välein: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K 
+ 1. pino yhden välein: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+ 2. pino kahden välein: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K
+ 3. pino kolmen välein: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K
+ 4. pino neljän välein: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
 
 Seuraavat pelattavat kortit näkyvät peruspinojen yläpuolella. "</string>
 <string name="manual_Calculation_rules">"Alussa jokaisessa neljässä peruspinossa on satunnaisesti valitut ensimmäiset kortit. Peruspinoissa korttien pitää noudattaa Tavoitteissa määriteltyä järjestystä. 

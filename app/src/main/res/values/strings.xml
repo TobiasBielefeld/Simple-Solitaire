@@ -1,6 +1,7 @@
 <resources>
 
     <!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+    <string name="app_version">Version</string>
 
     <string name="title_activity_manual">Manual</string>
     <string name="title_activity_settings">Settings</string>
@@ -11,7 +12,7 @@
     <string name="game_manual">Manual</string>
     <string name="game_score">Score</string>
     <string name="game_time">Time</string>
-    <string name="app_version">Version</string>
+
     <string name="game_cancel">Cancel</string>
     <string name="game_confirm">Confirm</string>
     <string name="game_auto_complete_text">Autocomplete</string>
