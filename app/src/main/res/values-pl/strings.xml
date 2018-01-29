@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Wersja"</string>
 <string name="settings">"Ustawienia"</string>
 <string name="game_manual">"Podręcznik"</string>
