@@ -12,8 +12,6 @@
 <string name="game_auto_complete_text">"オートコンプリート"</string>
 <string name="game_press_again">"もう一度押すと終了します"</string>
 <string name="game_load_error">"データの読み込みに失敗しました。新しいゲームを開始しています…"</string>
-<string name="game_close"></string>
-<string name="game_main_menu"></string>
 <string name="item_game_rules">"ゲームのルール"</string>
 <string name="item_return_to_main_menu">"メインメニューに戻る"</string>
 
@@ -54,28 +52,6 @@
 <string name="orange">"オレンジ"</string>
 <string name="purple">"紫"</string>
 
-<!-- game stuff -->
-<string name="game_longest_run"></string>
-
-<!-- dialog won -->
-<string name="dialog_win_titel"></string>
-<string name="dialog_win_score"></string>
-<string name="dialog_win_bonus"></string>
-<string name="dialog_win_total"></string>
-
-<!-- dialog mix cards -->
-<string name="dialog_mix_cards_title"></string>
-<string name="dialog_mix_cards_text"></string>
-<string name="dialog_mix_cards_not_available"></string>
-
-<!-- dialog start new game -->
-<string name="dialog_start_new_game_title"></string>
-<string name="dialog_start_new_game_text"></string>
-
-<!-- dialog redeal -->
-<string name="dialog_redeal_title"></string>
-<string name="dialog_redeal_text"></string>
-
 <!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="title_activity_manual">"マニュアル"</string>
 <string name="title_activity_settings">"設定"</string>
@@ -87,26 +63,11 @@
 <string name="about_tab_2">"ライセンス"</string>
 <string name="about_tab_3">"変更履歴"</string>
 <string name="about_loading">"読み込み中…"</string>
-<string name="about_developer"></string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"ビルド日"</string>
 <string name="about_source_code">"ソースコード"</string>
 <string name="about_license">"ライセンス"</string>
 <string name="about_translations">"翻訳"</string>
-<string name="about_further_contributors"></string>
-<string name="about_android_support_libraries_title"></string>
-<string name="about_android_support_libraries_usage"></string>
-<string name="about_material_icons_title"></string>
-<string name="about_material_icons_usage"></string>
-<string name="about_card_themes_title"></string>
-<string name="about_card_themes_usage"></string>
-<string name="about_poker_themes_usage"></string>
-<string name="about_custom_color_picker_title"></string>
-<string name="about_custom_color_picker_usage"></string>
-<string name="about_sounds_title"></string>
-<string name="about_sounds_usage"></string>
-<string name="about_sliding_tabs_title"></string>
-<string name="about_sliding_tabs_usage"></string>
 
 <!-- Manual -->
 <string name="manual_games">"ゲーム"</string>
@@ -336,22 +297,6 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 
 山札を押して、1つのカードをそれぞれの場札に配ります。"</string>
 <string name="manual_AcesUp_scoring">"カードを組札に移動: +50"</string>
-<string name="manual_Canfield_structure"></string>
-<string name="manual_Canfield_objective"></string>
-<string name="manual_Canfield_rules"></string>
-<string name="manual_Canfield_scoring"></string>
-<string name="manual_GrandfathersClock_structure"></string>
-<string name="manual_GrandfathersClock_objective"></string>
-<string name="manual_GrandfathersClock_rules"></string>
-<string name="manual_GrandfathersClock_scoring"></string>
-<string name="manual_Vegas_structure"></string>
-<string name="manual_Vegas_objective"></string>
-<string name="manual_Vegas_rules"></string>
-<string name="manual_Vegas_scoring"></string>
-<string name="manual_Calculation_structure"></string>
-<string name="manual_Calculation_objective"></string>
-<string name="manual_Calculation_rules"></string>
-<string name="manual_Calculation_scoring"></string>
 
 <!-- Settings -->
 <string name="settings_background_color">"背景の色"</string>
@@ -368,9 +313,6 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="settings_modern">"モダン"</string>
 <string name="settings_abstract">"無地"</string>
 <string name="settings_basic">"基本"</string>
-<string name="settings_oxygen_dark"></string>
-<string name="settings_oxygen_light"></string>
-<string name="settings_poker"></string>
 <string name="settings_background">"背景の番号"</string>
 <string name="settings_customization">"外観"</string>
 <string name="settings_other">"全般"</string>
@@ -389,7 +331,6 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="settings_restart_spider">"  変更を適用するために新しいスパイダーゲームを開始します"</string>
 <string name="settings_restart_vegas">"変更を適用するために新しいベガスゲームを始める"</string>
 <string name="settings_restart_fortyeight">"変更を適用するための新しいフォーティ&amp;エイトゲームを開始します"</string>
-<string name="settings_restart_yukon"></string>
 <string name="settings_menu">"メインメニュー"</string>
 <string name="settings_menu_description">"列数の変更、ゲームの表示と非表示"</string>
 <string name="settings_pyramid_difficulty">"難易度"</string>
@@ -400,91 +341,6 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="settings_show_manual_in_menu">"ゲームメニューにマニュアルページ"</string>
 <string name="settings_show_manual_in_menu_description">"マニュアルに現在のゲームを開くためのアイテムを表示します"</string>
 <string name="settings_change_language">"言語の変更"</string>
-<string name="settings_yukon_rules"></string>
-<string name="settings_icon_theme"></string>
-<string name="settings_menu_bar_position"></string>
-<string name="settings_menu_bar_position_top"></string>
-<string name="settings_menu_bar_position_bottom"></string>
-<string name="settings_menu_bar_position_left"></string>
-<string name="settings_menu_bar_position_right"></string>
-<string name="settings_4_color_mode_title"></string>
-<string name="settings_4_color_mode_text"></string>
-<string name="settings_additional_movements"></string>
-<string name="settings_additional_movements_description"></string>
-<string name="settings_double_tap"></string>
-<string name="settings_double_tap_enable"></string>
-<string name="settings_double_tap_enable_text"></string>
-<string name="settings_double_tap_all_cards"></string>
-<string name="settings_double_tap_all_cards_text"></string>
-<string name="settings_tap_to_select"></string>
-<string name="settings_tap_to_select_enable"></string>
-<string name="settings_tap_to_select_enable_text"></string>
-<string name="settings_single_tap"></string>
-<string name="settings_single_tap_enable_text"></string>
-<string name="settings_double_tap_foundation_first"></string>
-<string name="settings_double_tap_foundation_first_text"></string>
-<string name="settings_movement_speed"></string>
-<string name="Settings_sound"></string>
-<string name="Settings_sounds_title"></string>
-<string name="Settings_sounds_text"></string>
-<string name="Settings_win_sound_title"></string>
-<string name="Settings_background_music"></string>
-<string name="settings_background_color_custom"></string>
-<string name="Settings_background_volume"></string>
-<string name="settings_limit_number_of_recycles"></string>
-<string name="settings_limit_number_of_recycles_text"></string>
-<string name="settings_number_of_recycles"></string>
-<string name="settings_vegas_bet_amount"></string>
-<string name="settings_menu_order_title"></string>
-<string name="settings_menu_order_summary"></string>
-<string name="settings_menu_order_set_default"></string>
-<string name="settings_auto_start_new_game_title"></string>
-<string name="settings_auto_start_new_game_text"></string>
-<string name="settings_customization_description"></string>
-<string name="settings_force_tablet_layout_title"></string>
-<string name="settings_force_tablet_layout_text"></string>
-<string name="settings_restart_calculation"></string>
-<string name="settings_calculation_alternative_title"></string>
-<string name="settings_calculation_alternative_text"></string>
-<string name="settings_vegas_money_enabled"></string>
-<string name="settings_vegas_money_enabled_text"></string>
-<string name="settings_vegas_money_reset"></string>
-<string name="settings_vegas_money_reset_text"></string>
-<string name="settings_vegas_money_reset_confirm"></string>
-<string name="settings_auto_move_title"></string>
-<string name="settings_mod3_auto_move_text"></string>
-<string name="settings_pyramid_auto_move_text"></string>
-<string name="settings_rules"></string>
-<string name="settings_money"></string>
-<string name="settings_support"></string>
-<string name="settings_hide_time"></string>
-<string name="settings_hide_score"></string>
-<string name="settings_single_tap_enable"></string>
-<string name="settings_vegas_bet_amount_text_1"></string>
-<string name="settings_vegas_bet_amount_text_2"></string>
-<string name="settings_vegas_bet_amount_summary"></string>
-<string name="settings_single_tap_all_games_text"></string>
-<string name="settings_vegas_bet_amount_error"></string>
-<string name="settings_canfield_size_of_reserve_title"></string>
-<string name="settings_use_true_randomisation_title"></string>
-<string name="settings_use_true_randomisation_text"></string>
-<string name="settings_developer_options"></string>
-<string name="settings_developer_options_description"></string>
-<string name="settings_developer_options_move_card_everwhere_title"></string>
-<string name="settings_developer_options_move_card_everwhere_text"></string>
-<string name="settings_developer_options_lock_text"></string>
-<string name="settings_developer_options_play_every_card_title"></string>
-<string name="settings_developer_options_play_every_card_text"></string>
-<string name="settings_developer_options_instant_win_title"></string>
-<string name="settings_developer_options_instant_win_text"></string>
-<string name="settings_developer_options_no_saving_title"></string>
-<string name="settings_developer_options_no_saving_text"></string>
-<string name="settings_developer_options_deal_correct_sequences_title"></string>
-<string name="settings_show_advanced_settings"></string>
-<string name="settings_show_advanced_settings_text"></string>
-<string name="settings_max_number_undos"></string>
-<string name="settings_expert_settings"></string>
-<string name="settings_expert_settings_text"></string>
 <string name="settings_follow_system_settings">"システム設定に従う"</string>
 <string name="settings_portrait">"縦向き"</string>
 <string name="settings_landscape">"横向き"</string>
@@ -505,41 +361,9 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="settings_language_japanese">"日本語"</string>
 <string name="settings_language_polish">"ポーランド語"</string>
 <string name="settings_language_turkish">"トルコ語"</string>
-<string name="settings_yukon_rules_1"></string>
-<string name="settings_yukon_rules_2"></string>
-<string name="settings_movement_speed_1"></string>
-<string name="settings_movement_speed_2"></string>
-<string name="settings_movement_speed_3"></string>
-<string name="settings_movement_speed_4"></string>
-<string name="settings_win_sounds_1"></string>
-<string name="settings_win_sounds_2"></string>
-<string name="settings_win_sounds_3"></string>
-<string name="settings_win_sounds_4"></string>
-<string name="settings_background_music_1"></string>
-<string name="settings_background_music_2"></string>
-<string name="settings_background_music_3"></string>
-<string name="settings_background_music_4"></string>
-<string name="settings_background_music_5"></string>
-<string name="settings_canfield_size_of_reserve_1"></string>
-<string name="settings_canfield_size_of_reserve_2"></string>
-<string name="settings_canfield_size_of_reserve_3"></string>
-<string name="settings_canfield_size_of_reserve_4"></string>
-<string name="settings_developer_option_deal_correct_sequences_1"></string>
-<string name="settings_developer_option_deal_correct_sequences_2"></string>
-<string name="settings_developer_option_deal_correct_sequences_3"></string>
-<string name="settings_developer_option_deal_correct_sequences_4"></string>
-<string name="settings_developer_option_deal_correct_sequences_5"></string>
-
-<!-- Statistics -->
-<string name="statistics_text_won_games"></string>
-
-<!-- %1$d and %2$d are placeholders for the values -->
-<string name="statistics_win_percentage"></string>
 
 <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
 <string name="statistics_button_delete">"すべてのエントリーを削除!"</string>
 <string name="statistics_button_delete_text">"このゲームのすべてのエントリーを削除します! よろしいですか?"</string>
 <string name="statistics_button_deleted_all_entries">"すべてのエントリーを削除しました"</string>
-<string name="statistics_time_of_day"></string>
-<string name="statistics_date"></string>
 </resources>
