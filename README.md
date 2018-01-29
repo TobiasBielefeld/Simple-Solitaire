@@ -2,7 +2,11 @@
 ![license](http://img.shields.io/badge/license-GPLv3+-brightgreen.svg)
 ![platform](http://img.shields.io/badge/platform-Android-blue.svg)
 
-[<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire)
+[<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire) 
+
+
+## Help translating here: [<img src="https://poeditor.com/public/images/logo_small.png" alt="Help translating this project" height="30">](https://poeditor.com/join/project/PYX4vcwTjA)
+
 
 #### Now contains 16 different Solitaire games!
 AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, GrandfathersClock, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
