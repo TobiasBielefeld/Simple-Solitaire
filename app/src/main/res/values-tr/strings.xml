@@ -89,8 +89,7 @@
 
     <string name="about_material_icons_title">Material tasarım simgeleri</string>
     <string name="about_card_themes_title">Kart temaları </string>
-    <string name="about_poker_themes_usage">Olarak kullanıldı Poker teması - Üzerinde mevcut <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
-        - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
+    <string name="about_poker_themes_usage">Olarak kullanıldı Poker teması - Üzerinde mevcut <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
     <string name="about_sounds_title">Sesler</string>
 
     <string name="title_activity_manual">Kılavuz</string>
@@ -107,185 +106,94 @@
     <string name="manual_ui">Kullanıcı arayüzü</string>
     <string name="page_load_error">Bu oyun için yardım sayfası yok…</string>
     <string name="manual_bonus">Bir oyunu kazandıktan sonra, bir bonus kazanırsınız: Kazanmanız ne kadar hızlı olursa, bonus o kadar yüksek olur.</string>
-    <string name="manual_ui_text">Bir oyun daima ekranın alt kısmında (Dikey mod) veya sağ tarafta (Yatay mod)
-        küçük bir menü gösterecektir. Oyunun geçerli puanı ve oynatılan zamanı da gösterecektir. Mümkünse,
-        bu iki değer yüksek puanlı listeye kaydedilecektir. Menü, aşağıdaki efektleri içeren 5 maddeden oluşur (soldan sağa düğmeler):
-        \n\n\"Skorlar\" düğmesi, yüksek puanlara ve mevcut oyunun kazanılan sayı sayısına sahip yeni bir pencere gösterecektir.
-        \n\n\"İpucu\" düğmesi aynı anda en çok 3 kart hareketi göstererek size yardımcı olacaktır. Fakat bu şimdiki puanı 25 azaltıyor.
-        Her kartı boş bir alana taşımak ya da ana yığına basmak gibi önemsiz hareketlerin ipucu olarak gösterilmediğine dikkat
-        edin. \nHerhangi bir ipucu gösterilmediyse, skor düşmeyecektir.
-        \n\n\"Menü\" düğmesi üç farklı işlemi gösterir: Kartları karıştırıp yeni bir anlaşma çizerek yeni bir oyun başlatın.
-        Kartları ver yine aynı şeyi ancak karıştırma yapmadan yapacak. Bu, mevcut oyunun yeniden başlatılması gibi. Son seçenek
-        mevcut oyunu bitirir ve uygulamayı ana menüye geri döndürür.
-        \n\n\"Geri Al\" düğmesi son hareketi geri alır, ancak bu 25 puana mal olur. Bu son 20 hareket için kullanılabilir.
-        \n\n\"Ayarlar\" düğmesi, yalnızca ayarlar menüsünü açar.\n</string>
+    <string name="manual_ui_text">Bir oyun daima ekranın alt kısmında (Dikey mod) veya sağ tarafta (Yatay mod) küçük bir menü gösterecektir. Oyunun geçerli puanı ve oynatılan zamanı da gösterecektir. Mümkünse, bu iki değer yüksek puanlı listeye kaydedilecektir. Menü, aşağıdaki efektleri içeren 5 maddeden oluşur (soldan sağa düğmeler): \n\n\"Skorlar\" düğmesi, yüksek puanlara ve mevcut oyunun kazanılan sayı sayısına sahip yeni bir pencere gösterecektir. \n\n\"İpucu\" düğmesi aynı anda en çok 3 kart hareketi göstererek size yardımcı olacaktır. Fakat bu şimdiki puanı 25 azaltıyor. Her kartı boş bir alana taşımak ya da ana yığına basmak gibi önemsiz hareketlerin ipucu olarak gösterilmediğine dikkat edin. \nHerhangi bir ipucu gösterilmediyse, skor düşmeyecektir. \n\n\"Menü\" düğmesi üç farklı işlemi gösterir: Kartları karıştırıp yeni bir anlaşma çizerek yeni bir oyun başlatın. Kartları ver yine aynı şeyi ancak karıştırma yapmadan yapacak. Bu, mevcut oyunun yeniden başlatılması gibi. Son seçenek mevcut oyunu bitirir ve uygulamayı ana menüye geri döndürür. \n\n\"Geri Al\" düğmesi son hareketi geri alır, ancak bu 25 puana mal olur. Bu son 20 hareket için kullanılabilir. \n\n\"Ayarlar\" düğmesi, yalnızca ayarlar menüsünü açar.\n</string>
     <string name="manual_startpage_text">Bu oyun kılavuz el kitabına hoş geldiniz! Umarım her şeyi açıklar.\n\n\nDiğer sayfalara erişmek için sol taraftaki menüyü kullanın.</string>
     <string name="manual_games_text1">Oynanışını, amacını, kurallarını ve puanlamasını göstermek için bir oyun seçin.</string>
-    <string name="manual_general_main_menu">Ana menünün kullanımı nispeten basittir. Başlamak için bir oyuna dokunmanız yeterlidir.       
-        \n\nUygulama, içinde duraklatılmışsa, uygulama son oynatılan oyunu otomatik olarak bir yeniden başlatmada yükleyecektir.
-        Bu davranış \"Genel\" altındaki ayarlarda devre dışı bırakılabilir.\n\nOrada \"Ana menü\" bölümünü de bulabilirsiniz;
-        burada menüden oyunları gizlemek ve sütun sayısını değiştirmek mümkündür, böylece bir anda aynı anda daha fazla oyun sığacak oyunlar olur.</string>
+    <string name="manual_general_main_menu">Ana menünün kullanımı nispeten basittir. Başlamak için bir oyuna dokunmanız yeterlidir.        \n\nUygulama, içinde duraklatılmışsa, uygulama son oynatılan oyunu otomatik olarak bir yeniden başlatmada yükleyecektir. Bu davranış \"Genel\" altındaki ayarlarda devre dışı bırakılabilir.\n\nOrada \"Ana menü\" bölümünü de bulabilirsiniz; burada menüden oyunları gizlemek ve sütun sayısını değiştirmek mümkündür, böylece bir anda aynı anda daha fazla oyun sığacak oyunlar olur.</string>
 
 
     <!-- Feedback -->
     <string name="manual_open_google_play">Google Playi aç</string>
     <string name="manual_open_github">GitHub Repoyu aç</string>
-    <string name="manual_feedback_text">Bir hata mı buldunuz? Geliştirmem gereken bir şey var mı?
-        \nKoleksiyona başka bir oyun eklemem gerekir mi?
-        \nBelki bazı çevirilerle yardım etmek istersiniz?
-        \nYa da başka bir fikrin mi var?\n\nHer türlü geribildirim almaktan mutluluk duyuyorum.
-        \nBenimle iletişim kurmak gerektiğini düşünüyorsanız, aşağıdaki iki seçeneği düşünmelisiniz:
-        \n\nGitHub\'da Sorun İzleyici\'yi kullanın:
-        \nGitHub\'daki bu uygulamanın projeleri sorunları bildirmek için düzgün bir işleve sahiptir.
-        \nInternet tarayıcısıyla Sorun İzleyici\'yi açmak için ekranın sol tarafındaki düğmeyi tıklamanız yeterlidir.
-        \n\nGoogle Play\'de bir derecelendirme kullanın:
-        \nBu uygulamadan sayfaya bir puan bırakın ve istediğiniz herhangi bir şey yazın.
-        \nGoogle Play Store\'u açmak için sağ taraftaki düğmeyi tıklayın (yüklü ise).
-        \n\nGeribildiriminiz için şimdiden teşekkür ederiz :)</string>
+    <string name="manual_feedback_text">Bir hata mı buldunuz? Geliştirmem gereken bir şey var mı? \nKoleksiyona başka bir oyun eklemem gerekir mi? \nBelki bazı çevirilerle yardım etmek istersiniz? \nYa da başka bir fikrin mi var?\n\nHer türlü geribildirim almaktan mutluluk duyuyorum. \nBenimle iletişim kurmak gerektiğini düşünüyorsanız, aşağıdaki iki seçeneği düşünmelisiniz: \n\nGitHub\'da Sorun İzleyici\'yi kullanın: \nGitHub\'daki bu uygulamanın projeleri sorunları bildirmek için düzgün bir işleve sahiptir. \nInternet tarayıcısıyla Sorun İzleyici\'yi açmak için ekranın sol tarafındaki düğmeyi tıklamanız yeterlidir. \n\nGoogle Play\'de bir derecelendirme kullanın: \nBu uygulamadan sayfaya bir puan bırakın ve istediğiniz herhangi bir şey yazın. \nGoogle Play Store\'u açmak için sağ taraftaki düğmeyi tıklayın (yüklü ise). \n\nGeribildiriminiz için şimdiden teşekkür ederiz :)</string>
 
     <!-- acesUp -->
-    <string name="manual_AcesUp_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 1 ana ve 1 temel yığın.
-        \n\nAsların değeri 14\'tür, bu nedenle papazlardan daha yüksek bir değere sahiptirler.</string>
-    <string name="manual_AcesUp_objective">Aslar hariç tüm kartları temel yığınının üzerine koy,
-        \nböylece her yığında sadece bir as kalsın.</string>
-    <string name="manual_AcesUp_rules">Yalnızca destenin en üstündeki kartı taşıyabilirsiniz. Aynı
-        ailenin başka bir üst kartından daha düşük bir değere sahip olan kartları temel yığına taşıyın.
-        Mesela: İki tablo yığınının üzerinde bir Kupa 5 ve bir Kupa 10 var.. Bu durumda Kupa 5i temel
-        yığına taşıyabilirsiniz. Asların değeri tüm diğer kartlardan fazladır.
-        \n\nHer taşınabilir kart boş kart sütununa taşınabilir.
-        \n\nAna kart yığınına tıklayarak her kart sütununa birer kart dağıtabilirsiniz.</string>
+    <string name="manual_AcesUp_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 1 ana ve 1 temel yığın. \n\nAsların değeri 14\'tür, bu nedenle papazlardan daha yüksek bir değere sahiptirler.</string>
+    <string name="manual_AcesUp_objective">Aslar hariç tüm kartları temel yığınının üzerine koy, \nböylece her yığında sadece bir as kalsın.</string>
+    <string name="manual_AcesUp_rules">Yalnızca destenin en üstündeki kartı taşıyabilirsiniz. Aynı ailenin başka bir üst kartından daha düşük bir değere sahip olan kartları temel yığına taşıyın. Mesela: İki tablo yığınının üzerinde bir Kupa 5 ve bir Kupa 10 var.. Bu durumda Kupa 5i temel yığına taşıyabilirsiniz. Asların değeri tüm diğer kartlardan fazladır. \n\nHer taşınabilir kart boş kart sütununa taşınabilir. \n\nAna kart yığınına tıklayarak her kart sütununa birer kart dağıtabilirsiniz.</string>
     <string name="manual_AcesUp_scoring">Kartı temel yığınına taşıyın: +50</string>
 
     <!-- Canfield -->
-    <string name="manual_Canfield_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 4 temel yığın,
-        1 ana ve 1 ayrılmış ve rezerv yığın</string>
+    <string name="manual_Canfield_structure">1 deste 52 kartan oluşur.\n\n4 masa yığın, 4 temel yığın, 1 ana ve 1 ayrılmış ve rezerv yığın</string>
     <string name="manual_Canfield_objective">Her destedeki kartları artan sıralamada temel yığına yerleştirin.</string>
-    <string name="manual_Canfield_rules">Kartlar masaüstüne azalan ve renkleri dönüşümlü olarak yerleştirilebilir.
-        Birden fazla kart dizisini aynı anda taşıyabilirsiniz. Vakfın üzerinde, kartlar ilgili aileye artan düzende yerleştirilebilir.
-        \n\nBoş masa alanı, rezervin kartıyla doldurulur. Rezerv boşsa, ana istasyondaki bir kart kullanılacaktır.
-        \n\nİlk kartın temel üzerine çekilen değeri, boş temel alanlarına hangi kartların yerleştirileceğini belirleyecektir.
-        Örneğin: Bir Kalpler 10 vakfa çekilirse, yalnızca 10 değerli kartlar boş temel alanlarına yerleştirilebilir.
-        Fakat temeldeki kartlar çevrimsel olarak yerleştirilebilir, bu nedenle bir kral üzerinde bir as da oynanabilir
-        \n\nAna istife bastığınızda, kartlar kullanabileceğiniz yerden atılan desteye taşınacaktır. Kartların miktarı
-        seçilen ayarlara bağlıdır. \"Bir çizin\" seçildiyse, yalnızca bir kart taşınacaktır. \"Draw 3\"
-        etkinleştirilmişken, aynı anda 3 kart taşınacaktır.
-        \n\nAna istif boşsa, her kartı atık yığından ana yığına taşımak ve üzerine tekrar basmak için üzerine basabilirsiniz.</string>
-    <string name="manual_Canfield_scoring">Temel yığına taşıma: +60
-        \n\nAyrılmış kartı temel yığına taşı: +45
-        \n\nTemel yığından sütunlara taşı: -75
-        \n\nKartı ters çevir: +25
-        \n\nAyrılmış kartları sütunlara geri gönder: -200</string>
+    <string name="manual_Canfield_rules">Kartlar masaüstüne azalan ve renkleri dönüşümlü olarak yerleştirilebilir. Birden fazla kart dizisini aynı anda taşıyabilirsiniz. Vakfın üzerinde, kartlar ilgili aileye artan düzende yerleştirilebilir. \n\nBoş masa alanı, rezervin kartıyla doldurulur. Rezerv boşsa, ana istasyondaki bir kart kullanılacaktır. \n\nİlk kartın temel üzerine çekilen değeri, boş temel alanlarına hangi kartların yerleştirileceğini belirleyecektir. Örneğin: Bir Kalpler 10 vakfa çekilirse, yalnızca 10 değerli kartlar boş temel alanlarına yerleştirilebilir. Fakat temeldeki kartlar çevrimsel olarak yerleştirilebilir, bu nedenle bir kral üzerinde bir as da oynanabilir \n\nAna istife bastığınızda, kartlar kullanabileceğiniz yerden atılan desteye taşınacaktır. Kartların miktarı seçilen ayarlara bağlıdır. \"Bir çizin\" seçildiyse, yalnızca bir kart taşınacaktır. \"Draw 3\" etkinleştirilmişken, aynı anda 3 kart taşınacaktır. \n\nAna istif boşsa, her kartı atık yığından ana yığına taşımak ve üzerine tekrar basmak için üzerine basabilirsiniz.</string>
+    <string name="manual_Canfield_scoring">Temel yığına taşıma: +60 \n\nAyrılmış kartı temel yığına taşı: +45 \n\nTemel yığından sütunlara taşı: -75 \n\nKartı ters çevir: +25 \n\nAyrılmış kartları sütunlara geri gönder: -200</string>
 
     <!-- Vegas -->
     <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-    <string name="manual_Vegas_scoring">Kazanılan para miktarı, ayarlarda ayarladığınız bahise bağlıdır.
-        Örneğin ödeme yaparsın. Oyunun başında 50 $, oyuna giren her kartla birlikte bahsin 1 / 10\'unu kazanırsınız.
-        \n\nSkor 0\'dan büyük olduğunda bir oyun kazanılan olarak kaydedilecektir. Kuruluştan kartlarıgeri oynatmak bahsin 2 / 10\'u pahalıdır.
-        \n\nİpucu veya geri alma işlevlerini kullanmak, bahsin 1 / 10\'una mal olur.
-        \n\nYASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)</string>
+    <string name="manual_Vegas_scoring">Kazanılan para miktarı, ayarlarda ayarladığınız bahise bağlıdır. Örneğin ödeme yaparsın. Oyunun başında 50 $, oyuna giren her kartla birlikte bahsin 1 / 10\'unu kazanırsınız. \n\nSkor 0\'dan büyük olduğunda bir oyun kazanılan olarak kaydedilecektir. Kuruluştan kartlarıgeri oynatmak bahsin 2 / 10\'u pahalıdır. \n\nİpucu veya geri alma işlevlerini kullanmak, bahsin 1 / 10\'una mal olur. \n\nYASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)</string>
     <string name="manual_Vegas_objective">Daha fazla para kazanmak için temel yığına daha fazla kart gönder.</string>
 
-    <string name="manual_FortyEight_scoring">Kartı temel yığına taşı: +45\n\nKartı sütunlara geri taşı: -60
-        \n\nAtılan kartı sütuna geri koy: +60
-        \n\nAtılan kartı desteye geri koy: -200</string>
-    <string name="manual_FortyEight_structure">52 kartlık 2 deste.
-        \n\n8 sütun, 8 temel yığın, 1 ana ve 1 atılmış yer.
-        \n\nHer oyunda sedece bir atılmış kart ana yığına geri konabilir.</string>
+    <string name="manual_FortyEight_scoring">Kartı temel yığına taşı: +45\n\nKartı sütunlara geri taşı: -60 \n\nAtılan kartı sütuna geri koy: +60 \n\nAtılan kartı desteye geri koy: -200</string>
+    <string name="manual_FortyEight_structure">52 kartlık 2 deste. \n\n8 sütun, 8 temel yığın, 1 ana ve 1 atılmış yer. \n\nHer oyunda sedece bir atılmış kart ana yığına geri konabilir.</string>
 
     <!-- FreeCell -->
-    <string name="manual_Freecell_scoring">Kartı temel yığına taşı: +60
-        \n\nTemel yığından kartı al: -75
-        \n\nPapazı boş sütuna taşı: +20</string>
-    <string name="manual_Freecell_structure">52 kartlık bir deste
-        \n\n8 sütun, 4 temel yığın ve 4 boş sütun</string>
+    <string name="manual_Freecell_scoring">Kartı temel yığına taşı: +60 \n\nTemel yığından kartı al: -75 \n\nPapazı boş sütuna taşı: +20</string>
+    <string name="manual_Freecell_structure">52 kartlık bir deste \n\n8 sütun, 4 temel yığın ve 4 boş sütun</string>
     <string name="manual_Freecell_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.</string>
 
     <!-- Golf -->
     <string name="manual_Golf_scoring">Kartı atılan yığına taşı: +50</string>
-    <string name="manual_Golf_structure">52 kartlık bir deste
-        \n\n7 sütun, 1 ana ve 1 atılmış yer.
-        \n\nAtılmış kartları ana yığına geri döndürmek mümkün değildir. (Geri tuşu hariç)</string>
+    <string name="manual_Golf_structure">52 kartlık bir deste \n\n7 sütun, 1 ana ve 1 atılmış yer. \n\nAtılmış kartları ana yığına geri döndürmek mümkün değildir. (Geri tuşu hariç)</string>
     <string name="manual_Golf_objective">Tüm kartları atılmış yığına at.</string>
 
     <!-- GrandfathersClock -->
-    <string name="manual_GrandfathersClock_structure">1 deck of 52 cards.\n\n8 tableau stacks, 12 foundation
-        stacks in the form of a clock. Each foundation stack already contains one card</string>
+    <string name="manual_GrandfathersClock_structure">1 deck of 52 cards.\n\n8 tableau stacks, 12 foundation stacks in the form of a clock. Each foundation stack already contains one card</string>
     <string name="manual_GrandfathersClock_scoring">Sütunlardan temel yığına: +50</string>
-    <string name="manual_GrandfathersClock_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.
-        En sonda yığındaki kart değerleri saatteki değerle aynı olmalı.</string>
+    <string name="manual_GrandfathersClock_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir. En sonda yığındaki kart değerleri saatteki değerle aynı olmalı.</string>
 
     <!-- Gypsy -->
-    <string name="manual_Gypsy_scoring">Temel yığına kart taşı: +75
-        \n\nTemel yığından sütunlara kart taşı: -100
-        \n\nKartı ters çevir: +50</string>
-    <string name="manual_Gypsy_structure">52 kartlık 2 deste.
-        \n\n8 sütun, 8 temel yığın karesi ve 1 ana yığın.</string>
+    <string name="manual_Gypsy_scoring">Temel yığına kart taşı: +75 \n\nTemel yığından sütunlara kart taşı: -100 \n\nKartı ters çevir: +50</string>
+    <string name="manual_Gypsy_structure">52 kartlık 2 deste. \n\n8 sütun, 8 temel yığın karesi ve 1 ana yığın.</string>
     <string name="manual_Gypsy_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.</string>
 
     <!-- Klondike -->
-    <string name="manual_Klondike_scoring">Sütunlardan temel yığına kart taşı: +60
-        \n\nAtılan kartı temel yığına taşı: +45
-        \n\nTemel yığından sütunlara taşı: -75
-        \n\nTüm atılan kartları ana yığına taşı: -200</string>
-    <string name="manual_Klondike_structure">52 kartlık bir deste.
-        \n\n7 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri.</string>
+    <string name="manual_Klondike_scoring">Sütunlardan temel yığına kart taşı: +60 \n\nAtılan kartı temel yığına taşı: +45 \n\nTemel yığından sütunlara taşı: -75 \n\nTüm atılan kartları ana yığına taşı: -200</string>
+    <string name="manual_Klondike_structure">52 kartlık bir deste. \n\n7 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri.</string>
     <string name="manual_Klondike_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.</string>
 
     <!-- Pyramid -->
-    <string name="manual_Pyramid_scoring">Kartı geri döndür: +50
-        \n\nAtılan kartı ana yığına koy: -200</string>
-    <string name="manual_Pyramid_structure">52 kartlık bir deste.
-        \n\n28 sütun, 1 ana, 1 atılmış ve 1 çöp yeri.
-        \n\nAtılmış kartlar bir oyunda sadece iki defa ana yığına geri konulabilir.</string>
-    <string name="manual_Pyramid_objective">Sütunlardaki tüm kartları çöpe gönder. Ayarlara göre ana
-        ve atılmış kartları da göndermeniz gerekebilir.</string>
+    <string name="manual_Pyramid_scoring">Kartı geri döndür: +50 \n\nAtılan kartı ana yığına koy: -200</string>
+    <string name="manual_Pyramid_structure">52 kartlık bir deste. \n\n28 sütun, 1 ana, 1 atılmış ve 1 çöp yeri. \n\nAtılmış kartlar bir oyunda sadece iki defa ana yığına geri konulabilir.</string>
+    <string name="manual_Pyramid_objective">Sütunlardaki tüm kartları çöpe gönder. Ayarlara göre ana ve atılmış kartları da göndermeniz gerekebilir.</string>
 
     <!-- Spider -->
-    <string name="manual_Spider_scoring">Bir şeklin tüm kartlarını temel yığına taşı: +200
-        \n\nBir kartı döndür: +25</string>
-    <string name="manual_Spider_structure">52 kartlık 2 deste.
-        \n\n10 sütun ve 8 temel yığın yeri.
-        \n\n1 ana yığın ve 5 farklı yığın.
-        \n\nAyarlara göre 1, 2 ve ya 4 farklı kart şekli.</string>
-    <string name="manual_Spider_objective">Sütunlara her şekli azalan sırada yerleştir. Sıralanan
-        kartlar otomatik olarak temel yığına taşınır.</string>
+    <string name="manual_Spider_scoring">Bir şeklin tüm kartlarını temel yığına taşı: +200 \n\nBir kartı döndür: +25</string>
+    <string name="manual_Spider_structure">52 kartlık 2 deste. \n\n10 sütun ve 8 temel yığın yeri. \n\n1 ana yığın ve 5 farklı yığın. \n\nAyarlara göre 1, 2 ve ya 4 farklı kart şekli.</string>
+    <string name="manual_Spider_objective">Sütunlara her şekli azalan sırada yerleştir. Sıralanan kartlar otomatik olarak temel yığına taşınır.</string>
 
     <!-- TriPeaks -->
     <string name="manual_TriPeaks_scoring">Bir kartı geriye döndür: +50</string>
-    <string name="manual_TriPeaks_structure">52 kartlık bir deste.
-        \n\n28 sütun, 1 ana ve 1 atılmış yer.
-        \n\nAtılmış kartlar tekrar ana yığına alınamaz. (Geri tuşu hariç)</string>
+    <string name="manual_TriPeaks_structure">52 kartlık bir deste. \n\n28 sütun, 1 ana ve 1 atılmış yer. \n\nAtılmış kartlar tekrar ana yığına alınamaz. (Geri tuşu hariç)</string>
     <string name="manual_TriPeaks_objective">Sütunlardaki kartları atılmış yere taşı.</string>
 
     <!-- Yukon -->
-    <string name="manual_Yukon_scoring">Sütunlardan temel yığına taşı: +60
-        \n\nTemel yığından sütunlara geri taşı: -75
-        \n\nPapazı boş bir sutüne taşı: +20
-        \n\nBir kartı ters çevir: +25</string>
-    <string name="manual_Yukon_structure">52 kartlık bir deste.
-        \n\n7 sütun ve 4 temel yığın yeri.</string>
+    <string name="manual_Yukon_scoring">Sütunlardan temel yığına taşı: +60 \n\nTemel yığından sütunlara geri taşı: -75 \n\nPapazı boş bir sutüne taşı: +20 \n\nBir kartı ters çevir: +25</string>
+    <string name="manual_Yukon_structure">52 kartlık bir deste. \n\n7 sütun ve 4 temel yığın yeri.</string>
     <string name="manual_Yukon_objective">Her şeklin tüm kartlarını artan sırada temel yığına yerleştir.</string>
 
     <!-- Mod3 -->
-    <string name="manual_mod3_scoring">Kartı sütunlarda doğru yere yerleştir: +50
-        \n\nBir kartı sütunun dördüncü satırına taşı: -75</string>
-    <string name="manual_mod3_structure">52 kartlık 2 deste.
-        \n\n32 sütun, 1 ana ve 1 as yeri.</string>
-    <string name="manual_mod3_objective">Her sütundaki ilk 3 kartı aynı renk olacak şekilde aşağıdaki
-        sıralamaya göre diz:
-        \n\nİlk sıra: 2–5–8–J\nİkinci Sıra: 3–6–9–Q\nÜçüncü Sıra: 4–7–10–K
-        \n\nAslar atılacak.</string>
+    <string name="manual_mod3_scoring">Kartı sütunlarda doğru yere yerleştir: +50 \n\nBir kartı sütunun dördüncü satırına taşı: -75</string>
+    <string name="manual_mod3_structure">52 kartlık 2 deste. \n\n32 sütun, 1 ana ve 1 as yeri.</string>
+    <string name="manual_mod3_objective">Her sütundaki ilk 3 kartı aynı renk olacak şekilde aşağıdaki sıralamaya göre diz: \n\nİlk sıra: 2–5–8–J\nİkinci Sıra: 3–6–9–Q\nÜçüncü Sıra: 4–7–10–K \n\nAslar atılacak.</string>
 
     <!-- SimpleSimon -->
     <string name="manual_SimpleSimon_scoring">Bir şeklin tüm kartlarını temel yığına taşı: +200</string>
-    <string name="manual_SimpleSimon_structure">52 kartlık bir deste.
-        \n\n10 sütun ve 4 temel yığın yeri.</string>
-    <string name="manual_SimpleSimon_objective">Sütunlara her şekli azalan sırada yerleştir. Sıralanan
-        kartlar otomatik olarak temel yığına taşınır.</string>
+    <string name="manual_SimpleSimon_structure">52 kartlık bir deste. \n\n10 sütun ve 4 temel yığın yeri.</string>
+    <string name="manual_SimpleSimon_objective">Sütunlara her şekli azalan sırada yerleştir. Sıralanan kartlar otomatik olarak temel yığına taşınır.</string>
 
     <!-- Calculation -->
-    <string name="manual_Calculation_structure">52 kartlık bir deste.
-        \n\n4 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri.</string>
+    <string name="manual_Calculation_structure">52 kartlık bir deste. \n\n4 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri.</string>
 
     <!-- Settings -->
 

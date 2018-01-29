@@ -96,7 +96,7 @@
 <string name="about_material_icons_usage">"Werden für alle Symbole in dieser Anwendung verwendet"</string>
 <string name="about_card_themes_title">"Kartenthemen"</string>
 <string name="about_card_themes_usage">"Die Kartenthemen wurden von &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt; entnommen, für weitere Details klicke &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;hier&lt;/a&gt;"</string>
-<string name="about_poker_themes_usage">"Wird als Poker Thema benutzt - Verfügbar auf &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt;- Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_poker_themes_usage">"Wird als Poker Thema benutzt - Verfügbar auf &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna Bibliothek"</string>
 <string name="about_custom_color_picker_usage">"Wird für die benutzerdefinierte Farbauswahl benutzt"</string>
 <string name="about_sounds_title">"Töne"</string>
