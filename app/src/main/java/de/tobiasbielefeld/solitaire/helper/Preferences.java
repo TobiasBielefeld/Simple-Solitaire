@@ -32,6 +32,7 @@ public class Preferences {
     public static String PREF_KEY_ORDER;
     public static String PREF_KEY_SCORE;
     public static String PREF_KEY_SAVED_SCORES;
+    public static String PREF_KEY_DEALING_CARDS;
     public static String OLD;
 
     public static String PREF_KEY_VEGAS_OLD_SCORE;
@@ -228,6 +229,7 @@ public class Preferences {
 
         OLD = "_old";
 
+        PREF_KEY_DEALING_CARDS = "pref_key_dealing_cards";
         PREF_KEY_VEGAS_TIME = "pref_key_vegas_time";
         PREF_KEY_VEGAS_OLD_SCORE = "pref_key_vegas_old_score";
         PREF_KEY_ORDER = "order";
@@ -609,6 +611,10 @@ public class Preferences {
         return savedGameData.getBoolean(PREF_KEY_GAME_FIRST_RUN,DEFAULT_FIRST_RUN);
     }
 
+    public boolean isDealingCards(){
+        return savedGameData.getBoolean(PREF_KEY_DEALING_CARDS,false);
+    }
+
     public boolean isWon(){
         return savedGameData.getBoolean(PREF_KEY_GAME_WON,DEFAULT_WON);
     }
@@ -746,6 +752,10 @@ public class Preferences {
 
     public void saveFirstRun(boolean value){
         savedGameData.edit().putBoolean(PREF_KEY_GAME_FIRST_RUN,value).apply();
+    }
+
+    public void setDealingCards(boolean value){
+        savedGameData.edit().putBoolean(PREF_KEY_DEALING_CARDS,value).apply();
     }
 
     public void saveWon(boolean value){

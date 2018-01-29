@@ -138,6 +138,11 @@ public class GameLogic {
                 loadRandomCards();
 
                 checkForAutoCompleteButton();
+
+                //deal the cards again in case the app got killed while trying  before
+                if (prefs.isDealingCards()){
+                    handlerDealCards.sendEmptyMessage(0);
+                }
             }
         } catch (Exception e) {
             Log.e(gm.getString(R.string.loading_data_failed), e.toString());
@@ -205,6 +210,9 @@ public class GameLogic {
         movedFirstCard = false;
         won = false;
         wonAndReloaded = false;
+
+        //save that the game is dealing cards, in case the application gets killed before calling the handler
+        prefs.setDealingCards(true);
 
         //and finally deal the cards from the game!
         handlerDealCards.sendEmptyMessage(0);

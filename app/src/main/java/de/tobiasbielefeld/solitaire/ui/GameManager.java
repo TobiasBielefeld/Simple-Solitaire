@@ -67,7 +67,6 @@ import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.NONE;
 public class GameManager extends CustomAppCompatActivity implements View.OnTouchListener {
 
     private final static long DOUBLE_TAP_SPEED = 400;                                               //time delta between two taps in milliseconds
-    public static int loadCounter = 0;                                                              //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
     public boolean hasLoaded = false;                                                               //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRecycles;                       //textViews for time, scores and re-deals
@@ -133,7 +132,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         scores.output();
-        loadCounter++;
 
         //wait until the game layout dimensions are known, then draw everything
         ViewTreeObserver viewTreeObserver = layoutGame.getViewTreeObserver();
@@ -147,13 +145,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
-                //to prevent multiple loadings, check the counter first. Load the game
-                //only if its the last attempt to load
-                loadCounter--;
-
-                if (loadCounter < 1) {
-                    initializeLayout();
-                }
+                initializeLayout();
             }
         });
     }

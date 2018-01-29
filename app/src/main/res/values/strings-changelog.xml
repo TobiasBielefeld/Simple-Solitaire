@@ -7,6 +7,10 @@
      -
     -->
 
+    <string name="changelog_44" translatable="false">
+        • Fixing some issues
+    </string>
+
     <string name="changelog_43" translatable="false">
         • Added missing Esperanto and fixed Polish translations, thanks to verdulo!
         \n• The confirmation dialogs for starting new games now only show once
