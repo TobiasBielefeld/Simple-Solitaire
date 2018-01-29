@@ -62,8 +62,9 @@
 <string name="dialog_win_score">"Tulos: %1$d"</string>
 <string name="dialog_win_bonus">"Bonus: %1$d"</string>
 <string name="dialog_win_total">"Yhteensä: %1$d"</string>
+<string name="dialog_start_new_game_title">Aloita uusi peli</string>
+<string name="dialog_redeal_title">Jaa kortit uudelleen</string>
 
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="title_activity_manual">"Ohje"</string>
 <string name="title_activity_settings">"Asetukset"</string>
 <string name="title_activity_about">"Tietoa pelistä"</string>
