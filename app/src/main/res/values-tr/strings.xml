@@ -87,26 +87,15 @@
 <string name="about_tab_2">"lisansları"</string>
 <string name="about_tab_3">"Değişiklikler"</string>
 <string name="about_loading">"Yükleniyor…"</string>
-<string name="about_developer"></string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Build date"</string>
 <string name="about_source_code">"Kaynak kodu"</string>
 <string name="about_license">"Lisans"</string>
 <string name="about_translations">"Çeviriler"</string>
-<string name="about_further_contributors"></string>
-<string name="about_android_support_libraries_title"></string>
-<string name="about_android_support_libraries_usage"></string>
 <string name="about_material_icons_title">"Material tasarım simgeleri"</string>
-<string name="about_material_icons_usage"></string>
 <string name="about_card_themes_title">"Kart temaları "</string>
-<string name="about_card_themes_usage"></string>
 <string name="about_poker_themes_usage">"Olarak kullanıldı Poker teması - Üzerinde mevcut &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
-<string name="about_custom_color_picker_title"></string>
-<string name="about_custom_color_picker_usage"></string>
 <string name="about_sounds_title">"Sesler"</string>
-<string name="about_sounds_usage"></string>
-<string name="about_sliding_tabs_title"></string>
-<string name="about_sliding_tabs_usage"></string>
 
 <!-- Manual -->
 <string name="manual_games">"Oyun"</string>
@@ -167,7 +156,6 @@ Geribildiriminiz için şimdiden teşekkür ederiz :)"</string>
 
 7 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri."</string>
 <string name="manual_Klondike_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
-<string name="manual_Klondike_rules"></string>
 <string name="manual_Klondike_scoring">"Sütunlardan temel yığına kart taşı: +60 
 
 Atılan kartı temel yığına taşı: +45 
@@ -179,7 +167,6 @@ Tüm atılan kartları ana yığına taşı: -200"</string>
 
 8 sütun, 4 temel yığın ve 4 boş sütun"</string>
 <string name="manual_Freecell_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
-<string name="manual_Freecell_rules"></string>
 <string name="manual_Freecell_scoring">"Kartı temel yığına taşı: +60 
 
 Temel yığından kartı al: -75 
@@ -189,7 +176,6 @@ Papazı boş sütuna taşı: +20"</string>
 
 7 sütun ve 4 temel yığın yeri."</string>
 <string name="manual_Yukon_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
-<string name="manual_Yukon_rules"></string>
 <string name="manual_Yukon_scoring">"Sütunlardan temel yığına taşı: +60 
 
 Temel yığından sütunlara geri taşı: -75 
@@ -205,7 +191,6 @@ Bir kartı ters çevir: +25"</string>
 
 Ayarlara göre 1, 2 ve ya 4 farklı kart şekli."</string>
 <string name="manual_Spider_objective">"Sütunlara her şekli azalan sırada yerleştir. Sıralanan kartlar otomatik olarak temel yığına taşınır."</string>
-<string name="manual_Spider_rules"></string>
 <string name="manual_Spider_scoring">"Bir şeklin tüm kartlarını temel yığına taşı: +200 
 
 Bir kartı döndür: +25"</string>
@@ -213,7 +198,6 @@ Bir kartı döndür: +25"</string>
 
 10 sütun ve 4 temel yığın yeri."</string>
 <string name="manual_SimpleSimon_objective">"Sütunlara her şekli azalan sırada yerleştir. Sıralanan kartlar otomatik olarak temel yığına taşınır."</string>
-<string name="manual_SimpleSimon_rules"></string>
 <string name="manual_SimpleSimon_scoring">"Bir şeklin tüm kartlarını temel yığına taşı: +200"</string>
 <string name="manual_Golf_structure">"52 kartlık bir deste 
 
@@ -221,7 +205,6 @@ Bir kartı döndür: +25"</string>
 
 Atılmış kartları ana yığına geri döndürmek mümkün değildir. (Geri tuşu hariç)"</string>
 <string name="manual_Golf_objective">"Tüm kartları atılmış yığına at."</string>
-<string name="manual_Golf_rules"></string>
 <string name="manual_Golf_scoring">"Kartı atılan yığına taşı: +50"</string>
 <string name="manual_Pyramid_structure">"52 kartlık bir deste. 
 
@@ -229,7 +212,6 @@ Atılmış kartları ana yığına geri döndürmek mümkün değildir. (Geri tu
 
 Atılmış kartlar bir oyunda sadece iki defa ana yığına geri konulabilir."</string>
 <string name="manual_Pyramid_objective">"Sütunlardaki tüm kartları çöpe gönder. Ayarlara göre ana ve atılmış kartları da göndermeniz gerekebilir."</string>
-<string name="manual_Pyramid_rules"></string>
 <string name="manual_Pyramid_scoring">"Kartı geri döndür: +50 
 
 Atılan kartı ana yığına koy: -200"</string>
@@ -239,15 +221,12 @@ Atılan kartı ana yığına koy: -200"</string>
 
 Atılmış kartlar tekrar ana yığına alınamaz. (Geri tuşu hariç)"</string>
 <string name="manual_TriPeaks_objective">"Sütunlardaki kartları atılmış yere taşı."</string>
-<string name="manual_TriPeaks_rules"></string>
 <string name="manual_TriPeaks_scoring">"Bir kartı geriye döndür: +50"</string>
 <string name="manual_FortyEight_structure">"52 kartlık 2 deste. 
 
 8 sütun, 8 temel yığın, 1 ana ve 1 atılmış yer. 
 
 Her oyunda sedece bir atılmış kart ana yığına geri konabilir."</string>
-<string name="manual_FortyEight_objective"></string>
-<string name="manual_FortyEight_rules"></string>
 <string name="manual_FortyEight_scoring">"Kartı temel yığına taşı: +45
 
 Kartı sütunlara geri taşı: -60 
@@ -265,7 +244,6 @@ Atılan kartı desteye geri koy: -200"</string>
 Üçüncü Sıra: 4–7–10–K 
 
 Aslar atılacak."</string>
-<string name="manual_mod3_rules"></string>
 <string name="manual_mod3_scoring">"Kartı sütunlarda doğru yere yerleştir: +50 
 
 Bir kartı sütunun dördüncü satırına taşı: -75"</string>
@@ -273,7 +251,6 @@ Bir kartı sütunun dördüncü satırına taşı: -75"</string>
 
 8 sütun, 8 temel yığın karesi ve 1 ana yığın."</string>
 <string name="manual_Gypsy_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
-<string name="manual_Gypsy_rules"></string>
 <string name="manual_Gypsy_scoring">"Temel yığına kart taşı: +75 
 
 Temel yığından sütunlara kart taşı: -100 
@@ -318,11 +295,9 @@ Ayrılmış kartları sütunlara geri gönder: -200"</string>
 
 8 tableau stacks, 12 foundation stacks in the form of a clock. Each foundation stack already contains one card"</string>
 <string name="manual_GrandfathersClock_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir. En sonda yığındaki kart değerleri saatteki değerle aynı olmalı."</string>
-<string name="manual_GrandfathersClock_rules"></string>
 <string name="manual_GrandfathersClock_scoring">"Sütunlardan temel yığına: +50"</string>
 <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
 <string name="manual_Vegas_objective">"Daha fazla para kazanmak için temel yığına daha fazla kart gönder."</string>
-<string name="manual_Vegas_rules"></string>
 <string name="manual_Vegas_scoring">"Kazanılan para miktarı, ayarlarda ayarladığınız bahise bağlıdır. Örneğin ödeme yaparsın. Oyunun başında 50 $, oyuna giren her kartla birlikte bahsin 1 / 10'unu kazanırsınız. 
 
 Skor 0'dan büyük olduğunda bir oyun kazanılan olarak kaydedilecektir. Kuruluştan kartlarıgeri oynatmak bahsin 2 / 10'u pahalıdır. 
@@ -333,9 +308,6 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="manual_Calculation_structure">"52 kartlık bir deste. 
 
 4 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri."</string>
-<string name="manual_Calculation_objective"></string>
-<string name="manual_Calculation_rules"></string>
-<string name="manual_Calculation_scoring"></string>
 
 <!-- Settings -->
 <string name="settings_background_color">"Arkaplan Rengi"</string>
@@ -425,47 +397,10 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="settings_auto_start_new_game_title">"Kazandığında yeni oyun başlat"</string>
 <string name="settings_auto_start_new_game_text">"Kazanılan bir oyuna geri dönülürse, otomatik olarak yeni bir oyun başlat"</string>
 <string name="settings_customization_description">"Kartları, arkaplanı ve kullanıcı arayüzüözelleştir"</string>
-<string name="settings_force_tablet_layout_title"></string>
-<string name="settings_force_tablet_layout_text"></string>
-<string name="settings_restart_calculation"></string>
-<string name="settings_calculation_alternative_title"></string>
-<string name="settings_calculation_alternative_text"></string>
-<string name="settings_vegas_money_enabled"></string>
-<string name="settings_vegas_money_enabled_text"></string>
-<string name="settings_vegas_money_reset"></string>
-<string name="settings_vegas_money_reset_text"></string>
-<string name="settings_vegas_money_reset_confirm"></string>
-<string name="settings_auto_move_title"></string>
-<string name="settings_mod3_auto_move_text"></string>
-<string name="settings_pyramid_auto_move_text"></string>
-<string name="settings_rules"></string>
-<string name="settings_money"></string>
-<string name="settings_support"></string>
-<string name="settings_hide_time"></string>
-<string name="settings_hide_score"></string>
 <string name="settings_single_tap_enable">"Tek dokunuş hareketlerini etkinleştir"</string>
 <string name="settings_vegas_bet_amount_text_1">"İlk sağıtım masrafı:"</string>
 <string name="settings_vegas_bet_amount_text_2">"Toplanan her kartın kazandırdığı:"</string>
 <string name="settings_vegas_bet_amount_summary">"İlk sağıtım: -%1$d$, Toplanan kart: +%2$d$"</string>
-<string name="settings_single_tap_all_games_text"></string>
-<string name="settings_vegas_bet_amount_error"></string>
-<string name="settings_canfield_size_of_reserve_title"></string>
-<string name="settings_use_true_randomisation_title"></string>
-<string name="settings_use_true_randomisation_text"></string>
-<string name="settings_developer_options"></string>
-<string name="settings_developer_options_description"></string>
-<string name="settings_developer_options_move_card_everwhere_title"></string>
-<string name="settings_developer_options_move_card_everwhere_text"></string>
-<string name="settings_developer_options_lock_text"></string>
-<string name="settings_developer_options_play_every_card_title"></string>
-<string name="settings_developer_options_play_every_card_text"></string>
-<string name="settings_developer_options_instant_win_title"></string>
-<string name="settings_developer_options_instant_win_text"></string>
-<string name="settings_developer_options_no_saving_title"></string>
-<string name="settings_developer_options_no_saving_text"></string>
-<string name="settings_developer_options_deal_correct_sequences_title"></string>
-<string name="settings_show_advanced_settings"></string>
-<string name="settings_show_advanced_settings_text"></string>
 <string name="settings_max_number_undos">"Maximum amount of undo movements"</string>
 <string name="settings_expert_settings">"Expert settings"</string>
 <string name="settings_expert_settings_text">"May be useful for some people"</string>
