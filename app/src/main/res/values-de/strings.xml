@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Version"</string>
 <string name="settings">"Einstellungen"</string>
 <string name="game_manual">"Handbuch"</string>
@@ -373,15 +375,14 @@ HINWEIS: Es wird nicht für echtes Geld gespielt :)"</string>
 <string name="manual_Calculation_structure">"1 Deck aus 52 Karten.
 
 4 Tableau-Stapel, 4 Foundation-Stapel, 1 Haupt- und 1 Ablage-Stapel."</string>
-<string name="manual_Calculation_objective">"Spiele jede Karte zur Foundation, unbeachtet der Familie,
-        bis jeder Foundation-Stapel einen König zeigt. Dabei müssen die Stapel in der folgenden Reihenfolge aufgebaut sein: 
+<string name="manual_Calculation_objective">"Spiele jede Karte zur Foundation, unbeachtet der Familie, bis jeder Foundation-Stapel einen König zeigt. Dabei müssen die Stapel in der folgenden Reihenfolge aufgebaut sein: 
 
- 1. Stapel: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K 
- 2. Stapel: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K 
- 3. Stapel: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K 
- 4. Stapel: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K 
+1. Stapel: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K 
+2. Stapel: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K 
+3. Stapel: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K 
+4. Stapel: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K 
 
-Die  nächsten spielbaren Karten werden auch direkt über der Foundation angezeigt. "</string>
+Die  nächsten spielbaren Karten werden auch direkt über der Foundation angezeigt."</string>
 <string name="manual_Calculation_rules">"Die 4 Foundation-Stapel starten mit jeweils der ersten Karte ihrer Sequenz. Die Familie wird dabei zufällig gewählt. Karten auf der Foundation müssen die oben angegebene Reihenfolge beachten. 
 
 Karten vom Ablage-Stapel können auf jeden Tableau-Stapel oder unter Beachtung der Reihenfolge zur Foundation gespielt werden. 
