@@ -17,6 +17,10 @@ android {
     buildTypes {
         release {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            lintOptions {
+                disable 'MissingTranslation'
+            }
         }
     }
     sourceSets { main { java.srcDirs = ['src/main/java'] } }
