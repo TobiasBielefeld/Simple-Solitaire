@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_version">Versio</string>
 
+    <string name="title_activity_about">Pri la ludo</string>
+    <string name="title_activity_manual">Manlibro</string>
+    <string name="title_activity_settings">Agordoj</string>
+    <string name="title_activity_statistics">Plej bonaj rezultoj</string>
+
+    <string name="app_version">Versio</string>
     <string name="item_game_rules">Reguloj de ludo</string>
     <string name="item_return_to_main_menu">Reveni al ĉefmenuo</string>
-
     <string name="settings">Agordoj</string>
     <string name="game_manual">Manlibro</string>
     <string name="game_score">Poentaro</string>
@@ -18,6 +22,7 @@
     <string name="game_main_menu">Ĉefmenuo</string>
 
     <!-- Menu -->
+
     <string name="menu_statistics">Poentaro</string>
     <string name="menu_undo">Malfari</string>
     <string name="menu_hint">Konsilo</string>
@@ -25,6 +30,7 @@
     <string name="menu_settings">Agordoj</string>
 
     <!-- game names -->
+
     <string name="games_Klondike">Klondiko</string>
     <string name="games_Freecell">FreeCell</string>
     <string name="games_Yukon">Jukono</string>
@@ -43,6 +49,7 @@
     <string name="games_Calculation">Calculation</string>
 
     <!-- colors -->
+
     <string name="blue">Blua</string>
     <string name="green">Verda</string>
     <string name="red">Ruĝa</string>
@@ -51,25 +58,434 @@
     <string name="purple">Purpura</string>
 
     <!-- game stuff -->
+
     <string name="game_longest_run">Plej longa serio:</string>
 
-    <!-- dialog won-->
+    <!-- dialogs-->
+
     <string name="dialog_win_titel">Gratulon!!</string>
     <string name="dialog_win_score">Poentaro: %1$d</string>
     <string name="dialog_win_bonus">Premio: %1$d</string>
     <string name="dialog_win_total">Tute: %1$d</string>
-
-    <!-- dialog mix cards -->
     <string name="dialog_mix_cards_title">Miksi kartojn</string>
     <string name="dialog_mix_cards_text">Tio ĉi miksos ĉiujn kartojn, ekspektu ĝustajn kart-vicojn kaj kartojn sur la fundamentaj stakoj.</string>
     <string name="dialog_mix_cards_not_available">Plue eblaj movoj ekzistas! (Uzu konsilon por montri ilin)</string>
-
-    <!-- dialog start new game -->
     <string name="dialog_start_new_game_title">Komenci novan ludon</string>
     <string name="dialog_start_new_game_text">Via nuna progreso forviŝos kaj nova hazarda ludo estos disdonita.</string>
-
-    <!-- dialog redeal -->
     <string name="dialog_redeal_title">Disdoni kartojn ree</string>
     <string name="dialog_redeal_text">Via nuna progreso forviŝos kaj kartoj estos disdonitaj same kiel en tiu ĉi ludo.</string>
+
+    <!-- About activity -->
+
+    <string name="about_tab_1">Informoj</string>
+    <string name="about_tab_2">Permesiloj</string>
+    <string name="about_tab_3">Ŝanĝoprotokolo</string>
+    <string name="about_loading">Ŝargado…</string>
+    <string name="about_developer_name">Tobias BIELEFELD</string>
+    <string name="about_compiled">Kompilita je</string>
+    <string name="about_source_code">Fontkodo</string>
+    <string name="about_license">Permesilo</string>
+    <string name="about_translations">Tradukoj</string>
+    <string name="about_material_icons_title">Piktogramoj “Material design”</string>
+    <string name="about_card_themes_title">Kart-stiloj</string>
+    <string name="about_custom_color_picker_title">Biblioteko AmbilWarna</string>
+    <string name="about_sounds_title">Sonoj</string>
+    <string name="about_sliding_tabs_title">Biblioteko PagerSlidingTabStrip</string>
+    <string name="about_developer">Programisto</string>
+    <string name="about_further_contributors">Aliaj kontribuintoj</string>
+    <string name="about_android_support_libraries_usage">Uzitaj pro pli bona fasono kaj pli facila programado</string>
+    <string name="about_material_icons_usage">Uzitaj por ĉiuj piktogramoj en tiu ĉi aplikaĵo</string>
+    <string name="about_card_themes_usage">La kart-stiloj estis prenitaj el <a href="https://pixabay.com/">pixabay.com</a>,
+        por pli da informoj klaku <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">tie ĉi</a></string>
+    <string name="about_custom_color_picker_usage">Uzita por kolor-elektilo</string>
+    <string name="about_sounds_usage">Ĉiuj sonoj origine publikigitaj ĉe <a href="https://freesound.org">freesound.org</a>,
+        por pli da informoj klaku <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">tie ĉi</a></string>
+    <string name="about_sliding_tabs_usage">Uzita por la langetoj en la ekrano “pri la ludo”</string>
+    <string name="about_android_support_libraries_title">Android Support Library</string>
+    <string name="about_poker_themes_usage">Uzita kiel Pokera kart-stilo - disponebla ĉe <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a>
+        - Kopirajto 2015 - Chris AGUILAR - conjurenation@gmail.com</string>
+
+    <!-- Manual -->
+
+    <string name="manual_games">Ludoj</string>
+    <string name="manual_feedback">Rimarkoj</string>
+    <string name="manual_startpage">Komenca paĝo</string>
+    <string name="manual_back_to_game">Reveni al ludo</string>
+    <string name="manual_structure">Strukturo</string>
+    <string name="manual_objective">Celo</string>
+    <string name="manual_rules">Reguloj</string>
+    <string name="manual_scoring">Poentado</string>
+    <string name="manual_main_menu">Ĉefmenuo</string>
+    <string name="manual_ui">Fasado</string>
+    <string name="page_load_error">Paĝo pri tiu ĉi ludo ne estas disponebla…</string>
+    <string name="manual_bonus">Post venki ludon vi ricevas premion: ju pli rapide vi venkas, des pli altan premion vi gajnas.</string>
+    <string name="manual_open_google_play">Malfermi Google Play</string>
+    <string name="manual_open_github">Malfermi paĝon je GitHub</string>
+    <string name="manual_games_text1">Elektu ludon por montri ĝian strukturon, celon, regulojn kaj poentadon.</string>
+    <string name="manual_startpage_text">Bonvenon al manlibro de tiu ĉi kolekto de ludoj! Mi esperas, ke ĝi klarigos ĉion.
+	\n\nUzu menuon ĉe maldekstre por atingi aliajn paĝojn de manlibro.</string>
+    <string name="manual_general_main_menu">Uzado de la ĉefmenuo estas eĉ facila. Simple frapetu ludon por komenci ĝin.
+	\n\nLa aplikaĵo aŭtomate ŝargos laste luditan ludon post restarto, se la aplikaĵo estis paŭzigita kun ĝi. Tiu ĉi agmaniero povas esti malaktivigita per agordoj en \"Ĝeneralaj\".
+    \n\nTie vi ankaŭ trovos elekton “Ĉefmenuo”, kiam vi povas kaŝi ludojn el menuo kaj ŝanĝi nombron da kolumnoj, do pli multe da ludoj montriĝos sur ekrano samtempe.</string>
+    <string name="manual_ui_text">La ludo ĉiam montros etan menuon sube la ekrano (vertikala reĝimo) aŭ dekstre la ekrano (horizontala reĝimo). Ĝi ankaŭ montros aktualan poentaron kaj aktuale luditan tempon. Estas eble, ke tiuj valoroj estos konservitaj en liston de la plej bonaj rezultoj. La menuo enhavas 5 elementojn, kiuj havas jenajn efikojn (butonoj de maldekstre al dekstre):
+	\n\nButono “Poentaro” malfermos novan fenestron kun la plej bonaj rezultoj kaj nombro da venkitaj ludoj de aktuala lud-speco.
+	\n\nButono “Konsilo” helpos al vi per montrado de maksimume 3 eblaj movoj de kartoj samtempe. Tamen tio ĉi etigos vian poentaron je 25. Rimarku, ke banalaj movoj, kiel movado de karto al malplena kampo aŭ frapeto de stako ne estas montrataj kiel konsilo. Se neniu movo estos montrata, la poentaro ne etiĝos.
+	\n\nButono “Menuo” ebligos tri diversajn agojn: ekigi novan ludon miksante kartojn komencante novan disdonon. Disdoni kartojn denove igos saman efikon, sed kartoj ne estos miksitaj; do tio ĉi estas kvazaŭ restarto de aktuala ludo. La lasta elekto finos aktualan ludon kaj movos vin al la ĉefmenuo.
+	\n\nButono “Malfari” malfaros eksan movon, tamen tio ĉi kostos 25 poentojn. Oni povas uzi ĝin por 20 eksaj movoj.
+	\n\nButono “Agordoj” simple malfermas menuon de agrodoj.</string>
+    <string name="manual_feedback_text">Ĉu vi trovis iun problemon aŭ eraron? Ion mi povus plibonigi? Ĉu mi devus aldoni alian ludon al la kolekto? Eble vi volas helpi pri tradukoj? Eble vi havas alian ideon?
+	\n\nMi estos kontenta pro ricevo de iu ajn opinio. Se vi sentiĝas, ke vi devas kontakti min, vi devus konsideri la jenajn rimedojn:
+	\n\nUzu la erar-spurilon ĉe Github: la projekto de tiu ĉi aplikaĵo en Github havas bonan funkcion por raporti problemojn. Simple frapetu la butonon ĉe maldekstre de la ekrano por malfermi erar-spurilon per foliumilo.
+	\n\nUzu taksadon ĉe Google Play: simple aldonu takson sur la paĝo de tiu ĉi aplikaĵo kaj tajpu ion ajn. Frapetu butonon ĉe dekstre por malfermi vendejon Google Play (se instalita).
+	\n\nAntaŭdankon al ci por cia opinio :)</string>
+    <string name="manual_Klondike_structure">1 kartaro po 52 kartoj.
+	\n\n7 tablamasoj, 4 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.</string>
+    <string name="manual_Klondike_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_Klondike_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nNur reĝojn oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
+	\n\nPer frapeto de ĉefa stako, kartoj estos movitaj al forĵeta stako, kie vi povas uzi ilin. Nombro da kartoj dependas de elektitaj agordoj. Se \"Depreni 1\" estas elektita, unu karto estos movita (tio ĉi estas implicita maniero, por pli facila ludado). Se \"Depreni 3\" estas elektita, 3 kartoj estos movitaj samtempe.
+	\n\nSe la ĉefa stako malpleniĝos, vi plue povos frapeti ĝin por movi ĉiujn kartojn de forĵeta stako al ĉefa stako kaj reuzi ilin.</string>
+    <string name="manual_Klondike_scoring">De tablamaso al fundamenta stako: +60
+	\n\nDe forĵeta stako al fundamenta stako: +45
+	\n\nDe fundamenta stako al tablamaso: -75
+	\n\nMalkovri karton: +25
+	\n\nMovi ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
+    <string name="manual_Freecell_structure">1 kartaro po 52 kartoj.
+	\n\n8 tablamasoj, 4 fundamentaj stakoj kaj 4 ĉeloj.</string>
+    <string name="manual_Freecell_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_Freecell_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Sur alcelajn stakojn oni povas meti kartojn laŭ kreskanta ordo kaj sama emblemo. 4 kampoj ĉe supre povas enhavi nur po unu karto.
+	\n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj (ambaŭ tablamasoj kaj ĉeloj) estas disponeblaj. Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako.
+	\n\nĈiun karton oni povas meti sur malplenan tablamasan kampon kaj ĉelon. Asojn oni povas meti sur malplenajn fundamentajn kampojn.</string>
+    <string name="manual_Freecell_scoring">Movi karton al fundamenta stako: +60
+	\n\nMovi karton de fundamenta stako: -75
+	\n\nMovi reĝon al malplena kampo: +20</string>
+    <string name="manual_Yukon_structure">1 kartaro po 52 kartoj.
+	\n\n7 tablamasoj kaj 4 fundamentaj stakoj.</string>
+    <string name="manual_Yukon_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_Yukon_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nVi povas movi ĉiun malkovritan karton, ne gravas kiom da kartoj kaj kiel ordigitaj kartoj troviĝas sur ĝi.
+	\n\nNur reĝojn oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn kampojn.</string>
+    <string name="manual_Yukon_scoring">De tablamaso al fundamenta stako: +60
+	\n\nDe fundamenta stako al tablamaso: -75
+	\n\nMovi reĝon sur malplena kampo: +20
+	\n\nMalkovri karton: +25</string>
+    <string name="manual_Spider_structure">2 kartaroj po 52 kartoj.
+	\n\n10 tablamasoj kaj 8 fundamentaj stakoj.
+	\n\n1 ĉefa stako, disdonata en 5 diversaj disdonoj.
+	\n\nDepende de agordoj: 1, 2 aŭ 4 diversaj kartaj emblemoj.</string>
+    <string name="manual_Spider_objective">Ordigu ĉiujn kartojn de ĉiu emblemo malkreskante ie ajn. Kompletitaj familioj de kartoj estos aŭtomate movitaj al fundamentaj stakoj.</string>
+    <string name="manual_Spider_rules">Kartojn oni povas meti sur iun ajn alian karton laŭ malkreskanta ordo. Tamen nur serioj de samaj kartaj emblemoj povas esti movitaj per unu fojo.
+	\n\nĈiun karton oni povas meti sur malplenan tablamasan kampon.
+	\n\nFrapetu la ĉefan stakon por disdoni po unu karto por ĉiu stako samtempe.</string>
+    <string name="manual_Spider_scoring">Movi kartan familion al fundamenta stako: +200
+	\n\nMalkovri karton: +25</string>
+    <string name="manual_SimpleSimon_structure">1 kartaro po 52 kartoj.
+	\n\n10 tablamasoj kaj 4 fundamentaj stakoj.</string>
+    <string name="manual_SimpleSimon_objective">Ordigu ĉiujn kartojn de ĉiu emblemo malkreskante ie ajn. Kompletitaj familioj de kartoj estos aŭtomate movitaj al fundamentaj stakoj.</string>
+    <string name="manual_SimpleSimon_rules">Kartojn oni povas meti sur iun ajn alian karton laŭ malkreskanta ordo. Tamen nur serioj de samaj kartaj emblemoj povas esti movitaj per unu fojo.
+	\n\nĈiun karton oni povas meti sur maplenan tablamasan kampon.</string>
+    <string name="manual_SimpleSimon_scoring">Movi kartan familion al fundamenta stako: +200</string>
+    <string name="manual_Golf_structure">1 kartaro po 52 kartoj.
+	\n\n7 tablamasoj, 1 ĉefa kaj 1 forĵeta stakoj.
+	\n\nOni ne povas movi kartojn de forĵeta stako reen al ĉefa stako (escepte nur per uzo de reen-butono).</string>
+    <string name="manual_Golf_objective">Movu ĉiujn kartojn de tablamaso al forĵeta stako.</string>
+    <string name="manual_Golf_rules">Ĉiu supra karto de stako povas esti uzita por ludi. Kartojn oni nur povas meti sur forĵetan stakon kreskante aŭ malkreskante, sendepende de emblemo.
+	\n\nDepende de agordoj, vi ankaŭ povas meti reĝon sur ason kaj inverse (pli facila ludado).
+	\n\nSe neniu karto povas esti movita, frapetu la ĉefan stakon por preni unu karton de ĝi al forĵeta stako.</string>
+    <string name="manual_Golf_scoring">Movi karton al forĵeta stako: +50</string>
+    <string name="manual_Pyramid_structure">1 kartaro po 52 kartoj.
+	\n\n28 tablamasoj, 1 ĉefa, 1 forĵeta kaj 1 ruba stakoj.
+	\n\nKartojn de forĵeta stako oni povas movi al ĉefa stako nur dufoje dum ludo.</string>
+    <string name="manual_Pyramid_objective">Movu ĉiujn kartojn de tablamasoj al ruba stako. Depende de agordoj, vi ankaŭ devas movi ĉiujn kartojn de ĉefa kaj forĵeta stakoj al ruba stako.</string>
+    <string name="manual_Pyramid_rules">Tiu ĉi ludo tre similas al la ludo Golfo. Ĉiu karto, kiu ne estas kovrita per alia karto ludeblas. Du kartoj, kies valoroj sumiĝas al 13, povas esti movitaj al ruba stako. Por fari tion, movu karton sur alian liberan karton. Se ambaŭ valoroj estas ĝustaj, ili per si mem moviĝos al ruba stako.
+	\n\nEstas ankaŭ eble uzi kartojn de ĉefa kaj forĵeta stakoj. Se neniu kart-movo eblas, frapetu sageton inter tiuj stakoj por movi unu karton de ĉefa stako al forĵeta stako. Se ĉefa stako estas malplena, frapetu ĝin ree aŭ sageton por transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako. Tiu ĉi movo povas esti uzita nur dufoje dum ludo. Restanta nombro montriĝos kiel eta numero supre de sageto.</string>
+    <string name="manual_Pyramid_scoring">Movi karton al ruba stako: +50
+	\n\nTransmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
+    <string name="manual_TriPeaks_structure">1 kartaro po 52 kartoj.
+	\n\n28 tablamasoj, 1 ĉefa kaj 1 forĵeta stakoj.
+	\n\nOni ne povas movi kartojn de forĵeta stako reen al ĉefa stako (escepte nur per uzo de reen-butono).</string>
+    <string name="manual_TriPeaks_objective">Movu ĉiujn kartojn de tablamasoj al forĵeta stako.</string>
+    <string name="manual_TriPeaks_rules">Reguloj de tiu ĉi ludo estas ete malsamaj ol aliaj paciencludoj. Ĉiu karto, kiu ne estas kovrita per alia karto, povas esti uzita por ludi. Kartojn oni nur povas meti sur forĵetan stakon kreskante aŭ malkreskante sendepende de emblemo.
+	\n\nEstas ankaŭ eble meti reĝojn sur asojn kaj inverse.
+	\n\nSe neniu karto povas esti movita, frapetu la ĉefan stakon por preni unu karton de ĝi al forĵeta stako.</string>
+    <string name="manual_TriPeaks_scoring">Movi karton al forĵeta stako: +50</string>
+    <string name="manual_FortyEight_structure">2 kartaroj po 52 kartoj.
+	\n\n8 tablamasoj, 8 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.
+	\n\nKartojn de forĵeta stako oni povas movi al ĉefa stako nur unufoje dum ludo.</string>
+    <string name="manual_FortyEight_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_FortyEight_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj sama emblemo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj estas disponeblaj. Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako.
+    \n\nĈiun karton oni povas meti sur malplenajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
+	\n\nPer frapeto de ĉefa stako, unu karto estos movita al forĵeta stako, kie vi povas ludi per ĝi.
+	\n\nSe ĉefa stako estas malplena, vi plue povas frapeti ĝin por movi ĉiujn kartojn reen al forĵeta stako kaj reuzi ilin. Tamen tio ĉi eblas nur unufoje dum ludo. Restanta nombro montriĝos kiel eta numero supre de ĉefa stako.</string>
+    <string name="manual_FortyEight_scoring">Movi karton al fundamenta stako: +45
+	\n\nMovi karton reen al tablamaso: -60
+	\n\nMovi karton de forĵeta stako al tablamaso: +60
+	\n\nTransmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
+    <string name="manual_mod3_structure">2 kartaroj po 52 kartoj.
+	\n\n32 tablamasoj, 1 ĉefa kaj 1 asa stakoj.</string>
+    <string name="manual_mod3_objective">Ordigu ĉiujn kartojn en 3 la plej supraj vicoj kiel seriojn de samaj koloroj en la jena maniero:
+	\n\nUnua vico: serioj de 2-5-8-J
+	\n\nDua vico: serioj de 3-6-9-Q
+	\n\nTria vico: serioj de 4-7-10-K
+	\n\nAsojn oni forĵetas.</string>
+    <string name="manual_mod3_rules">Vi povas movi nur unu karton de supro de stako samtempe. Kartojn oni nur povas meti se la serio montrata en \"Celo\" estas ĝusta. Do ekzemple vi povas meti keron 5 sur keron 2, tamen nur kiam kero 2 estas en la unua vico. Malsamaj kartaj emblemoj ankaŭ ne estas permesataj.
+	\n\nAkiru liberajn kampojn por meti kartojn per movante asojn al asa stako supre de ĉefa stako.
+	\n\nKvara vico estas ankaŭ forĵeta vico por kartoj de ĉefa stako. Ĉiun karton oni povas meti sur malplenan kampon en kvara vico.
+	\n\nFrapetu ĉefan stakon por disdoni po unu karto al ĉiu stako de kvara vico.</string>
+    <string name="manual_mod3_scoring">Movi karton al ĝusta kampo sur tablamaso: +50
+	\n\nMovi karton reen al kvara vico: -75</string>
+    <string name="manual_Gypsy_structure">2 kartaroj po 52 kartoj.
+	\n\n8 tablamasoj, 8 fundamentaj stakoj kaj 1 ĉefa stako.</string>
+    <string name="manual_Gypsy_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_Gypsy_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan ĝustan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nĈiun karton oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn kampojn.
+	\n\nFrapu ĉefan stakon por movi po unu karto al ĉiu tablamasa stako.</string>
+    <string name="manual_Gypsy_scoring">Movi karton al fundamenta stako: +75
+	\n\nMovi karton de fundamenta stako al tablamaso: -100
+	\n\nMalkovri karton: +50</string>
+    <string name="manual_AcesUp_structure">1 kartaro po 25 kartoj.
+	\n\n4 tablamasoj, 1 ĉefa kaj 1 fundamenta stakoj.
+	\n\nAsoj havas valoron 14, do ili valoras pli ol reĝoj.</string>
+    <string name="manual_AcesUp_objective">Metu ĉiujn kartojn escepte de asoj sur fundamentan stakon, do po unu aso restos sur ĉiu tablamaso.</string>
+    <string name="manual_AcesUp_rules">Vi povas movi nur supran karton de stako. Movu kartojn, kiuj havas malpli grandan valoron ol alia supra karto de sama emblemo al fundamenta stako. Ekzemplo: estas kero 5 kaj kero 10 supre de du tablamasoj. Vi povas movi keron 2 al fundamenta stako. Asoj havas pli altan valorojn ol ĉiu alia karto.
+	\n\nĈiu movebla karto povas esti metita al malplena tablamasa kampo.
+	\n\nFrapetu ĉefan stakon por disdoni po unu karto al ĉiu tablamaso.</string>
+    <string name="manual_AcesUp_scoring">Movi karton al fundamenta stako: +50</string>
+    <string name="manual_Canfield_structure">1 kartaro po 52 kartoj.
+	\n\n4 tablamasoj, 4 fundamentaj stakoj, 1 ĉefa, 1 forĵeta kaj 1 rezerva stakoj.</string>
+    <string name="manual_Canfield_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn.</string>
+    <string name="manual_Canfield_rules">Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	    \n\nMalplenaj tablamasaj kampoj estas plenigitaj per kartoj de rezerva stako. Se rezerva stako malpleniĝos, karto el ĉefa stako estos uzita.
+	    \n\nLa valoro de unua karto metita sur fundamenta stako difinas kiujn kartojn oni povas meti sur malplenajn fundamentajn stakojn. Ekzemplo: se oni metis keron 10 sur fundamentan stakon, nur kartojn kun valoro 10 oni povas meti sur sekvajn fundamentajn kampojn. Tamen oni povas meti kartojn sur fundamentajn stakojn cikle, do estas ankaŭ eble meti ason sur reĝon.
+	    \n\nPer frapeto de ĉefa stako, kartoj estos movitaj al forĵeta stako, kie vi povas uzi ilin. Nombro da kartoj dependas de elektitaj agordoj. Se \"Depreni 1\" estas elektita, unu karto estos movita. Se \"Depreni 3\" estas elektita, 3 kartoj estos movitaj samtempe.
+	    \n\nSe la ĉefa stako malpleniĝos, vi plue povos frapeti ĝin por movi ĉiujn kartojn de forĵeta stako al ĉefa stako kaj reuzi ilin.</string>
+    <string name="manual_Canfield_scoring">De tablamaso al fundamenta stako: +60
+		\n\nDe forĵeta stako al fundamenta stako: +45
+		\n\nDe fundamenta stako al tablamaso: -75
+		\n\nMalkovri karton: +25
+		\n\nMovi ĉiujn kartojn de forĵeta stako al ĉefa stako: -200</string>
+    <string name="manual_GrandfathersClock_structure">1 kartaro po 52 kartoj.
+        \n\n8 tablamasoj, 12 fundamentaj stakoj formante horloĝon. Ĉiu fundamenta stako enhavas unu karton dekomence.</string>
+    <string name="manual_GrandfathersClock_objective">Ordigu ĉiujn kartojn de ĉiu emblemo laŭ kreskanta ordo sur fundamentajn stakojn. Finfine valoroj de kartoj devas egali valorojn de horloĝa ciferplato.</string>
+    <string name="manual_GrandfathersClock_rules">Kartojn oni povas meti sur tablamasajn stakojn laŭ malkreskanta ordo, kart-emblemo ne gravas. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo. Asojn oni povas meti sur reĝojn.
+		\n\nVi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj estas disponeblaj.
+		Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj
+		estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako.</string>
+    <string name="manual_GrandfathersClock_scoring">De tablamaso al fundamenta stako: +50</string>
+    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+    <string name="manual_Vegas_objective">Surmetu kartojn al fundamentaj stakoj por gajni monon.</string>
+    <string name="manual_Vegas_rules">Reguloj estas samaj kiel reguloj de “Klondiko”.
+    \n\nKartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo.
+	\n\nNur reĝojn oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn.
+	\n\nPer frapeto de ĉefa stako, kartoj estos movitaj al forĵeta stako, kie vi povas uzi ilin. Nombro da kartoj dependas de elektitaj agordoj. Se “Depreni 1” estas elektita, unu karto estos movita. Se “Depreni 3” estas elektita, 3 kartoj estos movitaj samtempe.
+	\n\nSe la ĉefa stako malpleniĝos, vi plue povos frapeti ĝin por movi ĉiujn kartojn de forĵeta stako al ĉefa stako kaj reuzi ilin.</string>
+    <string name="manual_Vegas_scoring">Kiomo da gajnata mono dependas de monsumo agordebla en agordoj. Vi pagas ekz. 50$ komence de ludo kaj gajnas 1/10 da monsumo por ĉiu karto enmetita al fundamentaj stakoj.
+        \n\nLudo estos traktita kiel venkita kiam la poentaro pligrandas ol 0. Movado de karto reen el fundamenta stako kostas 2/10 da vetluda monsumo.
+		\n\nUzo de konsilo aŭ de butono malfari ankaŭ kostas 1/10 da vetluda monsumo.
+        \n\nNOTO: vi ne ludas por vera mono en tiu ĉi ludo :)</string>
+    <string name="manual_Calculation_structure">1 kartaro po 52 kartoj.
+	\n\n4 tablamasoj, 4 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.</string>
+    <string name="manual_Calculation_objective">Surmetu ĉiujn kartojn sur la fundamentajn stakojn, sendepende de emblemo, ĝis reĝo aperos sur ĉiu fundamenta stako. Ordigu stakojn en la jena ordo:
+        \n\n 1-a stako en 1-a paŝo: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K     <!-- 1s means: add in each step 1 to the value-->
+        \n 2-a stako en 2-a paŝo: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K     <!-- 2s means: add in each step 2 to the value-->
+        \n 3-a stako en 3-a paŝo: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K     <!-- ... -->
+        \n 4-a stako en 4-a paŝo: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
+        \n\nSekvaj ludeblaj kartoj estas montrataj supre de fundamentaj stakoj.
+    </string>
+    <string name="manual_Calculation_rules">4 fundamentaj stakoj jam komenciĝas kun unaj kartoj, kiuj estas elektitaj hazarde. Kartoj sur fundamentaj stakoj devas esti ordigitaj laŭ ordo priskribita en “celo”.
+        \n\nKartojn de forĵeta stako oni povas movi al ĉiu tablamasa stako, nur laŭ ĝusta ordo.
+        \n\nFrapeto de ĉefa stako simple movos karton de forĵeta stako al tablamaso stako kun malpli da kartoj. Alternativa reĝimo: kartoj sur la forĵeta stako restas tie, dum presadado de ĉefa stako (ŝanĝebla en agordoj).
+        \n\nSur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj stakoj.
+       </string>
+    <string name="manual_Calculation_scoring">Movi karton al fundamenta stako: +50</string>
+
+    <!-- Settings -->
+
+    <string name="settings_background_color">Fona koloro</string>
+    <string name="settings_hide_status_bar">Kaŝi statan breton</string>
+    <string name="settings_left_handed_mode">Maldekstrmana reĝimo</string>
+    <string name="settings_left_handed_mode_description">Inversigi poziciojn de kartoj kaj stakoj al maldekstra flanko</string>
+    <string name="settings_back_press">Konfirmi fermi la ludon</string>
+    <string name="settings_back_press_description">Premu duoble reen-butonon por fermi ludon</string>
+    <string name="settings_orientation">Ekrana orientiĝo</string>
+    <string name="settings_cards">Kartoj</string>
+    <string name="settings_classic">Klasikaj</string>
+    <string name="settings_simple">Simplaj</string>
+    <string name="settings_cards_back">Kartaj malantaŭoj</string>
+    <string name="settings_modern">Modernaj</string>
+    <string name="settings_abstract">Abstraktaj</string>
+    <string name="settings_basic">Normaj</string>
+    <string name="settings_background">Malantaŭo numero</string>
+    <string name="settings_customization">Aspekto</string>
+    <string name="settings_other">Ĝeneralaj</string>
+    <string name="settings_other_description">Agordi ĉion alian</string>
+    <string name="settings_games">Ludoj</string>
+    <string name="settings_games_description">Alĝustigi agordojn de ludaj variaĵoj</string>
+    <string name="settings_spider_difficulty">Kiom da diversaj emblemoj de kartoj</string>
+    <string name="settings_klondike_draw">Kiom da kartoj depreni</string>
+    <string name="settings_canfield_draw">Kiom da kartoj depreni</string>
+    <string name="settings_show_main_menu">Eki en ĉefmenuo</string>
+    <string name="settings_show_main_menu_description">Ne malfermi laste malfermitan ludon dum starto</string>
+    <string name="settings_golf_easy">Ciklaj movoj (pli facile)</string>
+    <string name="settings_golf_easy_description">Permesi meti asojn sur reĝojn kaj inverse</string>
+    <string name="settings_restart_klondike">Komencu novan ludon Klondiko por apliki ŝanĝojn</string>
+    <string name="settings_restart_canfield">Komencu novan ludon Canfield por apliki ŝanĝojn</string>
+    <string name="settings_restart_yukon">Komencu novan ludon Jukono por apliki ŝanĝojn</string>
+    <string name="settings_restart_spider">Komencu novan ludon Araneo por apliki ŝanĝojn</string>
+    <string name="settings_restart_vegas">Komencu novan ludon Vegaso por apliki ŝanĝojn</string>
+    <string name="settings_restart_fortyeight">Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn</string>
+    <string name="settings_menu">Ĉefmenuo</string>
+    <string name="settings_menu_description">Ŝanĝi nombron da kolumnoj, montri kaj kaŝu ludojn</string>
+    <string name="settings_pyramid_difficulty">Facileco</string>
+    <string name="settings_menu_columns">Nombro da kolumnoj</string>
+    <string name="settings_menu_games">Montri kaj kaŝi ludojn</string>
+    <string name="settings_menu_games_description">Elekti kiujn ludojn estas videblaj en menuo</string>
+    <string name="settings_about_description">Montri informojn pri la ludo kiel permesilojn kaj ŝanĝoprotokolon</string>
+    <string name="settings_show_manual_in_menu">Manlibra paĝo en ĉefmenuo</string>
+    <string name="settings_show_manual_in_menu_description">Montri butonon por malfermi paĝon en manlibro pri nuna ludo</string>
+    <string name="settings_change_language">Ŝanĝi lingvon</string>
+    <string name="settings_icon_theme">Piktograma etoso</string>
+    <string name="settings_menu_bar_position">Pozicio de menua breto</string>
+    <string name="settings_menu_bar_position_top">supre</string>
+    <string name="settings_menu_bar_position_bottom">sube</string>
+    <string name="settings_menu_bar_position_left">maldekstre</string>
+    <string name="settings_menu_bar_position_right">dekstre</string>
+    <string name="settings_yukon_rules">Meti kartojn sur…</string>
+    <string name="settings_4_color_mode_title">4 ludkartaj emblemoj</string>
+    <string name="settings_4_color_mode_text">Kolorigi trefojn verde kaj karoojn blue</string>
+    <string name="settings_oxygen_dark">Oxygen Malhela</string>
+    <string name="settings_oxygen_light">Oxygen Hela</string>
+    <string name="settings_poker">Pokero</string>
+    <string name="settings_additional_movements">Ekstraj kart-movoj</string>
+    <string name="settings_additional_movements_description">Aktivigi aŭ malaktivigi eblon por movi per doubla frapeto kaj aliaj</string>
+    <string name="settings_double_tap">Duobla frapeto</string>
+    <string name="settings_double_tap_enable">Aktivigi agojn pri duoblaj frapetoj</string>
+    <string name="settings_double_tap_enable_text">Duoble frapetu karton por movi ĝin sur la sekvan eblan stakon</string>
+    <string name="settings_double_tap_all_cards">Movi ĉiujn eblajn kartojn</string>
+    <string name="settings_double_tap_all_cards_text">Movi kiel eble plej kartojn de stako, ne nur tuŝatan karton</string>
+    <string name="settings_tap_to_select">Elekti-per-frapeto</string>
+    <string name="settings_tap_to_select_enable">Aktivigi movojn elekti-per-frapeto</string>
+    <string name="settings_tap_to_select_enable_text">Frapetu karton por ĝin elekti, kaj sekve frapetu alcelan stakon por movi ĝin tien</string>
+    <string name="settings_single_tap">Unuobla frapeto</string>
+    <string name="settings_single_tap_enable">Aktivigi agojn pri unuoblaj frapetoj</string>
+    <string name="settings_single_tap_enable_text">Nur por Golfo kaj TriPintoj: unuoble frapetu karton por movi ĝin sur forĵetan stakon</string>
+    <string name="settings_background_color_custom">Propra</string>
+    <string name="settings_double_tap_foundation_first">Unue movi sur fundamentan stakon</string>
+    <string name="settings_double_tap_foundation_first_text">Provi movi la plej supran karton de frapetata stako sur fundamentan stakon antaŭ movi aliajn kartojn</string>
+    <string name="settings_movement_speed">Mov-rapido de kartoj</string>
+    <string name="Settings_sound">Aktivigi sonojn en ludo</string>
+    <string name="Settings_sounds_title">Sonoj</string>
+    <string name="Settings_sounds_text">Aktivigi sonojn, agordi diversajn sonefektojn</string>
+    <string name="Settings_win_sound_title">Sonefekto de venko</string>
+    <string name="Settings_background_music">Fona muziko</string>
+    <string name="Settings_background_volume">Sonforteco de fona muziko</string>
+    <string name="settings_limit_number_of_recycles">Limigi nombron da redisdonoj</string>
+    <string name="settings_limit_number_of_recycles_text">Movado de forĵeta stako al ĉefa stako estas limigita</string>
+    <string name="settings_number_of_recycles">Nombro de reuzoj</string>
+    <string name="settings_vegas_bet_amount">Vetluda monsumo</string>
+    <string name="settings_vegas_bet_amount_text_1">Unua redisdono kostas:</string>
+    <string name="settings_vegas_bet_amount_text_2">Por movi karton al fundamenta stako gajnas:</string>
+    <string name="settings_vegas_bet_amount_summary">Redisdono: -%1$d$, karto al fundamenta stako: +%2$d$</string>
+    <string name="settings_menu_order_title">Ordo de menuo</string>
+    <string name="settings_menu_order_summary">Frapetadu eron kaj poste ŝovu kaj demetu ĝin por reordigi menuon</string>
+    <string name="settings_menu_order_set_default">Restarigi ordon</string>
+    <string name="settings_auto_start_new_game_title">Komenci novan ludon post venko</string>
+    <string name="settings_auto_start_new_game_text">Je reveno al ĵus-venkita ludo, aŭtomate komenci novan ludon</string>
+    <string name="settings_customization_description">Alĝustigi kartojn, fonojn kaj fasadon</string>
+    <string name="settings_force_tablet_layout_title">Devigi tabulkomputilan reĝimon</string>
+    <string name="settings_force_tablet_layout_text">Vidigi la aplikaĵon same kiel sur grandaj ekranoj (≥7\")</string>
+    <string name="settings_restart_calculation">Komencu novan ludon Calculation por apliki ŝanĝojn</string>
+    <string name="settings_calculation_alternative_title">Teni kartojn</string>
+    <string name="settings_calculation_alternative_text">Je premado sur ĉefa stako: anstataŭ movi karton de forĵeta stako al tablamasa stako, teni ĝin sur la forĵeta stako.</string>
+    <string name="settings_vegas_money_enabled">Konservi nunan monstaton</string>
+    <string name="settings_vegas_money_enabled_text">La monstato estos konservata tra sekvaj redisdonoj de Vegaso, tamen vi devu rekomencigi la mon-staton kaj komenci novan ludon por konservi rekordojn</string>
+    <string name="settings_vegas_money_reset">Rekomencigi monstaton</string>
+    <string name="settings_vegas_money_reset_text">La sekva redisdono de Vegas komenciĝos kun 0$</string>
+    <string name="settings_vegas_money_reset_confirm">Ĉu vi certe volas rekomencigi vian monstaton? Tio ĉi estas neinversigebla.</string>
+    <string name="settings_auto_move_title">Aŭtomataj movoj</string>
+    <string name="settings_mod3_auto_move_text">Aŭtomate movi asojn al la forĵeta stako, kiam tio eblas</string>
+    <string name="settings_pyramid_auto_move_text">Aŭtomate movi reĝojn al la ruba stako, kiam tio eblas</string>
+    <string name="settings_rules">Reguloj</string>
+    <string name="settings_money">Mono</string>
+    <string name="settings_support">Subteno</string>
+    <string name="settings_hide_time">Kaŝi tempon</string>
+    <string name="settings_hide_score">Kaŝi poentaron</string>
+    <string name="settings_single_tap_all_games_text">Unuoble frapetu karton por movi ĝin al la sekva ebla stako. Samaj agordoj kiel por duobla frapeto. Tio ĉi malaktivigos movojn “elekti-per-frapeto”.</string>
+    <string name="settings_vegas_bet_amount_error">Ne povas konservi numerojn!</string>
+    <string name="settings_canfield_size_of_reserve_title">Ŝanĝi amplekson da rezerva stako (pli facile)</string>
+    <string name="settings_use_true_randomisation_title">Uzi veran hazardecon</string>
+    <string name="settings_use_true_randomisation_text">Implicita hazardeco evitas similajn kartojn apude. Marku tio ĉi por aktivigi vere egalan hazardecon.</string>
+    <string name="settings_developer_options">Programistaj agoroj</string>
+    <string name="settings_developer_options_description">Ludi kun vere frenezaj agordoj!</string>
+    <string name="settings_developer_options_move_card_everwhere_title">Movi kartojn ie ajn</string>
+    <string name="settings_developer_options_move_card_everwhere_text">Vi povas movi kartojn al ĉiu stako</string>
+    <string name="settings_developer_options_lock_text">Tiuj ĉi agoroj estas destinitaj nur por testado, uzi ilin povas rezultigi strangajn efikojn kaj paneojn!</string>
+    <string name="settings_developer_options_play_every_card_title">Ludi per iu ĉiu karto</string>
+    <string name="settings_developer_options_play_every_card_text">Vi povas ludi per iu ajn malkovrita karto</string>
+    <string name="settings_developer_options_instant_win_title">Tuja venko</string>
+    <string name="settings_developer_options_instant_win_text">Venki ĉiun ludon post movi karton</string>
+    <string name="settings_developer_options_no_saving_title">Ne konservi staton de ludo</string>
+    <string name="settings_developer_options_no_saving_text">Movoj dum ludado ne estos konservitaj</string>
+    <string name="settings_developer_options_deal_correct_sequences_title">Disdoni en fina ordo</string>
+    <string name="settings_show_advanced_settings">Montri spertajn agordojn</string>
+    <string name="settings_show_advanced_settings_text">Malŝlosi altnivelajn kaj programistajn agordojn</string>
+    <string name="settings_max_number_undos">Maksimuma nombro da movoj malfari</string>
+    <string name="settings_expert_settings">Altnivelaj agordoj</string>
+    <string name="settings_expert_settings_text">Eble uzeblaj por iuj homoj</string>
+    <string name="settings_follow_system_settings">Laŭ sistema agordo</string>
+    <string name="settings_portrait">Vertikale</string>
+    <string name="settings_landscape">Horizontale</string>
+    <string name="settings_landscape_upside_down">Horizontala inversa</string>
+    <string name="settings_spider_difficultiy_1">1 (facila)</string>
+    <string name="settings_spider_difficultiy_2">2 (meza)</string>
+    <string name="settings_spider_difficultiy_3">4 (malfacila)</string>
+    <string name="settings_draw_1">Depreni 1</string>
+    <string name="settings_draw_3">Depreni 3</string>
+    <string name="settings_pyramid_difficulty_1">Facila: ludo estas venkita kiam tablamaso estas malplena</string>
+    <string name="settings_pyramid_difficulty_2">Malfacila: ludo estas venkita kiam tablamaso kaj stako estas malplenaj</string>
+    <string name="settings_language_default">Implicita</string>
+    <string name="settings_language_english">Angla</string>
+    <string name="settings_language_esperanto">Esperanto</string>
+    <string name="settings_language_finnish">Suoma</string>
+    <string name="settings_language_french">Franca</string>
+    <string name="settings_language_german">Germana</string>
+    <string name="settings_language_japanese">Japana</string>
+    <string name="settings_language_polish">Pola</string>
+    <string name="settings_language_turkish">Turka</string>
+    <string name="settings_yukon_rules_1">Diferencaj koloroj (implicite)</string>
+    <string name="settings_yukon_rules_2">Sama emblemo (rusa paciencoludo)</string>
+    <string name="settings_movement_speed_1">Tre malrapida</string>
+    <string name="settings_movement_speed_2">Malrapida</string>
+    <string name="settings_movement_speed_3">Meza</string>
+    <string name="settings_movement_speed_4">Rapida</string>
+    <string name="settings_win_sounds_1">Implicita</string>
+    <string name="settings_win_sounds_2">Piano</string>
+    <string name="settings_win_sounds_3">8-bitoka voĉo “You win”</string>
+    <string name="settings_win_sounds_4">Aplaŭdo</string>
+    <string name="settings_background_music_1">Malaktiva</string>
+    <string name="settings_background_music_2">Muzikaĵo 1</string>
+    <string name="settings_background_music_3">Muzikaĵo 2</string>
+    <string name="settings_background_music_4">Muzikaĵo 3</string>
+    <string name="settings_background_music_5">Muzikskatolo</string>
+    <string name="settings_canfield_size_of_reserve_1">13 kartoj (implicite)</string>
+    <string name="settings_canfield_size_of_reserve_2">10 kartoj</string>
+    <string name="settings_canfield_size_of_reserve_3">7 kartoj</string>
+    <string name="settings_canfield_size_of_reserve_4">4 kartoj</string>
+    <string name="settings_developer_option_deal_correct_sequences_1">Malaktiva</string>
+    <string name="settings_developer_option_deal_correct_sequences_2">Alterna koloro</string>
+    <string name="settings_developer_option_deal_correct_sequences_3">Sama familio</string>
+    <string name="settings_developer_option_deal_correct_sequences_4">Inverse altern-kolora</string>
+    <string name="settings_developer_option_deal_correct_sequences_5">Inverse sam-familia</string>
+
+    <!-- Statistics -->
+
+    <string name="statistics_text_won_games">Vi venkis %1$d el %2$d ludoj.</string>  <!-- %1$d and %2$d are placeholders for the values-->
+    <string name="statistics_win_percentage">Elcento da venkoj: %1$.0f%%</string> <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
+    <string name="statistics_button_delete">Forigi ĉiujn rezultojn</string>
+    <string name="statistics_button_delete_text">Forigos ĉiujn rezultojn de tiu ĉi ludo! Ĉu vi certas?</string>
+    <string name="statistics_button_deleted_all_entries">Ĉiuj rezultoj forigitaj</string>
+    <string name="statistics_time_of_day">Horo</string>
+    <string name="statistics_date">Dato</string>
 
 </resources>
