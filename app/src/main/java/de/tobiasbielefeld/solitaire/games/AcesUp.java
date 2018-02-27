@@ -91,23 +91,22 @@ public class AcesUp extends Game {
     }
 
     public int onMainStackTouch() {
-
-        if (!getMainStack().isEmpty()) {
-            ArrayList<Card> cards = new ArrayList<>();
-            ArrayList<Stack> destinations = new ArrayList<>();
-
-            for (int i = 0; i < 4; i++) {
-                getMainStack().getCardFromTop(i).flipUp();
-                cards.add(getMainStack().getCardFromTop(i));
-                destinations.add(stacks[i]);
-            }
-
-            moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
-
-            return 1;
+        if (getMainStack().isEmpty()) {
+            return 0;
         }
 
-        return 0;
+        ArrayList<Card> cards = new ArrayList<>();
+        ArrayList<Stack> destinations = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            getMainStack().getCardFromTop(i).flipUp();
+            cards.add(getMainStack().getCardFromTop(i));
+            destinations.add(stacks[i]);
+        }
+
+        moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
+
+        return 1;
     }
 
     public boolean cardTest(Stack stack, Card card) {

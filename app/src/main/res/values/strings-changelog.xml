@@ -7,12 +7,26 @@
      -
     -->
 
+    <string name="changelog_44" translatable="false">
+        • Fixing some issues
+    </string>
+
+    <string name="changelog_43" translatable="false">
+        • Added missing Esperanto and fixed Polish translations, thanks to verdulo!
+        \n• The confirmation dialogs for starting new games now only show once
+    </string>
+
     <string name="changelog_42" translatable="false">
         • Added a new option to mix the cards, if no movement is possible
-        \n• Randomization now avoids similar cards next to each other, can be disabled in the general settings.
-        \n• Added new confirmation dialogs for starting new games
-        \n• Added developer options to play around (Use with care!)
-        \n• Canfield: The size of the reserve can now be changed (makes the game easier to win)
+        \n• Added expert and developer settings categories, can be enabled in the general settings
+        \n• Randomization now avoids similar cards next to each other, can be changed in the expert settings
+        \n• Added an option to increase the number of undo movements in the expert settings
+        \n• Added confirmation dialogs for starting new games
+        \n• Canfield: The size of the reserve can now be changed, to make the game easier to win
+        \n• Changed the card re-dealing animation
+        \n• Tablet layout is now also shown on 7\" devices
+        \n• Made the app movable to sd cards
+        \n• Bug fixes and little changes
     </string>
 
     <string name="changelog_41" translatable="false">

@@ -13,6 +13,10 @@
             android:summary="%s"
             android:title="@string/settings_canfield_draw" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_rules">
+
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="@string/default_canfield_size_of_reserve"
             android:entries="@array/pref_canfield_size_of_reserve_titles"

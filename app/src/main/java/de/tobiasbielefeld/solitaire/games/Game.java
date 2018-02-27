@@ -23,7 +23,6 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.annotation.CallSuper;
 import android.support.v4.widget.TextViewCompat;
-import android.util.Log;
 import android.view.Gravity;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -117,6 +116,8 @@ public abstract class Game {
 
             cardToChange.getStack().exchangeCard(cardToChange,cardsToMix.get(i));
         }
+
+        sounds.playSound(Sounds.names.DEAL_CARDS);
 
         //After every card got a new place, update the card image views
         for (Stack stack : stacks){
@@ -1059,8 +1060,8 @@ public abstract class Game {
         return hasArrow;
     }
 
-    public void toggleRecycles() {
-        hasLimitedRecycles = !hasLimitedRecycles;
+    public void toggleRecycles(boolean value) {
+        hasLimitedRecycles = value;
     }
 
     public void setSingleTapEnabled() {

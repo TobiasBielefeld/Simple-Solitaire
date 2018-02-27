@@ -59,9 +59,7 @@ public class Klondike extends Game {
         setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
         setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
 
-        if (!prefs.getSavedKlondikeLimitedRecycles()) {
-            toggleRecycles();
-        }
+        toggleRecycles(prefs.getSavedKlondikeLimitedRecycles());
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -69,7 +67,7 @@ public class Klondike extends Game {
         // initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 8, 10);
 
-        //calculate spacing and startposition of cards
+        //calculate spacing and start position of cards
         int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
         int startPos = layoutGame.getWidth() / 2 - Card.width / 2 - 3 * Card.width - 3 * spacing;
 
@@ -141,7 +139,7 @@ public class Klondike extends Game {
                     moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
             stacks[i].getCard(i).flipUp();
-        }
+        }//*/
     }
 
     public int onMainStackTouch() {

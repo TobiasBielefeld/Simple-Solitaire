@@ -21,12 +21,14 @@ package de.tobiasbielefeld.solitaire.ui;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.RectF;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -47,6 +49,7 @@ import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
+import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.helper.Timer;
@@ -64,7 +67,6 @@ import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.NONE;
 public class GameManager extends CustomAppCompatActivity implements View.OnTouchListener {
 
     private final static long DOUBLE_TAP_SPEED = 400;                                               //time delta between two taps in milliseconds
-    public static int loadCounter = 0;                                                              //used to count how many times the onCreate method is called, so I can avoid loading the game multiple times
     public boolean hasLoaded = false;                                                               //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRecycles;                       //textViews for time, scores and re-deals
@@ -75,7 +77,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
     private boolean activityPaused;
-
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -101,6 +102,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //initialize my static helper stuff
         final GameManager gm = this;
 
+
         scores = new Scores(gm);
         gameLogic = new GameLogic(gm);
         animate = new Animate(gm);
@@ -110,6 +112,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
         prefs.setGamePreferences(this);
         Stack.loadBackgrounds();
+        recordList = new RecordList();
 
         updateMenuBar();
 
@@ -129,65 +132,70 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         scores.output();
-        loadCounter++;
-        //post, because i need the dimensions of layoutGame to set the cards and stacks
-        layoutGame.post(new Runnable() {                                                           //post a runnable to set the dimensions of cards and stacks when the layout has loaded
+
+        //wait until the game layout dimensions are known, then draw everything
+        ViewTreeObserver viewTreeObserver = layoutGame.getViewTreeObserver();
+        viewTreeObserver.addOnGlobalLayoutListener (new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
-            public void run() {
-                boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-
-                currentGame.setStacks(layoutGame, isLandscape, getApplicationContext());
-
-                //if left handed mode is true, mirror all stacks
-                if (prefs.getSavedLeftHandedMode()) {
-                    gameLogic.mirrorStacks();
-                }
-
-                //calculate the spacing for cards on a stack
-                Stack.defaultSpacing = Card.width / 2;
-
-                for (Stack stack : stacks){
-                    stack.applyDefaultSpacing();
-                }
-
-                //setup how the cards on the stacks will be stacked (offset to the previous card)
-                //there are 4 possible directions. By default, the tableau stacks are stacked down
-                //all other stacks don't have a visible offset
-                //use setDirections() in a game to change that
-                if (currentGame.directions == null) {
-                    for (Stack stack : stacks) {
-                        if (stack.getId() <= currentGame.getLastTableauId()) {
-                            stack.setSpacingDirection(DOWN);
-                        } else {
-                            stack.setSpacingDirection(NONE);
-                        }
-                    }
+            public void onGlobalLayout() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    layoutGame.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 } else {
-                    for (int i = 0; i < stacks.length; i++) {
-                        if (currentGame.directions.length > i) {
-                            stacks[i].setSpacingDirection(currentGame.directions[i]);
-                        } else {
-                            stacks[i].setSpacingDirection(NONE);
-                        }
-                    }
+                    //noinspection deprecation
+                    layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
-                //if there are direction borders set (when cards should'nt overlap another stack)  use it.
-                //else set the layout height/width as maximum
-                currentGame.applyDirectionBorders(layoutGame);
-
-                //load the game, to prevent multiple loadings, check the counter first. Load the game
-                //only if its the last attempt to load
-                loadCounter--;
-                if (loadCounter < 1) {
-                    scores.load();
-                    HandlerLoadGame handlerLoadGame = new HandlerLoadGame(gm);
-                    handlerLoadGame.sendEmptyMessageDelayed(0, 200);
-                }
-
-
+                initializeLayout();
             }
         });
+    }
+
+    private void initializeLayout() {
+        boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+
+        currentGame.setStacks(layoutGame, isLandscape, getApplicationContext());
+
+        //if left handed mode is true, mirror all stacks
+        if (prefs.getSavedLeftHandedMode()) {
+            gameLogic.mirrorStacks();
+        }
+
+        //calculate the spacing for cards on a stack
+        Stack.defaultSpacing = Card.width / 2;
+
+        for (Stack stack : stacks){
+            stack.applyDefaultSpacing();
+        }
+
+        //setup how the cards on the stacks will be stacked (offset to the previous card)
+        //there are 4 possible directions. By default, the tableau stacks are stacked down
+        //all other stacks don't have a visible offset
+        //use setDirections() in a game to change that
+        if (currentGame.directions == null) {
+            for (Stack stack : stacks) {
+                if (stack.getId() <= currentGame.getLastTableauId()) {
+                    stack.setSpacingDirection(DOWN);
+                } else {
+                    stack.setSpacingDirection(NONE);
+                }
+            }
+        } else {
+            for (int i = 0; i < stacks.length; i++) {
+                if (currentGame.directions.length > i) {
+                    stacks[i].setSpacingDirection(currentGame.directions[i]);
+                } else {
+                    stacks[i].setSpacingDirection(NONE);
+                }
+            }
+        }
+
+        //if there are direction borders set (when cards should'nt overlap another stack)  use it.
+        //else set the layout height/width as maximum
+        currentGame.applyDirectionBorders(layoutGame);
+
+        scores.load();
+        HandlerLoadGame handlerLoadGame = new HandlerLoadGame(this);
+        handlerLoadGame.sendEmptyMessageDelayed(0, 200);
     }
 
     @Override

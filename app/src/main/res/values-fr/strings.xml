@@ -1,76 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_version">Version</string>
 
-    <string name="portrait">Portrait</string>
-    <string name="landscape">Paysage</string>
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="app_version">"Version"</string>
+<string name="settings">"Réglages"</string>
+<string name="game_manual">"Manuels"</string>
+<string name="game_score">"Points"</string>
+<string name="game_time">"Temps"</string>
+<string name="game_cancel">"Annuler"</string>
+<string name="game_confirm">"Confirmer"</string>
+<string name="game_auto_complete_text">"Finir automatiquement"</string>
+<string name="game_press_again">"Appuyer encore pour sortir"</string>
+<string name="game_load_error">"Echec du chargement des données, démarrage d'une nouvelle partie…"</string>
+<string name="game_close">"Fermer le jeu"</string>
+<string name="game_main_menu">"Menu principal"</string>
+<string name="item_game_rules">"Règles du jeu"</string>
+<string name="item_return_to_main_menu">"Revenir au menu principal"</string>
 
-    <string name="settings">Réglages</string>
-    <string name="game_manual">Manuels</string>
-    <string name="game_score">Points</string>
-    <string name="game_time">Temps</string>
-    <string name="game_cancel">Annuler</string>
-    <string name="game_confirm">Confirmer</string>
-    <string name="game_auto_complete_text">Finir automatiquement</string>
-    <string name="game_press_again">Appuyer encore pour sortir</string>
-    <string name="game_load_error">Echec du chargement des données, démarrage d\'une nouvelle partie…</string>
-    <string name="game_close">Fermer le jeu</string>
-    <string name="game_main_menu">Menu principal</string>
+<!-- Menu -->
+<string name="menu_statistics">"Points"</string>
+<string name="menu_undo">"Annuler"</string>
+<string name="menu_hint">"Indice"</string>
+<string name="menu_main_menu">"Menu"</string>
+<string name="menu_settings">"Réglages"</string>
 
-    <!-- Menu -->
-    <string name="menu_statistics">Points</string>
-    <string name="menu_undo">Annuler</string>
-    <string name="menu_hint">Indice</string>
-    <string name="menu_main_menu">Menu</string>
-    <string name="menu_settings">Réglages</string>
+<!-- game names 
 
-    <!-- game names -->
-    <string name="games_Calculation">Calculation</string>
-    <string name="games_Klondike">Solitaire</string>
-    <string name="games_Freecell">FreeCell</string>
-    <string name="games_Yukon">Yukon</string>
-    <string name="games_Spider">Spider</string>
-    <string name="games_SimpleSimon">SimpleSimon</string>
-    <string name="games_Golf">Golf</string>
-    <string name="games_Pyramid">Pyramide</string>
-    <string name="games_TriPeaks">TriPeaks</string>
-    <string name="games_FortyEight">Forty&amp;Eight</string>
-    <string name="games_AcesUp">4 As</string>
-    <string name="games_Gypsy">Gypsy</string>
-    <string name="games_mod3">Mod3</string>
-    <string name="games_Canfield">Canfield</string>
-    <string name="games_GrandfathersClock">GrandfathersClock</string>
-    <string name="games_Vegas">Vegas</string>
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Solitaire"</string>
+<string name="games_Freecell">"FreeCell"</string>
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Spider"</string>
+<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_Golf">"Golf"</string>
+<string name="games_Pyramid">"Pyramide"</string>
+<string name="games_TriPeaks">"TriPeaks"</string>
+<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_AcesUp">"4 As"</string>
+<string name="games_Gypsy">"Gypsy"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"Canfield"</string>
+<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_Vegas">"Vegas"</string>
+<string name="games_Calculation">"Calculation"</string>
 
-    <!-- colors -->
-    <string name="blue">Bleu</string>
-    <string name="green">Vert</string>
-    <string name="red">Rouge</string>
-    <string name="yellow">Jaune</string>
-    <string name="orange">Orange</string>
-    <string name="purple">Violet</string>
+<!-- colors -->
+<string name="blue">"Bleu"</string>
+<string name="green">"Vert"</string>
+<string name="red">"Rouge"</string>
+<string name="yellow">"Jaune"</string>
+<string name="orange">"Orange"</string>
+<string name="purple">"Violet"</string>
 
-    <!-- game stuff -->
-    <string name="game_longest_run">Plus longue série :</string>
+<!-- game stuff -->
+<string name="game_longest_run">"Plus longue série :"</string>
 
-    <!-- dialog won-->
-    <string name="dialog_win_titel">Félicitation!</string>
-    <string name="dialog_win_score">Points: %1$d</string>
-    <string name="dialog_win_bonus">Prime: %1$d</string>
-    <string name="dialog_win_total">Total: %1$d</string>
+<!-- dialog won -->
+<string name="dialog_win_titel">"Félicitation!"</string>
+<string name="dialog_win_score">"Points: %1$d"</string>
+<string name="dialog_win_bonus">"Prime: %1$d"</string>
+<string name="dialog_win_total">"Total: %1$d"</string>
 
-    <!-- new values translated with DeepL, maybe it's better than the google translator-->
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Mélanger les cartes"</string>
+<string name="dialog_mix_cards_text">"Ceci mélangera toutes les cartes, attendez-vous à des séquences et des cartes correctes sur les piles de bases."</string>
+<string name="dialog_mix_cards_not_available">"Il y a encore des mouvements possibles! (Utilisez la fonction conseil pour les afficher)"</string>
 
-    <!-- dialog mix cards -->
-    <string name="dialog_mix_cards_title">Mélanger les cartes</string>
-    <string name="dialog_mix_cards_text">Ceci mélangera toutes les cartes, attendez-vous à des séquences et des cartes correctes sur les piles de bases.</string>
-    <string name="dialog_mix_cards_not_available">Il y a encore des mouvements possibles! (Utilisez la fonction conseil pour les afficher)</string>
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Démarrer une nouvelle partie"</string>
+<string name="dialog_start_new_game_text">"Votre progression actuelle sera perdue et une nouvelle partie au hasard sera distribuée."</string>
 
-    <!-- dialog start new game -->
-    <string name="dialog_start_new_game_title">Démarrer une nouvelle partie</string>
-    <string name="dialog_start_new_game_text">Votre progression actuelle sera perdue et une nouvelle partie au hasard sera distribuée.</string>
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Redistribuer les cartes"</string>
+<string name="dialog_redeal_text">"Votre progression actuelle sera perdue, mais les cartes sont distribuées comme dans la partie en cours."</string>
 
-    <!-- dialog redeal -->
-    <string name="dialog_redeal_title">Redistribuer les cartes</string>
-    <string name="dialog_redeal_text">Votre progression actuelle sera perdue, mais les cartes sont distribuées comme dans la partie en cours.</string>
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Manuel"</string>
+<string name="title_activity_settings">"Réglages"</string>
+<string name="title_activity_about">"À propos du jeu"</string>
+<string name="title_activity_statistics">"Meilleurs scores"</string>
 
+<!-- About activity -->
+<string name="about_tab_1">"Information"</string>
+<string name="about_tab_2">"Licences"</string>
+<string name="about_tab_3">"Versions"</string>
+<string name="about_loading">"Chargement…"</string>
+<string name="about_developer">"Développeur"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Date de la construction"</string>
+<string name="about_source_code">"Code source"</string>
+<string name="about_license">"Licence"</string>
+<string name="about_translations">"Traductions"</string>
+<string name="about_further_contributors">"Contributeurs supplémentaires"</string>
+<string name="about_android_support_libraries_title">"Bibliothèque de support Android"</string>
+<string name="about_android_support_libraries_usage">"Utilisé pour une meilleure conception et un développement plus facile"</string>
+<string name="about_material_icons_title">"icônes « Material Design »"</string>
+<string name="about_material_icons_usage">"Utilisé pour toutes les icônes de cette application"</string>
+<string name="about_card_themes_title">"Thèmes de cartes"</string>
+<string name="about_card_themes_usage">"Les thèmes de cartes ont été tirés sur &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, pour plus d'informations, cliquez &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;ici&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"Utilisé comme thème 'Poker' - Disponible sur &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"Bibliothèque AmbilWarna"</string>
+<string name="about_custom_color_picker_usage">"Utilisé pour le sélecteur de couleur personnalisé"</string>
+<string name="about_sounds_title">"Sons"</string>
+<string name="about_sounds_usage">"Tous les sons ont été publiés à l'origine sur &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, pour plus d'informations, cliquez &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;ici&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"Bibliothèque PagerSlidingTabStrip"</string>
+<string name="about_sliding_tabs_usage">"Utilisé pour les onglets dans l'écran 'À propos du jeu'"</string>
+
+<!-- Manual -->
+<string name="manual_games">"Jeux de cartes"</string>
+<string name="manual_feedback">"Remarques"</string>
+<string name="manual_startpage">"Page de démarrage"</string>
+<string name="manual_back_to_game">"Retour aux jeux"</string>
+<string name="manual_structure">"Structure"</string>
+<string name="manual_objective">"Objectifs"</string>
+<string name="manual_rules">"Règles"</string>
+<string name="manual_scoring">"Points"</string>
+<string name="manual_main_menu">"Menu principal"</string>
+<string name="manual_ui">"Interface utilisateur"</string>
+<string name="page_load_error">"Pas de pages pour ce jeu disponible…"</string>
+<string name="manual_bonus">"Après avoir gagné un jeu, vous obtenez un bonus: plus vous gagnez, plus le bonus sera élevé."</string>
+<string name="manual_open_google_play">"Ouvrir Google Play"</string>
+<string name="manual_open_github">"Ouvrir le dépot GitHub"</string>
+<string name="manual_games_text1">"Choisissez un jeu pour afficher son fonctionnement, ses objectifs, ses règles et sa méthode de décompte de points."</string>
+<string name="manual_startpage_text">"Bienvenue dans le manuel de cette collection de jeux de cartes ! J'espère qu'il vous expliquera tout ce qu'il faut savoir. 
+
+Utiliser le menu à gauche pour accèder aux différents manuels."</string>
+<string name="manual_general_main_menu">"L'utilisation du menu principal est assez facile : appuyez juste sur le type de jeu que vous voulez lancer.
+
+Si l'application avait été mise en pause pendant une partie, l'application chargera automatiquement la dernière partie jouée. Ce comportement peut être désactivé dans les réglages, sous le menu \"Général\".
+
+À cet endroit, vous trouverez aussi la section \"Menu principal\", où il est possible de masquer des jeux et changer le nombre de colonnes affichées, afin que la plupart des jeux puissent s'afficher correctement sur l'écran."</string>
+<string name="manual_ui_text">"Un jeu affiche toujours un petit menu en bas de l'écran (en mode portrait) ou sur la droite (en mode paysage). Ce menu affiche le nombre de points et le temps de jeu écoulé pour la partie en cours. Si possible, ces deux valeurs seront sauvegardées dans la liste des meilleurs scores. Le menu contient 5 éléments qui ont pour fonction (en allant de la gauche vers la droite): 
+
+Le bouton \"Points\" affiche une nouvelle fenêtre contenant les meilleurs scores et le nombre de parties gagnées du même type que la partie en cours. 
+
+Le bouton \"Indice\" vous aide en vous montrant jusqu'à 3 possibilités de mouvement à la fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont pas considérés comme des indices. Si aucun indice n'est montré, votre score ne diminuera pas. 
+
+Le bouton \"Menu\" donne accès à trois actions différentes : Démarrer une nouvelle partie en mélangeant les cartes. Redistribuer les cartes fait de même mais sans les mélanger, donc c'est un peu comme recommencer la partie en cours. La dernière option met fin à la partie et retourne au menu principal.
+
+Le bouton \"Annuler\" inverse le dernier mouvement, mais au prix de 25 points. Il n'est possible d'annuler que les 20 derniers mouvements.
+
+Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
+<string name="manual_feedback_text">"Vous avez trouvé un bug, une erreur ? Quelque chose pourrait être amélioré ? Devrais-je ajouter un autre type de jeu à la collection ? Peut-être voulez-vous aider à la traduction ? Ou autre idée ?
+
+J'apprécie beaucoup recevoir vos remarques, sous toutes ses formes. Si vous sentez le besoin de me contacter, vous devriez utiliser l'une de ses deux options :
+
+Ouvrir une demande sur l'outil de gestion de demandes sur GitHub : le dépôt GitHub de cette application a une fonctionnalité très intéressante concernant la gestion des demandes. Appuyez juste sur le bouton à gauche de l'écran pour ouvrir l'outil de suivi des demandes dans votre navigateur web.
+
+Mettre une évaluation sur Google Play Store : faites simplement une évaluation sur la page du store et écriver ce que vous voulez ensuite. Cliquez sur le bouton à droite de l'écran pour ouvrir le Google Play Store (s'il est installé).
+
+Merci d'avance pour vos remarques :)"</string>
+<string name="manual_Klondike_structure">"1 jeu de 52 cartes.
+
+7 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse."</string>
+<string name="manual_Klondike_objective">"Empiler toutes les cartes d'une même famille par ordre croisant sur les piles de base."</string>
+<string name="manual_Klondike_rules">"Les cartes doivent être placées sur le tableau par ordre décroissant en alternant les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement par ordre croissant et dans la même famille.
+
+Seuls les rois peuvent être placés sur une colonne vide du tableau et seuls les As peuvent être placés sur les piles de base vides.
+
+En appuyant sur le talon, les cartes sont retournées sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l'application. Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée (c'est le réglage par défaut, le plus facile). Si \"Donner 3 cartes\" est activé, 3 cartes seront retournées à la fois.
+
+Si le talon se vide, vous pouvez encore appuyer dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser."</string>
+<string name="manual_Klondike_scoring">"Du tableau à une pile de base : +60
+
+De la défausse à une pile de base : +45
+
+D'une pile de base au tableau : -75
+
+Piocher une carte: +25
+
+Déplacer les cartes de la défausse à la pioche : -200"</string>
+<string name="manual_Freecell_structure">"1 jeu de 52 cartes.
+
+8 colonnes sur le tableau, 4 piles de base et 4 cases libres (free cells)."</string>
+<string name="manual_Freecell_objective">"Empiler sur les bases les cartes de chaque famille dans l'ordre croissant."</string>
+<string name="manual_Freecell_rules">"Les cartes doivent être posées sur le tableau par ordre décroissant et en alternant les couleurs. Sur les bases, les cartes doivent être placées par ordre croissant pour une même famille. Les cases libres en haut ne peuvent contenir qu'une seule carte à la fois. 
+
+Vous pouvez déplacer autant de cartes en une fois (si elles sont placées dans le bon ordre), qu'il y a d'emplacements libres en haut et sur le tableau. Cela suit la règle selon laquelle une seule carte peut être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n'importe quelle carte, celles-ci servent d'intermédiaires.
+
+Toutes les cartes peuvent être placées sur les colonnes vides du tableau et seuls les As peuvent être placés sur les piles de base vides."</string>
+<string name="manual_Freecell_scoring">"Mettre une carte sur une pile de base : +60
+
+Retirer une carte d'une pile de base : -75
+
+Mettre un roi sur un emplacement libre : +20"</string>
+<string name="manual_Yukon_structure">"1 jeu de 52 cartes.
+
+7 colonnes sur le tableau, 4 piles de base."</string>
+<string name="manual_Yukon_objective">"Trier toutes les cartes par famille et par ordre croissant sur les bases."</string>
+<string name="manual_Yukon_rules">"Les cartes doivent être placées sur le tableau dans l'ordre décroissant et en alternant leur couleur. Sur les piles de base, les cartes doivent être placées par ordre croissant et dans la même famille. 
+
+Vous pouvez déplacer toutes les cartes retournées, sans avoir à tenir compte des cartes au dessus d'elle. 
+
+Seul les rois peuvent être placés sur des emplacements vides et seuls les As peuvent être placés sur les piles de base vides."</string>
+<string name="manual_Yukon_scoring">"Déplacer une carte du tableau à une base : +60
+
+Déplacer une carte d'une base au tableau : -75
+
+Mettre un roi sur une colonne vide : +20
+
+Retourner une carte : +25"</string>
+<string name="manual_Spider_structure">"2 jeux de 52 cartes.
+
+10 colonnes sur le tableau, 8 piles de base.
+
+1 talon, séparé en cinq tas.
+
+Selon le réglage, 1, 2 ou 4 familles de cartes différentes."</string>
+<string name="manual_Spider_objective">"Mettre toutes les cartes d'une même famille dans l'ordre croissant n'importe où sur le tableau. Une fois complétée, une famille sera automatiquement déplacée sur une pile de base."</string>
+<string name="manual_Spider_rules">"Les cartes peuvent être placées sur n'importe quelle autre tant que l'on suit l'ordre croissant. Mais seules les séquences d'une même famille peuvent être déplacées en une seule fois.
+
+Toutes les cartes peuvent être placées sur des emplacements libres du tableau 
+
+Appuyer sur le talon pour ajouter une carte à chaque colonne du tableau."</string>
+<string name="manual_Spider_scoring">"Déplacer une famille de carte sur une pile de base : +200
+
+Retourner une série de cartes : +25"</string>
+<string name="manual_SimpleSimon_structure">"1 jeu de 52 cartes.
+
+10 colonnes sur le tableau, 4 piles de base."</string>
+<string name="manual_SimpleSimon_objective">"Mettre toutes les cartes de chaque famille dans l'ordre décroissant n'importe où sur le tableau. Une fois complétée, une famille sera automatiquement déplacée sur une pile de base."</string>
+<string name="manual_SimpleSimon_rules">"Les cartes peuvent être placées n'importe où sur le plateau, mais seulement si elles sont mises dans l'ordre décroissant. Seuls les séquences d'une même famille peuvent être déplacées en même temps.
+
+Toutes les cartes peuvent être placées sur les cases libres du tableau."</string>
+<string name="manual_SimpleSimon_scoring">"Mettre une famille sur une pile de base : +200"</string>
+<string name="manual_Golf_structure">"1 jeu de 52 cartes.
+
+7 colonnes sur le tableau, 1 talon et 1 défausse.
+
+Déplacer les cartes de la défause au talon est impossible (sauf en utilisant le bouton \"Annuler\")."</string>
+<string name="manual_Golf_objective">"Mettre toutes les cartes du tableau dans la défausse."</string>
+<string name="manual_Golf_rules">"Toutes les cartes en haut d'une colonne peuvent être utilisées. Les cartes peuvent être déplacées dans la défausse en suivant l'ordre croissant ou décroissant quelle que soit leur couleur.
+
+Selon le réglage, vous pouvez placer un roi sur un As, et inversement (ce qui est le plus facile).
+
+Si auncune carte ne peut être déplacée, appuyer de nouveau sur le talon pour ajouter une nouvelle carte à la défausse."</string>
+<string name="manual_Golf_scoring">"Placer une carte dans la défause : +50"</string>
+<string name="manual_Pyramid_structure">"1 jeu de 52 cartes.
+
+28 cartes sur le tableau, 1 pioche, 1 écart, 1 défausse.
+
+Les cartes de la défausse ne peuvent être remises sur la pioche que deux fois dans la partie."</string>
+<string name="manual_Pyramid_objective">"Mettre toutes les cartes du tableau dans la défausse. Selon le réglage, toutes les cartes de la pioche et de la défausse doivent être placées dans l'écart."</string>
+<string name="manual_Pyramid_rules">"Ce jeu a des règles très différentes des autres jeux de Solitaire. Toutes les cartes non couvertes par une autre peuvent être jouées. Deux cartes peuvent être placées dans l'écart lorsque la somme de leurs valeurs vaut 13. Pour cela, il suffit de déplacer l'une des deux cartes sur l'autre. Si leur somme est correcte, les deux cartes seront placées dans l'écart. 
+
+Il est possible d'utiliser les cartes de la pioche et de la défausse. Si aucune paire n'est disponible, appuyer sur la flêche entre la pioche et la défausse pour retourner une nouvelle carte. Si la pioche est vide, appuyer de nouveau sur la flêche pour déplacer les cartes de la défausse dans la pioche ; cela n'est possible que deux fois par partie. Le nombre restant où cela est encore possible est affiché en petit, au-dessus de la flêche."</string>
+<string name="manual_Pyramid_scoring">"Déplacer une carte dans l'écart : +50
+
+Remettre toutes les cartes de la défausse dans la pioche : -200"</string>
+<string name="manual_TriPeaks_structure">"1 jeu de 52 cartes.
+
+28 cartes sur le tableau, 1 talon, 1 défausse.
+
+Déplacer les cartes de la défausse sur le talon n'est pas possible (Sauf en utilisant le bouton \"Annuler\")."</string>
+<string name="manual_TriPeaks_objective">"Mettre toutes les cartes du tableau dans la défausse."</string>
+<string name="manual_TriPeaks_rules">"Les régles de ce jeu sont assez similaires au \"Golf\". Chaque carte non recouverte peut être jouée. Les cartes ne peuvent être placées dans la défausse que par ordre croissant ou décroissant, sans avoir à tenir compte de leur couleur.
+
+Il est possible de jouer un roi sur un As, et inversement.
+
+Si aucune carte ne peut être jouée, appuyer sur le talon pour retourner une nouvelle carte sur la défausse."</string>
+<string name="manual_TriPeaks_scoring">"Mettre une carte dans la défausse : +50"</string>
+<string name="manual_FortyEight_structure">"2 jeux de 52 cartes.
+
+8 colonnes sur le tableau, 8 piles de base, 1 talon et 1 défausse.
+
+Les cartes de la défausse ne peuvent être remises dans le talon qu'une seule fois par partie."</string>
+<string name="manual_FortyEight_objective">"Empiler, sur les piles de base, toutes les cartes par famille et dans l'ordre croissant."</string>
+<string name="manual_FortyEight_rules">"Les cartes doivent être placées sur le tableau dans l'ordre décroissant de la même famille. Sur les piles de base, les cartes doivent être placées dans l'ordre croissant et dans la même famille. 
+
+Vous pouvez déplacer autant de cartes en une fois (si elles sont placées dans le bon ordre), qu'il y a d'emplacements libres sur le tableau. Cela suit la règle qu'une seule carte peut être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n'importe quelle carte, celles-ci servent d'intermédiaires. 
+
+Toutes les cartes peuvent être déposées sur un emplacement libre du tableau et seules les As peuvent être placés sur une pile de base vide. 
+
+En appuyant sur le talon, une carte est retournée sur la défausse ; vous pouvez la jouer à partir de là.
+
+Si le talon devient vide, vous pouvez encore appuyer dessus pour déplacer les cartes de la défausse dans le talon ; cela n'est possible qu'une seule fois par partie. Le nombre de fois où il est encore possible d'effectuer ce mouvement est affiché en petit au-dessus du talon."</string>
+<string name="manual_FortyEight_scoring">"Mettre une carte sur une pile de base : +45
+
+Remettre une carte d'une base sur la tableau : -60
+
+Déplacer une carte de la défausse sur le tableau : +60 
+
+Remettre toutes les cartes de la défausse dans la pioche : -200"</string>
+<string name="manual_mod3_structure">"2 jeux de 52 cartes.
+
+32 cartes sur le tableau, 1 talon, 1 défausse."</string>
+<string name="manual_mod3_objective">"Les cartes doivent être empilées sur les trois rangées en haut du tableau, par famille, et en suivant la sequence suivante:
+
+Sur la première ligne : 2–5–8–V
+Sur la seconde : 3–6–9–D 
+Sur la troisième : 4–7–10–R
+
+Les As seront mis à l'écart."</string>
+<string name="manual_mod3_rules">"Vous ne pouvez déplacer qu'une seule carte à la fois. Les cartes doivent être placées dans l'ordre décrit dans la section \"Objectifs\". Par exemple, vous pouvez mettre un 5 de cœur sur un 2 de cœur seulement si le 2 est présent sur la première ligne du tableau. Il est impossible de mélanger les familles de cartes.
+
+Il est possible de gagner de la place en déplaçant les As dans l'écart.
+
+La quatrième ligne est une défausse pour les cartes provenant du talon. N'importe quelle carte peut être placée sur un emplacement libre de la quatrième ligne.
+
+Appuyer sur le talon pour retourner une carte du talon sur chaque emplacement de la quatrième ligne."</string>
+<string name="manual_mod3_scoring">"Mettre une carte au bon endroit sur le tableau : +50 
+
+Remettre une carte sur la quatrième rangée : -75"</string>
+<string name="manual_Gypsy_structure">"2 jeux de 52 cartes.
+
+8 colonnes sur le tableau, 8 piles de base, 1 talon."</string>
+<string name="manual_Gypsy_objective">"Ranger toutes les cartes par famille et par ordre croissant sur les piles de base."</string>
+<string name="manual_Gypsy_rules">"Les cartes sur le tableau doivent être placées dans l'ordre décroissant et en alternant leur couleur. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes doivent être placées par ordre croissant et dans une même famille.
+
+Toutes les cartes peuvent être placées sur les emplacements libres du tableau et seuls les As peuvent être placés sur les piles de base vides.
+
+En appuyant sur le talon, une carte est retournée sur chacune des colonnes du tableau."</string>
+<string name="manual_Gypsy_scoring">"Mettre une carte sur une base : +75
+
+Déplacer une carte d'une base sur le tableau : -100
+
+Retourner une carte : +50"</string>
+<string name="manual_AcesUp_structure">"1 jeu de 52 cartes.
+
+4 cartes sur le tableau, 1 talon et 1 pile de base.
+
+Les As ont pour valeur 14 ; ils valent donc plus que les rois."</string>
+<string name="manual_AcesUp_objective">"Mettre toutes les cartes, sauf les As, sur la pile de base pour qu'il ne reste plus que les quatre As sur le tableau."</string>
+<string name="manual_AcesUp_rules">"Vous ne pouvez déplacer que la dernière carte d'une colonne. Déplacer sur la pile de base les cartes ayant une valeur plus petite que les autres cartes déplaçables. Par exemple, s'il y a un 5 et un 10 de cœur en haut de deux colonnes, alors vous pouvez mettre le 5 dans la pile de base. Les As ont la plus haute valeur. 
+
+Toutes les cartes déplaçables peuvent être mises sur une emplacement libre du tableau. 
+
+Appuyer sur le talon pour retourner une nouvelle carte sur chacune des colonnes."</string>
+<string name="manual_AcesUp_scoring">"Mettre une carte dans la pile de base : +50"</string>
+<string name="manual_Canfield_structure">"1 jeu de 52 cartes.
+
+4 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse, 1 réserve."</string>
+<string name="manual_Canfield_objective">"Empiler toutes les cartes d'une même famille par ordre croisant sur les piles de base."</string>
+<string name="manual_Canfield_rules">"Les cartes doivent être placées sur le tableau par ordre décroissant en alternant les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement par ordre croissant et dans la même famille. 
+
+Les colonnes vides du tableau sont remplies automatiquement par une carte de la pile de réserve. Si la réserve est vide, une carte du talon sera utilisée. 
+
+La valeur de la première carte sur la fondation définira quelle valeur de carte doit être placée pour commencer les piles de fondation vides. Par exemple, en début de partie : si un 10 de cœur est retourné sur la fondation, seules les cartes de la valeur 10 peuvent être placées sur des champs de fondation vides. Les cartes sur la fondation peuvent être placées cycliquement, donc il est possible de jouer un as sur un roi. 
+
+En appuyant sur le talon, les cartes sont retournées sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l'application. Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée. Si \"Donner 3 cartes\" est activé, trois cartes seront retournées à la fois.
+
+Si le talon devient vide, vous pouvez appuyer de nouveau dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser."</string>
+<string name="manual_Canfield_scoring">"Du tableau à une pile de base : +60 
+
+De la défausse à une pile de base : +45 
+
+D'une pile de base au tableau : -75 
+
+Piocher une carte : +25 
+
+Déplacer les cartes de la défausse à la pioche : -200"</string>
+<string name="manual_GrandfathersClock_structure">"1 jeu de 52 cartes.
+
+8 colonnes sur le tableau, 12 piles de bases placées sous la forme d'une horloge. Chaque pile de base contient déjà une carte"</string>
+<string name="manual_GrandfathersClock_objective">"Empiler toutes les cartes d'une même famille par ordre croisant sur les piles de base. À la fin, les valeurs en haut des piles de base suivent celles d'une horloge."</string>
+<string name="manual_GrandfathersClock_rules">"Les cartes doivent être placées sur le tableau par ordre décroissant, la famille n'ayant pas d'importance. Sur les bases, les cartes ne peuvent être placées que par ordre croissant et dans la même famille. Les As peuvent être placés au-dessus des rois. 
+
+Vous pouvez déplacer autant de cartes désirées à la fois (si la pile est dans le bon ordre), qu'il y a d'emplacements libres sur le tableau. Cela suit la règle qu'une seule carte peut être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n'importe quelle carte, ceux-ci servent d'intermédiaires. "</string>
+<string name="manual_GrandfathersClock_scoring">"Du tableau à une pile de base : +50"</string>
+<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+<string name="manual_Vegas_objective">"Déplacer les cartes vers la fondation pour gagner de l'argent."</string>
+<string name="manual_Vegas_rules">"Les règles sont les mêmes que pour le jeu \"Klondike\". 
+
+Les cartes doivent être placées sur le tableau par ordre décroissant en alternant les couleurs. Vous pouvez déplacer un ensemble de cartes en une seule fois. Sur les bases, les cartes peuvent être placées uniquement par ordre croissant et dans la même famille.
+
+Seuls les rois peuvent être placés sur une colonne vide du tableau et seuls les As peuvent être placés sur les piles de base vides.
+
+En appuyant sur le talon, les cartes sont retournées sur la défausse, où vous pouvez les utiliser. Le nombre de cartes piochées dépend des réglages de l'application. Si \"Donner 1 carte\" a été choisi, seule une carte sera retournée. Si \"Donner 3 cartes\" est activé, 3 cartes seront retournées à la fois.
+
+Si le talon se vide, vous pouvez encore appuyer dessus pour déplacer les cartes de la défausse vers le talon et continuer à les utiliser."</string>
+<string name="manual_Vegas_scoring">"L'agent gagné dépend du pari défini dans le paramétrage. Vous payez par exemple 50$ au début de la partie et, avec chaque carte déplacée vers la fondation, vous gagnez 1/10 du pari. 
+
+Une partie sera gagnée quand les gains dépassent le pari (score supérieur à 0). Déplacer des cartes depuis la fondation coûte 2/10 du pari. 
+
+Utiliser un indice ou le bouton \"Annuler\" coûte également 1/10 du pari. 
+
+AVERTISSEMENT: Vous ne gagnerez pas vraiment d'argent dans ce jeu :)"</string>
+<string name="manual_Calculation_structure">"1 jeu de 52 cartes.
+
+4 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse."</string>
+<string name="manual_Calculation_objective">"Déplacer les cartes vers la fondation, indépendamment des couleurs, jusqu'à ce que chaque pile contienne un roi. Les fondations doivent être construites dans l'ordre suivant  
+
+ Pile n°1 de un en un : A, 2, 3, 4, 5, 6, 7, 8, 9, 10, V, D, R 
+ Pile n°2 de deux en deux : 2, 4, 6, 8, 10, D, A, 3, 5, 7, 9, V, R 
+ Pile n°3 de trois en trois : 3, 6, 9, D, 2, 5, 8, V, A, 4, 7, 10, R 
+ Pile n°4 de quatre en quatre : 4, 8, D, 3, 7, V, 2, 6, 10, A, 5, 9, R 
+
+Les prochaines cartes jouables sont indiquées au-dessus des piles. "</string>
+<string name="manual_Calculation_rules">"Les 4 piles de la fondation commencent avec leurs cartes de départ, choisies au hasard. Les cartes dans la fondation doivent suivre l'ordre indiqué dans les Objectifs. 
+
+Les cartes de la défausse peuvent être déplacées vers n'importe quelle pile du tableau ou de la fondation si elles respectent l'ordre demandé. 
+
+Piocher une carte du talon déplace la carte de la défausse vers la pile du tableau qui contient le moins de cartes. Règle alternative : les cartes de la défausse peuvent y rester quand on pioche depuis le talon (peut être activé dans les paramètres du jeu). 
+
+Sur le tableau, seules les cartes du dessus peuvent être déplacées, et uniquement vers la fondation. "</string>
+<string name="manual_Calculation_scoring">"Déplacer une carte vers la fondation : +50"</string>
+
+<!-- Settings -->
+<string name="settings_background_color">"Couleur de fond"</string>
+<string name="settings_hide_status_bar">"Cacher la barre de statut"</string>
+<string name="settings_left_handed_mode">"Mode pour gaucher"</string>
+<string name="settings_left_handed_mode_description">"Positionner les cartes et la pile sur la gauche"</string>
+<string name="settings_back_press">"Confirmer avant de quitter une partie"</string>
+<string name="settings_back_press_description">"Appuyer deux fois sur retour pour quitter une partie"</string>
+<string name="settings_orientation">"Orientation de l'écran"</string>
+<string name="settings_cards">"Cartes"</string>
+<string name="settings_classic">"Classique"</string>
+<string name="settings_simple">"Simple"</string>
+<string name="settings_cards_back">"Dos des cartes"</string>
+<string name="settings_modern">"Moderne"</string>
+<string name="settings_abstract">"Abstrait"</string>
+<string name="settings_basic">"Basique"</string>
+<string name="settings_oxygen_dark">"Oxygène Sombre"</string>
+<string name="settings_oxygen_light">"Oxygène Clair"</string>
+<string name="settings_poker">"Poker"</string>
+<string name="settings_background">"Fond numéro"</string>
+<string name="settings_customization">"Apparence"</string>
+<string name="settings_other">"Général"</string>
+<string name="settings_other_description">"Modifier les autres réglages"</string>
+<string name="settings_games">"Jeux"</string>
+<string name="settings_games_description">"Modifier les préférences pour les variantes de jeu"</string>
+<string name="settings_spider_difficulty">"Nombre de familles différentes de cartes"</string>
+<string name="settings_klondike_draw">"Nombre de cartes à piocher"</string>
+<string name="settings_canfield_draw">"Nombre de cartes à piocher"</string>
+<string name="settings_show_main_menu">"Démarrer sur le menu principal"</string>
+<string name="settings_show_main_menu_description">"Ne pas lancer la dernière partie au démarrage"</string>
+<string name="settings_golf_easy">"Mouvements cycliques (Facile)"</string>
+<string name="settings_golf_easy_description">"Permettre de placer un as sur un roi, et inversement"</string>
+<string name="settings_restart_klondike">"Démarrer une nouvelle parte de Klondike pour appliquer les modifications"</string>
+<string name="settings_restart_canfield">"Démarrer une nouvelle parte de Canfield pour appliquer les modifications"</string>
+<string name="settings_restart_spider">"Démarrer une nouvelle parte de Spider pour appliquer les modifications"</string>
+<string name="settings_restart_vegas">"Démarrer une nouvelle parte de Vegas pour appliquer les modifications"</string>
+<string name="settings_restart_fortyeight">"Démarrer une nouvelle parte de Forty&amp;Eight pour appliquer les modifications"</string>
+<string name="settings_restart_yukon">"Démarrer une nouvelle parte de Yukon pour appliquer les modifications"</string>
+<string name="settings_menu">"Menu principal"</string>
+<string name="settings_menu_description">"Changer le nombre de colonnes, afficher et masquer des jeux"</string>
+<string name="settings_pyramid_difficulty">"Difficulté"</string>
+<string name="settings_menu_columns">"Nombre de colonnes"</string>
+<string name="settings_menu_games">"Afficher et masquer des jeux"</string>
+<string name="settings_menu_games_description">"Séléctionner les jeux à afficher dans le menu principal"</string>
+<string name="settings_about_description">"Montrer des informations sur cette application comme sa licence, son historique des versions"</string>
+<string name="settings_show_manual_in_menu">"Page de manuel dans le menu du jeu"</string>
+<string name="settings_show_manual_in_menu_description">"Affiche un bouton pour ouvrir le manuel du jeu de carte en cours"</string>
+<string name="settings_change_language">"Changer la langue"</string>
+<string name="settings_yukon_rules">"Placez les cartes sur…"</string>
+<string name="settings_icon_theme">"Jeu d'icônes"</string>
+<string name="settings_menu_bar_position">"Position de la barre de menu"</string>
+<string name="settings_menu_bar_position_top">"Haut"</string>
+<string name="settings_menu_bar_position_bottom">"Bas"</string>
+<string name="settings_menu_bar_position_left">"Gauche"</string>
+<string name="settings_menu_bar_position_right">"Droite"</string>
+<string name="settings_4_color_mode_title">"Jeu en 4 couleurs"</string>
+<string name="settings_4_color_mode_text">"Changer la couleur des Trèfles en vert et des Carreaux en bleu"</string>
+<string name="settings_additional_movements">"Autres mouvements de carte"</string>
+<string name="settings_additional_movements_description">"Activer et désactiver le double-tap et d'autres méthodes de déplacement"</string>
+<string name="settings_double_tap">"« Double-Tap »"</string>
+<string name="settings_double_tap_enable">"Activer l'appui doublé"</string>
+<string name="settings_double_tap_enable_text">"Appuyez deux fois successivement sur une carte pour la déplacer sur la première pile disponible"</string>
+<string name="settings_double_tap_all_cards">"Déplacer toutes les cartes possibles"</string>
+<string name="settings_double_tap_all_cards_text">"Déplacer autant de cartes que possible depuis une pile, et non uniquement celle touchée"</string>
+<string name="settings_tap_to_select">"Appuyer pour sélectionner"</string>
+<string name="settings_tap_to_select_enable">"Activer la sélection par un appui rapide"</string>
+<string name="settings_tap_to_select_enable_text">"Appuyez sur une carte pour la sélectionner, puis appuyez sur la pile de destination pour la déplacer"</string>
+<string name="settings_single_tap">"Un seul clic"</string>
+<string name="settings_single_tap_enable_text">"Pour Golf et TriPeaks uniquement : appuyez une fois sur une carte pour la déplacer vers la défausse"</string>
+<string name="settings_double_tap_foundation_first">"Déplacer vers la pile de fondation en premier"</string>
+<string name="settings_double_tap_foundation_first_text">"Essayer de déplacer la carte du dessus de la pile appuyée vers la fondation, avant de déplacer les autres cartes"</string>
+<string name="settings_movement_speed">"Vitesse de mouvement des cartes"</string>
+<string name="Settings_sound">"Activer le son du jeu"</string>
+<string name="Settings_sounds_title">"Sons"</string>
+<string name="Settings_sounds_text">"Activer les sons, configurer les effets sonores"</string>
+<string name="Settings_win_sound_title">"Effet sonore en cas de victoire"</string>
+<string name="Settings_background_music">"Musique d'ambiance"</string>
+<string name="settings_background_color_custom">"Personnaliser"</string>
+<string name="Settings_background_volume">"Volume de la musique d'ambiance"</string>
+<string name="settings_limit_number_of_recycles">"Limitation du nombre de donnes"</string>
+<string name="settings_limit_number_of_recycles_text">"Le retour des cartes de la défausse dans le talon est limité"</string>
+<string name="settings_number_of_recycles">"Nombre de retours"</string>
+<string name="settings_vegas_bet_amount">"Montant du pari"</string>
+<string name="settings_menu_order_title">"Ordre du menu"</string>
+<string name="settings_menu_order_summary">"Restez appuyé sur un élément et glissez-le ensuite pour modifier l'ordre du menu"</string>
+<string name="settings_menu_order_set_default">"Réinitialiser l'ordre"</string>
+<string name="settings_auto_start_new_game_title">"Démarre une nouvelle partie en cas de victoire"</string>
+<string name="settings_auto_start_new_game_text">"En cas de retour vers un jeu gagné, démarrer automatiquement un nouvelle partie"</string>
+<string name="settings_customization_description">"Modifier les cartes, les arrière-plans et l'interface utilisateur"</string>
+<string name="settings_force_tablet_layout_title">"Forcer la disposition de la tablette"</string>
+<string name="settings_force_tablet_layout_text">"Afficher l'application sur grand écran (≥7\")"</string>
+<string name="settings_restart_calculation">"Démarrer une nouvelle parte de Calculation pour appliquer les modifications"</string>
+<string name="settings_calculation_alternative_title">"Conserver les cartes"</string>
+<string name="settings_calculation_alternative_text">"Sur la presse au talon: au lieu de déplacer la carte de la défausse au tableau, gardez-le sur la défausse."</string>
+<string name="settings_vegas_money_enabled">"Conserver le solde actuel"</string>
+<string name="settings_vegas_money_enabled_text">"Le solde sera transféré aux transactions suivantes de Vegas, mais vous devez réinitialiser la balance et commencer un nouveau jeu pour sauver des scores élevés"</string>
+<string name="settings_vegas_money_reset">"Rétablir la balance"</string>
+<string name="settings_vegas_money_reset_text">"Le prochain accord de Vegas débutera avec 0$."</string>
+<string name="settings_vegas_money_reset_confirm">"Voulez-vous vraiment réinitialiser votre balance? Ça ne peut pas être annulé."</string>
+<string name="settings_auto_move_title">"Mouvement automatique"</string>
+<string name="settings_mod3_auto_move_text">"Déplacer automatiquement les As vers la défausse au rebut, si possible"</string>
+<string name="settings_pyramid_auto_move_text">"Déplacer automatiquement les rois à la défausse, si possible."</string>
+<string name="settings_rules">"Règles"</string>
+<string name="settings_money">"Argent"</string>
+<string name="settings_support">"Support"</string>
+<string name="settings_hide_time">"Masquer l'heure"</string>
+<string name="settings_hide_score">"Masquer les points"</string>
+<string name="settings_single_tap_enable">"Activer clic simple"</string>
+<string name="settings_vegas_bet_amount_text_1">"La donne initiale coûte :"</string>
+<string name="settings_vegas_bet_amount_text_2">"Chaque carte jouée vers la fondation fait gagner :"</string>
+<string name="settings_vegas_bet_amount_summary">"Donne initiale : -%1$d$, carte vers la fondation : +%2$d$"</string>
+<string name="settings_single_tap_all_games_text">"Appuyez une fois sur une carte pour la déplacer vers la pile suivante. Il suit les mêmes réglages que les mouvements Double-Tap. Ceci désactive la sélection par un appui rapide."</string>
+<string name="settings_vegas_bet_amount_error">"On ne peut pas sauver ces numéros!"</string>
+<string name="settings_canfield_size_of_reserve_title">"Changer la taille de la réserve (plus facile)"</string>
+<string name="settings_use_true_randomisation_title">"Utiliser la vraie randomisation"</string>
+<string name="settings_use_true_randomisation_text">"La randomisation par défaut permet d'éviter les cartes similaires les unes à côté des autres. Cochez cette case pour permettre une randomisation vraiment uniforme."</string>
+<string name="settings_developer_options">"Options de développement"</string>
+<string name="settings_developer_options_description">"Jouez avec des décors délirants!"</string>
+<string name="settings_developer_options_move_card_everwhere_title">"Déplacer les cartes partout"</string>
+<string name="settings_developer_options_move_card_everwhere_text">"Vous pouvez placer des cartes sur n'importe quelle pile"</string>
+<string name="settings_developer_options_lock_text">"Ces paramètres sont destinés à des fins de test uniquement, l'utilisation peut entraîner un comportement étrange et des plantages!"</string>
+<string name="settings_developer_options_play_every_card_title">"Jouez chaque carte"</string>
+<string name="settings_developer_options_play_every_card_text">"Vous pouvez jouer chaque carte révélée"</string>
+<string name="settings_developer_options_instant_win_title">"Gagner instantanément"</string>
+<string name="settings_developer_options_instant_win_text">"Gagnez chaque partie après avoir déplacé une carte"</string>
+<string name="settings_developer_options_no_saving_title">"Désactiver l'état du jeu de sauvegarde"</string>
+<string name="settings_developer_options_no_saving_text">"Les mouvements d'un jeu ne seront plus sauvegardés"</string>
+<string name="settings_developer_options_deal_correct_sequences_title">"Traiter les séquences correctes"</string>
+<string name="settings_show_advanced_settings">"Afficher les paramètres avancés"</string>
+<string name="settings_show_advanced_settings_text">"Déverrouiller les catégories d'experts et de développeurs"</string>
+<string name="settings_max_number_undos">"Nombre maximum de mouvements d'annulation"</string>
+<string name="settings_expert_settings">"Réglages experts"</string>
+<string name="settings_expert_settings_text">"Peut être utile pour certaines personnes"</string>
+<string name="settings_follow_system_settings">"Suivre les préférences système"</string>
+<string name="settings_portrait">"Portrait"</string>
+<string name="settings_landscape">"Paysage"</string>
+<string name="settings_landscape_upside_down">"Paysage renversé"</string>
+<string name="settings_spider_difficultiy_1">"1 (Facile)"</string>
+<string name="settings_spider_difficultiy_2">"2 (Moyen)"</string>
+<string name="settings_spider_difficultiy_3">"4 (Difficile)"</string>
+<string name="settings_draw_1">"Donner 1 carte"</string>
+<string name="settings_draw_3">"Donner 3 cartes"</string>
+<string name="settings_pyramid_difficulty_1">"Facile : La partie est gagnée quand le plateau est vide"</string>
+<string name="settings_pyramid_difficulty_2">"Difficile : La partie est gagnée quand le plateau et la pile sont vides"</string>
+<string name="settings_language_default">"Langue par défaut"</string>
+<string name="settings_language_english">"Anglais"</string>
+<string name="settings_language_esperanto">"Esperanto"</string>
+<string name="settings_language_finnish">"Finnois"</string>
+<string name="settings_language_french">"Français"</string>
+<string name="settings_language_german">"Allemand"</string>
+<string name="settings_language_japanese">"Japonais"</string>
+<string name="settings_language_polish">"Polonais"</string>
+<string name="settings_language_turkish">"Turc"</string>
+<string name="settings_yukon_rules_1">"des couleurs différentes (par défaut)"</string>
+<string name="settings_yukon_rules_2">"la même famille de cartes (Solitaire russe)"</string>
+<string name="settings_movement_speed_1">"Très lente"</string>
+<string name="settings_movement_speed_2">"Lente"</string>
+<string name="settings_movement_speed_3">"Normale"</string>
+<string name="settings_movement_speed_4">"Rapide"</string>
+<string name="settings_win_sounds_1">"Par défaut"</string>
+<string name="settings_win_sounds_2">"Piano"</string>
+<string name="settings_win_sounds_3">"Voix \"You win\" 8-Bit"</string>
+<string name="settings_win_sounds_4">"Foule en liesse"</string>
+<string name="settings_background_music_1">"Désactivée"</string>
+<string name="settings_background_music_2">"Thème 1"</string>
+<string name="settings_background_music_3">"Thème 2"</string>
+<string name="settings_background_music_4">"Thème 3"</string>
+<string name="settings_background_music_5">"Boîte à musique"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 Cartes (par défaut)"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 Cartes"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 Cartes"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 Cartes"</string>
+<string name="settings_developer_option_deal_correct_sequences_1">"Désactivé"</string>
+<string name="settings_developer_option_deal_correct_sequences_2">"Couleur alternative"</string>
+<string name="settings_developer_option_deal_correct_sequences_3">"Même famille"</string>
+<string name="settings_developer_option_deal_correct_sequences_4">"Inversé couleur alternative"</string>
+<string name="settings_developer_option_deal_correct_sequences_5">"Inversé même familley"</string>
+
+<!-- Statistics -->
+<string name="statistics_text_won_games">"Remporté %1$d fois sur %2$d parties"</string>
+
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"Votre taux de victoire: %1$.0f%%"</string>
+
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"Supprimer tout !"</string>
+<string name="statistics_button_delete_text">"Supprimer toutes les données pour ce type de jeu ! Êtes-vous sûr ?"</string>
+<string name="statistics_button_deleted_all_entries">"Tout a été supprimé"</string>
+<string name="statistics_time_of_day">"Heure"</string>
+<string name="statistics_date">"Date"</string>
 </resources>

@@ -21,15 +21,12 @@ package de.tobiasbielefeld.solitaire.ui.about;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.text.DateFormat;
-import java.util.Locale;
-import java.util.regex.Pattern;
 
 import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
@@ -50,15 +47,16 @@ public class InformationFragment extends Fragment{
         TextView textViewGitHubLink = (TextView) view.findViewById(R.id.aboutTextViewGitHubLink);               //link for the gitHub repo
         TextView textViewLicenseLink = (TextView) view.findViewById(R.id.aboutTextViewLicenseLink);
 
-        TextView textJapaneseContributers = (TextView) view.findViewById(R.id.about_japanese_contributers);
-        TextView textEsperantoContributers = (TextView) view.findViewById(R.id.about_esperanto_contributers);
-        TextView textPolishContributers = (TextView) view.findViewById(R.id.about_polish_contributers);
-        TextView textFrenchContributers = (TextView) view.findViewById(R.id.about_french_contributers);
-        TextView textFinnishContributers = (TextView) view.findViewById(R.id.about_finnish_contributers);
-        TextView textTurkishContributers = (TextView) view.findViewById(R.id.about_turkish_contributers);
+        TextView textJapaneseContributors = (TextView) view.findViewById(R.id.about_japanese_contributers);
+        TextView textEsperantoContributors = (TextView) view.findViewById(R.id.about_esperanto_contributers);
+        TextView textPolishContributors = (TextView) view.findViewById(R.id.about_polish_contributers);
+        TextView textFrenchContributors = (TextView) view.findViewById(R.id.about_french_contributers);
+        TextView textFinnishContributors = (TextView) view.findViewById(R.id.about_finnish_contributers);
+        TextView textTurkishContributors = (TextView) view.findViewById(R.id.about_turkish_contributers);
 
-        TextView textFurtherContributers1 = (TextView) view.findViewById(R.id.about_further_contributers_1);
-        TextView textFurtherContributers2 = (TextView) view.findViewById(R.id.about_further_contributers_2);
+        TextView textFurtherContributors1 = (TextView) view.findViewById(R.id.about_further_contributers_1);
+        TextView textFurtherContributors2 = (TextView) view.findViewById(R.id.about_further_contributers_2);
+        TextView textFurtherContributors3 = (TextView) view.findViewById(R.id.about_further_contributers_3);
 
         String buildDate = DateFormat.getDateInstance().format(BuildConfig.TIMESTAMP);                          //get the build date in locale time format
 
@@ -67,9 +65,9 @@ public class InformationFragment extends Fragment{
         textViewBuildDate.setText(stringFormat(buildDate));
 
         //enable the hyperlink clicks
-        TextView[] textViews = new TextView[]{textViewGitHubLink,textViewLicenseLink,textJapaneseContributers,textEsperantoContributers,
-                textPolishContributers,textFinnishContributers,textTurkishContributers,textFrenchContributers,textFurtherContributers1,
-                textFurtherContributers2};
+        TextView[] textViews = new TextView[]{textViewGitHubLink,textViewLicenseLink,textJapaneseContributors,textEsperantoContributors,
+                textPolishContributors,textFinnishContributors,textTurkishContributors,textFrenchContributors,textFurtherContributors1,
+                textFurtherContributors2, textFurtherContributors3};
 
         for (TextView textView : textViews){
             textView.setMovementMethod(LinkMovementMethod.getInstance());

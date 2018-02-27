@@ -49,10 +49,10 @@
         android:title="@string/settings_show_main_menu" />
 
     <CheckBoxPreference
-        android:defaultValue="@bool/default_use_true_randomisation"
-        android:key="@string/pref_key_use_true_randomisation"
-        android:summary="@string/settings_use_true_randomisation_text"
-        android:title="@string/settings_use_true_randomisation_title" />
+        android:defaultValue="@bool/default_show_advaced_settings"
+        android:key="@string/pref_key_show_advanced_settings"
+        android:summary="@string/settings_show_advanced_settings_text"
+        android:title="@string/settings_show_advanced_settings" />
 
     <CheckBoxPreference
         android:defaultValue="@bool/default_auto_start_new_game"

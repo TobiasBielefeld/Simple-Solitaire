@@ -33,7 +33,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class RecordList {
 
-    public final static int MAX_RECORDS = 20;
+    public static int maxRecords;
     private ArrayList<Entry> entries = new ArrayList<>();
 
     private boolean isWorking = false;
@@ -43,6 +43,10 @@ public class RecordList {
     }
 
 
+    public RecordList(){
+        setMaxRecords();
+    }
+
     /**
      * Adds entries of the card list, if the maximum number of records was reached, delete
      * the last one. The origin of the cards will be the current stack
@@ -50,8 +54,9 @@ public class RecordList {
      * @param cards The card list to add
      */
     public void add(ArrayList<Card> cards) {
-        if (entries.size() == MAX_RECORDS)
+        if (entries.size() >= maxRecords) {
             entries.remove(0);
+        }
 
         entries.add(new Entry(cards));
     }
@@ -64,8 +69,9 @@ public class RecordList {
      * @param origin Other stack as origin, where the cards can be returned to
      */
     public void add(ArrayList<Card> cards, Stack origin) {
-        if (entries.size() == MAX_RECORDS)
+        if (entries.size() >= maxRecords) {
             entries.remove(0);
+        }
 
         entries.add(new Entry(cards, origin));
     }
@@ -80,7 +86,7 @@ public class RecordList {
      * @param origins Other stacks as origin, where the cards can be returned to
      */
     public void add(ArrayList<Card> cards, ArrayList<Stack> origins) {
-        if (entries.size() == MAX_RECORDS) {
+        if (entries.size() >= maxRecords) {
             entries.remove(0);
         }
 
@@ -166,7 +172,6 @@ public class RecordList {
      * its content from the shared Pref
      */
     public void load() {
-
         reset();
 
         for (int i = 0; i < prefs.getSavedRecordListEntriesSize(); i++) {
@@ -416,6 +421,14 @@ public class RecordList {
 
         boolean hasMoreToDo(){
             return currentCards.size()!=0;
+        }
+    }
+
+    public void setMaxRecords(){
+        maxRecords = prefs.getSavedMaxNumberUndos();
+
+        while (entries.size() > maxRecords) {
+            entries.remove(0);
         }
     }
 }

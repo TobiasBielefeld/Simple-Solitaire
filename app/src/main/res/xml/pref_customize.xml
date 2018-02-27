@@ -26,14 +26,6 @@
             android:key="@string/pref_key_hide_score"
             android:title="@string/settings_hide_score" />
 
-        <CheckBoxPreference
-            android:defaultValue="@bool/default_force_tablet_layout"
-            android:key="@string/pref_key_force_tablet_layout"
-            android:summary="@string/settings_force_tablet_layout_text"
-            android:title="@string/settings_force_tablet_layout_title" />
-
-
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_cards">

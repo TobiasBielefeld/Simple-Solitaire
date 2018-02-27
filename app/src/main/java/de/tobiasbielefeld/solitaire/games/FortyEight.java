@@ -51,9 +51,7 @@ public class FortyEight extends Game {
         setMixingCardsTestMode(testMode.SAME_FAMILY);
         setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
 
-        if (!prefs.getSavedFortyEightLimitedRecycles()) {
-            toggleRecycles();
-        }
+        toggleRecycles(prefs.getSavedFortyEightLimitedRecycles());
 
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0);
     }

@@ -57,9 +57,7 @@ public class Pyramid extends Game {
 
         setNumberOfRecycles(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
 
-        if (!prefs.getSavedPyramidLimitedRecycles()) {
-            toggleRecycles();
-        }
+        toggleRecycles(prefs.getSavedPyramidLimitedRecycles());
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {

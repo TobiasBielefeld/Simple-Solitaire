@@ -18,8 +18,11 @@
 
 package de.tobiasbielefeld.solitaire;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -63,6 +66,7 @@ public class SharedData {
     public static Card[] cards;
     public static Stack[] stacks;
 
+    public static Preferences prefs;
     public static Scores scores;
 
     public static GameLogic gameLogic;
@@ -71,13 +75,13 @@ public class SharedData {
     public static AutoComplete autoComplete;
     public static Timer timer;
     public static Sounds sounds;
+    public static RecordList recordList;
     public static Hint hint = new Hint();
     public static MovingCards movingCards = new MovingCards();
-    public static RecordList recordList = new RecordList();
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
     public static CardHighlight cardHighlight = new CardHighlight();
-    public static Preferences prefs;
+
 
     public static Game currentGame;
 
@@ -260,9 +264,9 @@ public class SharedData {
         return prefs.getSavedLeftHandedMode();
     }
 
-    public static boolean isXLargeTablet(Context context) {
+    public static boolean isLargeTablet(Context context) {
         return prefs.getSavedForcedTabletLayout() || ((context.getResources().getConfiguration().screenLayout
-                        & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE);
+                        & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE);
     }
 
     public static String stringFormat(String text){

@@ -26,11 +26,9 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import java.security.SecureRandom;
 import java.util.List;
 import java.util.Locale;
 
@@ -53,13 +51,13 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
+    private Preference preferenceMaxNumberUndos;
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
     private DialogPreferenceCardDialog preferenceCards;
     private Sounds settingsSounds;
 
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         reinitializeData(getApplicationContext());
@@ -78,20 +76,18 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        //only item is the back arrow
-        finish();
-        return true;
-    }
-
-    @Override
     public boolean onIsMultiPane() {
-        return isXLargeTablet(this);
+        return isLargeTablet(this);
     }
 
     @Override
     public void onBuildHeaders(List<Header> target) {
-        loadHeadersFromResource(R.xml.pref_headers, target);
+        if (prefs.getShowAdvancedSettings()) {
+            loadHeadersFromResource(R.xml.pref_headers_with_advanced_settings, target);
+        } else {
+            loadHeadersFromResource(R.xml.pref_headers, target);
+        }
+
     }
 
     @Override
@@ -181,15 +177,28 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 scores.output();
             }
         } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
-            if (sharedPreferences.getBoolean(key,false)) {
+            if (sharedPreferences.getBoolean(key,false) && preferenceTapToSelect!=null) {
                 preferenceTapToSelect.setChecked(false);
             }
 
         } else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)){
-            if (sharedPreferences.getBoolean(key,false)) {
+            if (sharedPreferences.getBoolean(key,false) && preferenceSingleTapAllGames!=null) {
                 preferenceSingleTapAllGames.setChecked(false);
             }
 
+        } else if (key.equals(PREF_KEY_MAX_NUMBER_UNDOS)) {
+            if (recordList !=null){
+                recordList.setMaxRecords();
+            }
+
+            updatePreferenceMaxNumberUndos();
+        } else if (key.equals(PREF_KEY_SHOW_ADVANCED_SETTINGS)) {
+            final Intent intent = new Intent(getApplicationContext(), Settings.class);
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(intent);
         }
     }
 
@@ -206,7 +215,8 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 || MenuPreferenceFragment.class.getName().equals(fragmentName)
                 || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
                 || SoundPreferenceFragment.class.getName().equals(fragmentName)
-                || DeveloperOptionsPreferenceFragment.class.getName().equals(fragmentName);
+                || DeveloperOptionsPreferenceFragment.class.getName().equals(fragmentName)
+                || ExpertSettingsPreferenceFragment.class.getName().equals(fragmentName);
 
     }
 
@@ -261,9 +271,15 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         int landscapeValue = prefs.getSavedMenuColumnsLandscape();
 
         String text = String.format(Locale.getDefault(), "%s: %d\n%s: %d",
-                getString(R.string.portrait), portraitValue, getString(R.string.landscape), landscapeValue);
+                getString(R.string.settings_portrait), portraitValue, getString(R.string.settings_landscape), landscapeValue);
 
         preferenceMenuColumns.setSummary(text);
+    }
+
+    private void updatePreferenceMaxNumberUndos() {
+        int amount = prefs.getSavedMaxNumberUndos();
+
+        preferenceMaxNumberUndos.setSummary(Integer.toString(amount));
     }
 
     private void updatePreferenceMenuBarPositionSummary() {
@@ -281,7 +297,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
 
         String text = String.format(Locale.getDefault(), "%s: %s\n%s: %s",
-                getString(R.string.portrait), portrait, getString(R.string.landscape), landscape);
+                getString(R.string.settings_portrait), portrait, getString(R.string.settings_landscape), landscape);
 
         preferenceMenuBarPosition.setSummary(text);
     }
@@ -375,6 +391,21 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_developer_options);
             setHasOptionsMenu(true);
+        }
+    }
+
+    public static class ExpertSettingsPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_expert_settings);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceMaxNumberUndos = findPreference(getString(R.string.pref_key_max_number_undos));
+            settings.updatePreferenceMaxNumberUndos();
         }
     }
 }
