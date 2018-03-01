@@ -47,11 +47,14 @@ public class HandlerHint extends Handler {
                 if (cardAndStack == null) {
                     hint.stop();
                 } else {
-
                     if (!soundPlayed) {
                         sounds.playSound(Sounds.names.HINT);
                         soundPlayed = true;
+
+                        int amount = prefs.getSavedTotalHintsShown() + 1;
+                        prefs.saveTotalHintsShown(amount);
                     }
+
                     hint.move(cardAndStack.getCard(), cardAndStack.getStack());
                 }
 

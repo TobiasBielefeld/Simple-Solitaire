@@ -32,6 +32,12 @@ public class Preferences {
     public static String PREF_KEY_ORDER;
     public static String PREF_KEY_SCORE;
     public static String PREF_KEY_SAVED_SCORES;
+
+    public static String PREF_KEY_SAVED_RECENT_SCORES;
+    public static String PREF_KEY_TOTAL_NUMBER_UNDOS;
+    public static String PREF_KEY_TOTAL_HINTS_SHOWN;
+    public static String PREF_KEY_TOTAL_POINTS_EARNED;
+    public static String PREF_KEY_TOTAL_TIME_PLAYED;
     public static String PREF_KEY_DEALING_CARDS;
     public static String OLD;
 
@@ -303,6 +309,10 @@ public class Preferences {
         PREF_KEY_CANFIELD_SIZE_OF_RESERVE = res.getString(R.string.pref_key_canfield_size_of_reserve);
         PREF_KEY_USE_TRUE_RANDOMISATION = res.getString(R.string.pref_key_use_true_randomisation);
         PREF_KEY_MAX_NUMBER_UNDOS = res.getString(R.string.pref_key_max_number_undos);
+        PREF_KEY_TOTAL_TIME_PLAYED = res.getString(R.string.pref_key_total_time_played);
+        PREF_KEY_TOTAL_NUMBER_UNDOS = res.getString(R.string.pref_key_total_number_undos);
+        PREF_KEY_TOTAL_HINTS_SHOWN = res.getString(R.string.pref_key_total_hints_shown);
+        PREF_KEY_TOTAL_POINTS_EARNED = res.getString(R.string.pref_key_total_points_earned);
         PREF_KEY_SHOW_DIALOG_NEW_GAME = res.getString(R.string.pref_key_show_dialog_new_game);
         PREF_KEY_SHOW_DIALOG_REDEAL = res.getString(R.string.pref_key_show_dialog_redeal);
         PREF_KEY_SHOW_DIALOG_MIX_CARDS = res.getString(R.string.pref_key_show_dialog_mix_cards);
@@ -320,6 +330,7 @@ public class Preferences {
         PREF_KEY_CANFIELD_START_CARD_VALUE = res.getString(R.string.canfield_start_value);
         PREF_KEY_SCORE = res.getString(R.string.score);
         PREF_KEY_SAVED_SCORES = res.getString(R.string.saved_scores);
+        PREF_KEY_SAVED_RECENT_SCORES = res.getString(R.string.saved_recent_scores);
 
         PREF_KEY_RECORD_LIST_ENTRY = res.getString(R.string.record_list_entry);
         PREF_KEY_RECORD_LIST_ENTRIES_SIZE = res.getString(R.string.record_list_entries_size);
@@ -509,7 +520,7 @@ public class Preferences {
     }
 
     /**
-     * need to ensure these settings already exist in the shared pref, or otherwise they get created
+     * need to ensure these settings already exist in the shared pref, or otherwise they getHighScore created
      * by the settings headers and the settings activity would do stuff, because it thinks the user changed
      * the values
      */
@@ -524,7 +535,7 @@ public class Preferences {
 
     /**
      * see description of setCriticalSettings(). Without setting these before loading the settings-activity,
-     * the activity would show toasts to start a new game. (Because the preferences get created and trigger
+     * the activity would show toasts to start a new game. (Because the preferences getHighScore created and trigger
      * the toast notification)
      */
     public void setCriticalGameSettings(){
@@ -536,6 +547,14 @@ public class Preferences {
     }
 
     /* getters for individual game data */
+
+    public long getSavedTotalTimePlayed(){
+        return savedGameData.getLong(PREF_KEY_TOTAL_TIME_PLAYED,0);
+    }
+
+    public long getSavedTotalPointsEarned(){
+        return savedGameData.getLong(PREF_KEY_TOTAL_POINTS_EARNED,0);
+    }
 
     public long getSavedEndTime(){
         return savedGameData.getLong(PREF_KEY_TIMER_END_TIME,System.currentTimeMillis());
@@ -580,6 +599,31 @@ public class Preferences {
         }
 
         return savedScores;
+    }
+
+    public long[][] getSavedRecentScores(){
+        long savedScores[][] = new long[MAX_SAVED_SCORES][3];
+
+        ArrayList<Long> listScores = getLongList(PREF_KEY_SAVED_RECENT_SCORES + 0);
+        ArrayList<Long> listTimes = getLongList(PREF_KEY_SAVED_RECENT_SCORES + 1);
+        ArrayList<Long> listDates = getLongList(PREF_KEY_SAVED_RECENT_SCORES + 2);
+
+        //for compatibility for older app versions, check the size of the saved data
+        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
+            savedScores[i][0] = listScores.size() > i ? listScores.get(i) : 0;
+            savedScores[i][1] = listTimes.size() > i ? listTimes.get(i) : 0;
+            savedScores[i][2] = listDates.size() > i ? listDates.get(i) : 0;
+        }
+
+        return savedScores;
+    }
+
+    public int getSavedTotalNumberUndos(){
+        return savedGameData.getInt(PREF_KEY_TOTAL_NUMBER_UNDOS,0);
+    }
+
+    public int getSavedTotalHintsShown(){
+        return savedGameData.getInt(PREF_KEY_TOTAL_HINTS_SHOWN,0);
     }
 
     public int getSavedStartCardValueCanfield(){
@@ -685,6 +729,14 @@ public class Preferences {
 
     /* setters for individual game data */
 
+    public void saveTotalPointsEarned(long value){
+        savedGameData.edit().putLong(PREF_KEY_TOTAL_POINTS_EARNED,value).apply();
+    }
+
+    public void saveTotalTimePlayed(long value){
+        savedGameData.edit().putLong(PREF_KEY_TOTAL_TIME_PLAYED,value).apply();
+    }
+
     public void saveScore(long value){
         savedGameData.edit().putLong(PREF_KEY_SCORE,value).apply();
     }
@@ -727,6 +779,30 @@ public class Preferences {
         putLongList(PREF_KEY_SAVED_SCORES + 0, listScores);
         putLongList(PREF_KEY_SAVED_SCORES + 1, listTimes);
         putLongList(PREF_KEY_SAVED_SCORES + 2, listDates);
+    }
+
+    public void saveRecentScores(long savedScores[][]){
+        ArrayList<Long> listScores = new ArrayList<>();
+        ArrayList<Long> listTimes = new ArrayList<>();
+        ArrayList<Long> listDates = new ArrayList<>();
+
+        for (int i = 0; i < MAX_SAVED_SCORES; i++) {
+            listScores.add(savedScores[i][0]);
+            listTimes.add(savedScores[i][1]);
+            listDates.add(savedScores[i][2]);
+        }
+
+        putLongList(PREF_KEY_SAVED_RECENT_SCORES + 0, listScores);
+        putLongList(PREF_KEY_SAVED_RECENT_SCORES + 1, listTimes);
+        putLongList(PREF_KEY_SAVED_RECENT_SCORES + 2, listDates);
+    }
+
+    public void saveTotalNumberUndos(int value){
+        savedGameData.edit().putInt(PREF_KEY_TOTAL_NUMBER_UNDOS,value).apply();
+    }
+
+    public void saveTotalHintsShown(int value){
+        savedGameData.edit().putInt(PREF_KEY_TOTAL_HINTS_SHOWN,value).apply();
     }
 
     public void saveStartCardValueCanfield(int value){

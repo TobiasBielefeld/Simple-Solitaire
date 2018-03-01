@@ -277,7 +277,7 @@ public class Spider extends Game {
 
     public int onMainStackTouch() {
         /*
-         * first get the current main stack, then deal the cards from it to the tableau.
+         * first getHighScore the current main stack, then deal the cards from it to the tableau.
          * with the reversed record option
          */
         int currentMainStackID = 22;

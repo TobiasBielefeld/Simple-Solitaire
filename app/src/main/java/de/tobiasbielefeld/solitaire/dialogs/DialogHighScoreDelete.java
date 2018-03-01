@@ -26,7 +26,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.ui.Statistics;
+import de.tobiasbielefeld.solitaire.ui.statistics.StatisticsActivity;
 
 /**
  * Dialog for deleting all high scores
@@ -40,8 +40,8 @@ public class DialogHighScoreDelete extends DialogFragment {
         builder.setMessage(R.string.statistics_button_delete_text)
                 .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Statistics highScores = (Statistics) getActivity();
-                        highScores.deleteHighScores();
+                        StatisticsActivity statistics = (StatisticsActivity) getActivity();
+                        statistics.deleteHighScores();
                     }
                 })
                 .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {

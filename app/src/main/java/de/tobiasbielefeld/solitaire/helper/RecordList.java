@@ -139,6 +139,9 @@ public class RecordList {
             }
 
             entries.get(entries.size() - 1).undo(gm);
+
+            int amount = prefs.getSavedTotalNumberUndos() + 1;
+            prefs.saveTotalNumberUndos(amount);
         }
     }
 

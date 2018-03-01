@@ -39,7 +39,8 @@ public class Scores {
     private long score;                                                                             //the current score
     private long preBonus;
     private long bonus;
-    private long savedScores[][] = new long[MAX_SAVED_SCORES][3];                                   //array to hold the saved scores with score and time
+    private long savedHighScores[][] = new long[MAX_SAVED_SCORES][3];                               //array to hold the saved scores with score and time
+    private long savedRecentScores[][] = new long[MAX_SAVED_SCORES][3];                                   //array to hold the saved scores with score and time
     private GameManager gm;
 
     public Scores(GameManager gm) {
@@ -126,8 +127,9 @@ public class Scores {
      * @param points The points to add
      */
     public void update(int points) {
-        if (gameLogic.hasWon())
+        if (gameLogic.hasWon()) {
             return;
+        }
 
         score += points;
         output();
@@ -139,8 +141,9 @@ public class Scores {
      * @param points The points to add
      */
     public void update(long points) {
-        if (gameLogic.hasWon())
+        if (gameLogic.hasWon()) {
             return;
+        }
 
         score += points;
         output();
@@ -171,7 +174,7 @@ public class Scores {
      * and moved in direction of the highest score until it is in the correct position
      */
     public void addNewHighScore(long newScore, long timeTaken) {
-        if (!currentGame.processScore(newScore) || newScore < 0){
+        if (!currentGame.processScore(newScore) || newScore <= 0){
             return;
         }
 
@@ -182,23 +185,48 @@ public class Scores {
         //The new score is larger than the saved one OR
         //the new score is the same as the saved one BUT the time taken for the game is less than or equals the saved one OR
         //The saved score equals zero (so it is empty, nothing saved yet)
-        if (newScore > savedScores[index][0] || savedScores[index][0] == 0 ||
-                (newScore == savedScores[index][0] && timeTaken <= savedScores[index][1])) {
-            savedScores[index] = new long[]{newScore, timeTaken, systemTime};
+        if (newScore > savedHighScores[index][0] || savedHighScores[index][0] == 0 ||
+                (newScore == savedHighScores[index][0] && timeTaken <= savedHighScores[index][1])) {
+            savedHighScores[index] = new long[]{newScore, timeTaken, systemTime};
 
-            while (index > 0 && (savedScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
-                    || savedScores[index - 1][0] < savedScores[index][0]                            //or the score at index is less than the score before it
-                    || (savedScores[index - 1][0] == savedScores[index][0]                          //or the scores are the same...
-                    && savedScores[index - 1][1] >= savedScores[index][1]))) {                      //but the time is less
-                long dummy[] = savedScores[index];
-                savedScores[index] = savedScores[index - 1];
-                savedScores[index - 1] = dummy;
+            while (index > 0 && (savedHighScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
+                    || savedHighScores[index - 1][0] < savedHighScores[index][0]                            //or the score at index is less than the score before it
+                    || (savedHighScores[index - 1][0] == savedHighScores[index][0]                          //or the scores are the same...
+                    && savedHighScores[index - 1][1] >= savedHighScores[index][1]))) {                      //but the time is less
+                long dummy[] = savedHighScores[index];
+                savedHighScores[index] = savedHighScores[index - 1];
+                savedHighScores[index - 1] = dummy;
 
                 index--;
             }
 
-            prefs.saveHighScores(savedScores);
+            prefs.saveHighScores(savedHighScores);
         }
+    }
+
+    /**
+     * Adds a new high score to the list. New score will be inserted at the last position
+     * and moved in direction of the highest score until it is in the correct position
+     */
+    public void addNewRecentScore(long newScore, long timeTaken) {
+        if (!currentGame.processScore(newScore)) {
+            return;
+        }
+
+        long systemTime = System.currentTimeMillis();
+        int index = MAX_SAVED_SCORES - 1;
+
+        //move every entry one position to the right, so the last one gets overriden
+        //and the new score can be inserted in the first position
+        while (index > 0) {
+            savedRecentScores[index] = savedRecentScores[index - 1];
+            index--;
+        }
+
+        savedRecentScores[0] = new long[]{newScore, timeTaken, systemTime};
+
+        prefs.saveRecentScores(savedRecentScores);
+
     }
 
 
@@ -206,8 +234,16 @@ public class Scores {
      * Adds a new high score to the list. New score will be inserted at the last position
      * and moved in direction of the highest score until it is in the correct position
      */
-    public void addNewHighScore() {
-        addNewHighScore(score,timer.getCurrentTime());
+    public void addNewScore(boolean movedFirstCard) {
+        long time = timer.getCurrentTime();
+        addNewHighScore(score,time);
+
+        if (movedFirstCard) {
+            addNewRecentScore(score, time);
+        }
+
+        setTotalTimePlayed(time);
+        setTotalPointsEarned(score);
     }
 
     /**
@@ -216,7 +252,8 @@ public class Scores {
     public void load() {
         score = prefs.getSavedScore();
         output();
-        savedScores = prefs.getSavedHighScores();
+        savedHighScores = prefs.getSavedHighScores();
+        savedRecentScores = prefs.getSavedRecentScores();
     }
 
     /**
@@ -232,22 +269,41 @@ public class Scores {
     /**
      * Deletes the high scores by just creating a new empty array and save it
      */
-    public void deleteHighScores() {
-        savedScores = new long[MAX_SAVED_SCORES][3];
-        prefs.saveHighScores(savedScores);
+    public void deleteScores() {
+        savedHighScores = new long[MAX_SAVED_SCORES][3];
+        savedRecentScores = new long[MAX_SAVED_SCORES][3];
+        prefs.saveHighScores(savedHighScores);
+        prefs.saveRecentScores(savedHighScores);
+        prefs.saveTotalTimePlayed(0);
+        prefs.saveTotalHintsShown(0);
+        prefs.saveTotalNumberUndos(0);
+        prefs.saveTotalPointsEarned(0);
     }
 
     /**
      * Gets the score
      *
      * @param i The index of the record
-     * @param j THe part of the record:
+     * @param j The part of the record:
      *          0 = score, 1 = time taken, 2 = date
      * @return The requested value
      */
-    public long get(int i, int j) {
-        //get the score/time from the array
-        return savedScores[i][j];
+    public long getHighScore(int i, int j) {
+        //getHighScore the score/time from the array
+        return savedHighScores[i][j];
+    }
+
+    /**
+     * Gets the score
+     *
+     * @param i The index of the record
+     * @param j The part of the record:
+     *          0 = score, 1 = time taken, 2 = date
+     * @return The requested value
+     */
+    public long getRecentScore(int i, int j) {
+        //getHighScore the score/time from the array
+        return savedRecentScores[i][j];
     }
 
     public void output() {
@@ -263,6 +319,20 @@ public class Scores {
                 }
             }
         });
+    }
+
+    private void setTotalTimePlayed(long time){
+        long totalTime = prefs.getSavedTotalTimePlayed() + time;
+        prefs.saveTotalTimePlayed(totalTime);
+    }
+
+    private void setTotalPointsEarned(long score){
+        if (score < 0){
+            return;
+        }
+
+        long totalPoints = prefs.getSavedTotalPointsEarned() + score;
+        prefs.saveTotalPointsEarned(totalPoints);
     }
 
     public long getScore(){
