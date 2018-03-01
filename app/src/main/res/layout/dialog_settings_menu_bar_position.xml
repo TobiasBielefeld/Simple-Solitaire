@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/portrait" />
+            android:text="@string/settings_portrait" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/landscape" />
+            android:text="@string/settings_landscape" />
 
         <RadioGroup
             android:layout_width="match_parent"

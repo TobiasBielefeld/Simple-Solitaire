@@ -51,21 +51,36 @@ public class DialogInGameMenu extends DialogFragment {
                         // "which" argument contains index of selected item
                         switch (which) {
                             case 0:
-                                DialogStartNewGame dialogStartNewGame = new DialogStartNewGame();
-                                dialogStartNewGame.show(getFragmentManager(),"START_NEW_GAME_DIALOG");
+                                if (prefs.getShowDialogNewGame()) {
+                                    prefs.putShowDialogNewGame(false);
+                                    DialogStartNewGame dialogStartNewGame = new DialogStartNewGame();
+                                    dialogStartNewGame.show(getFragmentManager(), "START_NEW_GAME_DIALOG");
+                                } else {
+                                    gameLogic.newGame();
+                                }
                                 break;
                             case 1:
-                                DialogRedeal dialogRedeal = new DialogRedeal();
-                                dialogRedeal.show(getFragmentManager(), "REDEAL_DIALOG");
+                                if (prefs.getShowDialogRedeal()) {
+                                    prefs.putShowDialogRedeal(false);
+                                    DialogRedeal dialogRedeal = new DialogRedeal();
+                                    dialogRedeal.show(getFragmentManager(), "REDEAL_DIALOG");
+                                } else {
+                                    gameLogic.redeal();
+                                }
                                 break;
                             case 2:
                                 if (!gameLogic.hasWon()) {
                                     if (currentGame.hintTest() == null) {
-                                        DialogMixCards dialogMixCards = new DialogMixCards();
-                                        dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
+                                        if (prefs.getShowDialogMixCards()) {
+                                            prefs.putShowDialogMixCards(false);
+                                            DialogMixCards dialogMixCards = new DialogMixCards();
+                                            dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
+                                        } else {
+                                            currentGame.mixCards();
+                                        }
                                     } else {
                                         DialogMixCardsMovesAvailable dialogMixCardsStillMovesAvailable = new DialogMixCardsMovesAvailable();
-                                        dialogMixCardsStillMovesAvailable.show(getFragmentManager(),"MIX_DIALOG_MOVES_AVAILABLE");
+                                        dialogMixCardsStillMovesAvailable.show(getFragmentManager(), "MIX_DIALOG_MOVES_AVAILABLE");
                                     }
                                 }
                                 break;

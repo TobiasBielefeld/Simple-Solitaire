@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.ui.about;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +53,11 @@ public class LicenseFragment extends Fragment {
         TextView[] textViews = new TextView[]{textMaterialIconsLicense, textCardThemesLicense, textCardThemesLicenseUsage,
                 textPokerLicense,textPokerLicenseUsage,textCustomColorPickerLicense,textSoundsLicense,textSoundsLicenseUsage,
                 textSlidingTabsLicense,textAndroidSupportLicense};
+
+        //explicitly set the strings here, otherwise the links in them wouldn't show properly
+        textCardThemesLicenseUsage.setText(Html.fromHtml(getString(R.string.about_card_themes_usage)));
+        textPokerLicenseUsage.setText(Html.fromHtml(getString(R.string.about_poker_themes_usage)));
+        textSoundsLicenseUsage.setText(Html.fromHtml(getString(R.string.about_sounds_usage)));
 
         for (TextView textView : textViews){
             textView.setMovementMethod(LinkMovementMethod.getInstance());

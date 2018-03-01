@@ -271,7 +271,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         int landscapeValue = prefs.getSavedMenuColumnsLandscape();
 
         String text = String.format(Locale.getDefault(), "%s: %d\n%s: %d",
-                getString(R.string.portrait), portraitValue, getString(R.string.landscape), landscapeValue);
+                getString(R.string.settings_portrait), portraitValue, getString(R.string.settings_landscape), landscapeValue);
 
         preferenceMenuColumns.setSummary(text);
     }
@@ -297,7 +297,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         }
 
         String text = String.format(Locale.getDefault(), "%s: %s\n%s: %s",
-                getString(R.string.portrait), portrait, getString(R.string.landscape), landscape);
+                getString(R.string.settings_portrait), portrait, getString(R.string.settings_landscape), landscape);
 
         preferenceMenuBarPosition.setSummary(text);
     }

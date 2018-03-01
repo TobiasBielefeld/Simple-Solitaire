@@ -18,7 +18,7 @@
         <item
             android:id="@+id/item_about"
             android:icon="@drawable/icon_about"
-            android:title="@string/about_name" />
+            android:title="@string/title_activity_about" />
 
     </group>
     <group android:id="@+id/idgroup2">

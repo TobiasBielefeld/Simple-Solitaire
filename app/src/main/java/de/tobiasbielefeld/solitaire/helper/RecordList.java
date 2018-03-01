@@ -133,7 +133,11 @@ public class RecordList {
         if (!entries.isEmpty()) {
             isWorking = true;
             sounds.playSound(Sounds.names.CARD_RETURN);
-            scores.update(-currentGame.getUndoCosts());
+
+            if (!prefs.getDisableUndoCosts()) {
+                scores.update(-currentGame.getUndoCosts());
+            }
+
             entries.get(entries.size() - 1).undo(gm);
 
             int amount = prefs.getSavedTotalNumberUndos() + 1;

@@ -32,13 +32,17 @@ public class Preferences {
     public static String PREF_KEY_ORDER;
     public static String PREF_KEY_SCORE;
     public static String PREF_KEY_SAVED_SCORES;
-    public static String PREF_KEY_SAVED_RECENT_SCORES;
-    public static String OLD;
 
+    public static String PREF_KEY_SAVED_RECENT_SCORES;
     public static String PREF_KEY_TOTAL_NUMBER_UNDOS;
     public static String PREF_KEY_TOTAL_HINTS_SHOWN;
     public static String PREF_KEY_TOTAL_POINTS_EARNED;
     public static String PREF_KEY_TOTAL_TIME_PLAYED;
+    public static String PREF_KEY_DEALING_CARDS;
+    public static String OLD;
+
+    public static String PREF_KEY_DISABLE_UNDO_COSTS;
+    public static String PREF_KEY_DISABLE_HINT_COSTS;
     public static String PREF_KEY_VEGAS_OLD_SCORE;
     public static String PREF_KEY_VEGAS_TIME;
     public static String PREF_KEY_GAME_REDEAL_COUNT;
@@ -132,6 +136,9 @@ public class Preferences {
     public static String PREF_KEY_DEVELOPER_OPTION_NO_SAVING;
     public static String PREF_KEY_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES;
     public static String PREF_KEY_MAX_NUMBER_UNDOS;
+    public static String PREF_KEY_SHOW_DIALOG_NEW_GAME;
+    public static String PREF_KEY_SHOW_DIALOG_REDEAL;
+    public static String PREF_KEY_SHOW_DIALOG_MIX_CARDS;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -165,6 +172,11 @@ public class Preferences {
     public static int DEFAULT_VEGAS_WIN_AMOUNT;
     public static int DEFAULT_VEGAS_MONEY;
     public static int DEFAULT_MAX_NUMBER_UNDOS;
+    public static boolean DEFAULT_DISABLE_UNDO_COSTS;
+    public static boolean DEFAULT_DISABLE_HINT_COSTS;
+    public static boolean DEFAULT_SHOW_DIALOG_NEW_GAME;
+    public static boolean DEFAULT_SHOW_DIALOG_REDEAL;
+    public static boolean DEFAULT_SHOW_DIALOG_MIX_CARDS;
     public static boolean DEFAULT_SHOW_ADVANCED_SETTINGS;
     public static boolean DEFAULT_GOLF_CYCLIC;
     public static boolean DEFAULT_LEFT_HANDED_MODE;
@@ -227,6 +239,7 @@ public class Preferences {
 
         OLD = "_old";
 
+        PREF_KEY_DEALING_CARDS = "pref_key_dealing_cards";
         PREF_KEY_VEGAS_TIME = "pref_key_vegas_time";
         PREF_KEY_VEGAS_OLD_SCORE = "pref_key_vegas_old_score";
         PREF_KEY_ORDER = "order";
@@ -300,7 +313,11 @@ public class Preferences {
         PREF_KEY_TOTAL_NUMBER_UNDOS = res.getString(R.string.pref_key_total_number_undos);
         PREF_KEY_TOTAL_HINTS_SHOWN = res.getString(R.string.pref_key_total_hints_shown);
         PREF_KEY_TOTAL_POINTS_EARNED = res.getString(R.string.pref_key_total_points_earned);
-
+        PREF_KEY_SHOW_DIALOG_NEW_GAME = res.getString(R.string.pref_key_show_dialog_new_game);
+        PREF_KEY_SHOW_DIALOG_REDEAL = res.getString(R.string.pref_key_show_dialog_redeal);
+        PREF_KEY_SHOW_DIALOG_MIX_CARDS = res.getString(R.string.pref_key_show_dialog_mix_cards);
+        PREF_KEY_DISABLE_UNDO_COSTS = res.getString(R.string.pref_key_disable_undo_costs);
+        PREF_KEY_DISABLE_HINT_COSTS = res.getString(R.string.pref_key_disable_hint_costs);
         PREF_KEY_GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         PREF_KEY_GAME_WON = res.getString(R.string.game_won);
         PREF_KEY_GAME_WON_AND_RELOADED = res.getString(R.string.game_won_and_reloaded);
@@ -362,6 +379,9 @@ public class Preferences {
         DEFAULT_SINGLE_TAP_ALL_GAMES = res.getBoolean(R.bool.default_single_tap_all_games);
         DEFAULT_DEVELOPER_OPTION_NO_SAVING = res.getBoolean(R.bool.default_developer_option_no_saving);
         DEFAULT_SHOW_ADVANCED_SETTINGS = res.getBoolean(R.bool.default_show_advaced_settings);
+        DEFAULT_SHOW_DIALOG_NEW_GAME = res.getBoolean(R.bool.default_show_dialog_new_game);
+        DEFAULT_SHOW_DIALOG_REDEAL = res.getBoolean(R.bool.default_show_dialog_redeal);
+        DEFAULT_SHOW_DIALOG_MIX_CARDS = res.getBoolean(R.bool.default_show_dialog_mix_cards);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
@@ -400,6 +420,8 @@ public class Preferences {
         DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.default_klondike_number_of_recycles);
         DEFAULT_PYRAMID_LIMITED_RECYCLES = res.getBoolean(R.bool.default_pyramid_limited_recycles);
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
+        DEFAULT_DISABLE_UNDO_COSTS = res.getBoolean(R.bool.default_disable_undo_costs);
+        DEFAULT_DISABLE_HINT_COSTS = res.getBoolean(R.bool.default_disable_hint_costs);
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
         DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
@@ -640,6 +662,10 @@ public class Preferences {
         return savedGameData.getBoolean(PREF_KEY_GAME_FIRST_RUN,DEFAULT_FIRST_RUN);
     }
 
+    public boolean isDealingCards(){
+        return savedGameData.getBoolean(PREF_KEY_DEALING_CARDS,false);
+    }
+
     public boolean isWon(){
         return savedGameData.getBoolean(PREF_KEY_GAME_WON,DEFAULT_WON);
     }
@@ -809,6 +835,10 @@ public class Preferences {
 
     public void saveFirstRun(boolean value){
         savedGameData.edit().putBoolean(PREF_KEY_GAME_FIRST_RUN,value).apply();
+    }
+
+    public void setDealingCards(boolean value){
+        savedGameData.edit().putBoolean(PREF_KEY_DEALING_CARDS,value).apply();
     }
 
     public void saveWon(boolean value){
@@ -1102,6 +1132,26 @@ public class Preferences {
         return savedSharedData.getBoolean(PREF_KEY_USE_TRUE_RANDOMISATION, DEFAULT_USE_TRUE_RANDOMISATION);
     }
 
+    public boolean getShowDialogNewGame(){
+        return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_NEW_GAME, DEFAULT_SHOW_DIALOG_NEW_GAME);
+    }
+
+    public boolean getShowDialogRedeal(){
+        return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_REDEAL, DEFAULT_SHOW_DIALOG_REDEAL);
+    }
+
+    public boolean getShowDialogMixCards(){
+        return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_MIX_CARDS, DEFAULT_SHOW_DIALOG_MIX_CARDS);
+    }
+
+    public boolean getDisableUndoCosts(){
+        return savedSharedData.getBoolean(PREF_KEY_DISABLE_UNDO_COSTS, DEFAULT_DISABLE_UNDO_COSTS);
+    }
+
+    public boolean getDisableHintCosts(){
+        return savedSharedData.getBoolean(PREF_KEY_DISABLE_HINT_COSTS, DEFAULT_DISABLE_HINT_COSTS);
+    }
+
     public ArrayList<String> getSavedCalculationNextCardsList(){
         return getSharedStringList(PREF_KEY_NEXT_CARD_VALUES);
     }
@@ -1255,6 +1305,18 @@ public class Preferences {
 
     public void saveLeftHandedMode(boolean value){
         savedSharedData.edit().putBoolean(PREF_KEY_LEFT_HANDED_MODE,value).apply();
+    }
+
+    public void putShowDialogNewGame(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_NEW_GAME,value).apply();
+    }
+
+    public void putShowDialogRedeal(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_REDEAL,value).apply();
+    }
+
+    public void putShowDialogMixCards(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_MIX_CARDS,value).apply();
     }
 
     public void saveCalculationNextCardsList(ArrayList<String> list){

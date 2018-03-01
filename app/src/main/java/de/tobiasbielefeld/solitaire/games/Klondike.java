@@ -119,9 +119,8 @@ public class Klondike extends Game {
     }
 
     public void dealCards() {
-
         //dealWinnableGame();
-
+      
         //save the new settings, so it only takes effect on new deals
         prefs.saveKlondikeVegasDrawModeOld(whichGame);
 
@@ -576,10 +575,5 @@ public class Klondike extends Game {
             //and add it IN FRONT of the last entry
             recordList.addToLastEntry(cardsReversed, originReversed);
         }
-    }
-
-    @Override
-    protected void dealWinnableGame() {
-
     }
 }
