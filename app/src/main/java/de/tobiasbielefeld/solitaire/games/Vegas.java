@@ -101,6 +101,11 @@ public class Vegas extends Klondike {
         return !saveMoneyEnabled || resetMoney;
     }
 
+    @Override
+    public boolean saveRecentScore(){
+        return prefs.getSavedVegasResetMoney();
+    }
+
     private void loadData(){
         betAmount = prefs.getSavedVegasBetAmountOld();
         winAmount = prefs.getSavedVegasWinAmountOld();

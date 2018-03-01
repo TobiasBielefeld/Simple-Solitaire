@@ -175,7 +175,7 @@ public class GameLogic {
         //reset EVERYTHING
         if (!won) {                                                                                 //if the game has been won, the score was already saved
             incrementPlayedGames();
-            scores.addNewScore(movedFirstCard);
+            scores.addNewScore(movedFirstCard || currentGame.saveRecentScore());
             currentGame.onGameEnd();
         }
 
@@ -369,5 +369,9 @@ public class GameLogic {
      */
     public boolean stopConditions() {
         return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking());
+    }
+
+    public boolean getMovedFirstCard(){
+        return movedFirstCard;
     }
 }

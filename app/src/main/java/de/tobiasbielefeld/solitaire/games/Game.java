@@ -363,6 +363,19 @@ public abstract class Game {
         return null;
     }
 
+    /**
+     * This method should deal a winnable game, by starting from a winning positon and shuffling the
+     * chards to the default deal position. Per default, this method will call the random dealCards()
+     * method.
+     */
+    public void dealWinnableGame(){
+        dealCards();
+    }
+
+    public boolean saveRecentScore(){
+        return false;
+    }
+
     //stuff that games can override if necessary
 
     /**

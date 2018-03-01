@@ -216,7 +216,7 @@ public class Scores {
         long systemTime = System.currentTimeMillis();
         int index = MAX_SAVED_SCORES - 1;
 
-        //move every entry one position to the right, so the last one gets overriden
+        //move every entry one position to the right, so the last one gets overridden
         //and the new score can be inserted in the first position
         while (index > 0) {
             savedRecentScores[index] = savedRecentScores[index - 1];
@@ -234,11 +234,11 @@ public class Scores {
      * Adds a new high score to the list. New score will be inserted at the last position
      * and moved in direction of the highest score until it is in the correct position
      */
-    public void addNewScore(boolean movedFirstCard) {
+    public void addNewScore(boolean savesRecentScore) {
         long time = timer.getCurrentTime();
         addNewHighScore(score,time);
 
-        if (movedFirstCard) {
+        if (savesRecentScore) {
             addNewRecentScore(score, time);
         }
 

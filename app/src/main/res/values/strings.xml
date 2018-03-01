@@ -6,7 +6,7 @@
     <string name="title_activity_manual">Manual</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_about">About Game</string>
-    <string name="title_activity_statistics">High Scores</string>
+    <string name="title_activity_statistics">Statistics</string>
 
     <string name="settings">Settings</string>
     <string name="game_manual">Manual</string>
