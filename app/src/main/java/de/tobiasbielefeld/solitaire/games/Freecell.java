@@ -52,10 +52,10 @@ public class Freecell extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
-        setUpCardWidth(layoutGame, isLandscape, 9, 10);
+        setUpCardWidth(layoutGame, isLandscape, 9, 13);
 
         //order the stacks on the screen
-        int spacing = setUpHorizontalSpacing(layoutGame, 8, 9);
+        int spacing = setUpHorizontalSpacing(layoutGame, 8, 12);
         int startPos = layoutGame.getWidth() / 2 - 4 * Card.width - 3 * spacing - spacing / 2;
         //free cells and foundation stacks
         for (int i = 0; i < 8; i++) {
@@ -89,13 +89,20 @@ public class Freecell extends Game {
         //flip every card up then move them to the tableau
         flipAllCardsUp();
 
-        //dealstack is stack 0, so don't need to cover that stack in  the loop
+        //the deal stack is stack 0, so don't need to cover that stack in  the loop
         for (int i = 1; i < 8; i++) {
             for (int j = 0; j < 7; j++) {
                 if (!(i >= 4 && j == 6)) {
                     moveToStack(getDealStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
                 }
             }
+        }
+
+        //in case there are already kings at the first position of a stack, grant the bonus for
+        //moving kings to empty places. Otherwise max score wouldn't be possible
+        for (int i = 0; i < 8; i++) {
+            if (stacks[i].getCard(0).getValue() == 13)
+                scores.update(20);
         }
     }
 
@@ -268,7 +275,7 @@ public class Freecell extends Game {
             return -75;
         }
         //king to a empty field
-        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && stacks[originIDs[0]].getSize() != 1) {
+        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && cards.get(0).getIndexOnStack()!=0) {
             return 20;
         }
 

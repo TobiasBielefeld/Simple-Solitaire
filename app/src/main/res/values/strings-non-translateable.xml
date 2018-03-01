@@ -5,6 +5,8 @@
     <string name="app_name" translatable="false">Simple Solitaire Collection</string>
 
     <!-- Preference Keys -->
+    <string name="pref_key_disable_undo_costs" translatable="false">pref_key_disable_undo_costs</string>
+    <string name="pref_key_disable_hint_costs" translatable="false">pref_key_disable_hint_costs</string>
     <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
     <string name="pref_key_menu_bar_position" translatable="false">pref_key_menu_bar_position</string>
     <string name="pref_key_menu_bar_position_portrait" translatable="false">pref_key_menu_bar_position_portrait</string>

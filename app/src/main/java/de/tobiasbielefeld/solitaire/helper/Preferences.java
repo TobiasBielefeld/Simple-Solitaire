@@ -35,6 +35,8 @@ public class Preferences {
     public static String PREF_KEY_DEALING_CARDS;
     public static String OLD;
 
+    public static String PREF_KEY_DISABLE_UNDO_COSTS;
+    public static String PREF_KEY_DISABLE_HINT_COSTS;
     public static String PREF_KEY_VEGAS_OLD_SCORE;
     public static String PREF_KEY_VEGAS_TIME;
     public static String PREF_KEY_GAME_REDEAL_COUNT;
@@ -164,6 +166,8 @@ public class Preferences {
     public static int DEFAULT_VEGAS_WIN_AMOUNT;
     public static int DEFAULT_VEGAS_MONEY;
     public static int DEFAULT_MAX_NUMBER_UNDOS;
+    public static boolean DEFAULT_DISABLE_UNDO_COSTS;
+    public static boolean DEFAULT_DISABLE_HINT_COSTS;
     public static boolean DEFAULT_SHOW_DIALOG_NEW_GAME;
     public static boolean DEFAULT_SHOW_DIALOG_REDEAL;
     public static boolean DEFAULT_SHOW_DIALOG_MIX_CARDS;
@@ -302,7 +306,8 @@ public class Preferences {
         PREF_KEY_SHOW_DIALOG_NEW_GAME = res.getString(R.string.pref_key_show_dialog_new_game);
         PREF_KEY_SHOW_DIALOG_REDEAL = res.getString(R.string.pref_key_show_dialog_redeal);
         PREF_KEY_SHOW_DIALOG_MIX_CARDS = res.getString(R.string.pref_key_show_dialog_mix_cards);
-
+        PREF_KEY_DISABLE_UNDO_COSTS = res.getString(R.string.pref_key_disable_undo_costs);
+        PREF_KEY_DISABLE_HINT_COSTS = res.getString(R.string.pref_key_disable_hint_costs);
         PREF_KEY_GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         PREF_KEY_GAME_WON = res.getString(R.string.game_won);
         PREF_KEY_GAME_WON_AND_RELOADED = res.getString(R.string.game_won_and_reloaded);
@@ -404,6 +409,8 @@ public class Preferences {
         DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.default_klondike_number_of_recycles);
         DEFAULT_PYRAMID_LIMITED_RECYCLES = res.getBoolean(R.bool.default_pyramid_limited_recycles);
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
+        DEFAULT_DISABLE_UNDO_COSTS = res.getBoolean(R.bool.default_disable_undo_costs);
+        DEFAULT_DISABLE_HINT_COSTS = res.getBoolean(R.bool.default_disable_hint_costs);
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
         DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
@@ -1059,6 +1066,14 @@ public class Preferences {
 
     public boolean getShowDialogMixCards(){
         return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_MIX_CARDS, DEFAULT_SHOW_DIALOG_MIX_CARDS);
+    }
+
+    public boolean getDisableUndoCosts(){
+        return savedSharedData.getBoolean(PREF_KEY_DISABLE_UNDO_COSTS, DEFAULT_DISABLE_UNDO_COSTS);
+    }
+
+    public boolean getDisableHintCosts(){
+        return savedSharedData.getBoolean(PREF_KEY_DISABLE_HINT_COSTS, DEFAULT_DISABLE_HINT_COSTS);
     }
 
     public ArrayList<String> getSavedCalculationNextCardsList(){

@@ -335,11 +335,13 @@
     <string name="settings_spider_difficultiy_2">2 (Medium)</string>
     <string name="settings_spider_difficultiy_3">4 (Hard)</string>
     <string name="settings_draw_1">Draw 1</string>
-    <string name="settings_draw_3">Draw 1</string>
+    <string name="settings_draw_3">Draw 3</string>
     <string name="settings_pyramid_difficulty_1">Easy: Game is won when tableau is empty</string>
     <string name="settings_pyramid_difficulty_2">Hard: Game is won when tableau and stock are empty</string>
     <string name="settings_language_default">Default language</string>
     <string name="settings_language_english">English</string>
+    <string name="settings_diable_undo_costs">Disable undo score penalty</string>
+    <string name="settings_diable_hint_costs">Disable hint score penalty</string>
     <string name="settings_language_esperanto">Esperanto</string>
     <string name="settings_language_finnish">Finnish</string>
     <string name="settings_language_french">French</string>

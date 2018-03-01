@@ -55,7 +55,7 @@ public class Hint {
         int index = origin.getIndexOfCard(card);
         ArrayList<Card> currentCards = new ArrayList<>();
 
-        if (counter == 0) {
+        if (counter == 0 && !prefs.getDisableHintCosts()) {
             scores.update(-currentGame.getHintCosts());
         }
 
