@@ -97,58 +97,56 @@
         <item>4</item>
     </string-array>
 
-    <string-array name="restart_menu">
+    <string-array name="restart_menu" translatable="false">
         <item>@string/dialog_start_new_game_title</item>
         <item>@string/dialog_redeal_title</item>
         <item>@string/dialog_mix_cards_title</item>
-        <item>Game rules</item>
-        <item>Return to main menu</item>
+        <item>@string/item_game_rules</item>
+        <item>@string/item_return_to_main_menu</item>
     </string-array>
 
-    <string-array name="won_menu">
-        <item>Start new game</item>
-        <item>Give cards again</item>
-        <item>Return to main menu</item>
+    <string-array name="won_menu" translatable="false">
+        <item>@string/dialog_start_new_game_title</item>
+        <item>@string/dialog_redeal_title</item>
+        <item>@string/item_return_to_main_menu</item>
     </string-array>
 
-    <string-array name="pref_orientation_titles">
-        <item>Follow system settings</item>
-        <item>Portrait</item>
-        <item>Landscape</item>
-        <item>Landscape upside down</item>
+    <string-array name="pref_orientation_titles" translatable="false">
+        <item>@string/settings_follow_system_settings</item>
+        <item>@string/settings_portrait</item>
+        <item>@string/settings_landscape</item>
+        <item>@string/settings_landscape_upside_down</item>
     </string-array>
 
-    <string-array name="pref_spider_difficulty_titles">
-        <item>1 (Easy)</item>
-        <item>2 (Medium)</item>
-        <item>4 (Hard)</item>
+    <string-array name="pref_spider_difficulty_titles" translatable="false">
+        <item>@string/settings_spider_difficultiy_1</item>
+        <item>@string/settings_spider_difficultiy_2</item>
+        <item>@string/settings_spider_difficultiy_3</item>
     </string-array>
 
-    <string-array name="pref_draw_titles">
-        <item>Draw 1</item>
-        <item>Draw 3</item>
+    <string-array name="pref_draw_titles" translatable="false">
+        <item>@string/settings_draw_1</item>
+        <item>@string/settings_draw_3</item>
     </string-array>
 
-    <string-array name="pref_pyramid_difficulty_titles">
-        <item>Easy: Game is won when tableau is empty</item>
-        <item>Hard: Game is won when tableau and stock are empty</item>
+    <string-array name="pref_pyramid_difficulty_titles" translatable="false">
+        <item>@string/settings_pyramid_difficulty_1</item>
+        <item>@string/settings_pyramid_difficulty_2</item>
     </string-array>
 
-    <string-array name="pref_language_titles">
-        <item>Default language</item>
-        <item>English</item>
-        <item>Esperanto</item>
-        <item>Finnish</item>
-        <item>French</item>
-        <item>German</item>
-        <item>Japanese</item>
-        <item>Polish</item>
-        <item>Turkish</item>
+    <string-array name="pref_language_titles" translatable="false">
+        <item>@string/settings_language_default</item>
+        <item>@string/settings_language_english</item>
+        <item>@string/settings_language_esperanto</item>
+        <item>@string/settings_language_finnish</item>
+        <item>@string/settings_language_french</item>
+        <item>@string/settings_language_german</item>
+        <item>@string/settings_language_japanese</item>
+        <item>@string/settings_language_polish</item>
+        <item>@string/settings_language_turkish</item>
     </string-array>
 
-    <!-- for translations: you can order pref_language_titles alphabetically in the new language,
-    if you want. Then the order of the values have to be adjusted too!-->
-    <string-array name="pref_language_values">
+    <string-array name="pref_language_values" translatable="false">
         <item>default</item>    <!-- do not translate this one! -->
         <item>en</item>         <!-- English -->
         <item>eo</item>         <!-- Esperanto -->
@@ -160,46 +158,46 @@
         <item>tr</item>         <!-- Turkish -->
     </string-array>
 
-    <string-array name="pref_yukon_rules_titles">
-        <item>different colors (Default)</item>
-        <item>same suit (Russian Solitaire)</item>
+    <string-array name="pref_yukon_rules_titles" translatable="false">
+        <item>@string/settings_yukon_rules_1</item>
+        <item>@string/settings_yukon_rules_2</item>
     </string-array>
 
-    <string-array name="pref_movement_speed_titles">
-        <item>Very slow</item>
-        <item>Slow</item>
-        <item>Normal</item>
-        <item>Fast</item>
+    <string-array name="pref_movement_speed_titles" translatable="false">
+        <item>@string/settings_movement_speed_1</item>
+        <item>@string/settings_movement_speed_2</item>
+        <item>@string/settings_movement_speed_3</item>
+        <item>@string/settings_movement_speed_4</item>
     </string-array>
 
-    <string-array name="pref_win_sounds_titles">
-        <item>Default</item>
-        <item>Piano</item>
-        <item>8-Bit voice \"You win\"</item>
-        <item>Cheering crowd</item>
+    <string-array name="pref_win_sounds_titles" translatable="false">
+        <item>@string/settings_win_sounds_1</item>
+        <item>@string/settings_win_sounds_2</item>
+        <item>@string/settings_win_sounds_3</item>
+        <item>@string/settings_win_sounds_4</item>
     </string-array>
 
-    <string-array name="pref_background_musics_titles">
-        <item>Disabled</item>
-        <item>Theme 1</item>
-        <item>Theme 2</item>
-        <item>Theme 3</item>
-        <item>Music Box</item>
+    <string-array name="pref_background_musics_titles" translatable="false">
+        <item>@string/settings_background_music_1</item>
+        <item>@string/settings_background_music_2</item>
+        <item>@string/settings_background_music_3</item>
+        <item>@string/settings_background_music_4</item>
+        <item>@string/settings_background_music_5</item>
     </string-array>
 
-    <string-array name="pref_canfield_size_of_reserve_titles">
-        <item>13 Cards (default)</item>
-        <item>10 Cards</item>
-        <item>7 Cards</item>
-        <item>4 Cards</item>
+    <string-array name="pref_canfield_size_of_reserve_titles" translatable="false">
+        <item>@string/settings_canfield_size_of_reserve_1</item>
+        <item>@string/settings_canfield_size_of_reserve_2</item>
+        <item>@string/settings_canfield_size_of_reserve_3</item>
+        <item>@string/settings_canfield_size_of_reserve_4</item>
     </string-array>
 
-    <string-array name="pref_developer_option_deal_correct_sequences_titles">
-        <item>Deactivated</item>
-        <item>Alternating color</item>
-        <item>Same family</item>
-        <item>Reversed alternating color</item>
-        <item>Reversed same family</item>
+    <string-array name="pref_developer_option_deal_correct_sequences_titles" translatable="false">
+        <item>@string/settings_developer_option_deal_correct_sequences_1</item>
+        <item>@string/settings_developer_option_deal_correct_sequences_2</item>
+        <item>@string/settings_developer_option_deal_correct_sequences_3</item>
+        <item>@string/settings_developer_option_deal_correct_sequences_4</item>
+        <item>@string/settings_developer_option_deal_correct_sequences_5</item>
     </string-array>
 
 </resources>

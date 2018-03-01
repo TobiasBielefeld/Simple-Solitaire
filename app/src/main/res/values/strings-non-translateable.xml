@@ -2,7 +2,11 @@
 
 <resources>
 
+    <string name="app_name" translatable="false">Simple Solitaire Collection</string>
+
     <!-- Preference Keys -->
+    <string name="pref_key_disable_undo_costs" translatable="false">pref_key_disable_undo_costs</string>
+    <string name="pref_key_disable_hint_costs" translatable="false">pref_key_disable_hint_costs</string>
     <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
     <string name="pref_key_menu_bar_position" translatable="false">pref_key_menu_bar_position</string>
     <string name="pref_key_menu_bar_position_portrait" translatable="false">pref_key_menu_bar_position_portrait</string>
@@ -78,11 +82,10 @@
     <string name="pref_key_developer_option_deal_correct_sequences" translatable="false">pref_key_developer_option_deal_correct_sequences </string>
     <string name="pref_key_use_true_randomisation" translatable="false">pref_key_use_true_randomisation</string>
     <string name="pref_key_max_number_undos" translatable="false">pref_key_max_number_undos</string>
-    <string name="pref_key_total_time_played" translatable="false">pref_key_total_time_played</string>
-    <string name="pref_key_total_points_earned" translatable="false">pref_key_total_points_earned</string>
-    <string name="pref_key_total_number_undos" translatable="false">pref_key_total_number_undos</string>
-    <string name="pref_key_total_hints_shown" translatable="false">pref_key_total_hints_shown</string>
 
+    <string name="pref_key_show_dialog_new_game" translatable="false">pref_key_show_dialog_new_game</string>
+    <string name="pref_key_show_dialog_redeal" translatable="false">pref_key_show_dialog_redeal</string>
+    <string name="pref_key_show_dialog_mix_cards" translatable="false">pref_key_show_dialog_mix_cards</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>
@@ -120,7 +123,6 @@
     <string name="game_won_and_reloaded" translatable="false">GameWonAndReloaded</string>
     <string name="game_recycle_count" translatable="false">GameRecycleCount</string>
     <string name="saved_scores" translatable="false">SavedScores</string>
-    <string name="saved_recent_scores" translatable="false">SavedRecentScores</string>
     <string name="score" translatable="false">Score</string>
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
 
