@@ -22,22 +22,31 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.autoMove;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /**
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
  */
 
-public class DialogInGameMenu extends DialogFragment {
+public class DialogInGameHelpMenu extends DialogFragment {
 
     @Override
     @NonNull
@@ -46,36 +55,40 @@ public class DialogInGameMenu extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle(lg.getGameName())
-                .setItems(R.array.restart_menu, new DialogInterface.OnClickListener() {
+                .setItems(R.array.help_menu, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // "which" argument contains index of selected item
                         switch (which) {
                             case 0:
-                                if (prefs.getShowDialogNewGame()) {
-                                    prefs.putShowDialogNewGame(false);
-                                    DialogStartNewGame dialogStartNewGame = new DialogStartNewGame();
-                                    dialogStartNewGame.show(getFragmentManager(), "START_NEW_GAME_DIALOG");
-                                } else {
-                                    gameLogic.newGame();
+                                if (!gameLogic.hasWon()) {
+                                    hint.showHint();
                                 }
                                 break;
                             case 1:
-                                if (prefs.getShowDialogRedeal()) {
-                                    prefs.putShowDialogRedeal(false);
-                                    DialogRedeal dialogRedeal = new DialogRedeal();
-                                    dialogRedeal.show(getFragmentManager(), "REDEAL_DIALOG");
-                                } else {
-                                    gameLogic.redeal();
+                                if (!gameLogic.hasWon()) {
+                                    autoMove.start();
                                 }
                                 break;
                             case 2:
-                                if (gameManager.hasLoaded) {
-                                    timer.save();
-                                    gameLogic.setWonAndReloaded();
-                                    gameLogic.save();
+                                if (!gameLogic.hasWon()) {
+                                    if (currentGame.hintTest() == null) {
+                                        if (prefs.getShowDialogMixCards()) {
+                                            prefs.putShowDialogMixCards(false);
+                                            DialogMixCards dialogMixCards = new DialogMixCards();
+                                            dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
+                                        } else {
+                                            currentGame.mixCards();
+                                        }
+                                    } else {
+                                        DialogMixCardsMovesAvailable dialogMixCardsStillMovesAvailable = new DialogMixCardsMovesAvailable();
+                                        dialogMixCardsStillMovesAvailable.show(getFragmentManager(), "MIX_DIALOG_MOVES_AVAILABLE");
+                                    }
                                 }
-
-                                gameManager.finish();
+                                break;
+                            case 3:
+                                Intent intent = new Intent(gameManager, Manual.class);
+                                intent.putExtra(GAME,lg.getSharedPrefName());
+                                startActivity(intent);
                                 break;
                         }
                     }

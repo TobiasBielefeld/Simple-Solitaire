@@ -43,11 +43,13 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.dialogs.DialogInGameHelpMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogInGameMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
+import de.tobiasbielefeld.solitaire.helper.AutoMove;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
@@ -108,6 +110,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         gameLogic = new GameLogic(gm);
         animate = new Animate(gm);
         autoComplete = new AutoComplete(gm);
+        autoMove = new AutoMove(gm);
         timer = new Timer(gm);
         sounds = new Sounds(gm);
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
@@ -600,9 +603,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
                 break;
             case R.id.mainButtonHint:           //show a hint
-                if (!gameLogic.hasWon()) {
-                    hint.showHint();
-                }
+                showHelpDialog();
                 break;
             case R.id.mainButtonRestart:        //show restart dialog
                 showRestartDialog();
@@ -629,6 +630,15 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             dialogInGameMenu.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e){
             Log.e("showRestartDialog: ", e.toString());
+        }
+    }
+
+    public void showHelpDialog() {
+        try {
+            DialogInGameHelpMenu dialog = new DialogInGameHelpMenu();
+            dialog.show(getSupportFragmentManager(), "HELP_MENU");
+        } catch (Exception e){
+            Log.e("showHelpDialog: ", e.toString());
         }
     }
 

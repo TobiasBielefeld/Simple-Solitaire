@@ -31,6 +31,7 @@ import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.handler.HandlerDealCards;
 import de.tobiasbielefeld.solitaire.handler.HandlerRecordListUndo;
+import de.tobiasbielefeld.solitaire.helper.AutoMove;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -73,6 +74,7 @@ public class SharedData {
     public static Animate animate;
 
     public static AutoComplete autoComplete;
+    public static AutoMove autoMove;
     public static Timer timer;
     public static Sounds sounds;
     public static RecordList recordList;

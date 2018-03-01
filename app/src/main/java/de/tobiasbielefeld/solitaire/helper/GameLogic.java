@@ -368,7 +368,7 @@ public class GameLogic {
      * @return True if no movement is allowed, false otherwise
      */
     public boolean stopConditions() {
-        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking());
+        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking() || autoMove.isRunning());
     }
 
     public boolean getMovedFirstCard(){

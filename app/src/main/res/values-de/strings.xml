@@ -20,7 +20,7 @@
 <!-- Menu -->
 <string name="menu_statistics">"Punkte"</string>
 <string name="menu_undo">"Zurück"</string>
-<string name="menu_hint">"Hinweis"</string>
+<string name="menu_hint">"Hilfe"</string>
 <string name="menu_main_menu">"Menü"</string>
 <string name="menu_settings">"Optionen"</string>
 
