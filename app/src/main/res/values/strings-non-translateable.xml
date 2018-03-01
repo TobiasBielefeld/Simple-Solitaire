@@ -4,7 +4,13 @@
 
     <string name="app_name" translatable="false">Simple Solitaire Collection</string>
 
+
+
     <!-- Preference Keys -->
+    <string name="pref_key_total_time_played" translatable="false">pref_key_total_time_played</string>
+    <string name="pref_key_total_points_earned" translatable="false">pref_key_total_points_earned</string>
+    <string name="pref_key_total_number_undos" translatable="false">pref_key_total_number_undos</string>
+    <string name="pref_key_total_hints_shown" translatable="false">pref_key_total_hints_shown</string>
     <string name="pref_key_disable_undo_costs" translatable="false">pref_key_disable_undo_costs</string>
     <string name="pref_key_disable_hint_costs" translatable="false">pref_key_disable_hint_costs</string>
     <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
@@ -120,6 +126,7 @@
     <string name="game_number_of_played_games" translatable="false">GameNumberOfPlayedGames</string>
     <string name="game_number_of_won_games" translatable="false">GameNumberOfWonGames</string>
     <string name="game_won" translatable="false">GameWon</string>
+    <string name="saved_recent_scores" translatable="false">SavedRecentScores</string>
     <string name="game_won_and_reloaded" translatable="false">GameWonAndReloaded</string>
     <string name="game_recycle_count" translatable="false">GameRecycleCount</string>
     <string name="saved_scores" translatable="false">SavedScores</string>
