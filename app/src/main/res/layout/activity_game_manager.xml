@@ -141,7 +141,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/title_activity_statistics"
-                app:srcCompat="@drawable/icon_scores" />
+                app:srcCompat="@drawable/icon_star" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"
@@ -171,7 +171,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/title_activity_statistics"
-                app:srcCompat="@drawable/icon_hint" />
+                app:srcCompat="@drawable/icon_lightbulb_on" />
 
             <TextView
                 style="@android:style/TextAppearance.Small"

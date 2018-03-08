@@ -99,15 +99,17 @@
     <string name="about_android_support_libraries_usage">Used for better design and easier development</string>
     <string name="about_material_icons_title">Material design icons</string>
     <string name="about_material_icons_usage">Used for all icons in this application</string>
+    <string name="about_material_icons_2_usage">The Support icon is published as \"lightbulb-on\" on &lt;a href="https://materialdesignicons.com/icon/lightbulb-on"&gt;materialdesignicons.com&lt;/a&gt;.</string>
+
     <string name="about_card_themes_title">Card themes</string>
-    <string name="about_card_themes_usage">The card themes were taken from <a href="https://pixabay.com/">pixabay.com</a>, for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt">here</a></string>
-    <string name="about_poker_themes_usage">Used as Poker theme - Available on <a href="https://sourceforge.net/projects/vector-cards/">sourceforge.net</a> - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
+    <string name="about_card_themes_usage">The card themes were taken from &lt;a href="https://pixabay.com/"&gt;pixabay.com&lt;/a&gt;, for detailed information click &lt;a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt"&gt;here&lt;/a&gt;</string>
+    <string name="about_poker_themes_usage">Used as Poker theme - Available on &lt;a href="https://sourceforge.net/projects/vector-cards/"&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
     <string name="about_custom_color_picker_title">AmbilWarna library</string>
     <string name="about_custom_color_picker_usage">Used for the custom color picker</string>
     <string name="about_sounds_title">Sounds</string>
-    <string name="about_sounds_usage">All sounds were originally published on <a href="https://freesound.org">freesound.org</a>, for detailed information click <a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt">here</a></string>
+    <string name="about_sounds_usage">All sounds were originally published on &lt;a href="https://freesound.org"&gt;freesound.org&lt;/a&gt;, for detailed information click &lt;a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt"&gt;here&lt;/a&gt;</string>
     <string name="about_sliding_tabs_title">PagerSlidingTabStrip library</string>
-    <string name="about_sliding_tabs_usage">Used for the tabs in the \"about game\" screen</string>
+    <string name="about_sliding_tabs_usage">Used for the tabs in the \"About game\" screen</string>
 
     <!-- Manual -->
 

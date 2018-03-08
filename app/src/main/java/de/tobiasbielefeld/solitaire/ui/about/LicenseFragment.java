@@ -40,6 +40,8 @@ public class LicenseFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_about_tab2, container, false);
 
         TextView textMaterialIconsLicense = (TextView) view.findViewById(R.id.about_license_material_icons);
+        TextView textMaterialIconsLicense2 = (TextView) view.findViewById(R.id.about_license_material_icons_2);
+        TextView textMaterialIconsUsage2 = (TextView) view.findViewById(R.id.about_license_material_icons_2_usage);
         TextView textCardThemesLicense = (TextView) view.findViewById(R.id.about_license_cards_theme);
         TextView textCardThemesLicenseUsage = (TextView) view.findViewById(R.id.about_license_card_themes_usage);
         TextView textPokerLicense = (TextView) view.findViewById(R.id.about_license_poker_theme);
@@ -50,14 +52,16 @@ public class LicenseFragment extends Fragment {
         TextView textSlidingTabsLicense = (TextView) view.findViewById(R.id.about_license_sliding_tabs);
         TextView textAndroidSupportLicense = (TextView) view.findViewById(R.id.about_license_android_support_libraries);
 
-        TextView[] textViews = new TextView[]{textMaterialIconsLicense, textCardThemesLicense, textCardThemesLicenseUsage,
-                textPokerLicense,textPokerLicenseUsage,textCustomColorPickerLicense,textSoundsLicense,textSoundsLicenseUsage,
-                textSlidingTabsLicense,textAndroidSupportLicense};
+        TextView[] textViews = new TextView[]{textMaterialIconsLicense, textMaterialIconsLicense2, textMaterialIconsUsage2,
+                textCardThemesLicense, textCardThemesLicenseUsage, textPokerLicense, textPokerLicenseUsage,
+                textCustomColorPickerLicense,textSoundsLicense,textSoundsLicenseUsage,
+                textSlidingTabsLicense, textAndroidSupportLicense};
 
         //explicitly set the strings here, otherwise the links in them wouldn't show properly
         textCardThemesLicenseUsage.setText(Html.fromHtml(getString(R.string.about_card_themes_usage)));
         textPokerLicenseUsage.setText(Html.fromHtml(getString(R.string.about_poker_themes_usage)));
         textSoundsLicenseUsage.setText(Html.fromHtml(getString(R.string.about_sounds_usage)));
+        textMaterialIconsUsage2.setText(Html.fromHtml(getString(R.string.about_material_icons_2_usage)));
 
         for (TextView textView : textViews){
             textView.setMovementMethod(LinkMovementMethod.getInstance());
