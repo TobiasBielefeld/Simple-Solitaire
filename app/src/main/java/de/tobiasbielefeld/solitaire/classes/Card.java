@@ -22,6 +22,7 @@ import android.graphics.Bitmap;
 import android.graphics.PointF;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -103,7 +104,7 @@ public class Card {
      * Save the card direction (up/down) as a string list.
      */
     public static void save() {
-        ArrayList<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>(cards.length);
 
         for (Card card : cards)
             list.add(card.isUp ? 1 : 0);
@@ -115,10 +116,9 @@ public class Card {
      * Load the card direction (up/down) from a string list and applies the data.
      */
     public static void load() {
-        ArrayList<Integer> list = prefs.getSavedCards();
+        List<Integer> list = prefs.getSavedCards();
 
         for (int i = 0; i < cards.length; i++) {
-
             if (list.get(i) == 1)
                 cards[i].flipUp();
             else

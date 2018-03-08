@@ -853,7 +853,7 @@ public class Preferences {
         savedGameData.edit().putBoolean(PREF_KEY_GAME_MOVED_FIRST_CARD,value).apply();
     }
 
-    public void saveCards(ArrayList<Integer> list){
+    public void saveCards(List<Integer> list){
         putIntList(PREF_KEY_CARDS,list);
     }
 
