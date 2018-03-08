@@ -44,7 +44,7 @@ import de.tobiasbielefeld.solitaire.R;
 
 public class ChangeLogFragment extends Fragment{
 
-    private static int MAX_LINES_PER_VERSION = 50;
+    private static int MAX_LINES_PER_VERSION = 10;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,25 +90,19 @@ public class ChangeLogFragment extends Fragment{
 
         List<CharSequence> stringList = new ArrayList<>(MAX_LINES_PER_VERSION);
 
-        try {
+        //load the lines from the changelog separately
+        for (int i=1;i<=MAX_LINES_PER_VERSION;i++){
 
-            for (int i=1;i<MAX_LINES_PER_VERSION;i++){
+            int ID = getResources().getIdentifier(
+                    "changelog_" + Integer.toString(pos) + "_" + Integer.toString(i),
+                    "string", getActivity().getPackageName());
 
-                int ID = getResources().getIdentifier(
-                        "changelog_" + Integer.toString(pos) + "_" + Integer.toString(i),
-                        "string", getActivity().getPackageName());
-
-                if (ID!=0){
-                    stringList.add(getString(ID));
-                } else {
-                    break;
-                }
-
+            if (ID!=0){
+                stringList.add(getString(ID));
+            } else {
+                break;
             }
-
-        } catch (Exception e) {
         }
-
 
         SpannableString spanns[] = new SpannableString[stringList.size()];
 
@@ -120,9 +114,6 @@ public class ChangeLogFragment extends Fragment{
 
         //set up the textView
         view.setText(TextUtils.concat(spanns));
-
-
-        //view.setText(getString(getResources().getIdentifier("changelog_" + Integer.toString(pos), "string", getActivity().getPackageName())));
 
         return view;
     }
