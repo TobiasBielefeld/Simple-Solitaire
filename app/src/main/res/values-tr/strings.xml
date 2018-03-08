@@ -18,9 +18,8 @@
 <string name="item_return_to_main_menu">"Anasayfaya geri dön"</string>
 
 <!-- Menu -->
-<string name="menu_statistics">"Puanlar"</string>
 <string name="menu_undo">"Geri Al"</string>
-<string name="menu_hint">"İpucu"</string>
+<string name="settings_support">"Destek"</string>
 <string name="menu_main_menu">"Menü"</string>
 <string name="menu_settings">"Ayarlar"</string>
 
@@ -80,7 +79,8 @@
 <string name="title_activity_manual">"Kılavuz"</string>
 <string name="title_activity_settings">"Ayarlar"</string>
 <string name="title_activity_about">"Hakkında"</string>
-<string name="title_activity_statistics">"En Yüksek Puanlar"</string>
+<string name="title_activity_statistics">"Istatistik"</string>
+<string name="statistics_high_scores">"En Yüksek Puanlar"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Bilgi"</string>

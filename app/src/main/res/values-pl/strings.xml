@@ -18,9 +18,7 @@
 <string name="item_return_to_main_menu">"Powrót do menu głównego"</string>
 
 <!-- Menu -->
-<string name="menu_statistics">"Punkty"</string>
 <string name="menu_undo">"Cofnij"</string>
-<string name="menu_hint">"Wskazówka"</string>
 <string name="menu_main_menu">"Menu"</string>
 <string name="menu_settings">"Ustawienia"</string>
 
@@ -80,7 +78,8 @@
 <string name="title_activity_manual">"Podręcznik"</string>
 <string name="title_activity_settings">"Ustawienia"</string>
 <string name="title_activity_about">"O grze"</string>
-<string name="title_activity_statistics">"Najlepsze wyniki"</string>
+<string name="title_activity_statistics">"Statystyka"</string>
+<string name="statistics_high_scores">"Najlepsze wyniki"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Informacje"</string>

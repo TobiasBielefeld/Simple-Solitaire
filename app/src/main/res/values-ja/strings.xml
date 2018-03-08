@@ -16,11 +16,10 @@
 <string name="item_return_to_main_menu">"メインメニューに戻る"</string>
 
 <!-- Menu -->
-<string name="menu_statistics">"スコア"</string>
 <string name="menu_undo">"元に戻す"</string>
-<string name="menu_hint">"ヒント"</string>
 <string name="menu_main_menu">"メニュー"</string>
 <string name="menu_settings">"設定"</string>
+<string name="settings_support">サポート</string>
 
 <!-- game names 
 
@@ -56,7 +55,8 @@
 <string name="title_activity_manual">"マニュアル"</string>
 <string name="title_activity_settings">"設定"</string>
 <string name="title_activity_about">"ゲームについて"</string>
-<string name="title_activity_statistics">"ハイスコア"</string>
+<string name="title_activity_statistics">"統計"</string>
+<string name="statistics_high_scores">"高得点"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"情報"</string>

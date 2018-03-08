@@ -18,9 +18,7 @@
 <string name="item_return_to_main_menu">"Revenir au menu principal"</string>
 
 <!-- Menu -->
-<string name="menu_statistics">"Points"</string>
 <string name="menu_undo">"Annuler"</string>
-<string name="menu_hint">"Indice"</string>
 <string name="menu_main_menu">"Menu"</string>
 <string name="menu_settings">"Réglages"</string>
 
@@ -80,7 +78,8 @@
 <string name="title_activity_manual">"Manuel"</string>
 <string name="title_activity_settings">"Réglages"</string>
 <string name="title_activity_about">"À propos du jeu"</string>
-<string name="title_activity_statistics">"Meilleurs scores"</string>
+<string name="title_activity_statistics">"Statistiques"</string>
+<string name="statistics_high_scores">"Meilleurs scores"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Information"</string>

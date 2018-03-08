@@ -69,6 +69,7 @@
         <item>@string/manual_main_menu</item>
         <item>@string/manual_ui</item>
         <item>@string/manual_games</item>
+        <item>@string/title_activity_statistics</item>
         <item>@string/manual_feedback</item>
         <item>@string/manual_back_to_game</item>
     </string-array>

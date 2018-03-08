@@ -18,9 +18,7 @@
 <string name="item_return_to_main_menu">"Reveni al ĉefmenuo"</string>
 
 <!-- Menu -->
-<string name="menu_statistics">"Poentaro"</string>
 <string name="menu_undo">"Malfari"</string>
-<string name="menu_hint">"Konsilo"</string>
 <string name="menu_main_menu">"Menuo"</string>
 <string name="menu_settings">"Agordoj"</string>
 
@@ -80,7 +78,7 @@
 <string name="title_activity_manual">"Manlibro"</string>
 <string name="title_activity_settings">"Agordoj"</string>
 <string name="title_activity_about">"Pri la ludo"</string>
-<string name="title_activity_statistics">"Plej bonaj rezultoj"</string>
+<string name="title_activity_statistics">"Statistikoj"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Informoj"</string>

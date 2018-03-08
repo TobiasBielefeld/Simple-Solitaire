@@ -27,20 +27,16 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 
 import static de.tobiasbielefeld.solitaire.SharedData.GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
 import static de.tobiasbielefeld.solitaire.SharedData.autoMove;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.hint;
 import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /**
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
@@ -54,7 +50,7 @@ public class DialogInGameHelpMenu extends DialogFragment {
         final GameManager gameManager = (GameManager) getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setTitle(lg.getGameName())
+        builder.setTitle(R.string.settings_support)
                 .setItems(R.array.help_menu, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // "which" argument contains index of selected item
