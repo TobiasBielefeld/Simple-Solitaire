@@ -139,10 +139,10 @@
     <string name="manual_ui_text_part_6">The \"Menu\" button shows three different actions:</string>
     <string name="manual_ui_text_part_7">Start a new game: Mixing the cards and draw a new deal.\n</string>
     <string name="manual_ui_text_part_8">Give cards again: Restart the current game with the same layout of cards.\n</string>
-    <string name="manual_ui_text_part_9"> Return to main menu: Save the current game state and show the game selection menu.\n</string>
+    <string name="manual_ui_text_part_9">Return to main menu: Save the current game state and show the game selection menu.\n</string>
     <string name="manual_ui_text_part_10">The \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements. (The amount can be increased in the expert settings)\n\nThe \"Settings\" button simply opens the settings menu.</string>
 
-    <string name="manual_statistics_part_1">Here you can see individual statistics for each game. Collected information are:</string>
+    <string name="manual_statistics_part_1">There are statistics collected for each game. You can access them from the in-game menu bar. Collected information are:</string>
     <string name="manual_statistics_part_2">The number of played and won games\n</string>
     <string name="manual_statistics_part_3">The total amount of earned score points\n</string>
     <string name="manual_statistics_part_4">The total amount of help functions used\n</string>
@@ -261,8 +261,6 @@
     <string name="settings_menu_games">Show and hide games</string>
     <string name="settings_menu_games_description">Select which games are shown in the menu</string>
     <string name="settings_about_description">Show information about the game like licenses and changelog</string>
-    <string name="settings_show_manual_in_menu">Manual page in game menu</string>
-    <string name="settings_show_manual_in_menu_description">Show an item to open the current game in the manual</string>
     <string name="settings_change_language">Change language</string>
     <string name="settings_yukon_rules">Place cards on…</string>
     <string name="settings_icon_theme">Icon theme</string>
