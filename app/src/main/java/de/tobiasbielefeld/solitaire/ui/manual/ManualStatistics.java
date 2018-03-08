@@ -32,7 +32,7 @@ import android.widget.TextView;
 import de.tobiasbielefeld.solitaire.R;
 
 /**
- * Just show a textView for the menu page
+ * Just show a textView for the menu page.
  */
 
 public class ManualStatistics extends Fragment {
@@ -43,6 +43,7 @@ public class ManualStatistics extends Fragment {
 
         TextView textView = (TextView) view.findViewById(R.id.manual_statistics_list);
 
+        //get the strings for the enumerated text part (with bullet characters)
         CharSequence strings[] = new CharSequence[]{
                 getText(R.string.manual_statistics_part_2), getText(R.string.manual_statistics_part_3),
                 getText(R.string.manual_statistics_part_4), getText(R.string.manual_statistics_part_5),
@@ -51,11 +52,13 @@ public class ManualStatistics extends Fragment {
 
         SpannableString spanns[] = new SpannableString[strings.length];
 
+        //apply the bullet characters
         for (int i=0;i<strings.length;i++){
             spanns[i] = new SpannableString(strings[i]);
             spanns[i].setSpan(new BulletSpan(15), 0, strings[i].length(), 0);
         }
 
+        //set up the textView
         textView.setText(TextUtils.concat(spanns));
 
         return view;

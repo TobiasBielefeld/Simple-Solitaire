@@ -43,6 +43,7 @@ public class ManualUserInterface extends Fragment {
         TextView textView1 = (TextView) view.findViewById(R.id.text_view_manual_ui_1);
         TextView textView2 = (TextView) view.findViewById(R.id.text_view_manual_ui_2);
 
+        //get the strings for the enumerated text part (with bullet characters)
         CharSequence strings1[] = new CharSequence[]{
                 getText(R.string.manual_ui_text_part_2), getText(R.string.manual_ui_text_part_3),
                 getText(R.string.manual_ui_text_part_4), getText(R.string.manual_ui_text_part_5)
@@ -56,6 +57,7 @@ public class ManualUserInterface extends Fragment {
         SpannableString spanns1[] = new SpannableString[strings1.length];
         SpannableString spanns2[] = new SpannableString[strings2.length];
 
+        //apply the bullet characters
         for (int i=0;i<strings1.length;i++){
             spanns1[i] = new SpannableString(strings1[i]);
             spanns1[i].setSpan(new BulletSpan(15), 0, strings1[i].length(), 0);
@@ -66,6 +68,7 @@ public class ManualUserInterface extends Fragment {
             spanns2[i].setSpan(new BulletSpan(15), 0, strings2[i].length(), 0);
         }
 
+        //set up the textViews
         textView1.setText(TextUtils.concat(spanns1));
         textView2.setText(TextUtils.concat(spanns2));
 
