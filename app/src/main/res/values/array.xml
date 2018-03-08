@@ -69,6 +69,7 @@
         <item>@string/manual_main_menu</item>
         <item>@string/manual_ui</item>
         <item>@string/manual_games</item>
+        <item>@string/title_activity_statistics</item>
         <item>@string/manual_feedback</item>
         <item>@string/manual_back_to_game</item>
     </string-array>
@@ -100,9 +101,14 @@
     <string-array name="restart_menu" translatable="false">
         <item>@string/dialog_start_new_game_title</item>
         <item>@string/dialog_redeal_title</item>
+        <item>@string/item_return_to_main_menu</item>
+    </string-array>
+
+    <string-array name="help_menu" translatable="false">
+        <item>@string/dialog_show_hints</item>
+        <item>@string/dialog_auto_move</item>
         <item>@string/dialog_mix_cards_title</item>
         <item>@string/item_game_rules</item>
-        <item>@string/item_return_to_main_menu</item>
     </string-array>
 
     <string-array name="won_menu" translatable="false">

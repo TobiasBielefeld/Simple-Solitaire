@@ -36,7 +36,8 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
+ * dialog which is shown after winning a game. It shows options to start a new game, or to return
+ * to the main menu. It also shows the current score.
  */
 
 public class DialogWon extends DialogFragment {

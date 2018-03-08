@@ -18,9 +18,7 @@
 <string name="item_return_to_main_menu">"Palaa päävalikkoon"</string>
 
 <!-- Menu -->
-<string name="menu_statistics">"Tulokset"</string>
 <string name="menu_undo">"Kumoa"</string>
-<string name="menu_hint">"Vihje"</string>
 <string name="menu_main_menu">"Valikko"</string>
 <string name="menu_settings">"Asetukset"</string>
 
@@ -68,7 +66,8 @@
 <string name="title_activity_manual">"Ohje"</string>
 <string name="title_activity_settings">"Asetukset"</string>
 <string name="title_activity_about">"Tietoa pelistä"</string>
-<string name="title_activity_statistics">"Ennätykset"</string>
+<string name="title_activity_statistics">"Tilasto"</string>
+<string name="statistics_high_scores">"Ennätykset"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Tietoa"</string>

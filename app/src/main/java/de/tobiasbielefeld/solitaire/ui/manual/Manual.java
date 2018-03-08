@@ -207,6 +207,9 @@ public class Manual extends CustomAppCompatActivity
             case R.id.nav_games:
                 fragmentClass = ManualGames.class;
                 break;
+            case R.id.nav_statistics:
+                fragmentClass = ManualStatistics.class;
+                break;
             case R.id.nav_feedback:
                 fragmentClass = ManualFeedback.class;
                 break;
@@ -227,7 +230,7 @@ public class Manual extends CustomAppCompatActivity
 
         checkMenuItem(position);
 
-        if (position == 5) {
+        if (position == 6) {
             finish();
             return;
         }
@@ -249,6 +252,9 @@ public class Manual extends CustomAppCompatActivity
                 fragmentClass = ManualGames.class;
                 break;
             case 4:
+                fragmentClass = ManualStatistics.class;
+                break;
+            case 5:
                 fragmentClass = ManualFeedback.class;
                 break;
         }

@@ -97,8 +97,13 @@ public class Vegas extends Klondike {
         boolean saveMoneyEnabled = prefs.getSavedVegasSaveMoneyEnabled();
         boolean resetMoney = prefs.getSavedVegasResetMoney();
 
-        //return true, to let the  addNewHighScore() save a possible score.
+        //return true, to let the  addNewScore() save a possible score.
         return !saveMoneyEnabled || resetMoney;
+    }
+
+    @Override
+    public boolean saveRecentScore(){
+        return prefs.getSavedVegasResetMoney();
     }
 
     private void loadData(){

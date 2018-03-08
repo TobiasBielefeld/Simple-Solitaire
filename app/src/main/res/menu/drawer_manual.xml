@@ -19,6 +19,9 @@
             android:id="@+id/nav_games"
             android:title="@string/manual_games" />
         <item
+            android:id="@+id/nav_statistics"
+            android:title="@string/title_activity_statistics" />
+        <item
             android:id="@+id/nav_feedback"
             android:title="@string/manual_feedback" />
     </group>

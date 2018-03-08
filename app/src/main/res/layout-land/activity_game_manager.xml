@@ -127,7 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/menu_statistics"
+                android:contentDescription="@string/title_activity_statistics"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 app:srcCompat="@drawable/icon_scores" />
@@ -145,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/menu_hint"
+                android:contentDescription="@string/title_activity_statistics"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 app:srcCompat="@drawable/icon_hint" />

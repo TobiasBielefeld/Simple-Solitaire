@@ -33,7 +33,6 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_CURRENT_GA
 public class GameSelector extends CustomAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener {
 
     private TableLayout tableLayout;
-    private NavigationView navigationView;
     private int menuColumns;
     private ArrayList<Integer> indexes = new ArrayList<>();
 
@@ -172,10 +171,6 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
     public void onResume() {
         super.onResume();
         loadGameList();
-
-        if (navigationView != null) {
-            navigationView.setCheckedItem(R.id.item_close);
-        }
     }
 
     /*

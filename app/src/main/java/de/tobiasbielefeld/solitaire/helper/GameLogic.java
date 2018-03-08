@@ -50,7 +50,7 @@ public class GameLogic {
      */
     public void checkFirstMovement() {
         if (!movedFirstCard) {
-            incrementPlayedGames();
+         //   incrementPlayedGames();
             movedFirstCard = true;
         }
     }
@@ -174,7 +174,8 @@ public class GameLogic {
     public void redeal() {
         //reset EVERYTHING
         if (!won) {                                                                                 //if the game has been won, the score was already saved
-            scores.addNewHighScore();
+            incrementPlayedGames();
+            scores.addNewScore(movedFirstCard || currentGame.saveRecentScore());
             currentGame.onGameEnd();
         }
 
@@ -224,9 +225,10 @@ public class GameLogic {
      */
     public void testIfWon() {
         if (!won && !autoComplete.isRunning() && ((prefs.isDeveloperOptionInstantWinEnabled() && movedFirstCard) || currentGame.winTest())) {
+            incrementPlayedGames();
             incrementNumberWonGames();
             scores.updateBonus();
-            scores.addNewHighScore();
+            scores.addNewScore(movedFirstCard);
             recordList.reset();
             timer.setWinningTime();
             autoComplete.hideButton();
@@ -366,6 +368,10 @@ public class GameLogic {
      * @return True if no movement is allowed, false otherwise
      */
     public boolean stopConditions() {
-        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking());
+        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking() || autoMove.isRunning());
+    }
+
+    public boolean getMovedFirstCard(){
+        return movedFirstCard;
     }
 }

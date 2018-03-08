@@ -149,6 +149,11 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
             updatePreferenceVegasBetAmountSummary();
             showToast(getString(R.string.settings_restart_vegas));
 
+        } else if (key.equals(PREF_KEY_VEGAS_MONEY_ENABLED)) {
+            if (!prefs.getSavedVegasSaveMoneyEnabled()) {
+                prefs.saveVegasResetMoney(true);
+            }
+
         } else if (key.equals(PREF_KEY_KLONDIKE_LIMITED_RECYCLES)) {
             if (currentGame instanceof Klondike) {
                 gameLogic.toggleRecycles(prefs.getSavedKlondikeLimitedRecycles());

@@ -140,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/menu_statistics"
+                android:contentDescription="@string/title_activity_statistics"
                 app:srcCompat="@drawable/icon_scores" />
 
             <TextView
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="@string/menu_statistics" />
+                android:text="@string/title_activity_statistics" />
         </LinearLayout>
 
         <LinearLayout
@@ -170,7 +170,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/menu_hint"
+                android:contentDescription="@string/title_activity_statistics"
                 app:srcCompat="@drawable/icon_hint" />
 
             <TextView
@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="@string/menu_hint" />
+                android:text="@string/settings_support" />
         </LinearLayout>
 
         <LinearLayout

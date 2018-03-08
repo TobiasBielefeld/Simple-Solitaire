@@ -18,9 +18,7 @@
 <string name="item_return_to_main_menu">"Zurück zum Hauptmenü"</string>
 
 <!-- Menu -->
-<string name="menu_statistics">"Punkte"</string>
 <string name="menu_undo">"Zurück"</string>
-<string name="menu_hint">"Hinweis"</string>
 <string name="menu_main_menu">"Menü"</string>
 <string name="menu_settings">"Optionen"</string>
 
@@ -80,7 +78,7 @@
 <string name="title_activity_manual">"Handbuch"</string>
 <string name="title_activity_settings">"Einstellungen"</string>
 <string name="title_activity_about">"Über das Spiel"</string>
-<string name="title_activity_statistics">"High Scores"</string>
+<string name="title_activity_statistics">"Statistiken"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Informationen"</string>
@@ -365,11 +363,11 @@ Nur Könige können auf leeren Tableau-Stapel und nur Asse können auf leere Fou
 Tippe den Haupt-Stapel an um Karten auf den Ablage-Stapel zu bewegen. Die Anzahl der Karten hängt dabei von den gewählten Einstellungen ab. Falls \"Draw 1\" aktiviert ist, wird nur eine Karte bewegt. Bei \"Draw 3\" hingegen 3 Karten auf einmal.
 
 Falls der Haupt-Stapel leer ist, tippe drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen. So können die Karten erneut verwendet werden."</string>
-<string name="manual_Vegas_scoring">"Die Höhe des gewinnbaren Geldbetrages hängt von dem Einsatz ab, welcher in den Einstellungen festgelegt wird. Man zahl zum Beispiel 50$ zu Beginn des Spiels und mit jeder Karte, die zur Foundation gespielt wird, gewinnt man 1/10 des Einsatzes. 
+<string name="manual_Vegas_scoring">"Die Höhe des gewinnbaren Geldbetrages hängt von dem Einsatz ab, welcher in den Einstellungen festgelegt wird. Man zahl zum Beispiel 52$ zu Beginn des Spiels und mit jeder Karte, die zur Foundation gespielt wird, gewinnt man 5$.
 
-Ein Spiel wird als \"Gewonnen\" gespeichert, falls die Punktzahl über 0$ liegt. Karten von der Foundation wegzubewegen kostet 2/10 des Einsatzes. 
+Ein Spiel wird als \"Gewonnen\" gespeichert, falls die Punktzahl über 0$ liegt. Karten von der Foundation wegzubewegen kostet 2 * 5$. 
 
-Das Benutzen der Undo- und Hinweisfunktion kostet ebenfalls 1/10 des Einsatzes. 
+Das Benutzen der Undo- und Hinweisfunktion kostet ebenfalls 5$. 
 
 HINWEIS: Es wird nicht für echtes Geld gespielt :)"</string>
 <string name="manual_Calculation_structure">"1 Deck aus 52 Karten.
@@ -581,4 +579,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="statistics_button_deleted_all_entries">"Alle Einträge gelöscht"</string>
 <string name="statistics_time_of_day">"Uhrzeit"</string>
 <string name="statistics_date">"Datum"</string>
+<string name="manual_ui_text_part_7">"Neues Spiel starten: Mische die Karten und gebe ein neues Spiel aus.
+"</string>
 </resources>

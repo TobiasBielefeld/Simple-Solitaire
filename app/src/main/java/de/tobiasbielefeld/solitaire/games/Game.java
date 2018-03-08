@@ -85,7 +85,7 @@ public abstract class Game {
         int counter;
         Card cardToChange;
 
-        //get the cards to mix
+        //getHighScore the cards to mix
         for (Card card : cards){
             if (!excludeCardFromMixing(card)){
                 cardsToMix.add(card);
@@ -363,6 +363,19 @@ public abstract class Game {
         return null;
     }
 
+    /**
+     * This method should deal a winnable game, by starting from a winning positon and shuffling the
+     * chards to the default deal position. Per default, this method will call the random dealCards()
+     * method.
+     */
+    public void dealWinnableGame(){
+        dealCards();
+    }
+
+    public boolean saveRecentScore(){
+        return false;
+    }
+
     //stuff that games can override if necessary
 
     /**
@@ -429,9 +442,9 @@ public abstract class Game {
      * So you can do other stuff for the high score list. For example, a game in Vegas is already won, when
      * the player makes profit, not only when all cards could be played on the foundation
      *
-     * Return false, if you want the  addNewHighScore() method to break, so possible high scores won't
+     * Return false, if you want the  addNewScore() method to break, so possible high scores won't
      * be saved. (eg in Vegas, if the player keeps the current balance, only save high score when
-     * the balance is resetting). Return fals other wise (default)
+     * the balance is resetting). Return false other wise (default)
      */
     public boolean processScore(long currentScore){
         return true;
@@ -441,13 +454,15 @@ public abstract class Game {
      * Use this to add stuff to the statistics screen of the game, like longest run.
      * Save and load the data withing the game. It will be shown in a textView under the
      * "your win rate" text
-     * <p>
      * IMPORTANT: Also implement deleteAdditionalStatisticsData() for reseting the data!
-     *
-     * @return the text to show
+     * <p>
+     * @param res   The ressources to get the string id's
+     * @param title the view for the title of your data, eg "Longest run"
+     * @param value the view for the value of the data
+     * @return True, if you actually set something, false to ignore this method
      */
-    public String getAdditionalStatisticsData(Resources res) {
-        return null;
+    public boolean setAdditionalStatisticsData(Resources res, TextView title, TextView value) {
+        return false;
     }
 
     /**
