@@ -39,6 +39,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The dynamic listview is an extension of listview that supports cell dragging
@@ -67,7 +68,7 @@ public class DynamicListView extends ListView {
     private final int MOVE_DURATION = 150;
     private final int LINE_THICKNESS = 15;
 
-    public ArrayList<String> gameList;
+    public List<String> gameList;
 
     private int mLastEventY = -1;
 
@@ -207,16 +208,18 @@ public class DynamicListView extends ListView {
 
     /** Retrieves the view in the list corresponding to itemID */
     public View getViewForID (long itemID) {
-        int firstVisiblePosition = getFirstVisiblePosition();
+        int size = getChildCount();
+        int position = getFirstVisiblePosition();
         StableArrayAdapter adapter = ((StableArrayAdapter)getAdapter());
-        for(int i = 0; i < getChildCount(); i++) {
-            View v = getChildAt(i);
-            int position = firstVisiblePosition + i;
-            long id = adapter.getItemId(position);
-            if (id == itemID) {
-                return v;
+
+        for(int i = 0; i < size; i++) {
+            if (itemID == adapter.getItemId(position)) {
+                return getChildAt(i);
             }
+
+            position++;
         }
+
         return null;
     }
 
@@ -368,10 +371,10 @@ public class DynamicListView extends ListView {
         }
     }
 
-    private void swapElements(ArrayList arrayList, int indexOne, int indexTwo) {
-        Object temp = arrayList.get(indexOne);
-        arrayList.set(indexOne, arrayList.get(indexTwo));
-        arrayList.set(indexTwo, temp);
+    private void swapElements(List list, int indexOne, int indexTwo) {
+        Object temp = list.get(indexOne);
+        list.set(indexOne, list.get(indexTwo));
+        list.set(indexTwo, temp);
     }
 
 
