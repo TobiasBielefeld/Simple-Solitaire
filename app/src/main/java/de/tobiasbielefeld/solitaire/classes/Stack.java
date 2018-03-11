@@ -364,23 +364,20 @@ public class Stack {
      * Applies the arrow image to the stack, if there should be one
      */
     public void applyArrow() {
-        if (arrowDirection != null) {
-            switch (arrowDirection) {
-                case LEFT:
-                    if (prefs.getSavedLeftHandedMode()) {
-                        view.setImageBitmap(Stack.arrowRight);
-                    } else {
-                        view.setImageBitmap(Stack.arrowLeft);
-                    }
-                    break;
-                case RIGHT:
-                    if (prefs.getSavedLeftHandedMode()) {
-                        view.setImageBitmap(Stack.arrowLeft);
-                    } else {
-                        view.setImageBitmap(Stack.arrowRight);
-                    }
-                    break;
-            }
+        if (arrowDirection == null) {
+            return;
+        }
+
+        final boolean leftHandedMode = prefs.getSavedLeftHandedMode();
+
+        if(arrowDirection == ArrowDirection.LEFT && leftHandedMode == true) {
+            view.setImageBitmap(Stack.arrowRight);
+        } else if(arrowDirection == ArrowDirection.LEFT && leftHandedMode == false) {
+            view.setImageBitmap(Stack.arrowLeft);
+        } else if(arrowDirection == ArrowDirection.RIGHT && leftHandedMode == true) {
+            view.setImageBitmap(Stack.arrowLeft);
+        } else if(arrowDirection == ArrowDirection.RIGHT && leftHandedMode == false) {
+            view.setImageBitmap(Stack.arrowRight);
         }
     }
 
