@@ -23,11 +23,11 @@ import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 import static de.tobiasbielefeld.solitaire.SharedData.stringFormat;
 
 /*
@@ -37,7 +37,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.stringFormat;
 public class DialogPreferenceMaxNumberUndos extends DialogPreference{
 
     private EditText input;
-    private Toast toast;
 
     public DialogPreferenceMaxNumberUndos(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -64,29 +63,14 @@ public class DialogPreferenceMaxNumberUndos extends DialogPreference{
             try {
                 //Saving zero would cause force closes, so just catch it here
                 if (Integer.parseInt(input.getText().toString()) < 1) {
-                    showToast(getContext().getString(R.string.settings_vegas_bet_amount_error));
+                    showToast(getContext().getString(R.string.settings_vegas_bet_amount_error),getContext());
                     return;
                 }
 
                 prefs.saveMaxNumberUndos(Integer.parseInt(input.getText().toString()));
             } catch (Exception e){
-                showToast(getContext().getString(R.string.settings_vegas_bet_amount_error));
+                showToast(getContext().getString(R.string.settings_vegas_bet_amount_error),getContext());
             }
         }
     }
-
-    /**
-     * Shows the given text as a toast. New texts override the old one.
-     *
-     * @param text The text to show
-     */
-    private void showToast(String text) {
-        if (toast == null) {
-            toast = Toast.makeText(getContext(), text, Toast.LENGTH_LONG);
-        } else
-            toast.setText(text);
-
-        toast.show();
-    }
-
 }

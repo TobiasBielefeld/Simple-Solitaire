@@ -18,14 +18,12 @@
 
 package de.tobiasbielefeld.solitaire.ui.statistics;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 
@@ -36,8 +34,6 @@ import de.tobiasbielefeld.solitaire.dialogs.DialogHighScoreDelete;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class StatisticsActivity extends CustomAppCompatActivity {
-
-    private Toast toast;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,20 +84,9 @@ public class StatisticsActivity extends CustomAppCompatActivity {
         scores.deleteScores();
         gameLogic.deleteStatistics();
         currentGame.deleteAdditionalStatisticsData();
-        showToast(getString(R.string.statistics_button_deleted_all_entries));
+        showToast(getString(R.string.statistics_button_deleted_all_entries),this);
 
         finish();
         startActivity(getIntent());
-    }
-
-    @SuppressLint("ShowToast")
-    private void showToast(String text) {
-        if (toast == null) {
-            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        } else {
-            toast.setText(text);
-        }
-
-        toast.show();
     }
 }

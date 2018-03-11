@@ -49,12 +49,6 @@
         android:title="@string/settings_show_main_menu" />
 
     <CheckBoxPreference
-        android:defaultValue="@bool/default_show_advaced_settings"
-        android:key="@string/pref_key_show_advanced_settings"
-        android:summary="@string/settings_show_advanced_settings_text"
-        android:title="@string/settings_show_advanced_settings" />
-
-    <CheckBoxPreference
         android:defaultValue="@bool/default_auto_start_new_game"
         android:key="@string/pref_key_auto_start_new_game"
         android:summary="@string/settings_auto_start_new_game_text"

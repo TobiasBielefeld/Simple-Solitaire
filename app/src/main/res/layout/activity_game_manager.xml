@@ -143,10 +143,12 @@
                 android:contentDescription="@string/title_activity_statistics"
                 app:srcCompat="@drawable/icon_star" />
 
-            <TextView
+            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/title_activity_statistics" />
@@ -173,10 +175,12 @@
                 android:contentDescription="@string/title_activity_statistics"
                 app:srcCompat="@drawable/icon_lightbulb_on" />
 
-            <TextView
+            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/settings_support" />
@@ -203,10 +207,12 @@
                 android:contentDescription="@string/menu_main_menu"
                 app:srcCompat="@drawable/icon_menu" />
 
-            <TextView
+            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_main_menu" />
@@ -234,10 +240,12 @@
                 android:contentDescription="@string/menu_undo"
                 app:srcCompat="@drawable/icon_undo" />
 
-            <TextView
+            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_undo" />
@@ -264,10 +272,12 @@
                 android:contentDescription="@string/menu_settings"
                 app:srcCompat="@drawable/icon_settings_black" />
 
-            <TextView
+            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_settings" />

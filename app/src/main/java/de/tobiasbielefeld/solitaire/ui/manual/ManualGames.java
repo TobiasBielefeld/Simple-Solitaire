@@ -33,7 +33,6 @@ import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
 
@@ -51,7 +50,6 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
     private ScrollView layout1, scrollView;
     private TextView textName, textStructure, textObjective, textRules, textScoring, textBonus;
-    private Toast toast;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -154,17 +152,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         } catch (Exception e) {
             //no page available
             Log.e("Manual page not found", e.toString());
-            showToast(getString(R.string.page_load_error));
+            showToast(getString(R.string.page_load_error),getContext());
         }
-    }
-
-    public void showToast(final String text) {
-        if (toast == null) {
-            toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
-        } else {
-            toast.setText(text);
-        }
-
-        toast.show();
     }
 }

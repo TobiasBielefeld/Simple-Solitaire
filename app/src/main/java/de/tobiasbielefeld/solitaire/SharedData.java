@@ -18,12 +18,14 @@
 
 package de.tobiasbielefeld.solitaire;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -74,11 +76,11 @@ public class SharedData {
     public static Animate animate;
 
     public static AutoComplete autoComplete;
-    public static AutoMove autoMove;
+    public static AutoMove autoMove = new AutoMove();
     public static Timer timer;
     public static Sounds sounds;
     public static RecordList recordList;
-    public static Hint hint = new Hint();
+    public static Hint hint;
     public static MovingCards movingCards = new MovingCards();
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
@@ -93,6 +95,8 @@ public class SharedData {
     public static HandlerDealCards handlerDealCards = new HandlerDealCards();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
+
+    private static Toast toast;
 
     /**
      * Reload the needed data. Because if the android device runs out of memory, the app gets
@@ -318,5 +322,20 @@ public class SharedData {
 
 
         //return new SecureRandom();        //or maybe use this
+    }
+
+    /**
+     * Shows the given text as a toast. New texts override the old one.
+     *
+     * @param text The text to show
+     */
+    @SuppressLint("ShowToast")
+    public static void showToast(String text, Context context) {
+        if (toast == null) {
+            toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
+        } else
+            toast.setText(text);
+
+        toast.show();
     }
 }

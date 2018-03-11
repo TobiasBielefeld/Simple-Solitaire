@@ -146,7 +146,7 @@ public class GameLogic {
             }
         } catch (Exception e) {
             Log.e(gm.getString(R.string.loading_data_failed), e.toString());
-            gm.showToast(gm.getString(R.string.game_load_error));
+            showToast(gm.getString(R.string.game_load_error),gm);
             newGame();
         }
     }

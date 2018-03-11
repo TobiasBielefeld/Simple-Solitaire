@@ -69,13 +69,15 @@
 
     <!-- dialogs-->
 
+    <string name="dialog_no_hint_available">No hint available!</string>
+    <string name="dialog_no_movement_possible">No movement to show!</string>
     <string name="dialog_win_titel">Congratulations!</string>
     <string name="dialog_win_score">Score: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
     <string name="dialog_mix_cards_title">Mix cards</string>
     <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>
-    <string name="dialog_mix_cards_not_available">There are still possible moves! (Use the hint function to show them)</string>
+    <string name="dialog_mix_cards_not_available">There are still possible moves!</string>
     <string name="dialog_start_new_game_title">Start new game</string>
     <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
     <string name="dialog_redeal_title">Give cards again</string>
@@ -344,8 +346,7 @@
     <string name="settings_developer_options_no_saving_title">Disable saving game state</string>
     <string name="settings_developer_options_no_saving_text">Movements in a game won\'t be saved anymore</string>
     <string name="settings_developer_options_deal_correct_sequences_title">Deal correct sequences</string>
-    <string name="settings_show_advanced_settings">Show advanced settings</string>
-    <string name="settings_show_advanced_settings_text">Unlock the expert and developer categories</string>
+    <string name="settings_show_advanced_settings_title">Unlock the developer categories</string>
     <string name="settings_max_number_undos">Maximum amount of undo movements</string>
     <string name="settings_expert_settings">Expert settings</string>
     <string name="settings_expert_settings_text">May be useful for some people</string>

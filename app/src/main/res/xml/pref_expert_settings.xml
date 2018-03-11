@@ -13,6 +13,11 @@
         android:title="@string/settings_use_true_randomisation_title" />
 
     <CheckBoxPreference
+        android:defaultValue="@bool/default_show_advaced_settings"
+        android:key="@string/pref_key_show_advanced_settings"
+        android:title="@string/settings_show_advanced_settings_title" />
+
+    <CheckBoxPreference
         android:defaultValue="@bool/default_disable_undo_costs"
         android:key="@string/pref_key_disable_undo_costs"
         android:title="@string/settings_diable_undo_costs" />

@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -37,6 +38,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.hint;
 import static de.tobiasbielefeld.solitaire.SharedData.lg;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 
 /**
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
@@ -76,8 +78,7 @@ public class DialogInGameHelpMenu extends DialogFragment {
                                             currentGame.mixCards();
                                         }
                                     } else {
-                                        DialogMixCardsMovesAvailable dialogMixCardsStillMovesAvailable = new DialogMixCardsMovesAvailable();
-                                        dialogMixCardsStillMovesAvailable.show(getFragmentManager(), "MIX_DIALOG_MOVES_AVAILABLE");
+                                        showToast(getString(R.string.dialog_mix_cards_not_available), getActivity());
                                     }
                                 }
                                 break;

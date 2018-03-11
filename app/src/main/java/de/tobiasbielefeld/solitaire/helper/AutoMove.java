@@ -38,21 +38,13 @@ public class AutoMove {
 
     public HandlerAutoMove handlerAutoMove = new HandlerAutoMove();
     private boolean running = false;                                                                  //shows if the autocomplete is still running
-    private boolean buttonShown = false;
-    private GameManager gm;
-
-    public AutoMove(GameManager gm) {
-        this.gm = gm;
-    }
 
     public void reset() {
-        handlerAutoMove.reset();
         running = false;
     }
 
     public void start() {
         running = true;
-        handlerAutoMove.reset();
         handlerAutoMove.sendEmptyMessage(0);
     }
 

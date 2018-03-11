@@ -64,7 +64,7 @@
 <!-- dialog mix cards -->
 <string name="dialog_mix_cards_title">"Karten mischen"</string>
 <string name="dialog_mix_cards_text">"Dies wird alle Karten mischen, bis auf korrekte Sequenzen und Karten auf der Foundation."</string>
-<string name="dialog_mix_cards_not_available">"Es sind noch Bewegungen möglich! (Benutze die Hinweisfunktion um sie zu zeigen)"</string>
+<string name="dialog_mix_cards_not_available">"Es sind noch Bewegungen möglich!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Neues Spiel starten"</string>
@@ -517,8 +517,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_developer_options_no_saving_title">"Deaktivere Spielstand Speicherung"</string>
 <string name="settings_developer_options_no_saving_text">"Bewegungen in den Spielen werden nicht mehr gespeichert"</string>
 <string name="settings_developer_options_deal_correct_sequences_title">"Gebe korrekte Sequenzen aus"</string>
-<string name="settings_show_advanced_settings">"Zeige fortgeschrittene Einstellungen"</string>
-<string name="settings_show_advanced_settings_text">"Schalte Experten und Entwickler Kategorien frei"</string>
+<string name="settings_show_advanced_settings_title">"Schalte Entwickler Kategorien frei"</string>
 <string name="settings_max_number_undos">"Maximale Anzahl der umkehrbaren Bewegungen"</string>
 <string name="settings_expert_settings">"Experten Einstellungen"</string>
 <string name="settings_expert_settings_text">"Könnten für Einige nützlich sein"</string>

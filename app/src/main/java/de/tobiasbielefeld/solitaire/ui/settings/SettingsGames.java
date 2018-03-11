@@ -26,7 +26,6 @@ import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import java.util.List;
 import java.util.Locale;
@@ -48,7 +47,6 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 public class SettingsGames extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private Toast toast;
     private Preference preferenceVegasBetAmount;
 
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
@@ -106,19 +104,19 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(PREF_KEY_KLONDIKE_DRAW)) {
-            showToast(getString(R.string.settings_restart_klondike));
+            showToast(getString(R.string.settings_restart_klondike),this);
 
         } else if (key.equals(PREF_KEY_VEGAS_DRAW)) {
-            showToast(getString(R.string.settings_restart_vegas));
+            showToast(getString(R.string.settings_restart_vegas),this);
 
         } else if (key.equals(PREF_KEY_CANFIELD_DRAW)) {
-            showToast(getString(R.string.settings_restart_canfield));
+            showToast(getString(R.string.settings_restart_canfield),this);
 
         } else if (key.equals(PREF_KEY_SPIDER_DIFFICULTY)) {
-            showToast(getString(R.string.settings_restart_spider));
+            showToast(getString(R.string.settings_restart_spider),this);
 
         } else if (key.equals(PREF_KEY_YUKON_RULES)) {
-            showToast(getString(R.string.settings_restart_yukon));
+            showToast(getString(R.string.settings_restart_yukon),this);
 
         } else if (key.equals(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES)) {
             if (currentGame instanceof FortyEight) {
@@ -147,7 +145,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
 
         } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT) || key.equals(PREF_KEY_VEGAS_WIN_AMOUNT)){
             updatePreferenceVegasBetAmountSummary();
-            showToast(getString(R.string.settings_restart_vegas));
+            showToast(getString(R.string.settings_restart_vegas),this);
 
         } else if (key.equals(PREF_KEY_VEGAS_MONEY_ENABLED)) {
             if (!prefs.getSavedVegasSaveMoneyEnabled()) {
@@ -165,7 +163,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
             }
 
         } else if (key.equals(PREF_KEY_CALCULATION_ALTERNATIVE)){
-            showToast(getString(R.string.settings_restart_calculation));
+            showToast(getString(R.string.settings_restart_calculation),this);
 
         }
     }
@@ -220,20 +218,6 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
         } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
-    }
-
-    /**
-     * Shows the given text as a toast. New texts override the old one.
-     *
-     * @param text The text to show
-     */
-    private void showToast(String text) {
-        if (toast == null) {
-            toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
-        } else
-            toast.setText(text);
-
-        toast.show();
     }
 
     private void updatePreferenceVegasBetAmountSummary(){

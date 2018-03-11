@@ -26,12 +26,14 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.games.Pyramid;
 
 import static de.tobiasbielefeld.solitaire.SharedData.animate;
 import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
 import static de.tobiasbielefeld.solitaire.SharedData.autoMove;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
 import static de.tobiasbielefeld.solitaire.SharedData.max;
 import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
 import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
@@ -44,37 +46,45 @@ import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 public class HandlerAutoMove extends Handler {
 
-    private final static int START_TIME = 300;                                                      //start velocity of the handler callings
-    private final static int DELTA_TIME = 5;                                                        //will be decreased on every call by this number
-    private final static int MIN_TIME = 50;                                                         //minimum to avoid errors
-    private int currentTime;                                                                        //current velocity of the handler calling
+    private final static int DELTA_TIME = 100;
+    private final static int DELTA_TIME_SHORT = 20;
+
+    private boolean testAfterMove = false;
 
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        //if the phase is 1 (moving on the tableau) wait until the moving animation is over
+        // wait until the moving animation is over
         if (animate.cardIsAnimating()) {
-            autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, currentTime);
+            autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME_SHORT);
         }
-        // else do the movement
-        else if (autoMove.isRunning()) {
+        //call the test after move method after every auto movement
+        else if (testAfterMove) {
+            currentGame.testAfterMove();
+            testAfterMove = false;
+            autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME_SHORT);
+            // else do the movement
+        } else if (autoMove.isRunning()) {
+
             CardAndStack cardAndStack = currentGame.hintTest();
 
-            if (cardAndStack != null) {
+            if (cardAndStack != null && !currentGame.autoCompleteStartTest()) {
                 movingCards.reset();
+
+                if (currentGame instanceof Pyramid){    //TODO manage this in another way
+                    currentGame.cardTest(cardAndStack.getStack(),cardAndStack.getCard());
+                }
+
                 movingCards.add(cardAndStack.getCard(), 0, 0);
                 movingCards.moveToDestination(cardAndStack.getStack());
 
-                currentTime = max(currentTime - DELTA_TIME, MIN_TIME);
+                testAfterMove = true;
+
                 //start the next handler in some milliseconds
-                autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, currentTime);
+                autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME);
             } else {
                 autoMove.reset();
             }
         }
-    }
-
-    public void reset() {
-        currentTime = START_TIME;
     }
 }

@@ -38,6 +38,7 @@ import android.widget.Toast;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
@@ -51,6 +52,7 @@ import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.AutoMove;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
+import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
@@ -74,7 +76,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRecycles;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
-    public Toast toast;                                                                             //a delicious toast!
     public View highlight;
     private long firstTapTime;                                                                       //stores the time of first tapping on a card
     private CardAndStack tapped = null;
@@ -105,12 +106,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //initialize my static helper stuff
         final GameManager gm = this;
 
-
+        hint = new Hint(gm);
         scores = new Scores(gm);
         gameLogic = new GameLogic(gm);
         animate = new Animate(gm);
         autoComplete = new AutoComplete(gm);
-        autoMove = new AutoMove(gm);
         timer = new Timer(gm);
         sounds = new Sounds(gm);
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
@@ -517,28 +517,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 mainRelativeLayoutBackground.setBackgroundColor(prefs.getSavedBackgroundCustomColor());
             }
         }
-    }
-
-
-
-    /**
-     * Shows a text as a toast, on ui thread, because some of my static helper stuff use this too.
-     *
-     * @param text The text to show
-     */
-    public void showToast(final String text) {
-        final GameManager gm = this;
-        runOnUiThread(new Runnable() {
-            public void run() {
-                if (toast == null)
-                    toast = Toast.makeText(gm, text, Toast.LENGTH_SHORT);
-                else
-                    toast.setText(text);
-
-                toast.show();
-            }
-        });
-
     }
 
     /**

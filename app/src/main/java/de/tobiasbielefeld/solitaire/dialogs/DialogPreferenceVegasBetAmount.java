@@ -23,11 +23,6 @@ import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 
@@ -40,7 +35,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class DialogPreferenceVegasBetAmount extends DialogPreference{
 
     private EditText input1, input2;
-    private Toast toast;
 
     public DialogPreferenceVegasBetAmount(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -70,23 +64,9 @@ public class DialogPreferenceVegasBetAmount extends DialogPreference{
                 prefs.saveVegasBetAmount(Integer.parseInt(input1.getText().toString()));
                 prefs.saveVegasWinAmount(Integer.parseInt(input2.getText().toString()));
             } catch (Exception e){
-                showToast(getContext().getString(R.string.settings_vegas_bet_amount_error));
+                showToast(getContext().getString(R.string.settings_vegas_bet_amount_error), getContext());
             }
         }
-    }
-
-    /**
-     * Shows the given text as a toast. New texts override the old one.
-     *
-     * @param text The text to show
-     */
-    private void showToast(String text) {
-        if (toast == null) {
-            toast = Toast.makeText(getContext(), text, Toast.LENGTH_LONG);
-        } else
-            toast.setText(text);
-
-        toast.show();
     }
 
 }
