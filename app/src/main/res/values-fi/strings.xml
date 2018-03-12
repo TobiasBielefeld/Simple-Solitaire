@@ -430,8 +430,6 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_menu_games">"Tuo esiin ja piilota pelejä"</string>
 <string name="settings_menu_games_description">"Valitse mitkä pelit näytetään valikossa"</string>
 <string name="settings_about_description">"Näytä tietoa pelistä kuten lisenssi ja muutosloki"</string>
-<string name="settings_show_manual_in_menu">"Ohjesivu pelivalikossa"</string>
-<string name="settings_show_manual_in_menu_description">"Näytä painike jolla avata kyseisen pelin ohje"</string>
 <string name="settings_change_language">"Vaihda kieli"</string>
 <string name="settings_yukon_rules">"Aseta kortit…"</string>
 <string name="settings_icon_theme">"Kuvake teema"</string>

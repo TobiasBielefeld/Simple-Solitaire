@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.ui.statistics;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,13 +52,6 @@ public class HighScoresFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_statistics_tab2, container, false);
 
-        int padding = (int) getResources().getDimension(R.dimen.statistics_table_padding);
-        int textSize = getResources().getInteger(R.integer.statistics_text_size);
-        TableRow row;
-
-        TableLayout tableLayout = (TableLayout) view.findViewById(R.id.statisticsTableHighScores);
-        TextView textNoEntries = (TextView) view.findViewById(R.id.statisticsTextNoEntries);
-
         //if the app got killed while the statistics are open and then the user restarts the app,
         //my helper classes aren't initialized so they can't be used. In this case, simply
         //close the statistics
@@ -70,53 +62,31 @@ public class HighScoresFragment extends Fragment{
             return view;
         }
 
+        TableLayout tableLayout = (TableLayout) view.findViewById(R.id.statisticsTableHighScores);
+        TextView textNoEntries = (TextView) view.findViewById(R.id.statisticsTextNoEntries);
+
         if (scores.getHighScore(0, 0) != 0) {
             textNoEntries.setVisibility(View.GONE);
         }
 
         for (int i = 0; i < Scores.MAX_SAVED_SCORES; i++) {                                         //for each entry in highScores, add a new view with it
-            if (scores.getHighScore(i, 0) == 0) {                                                         //if the score is zero, don't show it
+            if (scores.getHighScore(i, 0) == 0) {                                                //if the score is zero, don't show it
                 continue;
             }
 
-            row = new TableRow(getContext());
+            TableRow row = (TableRow) LayoutInflater.from(getContext()).inflate(R.layout.statistics_scores_row, null);
 
-            TextView textView1 = new TextView(getContext());
-            TextView textView2 = new TextView(getContext());
-            TextView textView3 = new TextView(getContext());
-            TextView textView4 = new TextView(getContext());
+            TextView textView1 = (TextView) row.findViewById(R.id.row_cell_1);
+            TextView textView2 = (TextView) row.findViewById(R.id.row_cell_2);
+            TextView textView3 = (TextView) row.findViewById(R.id.row_cell_3);
+            TextView textView4 = (TextView) row.findViewById(R.id.row_cell_4);
 
-            textView1.setText(String.format(Locale.getDefault(),
-                    "%s %s", scores.getHighScore(i, 0),dollar));
-            textView2.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d",               //add it to the view
-                    scores.getHighScore(i, 1) / 3600,
-                    (scores.getHighScore(i, 1) % 3600) / 60,
-                    (scores.getHighScore(i, 1) % 60)));
-
+            textView1.setText(String.format(Locale.getDefault(),"%s %s", scores.getHighScore(i, 0),dollar));
+            long time = scores.getHighScore(i, 1);
+            textView2.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d",time / 3600, (time % 3600) / 60, (time % 60)));
             textView3.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(scores.getHighScore(i, 2)));
-            //textView4.setText(DateFormat.getTimeInstance(DateFormat.SHORT).format(scores.getHighScore(i,2)));
             textView4.setText(new SimpleDateFormat("HH:mm", Locale.getDefault()).format(scores.getHighScore(i, 2)));
 
-            textView1.setPadding(padding, 0, padding, 0);
-            textView2.setPadding(padding, 0, padding, 0);
-            textView3.setPadding(padding, 0, padding, 0);
-            textView4.setPadding(padding, 0, padding, 0);
-
-            textView1.setTextSize(textSize);
-            textView2.setTextSize(textSize);
-            textView3.setTextSize(textSize);
-            textView4.setTextSize(textSize);
-
-            textView1.setGravity(Gravity.CENTER);
-            textView2.setGravity(Gravity.CENTER);
-            textView3.setGravity(Gravity.CENTER);
-            textView4.setGravity(Gravity.CENTER);
-
-            row.addView(textView1);
-            row.addView(textView2);
-            row.addView(textView3);
-            row.addView(textView4);
-            row.setGravity(Gravity.CENTER);
             tableLayout.addView(row);
         }
 

@@ -37,7 +37,7 @@ import android.widget.TextView;
 public class AutoResizingTextView extends android.support.v7.widget.AppCompatTextView {
 
     // Minimum text size for this text view
-    public static final float MIN_TEXT_SIZE = 20;
+    public static final float MIN_TEXT_SIZE = 5;
 
     // Interface for resize notifications
     public interface OnTextResizeListener {

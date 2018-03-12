@@ -434,8 +434,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_menu_games">"Zeige und verstecke Spiele"</string>
 <string name="settings_menu_games_description">"Wähle aus, welche Spiele im Menü angezeigt werden"</string>
 <string name="settings_about_description">"Zeige Informationen über das Spiel wie Lizenzen und Änderungen"</string>
-<string name="settings_show_manual_in_menu">"Handbuchseite im Spielemenü"</string>
-<string name="settings_show_manual_in_menu_description">"Zeige einen Punkt im Menü, um das aktuelle Spiel im Handbuch zu öffnen"</string>
 <string name="settings_change_language">"Sprache ändern"</string>
 <string name="settings_yukon_rules">"Lege Karten auf…"</string>
 <string name="settings_icon_theme">"Symbol Thema"</string>

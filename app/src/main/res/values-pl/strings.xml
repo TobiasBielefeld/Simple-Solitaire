@@ -443,8 +443,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_menu_games">"Pokaż i ukryj gry"</string>
 <string name="settings_menu_games_description">"Wybierz które gry mają być widoczne w menu"</string>
 <string name="settings_about_description">"Pokaż informacje o grze takie jak licencja i lista zmian"</string>
-<string name="settings_show_manual_in_menu">"Strona podręcznika w menu głównym"</string>
-<string name="settings_show_manual_in_menu_description">"Pokaż przycisk otwierający stronę dotyczącą gry w podręczniku"</string>
 <string name="settings_change_language">"Zmień język"</string>
 <string name="settings_yukon_rules">"Kładź karty na…"</string>
 <string name="settings_icon_theme">"Temat ikon"</string>

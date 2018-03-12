@@ -44,40 +44,48 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:paddingLeft="@dimen/statistics_table_padding"
                             android:paddingRight="@dimen/statistics_table_padding"
                             android:text="@string/game_score"
                             android:textColor="@android:color/black"
+                            android:textSize="@dimen/statistics_text_size"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:paddingLeft="@dimen/statistics_table_padding"
                             android:paddingRight="@dimen/statistics_table_padding"
                             android:text="@string/game_time"
                             android:textColor="@android:color/black"
+                            android:textSize="@dimen/statistics_text_size"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:paddingLeft="@dimen/statistics_table_padding"
                             android:paddingRight="@dimen/statistics_table_padding"
                             android:text="@string/statistics_date"
                             android:textColor="@android:color/black"
+                            android:textSize="@dimen/statistics_text_size"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:paddingLeft="@dimen/statistics_table_padding"
                             android:paddingRight="@dimen/statistics_table_padding"
                             android:text="@string/statistics_time_of_day"
                             android:textColor="@android:color/black"
+                            android:textSize="@dimen/statistics_text_size"
                             android:textStyle="bold" />
                     </TableRow>
 

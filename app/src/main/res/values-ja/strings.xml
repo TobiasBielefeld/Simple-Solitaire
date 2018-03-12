@@ -338,8 +338,6 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="settings_menu_games">"ゲームの表示と非表示"</string>
 <string name="settings_menu_games_description">"メニューに表示されるゲームを選択します"</string>
 <string name="settings_about_description">"ライセンスや変更履歴など、ゲームに関する情報を表示します"</string>
-<string name="settings_show_manual_in_menu">"ゲームメニューにマニュアルページ"</string>
-<string name="settings_show_manual_in_menu_description">"マニュアルに現在のゲームを開くためのアイテムを表示します"</string>
 <string name="settings_change_language">"言語の変更"</string>
 <string name="settings_follow_system_settings">"システム設定に従う"</string>
 <string name="settings_portrait">"縦向き"</string>

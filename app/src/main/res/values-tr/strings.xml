@@ -353,8 +353,6 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="settings_menu_games">"Oyunları göster ve gizle"</string>
 <string name="settings_menu_games_description">"Menüde hangi oyunların gösterileceğini seçin"</string>
 <string name="settings_about_description">"Lisanslar ve değişiklikler gibi oyun hakkında bilgi göster"</string>
-<string name="settings_show_manual_in_menu">"Oyun menüsünde Kılavuz sayfası"</string>
-<string name="settings_show_manual_in_menu_description">"Kılavuzda aktif oyunu açmak için bir öğe göster"</string>
 <string name="settings_change_language">"Şu anki dil"</string>
 <string name="settings_yukon_rules">"Karları şuraya yerleştir…"</string>
 <string name="settings_icon_theme">"Simge Teması"</string>

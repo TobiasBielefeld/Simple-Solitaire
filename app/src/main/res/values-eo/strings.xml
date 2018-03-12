@@ -442,8 +442,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_menu_games">"Montri kaj kaŝi ludojn"</string>
 <string name="settings_menu_games_description">"Elekti kiujn ludojn estas videblaj en menuo"</string>
 <string name="settings_about_description">"Montri informojn pri la ludo kiel permesilojn kaj ŝanĝoprotokolon"</string>
-<string name="settings_show_manual_in_menu">"Manlibra paĝo en ĉefmenuo"</string>
-<string name="settings_show_manual_in_menu_description">"Montri butonon por malfermi paĝon en manlibro pri nuna ludo"</string>
 <string name="settings_change_language">"Ŝanĝi lingvon"</string>
 <string name="settings_yukon_rules">"Meti kartojn sur…"</string>
 <string name="settings_icon_theme">"Piktograma etoso"</string>

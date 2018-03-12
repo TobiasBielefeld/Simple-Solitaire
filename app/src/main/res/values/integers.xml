@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="default_current_game">0</integer>
-    <integer name="statistics_text_size">18</integer>
     <integer name="number_of_card_backgrounds">9</integer>
     <integer name="number_of_card_themes">8</integer>
     <integer name="default_card_background">0</integer>
@@ -29,6 +28,5 @@
     <string name="default_klondike_number_of_recycles" translatable="false">3</string>
     <string name="default_canfield_size_of_reserve" translatable="false">13</string>
     <string name="default_developer_option_deal_correct_sequences" translatable="false">0</string>
-
 
 </resources>

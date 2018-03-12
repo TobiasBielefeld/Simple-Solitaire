@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/row_cell_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/statistics_table_padding"
+            android:paddingRight="@dimen/statistics_table_padding"
+            android:textSize="@dimen/statistics_text_size" />
+
+        <TextView
+            android:id="@+id/row_cell_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/statistics_table_padding"
+            android:paddingRight="@dimen/statistics_table_padding"
+            android:textSize="@dimen/statistics_text_size" />
+
+        <TextView
+            android:id="@+id/row_cell_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/statistics_table_padding"
+            android:paddingRight="@dimen/statistics_table_padding"
+            android:textSize="@dimen/statistics_text_size"/>
+
+        <TextView
+            android:id="@+id/row_cell_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/statistics_table_padding"
+            android:paddingRight="@dimen/statistics_table_padding"
+            android:textSize="@dimen/statistics_text_size"/>
+</TableRow>
