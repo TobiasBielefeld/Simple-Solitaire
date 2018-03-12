@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="layout_padding">25dp</dimen>
-    <dimen name="statistics_text_size">22sp</dimen>
     <dimen name="card_view_padding_horizontal">50dp</dimen>
 </resources>

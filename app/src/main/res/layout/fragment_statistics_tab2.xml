@@ -13,7 +13,10 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:paddingBottom="@dimen/card_view_padding_vertical"
+        android:paddingLeft="@dimen/card_view_padding_horizontal"
+        android:paddingRight="@dimen/card_view_padding_horizontal"
+        android:paddingTop="@dimen/card_view_padding_vertical">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"

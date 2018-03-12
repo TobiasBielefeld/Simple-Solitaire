@@ -30,4 +30,6 @@
     <dimen name="changelog_linear_layout_Padding">6dp</dimen>
 
     <dimen name="statistics_text_size">18sp</dimen>
+    <dimen name="card_view_padding_horizontal">10dp</dimen>
+    <dimen name="card_view_padding_vertical">10dp</dimen>
 </resources>

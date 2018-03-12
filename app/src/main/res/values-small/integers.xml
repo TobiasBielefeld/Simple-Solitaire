@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- changing these to integers would cause problems with already saved values -->
+    <string name="default_menu_columns_landscape" translatable="false">4</string>
+    <string name="default_menu_columns_portrait" translatable="false">3</string>
+</resources>
