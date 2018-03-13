@@ -79,11 +79,11 @@ public class Card {
             return;
         }
 
-	for (Card card : cards) {
-	    if (card.isUp() == true) {
-		card.setCardFront();
-	    }
-	}
+        for (Card card : cards) {
+            if (card.isUp() == true) {
+                card.setCardFront();
+            }
+        }
     }
 
     /**
@@ -94,11 +94,11 @@ public class Card {
         int positionY = prefs.getSavedCardBackgroundColor();
         background = bitmaps.getCardBack(positionX, positionY);
 
-        if (cards != null) {
+        if (cards == null) {
             return;
         }
 
-        for (Card card : cards)
+        for (Card card : cards) {
             if (card.isUp() == false) {
                 card.setCardBack();
             }
