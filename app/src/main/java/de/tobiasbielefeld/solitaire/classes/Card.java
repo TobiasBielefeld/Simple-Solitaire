@@ -75,28 +75,33 @@ public class Card {
             drawables[39 + i] = bitmaps.getCardFront(i, fourColors ? 5 : 4);
         }
 
-        if (cards != null) {
-            for (Card card : cards) {
-                if (card.isUp()) {
-                    card.setCardFront();
-                }
-            }
+        if (cards == null) {
+            return;
         }
+
+	for (Card card : cards) {
+	    if (card.isUp() == true) {
+		card.setCardFront();
+	    }
+	}
     }
 
     /**
      * Loads the card backgrounds for the bitmap file and applies them.
      */
     public static void updateCardBackgroundChoice() {
-
         int positionX = prefs.getSavedCardBackground();
         int positionY = prefs.getSavedCardBackgroundColor();
         background = bitmaps.getCardBack(positionX, positionY);
 
         if (cards != null) {
-            for (Card card : cards)
-                if (!card.isUp())
-                    card.setCardBack();
+            return;
+        }
+
+        for (Card card : cards)
+            if (card.isUp() == false) {
+                card.setCardBack();
+            }
         }
     }
 
