@@ -515,7 +515,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_developer_options_no_saving_title">"Deaktivere Spielstand Speicherung"</string>
 <string name="settings_developer_options_no_saving_text">"Bewegungen in den Spielen werden nicht mehr gespeichert"</string>
 <string name="settings_developer_options_deal_correct_sequences_title">"Gebe korrekte Sequenzen aus"</string>
-<string name="settings_show_advanced_settings_title">"Schalte Entwickler Kategorien frei"</string>
 <string name="settings_max_number_undos">"Maximale Anzahl der umkehrbaren Bewegungen"</string>
 <string name="settings_expert_settings">"Experten Einstellungen"</string>
 <string name="settings_expert_settings_text">"Könnten für Einige nützlich sein"</string>
@@ -576,6 +575,55 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="statistics_button_deleted_all_entries">"Alle Einträge gelöscht"</string>
 <string name="statistics_time_of_day">"Uhrzeit"</string>
 <string name="statistics_date">"Datum"</string>
+<string name="settings_diable_undo_costs">"Deaktiviere Strafpunkte für Zurücknehmen"</string>
+<string name="settings_diable_hint_costs">"Deaktiviere Strafpunkte für Hinweise"</string>
+<string name="statistics_high_scores">"High Scores"</string>
+<string name="statistics_recent_scores">"letzte Scores"</string>
+<string name="statistics_total_time">"Gespielte Zeit"</string>
+<string name="statistics_total_hints_shown">"Gezeigte Hinweise"</string>
+<string name="statistics_total_number_undos">"Zurückgenommene Bewegungen"</string>
+<string name="statistics_total_points_earned">"Erlangte Punkte"</string>
+<string name="statistics_no_entries">"Keine Einträge, spiele ein paar Runden!"</string>
+<string name="dialog_auto_move">"Automatisch Bewegen"</string>
+<string name="dialog_show_hints">"Zeige Hinweise"</string>
+<string name="manual_ui_text_part_1">"Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert. Das Menü enthält 5 Punkte, die folgendenen Zwecke erfüllen (Punkte von links nach rechts):
+
+Der \"Statistiken\" Punkt zeigt ein neues Fenster mit verschiedenen Statistiken zum aktuellen Spiel an, zum Beispiel die High Scores.
+
+Der \"Unterstützung\" Punkt wird ein kleines Hilfsmenü anzeigen. Hier kann ausgewählt werden:"</string>
+<string name="manual_ui_text_part_2">"Zeige Hinweise: zeigt bis zu 3 mögliche Karten Bewegungen an. Aber diese Aktion wird die aktuelle Punktzahl um 25 reduzieren. Bemerke, dass triviale Bewegungen wie das Bewegen von einer beliebigen Karte auf einen leeren Platz oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis angezeigt wird, wird auch die Punktzahl nicht reduziert.
+"</string>
+<string name="manual_ui_text_part_3">"Automatisch Bewegen: Bewege automatisch so viele Karten wie möglich. Diese Option ist für Situationen gedacht, falls zum Beispiel nur noch eine Karte zugedeckt ist, aber man müsste alle anderen Karten auf dem Stapel bewegen um an diese Karte gelangen. Also kann diese Option das Spiel etwas beschleunigen.
+"</string>
+<string name="manual_ui_text_part_4">"Karten mischen: Falls man in eine Situation gerät, in der keine weitere Bewegung möglich ist, kann diese Option zum Mischen der Karten verwendet werden. Karten die bereits in korrekter Reihenfolge sind oder Karten auf der Foundation werden beim Mischen ignoriert.
+"</string>
+<string name="manual_ui_text_part_5">"Spielregeln: Öffne direkt die Handbuchseite zum aktuellen Spiel.
+"</string>
+<string name="manual_ui_text_part_6">"Der \"Menü\" Punkt zeigt drei mögliche Aktionen an:"</string>
 <string name="manual_ui_text_part_7">"Neues Spiel starten: Mische die Karten und gebe ein neues Spiel aus.
 "</string>
+<string name="manual_ui_text_part_8">"Spiel wiederholen: Starte das Spiel mit dem selben Kartenlayout neu.
+"</string>
+<string name="manual_ui_text_part_9">"Zurück zum Hauptmenü: Speicher das aktuelle Spiel und zeige das Hauptmenü.
+"</string>
+<string name="manual_ui_text_part_10">"Der \"Zurück\" Punkt wird die letzte Kartenbewegung rückgängig machen, aber dies wird 25 Punkte kosten. Diese Aktion kann für die letzten 20 Kartenbewegungen genutzt werden. (Die Anzahl kann in den Experten Einstellungen vergrößert werden)
+
+Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
+<string name="manual_statistics_part_1">"Es werden für jedes Spiel Statistiken gesammelt. Sie können über das In-Game Menü erreicht werden. Gesammelte Informationen sind:"</string>
+<string name="manual_statistics_part_2">"Die Anzahl der gespielten und gewonnen Spiele
+"</string>
+<string name="manual_statistics_part_3">"Die Gesamtzahl der erreichten Punkte
+"</string>
+<string name="manual_statistics_part_4">"Die Gesamtzahl der genutzten Hilfsfunktionen
+"</string>
+<string name="manual_statistics_part_5">"Eine High-Score Liste mit bis zu 10 Einträgen, nur Scores über 0 werden hier gespeichert.
+"</string>
+<string name="manual_statistics_part_6">"Eine Liste mit den 10 letzten Scores"</string>
+<string name="manual_statistics_part_7">"Es ist auch möglich alle Daten für das aktuelle Spiel zu löschen, aber dies kann nicht rückgängig gemacht werden!"</string>
+<string name="about_material_icons_2_usage">"Das Unterstützungs-Icon wurde als \"lightbulb-on\" auf &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; veröffentlicht."</string>
+
+<!-- dialogs -->
+<string name="dialog_no_hint_available">"Kein Hinweis verfügbar!"</string>
+<string name="dialog_no_movement_possible">"Keine Bewegung zum zeigen!"</string>
+<string name="settings_show_advanced_settings_title">"Schalte Entwickler Kategorien frei"</string>
 </resources>
