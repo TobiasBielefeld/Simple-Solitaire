@@ -603,23 +603,17 @@ Przycisk „wsparcie” otworzy niewielkie manu pomocy. Będziesz mógł wybrać
 
 "</string>
 <string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę.
-
 "</string>
 <string name="manual_ui_text_part_4">"Tasuj karty: jeżeli stoisz w obliczu sytuacji, że nie ma już dostępnych ruchów, możesz użyć tej opcja, aby przetasować obecne karty. Zauważ, że karty już w poprawnej kolejności i karty na stosach bazowych nie zostaną przetasowane.
-
 "</string>
 <string name="manual_ui_text_part_5">"Zasady gry: otwiera stronę poradnika dotyczącą gry.
-
 "</string>
 <string name="manual_ui_text_part_6">"Przycisk „menu” wywołuje następujące trzy akcje:"</string>
 <string name="manual_ui_text_part_7">"Rozpocznij nową grę: przetasowuje karty i rozpoczyna nowe rozdanie.
-
 "</string>
 <string name="manual_ui_text_part_8">"Ponownie rozdaj karty: restartuje nową grę z tym samym układem kart.
-
 "</string>
 <string name="manual_ui_text_part_9">"Powrót do menu głównego: zapisuje stan obecnej gry i wyświetla menu wybory gry.
-
 "</string>
 <string name="manual_ui_text_part_10">"Przycisk „cofnij” cofa ostatni ruch, ale to będzie kosztowało 25 punktów. Można cofnąć maksymalnie 20 ostatnich ruchów. (można zwiększyć ten parametr w ustawieniach specjalistycznych)
 
