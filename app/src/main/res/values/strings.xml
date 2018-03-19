@@ -372,6 +372,9 @@
     <string name="settings_language_japanese">Japanese</string>
     <string name="settings_language_polish">Polish</string>
     <string name="settings_language_turkish">Turkish</string>
+    <string name="settings_language_italian">Italian</string>
+    <string name="settings_language_portuguese_brazil">Portuguese (Brazil)</string>
+    <string name="settings_language_ukrainian">Ukrainian</string>
     <string name="settings_yukon_rules_1">different colors (Default)</string>
     <string name="settings_yukon_rules_2">same suit (Russian Solitaire)</string>
     <string name="settings_movement_speed_1">Very slow</string>

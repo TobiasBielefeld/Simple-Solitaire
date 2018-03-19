@@ -147,9 +147,12 @@
         <item>@string/settings_language_finnish</item>
         <item>@string/settings_language_french</item>
         <item>@string/settings_language_german</item>
+        <item>@string/settings_language_italian</item>
         <item>@string/settings_language_japanese</item>
         <item>@string/settings_language_polish</item>
+        <item>@string/settings_language_portuguese_brazil</item>
         <item>@string/settings_language_turkish</item>
+        <item>@string/settings_language_ukrainian</item>
     </string-array>
 
     <string-array name="pref_language_values" translatable="false">
@@ -159,9 +162,12 @@
         <item>fi</item>         <!-- Finnish -->
         <item>fr</item>         <!-- French-->
         <item>de</item>         <!-- German -->
+        <item>it</item>         <!-- Italian -->
         <item>ja</item>         <!-- Japanese -->
         <item>pl</item>         <!-- Polish -->
+        <item>pt</item>     <!-- Portuguese (Brazil) -->
         <item>tr</item>         <!-- Turkish -->
+        <item>uk</item>         <!-- Ukrainian -->
     </string-array>
 
     <string-array name="pref_yukon_rules_titles" translatable="false">
