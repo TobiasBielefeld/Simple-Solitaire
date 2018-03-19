@@ -36,9 +36,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 
 public class AutoMove {
 
-    public HandlerAutoMove handlerAutoMove = new HandlerAutoMove();
+    public HandlerAutoMove handlerAutoMove;
     private boolean running = false;                                                                  //shows if the autocomplete is still running
 
+    public AutoMove(GameManager gm){
+        handlerAutoMove = new HandlerAutoMove(gm);
+    }
     public void reset() {
         running = false;
     }

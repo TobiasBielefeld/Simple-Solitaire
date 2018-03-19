@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.handler;
 
 import android.os.Handler;
 import android.os.Message;
-import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
@@ -36,7 +35,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class HandlerHint extends Handler {
 
-    boolean soundPlayed = false;
+    boolean showedFirstHint = false;
     GameManager gm;
 
     public HandlerHint(GameManager gm){
@@ -53,16 +52,16 @@ public class HandlerHint extends Handler {
                 cardAndStack = currentGame.hintTest();
 
                 if (cardAndStack == null) {
-                    if (!soundPlayed){
+                    if (!showedFirstHint){
                         showToast(gm.getString(R.string.dialog_no_hint_available),gm);
                     }
 
                     hint.stop();
 
                 } else {
-                    if (!soundPlayed) {
+                    if (!showedFirstHint) {
                         sounds.playSound(Sounds.names.HINT);
-                        soundPlayed = true;
+                        showedFirstHint = true;
 
                         int amount = prefs.getSavedTotalHintsShown() + 1;
                         prefs.saveTotalHintsShown(amount);
@@ -76,7 +75,7 @@ public class HandlerHint extends Handler {
 
             hint.handlerHint.sendEmptyMessageDelayed(0, 100);
         } else {
-            soundPlayed = false;
+            showedFirstHint = false;
             hint.setCounter(0);
         }
     }

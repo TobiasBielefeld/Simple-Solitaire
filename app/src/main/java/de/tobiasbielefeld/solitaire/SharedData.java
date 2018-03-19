@@ -76,10 +76,10 @@ public class SharedData {
     public static Animate animate;
 
     public static AutoComplete autoComplete;
-    public static AutoMove autoMove = new AutoMove();
     public static Timer timer;
     public static Sounds sounds;
     public static RecordList recordList;
+    public static AutoMove autoMove;
     public static Hint hint;
     public static MovingCards movingCards = new MovingCards();
     public static LoadGame lg = new LoadGame();

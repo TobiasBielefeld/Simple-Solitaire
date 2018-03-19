@@ -106,6 +106,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //initialize my static helper stuff
         final GameManager gm = this;
 
+        autoMove = new AutoMove(gm);
         hint = new Hint(gm);
         scores = new Scores(gm);
         gameLogic = new GameLogic(gm);
