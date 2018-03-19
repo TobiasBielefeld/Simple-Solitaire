@@ -47,16 +47,16 @@ public class InformationFragment extends Fragment{
         TextView textViewGitHubLink = (TextView) view.findViewById(R.id.aboutTextViewGitHubLink);               //link for the gitHub repo
         TextView textViewLicenseLink = (TextView) view.findViewById(R.id.aboutTextViewLicenseLink);
 
-        TextView textJapaneseContributors = (TextView) view.findViewById(R.id.about_japanese_contributers);
-        TextView textEsperantoContributors = (TextView) view.findViewById(R.id.about_esperanto_contributers);
-        TextView textPolishContributors = (TextView) view.findViewById(R.id.about_polish_contributers);
-        TextView textFrenchContributors = (TextView) view.findViewById(R.id.about_french_contributers);
-        TextView textFinnishContributors = (TextView) view.findViewById(R.id.about_finnish_contributers);
-        TextView textTurkishContributors = (TextView) view.findViewById(R.id.about_turkish_contributers);
+        TextView textJapaneseContributors = (TextView) view.findViewById(R.id.about_japanese_contributors);
+        TextView textEsperantoContributors = (TextView) view.findViewById(R.id.about_esperanto_contributors);
+        TextView textPolishContributors = (TextView) view.findViewById(R.id.about_polish_contributors);
+        TextView textFrenchContributors = (TextView) view.findViewById(R.id.about_french_contributors);
+        TextView textFinnishContributors = (TextView) view.findViewById(R.id.about_finnish_contributors);
+        TextView textTurkishContributors = (TextView) view.findViewById(R.id.about_turkish_contributors);
 
-        TextView textFurtherContributors1 = (TextView) view.findViewById(R.id.about_further_contributers_1);
-        TextView textFurtherContributors2 = (TextView) view.findViewById(R.id.about_further_contributers_2);
-        TextView textFurtherContributors3 = (TextView) view.findViewById(R.id.about_further_contributers_3);
+        TextView textFurtherContributors1 = (TextView) view.findViewById(R.id.about_further_contributors_1);
+        TextView textFurtherContributors2 = (TextView) view.findViewById(R.id.about_further_contributors_2);
+        TextView textFurtherContributors3 = (TextView) view.findViewById(R.id.about_further_contributors_3);
 
         String buildDate = DateFormat.getDateInstance().format(BuildConfig.TIMESTAMP);                          //get the build date in locale time format
 
