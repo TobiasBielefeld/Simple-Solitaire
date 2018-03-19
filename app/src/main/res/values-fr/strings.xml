@@ -587,7 +587,7 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="statistics_recent_scores">"Score récent"</string>
 <string name="statistics_total_time">"Temps joué"</string>
 <string name="statistics_total_hints_shown">"Indices montrés"</string>
-<string name="statistics_total_number_undos">"Les mouvements Annuler utilisés"</string>
+<string name="statistics_total_number_undos">"Mouvements Annuler utilisés"</string>
 <string name="statistics_total_points_earned">"Points gagnés"</string>
 <string name="statistics_no_entries">"Pas d'entrées, allez jouer des jeux !"</string>
 <string name="dialog_auto_move">"Mouvement automatique"</string>

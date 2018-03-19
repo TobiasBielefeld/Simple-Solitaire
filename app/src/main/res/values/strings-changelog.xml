@@ -13,7 +13,7 @@
     <string name="changelog_45_4" translatable="false">Added options to disable the costs of undo and hint movements\n</string>
     <string name="changelog_45_5" translatable="false">The expert settings are now always shown, but the developer options have to enabled from the expert settings menu\n</string>
     <string name="changelog_45_6" translatable="false">Updated some parts of the manual\n</string>
-    <string name="changelog_45_7" translatable="false">Added new layouts for different screen sizes\n</string>
+    <string name="changelog_45_7" translatable="false">Added partial translations for Ukrainian, Portuguese and Italian!\n</string>
     <string name="changelog_45_8" translatable="false">A lot of little changes and fixes</string>
 
     <string name="changelog_44_1" translatable="false">Fixing some issues</string>
