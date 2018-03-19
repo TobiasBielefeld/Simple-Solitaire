@@ -80,7 +80,7 @@ public class Card {
         }
 
         for (Card card : cards) {
-            if (card.isUp() == true) {
+            if (card.isUp()) {
                 card.setCardFront();
             }
         }
@@ -99,7 +99,7 @@ public class Card {
         }
 
         for (Card card : cards) {
-            if (card.isUp() == false) {
+            if (card.isUp()) {
                 card.setCardBack();
             }
         }
@@ -255,7 +255,6 @@ public class Card {
         }
 
         return !((!isUp() || (destination.getSize() != 0 && !destination.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(destination, this);
-        //return currentGame.cardTest(destination, this) && destination.topCardIsUp();
     }
 
     public int getColor() {
