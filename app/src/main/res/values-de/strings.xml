@@ -491,7 +491,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_pyramid_auto_move_text">"Bewege falls möglich Könige automatisch zum Foundation-Stapel"</string>
 <string name="settings_rules">"Regeln"</string>
 <string name="settings_money">"Geld"</string>
-<string name="settings_support">"Mithilfe"</string>
+<string name="settings_support">"Hilfe"</string>
 <string name="settings_hide_time">"Verstecke Zeit"</string>
 <string name="settings_hide_score">"Verstecke Score"</string>
 <string name="settings_single_tap_enable">"Erlaube Einmaltipp-Bewegungen"</string>
@@ -590,7 +590,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 
 Der \"Statistiken\" Punkt zeigt ein neues Fenster mit verschiedenen Statistiken zum aktuellen Spiel an, zum Beispiel die High Scores.
 
-Der \"Mithilfe\" Punkt wird ein kleines Hilfsmenü anzeigen. Hier kann ausgewählt werden:"</string>
+Der \"Hilfe\" Punkt wird ein kleines Hilfsmenü anzeigen. Hier kann ausgewählt werden:"</string>
 <string name="manual_ui_text_part_2">"Zeige Hinweise: zeigt bis zu 3 mögliche Karten Bewegungen an. Aber diese Aktion wird die aktuelle Punktzahl um 25 reduzieren. Bemerke, dass triviale Bewegungen wie das Bewegen von einer beliebigen Karte auf einen leeren Platz oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis angezeigt wird, wird auch die Punktzahl nicht reduziert.
 "</string>
 <string name="manual_ui_text_part_3">"Automatisch Bewegen: Bewege automatisch so viele Karten wie möglich. Diese Option ist für Situationen gedacht, falls zum Beispiel nur noch eine Karte zugedeckt ist, aber man müsste alle anderen Karten auf dem Stapel bewegen um an diese Karte gelangen. Also kann diese Option das Spiel etwas beschleunigen.
@@ -620,7 +620,7 @@ Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 "</string>
 <string name="manual_statistics_part_6">"Eine Liste mit den 10 letzten Scores"</string>
 <string name="manual_statistics_part_7">"Es ist auch möglich alle Daten für das aktuelle Spiel zu löschen, aber dies kann nicht rückgängig gemacht werden!"</string>
-<string name="about_material_icons_2_usage">"Das Mithilfe-Icon wurde als \"lightbulb-on\" auf &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; veröffentlicht."</string>
+<string name="about_material_icons_2_usage">"Das Hilfe-Icon wurde als \"lightbulb-on\" auf &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; veröffentlicht."</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"Keine Hinweise verfügbar!"</string>
