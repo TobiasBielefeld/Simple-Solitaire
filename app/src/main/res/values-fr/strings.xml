@@ -632,4 +632,7 @@ Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="dialog_no_hint_available">"Aucun indice disponible !"</string>
 <string name="dialog_no_movement_possible">"Pas de mouvement à montrer !"</string>
 <string name="settings_show_advanced_settings_title">"Déverrouiller les catégories de développeurs"</string>
+<string name="settings_language_italian">"Italiens"</string>
+<string name="settings_language_portuguese_brazil">"Portugais (Brésil)"</string>
+<string name="settings_language_ukrainian">"Ukrainien"</string>
 </resources>
