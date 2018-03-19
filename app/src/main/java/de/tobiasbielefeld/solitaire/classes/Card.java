@@ -99,7 +99,7 @@ public class Card {
         }
 
         for (Card card : cards) {
-            if (card.isUp()) {
+            if (!card.isUp()) {
                 card.setCardBack();
             }
         }
