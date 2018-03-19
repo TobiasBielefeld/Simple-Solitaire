@@ -54,15 +54,12 @@
 <string name="purple">"Roxo"</string>
 
 <!-- game stuff -->
-<string name="game_longest_run">"Seqüência longa
-"</string>
+<string name="game_longest_run">"Seqüência longa"</string>
 
 <!-- dialog won -->
 <string name="dialog_win_titel">"Parabéns!"</string>
-<string name="dialog_win_score">"Pontos: %1$d
-"</string>
-<string name="dialog_win_bonus">"Bonus: %1$d
-"</string>
+<string name="dialog_win_score">"Pontos: %1$d"</string>
+<string name="dialog_win_bonus">"Bonus: %1$d"</string>
 <string name="dialog_win_total">"Total: %1$d"</string>
 
 <!-- dialog mix cards -->
@@ -75,15 +72,14 @@
 <string name="dialog_start_new_game_text">"Seu jogo atual será perdido e um novo jogo aleatório será dado."</string>
 
 <!-- dialog redeal -->
-<string name="dialog_redeal_title">"Dê cartas novamente
-"</string>
+<string name="dialog_redeal_title">"Dê cartas novamente"</string>
 <string name="dialog_redeal_text">"Seu jogo atual será perdido, mas as cartas serão distribuidas como no jogo atual."</string>
 
 <!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="title_activity_manual">"Manual"</string>
 <string name="title_activity_settings">"Configurações"</string>
 <string name="title_activity_about">"Sobre o jogo"</string>
-<string name="title_activity_statistics">"Maiores pontuações"</string>
+<string name="title_activity_statistics">"Estatisticas"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Informação"</string>
@@ -91,8 +87,7 @@
 <string name="about_tab_3">"Changelog"</string>
 <string name="about_loading">"Carregando..."</string>
 <string name="about_developer">"Desenvolvedor"</string>
-<string name="about_developer_name">"Tobias Bielefeld
-"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Compilado em"</string>
 <string name="about_source_code">"Código fonte"</string>
 <string name="about_license">"Licença"</string>
@@ -101,8 +96,7 @@
 <string name="about_android_support_libraries_title">"Biblioteca de suporte Android"</string>
 <string name="about_android_support_libraries_usage">"Usado para melhor design e desenvolvimento mais fácil"</string>
 <string name="about_material_icons_title">"Material design icons"</string>
-<string name="about_material_icons_usage">"
-Usado para todos os ícones neste aplicativo"</string>
+<string name="about_material_icons_usage">"Usado para todos os ícones neste aplicativo"</string>
 <string name="about_card_themes_title">"Tema das cartas"</string>
 <string name="about_card_themes_usage">"Os temas das cartas foram obtidos de &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, para informações detalhadas clique &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;aqui&lt;/a&gt;"</string>
 <string name="about_poker_themes_usage">"tema usado para Poker - Disponível em &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
@@ -127,8 +121,7 @@ Usado para todos os ícones neste aplicativo"</string>
 <string name="page_load_error">"Nenhuma página para este jogo está disponível ..."</string>
 <string name="manual_bonus">"Depois de ganhar um jogo, você ganha um bônus: quanto mais rápido você ganhar, maior será o bônus."</string>
 <string name="manual_open_google_play">"Abra o Google Play"</string>
-<string name="manual_open_github">"Abra o repositório GitHub
-"</string>
+<string name="manual_open_github">"Abra o repositório GitHub"</string>
 <string name="manual_games_text1">"Escolha um jogo para mostrar sua forma, objetivo, regras e pontuação."</string>
 <string name="manual_startpage_text">"Bem-vindo ao manual desta coleção de jogos! Espero que ele explique tudo.
 
@@ -396,7 +389,7 @@ Não é possível mover cartas da pilha de descarte para a pilha principal (exce
 <string name="statistics_date"></string>
 <string name="settings_diable_undo_costs"></string>
 <string name="settings_diable_hint_costs"></string>
-<string name="statistics_high_scores"></string>
+<string name="statistics_high_scores">"Maiores pontuações"</string>
 <string name="statistics_recent_scores"></string>
 <string name="statistics_total_time"></string>
 <string name="statistics_total_hints_shown"></string>
