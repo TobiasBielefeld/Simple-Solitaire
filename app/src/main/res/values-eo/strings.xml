@@ -609,7 +609,6 @@ La butono “subteno” malfermos etan helpan menuon. Tie vi povos elekti:"</str
 "</string>
 <string name="manual_ui_text_part_6">"La butono “menuo” ebligas tri diversajn agojn:"</string>
 <string name="manual_ui_text_part_7">"Komenci novan ludon: miksi kartojn kaj redisdoni ilin.
-
 "</string>
 <string name="manual_ui_text_part_8">"Disdoni kartojn ree: restari la nunan ludon kun la sama ordo de kartoj.
 "</string>
@@ -620,16 +619,12 @@ La butono “subteno” malfermos etan helpan menuon. Tie vi povos elekti:"</str
 La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 <string name="manual_statistics_part_1">"Estas statistikoj por ĉiu ludo. Vi povas aliri ilin per en-luda menu-breto. Kolektataj informoj estas:"</string>
 <string name="manual_statistics_part_2">"nombro da ludataj ludoj kaj venkoj
-
 "</string>
 <string name="manual_statistics_part_3">"tuto da akiritaj poentoj
-
 "</string>
 <string name="manual_statistics_part_4">"tuto da uzitaj helpiloj
-
 "</string>
 <string name="manual_statistics_part_5">"listo de plejbonuloj kun maksimume 10 rezultoj, nur pozitivaj rezultoj estos konservitaj
-
 "</string>
 <string name="manual_statistics_part_6">"listo de poentaroj de 10 lastaj ludoj"</string>
 <string name="manual_statistics_part_7">"Ankaŭ eblas forviŝi ĉiujn datumojn pri la nuna ludo, sed tio ĉi estas neinversigebla!"</string>
