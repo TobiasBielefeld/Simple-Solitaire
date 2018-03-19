@@ -1,2 +1,429 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="app_version">"Versione"</string>
+<string name="settings">"Impostazioni"</string>
+<string name="game_manual">"Istruzioni"</string>
+<string name="game_score">"Punteggio"</string>
+<string name="game_time">"Tempo"</string>
+<string name="game_cancel">"Annulla"</string>
+<string name="game_confirm">"Conferma"</string>
+<string name="game_auto_complete_text">"Completa automaticamente"</string>
+<string name="game_press_again">"Premi ancora per uscire"</string>
+<string name="game_load_error">"Caricamento dati fallito, avvio di una nuova partita"</string>
+<string name="game_close">"Chiudi gioco"</string>
+<string name="game_main_menu">"Menu principale"</string>
+<string name="item_game_rules">"Regole del gioco"</string>
+<string name="item_return_to_main_menu">"Ritorna al menu principale"</string>
+
+<!-- Menu -->
+<string name="menu_undo">"Annulla"</string>
+<string name="menu_main_menu">"Menu"</string>
+<string name="menu_settings">"Impostazioni"</string>
+
+<!-- game names 
+
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Klondike"</string>
+<string name="games_Freecell">"FreeCell"</string>
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Spider"</string>
+<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_Golf">"Golf"</string>
+<string name="games_Pyramid">"Pyramid"</string>
+<string name="games_TriPeaks">"TriPeaks"</string>
+<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_Gypsy">"Gypsy"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"Canfield"</string>
+<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_Vegas">"Vegas"</string>
+<string name="games_Calculation">"Calculation"</string>
+
+<!-- colors -->
+<string name="blue">"Blu"</string>
+<string name="green">"Verde"</string>
+<string name="red">"Rosso"</string>
+<string name="yellow">"Giallo"</string>
+<string name="orange">"Arancione"</string>
+<string name="purple">"Viola"</string>
+
+<!-- game stuff -->
+<string name="game_longest_run">"Sequenza più lunga"</string>
+
+<!-- dialog won -->
+<string name="dialog_win_titel">"Congratulazioni!"</string>
+<string name="dialog_win_score">"Punteggio: %1$d"</string>
+<string name="dialog_win_bonus">"Bonus: %1$d"</string>
+<string name="dialog_win_total">"Totale: %1$d"</string>
+
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Mischia le carte"</string>
+<string name="dialog_mix_cards_text">"Questo mischierà tutte le carte, eccetto le sequenze corrette e le carte nella casa."</string>
+<string name="dialog_mix_cards_not_available">"Ci sono ancora mosse possibili! (Usa la funzione di aiuto per mostrarle)"</string>
+
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Comincia una nuova partita"</string>
+<string name="dialog_start_new_game_text">"I tuoi progressi correnti saranno persi e sarà avviata una nuova partita casuale."</string>
+
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Ridai le carte"</string>
+<string name="dialog_redeal_text">"I tuoi progressi correnti saranno persi, ma sarà"</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Manuale"</string>
+<string name="title_activity_settings">"Impostazioni"</string>
+<string name="title_activity_about">"Sul Gioco"</string>
+<string name="title_activity_statistics">"Statistiche"</string>
+
+<!-- About activity -->
+<string name="about_tab_1">"Informazioni"</string>
+<string name="about_tab_2">"Licenze"</string>
+<string name="about_tab_3">"Changelog"</string>
+<string name="about_loading">"Caricamento..."</string>
+<string name="about_developer">"Sviluppatore"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Compilato su"</string>
+<string name="about_source_code">"Cordice sorgente"</string>
+<string name="about_license">"Licenza"</string>
+<string name="about_translations">"Traduzioni"</string>
+<string name="about_further_contributors">"Altre contribuzioni"</string>
+<string name="about_android_support_libraries_title">"Android support library"</string>
+<string name="about_android_support_libraries_usage">"Usata per un design migliore e uno sviluppo più semplice"</string>
+<string name="about_material_icons_title">"Material design icons"</string>
+<string name="about_material_icons_usage">"Usata per tutte le icone in questa applicazione"</string>
+<string name="about_card_themes_title">"Card themes"</string>
+<string name="about_card_themes_usage">"I temi dei mazzi di carte sono presi da &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, per informazioni dettagliate clicca &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;qui&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"Usato come tema per il Poker - Disponibile su &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna library"</string>
+<string name="about_custom_color_picker_usage">"Usata per il color picker personalizzato"</string>
+<string name="about_sounds_title">"Suoni"</string>
+<string name="about_sounds_usage">"Tutti i suoni sono stati pubblicati inizialmente su &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, per informazioni dettagliate clicca &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;qui&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
+<string name="about_sliding_tabs_usage">"Usata per le tab nella schermata \"Sul Gioco\""</string>
+
+<!-- Manual -->
+<string name="manual_games">"Giochi"</string>
+<string name="manual_feedback">"Commenti"</string>
+<string name="manual_startpage">"Pagina iniziale"</string>
+<string name="manual_back_to_game">"Torna al gioco"</string>
+<string name="manual_structure">"Struttura"</string>
+<string name="manual_objective">"Obiettivo"</string>
+<string name="manual_rules">"Regole"</string>
+<string name="manual_scoring">"Attribuzione del punteggio"</string>
+<string name="manual_main_menu">"Menu principale"</string>
+<string name="manual_ui">"Interfaccia grafica"</string>
+<string name="page_load_error">"Nessuna pagina disponibile per questo gioco..."</string>
+<string name="manual_bonus">"Dopo aver vinto il gioco, ottieni un bonus: più veloce vinci, maggiore sarà il bonus."</string>
+<string name="manual_open_google_play">"Apri Google Play"</string>
+<string name="manual_open_github">"Apri Repo GitHub"</string>
+<string name="manual_games_text1">"Scegli un gioco per mostrare struttura, obiettivo, regole e attribuzione del punteggio."</string>
+<string name="manual_startpage_text">"Benvenuto nel manuale di questa collezione di giochi! Spero che chiarirà tutto.
+
+Usa il menu sulla sinistra per accedere alle altre pagine del manuale."</string>
+<string name="manual_general_main_menu">"L'uso del menu principale è relativamente semplice. Premi su un gioco per iniziarlo.
+
+Se rifatta partire, l'applicazione caricherà automaticamente l'ultima partita giocata, se la partita è stata messa in pausa. Questo comportamento può essere disabilitato nelle impostazioni sotto \"Generali\".
+
+Lì si può trovare la sezione \"Menu principale\", dove è possibile nascondere i giochi dal menu e cambiare il numero di colonne, cosicché più giochi stiano sulllo schermo."</string>
+<string name="manual_ui_text">"In una partita verrà sempre visualizzato un menu nella parte bassa dello schermo (Modalità verticale) o nella parte destra (Modalità orizzontale). Sarà inoltre visualizzato il punteggio corrente e il tempo trascorso in partita. Se possibile, questi due valori saranno salvati nella lista dei punteggi più alti. Il menu contiene 5 elementi, che hanno i seguenti effetti (bottoni da sinistra a destra):
+
+Il bottone \"Punteggi\" mostrerà una nuova finestra con i punteggi più alti e il numeri delle partite vinte del gioco corrente.
+
+Il bottone \"Aiuto\" ti aiuterà mostrandoti fino a tre movimenti possibili alla volta. Ma questo diminuirà il punteggio corrente di 25. Nota che movimenti semplici come spostare ogni carta in un campo vuoto o premere sul mazzo principale non sono mostrati come aiuti. Se non viene mostrato nessun aiuto, il punteggio non diminuisce.
+
+Il bottone \"Menu\" mostra tre azioni differenti: Comincia una nuova partita mischiando le carte ed estraendo una nuova mano. Ridai le carte fa lo stesso, ma senza mischiare. È come se ricominciasse la partita corrente. L'ultima opzione terminerà il gioco corrente e riporterà l'app al menu principale.
+
+Il bottone \"Annulla\" annullerà l'ultimo movimento, ma ti costerà 25 punti. Può essere usato per annullare fino a 20 movimenti.
+
+Il bottone \"Impostazioni\" aprirà semplicemente il menu delle impostazioni."</string>
+<string name="manual_feedback_text"></string>
+<string name="manual_Klondike_structure"></string>
+<string name="manual_Klondike_objective"></string>
+<string name="manual_Klondike_rules"></string>
+<string name="manual_Klondike_scoring"></string>
+<string name="manual_Freecell_structure"></string>
+<string name="manual_Freecell_objective"></string>
+<string name="manual_Freecell_rules"></string>
+<string name="manual_Freecell_scoring"></string>
+<string name="manual_Yukon_structure"></string>
+<string name="manual_Yukon_objective"></string>
+<string name="manual_Yukon_rules"></string>
+<string name="manual_Yukon_scoring"></string>
+<string name="manual_Spider_structure"></string>
+<string name="manual_Spider_objective"></string>
+<string name="manual_Spider_rules"></string>
+<string name="manual_Spider_scoring"></string>
+<string name="manual_SimpleSimon_structure"></string>
+<string name="manual_SimpleSimon_objective"></string>
+<string name="manual_SimpleSimon_rules"></string>
+<string name="manual_SimpleSimon_scoring"></string>
+<string name="manual_Golf_structure"></string>
+<string name="manual_Golf_objective"></string>
+<string name="manual_Golf_rules"></string>
+<string name="manual_Golf_scoring"></string>
+<string name="manual_Pyramid_structure"></string>
+<string name="manual_Pyramid_objective"></string>
+<string name="manual_Pyramid_rules"></string>
+<string name="manual_Pyramid_scoring"></string>
+<string name="manual_TriPeaks_structure"></string>
+<string name="manual_TriPeaks_objective"></string>
+<string name="manual_TriPeaks_rules"></string>
+<string name="manual_TriPeaks_scoring"></string>
+<string name="manual_FortyEight_structure"></string>
+<string name="manual_FortyEight_objective"></string>
+<string name="manual_FortyEight_rules"></string>
+<string name="manual_FortyEight_scoring"></string>
+<string name="manual_mod3_structure"></string>
+<string name="manual_mod3_objective"></string>
+<string name="manual_mod3_rules"></string>
+<string name="manual_mod3_scoring"></string>
+<string name="manual_Gypsy_structure"></string>
+<string name="manual_Gypsy_objective"></string>
+<string name="manual_Gypsy_rules"></string>
+<string name="manual_Gypsy_scoring"></string>
+<string name="manual_AcesUp_structure"></string>
+<string name="manual_AcesUp_objective"></string>
+<string name="manual_AcesUp_rules"></string>
+<string name="manual_AcesUp_scoring"></string>
+<string name="manual_Canfield_structure"></string>
+<string name="manual_Canfield_objective"></string>
+<string name="manual_Canfield_rules"></string>
+<string name="manual_Canfield_scoring"></string>
+<string name="manual_GrandfathersClock_structure"></string>
+<string name="manual_GrandfathersClock_objective"></string>
+<string name="manual_GrandfathersClock_rules"></string>
+<string name="manual_GrandfathersClock_scoring"></string>
+<string name="manual_Vegas_structure"></string>
+<string name="manual_Vegas_objective"></string>
+<string name="manual_Vegas_rules"></string>
+<string name="manual_Vegas_scoring"></string>
+<string name="manual_Calculation_structure"></string>
+<string name="manual_Calculation_objective"></string>
+<string name="manual_Calculation_rules"></string>
+<string name="manual_Calculation_scoring"></string>
+
+<!-- Settings -->
+<string name="settings_background_color"></string>
+<string name="settings_hide_status_bar"></string>
+<string name="settings_left_handed_mode"></string>
+<string name="settings_left_handed_mode_description"></string>
+<string name="settings_back_press"></string>
+<string name="settings_back_press_description"></string>
+<string name="settings_orientation"></string>
+<string name="settings_cards"></string>
+<string name="settings_classic"></string>
+<string name="settings_simple"></string>
+<string name="settings_cards_back"></string>
+<string name="settings_modern"></string>
+<string name="settings_abstract"></string>
+<string name="settings_basic"></string>
+<string name="settings_oxygen_dark"></string>
+<string name="settings_oxygen_light"></string>
+<string name="settings_poker"></string>
+<string name="settings_background"></string>
+<string name="settings_customization"></string>
+<string name="settings_other"></string>
+<string name="settings_other_description"></string>
+<string name="settings_games"></string>
+<string name="settings_games_description"></string>
+<string name="settings_spider_difficulty"></string>
+<string name="settings_klondike_draw"></string>
+<string name="settings_canfield_draw"></string>
+<string name="settings_show_main_menu"></string>
+<string name="settings_show_main_menu_description"></string>
+<string name="settings_golf_easy"></string>
+<string name="settings_golf_easy_description"></string>
+<string name="settings_restart_klondike"></string>
+<string name="settings_restart_canfield"></string>
+<string name="settings_restart_spider"></string>
+<string name="settings_restart_vegas"></string>
+<string name="settings_restart_fortyeight"></string>
+<string name="settings_restart_yukon"></string>
+<string name="settings_menu"></string>
+<string name="settings_menu_description"></string>
+<string name="settings_pyramid_difficulty"></string>
+<string name="settings_menu_columns"></string>
+<string name="settings_menu_games"></string>
+<string name="settings_menu_games_description"></string>
+<string name="settings_about_description"></string>
+<string name="settings_change_language"></string>
+<string name="settings_yukon_rules"></string>
+<string name="settings_icon_theme"></string>
+<string name="settings_menu_bar_position"></string>
+<string name="settings_menu_bar_position_top"></string>
+<string name="settings_menu_bar_position_bottom"></string>
+<string name="settings_menu_bar_position_left"></string>
+<string name="settings_menu_bar_position_right"></string>
+<string name="settings_4_color_mode_title"></string>
+<string name="settings_4_color_mode_text"></string>
+<string name="settings_additional_movements"></string>
+<string name="settings_additional_movements_description"></string>
+<string name="settings_double_tap"></string>
+<string name="settings_double_tap_enable"></string>
+<string name="settings_double_tap_enable_text"></string>
+<string name="settings_double_tap_all_cards"></string>
+<string name="settings_double_tap_all_cards_text"></string>
+<string name="settings_tap_to_select"></string>
+<string name="settings_tap_to_select_enable"></string>
+<string name="settings_tap_to_select_enable_text"></string>
+<string name="settings_single_tap"></string>
+<string name="settings_single_tap_enable_text"></string>
+<string name="settings_double_tap_foundation_first"></string>
+<string name="settings_double_tap_foundation_first_text"></string>
+<string name="settings_movement_speed"></string>
+<string name="Settings_sound"></string>
+<string name="Settings_sounds_title"></string>
+<string name="Settings_sounds_text"></string>
+<string name="Settings_win_sound_title"></string>
+<string name="Settings_background_music"></string>
+<string name="settings_background_color_custom"></string>
+<string name="Settings_background_volume"></string>
+<string name="settings_limit_number_of_recycles"></string>
+<string name="settings_limit_number_of_recycles_text"></string>
+<string name="settings_number_of_recycles"></string>
+<string name="settings_vegas_bet_amount"></string>
+<string name="settings_menu_order_title"></string>
+<string name="settings_menu_order_summary"></string>
+<string name="settings_menu_order_set_default"></string>
+<string name="settings_auto_start_new_game_title"></string>
+<string name="settings_auto_start_new_game_text"></string>
+<string name="settings_customization_description"></string>
+<string name="settings_force_tablet_layout_title"></string>
+<string name="settings_force_tablet_layout_text"></string>
+<string name="settings_restart_calculation"></string>
+<string name="settings_calculation_alternative_title"></string>
+<string name="settings_calculation_alternative_text"></string>
+<string name="settings_vegas_money_enabled"></string>
+<string name="settings_vegas_money_enabled_text"></string>
+<string name="settings_vegas_money_reset"></string>
+<string name="settings_vegas_money_reset_text"></string>
+<string name="settings_vegas_money_reset_confirm"></string>
+<string name="settings_auto_move_title"></string>
+<string name="settings_mod3_auto_move_text"></string>
+<string name="settings_pyramid_auto_move_text"></string>
+<string name="settings_rules"></string>
+<string name="settings_money"></string>
+<string name="settings_support"></string>
+<string name="settings_hide_time"></string>
+<string name="settings_hide_score"></string>
+<string name="settings_single_tap_enable"></string>
+<string name="settings_vegas_bet_amount_text_1"></string>
+<string name="settings_vegas_bet_amount_text_2"></string>
+<string name="settings_vegas_bet_amount_summary"></string>
+<string name="settings_single_tap_all_games_text"></string>
+<string name="settings_vegas_bet_amount_error"></string>
+<string name="settings_canfield_size_of_reserve_title"></string>
+<string name="settings_use_true_randomisation_title"></string>
+<string name="settings_use_true_randomisation_text"></string>
+<string name="settings_developer_options"></string>
+<string name="settings_developer_options_description"></string>
+<string name="settings_developer_options_move_card_everwhere_title"></string>
+<string name="settings_developer_options_move_card_everwhere_text"></string>
+<string name="settings_developer_options_lock_text"></string>
+<string name="settings_developer_options_play_every_card_title"></string>
+<string name="settings_developer_options_play_every_card_text"></string>
+<string name="settings_developer_options_instant_win_title"></string>
+<string name="settings_developer_options_instant_win_text"></string>
+<string name="settings_developer_options_no_saving_title"></string>
+<string name="settings_developer_options_no_saving_text"></string>
+<string name="settings_developer_options_deal_correct_sequences_title"></string>
+<string name="settings_max_number_undos"></string>
+<string name="settings_expert_settings"></string>
+<string name="settings_expert_settings_text"></string>
+<string name="settings_follow_system_settings"></string>
+<string name="settings_portrait"></string>
+<string name="settings_landscape"></string>
+<string name="settings_landscape_upside_down"></string>
+<string name="settings_spider_difficultiy_1"></string>
+<string name="settings_spider_difficultiy_2"></string>
+<string name="settings_spider_difficultiy_3"></string>
+<string name="settings_draw_1"></string>
+<string name="settings_draw_3"></string>
+<string name="settings_pyramid_difficulty_1"></string>
+<string name="settings_pyramid_difficulty_2"></string>
+<string name="settings_language_default"></string>
+<string name="settings_language_english"></string>
+<string name="settings_language_esperanto"></string>
+<string name="settings_language_finnish"></string>
+<string name="settings_language_french"></string>
+<string name="settings_language_german"></string>
+<string name="settings_language_japanese"></string>
+<string name="settings_language_polish"></string>
+<string name="settings_language_turkish"></string>
+<string name="settings_yukon_rules_1"></string>
+<string name="settings_yukon_rules_2"></string>
+<string name="settings_movement_speed_1"></string>
+<string name="settings_movement_speed_2"></string>
+<string name="settings_movement_speed_3"></string>
+<string name="settings_movement_speed_4"></string>
+<string name="settings_win_sounds_1"></string>
+<string name="settings_win_sounds_2"></string>
+<string name="settings_win_sounds_3"></string>
+<string name="settings_win_sounds_4"></string>
+<string name="settings_background_music_1"></string>
+<string name="settings_background_music_2"></string>
+<string name="settings_background_music_3"></string>
+<string name="settings_background_music_4"></string>
+<string name="settings_background_music_5"></string>
+<string name="settings_canfield_size_of_reserve_1"></string>
+<string name="settings_canfield_size_of_reserve_2"></string>
+<string name="settings_canfield_size_of_reserve_3"></string>
+<string name="settings_canfield_size_of_reserve_4"></string>
+<string name="settings_developer_option_deal_correct_sequences_1"></string>
+<string name="settings_developer_option_deal_correct_sequences_2"></string>
+<string name="settings_developer_option_deal_correct_sequences_3"></string>
+<string name="settings_developer_option_deal_correct_sequences_4"></string>
+<string name="settings_developer_option_deal_correct_sequences_5"></string>
+
+<!-- Statistics -->
+<string name="statistics_text_won_games"></string>
+
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage"></string>
+
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete"></string>
+<string name="statistics_button_delete_text"></string>
+<string name="statistics_button_deleted_all_entries"></string>
+<string name="statistics_time_of_day"></string>
+<string name="statistics_date"></string>
+<string name="settings_diable_undo_costs"></string>
+<string name="settings_diable_hint_costs"></string>
+<string name="statistics_high_scores"></string>
+<string name="statistics_recent_scores"></string>
+<string name="statistics_total_time"></string>
+<string name="statistics_total_hints_shown"></string>
+<string name="statistics_total_number_undos"></string>
+<string name="statistics_total_points_earned"></string>
+<string name="statistics_no_entries"></string>
+<string name="dialog_auto_move"></string>
+<string name="dialog_show_hints"></string>
+<string name="manual_ui_text_part_1"></string>
+<string name="manual_ui_text_part_2"></string>
+<string name="manual_ui_text_part_3"></string>
+<string name="manual_ui_text_part_4"></string>
+<string name="manual_ui_text_part_5"></string>
+<string name="manual_ui_text_part_6"></string>
+<string name="manual_ui_text_part_7"></string>
+<string name="manual_ui_text_part_8"></string>
+<string name="manual_ui_text_part_9"></string>
+<string name="manual_ui_text_part_10"></string>
+<string name="manual_statistics_part_1"></string>
+<string name="manual_statistics_part_2"></string>
+<string name="manual_statistics_part_3"></string>
+<string name="manual_statistics_part_4"></string>
+<string name="manual_statistics_part_5"></string>
+<string name="manual_statistics_part_6"></string>
+<string name="manual_statistics_part_7"></string>
+<string name="about_material_icons_2_usage"></string>
+
+<!-- dialogs -->
+<string name="dialog_no_hint_available"></string>
+<string name="dialog_no_movement_possible"></string>
+<string name="settings_show_advanced_settings_title"></string>
+</resources>
