@@ -600,7 +600,6 @@ Przycisk „statystyki” otwiera nowe okno zawierające różne statystyki doty
 
 Przycisk „wsparcie” otworzy niewielkie manu pomocy. Będziesz mógł wybrać:"</string>
 <string name="manual_ui_text_part_2">"Pokaż wskazówki: wyświetl maksymalnie 3 możliwe ruchy kart jednocześnie. Jednakże obniży to Twoją punktację o 25. Zauważ, że trywialne ruchy takie jak przeniesienie kart na puste pola, czy też stuknięcie w stos główny nie zostaną wyświetlone jako wskazówka. Jeżeli nie będzie możliwej wskazówki do pokazania, nie utracisz punktów.
-
 "</string>
 <string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę.
 "</string>
@@ -620,16 +619,12 @@ Przycisk „wsparcie” otworzy niewielkie manu pomocy. Będziesz mógł wybrać
 Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="manual_statistics_part_1">"Dla każdej gry są zbierane statystyki. Możesz się do nich dostać z belki głównej w każdej grze. Zbierane informacje to:"</string>
 <string name="manual_statistics_part_2">"liczba rozegranych i wygranych gier
-
 "</string>
 <string name="manual_statistics_part_3">"całkowita liczba zebranych punktów
-
 "</string>
 <string name="manual_statistics_part_4">"całkowita liczba użytych funkcji pomocy
-
 "</string>
 <string name="manual_statistics_part_5">"10 najlepszych wyników, tylko wyniki dodatnie są zapisywane
-
 "</string>
 <string name="manual_statistics_part_6">"wyniki 10 ostatnich gier"</string>
 <string name="manual_statistics_part_7">"Jest także możliwe wyczyszczenie wszystkich statystyk dla danej gry, ale ta operacja jest nieodwracalna!"</string>
