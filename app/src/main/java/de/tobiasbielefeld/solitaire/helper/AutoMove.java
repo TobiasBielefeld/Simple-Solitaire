@@ -18,15 +18,8 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
-import android.view.View;
-
-import de.tobiasbielefeld.solitaire.handler.HandlerAutoComplete;
 import de.tobiasbielefeld.solitaire.handler.HandlerAutoMove;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
-
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.sounds;
-
 /**
  * if the last card on the tableau is flipped up, the auto complete can be run. it simply test
  * every card from the tableau and the stock if they can be placed on the foundation.
