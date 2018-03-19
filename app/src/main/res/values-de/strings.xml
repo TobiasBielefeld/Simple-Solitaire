@@ -626,4 +626,7 @@ Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 <string name="dialog_no_hint_available">"Kein Hinweis verfügbar!"</string>
 <string name="dialog_no_movement_possible">"Keine Bewegung zu zeigen!"</string>
 <string name="settings_show_advanced_settings_title">"Schalte Entwickler Kategorien frei"</string>
+<string name="settings_language_italian">"Italienisch"</string>
+<string name="settings_language_portuguese_brazil">"Portugiesisch (Brasilien)"</string>
+<string name="settings_language_ukrainian">"Ukrainisch"</string>
 </resources>
