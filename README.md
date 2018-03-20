@@ -99,8 +99,8 @@ Also think of the other aspects of the GPL license!
 - [ ] ~~Add custom images for backgrounds~~ (Would require additional android permissions, I don't really want that)
 - [X] Add drag and drop feature to change the order of the games in the main menu
 
-## Translations (Help translating here: https://poeditor.com/join/project/PYX4vcwTjA)
-Thanks to the following persons for providing translations :D
+## Translations 
+Thanks to the following persons for providing translations :D (Help translating here: https://poeditor.com/join/project/PYX4vcwTjA)
 - Esperanto and Polish: verdulo
 - French: romainhk and cicithesquirrel
 - Japanese: naofum
