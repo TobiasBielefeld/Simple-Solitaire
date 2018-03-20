@@ -88,7 +88,7 @@ Also think of the other aspects of the GPL license!
 - [X] Add a color chooser for background color
 - [X] Improve the Highscores to a Statistics Activity (including date stamps)
 - [X] Find the reason why the game activity gets created two times when changing the screen orientation in game
-- [ ] Add a button to mix the cards if no movement can be done
+- [X] Add a button to mix the cards if no movement can be done
 - [X] Add 'Grandfathers Clock'
 - [ ] Add a Custom game maker, maybe
 - [X] Add a 'poker standard' card theme and 4 color themes
