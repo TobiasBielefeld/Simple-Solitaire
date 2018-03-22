@@ -88,10 +88,12 @@
     <string name="pref_key_developer_option_deal_correct_sequences" translatable="false">pref_key_developer_option_deal_correct_sequences </string>
     <string name="pref_key_use_true_randomisation" translatable="false">pref_key_use_true_randomisation</string>
     <string name="pref_key_max_number_undos" translatable="false">pref_key_max_number_undos</string>
-
     <string name="pref_key_show_dialog_new_game" translatable="false">pref_key_show_dialog_new_game</string>
     <string name="pref_key_show_dialog_redeal" translatable="false">pref_key_show_dialog_redeal</string>
     <string name="pref_key_show_dialog_mix_cards" translatable="false">pref_key_show_dialog_mix_cards</string>
+    <string name="pref_key_game_layout_margins" translatable="false">pref_key_game_layout_margins</string>
+    <string name="pref_key_game_layout_margins_portrait" translatable="false">pref_key_game_layout_margins_portrait</string>
+    <string name="pref_key_game_layout_margins_landscape" translatable="false">pref_key_game_layout_margins_landscape</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

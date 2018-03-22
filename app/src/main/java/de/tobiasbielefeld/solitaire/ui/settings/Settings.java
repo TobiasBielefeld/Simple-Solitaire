@@ -52,6 +52,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
     private Preference preferenceMaxNumberUndos;
+    private Preference preferenceGameLayoutMargins;
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
     private DialogPreferenceCardDialog preferenceCards;
@@ -199,6 +200,12 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             finish();
             startActivity(intent);
+        } else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)){
+            updatePreferenceGameLayoutMarginsSummary();
+
+            if (gameLogic != null) {
+                gameLogic.updateGameLayout();
+            }
         }
     }
 
@@ -276,6 +283,46 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
         preferenceMenuColumns.setSummary(text);
     }
 
+    private void updatePreferenceGameLayoutMarginsSummary(){
+        String textPortrait = "", textLandscape = "";
+
+        switch (prefs.getSavedGameLayoutMarginsPortrait()) {
+            case 0:
+                textPortrait = getString(R.string.settings_game_layout_margins_none);
+                break;
+            case 1:
+                textPortrait = getString(R.string.settings_game_layout_margins_small);
+                break;
+            case 2:
+                textPortrait = getString(R.string.settings_game_layout_margins_medium);
+                break;
+            case 3:
+                textPortrait = getString(R.string.settings_game_layout_margins_large);
+                break;
+        }
+
+        switch (prefs.getSavedGameLayoutMarginsLandscape()) {
+            case 0:
+                textLandscape = getString(R.string.settings_game_layout_margins_none);
+                break;
+            case 1:
+                textLandscape = getString(R.string.settings_game_layout_margins_small);
+                break;
+            case 2:
+                textLandscape = getString(R.string.settings_game_layout_margins_medium);
+                break;
+            case 3:
+                textLandscape = getString(R.string.settings_game_layout_margins_large);
+                break;
+        }
+
+        String text = String.format(Locale.getDefault(), "%s: %s\n%s: %s",
+                getString(R.string.settings_portrait), textPortrait, getString(R.string.settings_landscape), textLandscape);
+
+        preferenceGameLayoutMargins.setSummary(text);
+    }
+
+
     private void updatePreferenceMaxNumberUndos() {
         int amount = prefs.getSavedMaxNumberUndos();
 
@@ -320,7 +367,9 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
 
             settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
             settings.preferenceCards = (DialogPreferenceCardDialog) findPreference(getString(R.string.pref_key_cards));
+            settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
 
+            settings.updatePreferenceGameLayoutMarginsSummary();
             settings.updatePreferenceMenuBarPositionSummary();
         }
     }

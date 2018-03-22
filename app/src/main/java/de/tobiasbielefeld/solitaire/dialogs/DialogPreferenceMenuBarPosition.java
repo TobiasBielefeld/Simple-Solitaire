@@ -54,8 +54,6 @@ public class DialogPreferenceMenuBarPosition extends DialogPreference {
         left = (RadioButton) view.findViewById(R.id.dialog_button_landscape_left);
         right = (RadioButton) view.findViewById(R.id.dialog_button_landscape_right);
 
-
-        //minus 1 because the values are 1 to 10, indexes are from 0 to 9
         if (prefs.getSavedMenuBarPosPortrait().equals(BOTTOM)) {
             bottom.setChecked(true);
         } else {

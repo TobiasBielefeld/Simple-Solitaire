@@ -518,17 +518,71 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
+    public void applyGameLayoutMargins(RelativeLayout.LayoutParams params, boolean isLandscape){
+        int savedValue;
+        int margin = 0;
+
+        if (isLandscape){
+            savedValue = prefs.getSavedGameLayoutMarginsLandscape();
+        } else {
+            savedValue = prefs.getSavedGameLayoutMarginsPortrait();
+        }
+
+        switch (savedValue){
+            case 1:
+                margin = (int) getResources().getDimension(R.dimen.game_layout_margins_small);
+                break;
+            case 2:
+                margin = (int) getResources().getDimension(R.dimen.game_layout_margins_medium);
+                break;
+            case 3:
+                margin = (int) getResources().getDimension(R.dimen.game_layout_margins_large);
+                break;
+        }
+
+        params.setMargins(margin, 0, margin, 0);
+
+    }
+
+    public void updateGameLayout(){
+        updateMenuBar();
+
+        //wait until the game layout dimensions are known, then draw everything
+        ViewTreeObserver viewTreeObserver = layoutGame.getViewTreeObserver();
+        viewTreeObserver.addOnGlobalLayoutListener (new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    layoutGame.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    //noinspection deprecation
+                    layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+
+                initializeLayout();
+            }
+        });
+    }
     /**
      * Updates the menu bar position according to the user settings
      */
     public void updateMenuBar() {
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
+        //params for the menu bar
         RelativeLayout.LayoutParams params1;
+
+        //params for the gameLayout
         RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        applyGameLayoutMargins(params2,isLandscape);
+
+        //params for the game overlay
+        RelativeLayout.LayoutParams params3 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
         LinearLayout menu = (LinearLayout) findViewById(R.id.linearLayout);
         RelativeLayout gameWindow = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
-        RelativeLayout gameOverlay = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlay);
+        RelativeLayout gameOverlayLower = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlayLower);
+        RelativeLayout gameOverlayUpper = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlay);
 
         if (isLandscape) {
             params1 = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.menuBarWidht), ViewGroup.LayoutParams.MATCH_PARENT);
@@ -536,9 +590,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
                 params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
+                params3.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
                 params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayout);
+                params3.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayout);
             }
         } else {
             params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.menuBarHeight));
@@ -546,16 +602,19 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
                 params2.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
+                params3.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
 
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
                 params2.addRule(RelativeLayout.BELOW, R.id.linearLayout);
+                params3.addRule(RelativeLayout.BELOW, R.id.linearLayout);
             }
         }
 
         menu.setLayoutParams(params1);
         gameWindow.setLayoutParams(params2);
-        gameOverlay.setLayoutParams(params2);
+        gameOverlayLower.setLayoutParams(params2);
+        gameOverlayUpper.setLayoutParams(params3);
     }
 
     public void menuClick(View view) {

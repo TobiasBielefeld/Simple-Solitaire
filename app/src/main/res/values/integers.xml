@@ -15,6 +15,9 @@
     <integer name="default_vegas_money">0</integer>
     <integer name="default_max_number_undos">20</integer>
 
+    <integer name="default_game_layout_margins_portrait">0</integer>
+    <integer name="default_game_layout_margins_landscape">0</integer>
+
     <!-- changing these to integers would cause problems with already saved values -->
     <string name="default_menu_columns_landscape" translatable="false">6</string>
     <string name="default_menu_columns_portrait" translatable="false">4</string>
