@@ -629,4 +629,10 @@ Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 <string name="settings_language_italian">"Italienisch"</string>
 <string name="settings_language_portuguese_brazil">"Portugiesisch (Brasilien)"</string>
 <string name="settings_language_ukrainian">"Ukrainisch"</string>
+<string name="settings_game_layout_margins_title">"Spielfeld Ränder"</string>
+<string name="settings_game_layout_margins_text">"Füge Ränder zur linken und rechten Seite des Spielfelds hinzu. DIe Karten werden dadurch kleiner, aber werden weniger überlappen!"</string>
+<string name="settings_game_layout_margins_none">"Keine"</string>
+<string name="settings_game_layout_margins_small">"Klein"</string>
+<string name="settings_game_layout_margins_medium">"Medium"</string>
+<string name="settings_game_layout_margins_large">"Groß"</string>
 </resources>
