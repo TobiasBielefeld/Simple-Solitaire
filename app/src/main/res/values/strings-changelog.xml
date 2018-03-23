@@ -7,6 +7,9 @@
      -
     -->
 
+    <string name="changelog_46_1" translatable="false">Reverted the changes of the Freecell layout\n</string>
+    <string name="changelog_46_2" translatable="false">Instead added a new option in the \"Appearance\" settings to add margins to the game layout!</string>
+
     <string name="changelog_45_1" translatable="false">Changed the hint button to a support menu: All assisting options are now shown here\n</string>
     <string name="changelog_45_2" translatable="false">Added a new auto move option: It makes all currently possible movements if you are too lazy to do them yourself!\n</string>
     <string name="changelog_45_3" translatable="false">Improved the high-score list: It shows more statistics and also the 10 latest scores\n</string>
