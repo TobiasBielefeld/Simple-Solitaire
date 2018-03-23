@@ -634,4 +634,13 @@ La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 <string name="dialog_no_hint_available">"Neniu ebla konsilo!"</string>
 <string name="dialog_no_movement_possible">"Neniu movo por montri!"</string>
 <string name="settings_show_advanced_settings_title">"Malŝlosi programistajn agordojn"</string>
+<string name="settings_language_italian">"Itala"</string>
+<string name="settings_language_portuguese_brazil">"Portugala (Brazila)"</string>
+<string name="settings_language_ukrainian">"Ukraina"</string>
+<string name="settings_game_layout_margins_title">"Lud-aranĝaj marĝenoj"</string>
+<string name="settings_game_layout_margins_text">"Aldoni marĝenojn al dekstra kaj maldekstra flanko de lud-aranĝo. Kartoj aspektos malpli grandaj, sed surmeteco estos malpliigita!"</string>
+<string name="settings_game_layout_margins_none">"Neniuj"</string>
+<string name="settings_game_layout_margins_small">"Mallarĝaj"</string>
+<string name="settings_game_layout_margins_medium">"Mezaj"</string>
+<string name="settings_game_layout_margins_large">"Larĝaj"</string>
 </resources>
