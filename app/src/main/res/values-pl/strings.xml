@@ -634,4 +634,13 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="dialog_no_hint_available">"Brak dostępnych wskazówek!"</string>
 <string name="dialog_no_movement_possible">"Brak ruchów do wyświetlenia!"</string>
 <string name="settings_show_advanced_settings_title">"Odblokowanie kategorii deweloperów"</string>
+<string name="settings_language_italian">"Włoski"</string>
+<string name="settings_language_portuguese_brazil">"Portugalski (Brazylia)"</string>
+<string name="settings_language_ukrainian">"Ukraiński"</string>
+<string name="settings_game_layout_margins_title">"Marginesy układu gry"</string>
+<string name="settings_game_layout_margins_text">"Dodaje marginesy z lewej i prawej strony układu gry. Karty będą wyglądać na mniejsze, ale nakładanie się zostanie zredukowane!"</string>
+<string name="settings_game_layout_margins_none">"Brak"</string>
+<string name="settings_game_layout_margins_small">"Wąskie"</string>
+<string name="settings_game_layout_margins_medium">"Średnie"</string>
+<string name="settings_game_layout_margins_large">"Szerokie"</string>
 </resources>
