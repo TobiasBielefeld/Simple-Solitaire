@@ -502,7 +502,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_vegas_bet_amount_error">"Kann diese Zahlen nicht speichern!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Ändere Größe der Reserve (Einfacher)"</string>
 <string name="settings_use_true_randomisation_title">"Benutze echten Zufall"</string>
-<string name="settings_use_true_randomisation_text">"Die Standard Randomisierung vermeidet ähnliche Karten nebeneinander. Setze das Häkchen, um eine uniforme Randomisierung zu nutzen."</string>
+<string name="settings_use_true_randomisation_text">"Die Standard Randomisierung vermeidet ähnliche Karten übereinander. Setze das Häkchen, um eine uniforme Randomisierung zu nutzen."</string>
 <string name="settings_developer_options">"Entwickler Optionen"</string>
 <string name="settings_developer_options_description">"Spiele mit verrückten Einstellungen herum!"</string>
 <string name="settings_developer_options_move_card_everwhere_title">"Bewege Karten überall hin"</string>
