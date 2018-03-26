@@ -88,10 +88,12 @@
     <string name="pref_key_developer_option_deal_correct_sequences" translatable="false">pref_key_developer_option_deal_correct_sequences </string>
     <string name="pref_key_use_true_randomisation" translatable="false">pref_key_use_true_randomisation</string>
     <string name="pref_key_max_number_undos" translatable="false">pref_key_max_number_undos</string>
-
     <string name="pref_key_show_dialog_new_game" translatable="false">pref_key_show_dialog_new_game</string>
     <string name="pref_key_show_dialog_redeal" translatable="false">pref_key_show_dialog_redeal</string>
     <string name="pref_key_show_dialog_mix_cards" translatable="false">pref_key_show_dialog_mix_cards</string>
+    <string name="pref_key_game_layout_margins" translatable="false">pref_key_game_layout_margins</string>
+    <string name="pref_key_game_layout_margins_portrait" translatable="false">pref_key_game_layout_margins_portrait</string>
+    <string name="pref_key_game_layout_margins_landscape" translatable="false">pref_key_game_layout_margins_landscape</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>
@@ -133,16 +135,20 @@
     <string name="score" translatable="false">Score</string>
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
 
-    <!-- github profiles of contributers -->
-    <string name="contributers_verdulo" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
-    <string name="contributers_winjar" translatable="false"><a href="https://github.com/winjar">winjar</a></string>
-    <string name="contributers_dankan1890" translatable="false"><a href="https://github.com/dankan1890">dankan1890</a></string>
-    <string name="contributers_tryton_vanmeer" translatable="false"><a href="https://github.com/tryton-vanmeer">tryton-vanmeer</a></string>
-    <string name="contributers_naofum" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
-    <string name="contributers_sekmenhuseyin" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
-    <string name="contributers_romainhk_cicithesquirrel" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
-    <string name="contributers_todor_balabanov" translatable="false"><a href="https://github.com/TodorBalabanov">TodorBalabanov</a></string>
-    <string name="contributers_strooonger" translatable="false"><a href="https://github.com/strooonger">strooonger</a></string>
+    <!-- github profiles of contributors -->
+    <string name="contributors_verdulo" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
+    <string name="contributors_winjar" translatable="false"><a href="https://github.com/winjar">winjar</a></string>
+    <string name="contributors_dankan1890" translatable="false"><a href="https://github.com/dankan1890">dankan1890</a></string>
+    <string name="contributors_tryton_vanmeer" translatable="false"><a href="https://github.com/tryton-vanmeer">tryton-vanmeer</a></string>
+    <string name="contributors_naofum" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
+    <string name="contributors_sekmenhuseyin" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
+    <string name="contributors_romainhk_cicithesquirrel" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
+    <string name="contributors_todor_balabanov" translatable="false"><a href="https://github.com/TodorBalabanov">TodorBalabanov</a></string>
+    <string name="contributors_strooonger" translatable="false"><a href="https://github.com/strooonger">strooonger</a></string>
+
+    <string name="contributors_imko92" translatable="false">imko92</string>
+    <string name="contributors_alexandre_parente" translatable="false">Alexandre Parente</string>
+    <string name="contributors_olexn" translatable="false">olexn</string>
 
     <!-- urls in about screen -->
     <string name="about_material_icons_license" translatable="false"><a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="app_version">"Версія"</string>
+<string name="settings">"Налаштування"</string>
+<string name="game_manual">"Посібник"</string>
+<string name="game_score">"Бали"</string>
+<string name="game_time">"Час"</string>
+<string name="game_cancel">"Скасувати"</string>
+<string name="game_confirm">"Підтвердити"</string>
+<string name="game_auto_complete_text">"Авто-завершення"</string>
+<string name="game_press_again">"Для виходу натисніть ще раз"</string>
+<string name="game_load_error">"Помилка завантаження даних, розпочинаємо нову гру…"</string>
+<string name="game_close">"Закрити гру"</string>
+<string name="game_main_menu">"Головне меню"</string>
+<string name="item_game_rules">"Правила гри"</string>
+<string name="item_return_to_main_menu">"Повернутись до головного меню"</string>
+
+<!-- Menu -->
+<string name="menu_undo">"Відмінити"</string>
+<string name="menu_main_menu">"Меню"</string>
+<string name="menu_settings">"Налаштування"</string>
+
+<!-- game names 
+
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Клондайк"</string>
+<string name="games_Freecell">"Вільна комірка"</string>
+<string name="games_Yukon">"Юкон"</string>
+<string name="games_Spider">"Павук"</string>
+<string name="games_Golf">"Гольф"</string>
+<string name="games_Pyramid">"Піраміда"</string>
+
+<!-- colors -->
+<string name="blue">"Синій"</string>
+<string name="green">"Зелений"</string>
+<string name="red">"Червоний"</string>
+<string name="yellow">"Жовтий"</string>
+<string name="orange">"Рудий"</string>
+<string name="purple">"Пурупровий"</string>
+
+<!-- game stuff -->
+
+<!-- dialog won -->
+<string name="dialog_win_titel">"Вітаємо!"</string>
+<string name="dialog_win_score">"Бали: %1$d"</string>
+<string name="dialog_win_bonus">"Бонуси: %1$d"</string>
+<string name="dialog_win_total">"Загалом: %1$d"</string>
+
+
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Почати нову гру"</string>
+<string name="dialog_start_new_game_text">"Ваш поточний поступ буде втрачено і нову випадкову гру буде роздано."</string>
+
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Наново роздати карти"</string>
+<string name="dialog_redeal_text">"Ваш поточний поступ буде втрачено, але роздача відбудеться в поточній грі."</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Посібник"</string>
+<string name="title_activity_settings">"Налаштування"</string>
+<string name="title_activity_about">"Про гру"</string>
+<string name="title_activity_statistics">"Статистика"</string>
+
+<!-- About activity -->
+<string name="about_tab_1">"Інформація"</string>
+<string name="about_tab_2">"Ліцензії"</string>
+<string name="about_tab_3">"Перелік змін"</string>
+<string name="about_loading">"Завантаження…"</string>
+<string name="about_developer">"Розробник"</string>
+<string name="about_compiled">"Скомпільовано"</string>
+<string name="about_source_code">"Джерельний код"</string>
+<string name="about_license">"Ліцензія"</string>
+<string name="about_translations">"Переклади"</string>
+<string name="about_further_contributors">"Подальші учасники"</string>
+<string name="about_android_support_libraries_title">"Android support library"</string>
+<string name="about_android_support_libraries_usage">"Використано для кращого дизайну та простішої розробки"</string>
+<string name="about_material_icons_title">"Material design icons"</string>
+<string name="about_material_icons_usage">"Використано для всіх значків в додатку"</string>
+<string name="about_card_themes_title">"Теми карт"</string>
+<string name="about_card_themes_usage">"Теми карт отримано з &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, для детальної інформації натисніть &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;тут&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"Використано для теми гри «покер» - Доступно тут &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna library"</string>
+<string name="about_custom_color_picker_usage">"Використано для отримання кольору"</string>
+<string name="about_sounds_title">"Звуки"</string>
+<string name="about_sounds_usage">"Всі звуки опубліковані на &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, для детальної інформації натисніть &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;тут&lt;/a&gt; "</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
+<string name="about_sliding_tabs_usage">"Використано для вкладок у вікні «Про гру»"</string>
+
+<!-- Manual -->
+<string name="manual_games">"Ігри"</string>
+<string name="manual_feedback">"Зворотній зв'язок"</string>
+<string name="manual_startpage">"Початкова сторінка"</string>
+<string name="manual_back_to_game">"Назад до гри"</string>
+<string name="manual_structure">"Структура"</string>
+<string name="manual_objective">"Завдання"</string>
+<string name="manual_rules">"Правила"</string>
+<string name="manual_scoring">"Нарахування балів"</string>
+<string name="manual_main_menu">"Головне меню"</string>
+<string name="manual_ui">"Інтерфейс"</string>
+<string name="page_load_error">"Сторінка для цієї гри ще не доступна…"</string>
+<string name="manual_bonus">"Після перемоги в грі, ви отримуєте бонус: Чим швидше ви виграєте, тим вище бонус."</string>
+<string name="manual_open_google_play">"Відкрити Google Play"</string>
+<string name="manual_open_github">"Відкрити GitHub репозиторій"</string>
+<string name="manual_games_text1">"Оберіть гру, для перегляду структури, завдання, правил та системи нарахування балів."</string>
+
+<string name="settings_portrait">"Портретний"</string>
+<string name="settings_landscape">"Ландшафтний"</string>
+<string name="settings_spider_difficultiy_1">"1 (Простий)"</string>
+<string name="settings_spider_difficultiy_2">"2 (Середня)"</string>
+<string name="settings_spider_difficultiy_3">"4 (Висока)"</string>
+<string name="settings_language_default">"Типова мова"</string>
+<string name="settings_movement_speed_1">"Дуже повільно"</string>
+<string name="settings_movement_speed_2">"Повільно"</string>
+<string name="settings_movement_speed_3">"Нормально"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 карт (типово)"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 карт"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 карт"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 карти"</string>
+
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"Видалити всі записи!"</string>
+<string name="statistics_button_delete_text">"Видалити всі записи даної гри! Впевнені?"</string>
+<string name="statistics_button_deleted_all_entries">"Записи видалено"</string>
+<string name="dialog_show_hints">"Показувати підказки"</string>
+
+</resources>

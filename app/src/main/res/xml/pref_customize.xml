@@ -8,6 +8,13 @@
             android:summary="Portrait: Bottom, Landscape: Right"
             android:title="@string/settings_menu_bar_position" />
 
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceGameLayoutMargins
+            android:key="@string/pref_key_game_layout_margins"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:summary="@string/settings_game_layout_margins_text"
+            android:title="@string/settings_game_layout_margins_title" />
+
         <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor
             android:key="@string/pref_key_background_color"
             android:negativeButtonText="@string/settings_background_color_custom"

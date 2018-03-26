@@ -59,6 +59,8 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards_background);
         setDialogIcon(null);
+        setDialogTitle("");
+
         this.context = context;
 
         context.getTheme().resolveAttribute(R.attr.selectableItemBackground, typedValue, true);

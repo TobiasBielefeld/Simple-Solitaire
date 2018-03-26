@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="app_version">"Versão"</string>
+<string name="settings">"Configurações"</string>
+<string name="game_manual">"Manual"</string>
+<string name="game_score">"Pontos"</string>
+<string name="game_time">"Tempo"</string>
+<string name="game_cancel">"Cancelar"</string>
+<string name="game_confirm">"Confirmar"</string>
+<string name="game_auto_complete_text">"Autocompletar"</string>
+<string name="game_press_again">"Pressione novamente para sair"</string>
+<string name="game_load_error">"Falha carregando os dados, iniciando novo jogo…"</string>
+<string name="game_close">"Fechar o jogo"</string>
+<string name="game_main_menu">"Menu principal"</string>
+<string name="item_game_rules">"Regras do jogo"</string>
+<string name="item_return_to_main_menu">"Retornar ao menu principal"</string>
+
+<!-- Menu -->
+<string name="menu_undo">"Voltar"</string>
+<string name="menu_main_menu">"Menu"</string>
+<string name="menu_settings">"Configurações"</string>
+
+<!-- game names 
+
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Klondike"</string>
+<string name="games_Freecell">"Freecell"</string>
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Spider"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
+<string name="games_Golf">"Golf"</string>
+<string name="games_Pyramid">"Pirâmide"</string>
+<string name="games_TriPeaks">"TriPeaks"</string>
+<string name="games_FortyEight">"Forty&amp;Eight
+"</string>
+<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_Gypsy">"Gypsy"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"Canfield"</string>
+<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_Vegas">"Vegas"</string>
+<string name="games_Calculation">"Cálculo"</string>
+
+<!-- colors -->
+<string name="blue">"Azul"</string>
+<string name="green">"Verde"</string>
+<string name="red">"Vermelho"</string>
+<string name="yellow">"Amarelo"</string>
+<string name="orange">"Laranja"</string>
+<string name="purple">"Roxo"</string>
+
+<!-- game stuff -->
+<string name="game_longest_run">"Seqüência longa"</string>
+
+<!-- dialog won -->
+<string name="dialog_win_titel">"Parabéns!"</string>
+<string name="dialog_win_score">"Pontos: %1$d"</string>
+<string name="dialog_win_bonus">"Bonus: %1$d"</string>
+<string name="dialog_win_total">"Total: %1$d"</string>
+
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Embaralhar cartas"</string>
+<string name="dialog_mix_cards_not_available">"Ainda há movimentos possíveis! (Use a função de dica para mostrá-los)"</string>
+
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Começar novo jogo"</string>
+<string name="dialog_start_new_game_text">"Seu jogo atual será perdido e um novo jogo aleatório será dado."</string>
+
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Dê cartas novamente"</string>
+<string name="dialog_redeal_text">"Seu jogo atual será perdido, mas as cartas serão distribuídas como no jogo atual."</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Manual"</string>
+<string name="title_activity_settings">"Configurações"</string>
+<string name="title_activity_about">"Sobre o jogo"</string>
+<string name="title_activity_statistics">"Estatisticas"</string>
+
+<!-- About activity -->
+<string name="about_tab_1">"Informação"</string>
+<string name="about_tab_2">"Licença"</string>
+<string name="about_tab_3">"Changelog"</string>
+<string name="about_loading">"Carregando…"</string>
+<string name="about_developer">"Desenvolvedor"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Compilado em"</string>
+<string name="about_source_code">"Código fonte"</string>
+<string name="about_license">"Licença"</string>
+<string name="about_translations">"Traduções"</string>
+<string name="about_further_contributors">"Contribuintes adicionais"</string>
+<string name="about_android_support_libraries_title">"Biblioteca de suporte Android"</string>
+<string name="about_android_support_libraries_usage">"Usado para melhor design e desenvolvimento mais fácil"</string>
+<string name="about_material_icons_title">"Material design icons"</string>
+<string name="about_material_icons_usage">"Usado para todos os ícones neste aplicativo"</string>
+<string name="about_card_themes_title">"Tema das cartas"</string>
+<string name="about_card_themes_usage">"Os temas das cartas foram obtidos de &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, para informações detalhadas clique &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;aqui&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"tema usado para Poker - Disponível em &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna library"</string>
+<string name="about_custom_color_picker_usage">"Usado para opção de cores personalizadas"</string>
+<string name="about_sounds_title">"Sons"</string>
+<string name="about_sounds_usage">"Todos os sons foram originalmente publicados em &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, para informações detalhadas clique &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;aqui&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
+
+<!-- Manual -->
+<string name="manual_games">"Jogos"</string>
+<string name="manual_feedback">"Comentários"</string>
+<string name="manual_startpage">"Página inicial"</string>
+<string name="manual_back_to_game">"De volta ao jogo"</string>
+<string name="manual_structure">"Forma"</string>
+<string name="manual_objective">"Objetivo"</string>
+<string name="manual_rules">"Regras"</string>
+<string name="manual_scoring">"Pontuação"</string>
+<string name="manual_main_menu">"Menu principal"</string>
+<string name="manual_ui">"Interface do usuário"</string>
+<string name="page_load_error">"Nenhuma página para este jogo está disponível …"</string>
+<string name="manual_bonus">"Depois de ganhar um jogo, você ganha um bônus: quanto mais rápido você ganhar, maior será o bônus."</string>
+<string name="manual_open_google_play">"Abra o Google Play"</string>
+<string name="manual_open_github">"Abra o repositório GitHub"</string>
+<string name="manual_games_text1">"Escolha um jogo para mostrar sua forma, objetivo, regras e pontuação."</string>
+<string name="manual_startpage_text">"Bem-vindo ao manual desta coleção de jogos! Espero que ele explique tudo.
+
+Use o menu do lado esquerdo para acessar as outras páginas de manual."</string>
+<string name="manual_general_main_menu">"O uso do menu principal é relativamente simples. Basta clicar em um jogo para iniciá-lo.
+
+O aplicativo carregará automaticamente o último jogo utilizado, se o aplicativo tiver sido interrompido nele. Esse comportamento pode ser desabilitado nas configurações \"Gerais\".
+
+Lá, você também pode encontrar a seção \"Menu principal\", onde é possível ocultar jogos do menu e alterar o número de colunas, de modo que mais jogos caibam na tela ao mesmo tempo."</string>
+
+<string name="manual_Golf_structure">"1 baralho de 52 cartas.
+
+7 pilhas na mesa, 1 pilha principal e 1 descarte.
+
+Não é possível mover cartas da pilha de descarte para a pilha principal (exceto usando o botão Desfazer)."</string>
+<string name="manual_Golf_objective">"Mova cada carta da mesa para a pilha de descarte."</string>
+</resources>

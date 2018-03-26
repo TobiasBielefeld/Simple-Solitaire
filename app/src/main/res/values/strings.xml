@@ -372,6 +372,9 @@
     <string name="settings_language_japanese">Japanese</string>
     <string name="settings_language_polish">Polish</string>
     <string name="settings_language_turkish">Turkish</string>
+    <string name="settings_language_italian">Italian</string>
+    <string name="settings_language_portuguese_brazil">Portuguese (Brazil)</string>
+    <string name="settings_language_ukrainian">Ukrainian</string>
     <string name="settings_yukon_rules_1">different colors (Default)</string>
     <string name="settings_yukon_rules_2">same suit (Russian Solitaire)</string>
     <string name="settings_movement_speed_1">Very slow</string>
@@ -397,6 +400,12 @@
     <string name="settings_developer_option_deal_correct_sequences_4">Reversed alternating color</string>
     <string name="settings_developer_option_deal_correct_sequences_5">Reversed same family</string>
 
+    <string name="settings_game_layout_margins_title">Game layout margins</string>
+    <string name="settings_game_layout_margins_text">Add margins to the left and right side of the game layout. The cards will appear smaller, but overlapping will be reduced!</string>
+    <string name="settings_game_layout_margins_none">None</string>
+    <string name="settings_game_layout_margins_small">Small</string>
+    <string name="settings_game_layout_margins_medium">Medium</string>
+    <string name="settings_game_layout_margins_large">Large</string>
     <!-- Statistics -->
 
     <!-- %1$d and %2$d are placeholders for the values-->
@@ -406,7 +415,7 @@
     <string name="statistics_button_delete">Delete all entries!</string>
     <string name="statistics_button_delete_text">Delete all entries for this game! Are you sure?</string>
     <string name="statistics_button_deleted_all_entries">Deleted all entries</string>
-    <string name="statistics_time_of_day">Time of day</string>
+    <string name="statistics_time_of_day">Daytime</string>
     <string name="statistics_date">Date</string>
 
     <string name="statistics_high_scores">High Scores</string>

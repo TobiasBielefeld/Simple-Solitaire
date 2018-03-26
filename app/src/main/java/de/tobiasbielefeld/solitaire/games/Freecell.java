@@ -52,10 +52,10 @@ public class Freecell extends Game {
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
         //initialize the dimensions
-        setUpCardWidth(layoutGame, isLandscape, 9, 13);
+        setUpCardWidth(layoutGame, isLandscape, 9, 10);
 
         //order the stacks on the screen
-        int spacing = setUpHorizontalSpacing(layoutGame, 8, 12);
+        int spacing = setUpHorizontalSpacing(layoutGame, 8, 9);
         int startPos = layoutGame.getWidth() / 2 - 4 * Card.width - 3 * spacing - spacing / 2;
         //free cells and foundation stacks
         for (int i = 0; i < 8; i++) {

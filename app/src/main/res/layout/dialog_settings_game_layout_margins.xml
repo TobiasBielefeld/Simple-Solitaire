@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="5dp">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/settings_portrait" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/dialog_button_portrait_none"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_game_layout_margins_none" />
+
+                    <RadioButton
+                        android:id="@+id/dialog_button_portrait_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_game_layout_margins_small" />
+
+                    <RadioButton
+                        android:id="@+id/dialog_button_portrait_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_game_layout_margins_medium" />
+
+                    <RadioButton
+                        android:id="@+id/dialog_button_portrait_large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_game_layout_margins_large" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/settings_landscape" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/dialog_button_landscape_none"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_game_layout_margins_none" />
+
+                    <RadioButton
+                        android:id="@+id/dialog_button_landscape_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_game_layout_margins_small" />
+
+                    <RadioButton
+                        android:id="@+id/dialog_button_landscape_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_game_layout_margins_medium" />
+
+                    <RadioButton
+                        android:id="@+id/dialog_button_landscape_large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_game_layout_margins_large" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:text="@string/settings_game_layout_margins_text" />
+
+    </LinearLayout>
+</ScrollView>

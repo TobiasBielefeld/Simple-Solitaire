@@ -21,23 +21,16 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
-import java.util.ArrayList;
-
-import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
-import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
 import static de.tobiasbielefeld.solitaire.SharedData.autoMove;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
-import static de.tobiasbielefeld.solitaire.SharedData.max;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
 import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 
 /**
  * Handler for the auto complete: Move a card, wait a bit, move the next one and so on.
@@ -50,6 +43,13 @@ public class HandlerAutoMove extends Handler {
     private final static int DELTA_TIME_SHORT = 20;
 
     private boolean testAfterMove = false;
+    private boolean movedFirstCard = false;
+
+    private GameManager gm;
+
+    public HandlerAutoMove(GameManager gm){
+        this.gm = gm;
+    }
 
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
@@ -69,6 +69,7 @@ public class HandlerAutoMove extends Handler {
             CardAndStack cardAndStack = currentGame.hintTest();
 
             if (cardAndStack != null && !currentGame.autoCompleteStartTest()) {
+                movedFirstCard = true;
                 movingCards.reset();
 
                 if (currentGame instanceof Pyramid){    //TODO manage this in another way
@@ -83,7 +84,13 @@ public class HandlerAutoMove extends Handler {
                 //start the next handler in some milliseconds
                 autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME);
             } else {
+                if (!movedFirstCard) {
+                    showToast(gm.getString(R.string.dialog_no_movement_possible),gm);
+                }
+
                 autoMove.reset();
+                movedFirstCard = false;
+
             }
         }
     }

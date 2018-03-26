@@ -36,7 +36,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal"
-                    android:padding="@dimen/layout_padding">
+                    android:paddingBottom="@dimen/layout_padding"
+                    android:paddingTop="@dimen/layout_padding">
 
                     <TableRow
                         android:layout_width="match_parent"

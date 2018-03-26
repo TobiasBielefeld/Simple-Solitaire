@@ -357,6 +357,10 @@ public class GameLogic {
         gm.updateMenuBar();
     }
 
+    public void updateGameLayout() {
+        gm.updateGameLayout();
+    }
+
     public void incrementNumberWonGames(){
         prefs.saveNumberOfWonGames(prefs.getSavedNumberOfWonGames()+1);
     }

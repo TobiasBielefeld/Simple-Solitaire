@@ -75,11 +75,13 @@ public class Card {
             drawables[39 + i] = bitmaps.getCardFront(i, fourColors ? 5 : 4);
         }
 
-        if (cards != null) {
-            for (Card card : cards) {
-                if (card.isUp()) {
-                    card.setCardFront();
-                }
+        if (cards == null) {
+            return;
+        }
+
+        for (Card card : cards) {
+            if (card.isUp()) {
+                card.setCardFront();
             }
         }
     }
@@ -88,15 +90,18 @@ public class Card {
      * Loads the card backgrounds for the bitmap file and applies them.
      */
     public static void updateCardBackgroundChoice() {
-
         int positionX = prefs.getSavedCardBackground();
         int positionY = prefs.getSavedCardBackgroundColor();
         background = bitmaps.getCardBack(positionX, positionY);
 
-        if (cards != null) {
-            for (Card card : cards)
-                if (!card.isUp())
-                    card.setCardBack();
+        if (cards == null) {
+            return;
+        }
+
+        for (Card card : cards) {
+            if (!card.isUp()) {
+                card.setCardBack();
+            }
         }
     }
 
@@ -250,7 +255,6 @@ public class Card {
         }
 
         return !((!isUp() || (destination.getSize() != 0 && !destination.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(destination, this);
-        //return currentGame.cardTest(destination, this) && destination.topCardIsUp();
     }
 
     public int getColor() {

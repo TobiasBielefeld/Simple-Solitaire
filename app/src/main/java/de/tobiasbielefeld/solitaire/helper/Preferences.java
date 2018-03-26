@@ -41,6 +41,8 @@ public class Preferences {
     public static String PREF_KEY_DEALING_CARDS;
     public static String OLD;
 
+    public static String PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT;
+    public static String PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE;
     public static String PREF_KEY_DISABLE_UNDO_COSTS;
     public static String PREF_KEY_DISABLE_HINT_COSTS;
     public static String PREF_KEY_VEGAS_OLD_SCORE;
@@ -162,6 +164,8 @@ public class Preferences {
     public static String DEFAULT_CANFIELD_SIZE_OF_RESERVE;
     public static String DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES;
     public static int DEFAULT_CURRENT_GAME;
+    public static int DEFAULT_GAME_LAYOUT_MARGINS_PORTRAIT;
+    public static int DEFAULT_GAME_LAYOUT_MARGINS_LANDSCAPE;
     public static int DEFAULT_CARD_BACKGROUND;
     public static int DEFAULT_CARD_BACKGROUND_COLOR;
     public static int DEFAULT_WINNING_TIME;
@@ -326,6 +330,8 @@ public class Preferences {
         PREF_KEY_GAME_RANDOM_CARDS = res.getString(R.string.game_random_cards);
         PREF_KEY_GAME_FIRST_RUN = res.getString(R.string.game_first_run);
         PREF_KEY_GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
+        PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT = res.getString(R.string.pref_key_game_layout_margins_portrait);
+        PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE = res.getString(R.string.pref_key_game_layout_margins_landscape);
 
         PREF_KEY_CANFIELD_START_CARD_VALUE = res.getString(R.string.canfield_start_value);
         PREF_KEY_SCORE = res.getString(R.string.score);
@@ -398,6 +404,8 @@ public class Preferences {
         DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES = res.getString(R.string.default_developer_option_deal_correct_sequences);
         DEFAULT_USE_TRUE_RANDOMISATION = res.getBoolean(R.bool.default_use_true_randomisation);
         DEFAULT_CARD_BACKGROUND = res.getInteger(R.integer.default_card_background);
+        DEFAULT_GAME_LAYOUT_MARGINS_PORTRAIT = res.getInteger(R.integer.default_game_layout_margins_portrait);
+        DEFAULT_GAME_LAYOUT_MARGINS_LANDSCAPE = res.getInteger(R.integer.default_game_layout_margins_landscape);
         DEFAULT_CARD_BACKGROUND_COLOR = res.getInteger(R.integer.default_card_background_color);
         DEFAULT_WINNING_TIME = res.getInteger(R.integer.default_winning_time);
         DEFAULT_BACKGROUND_COLOR_TYPE = res.getInteger(R.integer.default_background_color_type);
@@ -883,6 +891,14 @@ public class Preferences {
 
     /* getters for shared data */
 
+    public int getSavedGameLayoutMarginsPortrait(){
+        return savedSharedData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT,DEFAULT_GAME_LAYOUT_MARGINS_PORTRAIT);
+    }
+
+    public int getSavedGameLayoutMarginsLandscape(){
+        return savedSharedData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE,DEFAULT_GAME_LAYOUT_MARGINS_LANDSCAPE);
+    }
+
     public int getSavedCardBackground(){
         return savedSharedData.getInt(PREF_KEY_CARD_BACKGROUND,DEFAULT_CARD_BACKGROUND);
     }
@@ -922,7 +938,6 @@ public class Preferences {
     public int getSavedVegasWinAmountOld(){
         return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD,DEFAULT_VEGAS_WIN_AMOUNT);
     }
-
 
     public int getSavedCurrentGame(){
         return savedSharedData.getInt(PREF_KEY_CURRENT_GAME,DEFAULT_CURRENT_GAME);
@@ -1200,6 +1215,14 @@ public class Preferences {
 
     public void saveVegasWinAmount(int value){
         savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT,value).apply();
+    }
+
+    public void saveGameLayoutMarginsPortrait(int value){
+        savedSharedData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT, value).apply();
+    }
+
+    public void saveGameLayoutMarginsLandscape(int value){
+        savedSharedData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE, value).apply();
     }
 
     public void saveVegasBetAmountOld(){

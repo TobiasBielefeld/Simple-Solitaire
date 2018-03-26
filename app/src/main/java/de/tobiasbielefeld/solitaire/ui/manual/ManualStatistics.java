@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.ui.manual;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.BulletSpan;

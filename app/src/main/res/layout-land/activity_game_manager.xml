@@ -23,6 +23,22 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/mainRelativeLayoutGameOverlayLower"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textViewRecycles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/mainRelativeLayoutGameOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -89,15 +105,6 @@
             android:background="@android:drawable/btn_default_small"
             android:onClick="menuClick"
             android:text="@string/game_auto_complete_text"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/textViewRecycles"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/circle"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
             android:visibility="gone" />
 
     </RelativeLayout>

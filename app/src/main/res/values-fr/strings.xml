@@ -79,7 +79,6 @@
 <string name="title_activity_settings">"Réglages"</string>
 <string name="title_activity_about">"À propos du jeu"</string>
 <string name="title_activity_statistics">"Statistiques"</string>
-<string name="statistics_high_scores">"Meilleurs scores"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Information"</string>
@@ -522,7 +521,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_developer_options_no_saving_title">"Désactiver l'état du jeu de sauvegarde"</string>
 <string name="settings_developer_options_no_saving_text">"Les mouvements d'un jeu ne seront plus sauvegardés"</string>
 <string name="settings_developer_options_deal_correct_sequences_title">"Traiter les séquences correctes"</string>
-<string name="settings_show_advanced_settings_title">"Déverrouiller les catégories de développeurs"</string>
 <string name="settings_max_number_undos">"Nombre maximum de mouvements d'annulation"</string>
 <string name="settings_expert_settings">"Réglages experts"</string>
 <string name="settings_expert_settings_text">"Peut être utile pour certaines personnes"</string>
@@ -583,4 +581,64 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="statistics_button_deleted_all_entries">"Tout a été supprimé"</string>
 <string name="statistics_time_of_day">"Heure"</string>
 <string name="statistics_date">"Date"</string>
+<string name="settings_diable_undo_costs">"Désactiver la pénalité de score en Annuler"</string>
+<string name="settings_diable_hint_costs">"Désactiver la pénalité de score d'indice"</string>
+<string name="statistics_high_scores">"Meilleurs scores"</string>
+<string name="statistics_recent_scores">"Score récent"</string>
+<string name="statistics_total_time">"Temps joué"</string>
+<string name="statistics_total_hints_shown">"Indices montrés"</string>
+<string name="statistics_total_number_undos">"Mouvements Annuler utilisés"</string>
+<string name="statistics_total_points_earned">"Points gagnés"</string>
+<string name="statistics_no_entries">"Pas d'entrées, allez jouer des jeux !"</string>
+<string name="dialog_auto_move">"Mouvement automatique"</string>
+<string name="dialog_show_hints">"Afficher les indices"</string>
+<string name="manual_ui_text_part_1">"Un jeu affiche toujours un petit menu en bas de l'écran (en mode portrait) ou sur la droite (en mode paysage). Ce menu affiche le nombre de points et le temps de jeu écoulé pour la partie en cours. Si possible, ces deux valeurs seront sauvegardées dans la liste des meilleurs scores. Le menu contient 5 éléments qui ont pour fonction (en allant de la gauche vers la droite): 
+
+Le bouton \"Statistiques\" affichera une nouvelle fenêtre avec différentes statistiques du jeu en cours, comme les meilleurs scores.
+
+Le bouton \"Support\" affichera un petit menu d'aide. Ici, vous pouvez sélectionner :"</string>
+<string name="manual_ui_text_part_2">"Afficher les indices : Montrant jusqu'à 3 possibilités de mouvement à la fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont pas considérés comme des indices. Si aucun indice n'est montré, votre score ne diminuera pas. 
+"</string>
+<string name="manual_ui_text_part_3">"Mouvement automatique : Déplacer automatiquement autant de cartes que possible. Cette option est destinée à être utilisée dans des situations, par exemple. quand une seule carte est encore face cachée, mais vous devez déplacer toutes les autres cartes de cette pile pour y accéder. Cette option permet donc d'accélérer un peu le jeu.
+"</string>
+<string name="manual_ui_text_part_4">"Mélange de cartes : Si vous êtes dans une situation où aucun mouvement n'est possible, vous pouvez utiliser cette option pour mélanger les cartes actuelles. Notez que les cartes déjà dans l'ordre correct ou les cartes sur la fondation seront ignorées dans le mélange.
+"</string>
+<string name="manual_ui_text_part_5">"Règles du jeu : Ouvrir directement la page de manuel du jeu en cours.
+"</string>
+<string name="manual_ui_text_part_6">"Le bouton \"Menu\" donne accès à trois actions différentes :"</string>
+<string name="manual_ui_text_part_7">"Démarer une nouvelle partie : Mélangez les cartes et tirez une nouvelle donne.
+"</string>
+<string name="manual_ui_text_part_8">"Redistribuer les cartes: Redémarrer le jeu actuel avec la même disposition des cartes.
+"</string>
+<string name="manual_ui_text_part_9">"Revenir au menu principal : Enregistrer l'état actuel du jeu et afficher le menu de sélection du jeu.
+"</string>
+<string name="manual_ui_text_part_10">"Le bouton \"Annuler\" inverse le dernier mouvement, mais au prix de 25 points. Il n'est possible d'annuler que les 20 derniers mouvements. (Le montant peut être augmenté dans les réglages experts)
+
+Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
+<string name="manual_statistics_part_1">"Il y a des statistiques collectées pour chaque jeu. Vous pouvez y accéder à partir de la barre de menu du jeu. Les informations collectées le sont :"</string>
+<string name="manual_statistics_part_2">"Le nombre de parties jouées et gagnées
+"</string>
+<string name="manual_statistics_part_3">"Le montant total des points gagnés.
+"</string>
+<string name="manual_statistics_part_4">"Le montant total des fonctions d'aide utilisées
+"</string>
+<string name="manual_statistics_part_5">"Une liste des meilleurs scores avec jusqu'à 10 entrées, seuls les scores supérieurs à 0 sont sauvegardés ici.
+"</string>
+<string name="manual_statistics_part_6">"Une liste de pointage récente avec les 10 derniers pointages."</string>
+<string name="manual_statistics_part_7">"Il est également possible de supprimer toutes les données du jeu en cours, mais cela ne peut pas être annulé ! "</string>
+<string name="about_material_icons_2_usage">"L'icône Support est publiée sous la forme \"lightbulb-on\" sur &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt;. "</string>
+
+<!-- dialogs -->
+<string name="dialog_no_hint_available">"Aucun indice disponible !"</string>
+<string name="dialog_no_movement_possible">"Pas de mouvement à montrer !"</string>
+<string name="settings_show_advanced_settings_title">"Déverrouiller les catégories de développeurs"</string>
+<string name="settings_language_italian">"Italiens"</string>
+<string name="settings_language_portuguese_brazil">"Portugais (Brésil)"</string>
+<string name="settings_language_ukrainian">"Ukrainien"</string>
+<string name="settings_game_layout_margins_title">"Marges de la structure du jeu"</string>
+<string name="settings_game_layout_margins_text">"Ajoutez des marges à gauche et à droite de la disposition du jeu. Les cartes apparaîtront plus petites, mais le chevauchement sera réduit !"</string>
+<string name="settings_game_layout_margins_none">"Aucun"</string>
+<string name="settings_game_layout_margins_small">"Petit"</string>
+<string name="settings_game_layout_margins_medium">"Moyen"</string>
+<string name="settings_game_layout_margins_large">"Grand"</string>
 </resources>

@@ -29,7 +29,11 @@
     <dimen name="changelog_card_corner_radius">2dp</dimen>
     <dimen name="changelog_linear_layout_Padding">6dp</dimen>
 
-    <dimen name="statistics_text_size">18sp</dimen>
+    <dimen name="statistics_text_size">17sp</dimen>
     <dimen name="card_view_padding_horizontal">10dp</dimen>
     <dimen name="card_view_padding_vertical">10dp</dimen>
+
+    <dimen name="game_layout_margins_small">20dp</dimen>
+    <dimen name="game_layout_margins_medium">60dp</dimen>
+    <dimen name="game_layout_margins_large">100dp</dimen>
 </resources>

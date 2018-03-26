@@ -88,7 +88,7 @@ Also think of the other aspects of the GPL license!
 - [X] Add a color chooser for background color
 - [X] Improve the Highscores to a Statistics Activity (including date stamps)
 - [X] Find the reason why the game activity gets created two times when changing the screen orientation in game
-- [ ] Add a button to mix the cards if no movement can be done
+- [X] Add a button to mix the cards if no movement can be done
 - [X] Add 'Grandfathers Clock'
 - [ ] Add a Custom game maker, maybe
 - [X] Add a 'poker standard' card theme and 4 color themes
@@ -99,13 +99,16 @@ Also think of the other aspects of the GPL license!
 - [ ] ~~Add custom images for backgrounds~~ (Would require additional android permissions, I don't really want that)
 - [X] Add drag and drop feature to change the order of the games in the main menu
 
-## Translations
-Thanks to the following persons for providing translations :D
+## Translations 
+Thanks to the following persons for providing translations :D (Help translating here: https://poeditor.com/join/project/PYX4vcwTjA)
 - Esperanto and Polish: verdulo
 - French: romainhk and cicithesquirrel
 - Japanese: naofum
 - Finnish: winjar
 - Turkish: sekmenhuseyin
+- Italian: imko92 (on POEditor.com)
+- Portuguese: Alexandre Parente (on POEditor.com)
+- Ukranian: olexn (on POEditor.com)
 
 ## Licenses
 

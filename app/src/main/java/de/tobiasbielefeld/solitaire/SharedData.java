@@ -19,11 +19,8 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -76,10 +73,10 @@ public class SharedData {
     public static Animate animate;
 
     public static AutoComplete autoComplete;
-    public static AutoMove autoMove = new AutoMove();
     public static Timer timer;
     public static Sounds sounds;
     public static RecordList recordList;
+    public static AutoMove autoMove;
     public static Hint hint;
     public static MovingCards movingCards = new MovingCards();
     public static LoadGame lg = new LoadGame();

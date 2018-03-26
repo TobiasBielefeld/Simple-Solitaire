@@ -1,257 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:baselineAligned="false"
-    android:gravity="center"
-    android:measureWithLargestChild="false"
-    android:orientation="vertical">
+    android:fadeScrollbars="false">
 
-    <TableLayout
-        android:id="@+id/tableLayout1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="@dimen/layout_paddingLandscape">
+        android:layout_gravity="center_horizontal"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:measureWithLargestChild="false"
+        android:orientation="vertical">
 
-        <TableRow
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/layout_padding"
+        android:paddingLeft="15dp"
+        android:paddingTop="@dimen/layout_padding"
+        android:text="@string/settings_cards_back"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+        <TableLayout
+            android:id="@+id/tableLayout1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground0"
-                android:layout_width="0dp"
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:layout_weight="1">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground0"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="1"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="2"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="3"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="4"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="5"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="5"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="6"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="6"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="7"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground7"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="7"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground7"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="8"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            <LinearLayout
-                android:id="@+id/settingsCardBackground8"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="8"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settingsCardBackground8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/settings_cards_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="9"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-        </TableRow>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/settings_cards_back" />
 
-    </TableLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="9"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+            </TableRow>
+
+        </TableLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -264,7 +277,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/layout_paddingLandscape"
-            android:paddingLeft="25dp"
+            android:paddingLeft="15dp"
             android:paddingTop="@dimen/layout_paddingLandscape"
             android:text="@string/settings_background_color"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
@@ -353,4 +366,6 @@
         </TableLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
+
+</ScrollView>
