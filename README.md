@@ -2,6 +2,8 @@
 ![license](http://img.shields.io/badge/license-GPLv3+-brightgreen.svg)
 ![platform](http://img.shields.io/badge/platform-Android-blue.svg)
 
+Contact address: tobias.bielefeld [at] gmail.com
+
 [<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire) 
 
 
@@ -67,7 +69,7 @@ The instructions to compile this app are very easy. Just download the project an
 Or alternatively, follow this guide to compile the app on the command line: https://developer.android.com/studio/build/building-cmdline.html
 
 ## Usage
-If you want to use my work for your own project (which means in most cases: Put ads in it and publish on Google Play Store) YOU HAVE TO FOLLOW THE GPL LICENSE! This means, your project MUST be open source under a GPLv3+ compatible license and MUST contain attribution for the original work! I already found a lot of copies which simply removed my "About Game" screen and changed some graphics. If I see your work violating the GPL rules, I will let it get removed by Google. 
+If you want to use my work for your own project (which means in most cases: Put ads in it and publish on Google Play Store) YOU HAVE TO FOLLOW THE GPL LICENSE! This means, your project MUST be open source under a GPLv3+ compatible license and MUST contain attribution for the original work! I already found a lot of copies which simply removed my "About Game" screen and changed some graphics.
 
 So please follow the rules! Use this attribution text (or a similar one)
 
