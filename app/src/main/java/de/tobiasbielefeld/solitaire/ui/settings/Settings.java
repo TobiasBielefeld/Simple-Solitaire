@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.ui.settings;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -46,7 +47,7 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
  * Settings activity created with the "Create settings activity" tool from Android Studio.
  */
 
-public class Settings extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class Settings extends AppCompatPreferenceActivity {
 
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
@@ -55,6 +56,7 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
     private Preference preferenceGameLayoutMargins;
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
+    private CheckBoxPreference preferenceImmersiveMode;
     private DialogPreferenceCardDialog preferenceCards;
     private Sounds settingsSounds;
 
@@ -89,27 +91,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             loadHeadersFromResource(R.xml.pref_headers, target);
         }
 
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        prefs.registerListener(this);
-        showOrHideStatusBar();
-        setOrientation();
-
-        activityCounter++;
-        backgroundSound.doInBackground(this);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        prefs.unregisterListener(this);
-
-        activityCounter--;
-        handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
     }
 
     /*
@@ -204,7 +185,15 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             updatePreferenceGameLayoutMarginsSummary();
 
             if (gameLogic != null) {
-                gameLogic.updateGameLayout();
+                gameLogic.setUpdateGameLayout(true);
+            }
+        } else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
+            if (gameLogic != null) {
+                gameLogic.setUpdateGameLayout(true);
+            }
+        } else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)){
+            if (gameLogic != null) {
+                gameLogic.updateMenuBar();
             }
         }
     }
@@ -225,52 +214,6 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
                 || DeveloperOptionsPreferenceFragment.class.getName().equals(fragmentName)
                 || ExpertSettingsPreferenceFragment.class.getName().equals(fragmentName);
 
-    }
-
-    /**
-     * Applies the user setting of the screen orientation.
-     */
-    private void setOrientation() {
-        switch (prefs.getSavedOrientation()) {
-            case 1: //follow system settings
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-                break;
-            case 2: //portrait
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                break;
-            case 3: //landscape
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-            case 4: //landscape upside down
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                break;
-        }
-    }
-
-    /**
-     * Applies the user setting of the status bar.
-     */
-    private void showOrHideStatusBar() {
-        if (prefs.getSavedHideStatusBar()) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
-    }
-
-    /**
-     * Restarts the app to apply the new locale settings
-     */
-    private void restartApplication() {
-        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-
-        if (i!=null) {
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            finish();
-            startActivity(i);
-        }
     }
 
     private void updatePreferenceMenuColumnsSummary() {
@@ -381,6 +324,14 @@ public class Settings extends AppCompatPreferenceActivity implements SharedPrefe
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_other);
             setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceImmersiveMode = (CheckBoxPreference) findPreference(getString(R.string.pref_key_immersive_mode));
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+                settings.preferenceImmersiveMode.setEnabled(false);
+            }
         }
     }
 

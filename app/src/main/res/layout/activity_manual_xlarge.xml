@@ -21,7 +21,7 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutMenuBar"
         android:layout_width="@dimen/drawer_size"
         android:layout_height="match_parent"
         android:layout_alignTop="@+id/flContent"
@@ -42,7 +42,7 @@
         android:layout_width="4dp"
         android:layout_height="match_parent"
         android:layout_below="@+id/appBarLayout"
-        android:layout_toEndOf="@+id/linearLayout"
+        android:layout_toEndOf="@+id/linearLayoutMenuBar"
         android:background="@drawable/shadow_left_to_right" />
 
     <View
@@ -57,8 +57,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/appBarLayout"
-        android:layout_toEndOf="@+id/linearLayout"
-        android:layout_toRightOf="@+id/linearLayout">
+        android:layout_toEndOf="@+id/linearLayoutMenuBar"
+        android:layout_toRightOf="@+id/linearLayoutMenuBar">
 
     </FrameLayout>
 

@@ -30,6 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -79,6 +80,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
     private boolean activityPaused;
+    public ImageView hideMenu;
+    public LinearLayout menuBar;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -100,6 +103,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         mainTextViewRecycles = (TextView) findViewById(R.id.textViewRecycles);
         buttonAutoComplete = (Button) findViewById(R.id.buttonMainAutoComplete);
         mainRelativeLayoutBackground = (RelativeLayout) findViewById(R.id.mainRelativeLayoutBackground);
+        hideMenu = (ImageView) findViewById(R.id.mainImageViewResize);
+        menuBar = (LinearLayout) findViewById(R.id.linearLayoutMenuBar);
+
+        //imageView.getBackground().setLevel(5000);
 
         //initialize my static helper stuff
         final GameManager gm = this;
@@ -148,12 +155,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
-                initializeLayout();
+                initializeLayout(true);
             }
         });
     }
 
-    private void initializeLayout() {
+    private void initializeLayout(boolean loadNewGame) {
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
         currentGame.setStacks(layoutGame, isLandscape, getApplicationContext());
@@ -197,8 +204,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         currentGame.applyDirectionBorders(layoutGame);
 
         scores.load();
-        HandlerLoadGame handlerLoadGame = new HandlerLoadGame(this);
-        handlerLoadGame.sendEmptyMessageDelayed(0, 200);
+
+        updateLimitedRecyclesCounter();
+
+        if (loadNewGame) {
+            HandlerLoadGame handlerLoadGame = new HandlerLoadGame(this);
+            handlerLoadGame.sendEmptyMessageDelayed(0, 200);
+        }
     }
 
     @Override
@@ -217,9 +229,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     @Override
     public void onResume() {
         super.onResume();
+        showOrHideNavBar();
 
         timer.load();
         loadBackgroundColor();
+
+        /* Orientation changes in other activities can also recreate the game manager, but its
+         * game layout will not be drawn because somehow the viewTreeObserver isn't fired.
+         * In this case, look here if the game was properly loaded. If not, do it here then.
+         */
+        if (!hasLoaded){
+            initializeLayout(true);
+        }
 
         activityPaused = false;
     }
@@ -559,10 +580,15 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
-                initializeLayout();
+                initializeLayout(false);
+
+                for (Stack stack : stacks){
+                    stack.updateSpacingWithoutMovement();
+                }
             }
         });
     }
+
     /**
      * Updates the menu bar position according to the user settings
      */
@@ -579,7 +605,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //params for the game overlay
         RelativeLayout.LayoutParams params3 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
-        LinearLayout menu = (LinearLayout) findViewById(R.id.linearLayout);
+        LinearLayout menu = (LinearLayout) findViewById(R.id.linearLayoutMenuBar);
         RelativeLayout gameWindow = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
         RelativeLayout gameOverlayLower = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlayLower);
         RelativeLayout gameOverlayUpper = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlay);
@@ -589,32 +615,36 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
             if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
-                params3.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
+                params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayout);
-                params3.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayout);
+                params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
             }
         } else {
             params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.menuBarHeight));
 
             if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-                params2.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
-                params3.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
+                params2.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
 
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-                params2.addRule(RelativeLayout.BELOW, R.id.linearLayout);
-                params3.addRule(RelativeLayout.BELOW, R.id.linearLayout);
+                params2.addRule(RelativeLayout.BELOW, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.BELOW, R.id.linearLayoutMenuBar);
             }
         }
+
 
         menu.setLayoutParams(params1);
         gameWindow.setLayoutParams(params2);
         gameOverlayLower.setLayoutParams(params2);
         gameOverlayUpper.setLayoutParams(params3);
+
+        menuBar.setVisibility(prefs.getHideMenuBar() ? View.GONE : View.VISIBLE);
+        updateHideMenuButton(isLandscape);
     }
 
     public void menuClick(View view) {
@@ -630,6 +660,22 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         resetTappedCard();
 
         switch (view.getId()) {
+            case R.id.mainImageViewResize:
+                if (menuBar.getVisibility() == View.VISIBLE){
+                    menuBar.setVisibility(View.GONE);
+                    prefs.saveHideMenuBar(true);
+                } else {
+                    menuBar.setVisibility(View.VISIBLE);
+                    prefs.saveHideMenuBar(false);
+                }
+
+                menuBar.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateGameLayout();
+                    }
+                });
+                break;
             case R.id.mainButtonScores:         //open high scores activity
                 startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
                 break;
@@ -650,6 +696,30 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             case R.id.buttonMainAutoComplete:   //start auto complete
                 autoComplete.start();
                 break;
+        }
+    }
+
+    private void updateHideMenuButton(boolean isLandscape){
+        boolean menuBarVisible = menuBar.getVisibility() == View.VISIBLE;
+
+        if (prefs.getHideMenuButton()){
+            hideMenu.setVisibility(View.GONE);
+        } else {
+            hideMenu.setVisibility(View.VISIBLE);
+
+            if (!isLandscape) {
+                if (prefs.getSavedMenuBarPosPortrait().equals("bottom")) {
+                    hideMenu.setImageResource(menuBarVisible ? R.drawable.icon_arrow_down : R.drawable.icon_arrow_up);
+                } else {
+                    hideMenu.setImageResource(menuBarVisible ? R.drawable.icon_arrow_up : R.drawable.icon_arrow_down);
+                }
+            } else {
+                if (prefs.getSavedMenuBarPosLandscape().equals("right")) {
+                    hideMenu.setImageResource(menuBarVisible ? R.drawable.icon_arrow_right : R.drawable.icon_arrow_left);
+                } else {
+                    hideMenu.setImageResource(menuBarVisible ? R.drawable.icon_arrow_left : R.drawable.icon_arrow_right);
+                }
+            }
         }
     }
 
@@ -736,5 +806,40 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         return false;
+    }
+
+    /**
+     * Enables the fullscreen immersive mode. Only works on Kitkat and above. Also start a listener
+     * in case the fullscreen mode is deactivated from the settings, so the game layout has to redraw.
+     */
+    private void showOrHideNavBar(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            View decorView = getWindow().getDecorView();
+
+            decorView.setOnSystemUiVisibilityChangeListener(
+                new View.OnSystemUiVisibilityChangeListener() {
+                    @Override
+                    public void onSystemUiVisibilityChange(int visibility) {
+                        if (gameLogic.hasToUpdateGameLayout()){
+                            updateGameLayout();
+                            gameLogic.setUpdateGameLayout(false);
+                        }
+                    }
+                });
+
+            if (prefs.getSavedImmersiveMode()){
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+            } else {
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            }
+        } else if (gameLogic.hasToUpdateGameLayout()){
+            updateGameLayout();
+            gameLogic.setUpdateGameLayout(false);
+        }
     }
 }

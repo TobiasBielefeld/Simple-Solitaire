@@ -33,6 +33,11 @@
             android:key="@string/pref_key_hide_score"
             android:title="@string/settings_hide_score" />
 
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_hide_menu_button"
+            android:key="@string/pref_key_hide_menu_button"
+            android:title="@string/settings_hide_menu_button" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_cards">

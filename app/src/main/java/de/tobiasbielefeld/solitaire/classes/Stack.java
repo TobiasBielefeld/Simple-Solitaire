@@ -337,6 +337,103 @@ public class Stack {
     }
 
     /**
+     * Updates the spacing according to the direction. Left handed mode will affect the direction
+     * for left and right direction.
+     */
+    public void updateSpacingWithoutMovement() {
+        float posX, posY;
+        float facedDownSpacing;
+
+        if (currentCards.size() == 0) {
+            return;
+        }
+
+        switch (spacingDirection) {
+            default:
+            case NONE:
+                for (int i = 0; i < currentCards.size(); i++) {
+                    currentCards.get(i).setLocationWithoutMovement(view.getX(), view.getY());
+                    currentCards.get(i).view.bringToFront();
+                }
+                break;
+            case DOWN:
+                posY = view.getY();
+                spacing = min((spacingMax - view.getY()) / (currentCards.size() + 1), defaultSpacing);
+                facedDownSpacing = min(spacing, defaultSpacing / 2);
+
+                currentCards.get(0).setLocationWithoutMovement(view.getX(), view.getY());
+
+                for (int i = 1; i < currentCards.size(); i++) {
+                    posY += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
+                    currentCards.get(i).setLocationWithoutMovement(view.getX(), posY);
+                    currentCards.get(i).view.bringToFront();
+                }
+                break;
+            case UP:
+                posY = view.getY();
+                spacing = min((view.getY() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
+                facedDownSpacing = min(spacing, defaultSpacing / 2);
+
+                currentCards.get(0).setLocationWithoutMovement(view.getX(), view.getY());
+
+                for (int i = 1; i < currentCards.size(); i++) {
+                    posY -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
+                    currentCards.get(i).setLocationWithoutMovement(view.getX(), posY);
+                    currentCards.get(i).view.bringToFront();
+                }
+                break;
+            case LEFT:
+                posX = view.getX();
+                currentCards.get(0).setLocationWithoutMovement(view.getX(), view.getY());
+
+                if (leftHandedModeEnabled()) {
+                    spacing = min((spacingMax - view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    facedDownSpacing = min(spacing, defaultSpacing / 2);
+
+                    for (int i = 1; i < currentCards.size(); i++) {
+                        posX += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
+                        currentCards.get(i).setLocationWithoutMovement(posX, view.getY());
+                        currentCards.get(i).view.bringToFront();
+                    }
+                } else {
+                    spacing = min((view.getX() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
+                    facedDownSpacing = min(spacing, defaultSpacing / 2);
+
+                    for (int i = 1; i < currentCards.size(); i++) {
+                        posX -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
+                        currentCards.get(i).setLocationWithoutMovement(posX, view.getY());
+                        currentCards.get(i).view.bringToFront();
+                    }
+                }
+                break;
+            case RIGHT:
+                posX = view.getX();
+                currentCards.get(0).setLocation(view.getX(), view.getY());
+
+                if (leftHandedModeEnabled()) {
+                    spacing = min((view.getX() - spacingMax) / (currentCards.size() + 1), defaultSpacing);
+                    facedDownSpacing = min(spacing, defaultSpacing / 2);
+
+                    for (int i = 1; i < currentCards.size(); i++) {
+                        posX -= currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
+                        currentCards.get(i).setLocation(posX, view.getY());
+                        currentCards.get(i).view.bringToFront();
+                    }
+                } else {
+                    spacing = min((spacingMax - view.getX()) / (currentCards.size() + 1), defaultSpacing);
+                    facedDownSpacing = min(spacing, defaultSpacing / 2);
+
+                    for (int i = 1; i < currentCards.size(); i++) {
+                        posX += currentCards.get(i - 1).isUp() ? spacing : facedDownSpacing;
+                        currentCards.get(i).setLocation(posX, view.getY());
+                        currentCards.get(i).view.bringToFront();
+                    }
+                }
+                break;
+        }
+    }
+
+    /**
      * @return the first card which is faced up
      */
     public Card getFirstUpCard() {

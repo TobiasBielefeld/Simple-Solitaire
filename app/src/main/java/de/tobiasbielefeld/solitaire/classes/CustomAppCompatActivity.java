@@ -21,8 +21,11 @@ package de.tobiasbielefeld.solitaire.classes;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.WindowManager;
 
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
@@ -41,23 +44,21 @@ public class CustomAppCompatActivity extends AppCompatActivity {
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
 
     /**
-     * Sets the screen orientation according to the settings. It is called from onResume().
-     *
-     * @param activity The activity to apply the orientation on.
+     * Sets the screen orientation according to the settings. It is called from onResume()
      */
-    public static void setOrientation(Activity activity) {
+    public void setOrientation() {
         switch (prefs.getSavedOrientation()) {
             case 1: //follow system settings
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;
             case 2: //portrait
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 break;
             case 3: //landscape
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
             case 4: //landscape upside down
-                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }
     }
@@ -81,8 +82,8 @@ public class CustomAppCompatActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        setOrientation(this);
-        showOrHideStatusBar(this);
+        setOrientation();
+        showOrHideStatusBar();
 
         backgroundSound.doInBackground(this);
         activityCounter++;
@@ -103,16 +104,14 @@ public class CustomAppCompatActivity extends AppCompatActivity {
 
     /**
      * Hides the status bar according to the settings. It is called from onResume().
-     *
-     * @param activity The activity to apply the changes on.
      */
-    public void showOrHideStatusBar(Activity activity) {
+    public void showOrHideStatusBar() {
         if (prefs.getSavedHideStatusBar()) {
-            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
         else {
-            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
     }
 }

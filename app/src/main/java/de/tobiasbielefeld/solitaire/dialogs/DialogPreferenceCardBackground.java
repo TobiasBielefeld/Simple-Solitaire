@@ -164,6 +164,9 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
      * Update the "selection shadow" and the pictures of the dialog
      */
     private void updateDialog() {
+
+        //LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
+        //params.
         for (int i = 0; i < NUMBER_OF_CARD_BACKGROUNDS; i++) {
             linearLayoutsBackgrounds[i].setBackgroundResource(i == selectedBackground ? R.drawable.settings_highlight : typedValue.resourceId);
         }
@@ -196,11 +199,13 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
         int selectedBackground = prefs.getSavedCardBackground();
         int selectedBackgroundColor = prefs.getSavedCardBackgroundColor();
 
-        cardBack = bitmaps.getCardBack(selectedBackground, selectedBackgroundColor);
+        if (image!=null) {
+            cardBack = bitmaps.getCardBack(selectedBackground, selectedBackgroundColor);
 
-        image.setImageBitmap(cardBack);
-        setSummary(String.format(Locale.getDefault(), "%s %s",
-                context.getString(R.string.settings_background), selectedBackground + 1));
+            image.setImageBitmap(cardBack);
+            setSummary(String.format(Locale.getDefault(), "%s %s",
+                    context.getString(R.string.settings_background), selectedBackground + 1));
+        }
     }
 
     /*

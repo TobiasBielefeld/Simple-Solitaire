@@ -1,5 +1,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuRows
+        android:key="@string/pref_key_menu_columns"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@string/game_confirm"
+        android:summary="Portrait: 3, Landscape: 4"
+        android:title="@string/settings_menu_columns" />
+
     <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuOrder
         android:key="@string/pref_key_menu_order"
         android:negativeButtonText="@string/game_cancel"
@@ -14,11 +21,11 @@
         android:summary="@string/settings_menu_games_description"
         android:title="@string/settings_menu_games" />
 
-    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuRows
-        android:key="@string/pref_key_menu_columns"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@string/game_confirm"
-        android:summary="Portrait: 3, Landscape: 4"
-        android:title="@string/settings_menu_columns" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/pref_key_start_menu"
+        android:summary="@string/settings_show_main_menu_description"
+        android:title="@string/settings_show_main_menu" />
+
 
 </PreferenceScreen>

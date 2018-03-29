@@ -66,12 +66,12 @@ public class RecentScoresFragment extends Fragment{
         TableLayout tableLayout = (TableLayout) view.findViewById(R.id.statisticsTableHighScores);
         TextView textNoEntries = (TextView) view.findViewById(R.id.statisticsTextNoEntries);
 
-        if (scores.getHighScore(0, 0) != 0) {
+        if (scores.getRecentScore(0, 2) != 0) {
             textNoEntries.setVisibility(View.GONE);
         }
 
         for (int i = 0; i < Scores.MAX_SAVED_SCORES; i++) {                                         //for each entry in highScores, add a new view with it
-            if (scores.getRecentScore(i, 0) == 0) {                                                //if the score is zero, don't show it
+            if (scores.getRecentScore(i, 2) == 0) {                                                //if the score is zero, don't show it
                 continue;
             }
 

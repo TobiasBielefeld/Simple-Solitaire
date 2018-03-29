@@ -41,8 +41,6 @@ public class HandlerLoadGame extends Handler {
         super.handleMessage(msg);
         gameLogic.load();
 
-        gm.updateLimitedRecyclesCounter();
-
         gm.hasLoaded = true;
     }
 }

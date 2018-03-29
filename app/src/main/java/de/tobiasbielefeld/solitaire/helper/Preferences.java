@@ -39,6 +39,7 @@ public class Preferences {
     public static String PREF_KEY_TOTAL_POINTS_EARNED;
     public static String PREF_KEY_TOTAL_TIME_PLAYED;
     public static String PREF_KEY_DEALING_CARDS;
+    public static String PREF_KEY_HIDE_MENU_BUTTON;
     public static String OLD;
 
     public static String PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT;
@@ -59,6 +60,7 @@ public class Preferences {
     public static String PREF_KEY_RECORD_LIST_ENTRIES_SIZE;
     public static String PREF_KEY_FLIP_CARD;
     public static String PREF_KEY_ORIGIN;
+    public static String PREF_KEY_IMMERSIVE_MODE;
     public static String PREF_KEY_CARD;
     public static String PREF_KEY_CARDS;
     public static String PREF_KEY_STACK;
@@ -141,6 +143,7 @@ public class Preferences {
     public static String PREF_KEY_SHOW_DIALOG_NEW_GAME;
     public static String PREF_KEY_SHOW_DIALOG_REDEAL;
     public static String PREF_KEY_SHOW_DIALOG_MIX_CARDS;
+    public static String PREF_KEY_HIDE_MENU_BAR;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -176,6 +179,8 @@ public class Preferences {
     public static int DEFAULT_VEGAS_WIN_AMOUNT;
     public static int DEFAULT_VEGAS_MONEY;
     public static int DEFAULT_MAX_NUMBER_UNDOS;
+    public static boolean DEFAULT_HIDE_MENU_BUTTON;
+    public static boolean DEFAULT_IMMERSIVE_MODE;
     public static boolean DEFAULT_DISABLE_UNDO_COSTS;
     public static boolean DEFAULT_DISABLE_HINT_COSTS;
     public static boolean DEFAULT_SHOW_DIALOG_NEW_GAME;
@@ -188,6 +193,7 @@ public class Preferences {
     public static boolean DEFAULT_DOUBLE_TAP_ALL_CARDS;
     public static boolean DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST;
     public static boolean DEFAULT_WON;
+    public static boolean DEFAULT_HIDE_MENU_BAR;
     public static boolean DEFAULT_WON_AND_RELOADED;
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
@@ -268,6 +274,7 @@ public class Preferences {
         PREF_KEY_LANGUAGE = res.getString(R.string.pref_key_language);
         PREF_KEY_CURRENT_GAME = res.getString(R.string.pref_key_current_game);
         PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
+        PREF_KEY_HIDE_MENU_BUTTON = res.getString(R.string.pref_key_hide_menu_button);
         PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
         PREF_KEY_4_COLOR_MODE = res.getString(R.string.pref_key_4_color_mode);
         PREF_KEY_LEFT_HANDED_MODE = res.getString(R.string.pref_key_left_handed_mode);
@@ -301,6 +308,8 @@ public class Preferences {
         PREF_KEY_KLONDIKE_LIMITED_RECYCLES = res.getString(R.string.pref_key_klondike_limit_recycles);
         PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_klondike_number_of_recycles);
         PREF_KEY_CALCULATION_ALTERNATIVE = res.getString(R.string.pref_key_calculation_alternative);
+        PREF_KEY_HIDE_MENU_BAR = res.getString(R.string.pref_key_hide_menu_bar);
+        PREF_KEY_IMMERSIVE_MODE = res.getString(R.string.pref_key_immersive_mode);
         PREF_KEY_CALCULATION_ALTERNATIVE_OLD = PREF_KEY_CALCULATION_ALTERNATIVE + OLD;
         PREF_KEY_HIDE_TIME = res.getString(R.string.pref_key_hide_time);
         PREF_KEY_HIDE_SCORE = res.getString(R.string.pref_key_hide_score);
@@ -388,6 +397,9 @@ public class Preferences {
         DEFAULT_SHOW_DIALOG_NEW_GAME = res.getBoolean(R.bool.default_show_dialog_new_game);
         DEFAULT_SHOW_DIALOG_REDEAL = res.getBoolean(R.bool.default_show_dialog_redeal);
         DEFAULT_SHOW_DIALOG_MIX_CARDS = res.getBoolean(R.bool.default_show_dialog_mix_cards);
+        DEFAULT_HIDE_MENU_BAR = res.getBoolean(R.bool.default_hide_menu_bar);
+        DEFAULT_IMMERSIVE_MODE = res.getBoolean(R.bool.default_immersive_mode);
+        DEFAULT_HIDE_MENU_BUTTON = res.getBoolean(R.bool.default_hide_menu_button);
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
@@ -1055,6 +1067,10 @@ public class Preferences {
         return savedSharedData.getBoolean(PREF_KEY_HIDE_STATUS_BAR,false);
     }
 
+    public boolean getHideMenuButton(){
+        return savedSharedData.getBoolean(PREF_KEY_HIDE_MENU_BUTTON,DEFAULT_HIDE_MENU_BUTTON);
+    }
+
     public boolean getSavedCalculationAlternativeMode(){
         return savedSharedData.getBoolean(PREF_KEY_CALCULATION_ALTERNATIVE,DEFAULT_CALCULATION_ALTERNATIVE);
     }
@@ -1069,6 +1085,10 @@ public class Preferences {
 
     public boolean getSavedGoldCyclic(){
         return savedSharedData.getBoolean(PREF_KEY_GOLF_CYCLIC,DEFAULT_GOLF_CYCLIC);
+    }
+
+    public boolean getSavedImmersiveMode(){
+        return savedSharedData.getBoolean(PREF_KEY_IMMERSIVE_MODE,DEFAULT_IMMERSIVE_MODE);
     }
 
     public boolean getSavedKlondikeLimitedRecycles(){
@@ -1165,6 +1185,10 @@ public class Preferences {
 
     public boolean getDisableHintCosts(){
         return savedSharedData.getBoolean(PREF_KEY_DISABLE_HINT_COSTS, DEFAULT_DISABLE_HINT_COSTS);
+    }
+
+    public boolean getHideMenuBar(){
+        return savedSharedData.getBoolean(PREF_KEY_HIDE_MENU_BAR, DEFAULT_HIDE_MENU_BAR);
     }
 
     public ArrayList<String> getSavedCalculationNextCardsList(){
@@ -1288,6 +1312,10 @@ public class Preferences {
 
     public void saveShowExpertSettings(boolean value){
         savedSharedData.edit().putBoolean(PREF_KEY_SHOW_ADVANCED_SETTINGS,value).apply();
+    }
+
+    public void saveHideMenuBar(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_HIDE_MENU_BAR,value).apply();
     }
 
     public void saveBackgroundColor(int value){

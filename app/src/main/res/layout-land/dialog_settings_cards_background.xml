@@ -42,19 +42,22 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:gravity="center"
                         android:text="1"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -67,14 +70,14 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
@@ -82,6 +85,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="2"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -92,14 +98,14 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
@@ -107,6 +113,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="3"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -117,14 +126,14 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
@@ -132,6 +141,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="4"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </LinearLayout>
@@ -143,14 +155,14 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
@@ -158,6 +170,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="5"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </LinearLayout>
@@ -169,14 +184,14 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
@@ -184,6 +199,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="6"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -194,14 +212,14 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
@@ -209,6 +227,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="7"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -219,14 +240,14 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
@@ -234,6 +255,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="8"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -244,14 +268,14 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
@@ -259,6 +283,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="9"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -269,7 +296,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tableLayout1"
         android:orientation="vertical">
 
         <TextView
@@ -299,10 +325,10 @@
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
+                        android:layout_margin="5dp"
                         android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
                         android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
                         android:background="@drawable/image_border"
@@ -316,10 +342,10 @@
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
+                        android:layout_margin="5dp"
                         android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
                         android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
                         android:background="@drawable/image_border"
@@ -333,10 +359,10 @@
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
+                        android:layout_margin="5dp"
                         android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
                         android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
                         android:background="@drawable/image_border"
@@ -350,10 +376,10 @@
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <ImageView
+                        android:layout_margin="5dp"
                         android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
                         android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
                         android:background="@drawable/image_border"

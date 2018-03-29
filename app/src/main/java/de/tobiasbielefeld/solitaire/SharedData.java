@@ -19,9 +19,12 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.util.ArrayList;

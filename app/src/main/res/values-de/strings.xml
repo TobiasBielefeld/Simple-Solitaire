@@ -515,7 +515,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_developer_options_no_saving_title">"Deaktivere Spielstand Speicherung"</string>
 <string name="settings_developer_options_no_saving_text">"Bewegungen in den Spielen werden nicht mehr gespeichert"</string>
 <string name="settings_developer_options_deal_correct_sequences_title">"Gebe korrekte Sequenzen aus"</string>
-<string name="settings_max_number_undos">"Maximale Anzahl der umkehrbaren Bewegungen"</string>
+<string name="settings_max_number_undos">"Anzahl der umkehrbaren Bewegungen"</string>
 <string name="settings_expert_settings">"Experten Einstellungen"</string>
 <string name="settings_expert_settings_text">"Könnten für Einige nützlich sein"</string>
 <string name="settings_follow_system_settings">"System Einstellungen folgen"</string>

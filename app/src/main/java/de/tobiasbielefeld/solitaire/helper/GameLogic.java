@@ -40,6 +40,7 @@ public class GameLogic {
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
+    private boolean updateGameLayout = false;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -357,10 +358,6 @@ public class GameLogic {
         gm.updateMenuBar();
     }
 
-    public void updateGameLayout() {
-        gm.updateGameLayout();
-    }
-
     public void incrementNumberWonGames(){
         prefs.saveNumberOfWonGames(prefs.getSavedNumberOfWonGames()+1);
     }
@@ -377,5 +374,13 @@ public class GameLogic {
 
     public boolean getMovedFirstCard(){
         return movedFirstCard;
+    }
+
+    public void setUpdateGameLayout(boolean value){
+        updateGameLayout = value;
+    }
+
+    public boolean hasToUpdateGameLayout() {
+        return updateGameLayout;
     }
 }

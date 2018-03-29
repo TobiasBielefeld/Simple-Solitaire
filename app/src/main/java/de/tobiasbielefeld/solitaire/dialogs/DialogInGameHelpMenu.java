@@ -28,6 +28,7 @@ import android.support.v4.app.DialogFragment;
 import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 
@@ -44,7 +45,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.showToast;
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
  */
 
-public class DialogInGameHelpMenu extends DialogFragment {
+public class DialogInGameHelpMenu extends CustomDialogFragment {
 
     @Override
     @NonNull
@@ -96,9 +97,6 @@ public class DialogInGameHelpMenu extends DialogFragment {
                     }
                 });
 
-        AlertDialog dialog = builder.create();
-        dialog.getListView().setScrollbarFadingEnabled(false);
-
-        return dialog;
+        return applyFlags(builder.create());
     }
 }

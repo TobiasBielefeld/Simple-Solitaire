@@ -19,6 +19,7 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;

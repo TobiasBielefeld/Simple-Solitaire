@@ -323,8 +323,9 @@
     <string name="settings_rules">Rules</string>
     <string name="settings_money">Money</string>
     <string name="settings_support">Support</string>
-    <string name="settings_hide_time">Hide Time</string>
-    <string name="settings_hide_score">Hide Score</string>
+    <string name="settings_hide_time">Hide time</string>
+    <string name="settings_hide_score">Hide score</string>
+    <string name="settings_hide_menu_button">Hide menu button</string>
     <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
     <string name="settings_vegas_bet_amount_text_1">Initial deal costs:</string>
     <string name="settings_vegas_bet_amount_text_2">Each card played to the foundation earns:</string>
@@ -406,6 +407,9 @@
     <string name="settings_game_layout_margins_small">Small</string>
     <string name="settings_game_layout_margins_medium">Medium</string>
     <string name="settings_game_layout_margins_large">Large</string>
+
+    <string name="settings_immersive_mode_title">Enable full screen mode</string>
+    <string name="settings_immersive_mode_text">Hide the Status and Navigation Bar while playing (Only on Android 4.4 and above)</string>
     <!-- Statistics -->
 
     <!-- %1$d and %2$d are placeholders for the values-->

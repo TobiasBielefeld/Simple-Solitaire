@@ -94,6 +94,10 @@
     <string name="pref_key_game_layout_margins" translatable="false">pref_key_game_layout_margins</string>
     <string name="pref_key_game_layout_margins_portrait" translatable="false">pref_key_game_layout_margins_portrait</string>
     <string name="pref_key_game_layout_margins_landscape" translatable="false">pref_key_game_layout_margins_landscape</string>
+    <string name="pref_key_hide_menu_bar" translatable="false">pref_key_hide_menu_bar</string>
+    <string name="pref_key_immersive_mode" translatable="false">pref_key_immersive_mode</string>
+    <string name="pref_key_hide_menu_button" translatable="false">pref_key_hide_menu_button</string>
+
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

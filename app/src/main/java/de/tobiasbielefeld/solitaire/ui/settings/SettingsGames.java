@@ -45,11 +45,11 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
  * Settings activity created with the "Create settings activity" tool from Android Studio.
  */
 
-public class SettingsGames extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class SettingsGames extends AppCompatPreferenceActivity  {
 
     private Preference preferenceVegasBetAmount;
 
-    HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +80,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     public void onResume() {
         super.onResume();
 
-        prefs.registerListener(this);
-        showOrHideStatusBar();
-        setOrientation();
 
-        activityCounter++;
-        backgroundSound.doInBackground(this);
     }
 
     @Override
@@ -186,38 +181,6 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
                 || YukonPreferenceFragment.class.getName().equals(fragmentName)
                 || SpiderPreferenceFragment.class.getName().equals(fragmentName)
                 || Mod3PreferenceFragment.class.getName().equals(fragmentName);
-    }
-
-    /**
-     * Applies the user setting of the screen orientation.
-     */
-    private void setOrientation() {
-        switch (prefs.getSavedOrientation()) {
-            case 1: //follow system settings
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-                break;
-            case 2: //portrait
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                break;
-            case 3: //landscape
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-            case 4: //landscape upside down
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                break;
-        }
-    }
-
-    /**
-     * Applies the user setting of the status bar.
-     */
-    private void showOrHideStatusBar() {
-        if (prefs.getSavedHideStatusBar()) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
     }
 
     private void updatePreferenceVegasBetAmountSummary(){
