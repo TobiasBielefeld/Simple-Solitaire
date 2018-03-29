@@ -3,7 +3,7 @@
 
     <PreferenceCategory android:title="@string/settings_cards">
 
-        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
             android:defaultValue="1"
             android:entries="@array/pref_draw_titles"
             android:entryValues="@array/pref_draw_values"
@@ -19,7 +19,7 @@
             android:summary="@string/settings_limit_number_of_recycles_text"
             android:title="@string/settings_limit_number_of_recycles" />
 
-        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
             android:dependency="@string/pref_key_klondike_limit_recycles"
             android:defaultValue="@string/default_klondike_number_of_recycles"
             android:entries="@array/pref_number_of_recycles_values"

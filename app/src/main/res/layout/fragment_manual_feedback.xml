@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.tobiasbielefeld.solitaire.ui.manual.ManualFeedback">
+    tools:context="de.tobiasbielefeld.solitairelite.ui.manual.ManualFeedback">
 
     <ScrollView
         android:id="@+id/manual_feedback_scrollview"

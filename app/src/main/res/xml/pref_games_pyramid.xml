@@ -3,7 +3,7 @@
 
     <PreferenceCategory android:title="@string/settings_rules">
 
-        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
             android:defaultValue="1"
             android:entries="@array/pref_pyramid_difficulty_titles"
             android:entryValues="@array/pref_pyramid_difficulty_values"
@@ -33,7 +33,7 @@
             android:summary="@string/settings_limit_number_of_recycles_text"
             android:title="@string/settings_limit_number_of_recycles" />
 
-        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
             android:dependency="@string/pref_key_pyramid_limit_recycles"
             android:defaultValue="@string/default_pyramid_number_of_recycles"
             android:entries="@array/pref_number_of_recycles_values"

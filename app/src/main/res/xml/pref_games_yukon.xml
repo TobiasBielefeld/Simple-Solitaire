@@ -3,7 +3,7 @@
 
     <PreferenceCategory android:title="@string/settings_rules">
 
-        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
             android:defaultValue="default"
             android:entries="@array/pref_yukon_rules_titles"
             android:entryValues="@array/pref_yukon_rules_values"

@@ -7,7 +7,7 @@
     android:layout_alignParentEnd="true"
     android:layout_alignParentRight="true"
     android:layout_alignParentTop="true"
-    tools:context="de.tobiasbielefeld.solitaire.ui.GameSelector">
+    tools:context="de.tobiasbielefeld.solitairelite.ui.GameSelector">
 
 
     <TableLayout

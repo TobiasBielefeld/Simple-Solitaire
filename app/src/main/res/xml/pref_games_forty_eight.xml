@@ -9,7 +9,7 @@
             android:summary="@string/settings_limit_number_of_recycles_text"
             android:title="@string/settings_limit_number_of_recycles" />
 
-        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
             android:dependency="@string/pref_key_fortyeight_limit_recycles"
             android:defaultValue="@string/default_fortyeight_number_of_recycles"
             android:entries="@array/pref_number_of_recycles_values"

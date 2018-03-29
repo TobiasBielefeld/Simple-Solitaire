@@ -3,7 +3,7 @@
 
     <PreferenceCategory android:title="@string/settings_rules">
 
-        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+        <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
             android:defaultValue="1"
             android:entries="@array/pref_spider_difficulty_titles"
             android:entryValues="@array/pref_spider_difficulty_values"

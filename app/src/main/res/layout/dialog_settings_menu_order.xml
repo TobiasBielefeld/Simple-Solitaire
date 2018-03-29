@@ -20,7 +20,7 @@
     android:layout_height="match_parent"
     tools:context=".dialogs.DialogPreferenceMenuOrder">
 
-        <de.tobiasbielefeld.solitaire.classes.DynamicListView
+        <de.tobiasbielefeld.solitairelite.classes.DynamicListView
             android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

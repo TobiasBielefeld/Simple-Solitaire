@@ -1,11 +1,11 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$CustomizationPreferenceFragment"
+        android:fragment="de.tobiasbielefeld.solitairelite.ui.settings.Settings$CustomizationPreferenceFragment"
         android:summary="@string/settings_customization_description"
         android:title="@string/settings_customization" />
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$MenuPreferenceFragment"
+        android:fragment="de.tobiasbielefeld.solitairelite.ui.settings.Settings$MenuPreferenceFragment"
         android:summary="@string/settings_menu_description"
         android:title="@string/settings_menu" />
 
@@ -14,27 +14,22 @@
         android:title="@string/settings_games" >
 
         <intent
-            android:targetClass="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames"
-            android:targetPackage="de.tobiasbielefeld.solitaire" />
+            android:targetClass="de.tobiasbielefeld.solitairelite.ui.settings.SettingsGames"
+            android:targetPackage="de.tobiasbielefeld.solitairelite" />
     </header>
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$SoundPreferenceFragment"
-        android:summary="@string/Settings_sounds_text"
-        android:title="@string/Settings_sounds_title" />
-
-    <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$AdditionalMovementsPreferenceFragment"
+        android:fragment="de.tobiasbielefeld.solitairelite.ui.settings.Settings$AdditionalMovementsPreferenceFragment"
         android:summary="@string/settings_additional_movements_description"
         android:title="@string/settings_additional_movements" />
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$OtherPreferenceFragment"
+        android:fragment="de.tobiasbielefeld.solitairelite.ui.settings.Settings$OtherPreferenceFragment"
         android:summary="@string/settings_other_description"
         android:title="@string/settings_other" />
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$ExpertSettingsPreferenceFragment"
+        android:fragment="de.tobiasbielefeld.solitairelite.ui.settings.Settings$ExpertSettingsPreferenceFragment"
         android:summary="@string/settings_expert_settings_text"
         android:title="@string/settings_expert_settings" />
 

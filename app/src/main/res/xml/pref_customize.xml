@@ -1,21 +1,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/manual_ui">
-        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuBarPosition
+        <de.tobiasbielefeld.solitairelite.dialogs.DialogPreferenceMenuBarPosition
             android:key="@string/pref_key_menu_bar_position"
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@string/game_confirm"
             android:summary="Portrait: Bottom, Landscape: Right"
             android:title="@string/settings_menu_bar_position" />
 
-        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceGameLayoutMargins
+        <de.tobiasbielefeld.solitairelite.dialogs.DialogPreferenceGameLayoutMargins
             android:key="@string/pref_key_game_layout_margins"
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@string/game_confirm"
             android:summary="@string/settings_game_layout_margins_text"
             android:title="@string/settings_game_layout_margins_title" />
 
-        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor
+        <de.tobiasbielefeld.solitairelite.dialogs.DialogPreferenceBackgroundColor
             android:key="@string/pref_key_background_color"
             android:negativeButtonText="@string/settings_background_color_custom"
             android:positiveButtonText="@string/game_cancel"
@@ -41,22 +41,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_cards">
-
-        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog
-            android:key="@string/pref_key_cards"
-            android:negativeButtonText="@string/game_cancel"
-            android:positiveButtonText="@null"
-            android:summary=""
-            android:title="@string/settings_cards"
-            android:widgetLayout="@layout/preference_widget_layout_cards" />
-
-        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardBackground
-            android:key="@string/pref_key_cards_background"
-            android:negativeButtonText="@string/game_cancel"
-            android:positiveButtonText="@string/game_confirm"
-            android:summary=""
-            android:title="@string/settings_cards_back"
-            android:widgetLayout="@layout/preference_widget_layout_cards_background" />
 
         <CheckBoxPreference
             android:defaultValue="@bool/default_4_color_mode"

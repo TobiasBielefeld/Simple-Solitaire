@@ -1,0 +1,361 @@
+/*
+ * Copyright (C) 2016  Tobias Bielefeld
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
+ */
+
+package de.tobiasbielefeld.solitairelite.ui.settings;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.support.v7.app.ActionBar;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+
+import java.util.List;
+import java.util.Locale;
+
+import de.tobiasbielefeld.solitairelite.R;
+import de.tobiasbielefeld.solitairelite.classes.Card;
+import de.tobiasbielefeld.solitairelite.classes.CustomPreferenceFragment;
+
+import static de.tobiasbielefeld.solitairelite.SharedData.*;
+import static de.tobiasbielefeld.solitairelite.helper.Preferences.*;
+
+/**
+ * Settings activity created with the "Create settings activity" tool from Android Studio.
+ */
+
+public class Settings extends AppCompatPreferenceActivity {
+
+    private Preference preferenceMenuBarPosition;
+    private Preference preferenceMenuColumns;
+    private Preference preferenceMaxNumberUndos;
+    private Preference preferenceGameLayoutMargins;
+    private CheckBoxPreference preferenceSingleTapAllGames;
+    private CheckBoxPreference preferenceTapToSelect;
+    private CheckBoxPreference preferenceImmersiveMode;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        reinitializeData(getApplicationContext());
+        super.onCreate(savedInstanceState);
+
+        ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        prefs.setCriticalSettings();
+    }
+
+    @Override
+    public boolean onIsMultiPane() {
+        return isLargeTablet(this);
+    }
+
+    @Override
+    public void onBuildHeaders(List<Header> target) {
+        if (prefs.getShowAdvancedSettings()) {
+            loadHeadersFromResource(R.xml.pref_headers_with_advanced_settings, target);
+        } else {
+            loadHeadersFromResource(R.xml.pref_headers, target);
+        }
+
+    }
+
+    /*
+     * Update settings when the shared preferences get new values. It uses a lot of if/else instead
+     * of switch/case because only this way i can use getString() to get the xml values, otherwise
+     * I would need to write the strings manually in the cases.
+     */
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
+            Card.updateCardDrawableChoice();
+
+        } else if (key.equals(PREF_KEY_CARD_BACKGROUND) || key.equals(PREF_KEY_CARD_BACKGROUND_COLOR)) {
+            Card.updateCardBackgroundChoice();
+
+        } else if (key.equals(PREF_KEY_HIDE_STATUS_BAR)) {
+            showOrHideStatusBar();
+
+        } else if (key.equals(PREF_KEY_ORIENTATION)) {
+            setOrientation();
+
+        } else if (key.equals(PREF_KEY_LEFT_HANDED_MODE)) {
+            if (gameLogic != null) {
+                gameLogic.mirrorStacks();
+            }
+
+        } else if (key.equals(PREF_KEY_MENU_COLUMNS_PORTRAIT) || key.equals(PREF_KEY_MENU_COLUMNS_LANDSCAPE)) {
+            updatePreferenceMenuColumnsSummary();
+
+        } else if (key.equals(PREF_KEY_LANGUAGE)) {
+            bitmaps.resetMenuPreviews();
+            restartApplication();
+
+        } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
+            updatePreferenceMenuBarPositionSummary();
+            if (gameLogic != null) {
+                gameLogic.updateMenuBar();
+            }
+
+        } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
+            Card.updateCardDrawableChoice();
+
+        } else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
+            if (animate != null) {
+                animate.updateMovementSpeed();
+            }
+
+        } else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)){
+            restartApplication();
+
+        } else if (key.equals(PREF_KEY_HIDE_SCORE)) {
+            if (scores!=null) {
+                scores.output();
+            }
+        } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
+            if (sharedPreferences.getBoolean(key,false) && preferenceTapToSelect!=null) {
+                preferenceTapToSelect.setChecked(false);
+            }
+
+        } else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)){
+            if (sharedPreferences.getBoolean(key,false) && preferenceSingleTapAllGames!=null) {
+                preferenceSingleTapAllGames.setChecked(false);
+            }
+
+        } else if (key.equals(PREF_KEY_MAX_NUMBER_UNDOS)) {
+            if (recordList !=null){
+                recordList.setMaxRecords();
+            }
+
+            updatePreferenceMaxNumberUndos();
+        } else if (key.equals(PREF_KEY_SHOW_ADVANCED_SETTINGS)) {
+            final Intent intent = new Intent(getApplicationContext(), Settings.class);
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            finish();
+            startActivity(intent);
+        } else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)){
+            updatePreferenceGameLayoutMarginsSummary();
+
+            if (gameLogic != null) {
+                gameLogic.setUpdateGameLayout(true);
+            }
+        } else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
+            if (gameLogic != null) {
+                gameLogic.setUpdateGameLayout(true);
+            }
+        } else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)){
+            if (gameLogic != null) {
+                gameLogic.updateMenuBar();
+            }
+        }
+    }
+
+    /**
+     * Tests if a loaded fragment is valid
+     *
+     * @param fragmentName The name of the fragment to test
+     * @return True if it's valid, false otherwise
+     */
+    protected boolean isValidFragment(String fragmentName) {
+        return PreferenceFragment.class.getName().equals(fragmentName)
+                || CustomizationPreferenceFragment.class.getName().equals(fragmentName)
+                || OtherPreferenceFragment.class.getName().equals(fragmentName)
+                || MenuPreferenceFragment.class.getName().equals(fragmentName)
+                || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
+                || DeveloperOptionsPreferenceFragment.class.getName().equals(fragmentName)
+                || ExpertSettingsPreferenceFragment.class.getName().equals(fragmentName);
+
+    }
+
+    private void updatePreferenceMenuColumnsSummary() {
+        int portraitValue = prefs.getSavedMenuColumnsPortrait();
+        int landscapeValue = prefs.getSavedMenuColumnsLandscape();
+
+        String text = String.format(Locale.getDefault(), "%s: %d\n%s: %d",
+                getString(R.string.settings_portrait), portraitValue, getString(R.string.settings_landscape), landscapeValue);
+
+        preferenceMenuColumns.setSummary(text);
+    }
+
+    private void updatePreferenceGameLayoutMarginsSummary(){
+        String textPortrait = "", textLandscape = "";
+
+        switch (prefs.getSavedGameLayoutMarginsPortrait()) {
+            case 0:
+                textPortrait = getString(R.string.settings_game_layout_margins_none);
+                break;
+            case 1:
+                textPortrait = getString(R.string.settings_game_layout_margins_small);
+                break;
+            case 2:
+                textPortrait = getString(R.string.settings_game_layout_margins_medium);
+                break;
+            case 3:
+                textPortrait = getString(R.string.settings_game_layout_margins_large);
+                break;
+        }
+
+        switch (prefs.getSavedGameLayoutMarginsLandscape()) {
+            case 0:
+                textLandscape = getString(R.string.settings_game_layout_margins_none);
+                break;
+            case 1:
+                textLandscape = getString(R.string.settings_game_layout_margins_small);
+                break;
+            case 2:
+                textLandscape = getString(R.string.settings_game_layout_margins_medium);
+                break;
+            case 3:
+                textLandscape = getString(R.string.settings_game_layout_margins_large);
+                break;
+        }
+
+        String text = String.format(Locale.getDefault(), "%s: %s\n%s: %s",
+                getString(R.string.settings_portrait), textPortrait, getString(R.string.settings_landscape), textLandscape);
+
+        preferenceGameLayoutMargins.setSummary(text);
+    }
+
+
+    private void updatePreferenceMaxNumberUndos() {
+        int amount = prefs.getSavedMaxNumberUndos();
+
+        preferenceMaxNumberUndos.setSummary(Integer.toString(amount));
+    }
+
+    private void updatePreferenceMenuBarPositionSummary() {
+        String portrait, landscape;
+        if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
+            portrait = getString(R.string.settings_menu_bar_position_bottom);
+        } else {
+            portrait = getString(R.string.settings_menu_bar_position_top);
+        }
+
+        if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
+            landscape = getString(R.string.settings_menu_bar_position_right);
+        } else {
+            landscape = getString(R.string.settings_menu_bar_position_left);
+        }
+
+        String text = String.format(Locale.getDefault(), "%s: %s\n%s: %s",
+                getString(R.string.settings_portrait), portrait, getString(R.string.settings_landscape), landscape);
+
+        preferenceMenuBarPosition.setSummary(text);
+    }
+
+    public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_customize);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
+            settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
+
+            settings.updatePreferenceGameLayoutMarginsSummary();
+            settings.updatePreferenceMenuBarPositionSummary();
+        }
+    }
+
+    public static class OtherPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_other);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceImmersiveMode = (CheckBoxPreference) findPreference(getString(R.string.pref_key_immersive_mode));
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+                settings.preferenceImmersiveMode.setEnabled(false);
+            }
+        }
+    }
+
+    public static class MenuPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_menu);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceMenuColumns = findPreference(getString(R.string.pref_key_menu_columns));
+            settings.updatePreferenceMenuColumnsSummary();
+        }
+    }
+
+    public static class AdditionalMovementsPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_movement_methods);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceSingleTapAllGames = (CheckBoxPreference) findPreference(getString(R.string.pref_key_single_tap_all_games));
+            settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
+        }
+    }
+
+    public static class DeveloperOptionsPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_developer_options);
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public static class ExpertSettingsPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_expert_settings);
+            setHasOptionsMenu(true);
+
+            Settings settings = (Settings) getActivity();
+
+            settings.preferenceMaxNumberUndos = findPreference(getString(R.string.pref_key_max_number_undos));
+            settings.updatePreferenceMaxNumberUndos();
+        }
+    }
+}

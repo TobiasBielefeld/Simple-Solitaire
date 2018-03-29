@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="de.tobiasbielefeld.solitaire.ui.manual.ManualGames">
+    tools:context="de.tobiasbielefeld.solitairelite.ui.manual.ManualGames">
 
     <ScrollView
         android:id="@+id/manual_games_layout_selection"

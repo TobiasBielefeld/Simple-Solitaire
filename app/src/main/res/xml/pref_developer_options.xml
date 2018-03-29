@@ -4,7 +4,7 @@
     <Preference
         android:summary="@string/settings_developer_options_lock_text"/>
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+    <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
         android:defaultValue="0"
         android:entries="@array/pref_developer_option_deal_correct_sequences_titles"
         android:entryValues="@array/pref_developer_option_deal_correct_sequences_values"

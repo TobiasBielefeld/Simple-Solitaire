@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+    <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
         android:defaultValue="1"
         android:entries="@array/pref_orientation_titles"
         android:entryValues="@array/pref_orientation_values"
@@ -11,7 +11,7 @@
         android:summary="%s"
         android:title="@string/settings_orientation" />
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+    <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
         android:defaultValue="default"
         android:entries="@array/pref_language_titles"
         android:entryValues="@array/pref_language_values"
@@ -21,7 +21,7 @@
         android:summary="%s"
         android:title="@string/settings_change_language" />
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+    <de.tobiasbielefeld.solitairelite.classes.ListPreferenceWithSummary
         android:defaultValue="@string/default_movement_speed"
         android:entries="@array/pref_movement_speed_titles"
         android:entryValues="@array/pref_movement_speed_values"

@@ -2,7 +2,7 @@
 
 <resources>
 
-    <string name="app_name" translatable="false">Simple Solitaire Collection</string>
+    <string name="app_name" translatable="false">Simple Solitaire Collection Lite</string>
 
 
 
@@ -106,8 +106,8 @@
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <string name="changelog_URL" translatable="false">file:///android_asset/changelog.html</string>
-    <string name="app_market_URL" translatable="false">market://details?id=de.tobiasbielefeld.solitaire</string>
-    <string name="app_web_URL" translatable="false">https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire</string>
+    <string name="app_market_URL" translatable="false">market://details?id=de.tobiasbielefeld.solitairelite</string>
+    <string name="app_web_URL" translatable="false">https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitairelite</string>
     <string name="github_issues_URL" translatable="false">https://github.com/TobiasBielefeld/Simple-Solitaire/issues</string>
     <string name="about_app_github_link" translatable="false"><a href="https://github.com/TobiasBielefeld/Simple-Solitaire">GitHub</a></string>
     <string name="about_app_license_link" translatable="false"><a href="https://www.gnu.org/licenses/gpl.html">GPL 3.0+</a></string>
