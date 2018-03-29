@@ -238,9 +238,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
          * game layout will not be drawn because somehow the viewTreeObserver isn't fired.
          * In this case, look here if the game was properly loaded. If not, do it here then.
          */
-        if (!hasLoaded){
-            initializeLayout(true);
-        }
+        //if (!hasLoaded){
+        //    initializeLayout(true);
+        //}
 
         activityPaused = false;
     }
