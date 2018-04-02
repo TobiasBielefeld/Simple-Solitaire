@@ -643,4 +643,7 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="settings_game_layout_margins_small">"Wąskie"</string>
 <string name="settings_game_layout_margins_medium">"Średnie"</string>
 <string name="settings_game_layout_margins_large">"Szerokie"</string>
+<string name="settings_hide_menu_button">"Ukryj przycisk menu"</string>
+<string name="settings_immersive_mode_title">"Włącz tryb pełnoekranowy"</string>
+<string name="settings_immersive_mode_text">"Ukryj paski statusu i nawigacji podczas gry (tylko na Androidzie 4.4 lub nowszym)"</string>
 </resources>
