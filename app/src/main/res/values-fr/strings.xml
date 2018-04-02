@@ -641,4 +641,7 @@ Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="settings_game_layout_margins_small">"Petit"</string>
 <string name="settings_game_layout_margins_medium">"Moyen"</string>
 <string name="settings_game_layout_margins_large">"Grand"</string>
+<string name="settings_hide_menu_button">"Cacher le bouton menu"</string>
+<string name="settings_immersive_mode_title">"Activer le mode plein écran"</string>
+<string name="settings_immersive_mode_text">"Masquer la barre de statut et la barre de navigation pendant la partie (uniquement sur Android 4.4 et plus)"</string>
 </resources>
