@@ -643,4 +643,7 @@ La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 <string name="settings_game_layout_margins_small">"Mallarĝaj"</string>
 <string name="settings_game_layout_margins_medium">"Mezaj"</string>
 <string name="settings_game_layout_margins_large">"Larĝaj"</string>
+<string name="settings_hide_menu_button">"Kaŝi menu-butonon"</string>
+<string name="settings_immersive_mode_title">"Aktivigi plenekranan reĝimon"</string>
+<string name="settings_immersive_mode_text">"Kaŝi statan kaj navigan bretojn dum ludado (nur ĉe Androido 4.4 aŭ pli nova)"</string>
 </resources>
