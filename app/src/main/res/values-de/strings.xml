@@ -635,4 +635,7 @@ Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 <string name="settings_game_layout_margins_small">"Klein"</string>
 <string name="settings_game_layout_margins_medium">"Medium"</string>
 <string name="settings_game_layout_margins_large">"Groß"</string>
+<string name="settings_hide_menu_button">"Verstecke Menü Button"</string>
+<string name="settings_immersive_mode_title">"Vollbildmodus aktivieren"</string>
+<string name="settings_immersive_mode_text">"Verstecke Status und Navigation Bar während des Spielens (Nur auf Android 4.4 und höher)"</string>
 </resources>
