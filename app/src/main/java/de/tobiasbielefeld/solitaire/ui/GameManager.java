@@ -816,17 +816,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             View decorView = getWindow().getDecorView();
 
-            decorView.setOnSystemUiVisibilityChangeListener(
-                new View.OnSystemUiVisibilityChangeListener() {
-                    @Override
-                    public void onSystemUiVisibilityChange(int visibility) {
-                        if (gameLogic.hasToUpdateGameLayout()){
-                            updateGameLayout();
-                            gameLogic.setUpdateGameLayout(false);
-                        }
-                    }
-                });
-
             if (prefs.getSavedImmersiveMode()){
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -834,12 +823,21 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+                decorView.setOnSystemUiVisibilityChangeListener(
+                        new View.OnSystemUiVisibilityChangeListener() {
+                            @Override
+                            public void onSystemUiVisibilityChange(int visibility) {
+                            updateGameLayout();
+                            }
+                        });
             } else {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                updateGameLayout();
             }
-        } else if (gameLogic.hasToUpdateGameLayout()){
+
+        } else {
             updateGameLayout();
-            gameLogic.setUpdateGameLayout(false);
         }
     }
 }

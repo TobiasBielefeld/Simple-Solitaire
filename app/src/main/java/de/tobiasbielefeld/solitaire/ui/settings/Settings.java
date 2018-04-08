@@ -184,13 +184,6 @@ public class Settings extends AppCompatPreferenceActivity {
         } else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)){
             updatePreferenceGameLayoutMarginsSummary();
 
-            if (gameLogic != null) {
-                gameLogic.setUpdateGameLayout(true);
-            }
-        } else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
-            if (gameLogic != null) {
-                gameLogic.setUpdateGameLayout(true);
-            }
         } else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)){
             if (gameLogic != null) {
                 gameLogic.updateMenuBar();
