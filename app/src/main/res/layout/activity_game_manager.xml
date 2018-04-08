@@ -155,8 +155,7 @@
             <ImageView
                 android:id="@+id/button_scores"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/title_activity_statistics"
                 app:srcCompat="@drawable/icon_star" />
 
@@ -187,8 +186,7 @@
             <ImageView
                 android:id="@+id/button_hint"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/title_activity_statistics"
                 app:srcCompat="@drawable/icon_lightbulb_on" />
 
@@ -219,8 +217,7 @@
             <ImageView
                 android:id="@+id/button_restart"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/menu_main_menu"
                 app:srcCompat="@drawable/icon_menu" />
 
@@ -251,8 +248,7 @@
             <ImageView
                 android:id="@+id/button_undo"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:adjustViewBounds="false"
                 android:contentDescription="@string/menu_undo"
                 app:srcCompat="@drawable/icon_undo" />
@@ -284,8 +280,7 @@
             <ImageView
                 android:id="@+id/button_settings"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/menu_settings"
                 app:srcCompat="@drawable/icon_settings_black" />
 
