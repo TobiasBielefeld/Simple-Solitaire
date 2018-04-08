@@ -538,6 +538,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_language_japanese">"Japanisch"</string>
 <string name="settings_language_polish">"Polnisch"</string>
 <string name="settings_language_turkish">"Türkisch"</string>
+<string name="settings_language_norwegian">"Norwegisch (Bokmål)"</string>
 <string name="settings_yukon_rules_1">"unterschiedliche Farben (Standard)"</string>
 <string name="settings_yukon_rules_2">"selbe Familie (Russian Solitare)"</string>
 <string name="settings_movement_speed_1">"Sehr langsam"</string>

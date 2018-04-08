@@ -76,7 +76,7 @@
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
     <string name="dialog_mix_cards_title">Mix cards</string>
-    <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>
+    <string name="dialog_mix_cards_text">This will shuffle all cards, except correct sequences and cards on the foundation.</string>
     <string name="dialog_mix_cards_not_available">There are still possible moves!</string>
     <string name="dialog_start_new_game_title">Start new game</string>
     <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
@@ -129,7 +129,7 @@
     <string name="manual_bonus">After winning a game, you get a bonus: The faster you win, the higher the bonus will be.</string>
     <string name="manual_open_google_play">Open Google Play</string>
     <string name="manual_open_github">Open GitHub Repo</string>
-    <string name="manual_games_text1">Choose a game to show it\'s structure, objective, rules and scoring.</string>
+    <string name="manual_games_text1">Choose a game to show its structure, objective, rules and scoring.</string>
     <string name="manual_startpage_text">Welcome to the manual of this game collection! I hope it will explain everything. \n\nUse the menu on the left side to access the other manual pages.</string>
     <string name="manual_general_main_menu">The usage of the main menu is relatively simple. Just tap on a game to start it. \n\nThe app will automatically load the last played game on a restart, if the app was paused in it. This behavior can be disabled in the settings under \"General\".\n\nThere you can also find the section \"Main menu\", where it\'s possible to hide and reorder games in the menu and change the number of columns, so more games fit on the screen at once.</string>
 
@@ -376,6 +376,7 @@
     <string name="settings_language_italian">Italian</string>
     <string name="settings_language_portuguese_brazil">Portuguese (Brazil)</string>
     <string name="settings_language_ukrainian">Ukrainian</string>
+    <string name="settings_language_norwegian">Norwegian (Bokmål)</string>
     <string name="settings_yukon_rules_1">different colors (Default)</string>
     <string name="settings_yukon_rules_2">same suit (Russian Solitaire)</string>
     <string name="settings_movement_speed_1">Very slow</string>
