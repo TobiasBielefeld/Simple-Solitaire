@@ -50,6 +50,9 @@ public class Bitmaps {
     private Bitmap[] menuBitMaps;
     private int savedCardTheme;
 
+    private final static int NUM_CARD_FRONT_THEMES = 8;
+    private final static int NUM_CARD_BACKGROUND_THEMES = 9;
+
     public boolean checkResources() {
         return res != null;
     }
@@ -252,7 +255,7 @@ public class Bitmaps {
 
         if (cardBack == null) {
             cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
-            cardBackWidth = cardBack.getWidth() / 9;
+            cardBackWidth = cardBack.getWidth() / NUM_CARD_BACKGROUND_THEMES;
             cardBackHeight = cardBack.getHeight() / 4;
         }
 
@@ -271,7 +274,7 @@ public class Bitmaps {
 
         if (cardPreview == null) {
             cardPreview = BitmapFactory.decodeResource(res, R.drawable.card_previews);
-            cardPreviewWidth = cardPreview.getWidth() / 8;
+            cardPreviewWidth = cardPreview.getWidth() / NUM_CARD_FRONT_THEMES;
             cardPreviewHeight = cardPreview.getHeight() / 2;
         }
 
@@ -293,7 +296,7 @@ public class Bitmaps {
 
         if (cardPreview2 == null) {
             cardPreview2 = BitmapFactory.decodeResource(res, R.drawable.card_previews);
-            cardPreview2Width = cardPreview2.getWidth() / 16;
+            cardPreview2Width = cardPreview2.getWidth() / NUM_CARD_FRONT_THEMES * 2;
             cardPreview2Height = cardPreview2.getHeight() / 2;
         }
 

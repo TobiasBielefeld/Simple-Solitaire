@@ -53,6 +53,7 @@
     <string name="games_GrandfathersClock">GrandfathersClock</string>
     <string name="games_Vegas">Vegas</string>
     <string name="games_Calculation">Calculation</string>
+    <string name="games_Napoleons_Tomb">Napoleon\'s Tomb</string>
 
     <!-- colors -->
 
@@ -239,6 +240,7 @@
     <string name="settings_oxygen_dark">Oxygen Dark</string>
     <string name="settings_oxygen_light">Oxygen Light</string>
     <string name="settings_poker">Poker</string>
+    <string name="settings_cards_dondorf">Dondorf</string>
     <string name="settings_background">Background number</string>
     <string name="settings_customization">Appearance</string>
     <string name="settings_other">General</string>

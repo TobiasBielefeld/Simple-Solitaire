@@ -35,6 +35,7 @@ import de.tobiasbielefeld.solitaire.games.GrandfathersClock;
 import de.tobiasbielefeld.solitaire.games.Gypsy;
 import de.tobiasbielefeld.solitaire.games.Klondike;
 import de.tobiasbielefeld.solitaire.games.Mod3;
+import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
@@ -81,12 +82,13 @@ public class LoadGame {
             case 7: return new Gypsy();
             case 8: return new Klondike();
             case 9: return new Mod3();
-            case 10: return new Pyramid();
-            case 11:return new SimpleSimon();
-            case 12:return new Spider();
-            case 13:return new TriPeaks();
-            case 14:return new Vegas();
-            case 15:return new Yukon();
+            case 10: return new NapoleonsTomb();
+            case 11: return new Pyramid();
+            case 12:return new SimpleSimon();
+            case 13:return new Spider();
+            case 14:return new TriPeaks();
+            case 15:return new Vegas();
+            case 16:return new Yukon();
         }
     }
 
@@ -114,6 +116,7 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_Gypsy,"Gypsy"));
         allGameInformation.add(new AllGameInformation(R.string.games_Klondike,"Klondike"));
         allGameInformation.add(new AllGameInformation(R.string.games_mod3,"mod3"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Napoleons_Tomb,"NapoleonsTomb"));
         allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid"));
         allGameInformation.add(new AllGameInformation(R.string.games_SimpleSimon,"SimpleSimon"));
         allGameInformation.add(new AllGameInformation(R.string.games_Spider,"Spider"));
@@ -156,6 +159,9 @@ public class LoadGame {
         if (result.size() == 15) {                                                                  //new calculation game
             result.add(1, 1);
         }
+        if (result.size() == 16) {                                                                  //new Napoleons Tomb game
+            result.add(10, 1);
+        }
 
         if (result.size() < getGameCount()){
             for (int i=result.size();i<getGameCount();i++){
@@ -170,6 +176,8 @@ public class LoadGame {
      * Returns the game list as integers in order of the user settings. If the user didn't set up
      * a custom order yet, the default order will be returned. If there was added a new game,
      * it will the added at the end.
+     *
+     * YOU DONT NEED TO ADD A NEW GAME HERE!
      *
      * @return the game list in order of the user settings.
      */
