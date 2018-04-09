@@ -582,8 +582,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
                 initializeLayout(false);
 
-                for (Stack stack : stacks){
-                    stack.updateSpacingWithoutMovement();
+                if (gameLogic.hasWon()) {
+                    for (Card card : cards) {
+                        card.setLocationWithoutMovement(layoutGame.getWidth(), 0);
+                    }
+                } else {
+                    for (Stack stack : stacks) {
+                        stack.updateSpacingWithoutMovement();
+                    }
                 }
             }
         });
