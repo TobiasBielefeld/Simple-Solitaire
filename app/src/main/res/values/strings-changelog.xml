@@ -7,6 +7,8 @@
      -
     -->
 
+    <string name="changelog_48_1" translatable="false">Little bug fix related to hiding the in-game menu</string>
+
     <string name="changelog_47_1" translatable="false">Added a little button to hide the in-game menu\n</string>
     <string name="changelog_47_2" translatable="false">The button can also be hidden in the \"Appearance\" settings\n</string>
     <string name="changelog_47_3" translatable="false">Added a fullscreen mode in the \"General\" settings\n</string>
