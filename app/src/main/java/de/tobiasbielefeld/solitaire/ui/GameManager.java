@@ -678,6 +678,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 menuBar.post(new Runnable() {
                     @Override
                     public void run() {
+                        gameLogic.save();
                         updateGameLayout();
                     }
                 });
