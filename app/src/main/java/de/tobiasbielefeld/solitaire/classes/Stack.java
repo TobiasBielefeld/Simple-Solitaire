@@ -82,22 +82,17 @@ public class Stack {
      * Adds a card to this stack. This will update the spacings and flips the card if the stack
      * is a main- or discard stack.
      *
+     * IMPORTANT: Do not forget calling updateSpacing() after assigning all cards to this stack
+     *
      * @param card The card to add.
-     * @param shouldUpdate tells if the stack should update its spacing and card views. Use false
-     *                     If you take care of it at another place. Eg after the asigning loop
-     *                     another loop with stacks[i].updateSpacing()
      */
-    public void addCard(Card card, boolean shouldUpdate) {
+    public void addCard(Card card) {
         card.setStack(this);
         currentCards.add(card);
 
-        if (shouldUpdate) {
-            updateSpacing();
-        }
-
-        if (currentGame.testForMainStack(this)) {
+        if (currentGame.mainStacksContain(getId())) {
             card.flipDown();
-        } else if (currentGame.testForDiscardStack(this)){
+        } else if (currentGame.discardStacksContain(getId())){
             card.flipUp();
         }
     }
@@ -232,7 +227,7 @@ public class Stack {
         ArrayList<Integer> list = prefs.getSavedStacks(id);
 
         for (Integer i : list) {
-            addCard(cards[i],false);
+            addCard(cards[i]);
             //cards[i].view.bringToFront();
         }
 

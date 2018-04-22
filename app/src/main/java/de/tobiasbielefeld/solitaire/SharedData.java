@@ -44,6 +44,7 @@ import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
+import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
@@ -222,7 +223,7 @@ public class SharedData {
         for (int i = 0; i < cards.size(); i++) {
             if (cards.get(i).getStack() != destinations.get(i)) {
                 cards.get(i).removeFromCurrentStack();
-                destinations.get(i).addCard(cards.get(i),false);
+                destinations.get(i).addCard(cards.get(i));
             }
         }
 

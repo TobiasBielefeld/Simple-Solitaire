@@ -93,7 +93,7 @@ public class HandlerAutoComplete extends Handler {
 
                     scores.move(card, destination);
                     card.removeFromCurrentStack();
-                    destination.addCard(card,false);
+                    destination.addCard(card);
                     card.view.bringToFront();
                     card.setLocation(destination.getX(),destination.getY());
                 }

@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.classes.State;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
@@ -48,6 +49,7 @@ public class SimpleSimon extends Spider {
         //because this game inherits from Spider, I have to disable the main stack from it
         disableMainStack();
         setMixingCardsTestMode(testMode.DOESNT_MATTER);
+        setEnsureMovability();
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -138,5 +140,19 @@ public class SimpleSimon extends Spider {
         }
 
         return null;
+    }
+
+    public int onMainStackTouch(State state) {
+        return 0;
+    }
+
+    public boolean autoCompleteStartTest(State state){
+        for (int i = 0; i < 10; i++) {
+            if (state.stacks[i].getSize() > 0 && (state.stacks[i].getFirstUpCardPos() != 0 || !testCardsUpToTop(state.stacks[i], 0, SAME_FAMILY))) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -166,6 +166,9 @@ public class GameLogic {
         randomize(randomCards);
 
         redeal();
+
+
+
     }
 
     /**
@@ -199,7 +202,7 @@ public class GameLogic {
                 card.setLocation(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
             }
 
-            currentGame.getDealStack().addCard(card,false);
+            currentGame.getDealStack().addCard(card);
             card.flipDown();
         }
 

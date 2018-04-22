@@ -3,14 +3,17 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
+import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.handlerDealCards;
 import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 import static de.tobiasbielefeld.solitaire.SharedData.sounds;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 
 /**
@@ -25,6 +28,11 @@ public class HandlerDealCards extends Handler {
         if (!animate.cardIsAnimating()) {
             prefs.setDealingCards(false);
             currentGame.dealNewGame();
+
+            if (currentGame.ensuresMovability()){
+                new EnsureMovability().execute(stacks,cards);
+            }
+
             sounds.playSound(Sounds.names.DEAL_CARDS);
             handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
         } else {
