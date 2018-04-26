@@ -34,6 +34,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Klondike;
+import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
@@ -128,6 +129,11 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
                 gameLogic.setNumberOfRecycles(key,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
             }
 
+        } else if (key.equals(PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES)){
+            if (currentGame instanceof NapoleonsTomb) {
+                gameLogic.setNumberOfRecycles(key,DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES);
+            }
+
         } else if (key.equals(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES)){
             if (currentGame instanceof FortyEight) {
                 gameLogic.setNumberOfRecycles(key,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
@@ -180,7 +186,8 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
                 || VegasPreferenceFragment.class.getName().equals(fragmentName)
                 || YukonPreferenceFragment.class.getName().equals(fragmentName)
                 || SpiderPreferenceFragment.class.getName().equals(fragmentName)
-                || Mod3PreferenceFragment.class.getName().equals(fragmentName);
+                || Mod3PreferenceFragment.class.getName().equals(fragmentName)
+                || NapoleonsTombPreferenceFragment.class.getName().equals(fragmentName);
     }
 
     private void updatePreferenceVegasBetAmountSummary(){
@@ -291,6 +298,16 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_games_mod3);
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public static class NapoleonsTombPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_games_napoleons_tomb);
             setHasOptionsMenu(true);
         }
     }

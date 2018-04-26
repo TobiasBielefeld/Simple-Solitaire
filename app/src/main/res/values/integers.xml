@@ -31,5 +31,6 @@
     <string name="default_klondike_number_of_recycles" translatable="false">3</string>
     <string name="default_canfield_size_of_reserve" translatable="false">13</string>
     <string name="default_developer_option_deal_correct_sequences" translatable="false">0</string>
+    <string name="default_napoleons_tomb_number_of_recycles" translatable="false">1</string>
 
 </resources>

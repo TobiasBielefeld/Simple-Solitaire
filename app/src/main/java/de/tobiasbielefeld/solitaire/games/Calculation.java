@@ -91,20 +91,6 @@ public class Calculation extends Game {
             textViews.get(i).setY(stacks[4+i].getY() - textViews.get(i).getMeasuredHeight());
 
         }
-
-        //load the next card values for the foundation from saved games
-        ArrayList<String> list = prefs.getSavedCalculationNextCardsList();
-
-        if (!list.isEmpty()){
-            for (int i=0;i<4;i++) {
-                textViews.get(i).setText(list.get(i));
-            }
-        } else {
-            textViews.get(0).setText("2");
-            textViews.get(1).setText("4");
-            textViews.get(2).setText("6");
-            textViews.get(3).setText("8");
-        }
     }
 
     public boolean winTest() {
@@ -140,14 +126,9 @@ public class Calculation extends Game {
     }
 
     @Override
-    public void save() {
-        ArrayList<String> list = new ArrayList<>();
-
-        for (int i=0;i<4;i++){
-            list.add(textViews.get(i).getText().toString());
-        }
-
-        prefs.saveCalculationNextCardsList(list);
+    public void load() {
+        //just use this method to set the texts, because it gets called after a saved game was loaded
+        setTexts();
     }
 
     public int onMainStackTouch() {

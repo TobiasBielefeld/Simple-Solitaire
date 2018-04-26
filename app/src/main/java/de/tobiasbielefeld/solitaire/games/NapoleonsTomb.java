@@ -32,11 +32,14 @@ import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.hint;
 import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 import static de.tobiasbielefeld.solitaire.SharedData.recordList;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.DOESNT_MATTER;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode3.ASCENDING;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
 
 /**
  * Napoleon's tomb game! Follows the rules from here: http://www.pahnation.com/how-to-play-napoleons-tomb/
@@ -57,6 +60,8 @@ public class NapoleonsTomb extends Game {
         setDirections(0,0,0,0);
 
         setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
+
+        setNumberOfRecycles(PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES, DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -118,6 +123,15 @@ public class NapoleonsTomb extends Game {
                 stack.view.setImageBitmap(Stack.backgroundTalon);
             }
         }
+
+        //generate the textViews over the last foundation stack
+        addTextViews(1, Card.width, layoutGame, context);
+
+        textViews.get(0).setX(stacks[8].getX());
+        textViews.get(0).setY(stacks[8].getY() - textViews.get(0).getMeasuredHeight());
+
+
+
     }
 
     public boolean winTest() {
@@ -276,13 +290,6 @@ public class NapoleonsTomb extends Game {
     }
 
     public void testAfterMove() {
-        /*
-         *  after a card is moved from the discard stacks, it needs to update the order of the cards
-         *  on the discard stacks. (But only in deal3 mode).
-         *  This movement will be added to the last record list entry, so it will be also undone if
-         *  the card will be moved back to the discard stacks
-         */
-
         if (gameLogic.hasWon()){
             return;
         }
@@ -291,5 +298,56 @@ public class NapoleonsTomb extends Game {
             recordList.addToLastEntry(stacks[10].getTopCard(), stacks[10]);
             moveToStack(stacks[10].getTopCard(), stacks[9], OPTION_NO_RECORD);
         }
+
+        setText();
+    }
+
+    @Override
+    public void load() {
+        //just use this method to set the texts, because it gets called after a saved game was loaded
+        setText();
+    }
+
+    private void setText(){
+
+        int value;
+        String text;
+
+        if (stacks[8].isEmpty() || stacks[8].getSize() == 24){
+            value = -1;
+        } else if (stacks[8].getTopCard().getValue() == 1){
+            value = 6;
+        } else {
+            value = stacks[8].getTopCard().getValue() - 1;
+        }
+
+        switch (value) {
+            case 1:
+                text = "A";
+                break;
+            case 11:
+                text = "J";
+                break;
+            case 12:
+                text = "Q";
+                break;
+            case 0:                                                                             //because it is mod 13
+                text = "K";
+                break;
+            case -1:
+                text = " ";
+                break;
+            default:
+                text = Integer.toString(value);
+                break;
+        }
+
+        textViews.get(0).setText(text);
+
+    }
+
+    @Override
+    public void afterUndo() {
+        setText();
     }
 }

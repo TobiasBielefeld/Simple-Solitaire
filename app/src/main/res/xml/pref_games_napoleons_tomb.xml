@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_cards">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_napoleons_tomb_number_of_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_napoleons_tomb_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

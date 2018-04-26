@@ -96,7 +96,10 @@ public class LoadGame {
      * Insert new games here and in loadClass(). The order is very important, so don't change it!
      * The resource id points to the name of the game, so it can be translated. The second parameter
      * is the prefix for the game saves (like order of the cards). It uses a separate sharedPref for
-     * each game. It is also the prefix for the manual entries. So use it when writing manual entries!
+     * each game. The string with the game name have to match the sharedPref name like
+     * "games_<sharedPrefName>". Look at the other game names for a hint! It is important for
+     * the manual pages. It is also the prefix for the manual entries. So use it when writing manual
+     * entries!
      *
      * If you add a game at the end, no further actions has to be done, expect updating the game
      * selector images and adding a manual entry. If you add it somewhere else (eg to get an
@@ -116,7 +119,7 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_Gypsy,"Gypsy"));
         allGameInformation.add(new AllGameInformation(R.string.games_Klondike,"Klondike"));
         allGameInformation.add(new AllGameInformation(R.string.games_mod3,"mod3"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Napoleons_Tomb,"NapoleonsTomb"));
+        allGameInformation.add(new AllGameInformation(R.string.games_NapoleonsTomb,"NapoleonsTomb"));
         allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid"));
         allGameInformation.add(new AllGameInformation(R.string.games_SimpleSimon,"SimpleSimon"));
         allGameInformation.add(new AllGameInformation(R.string.games_Spider,"Spider"));
