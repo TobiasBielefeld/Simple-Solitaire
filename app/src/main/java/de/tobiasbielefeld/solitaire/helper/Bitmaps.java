@@ -42,6 +42,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Bitmaps {
 
+    static int NUM_CARD_THEMES = 10;
+    static int NUM_CARD_BACKGROUNDS = 10;
+
     int menuWidth, menuHeight, stackBackgroundWidth, stackBackgroundHeight,
             cardBackWidth, cardBackHeight, cardFrontWidth, cardFrontHeight,
             cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
@@ -49,9 +52,6 @@ public class Bitmaps {
     private Bitmap menu, menuText, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private Bitmap[] menuBitMaps;
     private int savedCardTheme;
-
-    private final static int NUM_CARD_FRONT_THEMES = 8;
-    private final static int NUM_CARD_BACKGROUND_THEMES = 9;
 
     public boolean checkResources() {
         return res != null;
@@ -233,6 +233,12 @@ public class Bitmaps {
                 case 8:
                     resID = R.drawable.cards_poker;
                     break;
+                case 9:
+                    resID = R.drawable.cards_paris;
+                    break;
+                case 10:
+                    resID = R.drawable.cards_dondorf;
+                    break;
             }
 
             cardFront = BitmapFactory.decodeResource(res, resID);
@@ -255,7 +261,7 @@ public class Bitmaps {
 
         if (cardBack == null) {
             cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
-            cardBackWidth = cardBack.getWidth() / NUM_CARD_BACKGROUND_THEMES;
+            cardBackWidth = cardBack.getWidth() / NUM_CARD_BACKGROUNDS;
             cardBackHeight = cardBack.getHeight() / 4;
         }
 
@@ -274,7 +280,7 @@ public class Bitmaps {
 
         if (cardPreview == null) {
             cardPreview = BitmapFactory.decodeResource(res, R.drawable.card_previews);
-            cardPreviewWidth = cardPreview.getWidth() / NUM_CARD_FRONT_THEMES;
+            cardPreviewWidth = cardPreview.getWidth() / NUM_CARD_THEMES;
             cardPreviewHeight = cardPreview.getHeight() / 2;
         }
 
@@ -296,7 +302,7 @@ public class Bitmaps {
 
         if (cardPreview2 == null) {
             cardPreview2 = BitmapFactory.decodeResource(res, R.drawable.card_previews);
-            cardPreview2Width = cardPreview2.getWidth() / NUM_CARD_FRONT_THEMES * 2;
+            cardPreview2Width = cardPreview2.getWidth() / (NUM_CARD_THEMES * 2);
             cardPreview2Height = cardPreview2.getHeight() / 2;
         }
 
