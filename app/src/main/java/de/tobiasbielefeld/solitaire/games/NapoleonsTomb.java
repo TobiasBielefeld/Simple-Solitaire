@@ -276,11 +276,6 @@ public class NapoleonsTomb extends Game {
             return 60;
         }
 
-        //foundation to tableau
-        if (destinationID <=3 && originID >= 4 && originID <= 8) {
-            return -75;
-        }
-
         //returning cards to stock
         if (originID == 9 &&  destinationID == 10) {
             return -200;
