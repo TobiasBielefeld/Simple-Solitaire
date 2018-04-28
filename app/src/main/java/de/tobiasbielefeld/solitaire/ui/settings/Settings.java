@@ -201,17 +201,8 @@ public class Settings extends AppCompatPreferenceActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-        logText("resume extra has update: " + returnIntent.hasExtra(getString(R.string.intent_update_game_layout)));
-    }
-
-    @Override
     public void finish() {
-
         setResult(Activity.RESULT_OK,returnIntent);
-        logText("finish extra has update: " + returnIntent.hasExtra(getString(R.string.intent_update_game_layout)));
         super.finish();
     }
 
