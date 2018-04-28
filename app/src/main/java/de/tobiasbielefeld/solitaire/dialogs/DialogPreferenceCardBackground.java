@@ -41,7 +41,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class DialogPreferenceCardBackground extends DialogPreference implements View.OnClickListener {
 
-    private static int NUMBER_OF_CARD_BACKGROUNDS = 9;
+    private static int NUMBER_OF_CARD_BACKGROUNDS = 10;
 
     private LinearLayout[] linearLayoutsBackgrounds = new LinearLayout[NUMBER_OF_CARD_BACKGROUNDS];
     private ImageView[] imageViews = new ImageView[NUMBER_OF_CARD_BACKGROUNDS];
@@ -78,6 +78,7 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
         linearLayoutsBackgrounds[6] = (LinearLayout) view.findViewById(R.id.settingsCardBackground6);
         linearLayoutsBackgrounds[7] = (LinearLayout) view.findViewById(R.id.settingsCardBackground7);
         linearLayoutsBackgrounds[8] = (LinearLayout) view.findViewById(R.id.settingsCardBackground8);
+        linearLayoutsBackgrounds[9] = (LinearLayout) view.findViewById(R.id.settingsCardBackground9);
 
         linearLayoutsColors[0] = (LinearLayout) view.findViewById(R.id.dialogBackgroundsCardsBlue);
         linearLayoutsColors[1] = (LinearLayout) view.findViewById(R.id.dialogBackgroundsCardsRed);
@@ -129,6 +130,9 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
                 break;
             case R.id.settingsCardBackground8:
                 selectedBackground = 8;
+                break;
+            case R.id.settingsCardBackground9:
+                selectedBackground = 9;
                 break;
             case R.id.dialogBackgroundsCardsBlue:
                 selectedBackgroundColor = 0;

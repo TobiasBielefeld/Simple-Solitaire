@@ -48,10 +48,14 @@ Cards Basic:
     Created by me from the Ornate theme using Gimp. (Vector version coming soon). Also 
     useable under the CC0 license.
 
+Cards Paris:
+    SVG-cards 2.1 - https://sourceforge.net/projects/svg-cards/
+    Copyright 2005 - David Berkeley
+    Licensed under LGPL 2.1 - https://opensource.org/licenses/LGPL-2.1
+    
+    Downloaded from sourceforge, under the LGPLv2.1 license. 4 color theme was added by me.
 
 Card Backgrounds:
 
-    The first two are created by me from some background file by pixabay, under CC0 license.
-    The last 4 are from the Poker Card theme, under LGPLv3 license. Edited to have nicer colors.
-    The other backgrounds are also downloaded from pixabay, under CC0 license. (Most of them
-are part of the Modern card theme)
+    The first background was created by me, under CC0 license. The other backgrounds are part of the card themes 
+    and they are under the same licencse as their original card theme. 4 color theme was added by me.

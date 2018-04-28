@@ -42,7 +42,7 @@
 
     <PreferenceCategory android:title="@string/settings_cards">
 
-        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCards
             android:key="@string/pref_key_cards"
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@null"

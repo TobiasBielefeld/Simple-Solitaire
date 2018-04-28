@@ -37,15 +37,15 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * the widget icon of the preference.
  */
 
-public class DialogPreferenceCardDialog extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceCards extends DialogPreference implements View.OnClickListener {
 
-    private static int NUMBER_OF_CARD_THEMES = 8;
+    private static int NUMBER_OF_CARD_THEMES = 10;
 
     private LinearLayout[] linearLayouts = new LinearLayout[NUMBER_OF_CARD_THEMES];
     private Context context;
     private ImageView image;
 
-    public DialogPreferenceCardDialog(Context context, AttributeSet attrs) {
+    public DialogPreferenceCards(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_cards);
         setDialogIcon(null);
@@ -64,6 +64,8 @@ public class DialogPreferenceCardDialog extends DialogPreference implements View
         linearLayouts[5] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsOxygenDark);
         linearLayouts[6] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsOxygenLight);
         linearLayouts[7] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsPoker);
+        linearLayouts[8] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsParis);
+        linearLayouts[9] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsDondorf);
 
         for (int i = 0; i < NUMBER_OF_CARD_THEMES; i++) {
             linearLayouts[i].setOnClickListener(this);
@@ -103,7 +105,12 @@ public class DialogPreferenceCardDialog extends DialogPreference implements View
             case R.id.settingsLinearLayoutCardsPoker:
                 choice = 8;
                 break;
-
+            case R.id.settingsLinearLayoutCardsParis:
+                choice = 9;
+                break;
+            case R.id.settingsLinearLayoutCardsDondorf:
+                choice = 10;
+                break;
         }
 
         prefs.saveCardTheme(choice);
@@ -158,6 +165,12 @@ public class DialogPreferenceCardDialog extends DialogPreference implements View
                 break;
             case 8:
                 text = context.getString(R.string.settings_poker);
+                break;
+            case 9:
+                text = context.getString(R.string.settings_cards_paris);
+                break;
+            case 10:
+                text = context.getString(R.string.settings_cards_dondorf);
                 break;
         }
 

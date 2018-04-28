@@ -21,7 +21,6 @@ package de.tobiasbielefeld.solitaire.ui.settings;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -29,7 +28,6 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import java.util.List;
 import java.util.Locale;
@@ -37,8 +35,7 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
-import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog;
-import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCards;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -58,7 +55,7 @@ public class Settings extends AppCompatPreferenceActivity {
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
     private CheckBoxPreference preferenceImmersiveMode;
-    private DialogPreferenceCardDialog preferenceCards;
+    private DialogPreferenceCards preferenceCards;
     private Sounds settingsSounds;
 
     //make this static so the preference fragments use the same intent
@@ -316,7 +313,7 @@ public class Settings extends AppCompatPreferenceActivity {
             Settings settings = (Settings) getActivity();
 
             settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
-            settings.preferenceCards = (DialogPreferenceCardDialog) findPreference(getString(R.string.pref_key_cards));
+            settings.preferenceCards = (DialogPreferenceCards) findPreference(getString(R.string.pref_key_cards));
             settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
 
             settings.updatePreferenceGameLayoutMarginsSummary();
