@@ -166,4 +166,9 @@
     <string name="about_material_icons_SIL" translatable="false"><a href="http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web">SIL OFL 1.1</a></string>
     <string name="about_android_support_libraries_license" translatable="false"><a href="https://github.com/android/platform_frameworks_support/blob/master/LICENSE.txt">Apache 2.0</a></string>
 
+    <!-- used for return intents from the settings menu -->
+    <string name="intent_background_color" translatable="false">intent_background_color</string>
+    <string name="intent_update_game_layout" translatable="false">intent_update_game_layout</string>
+    <string name="intent_update_menu_bar" translatable="false">intent_update_menu_bar</string>
+
 </resources>

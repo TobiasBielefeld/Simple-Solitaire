@@ -353,10 +353,6 @@ public class GameLogic {
         prefs.saveNumberOfPlayedGames(prefs.getSavedNumberOfPlayedGames()+1);
     }
 
-    public void updateMenuBar() {
-        gm.updateMenuBar();
-    }
-
     public void incrementNumberWonGames(){
         prefs.saveNumberOfWonGames(prefs.getSavedNumberOfWonGames()+1);
     }

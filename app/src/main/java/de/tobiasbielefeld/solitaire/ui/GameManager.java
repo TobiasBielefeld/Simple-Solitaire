@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.RectF;
@@ -125,6 +126,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         recordList = new RecordList();
 
         updateMenuBar();
+        loadBackgroundColor();
 
 
         //initialize cards and stacks
@@ -232,16 +234,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         showOrHideNavBar();
 
         timer.load();
-        loadBackgroundColor();
 
         /* Orientation changes in other activities can also recreate the game manager, but its
          * game layout will not be drawn because somehow the viewTreeObserver isn't fired.
          * In this case, look here if the game was properly loaded. If not, do it here then.
          */
         //if (!hasLoaded){
-        //    initializeLayout(true);
+        //    updateGameLayout();
         //}
-
         activityPaused = false;
     }
 
@@ -698,11 +698,31 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 showRestartDialog();
                 break;
             case R.id.mainButtonSettings:       //open Settings activity
-                startActivity(new Intent(getApplicationContext(), Settings.class));
+                Intent i = new Intent(this, Settings.class);
+                startActivityForResult(i, 1);
                 break;
             case R.id.buttonMainAutoComplete:   //start auto complete
                 autoComplete.start();
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                if (data.hasExtra(getString(R.string.intent_update_game_layout))){
+                    updateGameLayout();
+                }
+                if (data.hasExtra(getString(R.string.intent_background_color))){
+                    loadBackgroundColor();
+                }
+                if (data.hasExtra(getString(R.string.intent_update_menu_bar))){
+                    updateMenuBar();
+                }
+            }
         }
     }
 
@@ -823,28 +843,16 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             View decorView = getWindow().getDecorView();
 
-            if (prefs.getSavedImmersiveMode()){
+            if (prefs.getSavedImmersiveMode()) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-                decorView.setOnSystemUiVisibilityChangeListener(
-                        new View.OnSystemUiVisibilityChangeListener() {
-                            @Override
-                            public void onSystemUiVisibilityChange(int visibility) {
-                            updateGameLayout();
-                            }
-                        });
             } else {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
-                updateGameLayout();
             }
-
-        } else {
-            updateGameLayout();
         }
     }
 }

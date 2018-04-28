@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.ui.settings;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -60,13 +61,17 @@ public class Settings extends AppCompatPreferenceActivity {
     private DialogPreferenceCardDialog preferenceCards;
     private Sounds settingsSounds;
 
-    HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
+    //make this static so the preference fragments use the same intent
+    //don't forget: Android 8 doesn't call onCreate for the fragments, so there only one intent is
+    //created. Android 7 calls onCreate for each fragment and would create new intents
+    static Intent returnIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         reinitializeData(getApplicationContext());
         super.onCreate(savedInstanceState);
 
-        ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
+        ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);     //remove huge padding in landscape
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -76,6 +81,10 @@ public class Settings extends AppCompatPreferenceActivity {
         prefs.setCriticalSettings();
 
         settingsSounds = new Sounds(this);
+
+        if (returnIntent == null) {
+            returnIntent = new Intent();
+        }
     }
 
     @Override
@@ -125,9 +134,7 @@ public class Settings extends AppCompatPreferenceActivity {
 
         } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();
-            if (gameLogic != null) {
-                gameLogic.updateMenuBar();
-            }
+            returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
 
         } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
@@ -183,12 +190,29 @@ public class Settings extends AppCompatPreferenceActivity {
             startActivity(intent);
         } else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)){
             updatePreferenceGameLayoutMarginsSummary();
-
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
         } else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)){
-            if (gameLogic != null) {
-                gameLogic.updateMenuBar();
-            }
+            returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
+        } else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
+        } else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM)){
+            returnIntent.putExtra(getString(R.string.intent_background_color), true);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        logText("resume extra has update: " + returnIntent.hasExtra(getString(R.string.intent_update_game_layout)));
+    }
+
+    @Override
+    public void finish() {
+
+        setResult(Activity.RESULT_OK,returnIntent);
+        logText("finish extra has update: " + returnIntent.hasExtra(getString(R.string.intent_update_game_layout)));
+        super.finish();
     }
 
     /**
@@ -257,7 +281,6 @@ public class Settings extends AppCompatPreferenceActivity {
 
         preferenceGameLayoutMargins.setSummary(text);
     }
-
 
     private void updatePreferenceMaxNumberUndos() {
         int amount = prefs.getSavedMaxNumberUndos();
@@ -344,8 +367,6 @@ public class Settings extends AppCompatPreferenceActivity {
             settings.updatePreferenceBackgroundVolumeSummary();
         }
     }
-
-
 
     public static class MenuPreferenceFragment extends CustomPreferenceFragment {
 
