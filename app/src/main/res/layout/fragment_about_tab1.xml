@@ -333,7 +333,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_imko92" />
+                            android:text="@string/contributors_imko92_dankan1890" />
 
                     </TableRow>
 
@@ -397,6 +397,27 @@
 
                     </TableRow>
 
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_language_spanish_argentina"
+                            android:padding="7dp"
+                            android:textColor="?android:attr/textColorPrimary"/>
+
+                        <TextView
+                            android:id="@+id/about_spanish_argentina_contributers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/contributors_4fff618" />
+
+                    </TableRow>
+
                 </TableLayout>
 
             </LinearLayout>
@@ -445,7 +466,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_dankan1890" />
+                            android:text="@string/contributors_tryton_vanmeer" />
 
                         <TextView
                             android:id="@+id/about_further_contributors_2"
@@ -453,7 +474,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_tryton_vanmeer" />
+                            android:text="@string/contributors_todor_balabanov" />
+
                     </TableRow>
 
                     <TableRow
@@ -466,15 +488,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_todor_balabanov" />
-
-                        <TextView
-                            android:id="@+id/about_further_contributors_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="7dp"
                             android:text="@string/contributors_strooonger" />
+
                     </TableRow>
 
                 </TableLayout>

@@ -53,6 +53,7 @@ public class InformationFragment extends Fragment{
         TextView textFrenchContributors = (TextView) view.findViewById(R.id.about_french_contributors);
         TextView textFinnishContributors = (TextView) view.findViewById(R.id.about_finnish_contributors);
         TextView textTurkishContributors = (TextView) view.findViewById(R.id.about_turkish_contributors);
+        TextView textSpanishArgentinaContributors = (TextView) view.findViewById(R.id.about_spanish_argentina_contributers);
 
         TextView textFurtherContributors1 = (TextView) view.findViewById(R.id.about_further_contributors_1);
         TextView textFurtherContributors2 = (TextView) view.findViewById(R.id.about_further_contributors_2);
@@ -67,7 +68,7 @@ public class InformationFragment extends Fragment{
         //enable the hyperlink clicks
         TextView[] textViews = new TextView[]{textViewGitHubLink,textViewLicenseLink,textJapaneseContributors,textEsperantoContributors,
                 textPolishContributors,textFinnishContributors,textTurkishContributors,textFrenchContributors,textFurtherContributors1,
-                textFurtherContributors2, textFurtherContributors3};
+                textFurtherContributors2, textFurtherContributors3, textSpanishArgentinaContributors};
 
         for (TextView textView : textViews){
             textView.setMovementMethod(LinkMovementMethod.getInstance());

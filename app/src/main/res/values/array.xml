@@ -152,10 +152,12 @@
         <item>@string/settings_language_norwegian</item>
         <item>@string/settings_language_polish</item>
         <item>@string/settings_language_portuguese_brazil</item>
+        <item>@string/settings_language_spanish_argentina</item>
         <item>@string/settings_language_turkish</item>
         <item>@string/settings_language_ukrainian</item>
     </string-array>
 
+    <!-- language variants are separated by a comma (,) from the "main" language-->
     <string-array name="pref_language_values" translatable="false">
         <item>default</item>    <!-- do not translate this one! -->
         <item>en</item>         <!-- English -->
@@ -167,7 +169,8 @@
         <item>ja</item>         <!-- Japanese -->
         <item>nb</item>         <!-- Norwegian (Bokmål)  -->
         <item>pl</item>         <!-- Polish -->
-        <item>pt</item>         <!-- Portuguese (Brazil) -->
+        <item>pt,BR</item>      <!-- Portuguese (Brazil) -->
+        <item>es,AR</item>      <!-- Spanish (Argentina) -->
         <item>tr</item>         <!-- Turkish -->
         <item>uk</item>         <!-- Ukrainian -->
     </string-array>

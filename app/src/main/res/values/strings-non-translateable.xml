@@ -143,7 +143,6 @@
     <!-- github profiles of contributors -->
     <string name="contributors_verdulo" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
     <string name="contributors_winjar" translatable="false"><a href="https://github.com/winjar">winjar</a></string>
-    <string name="contributors_dankan1890" translatable="false"><a href="https://github.com/dankan1890">dankan1890</a></string>
     <string name="contributors_tryton_vanmeer" translatable="false"><a href="https://github.com/tryton-vanmeer">tryton-vanmeer</a></string>
     <string name="contributors_naofum" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
     <string name="contributors_sekmenhuseyin" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
@@ -151,9 +150,10 @@
     <string name="contributors_todor_balabanov" translatable="false"><a href="https://github.com/TodorBalabanov">TodorBalabanov</a></string>
     <string name="contributors_strooonger" translatable="false"><a href="https://github.com/strooonger">strooonger</a></string>
 
-    <string name="contributors_imko92" translatable="false">imko92</string>
+    <string name="contributors_imko92_dankan1890" translatable="false">imko92, <a href="https://github.com/dankan1890">dankan1890</a></string>
     <string name="contributors_alexandre_parente" translatable="false">Alexandre Parente</string>
     <string name="contributors_olexn" translatable="false">olexn</string>
+    <string name="contributors_4fff618" translatable="false"><a href="https://github.com/4fff618">4fff618</a></string>
     <string name="contributer_imre_kristoffer_eilertsen" translatable="false">Imre Kristoffer Eilertsen</string>
 
     <!-- urls in about screen -->
