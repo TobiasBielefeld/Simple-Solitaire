@@ -110,6 +110,7 @@ public class Preferences {
     public static String PREF_KEY_PYRAMID_LIMITED_RECYCLES;
     public static String PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
     public static String PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
+    public static String PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_KLONDIKE_LIMITED_RECYCLES;
     public static String PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
@@ -166,6 +167,7 @@ public class Preferences {
     public static String DEFAULT_MOVEMENT_SPEED;
     public static String DEFAULT_CANFIELD_SIZE_OF_RESERVE;
     public static String DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES;
+    public static String DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
     public static int DEFAULT_CURRENT_GAME;
     public static int DEFAULT_GAME_LAYOUT_MARGINS_PORTRAIT;
     public static int DEFAULT_GAME_LAYOUT_MARGINS_LANDSCAPE;
@@ -307,6 +309,7 @@ public class Preferences {
         PREF_KEY_FORCE_TABLET_LAYOUT = res.getString(R.string.pref_key_force_tablet_layout);
         PREF_KEY_KLONDIKE_LIMITED_RECYCLES = res.getString(R.string.pref_key_klondike_limit_recycles);
         PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_klondike_number_of_recycles);
+        PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_napoleons_tomb_number_of_recycles);
         PREF_KEY_CALCULATION_ALTERNATIVE = res.getString(R.string.pref_key_calculation_alternative);
         PREF_KEY_HIDE_MENU_BAR = res.getString(R.string.pref_key_hide_menu_bar);
         PREF_KEY_IMMERSIVE_MODE = res.getString(R.string.pref_key_immersive_mode);
@@ -446,6 +449,7 @@ public class Preferences {
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
         DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
         DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
+        DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES = res.getString(R.string.default_napoleons_tomb_number_of_recycles);
     }
 
     private void putIntList(String name, List<Integer> list) {
@@ -510,6 +514,18 @@ public class Preferences {
 
         while (st.hasMoreTokens()) {
             result.add(Long.parseLong(st.nextToken()));
+        }
+
+        return result;
+    }
+
+    private ArrayList<String> getStringList(String name) {
+        String s = savedGameData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<String> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(st.nextToken());
         }
 
         return result;
@@ -1189,10 +1205,6 @@ public class Preferences {
 
     public boolean getHideMenuBar(){
         return savedSharedData.getBoolean(PREF_KEY_HIDE_MENU_BAR, DEFAULT_HIDE_MENU_BAR);
-    }
-
-    public ArrayList<String> getSavedCalculationNextCardsList(){
-        return getSharedStringList(PREF_KEY_NEXT_CARD_VALUES);
     }
 
     public ArrayList<Integer> getSavedMenuGamesList(){

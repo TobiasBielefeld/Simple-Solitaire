@@ -101,8 +101,6 @@ public class GameLogic {
         Card.updateCardBackgroundChoice();
         animate.reset();
         autoComplete.reset();
-        currentGame.load();
-        currentGame.loadRecycleCount(gm);
         sounds.playSound(Sounds.names.DEAL_CARDS);
 
         try {
@@ -138,6 +136,10 @@ public class GameLogic {
                 loadRandomCards();
 
                 checkForAutoCompleteButton();
+
+                //load game independent data
+                currentGame.load();
+                currentGame.loadRecycleCount(gm);
 
                 //deal the cards again in case the app got killed while trying  before
                 if (prefs.isDealingCards()){

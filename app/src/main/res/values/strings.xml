@@ -53,6 +53,7 @@
     <string name="games_GrandfathersClock">GrandfathersClock</string>
     <string name="games_Vegas">Vegas</string>
     <string name="games_Calculation">Calculation</string>
+    <string name="games_NapoleonsTomb">Napoleon\'s Tomb</string>
 
     <!-- colors -->
 
@@ -220,6 +221,10 @@
     <string name="manual_Calculation_objective">Place every card to the foundation, regardless of suit, until each foundation stack shows a king. The stacks have to be build in the following order: \n\n 1. stack in 1s: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K\n 2. stack in 2s: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K\n 3. stack in 3s: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K\n 4. stack in 4s: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K \n\nThe next playable cards are shown above the foundation stacks, too.</string>
     <string name="manual_Calculation_rules">The 4 foundation stacks already start with the first cards, which are randomly chosen. Cards on the foundation have to follow the order given under Objective. \n\nCards from the discard stack can be moved to any tableau stack or on foundation stacks, if they fulfill the correct order. \n\nPressing the main stack will simply move the card on the discard stack to the tableau stack with the fewest cards. Alternative rule: The cards on the discard stack remain there, when pressing on the main stack (can be enabled in the game settings). \n\nOn the tableau, only top cards can be moved and they can only be moved to the foundation.</string>
     <string name="manual_Calculation_scoring">Move a card to foundation: +50</string>
+    <string name="manual_NapoleonsTomb_structure">1 deck of 52 cards.\n\n4 tableau stacks, 5 foundation stacks, 1 main and 1 discard stack\n\nThe 4 stacks in the corners of the field and the one in the center are the foundation stacks. The stacks between them are the tableau stacks.</string>
+    <string name="manual_NapoleonsTomb_objective">Place every card to the foundation, regardless of suit. The 4 corner stacks start with a 7 and have to be stacked in ascending order until a king. The center tableau stack starts with a 6 and has to be stacked in descending order until an Ace four times. This results in the following order: \n6, 5, 4, 3, 2, A, 6, 5, 4, 3, 2, A, 6, 5, 4, 3, 2, A, 6, 5, 4, 3, 2, A\n\nThe next card to play will also be shown above the stack.</string>
+    <string name="manual_NapoleonsTomb_rules">Pressing the main stack will flip one card over to the discard stack. If the main stack is empty, press it again to recycle the cards from the discard stack back to it. The amount of possible recycles can be changed in the settings.\n\nOnly one card at a time can be placed on any tableau stack.</string>
+    <string name="manual_NapoleonsTomb_scoring">Move a card to foundation: +60\n\nMove a card from foundation back to the tableau: -75\n\nRecycle cards from the discard stack: -200</string>
 
     <!-- Settings -->
 
@@ -242,6 +247,7 @@
     <string name="settings_oxygen_dark">Oxygen Dark</string>
     <string name="settings_oxygen_light">Oxygen Light</string>
     <string name="settings_poker">Poker</string>
+    <string name="settings_cards_dondorf">Dondorf</string>
     <string name="settings_background">Background number</string>
     <string name="settings_customization">Appearance</string>
     <string name="settings_other">General</string>
