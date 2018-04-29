@@ -197,7 +197,7 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
     /**
      * Gets the bitmap for the card background preference icon and also set its summary
      */
-    private void updateSummary() {
+    public void updateSummary() {
         Bitmap cardBack;
 
         int selectedBackground = prefs.getSavedCardBackground();
@@ -205,11 +205,11 @@ public class DialogPreferenceCardBackground extends DialogPreference implements 
 
         if (image!=null) {
             cardBack = bitmaps.getCardBack(selectedBackground, selectedBackgroundColor);
-
             image.setImageBitmap(cardBack);
-            setSummary(String.format(Locale.getDefault(), "%s %s",
-                    context.getString(R.string.settings_background), selectedBackground + 1));
         }
+
+        setSummary(String.format(Locale.getDefault(), "%s %s",
+                context.getString(R.string.settings_background), selectedBackground + 1));
     }
 
     /*

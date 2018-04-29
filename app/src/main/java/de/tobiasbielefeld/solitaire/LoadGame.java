@@ -256,6 +256,21 @@ public class LoadGame {
     }
 
     /**
+     * Returns a list of all the sharedPref names
+     *
+     * @return      the shared pref name list as string array
+     */
+    public String[] getSharedPrefNameList(){
+        String[] list = new String[allGameInformation.size()];
+
+        for (int i = 0; i< allGameInformation.size(); i++){
+            list[i] = allGameInformation.get(i).getSharedPrefName();
+        }
+
+        return list;
+    }
+
+    /**
      * Returns the shared pref prefix of the given game. Used in the manual, so on a click to the
      * game entries, the resources are loaded using the shared pref prefix in the form of eg:
      * manual_<gamePrefix>_structure or manual_<gamePrefix>_objective

@@ -144,7 +144,7 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
     /**
      * Gets the saved data and updates the summary according to it
      */
-    private void updateSummary() {
+    public void updateSummary() {
 
         if (prefs.getSavedBackgroundColorType() == 1) {
             int drawableID;
@@ -177,14 +177,19 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
                     break;
             }
 
-            image.setImageResource(drawableID);
+            if (image != null) {
+                image.setImageResource(drawableID);
+            }
+
             setSummary(context.getString(stringID));
         } else {
             setSummary("");                                                                         //this forces redrawing of the color preview
             setSummary(context.getString(R.string.settings_background_color_custom));
 
-            image.setImageResource(0);
-            image.setBackgroundColor(prefs.getSavedBackgroundCustomColor());
+            if (image != null) {
+                image.setImageResource(0);
+                image.setBackgroundColor(prefs.getSavedBackgroundCustomColor());
+            }
         }
     }
 }

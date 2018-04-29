@@ -24,20 +24,32 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.DialogPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import java.util.List;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceFourColorMode;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideAutoCompleteButton;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideMenuButton;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideScore;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideTime;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardBackground;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCards;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
+import static android.content.ContentValues.TAG;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
@@ -52,10 +64,24 @@ public class Settings extends AppCompatPreferenceActivity {
     private Preference preferenceBackgroundVolume;
     private Preference preferenceMaxNumberUndos;
     private Preference preferenceGameLayoutMargins;
+
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
     private CheckBoxPreference preferenceImmersiveMode;
+
     private DialogPreferenceCards preferenceCards;
+    private DialogPreferenceCardBackground preferenceCardBackground;
+    private DialogPreferenceBackgroundColor preferenceBackgroundColor;
+    private DialogPreferenceOnlyForThisGame dialogPreferenceOnlyForThisGame;
+
+    private CheckBoxPreferenceFourColorMode preferenceFourColorMode;
+    private CheckBoxPreferenceHideAutoCompleteButton preferenceHideAutoCompleteButton;
+    private CheckBoxPreferenceHideMenuButton preferenceHideMenuButton;
+    private CheckBoxPreferenceHideScore preferenceHideScore;
+    private CheckBoxPreferenceHideTime preferenceHideTime;
+
+    CustomizationPreferenceFragment customizationPreferenceFragment;
+
     private Sounds settingsSounds;
 
     //make this static so the preference fragments use the same intent
@@ -105,6 +131,50 @@ public class Settings extends AppCompatPreferenceActivity {
      * I would need to write the strings manually in the cases.
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME)){
+
+            if (preferenceFourColorMode != null) {
+                preferenceFourColorMode.update();
+            }
+
+            if (preferenceHideAutoCompleteButton != null) {
+                preferenceHideAutoCompleteButton.update();
+            }
+
+            if (preferenceHideMenuButton != null) {
+                preferenceHideMenuButton.update();
+            }
+
+            if (preferenceHideScore != null) {
+                preferenceHideScore.update();
+            }
+
+            if (preferenceHideTime != null) {
+                preferenceHideTime.update();
+            }
+
+            if (preferenceCards != null) {
+                preferenceCards.updateSummary();
+            }
+
+            if (preferenceCardBackground != null) {
+                preferenceCardBackground.updateSummary();
+            }
+
+            if (preferenceBackgroundColor != null) {
+                preferenceBackgroundColor.updateSummary();
+            }
+
+            Card.updateCardDrawableChoice();
+            Card.updateCardBackgroundChoice();
+
+            updatePreferenceGameLayoutMarginsSummary();
+            updatePreferenceMenuBarPositionSummary();
+
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
+            returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
+            returnIntent.putExtra(getString(R.string.intent_background_color), true);
+        }
         if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
 
@@ -312,12 +382,36 @@ public class Settings extends AppCompatPreferenceActivity {
 
             Settings settings = (Settings) getActivity();
 
+            settings.customizationPreferenceFragment = this;
+
             settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
             settings.preferenceCards = (DialogPreferenceCards) findPreference(getString(R.string.pref_key_cards));
             settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
+            settings.preferenceCardBackground = (DialogPreferenceCardBackground) findPreference(getString(R.string.pref_key_cards_background));
+            settings.preferenceBackgroundColor = (DialogPreferenceBackgroundColor) findPreference(getString(R.string.pref_key_background_color));
+
+            settings.preferenceFourColorMode = (CheckBoxPreferenceFourColorMode) findPreference(getString(R.string.dummy_pref_key_4_color_mode));
+            settings.preferenceHideAutoCompleteButton = (CheckBoxPreferenceHideAutoCompleteButton) findPreference(getString(R.string.dummy_pref_key_hide_auto_complete_button));
+            settings.preferenceHideMenuButton = (CheckBoxPreferenceHideMenuButton) findPreference(getString(R.string.dummy_pref_key_hide_menu_button));
+            settings.preferenceHideScore = (CheckBoxPreferenceHideScore) findPreference(getString(R.string.dummy_pref_key_hide_score));
+            settings.preferenceHideTime = (CheckBoxPreferenceHideTime) findPreference(getString(R.string.dummy_pref_key_hide_time));
+            settings.dialogPreferenceOnlyForThisGame = (DialogPreferenceOnlyForThisGame) findPreference(getString(R.string.pref_key_settings_only_for_this_game));
+
+            settings.preferenceFourColorMode.update();
+            settings.preferenceHideAutoCompleteButton.update();
+            settings.preferenceHideMenuButton.update();
+            settings.preferenceHideScore.update();
+            settings.preferenceHideTime.update();
 
             settings.updatePreferenceGameLayoutMarginsSummary();
             settings.updatePreferenceMenuBarPositionSummary();
+            settings.hidePreferenceOnlyForThisGame();
+        }
+    }
+
+    public void hidePreferenceOnlyForThisGame(){
+        if (dialogPreferenceOnlyForThisGame.canBeHidden()){
+            customizationPreferenceFragment.getPreferenceScreen().removePreference(dialogPreferenceOnlyForThisGame);
         }
     }
 
