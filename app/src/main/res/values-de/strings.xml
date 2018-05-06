@@ -38,7 +38,7 @@
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -642,7 +642,7 @@ Wird als Paris Thema verwendet - Verfügbar auf &lt;a href=https://sourceforge.n
 "</string>
 <string name="settings_cards_paris">"Paris"</string>
 <string name="settings_cards_dondorf">"Dondorf"</string>
-<string name="games_NapoleonsTomb">"Napoleons Tomb"</string>
+<string name="games_NapoleonsTomb">"Napoleon\'sTomb"</string>
 <string name="manual_NapoleonsTomb_structure">"1 Deck aus 52 Karten.
 
 4 Tableau Stapel, 5 Foundation Stapel, 1 Haupt- und 1 Ablage Stapel
