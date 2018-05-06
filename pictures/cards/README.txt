@@ -4,7 +4,7 @@ I exported these files to png versions and put them in the drawables folder from
 
 All files are created using Inkscape. If you want to use them, you should use Inkscape too, because Gimp or the default picture viewer from Linux Mint do not display everything like Inkscape does. (For exampe the backgrounds_stacks file)
 
-Cards Abstrat:
+Cards Abstract:
     https://pixabay.com/en/card-deck-deck-cards-playing-cards-161536/ or
     https://openclipart.org/detail/175269/complete-guyenne-deck
 
@@ -54,6 +54,12 @@ Cards Paris:
     Licensed under LGPL 2.1 - https://opensource.org/licenses/LGPL-2.1
     
     Downloaded from sourceforge, under the LGPLv2.1 license. 4 color theme was added by me.
+
+Cards Dondorf:
+    Available in the public domain, see here:
+    https://git.gnome.org/browse/aisleriot/tree/cards/README.dondorf
+
+    4 color theme was added by me.
 
 Card Backgrounds:
 

@@ -1,4 +1,4 @@
-Cards Abstrat:
+Cards Abstract:
     https://pixabay.com/en/card-deck-deck-cards-playing-cards-161536/ or
     https://openclipart.org/detail/175269/complete-guyenne-deck
 
