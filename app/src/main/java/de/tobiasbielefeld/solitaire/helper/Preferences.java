@@ -1569,8 +1569,8 @@ public class Preferences {
         savedGameData.edit().putBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON,getHideAutoCompleteButton()).apply();
         savedGameData.edit().putBoolean(PREF_KEY_4_COLOR_MODE,getSavedFourColorMode()).apply();
 
-        savedGameData.edit().putString(DEFAULT_MENU_BAR_POSITION_PORTRAIT,getSavedMenuBarPosPortrait()).apply();
-        savedGameData.edit().putString(DEFAULT_MENU_BAR_POSITION_LANDSCAPE,getSavedMenuBarPosLandscape()).apply();
+        savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_PORTRAIT,getSavedMenuBarPosPortrait()).apply();
+        savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_LANDSCAPE,getSavedMenuBarPosLandscape()).apply();
 
         savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT,getSavedGameLayoutMarginsPortrait()).apply();
         savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE,getSavedGameLayoutMarginsLandscape()).apply();

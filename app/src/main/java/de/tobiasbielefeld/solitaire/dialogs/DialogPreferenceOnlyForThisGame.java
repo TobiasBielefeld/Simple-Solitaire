@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.dialogs;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.DialogPreference;
-import android.support.v7.widget.SwitchCompat;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.BulletSpan;
@@ -28,6 +27,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 
@@ -61,7 +61,7 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SETTINGS_
 public class DialogPreferenceOnlyForThisGame extends DialogPreference implements View.OnClickListener{
 
     private Context context;
-    private SwitchCompat widget;
+    private CheckBox widget;
 
 
     public DialogPreferenceOnlyForThisGame(Context context, AttributeSet attrs) {
@@ -172,7 +172,7 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference implements
             textView.setSingleLine(false);
         }
 
-        widget = (SwitchCompat) view.findViewById(R.id.preference_only_for_this_game_switch);
+        widget = (CheckBox) view.findViewById(R.id.preference_only_for_this_game_switch);
 
         if (isNotInGame()) {
             widget.setVisibility(GONE);
