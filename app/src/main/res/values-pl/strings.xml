@@ -653,7 +653,7 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 
 4 stosy gry, 5 stosów bazowych, 1 główny i 1 stos odrzutów.
 
-4 narożne stosy i jeden środkowy są stosami bazowymi. Stosy pomiędzy nimi są stosami gry."</string>
+4 narożne stosy z “7” i jeden środkowy są stosami bazowymi. Stosy pomiędzy nimi są stosami gry."</string>
 <string name="manual_NapoleonsTomb_objective">"Przenieś wszystkie karty na stosy bazowe, kolory kart nie mają znaczenia."</string>
 <string name="manual_NapoleonsTomb_rules">"Na 4 narożnych stosach znajdują się 7-ki i układamy na nich kary w kolejności rosnącej do króli. Centralny stos bazowy zawiera początkowo 6-kę i układany na nim karty w kolejności malejącej do asa czterokrotnie. Ostatecznie na tym stosie karty przyjmują następujący porządek:
 
@@ -661,7 +661,7 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 
 Następna karta do położenia wyświetli się nad stosem.
 
-Stuknięcie w stos główny odkryje jedną kartę i przeniesie do stosu odrzutów. Jeżeli zabraknie kart, stuknij ponownie, aby przenieść z powrotem wszystkie karty ze stosy odrzutów na stos główny. Liczba możliwych przenosin jest konfigurowalna w ustawieniach.
+Stuknięcie w stos główny odkryje jedną kartę i przeniesie do stosu odrzutów. Do ustawienia w opcjach gry: Jeżeli zabraknie kart, stuknij ponownie, aby przenieść z powrotem wszystkie karty ze stosy odrzutów na stos główny.
 
 Każdą kartę można przenieść na pusty stos gry, ale każdy stos może zawierać tylko po jednej karcie."</string>
 <string name="manual_NapoleonsTomb_scoring">"Przeniesienie karty na stos bazowy: +50

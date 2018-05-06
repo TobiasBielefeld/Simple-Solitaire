@@ -653,7 +653,7 @@ La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 
 4 tablamasoj, 5 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.
 
-4 stakoj en anguloj de la ludkampo kaj unu en la centro estas fundamentaj stakoj. La stakoj inter ili estas tablamasaj stakoj."</string>
+4 stakoj en anguloj kun “7” kaj unu en la centro estas fundamentaj stakoj. La stakoj inter ili estas tablamasaj stakoj."</string>
 <string name="manual_NapoleonsTomb_objective">"Movu ĉiujn kartojn sur fundamentajn stakojn, sendepende de emblemo."</string>
 <string name="manual_NapoleonsTomb_rules">"La angulaj stakoj komenciĝas 7 kaj oni metas tien kartojn kreskante ĝis reĝoj. La centra stako komenciĝas kun 6 kaj oni metas tien kartojn malkreskante ĝis aso kvarfoje. Jen la rezulto:
 
@@ -661,7 +661,7 @@ La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 
 La sekva karto de la ordo estos montrata supre de la stako.
 
-Frapetu la ĉefan stakon por malkovri kaj movi unu karton al la forĵeta stako. Se la ĉefa stako malpleniĝos, frapetu denove por movi reen ĉiujn kartojn de forĵeta stako al ĉefa stako. La nombro da eblaj reuzoj estas ŝanĝebla en agordoj.
+Frapetu la ĉefan stakon por malkovri kaj movi unu karton al la forĵeta stako. Ŝanĝebla en agordoj:  Se la ĉefa stako malpleniĝos, frapetu denove por movi reen ĉiujn kartojn de forĵeta stako al ĉefa stako.
 
 Ĉiun karton oni povas meti sur malplenan tablamasan stakon, sed ĉiu stako povas enhavi nur unu karton samtempe."</string>
 <string name="manual_NapoleonsTomb_scoring">"Movi karton al fundamenta stako: +60
