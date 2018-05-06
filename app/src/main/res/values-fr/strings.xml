@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Version"</string>
 <string name="settings">"Réglages"</string>
 <string name="game_manual">"Manuels"</string>
@@ -544,7 +542,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_language_japanese">"Japonais"</string>
 <string name="settings_language_polish">"Polonais"</string>
 <string name="settings_language_turkish">"Turc"</string>
-<string name="settings_language_norwegian">"Norvégien (Bokmål)"</string>
 <string name="settings_yukon_rules_1">"des couleurs différentes (par défaut)"</string>
 <string name="settings_yukon_rules_2">"la même famille de cartes (Solitaire russe)"</string>
 <string name="settings_movement_speed_1">"Très lente"</string>
@@ -645,4 +642,28 @@ Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="settings_hide_menu_button">"Cacher le bouton menu"</string>
 <string name="settings_immersive_mode_title">"Activer le mode plein écran"</string>
 <string name="settings_immersive_mode_text">"Masquer la barre de statut et la barre de navigation pendant la partie (uniquement sur Android 4.4 et plus)"</string>
+<string name="settings_language_norwegian">"Norvégien (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Utilisé comme thème 'Poker' - Disponible sur &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Tombeau de Napoléon"</string>
+<string name="manual_NapoleonsTomb_structure">"1 jeu de 52 cartes.
+
+4 piles sur le tableau, 5 piles de base, 1 talon et 1 défausse.
+
+Les 4 piles dans les coins avec un \"7\" et celle du centre sont les piles de base. Les piles entre elles sont les piles de tableau."</string>
+<string name="manual_NapoleonsTomb_objective">"Jouez chaque carte à la fondation, quelle que soit la couleur."</string>
+<string name="manual_NapoleonsTomb_rules">"Les 4 piles d'angle commencent avec un 7 et doivent être empilées dans l'ordre croissant jusqu'à ce qu'un roi. La pile de fondation centrale commence avec un 6 et doit être empilée dans l'ordre décroissant jusqu'à un As quatre fois. Il en résulte l'ordre suivant pour cette pile : 
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+La prochaine carte dans l'ordre sera également montrée au-dessus de la pile.
+
+En appuyant sur la pile principale, vous retournez une carte sur la pile de défausse. Peut être activé dans les paramètres de jeu : Si la pile principale est vide, appuyez de nouveau sur cette pile pour recycler les cartes de la pile de rejet.
+
+N'importe quelle carte peut être placée sur chaque pile de tableaux, mais chaque pile ne peut contenir qu'une seule carte à la fois."</string>
+<string name="manual_NapoleonsTomb_scoring">"A une pile de base : +45
+
+Déplacer les cartes de la défausse à la pioche : -200"</string>
+<string name="settings_language_spanish_argentina">"Espagnol (Argentine)"</string>
 </resources>
