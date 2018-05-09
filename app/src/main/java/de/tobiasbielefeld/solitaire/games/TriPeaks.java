@@ -45,7 +45,7 @@ public class TriPeaks extends Game {
     //contains which stack is above another stack. So stackAboveID[0]=3 means, that above stack
     //with index 0 are the stacks with index 3 and 3+1
     int[] stackAboveID = new int[]{3, 5, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26};//28
-    int runCounter;                                                                                 //to count how many cards are moved in one "run"
+    int runCounter = 0;                                                                                 //to count how many cards are moved in one "run"
     ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
 
     public TriPeaks() {
@@ -76,7 +76,6 @@ public class TriPeaks extends Game {
     public void load() {
         MAX_SAVED_RUN_RECORDS = RecordList.maxRecords;
         runCounter = prefs.getSavedRunCounter();
-
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -121,6 +120,7 @@ public class TriPeaks extends Game {
         stacks[29].setX(stacks[28].getX() + 2 * spacing + Card.width);
         stacks[29].setY(stacks[28].getY());
 
+        load();
     }
 
     public boolean winTest() {
