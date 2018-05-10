@@ -38,6 +38,7 @@ import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static android.content.Context.MODE_PRIVATE;
 import static android.view.View.GONE;
+import static de.tobiasbielefeld.solitaire.SharedData.createBulletParagraph;
 import static de.tobiasbielefeld.solitaire.SharedData.lg;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 import static de.tobiasbielefeld.solitaire.SharedData.showToast;
@@ -108,6 +109,7 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference{
             textView3.setText(R.string.settings_dialog_only_for_this_game_information_3);
         //settings are switching to individual settings
         } else if (!prefs.hasSettingsOnlyForThisGame()) {
+
             //build the list with bullet characters
             CharSequence strings[] = new CharSequence[]{
                     context.getString(R.string.settings_dialog_only_for_this_game_enable_2),
@@ -115,17 +117,9 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference{
                     context.getString(R.string.settings_dialog_only_for_this_game_enable_4)
             };
 
-            SpannableString spanns[] = new SpannableString[strings.length];
-
-            //apply the bullet characters
-            for (int i=0;i<strings.length;i++){
-                spanns[i] = new SpannableString(strings[i]);
-                spanns[i].setSpan(new BulletSpan(15), 0, strings[i].length(), 0);
-            }
-
             //set up the textView
             textView1.setText(R.string.settings_dialog_only_for_this_game_enable_1);
-            textView2.setText(TextUtils.concat(spanns));
+            textView2.setText(createBulletParagraph(strings));
             textView3.setText(R.string.settings_dialog_only_for_this_game_enable_5);
         //settings are switching back to normal settings
         } else {

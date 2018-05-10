@@ -9,133 +9,133 @@
 
     <string name="changelog_48_1" translatable="false">Little bug fix related to hiding the in-game menu</string>
 
-    <string name="changelog_47_1" translatable="false">Added a little button to hide the in-game menu\n</string>
-    <string name="changelog_47_2" translatable="false">The button can also be hidden in the \"Appearance\" settings\n</string>
-    <string name="changelog_47_3" translatable="false">Added a fullscreen mode in the \"General\" settings\n</string>
-    <string name="changelog_47_4" translatable="false">Rearranged some settings entries\n</string>
-    <string name="changelog_47_5" translatable="false">Updated Portuguese translation, thanks to Alexandre Parente!\n</string>
+    <string name="changelog_47_1" translatable="false">Added a little button to hide the in-game menu</string>
+    <string name="changelog_47_2" translatable="false">The button can also be hidden in the \"Appearance\" settings</string>
+    <string name="changelog_47_3" translatable="false">Added a fullscreen mode in the \"General\" settings</string>
+    <string name="changelog_47_4" translatable="false">Rearranged some settings entries</string>
+    <string name="changelog_47_5" translatable="false">Updated Portuguese translation, thanks to Alexandre Parente!</string>
     <string name="changelog_47_6" translatable="false">Added Norwegian (Bokmål) translation, thanks to Imre Kristoffer Eilertsen!</string>
 
-    <string name="changelog_46_1" translatable="false">Reverted the changes of the Freecell layout\n</string>
+    <string name="changelog_46_1" translatable="false">Reverted the changes of the Freecell layout</string>
     <string name="changelog_46_2" translatable="false">Instead added a new option in the \"Appearance\" settings to add margins to the game layout!</string>
 
-    <string name="changelog_45_1" translatable="false">Changed the hint button to a support menu: All assisting options are now shown here\n</string>
-    <string name="changelog_45_2" translatable="false">Added a new auto move option: It makes all currently possible movements if you are too lazy to do them yourself!\n</string>
-    <string name="changelog_45_3" translatable="false">Improved the high-score list: It shows more statistics and also the 10 latest scores\n</string>
-    <string name="changelog_45_4" translatable="false">Added options to disable the costs of undo and hint movements\n</string>
-    <string name="changelog_45_5" translatable="false">The expert settings are now always shown, but the developer options have to enabled from the expert settings menu\n</string>
-    <string name="changelog_45_6" translatable="false">Updated some parts of the manual\n</string>
-    <string name="changelog_45_7" translatable="false">Added partial translations for Ukrainian, Portuguese and Italian!\n</string>
+    <string name="changelog_45_1" translatable="false">Changed the hint button to a support menu: All assisting options are now shown here</string>
+    <string name="changelog_45_2" translatable="false">Added a new auto move option: It makes all currently possible movements if you are too lazy to do them yourself!</string>
+    <string name="changelog_45_3" translatable="false">Improved the high-score list: It shows more statistics and also the 10 latest scores</string>
+    <string name="changelog_45_4" translatable="false">Added options to disable the costs of undo and hint movements</string>
+    <string name="changelog_45_5" translatable="false">The expert settings are now always shown, but the developer options have to enabled from the expert settings menu</string>
+    <string name="changelog_45_6" translatable="false">Updated some parts of the manual</string>
+    <string name="changelog_45_7" translatable="false">Added partial translations for Ukrainian, Portuguese and Italian!</string>
     <string name="changelog_45_8" translatable="false">A lot of little changes and fixes</string>
 
     <string name="changelog_44_1" translatable="false">Fixing some issues</string>
 
-    <string name="changelog_43_1" translatable="false">Added missing Esperanto and fixed Polish translations, thanks to verdulo!\n</string>
+    <string name="changelog_43_1" translatable="false">Added missing Esperanto and fixed Polish translations, thanks to verdulo!</string>
     <string name="changelog_43_2" translatable="false">The confirmation dialogs for starting new games now only show once</string>
 
-    <string name="changelog_42_1" translatable="false">Added a new option to mix the cards, if no movement is possible\n</string>
-    <string name="changelog_42_2" translatable="false">Added expert and developer settings categories, can be enabled in the general settings\n</string>
-    <string name="changelog_42_3" translatable="false">Randomization now avoids similar cards next to each other, can be changed in the expert settings\n</string>
-    <string name="changelog_42_4" translatable="false">Added an option to increase the number of undo movements in the expert settings\n</string>
-    <string name="changelog_42_5" translatable="false">Added confirmation dialogs for starting new games\n</string>
-    <string name="changelog_42_6" translatable="false">Canfield: The size of the reserve can now be changed, to make the game easier to win\n</string>
-    <string name="changelog_42_7" translatable="false">Changed the card re-dealing animation\n</string>
-    <string name="changelog_42_8" translatable="false">Tablet layout is now also shown on 7\" devices\n</string>
-    <string name="changelog_42_9" translatable="false">Made the app movable to sd cards\n</string>
+    <string name="changelog_42_1" translatable="false">Added a new option to mix the cards, if no movement is possible</string>
+    <string name="changelog_42_2" translatable="false">Added expert and developer settings categories, can be enabled in the general settings</string>
+    <string name="changelog_42_3" translatable="false">Randomization now avoids similar cards next to each other, can be changed in the expert settings</string>
+    <string name="changelog_42_4" translatable="false">Added an option to increase the number of undo movements in the expert settings</string>
+    <string name="changelog_42_5" translatable="false">Added confirmation dialogs for starting new games</string>
+    <string name="changelog_42_6" translatable="false">Canfield: The size of the reserve can now be changed, to make the game easier to win</string>
+    <string name="changelog_42_7" translatable="false">Changed the card re-dealing animation</string>
+    <string name="changelog_42_8" translatable="false">Tablet layout is now also shown on 7\" devices</string>
+    <string name="changelog_42_9" translatable="false">Made the app movable to sd cards</string>
     <string name="changelog_42_10" translatable="false">Bug fixes and little changes</string>
 
 
     <string name="changelog_41_1" translatable="false">Added missing Esperanto and Polish translations, thanks to verdulo!</string>
 
-    <string name="changelog_40_1" translatable="false">Added a new Single-Tap settings entry. It is like Double-Tap, but with one tap less!\n</string>
-    <string name="changelog_40_2" translatable="false">Disabled recycles (limited to 0) aren\'t shown anymore over the main stack\n</string>
-    <string name="changelog_40_3" translatable="false">Vegas bet and win amount can now be changed separately\n</string>
-    <string name="changelog_40_4" translatable="false">Adjusted the Vegas default rules\n</string>
-    <string name="changelog_40_5" translatable="false">Changed the drawer menu, thanks to  dankan1890!\n</string>
-    <string name="changelog_40_6" translatable="false">Added some French translations, thanks to cicithesquirrel!\n</string>
+    <string name="changelog_40_1" translatable="false">Added a new Single-Tap settings entry. It is like Double-Tap, but with one tap less!</string>
+    <string name="changelog_40_2" translatable="false">Disabled recycles (limited to 0) aren\'t shown anymore over the main stack</string>
+    <string name="changelog_40_3" translatable="false">Vegas bet and win amount can now be changed separately</string>
+    <string name="changelog_40_4" translatable="false">Adjusted the Vegas default rules</string>
+    <string name="changelog_40_5" translatable="false">Changed the drawer menu, thanks to  dankan1890!</string>
+    <string name="changelog_40_6" translatable="false">Added some French translations, thanks to cicithesquirrel!</string>
     <string name="changelog_40_7" translatable="false">Correcting some bugs and force close issues</string>
 
-    <string name="changelog_39_1" translatable="false">Added a new game: Calculation Solitaire!\n</string>
-    <string name="changelog_39_2" translatable="false">ixed Finnish translations, thanks to winjar!\n</string>
-    <string name="changelog_39_3" translatable="false">In game time and score can now be hidden, thanks to tryton-vanmee for this feature!\n</string>
-    <string name="changelog_39_4" translatable="false">Empty discard stacks will now be filled by the next card from the main stack in games which support it\n</string>
-    <string name="changelog_39_5" translatable="false">Vegas: Added the ability to keep the current balance between games\n</string>
-    <string name="changelog_39_6" translatable="false">Added automatic movements of Aces in Mod3 and Kings in Pyramid, can be disabled in the settings\n</string>
-    <string name="changelog_39_7" translatable="false">Fixed the amount of movable cards in Freecell, Forty&amp;Eight and GrandfathersClock\n</string>
-    <string name="changelog_39_8" translatable="false">Changed the pictures of the main menu to reduce application size a bit\n</string>
-    <string name="changelog_39_9" translatable="false">Changed the appearance of the about screen\n</string>
+    <string name="changelog_39_1" translatable="false">Added a new game: Calculation Solitaire!</string>
+    <string name="changelog_39_2" translatable="false">ixed Finnish translations, thanks to winjar!</string>
+    <string name="changelog_39_3" translatable="false">In game time and score can now be hidden, thanks to tryton-vanmee for this feature!</string>
+    <string name="changelog_39_4" translatable="false">Empty discard stacks will now be filled by the next card from the main stack in games which support it</string>
+    <string name="changelog_39_5" translatable="false">Vegas: Added the ability to keep the current balance between games</string>
+    <string name="changelog_39_6" translatable="false">Added automatic movements of Aces in Mod3 and Kings in Pyramid, can be disabled in the settings</string>
+    <string name="changelog_39_7" translatable="false">Fixed the amount of movable cards in Freecell, Forty&amp;Eight and GrandfathersClock</string>
+    <string name="changelog_39_8" translatable="false">Changed the pictures of the main menu to reduce application size a bit</string>
+    <string name="changelog_39_9" translatable="false">Changed the appearance of the about screen</string>
     <string name="changelog_39_10" translatable="false">Bug fixes and little changes</string>
 
-    <string name="changelog_38_1" translatable="false">Game settings are now in separated sub menus for better clarity\n</string>
-    <string name="changelog_38_2" translatable="false">Updated Esperanto and Polish translations. Thanks to verdulo!\n</string>
+    <string name="changelog_38_1" translatable="false">Game settings are now in separated sub menus for better clarity</string>
+    <string name="changelog_38_2" translatable="false">Updated Esperanto and Polish translations. Thanks to verdulo!</string>
     <string name="changelog_38_3" translatable="false">Added Turkish translations, thanks to sekmenhuseyin!</string>
 
-    <string name="changelog_37_1" translatable="false">Updated French translations. Thanks to cicithesquirrel!\n</string>
+    <string name="changelog_37_1" translatable="false">Updated French translations. Thanks to cicithesquirrel!</string>
     <string name="changelog_37_2" translatable="false">Changed the bonus calculation and the bonus will be shown after winning a game</string>
 
     <string name="changelog_36_1" translatable="false">Fixed an issue related to high-scores.</string>
 
     <string name="changelog_35_1" translatable="false">Fixed some issues related to scoring</string>
 
-    <string name="changelog_34_1" translatable="false">The order of the games in the main menu can now be changed in the settings!\n</string>
-    <string name="changelog_34_2" translatable="false">Updated Esperanto, Polish and Finnish translations. Thanks to verdulo and winjar!\n</string>
+    <string name="changelog_34_1" translatable="false">The order of the games in the main menu can now be changed in the settings!</string>
+    <string name="changelog_34_2" translatable="false">Updated Esperanto, Polish and Finnish translations. Thanks to verdulo and winjar!</string>
     <string name="changelog_34_3" translatable="false">Bug fixes</string>
 
     <string name="changelog_33_1" translatable="false">Added a Settings entry to disable the new automatically start a new game behavior</string>
 
-    <string name="changelog_32_1" translatable="false">Added the new game Vegas: Like Klondike, but play for (not real) money!\n</string>
-    <string name="changelog_32_2" translatable="false">Added a shortcut to the in game menu to the corresponding manual entry\n</string>
-    <string name="changelog_32_3" translatable="false">Added some basic sounds with an extra submenu in the settings\n</string>
-    <string name="changelog_32_4" translatable="false">Increased the default card moving speed\n</string>
-    <string name="changelog_32_5" translatable="false">Changed the behavior of limited recycles of the waste in Pyramid and Forty&amp;Eight\n</string>
-    <string name="changelog_32_6" translatable="false">Fixed error: Rotating screen in game and then leave to the main menu, the game did show up again\n</string>
-    <string name="changelog_32_7" translatable="false">New behavior: Starting a game, which was left won, will automatically start a new game\n</string>
+    <string name="changelog_32_1" translatable="false">Added the new game Vegas: Like Klondike, but play for (not real) money!</string>
+    <string name="changelog_32_2" translatable="false">Added a shortcut to the in game menu to the corresponding manual entry</string>
+    <string name="changelog_32_3" translatable="false">Added some basic sounds with an extra submenu in the settings</string>
+    <string name="changelog_32_4" translatable="false">Increased the default card moving speed</string>
+    <string name="changelog_32_5" translatable="false">Changed the behavior of limited recycles of the waste in Pyramid and Forty&amp;Eight</string>
+    <string name="changelog_32_6" translatable="false">Fixed error: Rotating screen in game and then leave to the main menu, the game did show up again</string>
+    <string name="changelog_32_7" translatable="false">New behavior: Starting a game, which was left won, will automatically start a new game</string>
     <string name="changelog_32_8" translatable="false">Bug fixes</string>
 
-    <string name="changelog_31_1" translatable="false">Fix for space between faced down cards\n</string>
+    <string name="changelog_31_1" translatable="false">Fix for space between faced down cards</string>
     <string name="changelog_31_2" translatable="false">Fix for force-close when rotating the screen, while the win animation is showing</string>
 
-    <string name="changelog_30_1" translatable="false">Bug fixes in Canfield\n</string>
+    <string name="changelog_30_1" translatable="false">Bug fixes in Canfield</string>
     <string name="changelog_30_2" translatable="false">Fixed some force-close issues</string>
 
-    <string name="changelog_29_1" translatable="false">Canfield: If the reserve is empty, cards from the stock won\'t be used anymore. (Because it was possible anyway to choose which card to move)\n</string>
-    <string name="changelog_29_2" translatable="false">Spider and SimpleSimon: Hint and Double-Tap now prefer cards with the same color as the moving card\n</string>
-    <string name="changelog_29_3" translatable="false">You can now change the card movement speed in the settings\n</string>
-    <string name="changelog_29_4" translatable="false">Faced down cards will now take less place on the screen than faced up cards.\n</string>
-    <string name="changelog_29_5" translatable="false">Improved double tap movement: Foundation stacks are now preferred (can be disabled in settings)\n</string>
-    <string name="changelog_29_6" translatable="false">Calculation of points in Golf and TriPeaks now account the length of the sequence and also display the longest sequence in the statistics\n</string>
-    <string name="changelog_29_7" translatable="false">Improved the card background chooser: Now you can select a theme and the color separately. This also resets the saved settings (Sorry!)\n</string>
+    <string name="changelog_29_1" translatable="false">Canfield: If the reserve is empty, cards from the stock won\'t be used anymore. (Because it was possible anyway to choose which card to move)</string>
+    <string name="changelog_29_2" translatable="false">Spider and SimpleSimon: Hint and Double-Tap now prefer cards with the same color as the moving card</string>
+    <string name="changelog_29_3" translatable="false">You can now change the card movement speed in the settings</string>
+    <string name="changelog_29_4" translatable="false">Faced down cards will now take less place on the screen than faced up cards.</string>
+    <string name="changelog_29_5" translatable="false">Improved double tap movement: Foundation stacks are now preferred (can be disabled in settings)</string>
+    <string name="changelog_29_6" translatable="false">Calculation of points in Golf and TriPeaks now account the length of the sequence and also display the longest sequence in the statistics</string>
+    <string name="changelog_29_7" translatable="false">Improved the card background chooser: Now you can select a theme and the color separately. This also resets the saved settings (Sorry!)</string>
     <string name="changelog_29_8" translatable="false">A lot of bug fixes</string>
 
     <string name="changelog_28_1" translatable="false">Fix multiple card movement in Forty&amp;Eight</string>
 
-    <string name="changelog_27_1" translatable="false">Updated French and Finnish translations, thanks to romainhk and winjar!\n</string>
-    <string name="changelog_27_2" translatable="false">Redesigned the main menu and app icon\n</string>
+    <string name="changelog_27_1" translatable="false">Updated French and Finnish translations, thanks to romainhk and winjar!</string>
+    <string name="changelog_27_2" translatable="false">Redesigned the main menu and app icon</string>
     <string name="changelog_27_3" translatable="false">Removed the option to change the icon theme to simplify the program</string>
 
-    <string name="changelog_26_1" translatable="false">Added a custom color picker for the background color\n</string>
-    <string name="changelog_26_2" translatable="false">Added a new game: Grandfathers Clock\n</string>
+    <string name="changelog_26_1" translatable="false">Added a custom color picker for the background color</string>
+    <string name="changelog_26_2" translatable="false">Added a new game: Grandfathers Clock</string>
     <string name="changelog_26_3" translatable="false">Updated the menu icons</string>
 
-    <string name="changelog_25_1" translatable="false">Added Tap-To-Select movements: Tap a card to select it and then tap the destination stack to move it\n</string>
-    <string name="changelog_25_2" translatable="false">Added Single-Tap movements for Golf and TriPeaks: Tap a card once to move it to the discard stack\n</string>
-    <string name="changelog_25_3" translatable="false">Changed the double tap settings menu to add the new movement methods\n</string>
-    <string name="changelog_25_4" translatable="false">Made the Drag-And-Drop movement more intelligent: It now uses the stack with the highest intersection rate which can add the card\n</string>
-    <string name="changelog_25_5" translatable="false">Some small bug fixes\n</string>
+    <string name="changelog_25_1" translatable="false">Added Tap-To-Select movements: Tap a card to select it and then tap the destination stack to move it</string>
+    <string name="changelog_25_2" translatable="false">Added Single-Tap movements for Golf and TriPeaks: Tap a card once to move it to the discard stack</string>
+    <string name="changelog_25_3" translatable="false">Changed the double tap settings menu to add the new movement methods</string>
+    <string name="changelog_25_4" translatable="false">Made the Drag-And-Drop movement more intelligent: It now uses the stack with the highest intersection rate which can add the card</string>
+    <string name="changelog_25_5" translatable="false">Some small bug fixes</string>
     <string name="changelog_25_6" translatable="false">Small updates to Esperanto and Polish translations, thanks to verdulo!</string>
 
-    <string name="changelog_24_1" translatable="false">Added Finnish translations, thanks to winjar!\n</string>
-    <string name="changelog_24_2" translatable="false">Added 2 new card themes and 6 new card backgrounds\n</string>
-    <string name="changelog_24_3" translatable="false">Card themes can now be changed to a 4 color version\n</string>
-    <string name="changelog_24_4" translatable="false">Improved quality of used pictures\n</string>
-    <string name="changelog_24_5" translatable="false">The high score list has a new appearance and shows date and time stamps\n</string>
-    <string name="changelog_24_6" translatable="false">High Scores will also be saved when ending a game, not only when winning a game\n</string>
-    <string name="changelog_24_7" translatable="false">Added an option to change the rules from \'Yukon\' to \'Russian Solitaire\'\n</string>
+    <string name="changelog_24_1" translatable="false">Added Finnish translations, thanks to winjar!</string>
+    <string name="changelog_24_2" translatable="false">Added 2 new card themes and 6 new card backgrounds</string>
+    <string name="changelog_24_3" translatable="false">Card themes can now be changed to a 4 color version</string>
+    <string name="changelog_24_4" translatable="false">Improved quality of used pictures</string>
+    <string name="changelog_24_5" translatable="false">The high score list has a new appearance and shows date and time stamps</string>
+    <string name="changelog_24_6" translatable="false">High Scores will also be saved when ending a game, not only when winning a game</string>
+    <string name="changelog_24_7" translatable="false">Added an option to change the rules from \'Yukon\' to \'Russian Solitaire\'</string>
     <string name="changelog_24_8" translatable="false">Some little changes</string>
 
     <string name="changelog_23_1" translatable="false">Updated french translations (Thanks to romainhk!)</string>
 
-    <string name="changelog_22_1" translatable="false">Canfield: Empty foundation stacks now show which card can be placed on them\n</string>
+    <string name="changelog_22_1" translatable="false">Canfield: Empty foundation stacks now show which card can be placed on them</string>
     <string name="changelog_22_2" translatable="false">Improved drag-and-drop: Cards will be added to the stack with the highest intersection rate</string>
 
     <string name="changelog_21_1" translatable="false">Bug fix for double tap movement in \'Yukon\'</string>
@@ -144,14 +144,14 @@
 
     <string name="changelog_19_1" translatable="false">Bug fix for moving aces to the discard stack in \'Aces Up\'</string>
 
-    <string name="changelog_18_1" translatable="false">Replaced the old icons with Material design icons\n</string>
+    <string name="changelog_18_1" translatable="false">Replaced the old icons with Material design icons</string>
     <string name="changelog_18_2" translatable="false">Added an option to change the position of the menu bar</string>
 
-    <string name="changelog_17_1" translatable="false">Added a new game: Canfield\n</string>
-    <string name="changelog_17_2" translatable="false">The High-Scores now show the total number of games and the winning rate\n</string>
-    <string name="changelog_17_3" translatable="false">Added a Double-Tap-To-Move option, can be disabled in the settings\n</string>
-    <string name="changelog_17_4" translatable="false">Added options to disable the limited Re-deals in Forty&amp;Eight and Pyramid\n</string>
-    <string name="changelog_17_5" translatable="false">Multiple cards can be moved in Forty&amp;Eight, if there are enough free stacks (like in Freecell)\n</string>
+    <string name="changelog_17_1" translatable="false">Added a new game: Canfield</string>
+    <string name="changelog_17_2" translatable="false">The High-Scores now show the total number of games and the winning rate</string>
+    <string name="changelog_17_3" translatable="false">Added a Double-Tap-To-Move option, can be disabled in the settings</string>
+    <string name="changelog_17_4" translatable="false">Added options to disable the limited Re-deals in Forty&amp;Eight and Pyramid</string>
+    <string name="changelog_17_5" translatable="false">Multiple cards can be moved in Forty&amp;Eight, if there are enough free stacks (like in Freecell)</string>
     <string name="changelog_17_6" translatable="false">Removed the option to disable multiple card movements from Freecell, because it doesn\'t affect the rules</string>
 
     <string name="changelog_16_1" translatable="false">Bug fix in Klondike draw 3 mode</string>
@@ -162,40 +162,40 @@
 
     <string name="changelog_13_1" translatable="false">Improved japanese translations (Thanks to naofum from GitHub!)</string>
 
-    <string name="changelog_12_1" translatable="false">Fixed win condition on Spider and SimpleSimon\n</string>
+    <string name="changelog_12_1" translatable="false">Fixed win condition on Spider and SimpleSimon</string>
     <string name="changelog_12_2" translatable="false">Also fixed auto completion on Spider and SimpleSimon</string>
 
-    <string name="changelog_11_1" translatable="false">Added an option to change the language in the settings\n</string>
-    <string name="changelog_11_2" translatable="false">Thanks to GitHub user verdulo, this app is now translated to Polish and Esperanto!\n</string>
+    <string name="changelog_11_1" translatable="false">Added an option to change the language in the settings</string>
+    <string name="changelog_11_2" translatable="false">Thanks to GitHub user verdulo, this app is now translated to Polish and Esperanto!</string>
     <string name="changelog_11_3" translatable="false">Fixed a bug which occurred when choosing a fixed orientation</string>
 
     <string name="changelog_10_1" translatable="false">Error correction while saving high-scores</string>
 
-    <string name="changelog_9_1" translatable="false">Changed app name and icon\n</string>
-    <string name="changelog_9_2" translatable="false">Added more games: Pyramid, TriPeaks, Forty&amp;Eight, Mod3, Gypsy and AcesUp!\n</string>
-    <string name="changelog_9_3" translatable="false">Added an manual\n</string>
-    <string name="changelog_9_4" translatable="false">Games in the main menu are now alphabetically sorted\n</string>
-    <string name="changelog_9_5" translatable="false">You can now change the appearance of the main menu\n</string>
+    <string name="changelog_9_1" translatable="false">Changed app name and icon</string>
+    <string name="changelog_9_2" translatable="false">Added more games: Pyramid, TriPeaks, Forty&amp;Eight, Mod3, Gypsy and AcesUp!</string>
+    <string name="changelog_9_3" translatable="false">Added an manual</string>
+    <string name="changelog_9_4" translatable="false">Games in the main menu are now alphabetically sorted</string>
+    <string name="changelog_9_5" translatable="false">You can now change the appearance of the main menu</string>
     <string name="changelog_9_6" translatable="false">A lot of little improvements</string>
 
     <string name="changelog_8_1" translatable="false">More bug fixes</string>
 
     <string name="changelog_7_1" translatable="false">Some bug fixes</string>
 
-    <string name="changelog_6_1" translatable="false">Added more games: Freecell, Yukon, Spider, Simple Simon and Golf!\n</string>
-    <string name="changelog_6_2" translatable="false">Added a new basic card set with larger icon\n</string>
-    <string name="changelog_6_3" translatable="false">Changed the settings and added more options\n</string>
+    <string name="changelog_6_1" translatable="false">Added more games: Freecell, Yukon, Spider, Simple Simon and Golf!</string>
+    <string name="changelog_6_2" translatable="false">Added a new basic card set with larger icon</string>
+    <string name="changelog_6_3" translatable="false">Changed the settings and added more options</string>
     <string name="changelog_6_4" translatable="false">Also improved the about screen</string>
 
-    <string name="changelog_5_1" translatable="false">Fixed an error when deleting high scores\n</string>
+    <string name="changelog_5_1" translatable="false">Fixed an error when deleting high scores</string>
     <string name="changelog_5_2" translatable="false">Added an option to set screen orientation</string>
 
-    <string name="changelog_4_1" translatable="false">Moved the about button to the settings\n</string>
-    <string name="changelog_4_2" translatable="false">Some visual changes\n</string>
+    <string name="changelog_4_1" translatable="false">Moved the about button to the settings</string>
+    <string name="changelog_4_2" translatable="false">Some visual changes</string>
     <string name="changelog_4_3" translatable="false">Game is now licensed under GPL 3.0!</string>
 
-    <string name="changelog_3_1" translatable="false">Added 2 new background colors\n</string>
-    <string name="changelog_3_2" translatable="false">Changed the auto complete question to a button\n</string>
+    <string name="changelog_3_1" translatable="false">Added 2 new background colors</string>
+    <string name="changelog_3_2" translatable="false">Changed the auto complete question to a button</string>
     <string name="changelog_3_3" translatable="false">Drawable updates for foundation and stock</string>
 
     <string name="changelog_2_1" translatable="false">Improved settings</string>

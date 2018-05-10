@@ -35,6 +35,8 @@ import java.util.List;
 
 import de.tobiasbielefeld.solitaire.R;
 
+import static de.tobiasbielefeld.solitaire.SharedData.createBulletParagraph;
+
 /**
  * Shows the changelog, each version has an own string in strings-changelog.xml. This fragment
  * uses the version name to generate each entry
@@ -89,14 +91,13 @@ public class ChangeLogFragment extends Fragment{
             }
         }
 
-        SpannableString spanns[] = new SpannableString[stringList.size()];
+        //convert to array
+        CharSequence[] strings = new CharSequence[stringList.size()];
 
-        //apply the bullet characters
-        for (int i=0;i<stringList.size();i++){
-            spanns[i] = new SpannableString(stringList.get(i));
-            spanns[i].setSpan(new BulletSpan(15), 0, stringList.get(i).length(), 0);
+        for (int i=0; i<strings.length; i++){
+            strings[i] = stringList.get(i);
         }
 
-        return TextUtils.concat(spanns);
+        return TextUtils.concat(createBulletParagraph(stringList.toArray(new CharSequence[stringList.size()])));
     }
 }

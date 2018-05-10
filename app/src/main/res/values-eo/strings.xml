@@ -599,33 +599,22 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 La butono “statistikoj” malfermos novan langeton kun diversaj statistikoj pri la ludata ludo, ekzemple plej altan poentaron.
 
 La butono “subteno” malfermos etan helpan menuon. Tie vi povos elekti:"</string>
-<string name="manual_ui_text_part_2">"Montri konsilon: montri maksimume 3 eblajn kart-movojn. Tamen tio ĉi malpliigos vian poentaron je 25. Rimarku, ke banalaj movoj kiel movi ĉiun karton al malplena kampo aŭ frapeti la ĉefan stakon ne estos montritaj kiel konsilo. Se neniu konsilo estos montrita, la poentaro ne malpliiĝos.
-"</string>
-<string name="manual_ui_text_part_3">"Aŭtomate movi: aŭtomate movi tiom da kartoj, kiom tio eblas. Tiu ĉiu eblo estas uzebla kiam ekzemple nur unu karto estas malkovrita, sed vi devas movi ĉiujn kartojn de tiu stako por aliri ĝin. Do tiu ĉi eblo povas ete plirapidigi la ludon.
-"</string>
-<string name="manual_ui_text_part_4">"Miksi kartojn: se vi spertas situacion, kiam neniuj kart-movoj eblas, vi povas uzi tiun ĉi eblon por miksi nunajn kartojn. Rimarku, ke kartoj jam en ĝusta ordo aŭ kartoj sur fundamentaj stakoj ne estos miksitaj.
-"</string>
-<string name="manual_ui_text_part_5">"Reguloj de ludo: malfermi paĝon en manlibro pri la nuna ludo.
-"</string>
+<string name="manual_ui_text_part_2">"Montri konsilon: montri maksimume 3 eblajn kart-movojn. Tamen tio ĉi malpliigos vian poentaron je 25. Rimarku, ke banalaj movoj kiel movi ĉiun karton al malplena kampo aŭ frapeti la ĉefan stakon ne estos montritaj kiel konsilo. Se neniu konsilo estos montrita, la poentaro ne malpliiĝos."</string>
+<string name="manual_ui_text_part_3">"Aŭtomate movi: aŭtomate movi tiom da kartoj, kiom tio eblas. Tiu ĉiu eblo estas uzebla kiam ekzemple nur unu karto estas malkovrita, sed vi devas movi ĉiujn kartojn de tiu stako por aliri ĝin. Do tiu ĉi eblo povas ete plirapidigi la ludon."</string>
+<string name="manual_ui_text_part_4">"Miksi kartojn: se vi spertas situacion, kiam neniuj kart-movoj eblas, vi povas uzi tiun ĉi eblon por miksi nunajn kartojn. Rimarku, ke kartoj jam en ĝusta ordo aŭ kartoj sur fundamentaj stakoj ne estos miksitaj."</string>
+<string name="manual_ui_text_part_5">"Reguloj de ludo: malfermi paĝon en manlibro pri la nuna ludo."</string>
 <string name="manual_ui_text_part_6">"La butono “menuo” ebligas tri diversajn agojn:"</string>
-<string name="manual_ui_text_part_7">"Komenci novan ludon: miksi kartojn kaj redisdoni ilin.
-"</string>
-<string name="manual_ui_text_part_8">"Disdoni kartojn ree: restari la nunan ludon kun la sama ordo de kartoj.
-"</string>
-<string name="manual_ui_text_part_9">"Reveni al ĉefmenuo: konservi la nunan lud-staton kaj vidigi la menuon de lud-elekto.
-"</string>
+<string name="manual_ui_text_part_7">"Komenci novan ludon: miksi kartojn kaj redisdoni ilin."</string>
+<string name="manual_ui_text_part_8">"Disdoni kartojn ree: restari la nunan ludon kun la sama ordo de kartoj."</string>
+<string name="manual_ui_text_part_9">"Reveni al ĉefmenuo: konservi la nunan lud-staton kaj vidigi la menuon de lud-elekto."</string>
 <string name="manual_ui_text_part_10">"La butono “malfari” malfaros la lastan movon, sed tio ĉi kostos 25 poentojn. Oni povas ĝin uzi por maksimume 20 lastaj movoj. (pliigebla en altnivelaj agordoj)
 
 La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 <string name="manual_statistics_part_1">"Estas statistikoj por ĉiu ludo. Vi povas aliri ilin per en-luda menu-breto. Kolektataj informoj estas:"</string>
-<string name="manual_statistics_part_2">"nombro da ludataj ludoj kaj venkoj
-"</string>
-<string name="manual_statistics_part_3">"tuto da akiritaj poentoj
-"</string>
-<string name="manual_statistics_part_4">"tuto da uzitaj helpiloj
-"</string>
-<string name="manual_statistics_part_5">"listo de plejbonuloj kun maksimume 10 rezultoj, nur pozitivaj rezultoj estos konservitaj
-"</string>
+<string name="manual_statistics_part_2">"nombro da ludataj ludoj kaj venkoj"</string>
+<string name="manual_statistics_part_3">"tuto da akiritaj poentoj"</string>
+<string name="manual_statistics_part_4">"tuto da uzitaj helpiloj"</string>
+<string name="manual_statistics_part_5">"listo de plejbonuloj kun maksimume 10 rezultoj, nur pozitivaj rezultoj estos konservitaj"</string>
 <string name="manual_statistics_part_6">"listo de poentaroj de 10 lastaj ludoj"</string>
 <string name="manual_statistics_part_7">"Ankaŭ eblas forviŝi ĉiujn datumojn pri la nuna ludo, sed tio ĉi estas neinversigebla!"</string>
 <string name="about_material_icons_2_usage">"La piktogramo de subteno estis publikigita ĉe &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; kiel “lightbulb-on”."</string>

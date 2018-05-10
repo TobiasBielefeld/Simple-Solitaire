@@ -599,33 +599,22 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 Przycisk „statystyki” otwiera nowe okno zawierające różne statystyki dotyczące obecnej gry, np. najlepsze wyniki.
 
 Przycisk „wsparcie” otworzy niewielkie manu pomocy. Będziesz mógł wybrać:"</string>
-<string name="manual_ui_text_part_2">"Pokaż wskazówki: wyświetl maksymalnie 3 możliwe ruchy kart jednocześnie. Jednakże obniży to Twoją punktację o 25. Zauważ, że trywialne ruchy takie jak przeniesienie kart na puste pola, czy też stuknięcie w stos główny nie zostaną wyświetlone jako wskazówka. Jeżeli nie będzie możliwej wskazówki do pokazania, nie utracisz punktów.
-"</string>
-<string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę.
-"</string>
-<string name="manual_ui_text_part_4">"Tasuj karty: jeżeli stoisz w obliczu sytuacji, że nie ma już dostępnych ruchów, możesz użyć tej opcja, aby przetasować obecne karty. Zauważ, że karty już w poprawnej kolejności i karty na stosach bazowych nie zostaną przetasowane.
-"</string>
-<string name="manual_ui_text_part_5">"Zasady gry: otwiera stronę poradnika dotyczącą gry.
-"</string>
+<string name="manual_ui_text_part_2">"Pokaż wskazówki: wyświetl maksymalnie 3 możliwe ruchy kart jednocześnie. Jednakże obniży to Twoją punktację o 25. Zauważ, że trywialne ruchy takie jak przeniesienie kart na puste pola, czy też stuknięcie w stos główny nie zostaną wyświetlone jako wskazówka. Jeżeli nie będzie możliwej wskazówki do pokazania, nie utracisz punktów."</string>
+<string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę."</string>
+<string name="manual_ui_text_part_4">"Tasuj karty: jeżeli stoisz w obliczu sytuacji, że nie ma już dostępnych ruchów, możesz użyć tej opcja, aby przetasować obecne karty. Zauważ, że karty już w poprawnej kolejności i karty na stosach bazowych nie zostaną przetasowane."</string>
+<string name="manual_ui_text_part_5">"Zasady gry: otwiera stronę poradnika dotyczącą gry."</string>
 <string name="manual_ui_text_part_6">"Przycisk „menu” wywołuje następujące trzy akcje:"</string>
-<string name="manual_ui_text_part_7">"Rozpocznij nową grę: przetasowuje karty i rozpoczyna nowe rozdanie.
-"</string>
-<string name="manual_ui_text_part_8">"Ponownie rozdaj karty: restartuje nową grę z tym samym układem kart.
-"</string>
-<string name="manual_ui_text_part_9">"Powrót do menu głównego: zapisuje stan obecnej gry i wyświetla menu wybory gry.
-"</string>
+<string name="manual_ui_text_part_7">"Rozpocznij nową grę: przetasowuje karty i rozpoczyna nowe rozdanie."</string>
+<string name="manual_ui_text_part_8">"Ponownie rozdaj karty: restartuje nową grę z tym samym układem kart."</string>
+<string name="manual_ui_text_part_9">"Powrót do menu głównego: zapisuje stan obecnej gry i wyświetla menu wybory gry."</string>
 <string name="manual_ui_text_part_10">"Przycisk „cofnij” cofa ostatni ruch, ale to będzie kosztowało 25 punktów. Można cofnąć maksymalnie 20 ostatnich ruchów. (można zwiększyć ten parametr w ustawieniach specjalistycznych)
 
 Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="manual_statistics_part_1">"Dla każdej gry są zbierane statystyki. Możesz się do nich dostać z belki głównej w każdej grze. Zbierane informacje to:"</string>
-<string name="manual_statistics_part_2">"liczba rozegranych i wygranych gier
-"</string>
-<string name="manual_statistics_part_3">"całkowita liczba zebranych punktów
-"</string>
-<string name="manual_statistics_part_4">"całkowita liczba użytych funkcji pomocy
-"</string>
-<string name="manual_statistics_part_5">"10 najlepszych wyników, tylko wyniki dodatnie są zapisywane
-"</string>
+<string name="manual_statistics_part_2">"liczba rozegranych i wygranych gier"</string>
+<string name="manual_statistics_part_3">"całkowita liczba zebranych punktów"</string>
+<string name="manual_statistics_part_4">"całkowita liczba użytych funkcji pomocy"</string>
+<string name="manual_statistics_part_5">"10 najlepszych wyników, tylko wyniki dodatnie są zapisywane"</string>
 <string name="manual_statistics_part_6">"wyniki 10 ostatnich gier"</string>
 <string name="manual_statistics_part_7">"Jest także możliwe wyczyszczenie wszystkich statystyk dla danej gry, ale ta operacja jest nieodwracalna!"</string>
 <string name="about_material_icons_2_usage">"Ikona wsparcia została opublikowana na &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; jako „lightbulb-on”."</string>
