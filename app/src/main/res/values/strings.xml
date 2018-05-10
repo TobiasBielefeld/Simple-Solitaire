@@ -435,8 +435,7 @@
     <string name="settings_dialog_only_for_this_game_disable">The individual settings for this game will now be replaced by the previous settings.</string>
     <string name="settings_dialog_only_for_this_game_information_1">Changes won\'t affect all games. Click here for more information</string>
     <string name="settings_dialog_only_for_this_game_information_2">The following games have enabled individual settings:</string>
-    <string name="settings_dialog_only_for_this_game_information_3">Those games won\'t be affected by changes made here.</string>
-    <string name="settings_dialog_only_for_this_game_button_text">Remove all individual settings</string>
+    <string name="settings_dialog_only_for_this_game_information_3">Those games won\'t be affected by changes made here.\n\nDo you want to remove the individual settings for all listed games?</string>
     <string name="settings_dialog_only_for_this_game_removed_all">Removed all individual settings</string>
 
     <!-- Statistics -->

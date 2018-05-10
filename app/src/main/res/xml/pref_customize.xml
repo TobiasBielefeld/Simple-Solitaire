@@ -1,10 +1,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame
-        android:key="@string/pref_key_settings_only_for_this_game"
-        android:negativeButtonText="@string/game_cancel"
-        android:positiveButtonText="@string/game_confirm"
-        android:widgetLayout="@layout/preference_widget_settings_only_for_this_game" />
+    <PreferenceCategory android:key="@string/pref_cat_key_only_for_this_game">
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame
+            android:key="@string/pref_key_settings_only_for_this_game"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:widgetLayout="@layout/preference_widget_settings_only_for_this_game" />
+    </PreferenceCategory>
+
 
     <PreferenceCategory android:title="@string/manual_ui">
         <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuBarPosition

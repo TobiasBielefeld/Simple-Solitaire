@@ -35,12 +35,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/black" />
 
-        <Button
-            android:id="@+id/buttonDialogOnlyForThisGame"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_padding"
-            android:text="@string/settings_dialog_only_for_this_game_button_text" />
     </LinearLayout>
 
 

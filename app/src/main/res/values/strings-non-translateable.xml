@@ -100,6 +100,7 @@
     <string name="pref_key_hide_auto_complete_button" translatable="false">pref_key_hide_auto_complete_button</string>
     <string name="pref_key_napoleons_tomb_number_of_recycles" translatable="false">pref_key_napoleons_tomb_number_of_recycles</string>
     <string name="pref_key_settings_only_for_this_game" translatable="false">pref_key_settings_only_for_this_game</string>
+    <string name="pref_cat_key_only_for_this_game" translatable="false">pref_cat_key_only_for_this_game</string>
 
     <!-- some dummy preference keys for the checkbox preferences. The value is saved in the "original"
          key version, but for accessing the preference per ID, I need the additional dummy version.

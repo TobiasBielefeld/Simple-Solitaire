@@ -46,7 +46,7 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_SETTINGS_O
 import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME;
 
 /**
- * Dialog to enable game individual settings. SwitchCompat is used to support devices below API 14.
+ * Dialog to enable game individual settings.
  * The dialog has 4 "states":
  * - If the settings are opened from within a game, which doesn't have this enabled yet, the dialog
  *   shows information about what this does and how to change settings for the other games
@@ -56,9 +56,12 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SETTINGS_
  *   tell if some games have individual settings enabled, because they won't be affected by changes
  * - Settings are opened from the main menu, but NO game has individual settings enabled. So just
  *   hide the preference somehow
+ *
+ * The preference is placed in an own PreferenceCategory, otherwise the widget wouldn't update on
+ * Android 8+ devices (bug?)
  */
 
-public class DialogPreferenceOnlyForThisGame extends DialogPreference implements View.OnClickListener{
+public class DialogPreferenceOnlyForThisGame extends DialogPreference{
 
     private Context context;
     private CheckBox widget;
@@ -77,9 +80,6 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference implements
         TextView textView1 = (TextView) view.findViewById(R.id.textViewDialogOnlyForThisGame1);
         TextView textView2 = (TextView) view.findViewById(R.id.textViewDialogOnlyForThisGame2);
         TextView textView3 = (TextView) view.findViewById(R.id.textViewDialogOnlyForThisGame3);
-        Button removeButton = (Button) view.findViewById(R.id.buttonDialogOnlyForThisGame);
-
-        removeButton.setOnClickListener(this);
 
         //settings were opened from the main menu
         if (isNotInGame()) {
@@ -127,13 +127,11 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference implements
             textView1.setText(R.string.settings_dialog_only_for_this_game_enable_1);
             textView2.setText(TextUtils.concat(spanns));
             textView3.setText(R.string.settings_dialog_only_for_this_game_enable_5);
-            removeButton.setVisibility(GONE);
         //settings are switching back to normal settings
         } else {
             textView1.setText(R.string.settings_dialog_only_for_this_game_disable);
             textView2.setVisibility(GONE);
             textView3.setVisibility(GONE);
-            removeButton.setVisibility(GONE);
         }
 
         super.onBindDialogView(view);
@@ -141,19 +139,36 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference implements
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
-        if (positiveResult && !isNotInGame()){
-            if (!prefs.hasSettingsOnlyForThisGame()) {
-                //copy all relevant settings before switching to game-individual settings
-                prefs.copyToGameIndividualSettings();
+        if (positiveResult){
+            if (!isNotInGame()){
+                if (!prefs.hasSettingsOnlyForThisGame()) {
+                    //copy all relevant settings before switching to game-individual settings
+                    prefs.copyToGameIndividualSettings();
 
-                prefs.setSettingsOnlyForThisGame(true);
+                    prefs.setSettingsOnlyForThisGame(true);
 
+                } else {
+                    prefs.setSettingsOnlyForThisGame(false);
+                }
+
+                if (widget != null) {
+                    widget.setChecked(!widget.isChecked());
+                }
             } else {
-                prefs.setSettingsOnlyForThisGame(false);
-            }
+                //reset the setting for individual game settings for all games
+                for (String name : lg.getSharedPrefNameList()) {
+                    SharedPreferences savedGameData = context.getSharedPreferences(name, MODE_PRIVATE);
 
-            widget.setChecked(!widget.isChecked());
+                    if (savedGameData.getBoolean(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME,DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME)){
+                        savedGameData.edit().putBoolean(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME,false).apply();
+                    }
+                }
+
+                ((Settings) getContext()).hidePreferenceOnlyForThisGame();
+                showToast(context.getString(R.string.settings_dialog_only_for_this_game_removed_all), context);
+            }
         }
+
 
         super.onDialogClosed(positiveResult);
     }
@@ -175,7 +190,9 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference implements
         widget = (CheckBox) view.findViewById(R.id.preference_only_for_this_game_switch);
 
         if (isNotInGame()) {
-            widget.setVisibility(GONE);
+            if (widget != null) {
+                widget.setVisibility(GONE);
+            }
 
             if (getNumberOfGamesWithIndividualSettings() > 0){
                 setTitle(context.getString(R.string.settings_dialog_only_for_this_game_information_1));
@@ -183,7 +200,10 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference implements
 
         } else {
             setTitle(String.format(context.getString(R.string.settings_apply_only_for_this_game),lg.getGameName()));
-            widget.setChecked(prefs.hasSettingsOnlyForThisGame());
+
+            if (widget != null) {
+                widget.setChecked(prefs.hasSettingsOnlyForThisGame());
+            }
         }
 
         return view;
@@ -205,23 +225,6 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference implements
 
     private boolean isNotInGame(){
         return prefs.getSavedCurrentGame() == DEFAULT_CURRENT_GAME;
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        //reset the setting for individual game settings for all games
-        for (String name : lg.getSharedPrefNameList()) {
-            SharedPreferences savedGameData = context.getSharedPreferences(name, MODE_PRIVATE);
-
-            if (savedGameData.getBoolean(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME,DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME)){
-                savedGameData.edit().putBoolean(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME,false).apply();
-            }
-        }
-
-        ((Settings) getContext()).hidePreferenceOnlyForThisGame();
-        getDialog().dismiss();
-        showToast(context.getString(R.string.settings_dialog_only_for_this_game_removed_all), context);
     }
 
     public boolean canBeHidden(){

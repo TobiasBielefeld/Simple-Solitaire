@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.DialogPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.support.v7.app.ActionBar;
@@ -79,6 +80,8 @@ public class Settings extends AppCompatPreferenceActivity {
     private CheckBoxPreferenceHideMenuButton preferenceHideMenuButton;
     private CheckBoxPreferenceHideScore preferenceHideScore;
     private CheckBoxPreferenceHideTime preferenceHideTime;
+
+    private PreferenceCategory categoryOnlyForThisGame;
 
     CustomizationPreferenceFragment customizationPreferenceFragment;
 
@@ -397,6 +400,12 @@ public class Settings extends AppCompatPreferenceActivity {
             settings.preferenceHideTime = (CheckBoxPreferenceHideTime) findPreference(getString(R.string.dummy_pref_key_hide_time));
             settings.dialogPreferenceOnlyForThisGame = (DialogPreferenceOnlyForThisGame) findPreference(getString(R.string.pref_key_settings_only_for_this_game));
 
+            //the preferenceCategory for the dialogPreferenceOnlyForThisGame is only used to make
+            //the widget update on Android 8+ devices (otherwise it wouldn't due to a bug)
+            //So remove the title with an empty layout of the category to make it (nearly) disappear
+            settings.categoryOnlyForThisGame = (PreferenceCategory)findPreference(getString(R.string.pref_cat_key_only_for_this_game));
+            settings.categoryOnlyForThisGame.setLayoutResource(R.layout.empty);
+
             settings.preferenceFourColorMode.update();
             settings.preferenceHideAutoCompleteButton.update();
             settings.preferenceHideMenuButton.update();
@@ -410,8 +419,8 @@ public class Settings extends AppCompatPreferenceActivity {
     }
 
     public void hidePreferenceOnlyForThisGame(){
-        if (dialogPreferenceOnlyForThisGame.canBeHidden()){
-            customizationPreferenceFragment.getPreferenceScreen().removePreference(dialogPreferenceOnlyForThisGame);
+        if (dialogPreferenceOnlyForThisGame.canBeHidden()) {
+            customizationPreferenceFragment.getPreferenceScreen().removePreference(categoryOnlyForThisGame);
         }
     }
 
