@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Version"</string>
 <string name="settings">"Einstellungen"</string>
 <string name="game_manual">"Handbuch"</string>
@@ -40,7 +38,7 @@
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -538,7 +536,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_language_japanese">"Japanisch"</string>
 <string name="settings_language_polish">"Polnisch"</string>
 <string name="settings_language_turkish">"Türkisch"</string>
-<string name="settings_language_norwegian">"Norwegisch (Bokmål)"</string>
 <string name="settings_yukon_rules_1">"unterschiedliche Farben (Standard)"</string>
 <string name="settings_yukon_rules_2">"selbe Familie (Russian Solitare)"</string>
 <string name="settings_movement_speed_1">"Sehr langsam"</string>
@@ -628,4 +625,30 @@ Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 <string name="settings_hide_menu_button">"Verstecke Menü Button"</string>
 <string name="settings_immersive_mode_title">"Vollbildmodus aktivieren"</string>
 <string name="settings_immersive_mode_text">"Verstecke Status und Navigation Bar während des Spielens (Nur auf Android 4.4 und höher)"</string>
+<string name="settings_language_norwegian">"Norwegisch (Bokmål)"</string>
+<string name="about_paris_themes_usage">"
+Wird als Paris Thema verwendet - Verfügbar auf &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr
+"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Napoleon\'sTomb"</string>
+<string name="manual_NapoleonsTomb_structure">"1 Deck aus 52 Karten.
+
+4 Tableau Stapel, 5 Foundation Stapel, 1 Haupt- und 1 Ablage Stapel
+
+Die 4 Stapel in den Ecken mit einer \"7\" und der Stapel in der Mitte sind Foundation Stapel. Die Stapel dazwischen gehören zum Tableau."</string>
+<string name="manual_NapoleonsTomb_objective">"Spiele jede Karte zur Foundation, unabhängig von der Familie."</string>
+<string name="manual_NapoleonsTomb_rules">"Die 4 Foundation-Stapel in den Ecken starten mit einer 7 und müssen in aufsteigender Reihenfolge bis zu einem König gestapelt werden. Der zentrale Foundation-Stapel startet mit einer 6 und muss in absteigender Reihenfolge 4 mal bis zu einem Ass gestapelt werden. Dies führt zur folgenden Reihenfolge:
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+Die nächste Karte der Sequenz wird auch über dem Stapel gezeigt.
+
+Das Drücken auf dem Haupt-Stapel wird eine Karte zum Ablage-Stapel bewegen. In den Spieleinstellungen aktivierbar: Falls der Haupt-Stapel leer ist, tippe drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen.
+
+Jede Karte darf auf jeden Tableau-Stapel gespielt werden, aber die Stapel dürfen jeweils nur eine Karte enthalten."</string>
+<string name="manual_NapoleonsTomb_scoring">"Bewege eine Karte zur Foundation: +60
+
+Bewege alle Karten vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
+<string name="settings_language_spanish_argentina">"Spanisch (Argentinien)"</string>
 </resources>

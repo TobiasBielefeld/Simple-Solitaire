@@ -46,7 +46,7 @@ public class Golf extends Game {
 
     static int MAX_SAVED_RUN_RECORDS;
 
-    int runCounter; //to count how many cards are moved in one "run"
+    int runCounter = 0; //to count how many cards are moved in one "run"
     ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
 
     public Golf() {
@@ -118,8 +118,6 @@ public class Golf extends Game {
                 stacks[i].getCard(j).flipUp();
             }
         }
-
-
     }
 
     public boolean cardTest(Stack stack, Card card) {

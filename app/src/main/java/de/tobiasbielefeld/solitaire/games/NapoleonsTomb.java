@@ -67,32 +67,33 @@ public class NapoleonsTomb extends Game {
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
 
         // initialize the dimensions
-        setUpCardDimensions(layoutGame, 8, 5);
+        setUpCardDimensions(layoutGame, 8, 6);
 
         //calculate spacing and start position of cards
         int spacing = setUpHorizontalSpacing(layoutGame, 4, 4);
         int spacingVertical = setUpVerticalSpacing(layoutGame,3,2);
 
-        int startPos = layoutGame.getWidth() / 2 - 2 * Card.width - 2 * spacing;
+        int startPosX = (int)((layoutGame.getWidth() - Card.width*5 - spacing*3) / 2.0);
+        int startPosY =  (int)((layoutGame.getHeight() - Card.height*4 - spacing*2) / 2.0);
 
         //first row
-        stacks[4].setX(startPos);
-        stacks[4].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
+        stacks[4].setX(startPosX + Card.width/2);
+        stacks[4].view.setY(startPosY + Card.height/2);
 
-        stacks[0].setX(startPos + spacing + Card.width );
-        stacks[0].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
+        stacks[0].setX(stacks[4].getX() + spacing + Card.width);
+        stacks[0].view.setY(startPosY);
 
-        stacks[5].setX(startPos + spacing * 2 + Card.width * 2);
-        stacks[5].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
+        stacks[5].setX(stacks[0].getX() + spacing + Card.width);
+        stacks[5].view.setY(startPosY + Card.height/2);
 
         //second row
-        stacks[1].setX(stacks[4].getX());
+        stacks[1].setX(startPosX);
         stacks[1].setY(stacks[4].getY() + Card.height + spacingVertical);
 
         stacks[8].setX(stacks[0].getX());
         stacks[8].setY(stacks[1].getY());
 
-        stacks[2].setX(stacks[5].getX());
+        stacks[2].setX(stacks[5].getX() + Card.width/2);
         stacks[2].setY(stacks[1].getY());
 
         //third row
@@ -100,7 +101,7 @@ public class NapoleonsTomb extends Game {
         stacks[6].setY(stacks[1].getY() + Card.height + spacingVertical);
 
         stacks[3].setX(stacks[0].getX());
-        stacks[3].setY(stacks[6].getY());
+        stacks[3].setY(stacks[6].getY() + Card.height/2);
 
         stacks[7].setX(stacks[5].getX());
         stacks[7].setY(stacks[6].getY());
@@ -152,10 +153,10 @@ public class NapoleonsTomb extends Game {
         stacks[9].getCard(0).flipUp();
 
         //and move cards to the tableau
-        for (int i = 0; i <= 3; i++) {
+        /*for (int i = 0; i <= 3; i++) {
             moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             stacks[i].getCard(0).flipUp();
-        }
+        }*/
     }
 
     public int onMainStackTouch() {

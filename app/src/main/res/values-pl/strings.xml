@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Wersja"</string>
 <string name="settings">"Ustawienia"</string>
 <string name="game_manual">"Podręcznik"</string>
@@ -635,4 +633,28 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="settings_hide_menu_button">"Ukryj przycisk menu"</string>
 <string name="settings_immersive_mode_title">"Włącz tryb pełnoekranowy"</string>
 <string name="settings_immersive_mode_text">"Ukryj paski statusu i nawigacji podczas gry (tylko na Androidzie 4.4 lub nowszym)"</string>
+<string name="settings_language_norwegian">"Norweski (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Użyto w stylu kart Paris - dostępne na &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Grób Napoleona"</string>
+<string name="manual_NapoleonsTomb_structure">"1 talia po 52 karty.
+
+4 stosy gry, 5 stosów bazowych, 1 główny i 1 stos odrzutów.
+
+4 narożne stosy z “7” i jeden środkowy są stosami bazowymi. Stosy pomiędzy nimi są stosami gry."</string>
+<string name="manual_NapoleonsTomb_objective">"Przenieś wszystkie karty na stosy bazowe, kolory kart nie mają znaczenia."</string>
+<string name="manual_NapoleonsTomb_rules">"Na 4 narożnych stosach znajdują się 7-ki i układamy na nich kary w kolejności rosnącej do króli. Centralny stos bazowy zawiera początkowo 6-kę i układany na nim karty w kolejności malejącej do asa czterokrotnie. Ostatecznie na tym stosie karty przyjmują następujący porządek:
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+Następna karta do położenia wyświetli się nad stosem.
+
+Stuknięcie w stos główny odkryje jedną kartę i przeniesie do stosu odrzutów. Do ustawienia w opcjach gry: Jeżeli zabraknie kart, stuknij ponownie, aby przenieść z powrotem wszystkie karty ze stosy odrzutów na stos główny.
+
+Każdą kartę można przenieść na pusty stos gry, ale każdy stos może zawierać tylko po jednej karcie."</string>
+<string name="manual_NapoleonsTomb_scoring">"Przeniesienie karty na stos bazowy: +50
+
+Przeniesienie wszystkich kart ze stosu odrzutów z powrotem na stos główny: -200"</string>
+<string name="settings_language_spanish_argentina">"Hiszpański (Argentyna)"</string>
 </resources>

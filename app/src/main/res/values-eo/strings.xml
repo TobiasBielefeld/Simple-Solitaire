@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Versio"</string>
 <string name="settings">"Agordoj"</string>
 <string name="game_manual">"Manlibro"</string>
@@ -635,4 +633,28 @@ La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 <string name="settings_hide_menu_button">"Kaŝi menu-butonon"</string>
 <string name="settings_immersive_mode_title">"Aktivigi plenekranan reĝimon"</string>
 <string name="settings_immersive_mode_text">"Kaŝi statan kaj navigan bretojn dum ludado (nur ĉe Androido 4.4 aŭ pli nova)"</string>
+<string name="settings_language_norwegian">"Norvega (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Uzitaj por kart-temo “Paris”, disponeblaj ĉe a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Kopirajto 2005 - David BELLOT - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Tombo de Napoleono"</string>
+<string name="manual_NapoleonsTomb_structure">"1 kartaro po 52 kartoj.
+
+4 tablamasoj, 5 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.
+
+4 stakoj en anguloj kun “7” kaj unu en la centro estas fundamentaj stakoj. La stakoj inter ili estas tablamasaj stakoj."</string>
+<string name="manual_NapoleonsTomb_objective">"Movu ĉiujn kartojn sur fundamentajn stakojn, sendepende de emblemo."</string>
+<string name="manual_NapoleonsTomb_rules">"La angulaj stakoj komenciĝas 7 kaj oni metas tien kartojn kreskante ĝis reĝoj. La centra stako komenciĝas kun 6 kaj oni metas tien kartojn malkreskante ĝis aso kvarfoje. Jen la rezulto:
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+La sekva karto de la ordo estos montrata supre de la stako.
+
+Frapetu la ĉefan stakon por malkovri kaj movi unu karton al la forĵeta stako. Ŝanĝebla en agordoj:  Se la ĉefa stako malpleniĝos, frapetu denove por movi reen ĉiujn kartojn de forĵeta stako al ĉefa stako.
+
+Ĉiun karton oni povas meti sur malplenan tablamasan stakon, sed ĉiu stako povas enhavi nur unu karton samtempe."</string>
+<string name="manual_NapoleonsTomb_scoring">"Movi karton al fundamenta stako: +60
+
+Transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200"</string>
+<string name="settings_language_spanish_argentina">"Hispana (Argentina)"</string>
 </resources>

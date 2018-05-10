@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Versione"</string>
 <string name="settings">"Impostazioni"</string>
 <string name="game_manual">"Istruzioni"</string>
@@ -40,7 +38,7 @@
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -141,4 +139,37 @@ Il bottone \"Menu\" mostra tre azioni differenti: Comincia una nuova partita mis
 Il bottone \"Annulla\" annullerà l'ultimo movimento, ma ti costerà 25 punti. Può essere usato per annullare fino a 20 movimenti.
 
 Il bottone \"Impostazioni\" aprirà semplicemente il menu delle impostazioni."</string>
+
+<!-- Settings -->
+<string name="settings_background_color">"Colore di sfondo"</string>
+<string name="settings_hide_status_bar">"Nascondi la barra di stato"</string>
+<string name="settings_left_handed_mode">"Modalità per mancini"</string>
+<string name="settings_customization">"Aspetto"</string>
+<string name="settings_other">"Generali"</string>
+<string name="settings_other_description">"Modifica tutte le altre impostazioni"</string>
+<string name="settings_show_main_menu">"Avvia dal menu principale"</string>
+<string name="settings_show_main_menu_description">"Non entrare nell'ultima partita giocata alla partenza"</string>
+<string name="settings_menu">"Menu principale"</string>
+<string name="settings_menu_description">"Cambia il numero di colonne, visualizza o nascondi i giochi"</string>
+<string name="settings_menu_columns">"Numero di colonne"</string>
+<string name="settings_menu_games">"Visualizza o nascondi i giochi"</string>
+<string name="settings_menu_bar_position">"Posizione della barra dei menu"</string>
+<string name="settings_menu_bar_position_bottom">"Sotto"</string>
+<string name="settings_menu_bar_position_left">"Sinistra"</string>
+<string name="settings_menu_bar_position_right">"Destra"</string>
+<string name="Settings_sounds_title">"Suoni"</string>
+<string name="Settings_sounds_text">"Abilita i suoni, imposta vari effetti sonori"</string>
+<string name="settings_customization_description">"Personalizza carte, sfondi e interfaccia utente"</string>
+<string name="settings_support">"Aiuto"</string>
+<string name="settings_hide_time">"Nascondi il tempo"</string>
+<string name="settings_hide_score">"Nascondi il punteggio"</string>
+<string name="settings_expert_settings">"Impostazioni per Esperti"</string>
+<string name="settings_win_sounds_1">"Default"</string>
+<string name="settings_win_sounds_2">"Piano"</string>
+<string name="statistics_total_hints_shown">"Totale aiuti utilizzati"</string>
+<string name="dialog_show_hints">"Ricevi un'aiuto"</string>
+<string name="settings_game_layout_margins_title">"Margini"</string>
+<string name="settings_game_layout_margins_none">"Nessuno"</string>
+<string name="settings_hide_menu_button">"Nascondi il pulsante menu"</string>
+<string name="settings_immersive_mode_text">"Nascondi le barre di stato e di navigazione mentre giochi (solo su Android 4.4 e versioni successive)"</string>
 </resources>
