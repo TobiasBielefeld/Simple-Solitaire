@@ -97,15 +97,8 @@ public class DialogPreferenceOnlyForThisGame extends DialogPreference{
                 }
             }
 
-            SpannableString spanns[] = new SpannableString[gamesWithIndividualSettings.size()];
-
-            for (int i = 0; i<gamesWithIndividualSettings.size();i++){
-                spanns[i] = new SpannableString(gamesWithIndividualSettings.get(i) + (i < gamesWithIndividualSettings.size() - 1 ? "\n" : ""));
-                spanns[i].setSpan(new BulletSpan(15), 0, gamesWithIndividualSettings.get(i).length(), 0);
-            }
-
             textView1.setText(R.string.settings_dialog_only_for_this_game_information_2);
-            textView2.setText(TextUtils.concat(spanns));
+            textView2.setText(createBulletParagraph(gamesWithIndividualSettings.toArray(new CharSequence[gamesWithIndividualSettings.size()])));
             textView3.setText(R.string.settings_dialog_only_for_this_game_information_3);
         //settings are switching to individual settings
         } else if (!prefs.hasSettingsOnlyForThisGame()) {
