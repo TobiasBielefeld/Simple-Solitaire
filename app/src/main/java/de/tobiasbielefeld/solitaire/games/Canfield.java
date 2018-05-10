@@ -57,13 +57,9 @@ public class Canfield extends Game {
     }
 
     @Override
-    public void save() {
-        prefs.saveStartCardValueCanfield(startCardValue);
-    }
-
-    @Override
     public void load() {
-        startCardValue = prefs.getSavedStartCardValueCanfield();
+        startCardValue = stacks[5].getCard(0).getValue();
+        setFoundationBackgrounds();
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -108,8 +104,6 @@ public class Canfield extends Game {
         }
 
         stacks[12].view.setImageBitmap(Stack.backgroundTalon);
-        load();
-        setFoundationBackgrounds();
     }
 
     public boolean winTest() {

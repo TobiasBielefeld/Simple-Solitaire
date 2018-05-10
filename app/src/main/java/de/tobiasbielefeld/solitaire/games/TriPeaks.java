@@ -119,8 +119,6 @@ public class TriPeaks extends Game {
 
         stacks[29].setX(stacks[28].getX() + 2 * spacing + Card.width);
         stacks[29].setY(stacks[28].getY());
-
-        load();
     }
 
     public boolean winTest() {

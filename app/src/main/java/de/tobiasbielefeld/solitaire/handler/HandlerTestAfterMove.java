@@ -35,7 +35,10 @@ public class HandlerTestAfterMove extends Handler {
             handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
         }
         else {
-            currentGame.testAfterMove();
+            if (!gameLogic.hasWon()) {
+                currentGame.testAfterMove();
+            }
+
             handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
 
             if (!autoComplete.isRunning() && !gameLogic.hasWon())  {

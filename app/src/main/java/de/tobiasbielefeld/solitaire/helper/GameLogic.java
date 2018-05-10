@@ -107,14 +107,9 @@ public class GameLogic {
             if (firstRun) {
                 newGame();
                 prefs.saveFirstRun(false);
-            }  else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()){        //in case the game was selected from the main menu and it was already won, start a new game
+            }  else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()){
+                //in case the game was selected from the main menu and it was already won, start a new game
                 newGame();
-            } else if (won) {                   //in case the screen orientation changes, do not immediately start a new game
-                loadRandomCards();
-
-                for (Card card : cards) {
-                    card.setLocationWithoutMovement(gm.layoutGame.getWidth(), 0);
-                }
             } else {
                 for (Card card : cards) {
                     card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
@@ -154,7 +149,7 @@ public class GameLogic {
     }
 
     public void checkForAutoCompleteButton(){
-        if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
+        if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest() && !hasWon()) {
             autoComplete.showButton();
         }
     }

@@ -265,10 +265,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * The motion events are put in extra methods, because before it got a bit unclear
      */
     public boolean onTouch(View view, MotionEvent event) {
-
         CustomImageView v = (CustomImageView) view;
+
         //if something important happens don't accept input
-        if (gameLogic.stopConditions()) {
+        if (gameLogic.stopConditions() || gameLogic.hasWon()) {
             return true;
         }
 

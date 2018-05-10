@@ -96,8 +96,6 @@ public class Golf extends Game {
             stacks[i].setX(startPos + spacing * i + Card.width * i);
             stacks[i].setY(stacks[8].getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2) + 1);
         }
-
-        load();
     }
 
     public boolean winTest() {
@@ -120,8 +118,6 @@ public class Golf extends Game {
                 stacks[i].getCard(j).flipUp();
             }
         }
-
-
     }
 
     public boolean cardTest(Stack stack, Card card) {

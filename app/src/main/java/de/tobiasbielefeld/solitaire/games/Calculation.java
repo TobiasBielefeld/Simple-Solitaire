@@ -121,13 +121,11 @@ public class Calculation extends Game {
         //card to trash
         moveToStack(getMainStack().getTopCard(), stacks[8], OPTION_NO_RECORD);
         stacks[8].getCard(0).flipUp();
-
-        setTexts();
     }
 
     @Override
     public void load() {
-        //just use this method to set the texts, because it gets called after a saved game was loaded
+        //just use this method to set the texts, because it gets called after a game was loaded
         setTexts();
     }
 
