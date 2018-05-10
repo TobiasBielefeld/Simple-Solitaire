@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="default_current_game">0</integer>
+    <integer name="default_current_game">-1</integer>
     <integer name="number_of_card_backgrounds">9</integer>
     <integer name="number_of_card_themes">8</integer>
     <integer name="default_card_background">0</integer>

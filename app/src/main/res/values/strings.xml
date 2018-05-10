@@ -138,21 +138,21 @@
     <string name="manual_ui_text">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. If possible, these two values will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons from left to right):\n\nThe \"Scores\" button will show a new window with the high scores and the count of won games of the current game.\n\nThe \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.\n\nThe \"Menu\" button shows three different actions: Start a new game by mixing the cards and drawing a new deal. Give cards again will do the same but without the mixing. So it\'s like a restart of the current game. The last option will end the current game and return the app to the main menu.\n\nThe \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements.\n\nThe \"Settings\" button simply opens the settings menu.</string>
 
     <string name="manual_ui_text_part_1">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. The menu contains 5 items, which have the following effects (buttons from left to right)\n\nThe \"Statistics\" button will show a new window with different statistics of the current game, like the high scores.\n\nThe \"Support\" button will show a little help menu. Here you can select:</string>
-    <string name="manual_ui_text_part_2">Show hints: Show up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.\n</string>
-    <string name="manual_ui_text_part_3">Auto move: Automatically move as many cards as possible. This option is intended to be used in situations eg. when only one card is still faced down, but you need to move every other card on that stack to access it. So this option can speed up the game a little bit.\n</string>
-    <string name="manual_ui_text_part_4">Mix cards: If you are in a situation where no movement is possible, you can use this option to mix the current cards. Note that cards already in correct order or cards on the foundation will be ignored in the mixing.\n</string>
-    <string name="manual_ui_text_part_5">Game rules: Directly open the manual page of the current game.\n</string>
+    <string name="manual_ui_text_part_2">Show hints: Show up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.</string>
+    <string name="manual_ui_text_part_3">Auto move: Automatically move as many cards as possible. This option is intended to be used in situations eg. when only one card is still faced down, but you need to move every other card on that stack to access it. So this option can speed up the game a little bit.</string>
+    <string name="manual_ui_text_part_4">Mix cards: If you are in a situation where no movement is possible, you can use this option to mix the current cards. Note that cards already in correct order or cards on the foundation will be ignored in the mixing.</string>
+    <string name="manual_ui_text_part_5">Game rules: Directly open the manual page of the current game.</string>
     <string name="manual_ui_text_part_6">The \"Menu\" button shows three different actions:</string>
-    <string name="manual_ui_text_part_7">Start a new game: Mixing the cards and draw a new deal.\n</string>
-    <string name="manual_ui_text_part_8">Give cards again: Restart the current game with the same layout of cards.\n</string>
-    <string name="manual_ui_text_part_9">Return to main menu: Save the current game state and show the game selection menu.\n</string>
+    <string name="manual_ui_text_part_7">Start a new game: Mixing the cards and draw a new deal.</string>
+    <string name="manual_ui_text_part_8">Give cards again: Restart the current game with the same layout of cards.</string>
+    <string name="manual_ui_text_part_9">Return to main menu: Save the current game state and show the game selection menu.</string>
     <string name="manual_ui_text_part_10">The \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements. (The amount can be increased in the expert settings)\n\nThe \"Settings\" button simply opens the settings menu.</string>
 
     <string name="manual_statistics_part_1">There are statistics collected for each game. You can access them from the in-game menu bar. Collected information are:</string>
-    <string name="manual_statistics_part_2">The number of played and won games\n</string>
-    <string name="manual_statistics_part_3">The total amount of earned score points\n</string>
-    <string name="manual_statistics_part_4">The total amount of help functions used\n</string>
-    <string name="manual_statistics_part_5">A high-score list with up to 10 entries, only scores over 0 are saved here\n</string>
+    <string name="manual_statistics_part_2">The number of played and won games</string>
+    <string name="manual_statistics_part_3">The total amount of earned score points</string>
+    <string name="manual_statistics_part_4">The total amount of help functions used</string>
+    <string name="manual_statistics_part_5">A high-score list with up to 10 entries, only scores over 0 are saved here</string>
     <string name="manual_statistics_part_6">A recent score list with the last 10 scores</string>
     <string name="manual_statistics_part_7">It is also possible to delete all data for the current game, but this can\'t be undone!</string>
 
@@ -228,6 +228,8 @@
 
     <!-- Settings -->
 
+    <string name="settings_apply_only_for_this_game">Apply changes only for %1$s</string>
+    <string name="settings_hide_auto_complete_button">Disable Autocomplete button</string>
     <string name="settings_background_color">Background colour</string>
     <string name="settings_hide_status_bar">Hide status bar</string>
     <string name="settings_left_handed_mode">Left handed mode</string>
@@ -420,6 +422,20 @@
 
     <string name="settings_immersive_mode_title">Enable full screen mode</string>
     <string name="settings_immersive_mode_text">Hide the Status and Navigation Bar while playing (Only on Android 4.4 and above)</string>
+
+    <string name="settings_dialog_only_for_this_game_enable_1">All further changes made here will only be applied to the current game. If you then want to change settings for other games, you have the following options:</string>
+    <!-- keep the newline at the end! -->
+    <string name="settings_dialog_only_for_this_game_enable_3">Return to the main menu and open the settings from there</string>
+    <!-- keep the newline at the end! -->
+    <string name="settings_dialog_only_for_this_game_enable_2">Disable this option</string>
+    <string name="settings_dialog_only_for_this_game_enable_4">Open the settings from within a game, which doesn\'t have this option enabled</string>
+    <string name="settings_dialog_only_for_this_game_enable_5">Disabling this option will restore the previous shared settings.</string>
+    <string name="settings_dialog_only_for_this_game_disable">The individual settings for this game will now be removed and the shared settings will be applied.</string>
+    <string name="settings_dialog_only_for_this_game_information_1">Changes won\'t affect all games. Click here for more information</string>
+    <string name="settings_dialog_only_for_this_game_information_2">The following games have enabled individual settings:</string>
+    <string name="settings_dialog_only_for_this_game_information_3">Those games won\'t be affected by changes made here.\n\nDo you want to remove the individual settings for all listed games?</string>
+    <string name="settings_dialog_only_for_this_game_removed_all">Removed all individual settings</string>
+
     <!-- Statistics -->
 
     <!-- %1$d and %2$d are placeholders for the values-->

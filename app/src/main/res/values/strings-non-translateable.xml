@@ -97,8 +97,20 @@
     <string name="pref_key_hide_menu_bar" translatable="false">pref_key_hide_menu_bar</string>
     <string name="pref_key_immersive_mode" translatable="false">pref_key_immersive_mode</string>
     <string name="pref_key_hide_menu_button" translatable="false">pref_key_hide_menu_button</string>
+    <string name="pref_key_hide_auto_complete_button" translatable="false">pref_key_hide_auto_complete_button</string>
     <string name="pref_key_napoleons_tomb_number_of_recycles" translatable="false">pref_key_napoleons_tomb_number_of_recycles</string>
+    <string name="pref_key_settings_only_for_this_game" translatable="false">pref_key_settings_only_for_this_game</string>
+    <string name="pref_cat_key_only_for_this_game" translatable="false">pref_cat_key_only_for_this_game</string>
 
+    <!-- some dummy preference keys for the checkbox preferences. The value is saved in the "original"
+         key version, but for accessing the preference per ID, I need the additional dummy version.
+         The value is saved in the "original" key, because the settings can be changed on a per game
+         basis, so I control where the value is saved manually -->
+    <string name="dummy_pref_key_4_color_mode" translatable="false">dummy_pref_key_4_color_mode</string>
+    <string name="dummy_pref_key_hide_time" translatable="false">dummy_pref_key_hide_time</string>
+    <string name="dummy_pref_key_hide_score" translatable="false">dummy_pref_key_hide_score</string>
+    <string name="dummy_pref_key_hide_auto_complete_button" translatable="false">dummy_pref_key_hide_auto_complete_button</string>
+    <string name="dummy_pref_key_hide_menu_button" translatable="false">dummy_pref_key_hide_menu_button</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>

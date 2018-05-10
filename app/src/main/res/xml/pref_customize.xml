@@ -1,5 +1,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory android:key="@string/pref_cat_key_only_for_this_game">
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame
+            android:key="@string/pref_key_settings_only_for_this_game"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:widgetLayout="@layout/preference_widget_settings_only_for_this_game" />
+    </PreferenceCategory>
+
+
     <PreferenceCategory android:title="@string/manual_ui">
         <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuBarPosition
             android:key="@string/pref_key_menu_bar_position"
@@ -23,20 +33,29 @@
             android:title="@string/settings_background_color"
             android:widgetLayout="@layout/preference_widget_layout_background_color" />
 
-        <CheckBoxPreference
+        <!-- use the dummy versions of the keys, explanation at the dummy key location -->
+        <de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideTime
             android:defaultValue="@bool/default_hide_time"
-            android:key="@string/pref_key_hide_time"
+            android:key="@string/dummy_pref_key_hide_time"
             android:title="@string/settings_hide_time" />
 
-        <CheckBoxPreference
+        <!-- use the dummy versions of the keys, explanation at the dummy key location -->
+        <de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideScore
             android:defaultValue="@bool/default_hide_score"
-            android:key="@string/pref_key_hide_score"
+            android:key="@string/dummy_pref_key_hide_score"
             android:title="@string/settings_hide_score" />
 
-        <CheckBoxPreference
+        <!-- use the dummy versions of the keys, explanation at the dummy key location -->
+        <de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideMenuButton
             android:defaultValue="@bool/default_hide_menu_button"
-            android:key="@string/pref_key_hide_menu_button"
+            android:key="@string/dummy_pref_key_hide_menu_button"
             android:title="@string/settings_hide_menu_button" />
+
+        <!-- use the dummy versions of the keys, explanation at the dummy key location -->
+        <de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideAutoCompleteButton
+            android:defaultValue="@bool/default_hide_auto_complete_button"
+            android:key="@string/dummy_pref_key_hide_auto_complete_button"
+            android:title="@string/settings_hide_auto_complete_button" />
 
     </PreferenceCategory>
 
@@ -58,9 +77,10 @@
             android:title="@string/settings_cards_back"
             android:widgetLayout="@layout/preference_widget_layout_cards_background" />
 
-        <CheckBoxPreference
+        <!-- use the dummy versions of the keys, explanation at the dummy key location -->
+        <de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceFourColorMode
             android:defaultValue="@bool/default_4_color_mode"
-            android:key="@string/pref_key_4_color_mode"
+            android:key="dummy_pref_key_4_color_mode"
             android:summary="@string/settings_4_color_mode_text"
             android:title="@string/settings_4_color_mode_title" />
 

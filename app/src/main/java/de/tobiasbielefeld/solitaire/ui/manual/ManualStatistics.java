@@ -21,7 +21,6 @@ package de.tobiasbielefeld.solitaire.ui.manual;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
-import android.text.TextUtils;
 import android.text.style.BulletSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import de.tobiasbielefeld.solitaire.R;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Just show a textView for the menu page.
@@ -49,16 +49,8 @@ public class ManualStatistics extends Fragment {
                 getText(R.string.manual_statistics_part_6)
         };
 
-        SpannableString spanns[] = new SpannableString[strings.length];
-
-        //apply the bullet characters
-        for (int i=0;i<strings.length;i++){
-            spanns[i] = new SpannableString(strings[i]);
-            spanns[i].setSpan(new BulletSpan(15), 0, strings[i].length(), 0);
-        }
-
         //set up the textView
-        textView.setText(TextUtils.concat(spanns));
+        textView.setText(createBulletParagraph(strings));
 
         return view;
     }

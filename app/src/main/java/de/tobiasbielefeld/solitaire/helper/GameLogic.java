@@ -149,7 +149,7 @@ public class GameLogic {
     }
 
     public void checkForAutoCompleteButton(){
-        if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest() && !hasWon()) {
+        if (!prefs.getHideAutoCompleteButton() && !autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest() && !hasWon()) {
             autoComplete.showButton();
         }
     }

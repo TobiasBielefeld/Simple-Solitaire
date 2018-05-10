@@ -176,7 +176,10 @@ public class DialogPreferenceCards extends DialogPreference implements View.OnCl
 
         cardPreview = bitmaps.getCardPreview2(selectedTheme - 1, row);
 
-        image.setImageBitmap(cardPreview);
+        if (image != null) {
+            image.setImageBitmap(cardPreview);
+        }
+
         setSummary(text);
     }
 }
