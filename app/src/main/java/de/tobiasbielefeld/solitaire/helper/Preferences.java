@@ -45,6 +45,8 @@ public class Preferences {
     public static String OLD;
 
     public static String PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT;
+    public static String PREF_KEY_ENSURE_MOVABILITY;
+    public static String PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES;
     public static String PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME;
     public static String PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE;
     public static String PREF_KEY_DISABLE_UNDO_COSTS;
@@ -185,6 +187,8 @@ public class Preferences {
     public static int DEFAULT_VEGAS_WIN_AMOUNT;
     public static int DEFAULT_VEGAS_MONEY;
     public static int DEFAULT_MAX_NUMBER_UNDOS;
+    public static int DEFAULT_ENSURE_MOVABILITY_MIN_MOVES;
+    public static boolean DEFAULT_ENSURE_MOVABILITY;
     public static boolean DEFAULT_HIDE_AUTOCOMPLETE_BUTTON;
     public static boolean DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME;
     public static boolean DEFAULT_HIDE_MENU_BUTTON;
@@ -266,7 +270,9 @@ public class Preferences {
 
         OLD = "_old";
 
-        PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME = res.getString(R.string.pref_key_settings_only_for_this_game);
+        PREF_KEY_ENSURE_MOVABILITY = res.getString(R.string.pref_key_ensure_movability);
+        PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES = res.getString(R.string.pref_key_ensure_movability_min_moves);
+        PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME = res.getString(R.string.pref_key_settings_only_for_this_game)
         PREF_KEY_DEALING_CARDS = "pref_key_dealing_cards";
         PREF_KEY_VEGAS_TIME = "pref_key_vegas_time";
         PREF_KEY_VEGAS_OLD_SCORE = "pref_key_vegas_old_score";
@@ -420,6 +426,7 @@ public class Preferences {
         DEFAULT_HIDE_MENU_BAR = res.getBoolean(R.bool.default_hide_menu_bar);
         DEFAULT_IMMERSIVE_MODE = res.getBoolean(R.bool.default_immersive_mode);
         DEFAULT_HIDE_MENU_BUTTON = res.getBoolean(R.bool.default_hide_menu_button);
+        DEFAULT_ENSURE_MOVABILITY = res.getBoolean(R.bool.default_ensure_movability);
         DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME = false;
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
@@ -455,6 +462,7 @@ public class Preferences {
         DEFAULT_VEGAS_BET_AMOUNT = res.getInteger(R.integer.default_vegas_bet_amount);
         DEFAULT_VEGAS_WIN_AMOUNT = res.getInteger(R.integer.default_vegas_win_amount);
         DEFAULT_VEGAS_MONEY = res.getInteger(R.integer.default_vegas_money);
+        DEFAULT_ENSURE_MOVABILITY_MIN_MOVES = res.getInteger(R.integer.default_ensure_movability_min_moves);
         DEFAULT_MAX_NUMBER_UNDOS = res.getInteger(R.integer.default_max_number_undos);
         DEFAULT_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.default_pyramid_number_of_recycles);
         DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.default_fortyeight_number_of_recycles);
@@ -1039,6 +1047,10 @@ public class Preferences {
         }
     }
 
+    public int getSavedEnsureMovabilityMinMoves(){
+        return savedSharedData.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES,DEFAULT_ENSURE_MOVABILITY_MIN_MOVES);
+    }
+
     public int getSavedMenuColumnsPortrait(){
         return Integer.parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_PORTRAIT,DEFAULT_MENU_COLUMNS_PORTRAIT));
     }
@@ -1256,6 +1268,10 @@ public class Preferences {
         return savedSharedData.getBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST,DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST);
     }
 
+    public boolean getSavedEnsureMovability(){
+        return savedSharedData.getBoolean(PREF_KEY_ENSURE_MOVABILITY,DEFAULT_ENSURE_MOVABILITY);
+    }
+
     public boolean getSavedSingleTapSpecialGames(){
         return savedSharedData.getBoolean(PREF_KEY_SINGLE_TAP_SPECIAL_GAMES, DEFAULT_SINGLE_TAP_SPECIAL_GAMES_ENABLED);
     }
@@ -1309,6 +1325,10 @@ public class Preferences {
     }
 
     /* setters for shared data */
+
+    public void saveEnsureMovabilityMinMoves(int value){
+        savedSharedData.edit().putInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, value).apply();
+    }
 
     public void saveYukonRulesOld(){
         savedSharedData.edit().putString(PREF_KEY_YUKON_RULES_OLD, getSavedYukonRules()).apply();

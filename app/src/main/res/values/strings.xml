@@ -422,7 +422,6 @@
 
     <string name="settings_immersive_mode_title">Enable full screen mode</string>
     <string name="settings_immersive_mode_text">Hide the Status and Navigation Bar while playing (Only on Android 4.4 and above)</string>
-
     <string name="settings_dialog_only_for_this_game_enable_1">All further changes made here will only be applied to the current game. If you then want to change settings for other games, you have the following options:</string>
     <string name="settings_dialog_only_for_this_game_enable_3">Return to the main menu and open the settings from there</string>
     <string name="settings_dialog_only_for_this_game_enable_2">Disable this option</string>
@@ -436,6 +435,14 @@
 
     <!-- Statistics -->
 
+    <string name="settings_ensure_movability_title">Ensure movability</string>
+    <string name="settings_ensure_movability_searching_games">Searching a suitable game…</string>
+    <string name="settings_ensure_movability_text">Make sure that at least %1$d movements are possible in a game before starting it</string>
+
+    <string name="settings_ensure_movability_min_moves_title">Ensure movability amount</string>
+    <string name="settings_ensure_movability_min_moves_warning">Caution: Games won\'t start correctly if this number is set to high!</string>
+
+    <!-- Statistics -->
     <!-- %1$d and %2$d are placeholders for the values-->
     <string name="statistics_text_won_games">Won %1$d out of %2$d games</string>
     <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->

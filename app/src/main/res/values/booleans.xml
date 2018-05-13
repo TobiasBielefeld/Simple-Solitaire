@@ -41,6 +41,7 @@
     <bool name="default_hide_menu_bar">false</bool>
     <bool name="default_immersive_mode">false</bool>
     <bool name="default_hide_menu_button">false</bool>
+    <bool name="default_ensure_movability">true</bool>
     <bool name="default_hide_auto_complete_button">false</bool>
 </resources>
 

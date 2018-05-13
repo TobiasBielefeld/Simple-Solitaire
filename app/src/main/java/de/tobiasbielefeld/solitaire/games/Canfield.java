@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -270,11 +271,11 @@ public class Canfield extends Game {
 
                 //now bring the cards to front
                 if (!stacks[10].isEmpty()) {
-                    stacks[10].getTopCard().view.bringToFront();
+                    stacks[10].getTopCard().bringToFront();
                 }
 
                 if (!stacks[11].isEmpty()) {
-                    stacks[11].getTopCard().view.bringToFront();
+                    stacks[11].getTopCard().bringToFront();
                 }
 
                 //reverse everything so the cards on the stack will be in the right order when using an undo

@@ -64,9 +64,11 @@ public class Settings extends AppCompatPreferenceActivity {
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
     private Preference preferenceMaxNumberUndos;
+    private Preference preferenceEnsureMovabilityMinMoves;
     private Preference preferenceGameLayoutMargins;
 
     private CheckBoxPreference preferenceSingleTapAllGames;
+    private CheckBoxPreference preferenceEnsureMovabilty;
     private CheckBoxPreference preferenceTapToSelect;
     private CheckBoxPreference preferenceImmersiveMode;
 
@@ -251,6 +253,8 @@ public class Settings extends AppCompatPreferenceActivity {
             }
 
             updatePreferenceMaxNumberUndos();
+        } else if (key.equals(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES)) {
+            updatePreferenceEnsureMovabilityMinMoves();
         } else if (key.equals(PREF_KEY_SHOW_ADVANCED_SETTINGS)) {
             final Intent intent = new Intent(getApplicationContext(), Settings.class);
 
@@ -349,6 +353,12 @@ public class Settings extends AppCompatPreferenceActivity {
         preferenceMaxNumberUndos.setSummary(Integer.toString(amount));
     }
 
+    private void updatePreferenceEnsureMovabilityMinMoves() {
+        int amount = prefs.getSavedEnsureMovabilityMinMoves();
+
+        preferenceEnsureMovabilityMinMoves.setSummary(Integer.toString(amount));
+    }
+
     private void updatePreferenceMenuBarPositionSummary() {
         String portrait, landscape;
         if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
@@ -435,6 +445,9 @@ public class Settings extends AppCompatPreferenceActivity {
             Settings settings = (Settings) getActivity();
 
             settings.preferenceImmersiveMode = (CheckBoxPreference) findPreference(getString(R.string.pref_key_immersive_mode));
+            settings.preferenceEnsureMovabilty = (CheckBoxPreference) findPreference(getString(R.string.pref_key_ensure_movability));
+
+            settings.preferenceEnsureMovabilty.setSummary(String.format(getString(R.string.settings_ensure_movability_text),prefs.getSavedEnsureMovabilityMinMoves()));
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
                 settings.preferenceImmersiveMode.setEnabled(false);
@@ -511,6 +524,9 @@ public class Settings extends AppCompatPreferenceActivity {
 
             settings.preferenceMaxNumberUndos = findPreference(getString(R.string.pref_key_max_number_undos));
             settings.updatePreferenceMaxNumberUndos();
+
+            settings.preferenceEnsureMovabilityMinMoves = findPreference(getString(R.string.pref_key_ensure_movability_min_moves));
+            settings.updatePreferenceEnsureMovabilityMinMoves();
         }
     }
 }

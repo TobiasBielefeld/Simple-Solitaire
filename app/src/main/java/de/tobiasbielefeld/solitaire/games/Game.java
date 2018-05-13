@@ -31,14 +31,18 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_COLOR;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_FAMILY;
 
 /**
  * Abstract class for all the games. See the DUMMY GAME for detailed explanation of everything!
@@ -52,14 +56,17 @@ public abstract class Game {
     public int[] directionBorders;
     private int dealFromID = -1;
 
-    private int[] tableauStackIDs = new int[]{-1};
-    private int[] foundationStackIDs = new int[]{-1};
     private int[] discardStackIDs = new int[]{-1};
     private int[] mainStackIDs = new int[]{-1};
 
     private boolean hasLimitedRecycles = false;
     private boolean hasFoundationStacks = false;
+    private boolean hasMainStacks = false;
+    private boolean hasDiscardStacks = false;
+    private int firstMainStackID = -1;
+    private int firstDiscardStackID = -1;
     private int lastTableauID = -1;
+    private int lastFoundationID = -1;
     private int recycleCounter = 0;
     private int totalRecycles = 0;
     private boolean hasArrow = false;
@@ -152,9 +159,9 @@ public abstract class Game {
 
                 for (int i = 0; i < (cards.length/13); i++) {
                     for (int j = 0; j < 13; j++) {
-                            int cardIndex = (13 * (i + 1)) - j - 1;
-                            cards[cardIndex].removeFromCurrentStack();
-                            moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
+                        int cardIndex = (13 * (i + 1)) - j - 1;
+                        cards[cardIndex].removeFromCurrentStack();
+                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
                     }
                 }
 
@@ -715,8 +722,10 @@ public abstract class Game {
      * @param IDs The stack ids to apply.
      */
     protected void setMainStackIDs(int... IDs) {
+        hasMainStacks = true;
         mainStackIDs = IDs;
         dealFromID = IDs[0];
+        firstMainStackID = dealFromID;
     }
 
     /**
@@ -725,8 +734,8 @@ public abstract class Game {
      * @param IDs The stack ids to apply.
      */
     protected void setFoundationStackIDs(int... IDs) {
-        foundationStackIDs = IDs;
         hasFoundationStacks = true;
+        lastFoundationID = IDs[IDs.length-1];
     }
 
     /**
@@ -735,7 +744,6 @@ public abstract class Game {
      * @param IDs The stack ids to apply.
      */
     protected void setTableauStackIDs(int... IDs) {
-        tableauStackIDs = IDs;
         lastTableauID = IDs[IDs.length-1];
     }
 
@@ -746,6 +754,8 @@ public abstract class Game {
      */
     protected void setDiscardStackIDs(int... IDs){
         discardStackIDs = IDs;
+        firstDiscardStackID = IDs[0];
+        hasDiscardStacks = true;
     }
 
     /**
@@ -759,6 +769,7 @@ public abstract class Game {
 
     protected void disableMainStack(){
         mainStackIDs = new int[]{-1};
+        hasMainStacks = false;
     }
 
     /**
@@ -833,7 +844,7 @@ public abstract class Game {
      * @param mode       Shows which color the other card should have
      * @return True if it is the same card (under the given conditions), false otherwise
      */
-    protected boolean sameCardOnOtherStack(Card card, Stack otherStack, testMode2 mode) {
+    public boolean sameCardOnOtherStack(Card card, Stack otherStack, testMode2 mode) {
         Stack origin = card.getStack();
 
         if (card.getIndexOnStack() > 0 && origin.getCard(card.getIndexOnStack() - 1).isUp() && otherStack.getSize() > 0) {
@@ -857,6 +868,22 @@ public abstract class Game {
         return false;
     }
 
+    public boolean movementDoneRecently(Card card, Stack destination){
+        for (int i=recordList.entries.size() -1; i >= recordList.entries.size() - 5; i--){
+            RecordList.Entry entry = recordList.entries.get(i);
+
+            for (int j=0;j<entry.getCurrentCards().size();j++){
+                Card cardInList = entry.getCurrentCards().get(j);
+                Stack originInList = entry.getCurrentOrigins().get(j);
+
+                if (card == cardInList && destination == originInList){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
     /**
      * Applies the direction borders, which were set using setDirectionBorders().
      * This will be automatically called when a game starts.
@@ -904,35 +931,32 @@ public abstract class Game {
             return true;
         }
 
+        int topCardColor = stack.getTopCard().getColor();
+        int topCardValue = stack.getTopCard().getValue();
+        int cardColor = card.getColor();
+        int cardValue = card.getValue();
+
         if (direction == testMode3.DESCENDING) {   //example move a 8 on top of a 9
             switch (mode) {
                 case SAME_COLOR:
-                    return stack.getTopCard().getColor() % 2 == card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() + 1
-                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                    return topCardColor % 2 == cardColor % 2 && (topCardValue == cardValue + 1 || (wrap && topCardValue == 1 && cardValue == 13));
                 case ALTERNATING_COLOR:
-                    return stack.getTopCard().getColor() % 2 != card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() + 1
-                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                    return topCardColor % 2 != cardColor % 2 && (topCardValue == cardValue + 1 || (wrap && topCardValue == 1 && cardValue == 13));
                 case SAME_FAMILY:
-                    return stack.getTopCard().getColor() == card.getColor() && (stack.getTopCard().getValue() == card.getValue() + 1
-                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13));
+                    return topCardColor == cardColor && (topCardValue == cardValue + 1 || (wrap && topCardValue == 1 && cardValue == 13));
                 case DOESNT_MATTER:
-                    return stack.getTopCard().getValue() == card.getValue() + 1
-                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13);
+                    return topCardValue == cardValue + 1 || (wrap && topCardValue == 1 && cardValue == 13);
             }
         } else {                                //example move a 9 on top of a 8
             switch (mode) {
                 case SAME_COLOR:
-                    return stack.getTopCard().getColor() % 2 == card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() - 1
-                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                    return topCardColor % 2 == cardColor % 2 && (topCardValue == cardValue - 1 || (wrap && topCardValue == 13 && cardValue == 1));
                 case ALTERNATING_COLOR:
-                    return stack.getTopCard().getColor() % 2 != card.getColor() % 2 && (stack.getTopCard().getValue() == card.getValue() - 1
-                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                    return topCardColor % 2 != cardColor % 2 && (topCardValue == cardValue - 1 || (wrap && topCardValue == 13 && cardValue == 1));
                 case SAME_FAMILY:
-                    return stack.getTopCard().getColor() == card.getColor() && (stack.getTopCard().getValue() == card.getValue() - 1
-                            || (wrap && stack.getTopCard().getValue() == 13 && card.getValue() == 1));
+                    return topCardColor == cardColor && (topCardValue == cardValue - 1 || (wrap && topCardValue == 13 && cardValue == 1));
                 case DOESNT_MATTER:
-                    return stack.getTopCard().getValue() == card.getValue() - 1
-                            || (wrap && stack.getTopCard().getValue() == 1 && card.getValue() == 13);
+                    return topCardValue == cardValue - 1 || (wrap && topCardValue == 1 && cardValue == 13);
             }
         }
 
@@ -987,11 +1011,11 @@ public abstract class Game {
 
     //some getters,setters and simple methods, games should'nt override these
     public Stack getDiscardStack() throws ArrayIndexOutOfBoundsException {
-        if (discardStackIDs[0] == -1) {
+        if (firstDiscardStackID == -1) {
             throw new ArrayIndexOutOfBoundsException("No discard stack specified");
         }
 
-        return stacks[discardStackIDs[0]];
+        return stacks[firstDiscardStackID];
     }
 
     public ArrayList<Stack> getDiscardStacks() throws ArrayIndexOutOfBoundsException {
@@ -1008,27 +1032,12 @@ public abstract class Game {
         return discardStacks;
     }
 
-
-    public ArrayList<Stack> getMainStacks() throws ArrayIndexOutOfBoundsException {
-        ArrayList<Stack> mainStacks = new ArrayList<>();
-
-        for (int id : mainStackIDs){
-            if (id == -1){
-                throw new ArrayIndexOutOfBoundsException("No discard stack specified");
-            }
-
-            mainStacks.add(stacks[id]);
-        }
-
-        return mainStacks;
-    }
-
     protected void setLastTableauID(int id) {
         lastTableauID = id;
     }
 
     public boolean hasMainStack() {
-        return mainStackIDs[0]!=-1;
+        return hasMainStacks;
     }
 
     public Stack getDealStack() {
@@ -1036,7 +1045,7 @@ public abstract class Game {
     }
 
     public boolean hasDiscardStack() {
-        return discardStackIDs[0]!=-1;
+        return hasDiscardStacks;
     }
 
     public boolean hasLimitedRecycles() {
@@ -1109,11 +1118,11 @@ public abstract class Game {
         return hintCosts;
     }
 
-    protected enum testMode {
+    public enum testMode {
         SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER, SAME_FAMILY
     }
 
-    protected enum testMode2 {
+    public enum testMode2 {
         SAME_VALUE_AND_COLOR, SAME_VALUE_AND_FAMILY, SAME_VALUE
     }
 
@@ -1121,12 +1130,12 @@ public abstract class Game {
         ASCENDING, DESCENDING
     }
 
-    public boolean testForDiscardStack(Stack stack){
-        return hasDiscardStack() && getDiscardStacks().contains(stack);
+    public boolean mainStacksContain(int id){
+        return hasMainStack() && id >= firstMainStackID;
     }
 
-    public boolean testForMainStack(Stack stack){
-        return hasMainStack() && getMainStacks().contains(stack);
+    public boolean discardStacksContain(int id){
+        return hasDiscardStack() && id >= firstDiscardStackID && id < firstMainStackID;
     }
 
     public boolean hidesRecycleCounter(){
@@ -1134,47 +1143,15 @@ public abstract class Game {
     }
 
     public boolean tableauStacksContain(int ID){
-
-        for (int stackID : tableauStackIDs){
-            if (stackID == ID){
-                return true;
-            }
-        }
-
-        return false;
+        return ID <= getLastTableauId();
     }
 
     public boolean foundationStacksContain(int ID){
-
-        for (int stackID : foundationStackIDs){
-            if (stackID == ID){
-                return true;
-            }
-        }
-
-        return false;
+        return hasFoundationStacks && ID > getLastTableauId() && ID <= getLastFoundationID();
     }
 
-    public boolean discardStacksContain(int ID){
-
-        for (int stackID : discardStackIDs){
-            if (stackID == ID){
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public boolean mainStacksContain(int ID){
-
-        for (int stackID : mainStackIDs){
-            if (stackID == ID){
-                return true;
-            }
-        }
-
-        return false;
+    public int getLastFoundationID(){
+        return lastFoundationID;
     }
 
     public boolean addCardToMovementTest(Card card){
@@ -1183,5 +1160,9 @@ public abstract class Game {
 
     protected void setMixingCardsTestMode(testMode mode){
         mixCardsTestMode = mode;
+    }
+
+    public int getMainStackId(){
+        return mainStackIDs[0];
     }
 }

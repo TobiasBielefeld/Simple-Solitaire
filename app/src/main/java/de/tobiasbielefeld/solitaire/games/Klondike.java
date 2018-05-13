@@ -208,10 +208,10 @@ public class Klondike extends Game {
 
                 //now bring the cards to front
                 if (!stacks[12].isEmpty()) {
-                    stacks[12].getTopCard().view.bringToFront();
+                    stacks[12].getTopCard().bringToFront();
                 }
                 if (!stacks[13].isEmpty()) {
-                    stacks[13].getTopCard().view.bringToFront();
+                    stacks[13].getTopCard().bringToFront();
                 }
 
                 //reverse everything so the cards on the stack will be in the right order when using an undo
@@ -518,10 +518,10 @@ public class Klondike extends Game {
             }
 
             if (!discard2.isEmpty()) {
-                discard2.getTopCard().view.bringToFront();
+                discard2.getTopCard().bringToFront();
             }
             if (!discard3.isEmpty()) {
-                discard3.getTopCard().view.bringToFront();
+                discard3.getTopCard().bringToFront();
             }
 
             //finally add the record
@@ -565,11 +565,11 @@ public class Klondike extends Game {
             }
 
             if (!discard2.isEmpty()) {
-                discard2.getTopCard().view.bringToFront();
+                discard2.getTopCard().bringToFront();
             }
 
             if (!discard3.isEmpty()) {
-                discard3.getTopCard().view.bringToFront();
+                discard3.getTopCard().bringToFront();
             }
 
             //and add it IN FRONT of the last entry

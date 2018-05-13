@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -86,12 +87,9 @@ public class Spider extends Game {
                             continue;
                         }
 
-                        if (cardToMove.test(destStack) && !sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
-
-                            //try to prefer stacks with a top card of the same family as the moving card
-                            if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor())) {
-                                returnStack = destStack;
-                            }
+                        //try to prefer stacks with a top card of the same family as the moving card
+                        if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor())) {
+                            returnStack = destStack;
                         }
 
                         //return new CardAndStack(cardToMove, destStack);
@@ -269,7 +267,7 @@ public class Spider extends Game {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 if (stacks[18+i].getSize()>j) {
-                    stacks[18 + i].getCard(j).view.bringToFront();
+                    stacks[18 + i].getCard(j).bringToFront();
                 }
             }
         }
