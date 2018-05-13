@@ -34,7 +34,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class RecordList {
 
     public static int maxRecords;
-    private ArrayList<Entry> entries = new ArrayList<>();
+    public ArrayList<Entry> entries = new ArrayList<>();
 
     private boolean isWorking = false;
 
@@ -217,7 +217,7 @@ public class RecordList {
         return isWorking;
     }
 
-    private class Entry {
+    public static class Entry {
         private ArrayList<Integer> moveOrder = new ArrayList<>();
         private ArrayList<Card> currentCards = new ArrayList<>();
         private ArrayList<Stack> currentOrigins = new ArrayList<>();
@@ -225,6 +225,14 @@ public class RecordList {
 
         private GameManager gm;
         private boolean alreadyDecremented = false;
+
+        public ArrayList<Card> getCurrentCards(){
+            return currentCards;
+        }
+
+        public ArrayList<Stack> getCurrentOrigins(){
+            return currentOrigins;
+        }
 
         /**
          * This constructor is used to load saved entries.

@@ -23,10 +23,10 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.classes.State;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
@@ -87,12 +87,9 @@ public class Spider extends Game {
                             continue;
                         }
 
-                        if (cardToMove.test(destStack) && !sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
-
-                            //try to prefer stacks with a top card of the same family as the moving card
-                            if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor())) {
-                                returnStack = destStack;
-                            }
+                        //try to prefer stacks with a top card of the same family as the moving card
+                        if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor())) {
+                            returnStack = destStack;
                         }
 
                         //return new CardAndStack(cardToMove, destStack);
@@ -270,7 +267,7 @@ public class Spider extends Game {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 if (stacks[18+i].getSize()>j) {
-                    stacks[18 + i].getCard(j).view.bringToFront();
+                    stacks[18 + i].getCard(j).bringToFront();
                 }
             }
         }
@@ -383,15 +380,5 @@ public class Spider extends Game {
         }
 
         return null;
-    }
-
-
-    public boolean addCardToMovementGameTest(State.ReducedCard card, State.ReducedStack[] stacks){
-        //do not accept cards from foundation and test if the cards are in the right order.
-        return card.getStackId() < 10 && currentGame.testCardsUpToTop(card.getStack(), card.getIndexOnStack(), SAME_FAMILY);
-    }
-
-    public boolean cardTest(State.ReducedStack stack, State.ReducedCard card) {
-        return stack.getId() < 10 && currentGame.canCardBePlaced(stack, card, DOESNT_MATTER, DESCENDING, false);
     }
 }

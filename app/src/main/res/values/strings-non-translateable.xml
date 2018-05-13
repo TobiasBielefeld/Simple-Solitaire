@@ -97,7 +97,8 @@
     <string name="pref_key_hide_menu_bar" translatable="false">pref_key_hide_menu_bar</string>
     <string name="pref_key_immersive_mode" translatable="false">pref_key_immersive_mode</string>
     <string name="pref_key_hide_menu_button" translatable="false">pref_key_hide_menu_button</string>
-    <string name="pref_key_ensure_movability_simple_simon" translatable="false">pref_key_ensure_movability_simple_simon</string>
+    <string name="pref_key_ensure_movability" translatable="false">pref_key_ensure_movability</string>
+    <string name="pref_key_ensure_movability_min_moves" translatable="false">pref_key_ensure_movability_min_moves</string>
 
 
     <!-- internal stuff only used in program code -->

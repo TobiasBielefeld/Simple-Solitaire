@@ -19,12 +19,9 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.util.Log;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -44,7 +41,6 @@ import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
-import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
@@ -96,6 +92,7 @@ public class SharedData {
     public static HandlerDealCards handlerDealCards = new HandlerDealCards();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
+    public static boolean stopMovements = false;
 
     private static Toast toast;
 
@@ -195,23 +192,25 @@ public class SharedData {
      */
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
 
-        if (option == OPTION_UNDO) {
-            scores.undo(cards, destinations);
-        } else if (option == 0) {
-            scores.move(cards, destinations);
-            recordList.add(cards);
-        } else if (option == OPTION_REVERSED_RECORD) {
-            //reverse the cards and add the reversed list to the record
-            ArrayList<Card> cardsReversed = new ArrayList<>();
+        if (!stopMovements) {
+            if (option == OPTION_UNDO) {
+                scores.undo(cards, destinations);
+            } else if (option == 0) {
+                scores.move(cards, destinations);
+                recordList.add(cards);
+            } else if (option == OPTION_REVERSED_RECORD) {
+                //reverse the cards and add the reversed list to the record
+                ArrayList<Card> cardsReversed = new ArrayList<>();
 
-            for (int i = 0; i < cards.size(); i++) {
-                cardsReversed.add(cards.get(cards.size() - 1 - i));
+                for (int i = 0; i < cards.size(); i++) {
+                    cardsReversed.add(cards.get(cards.size() - 1 - i));
+                }
+
+                recordList.add(cardsReversed);
+                scores.move(cards, destinations);
             }
-
-            recordList.add(cardsReversed);
-            scores.move(cards, destinations);
+            //else if (option == OPTION_NO_RECORD), do nothing
         }
-        //else if (option == OPTION_NO_RECORD), do nothing
 
 
         for (int i = 0; i < cards.size(); i++) {
@@ -232,11 +231,11 @@ public class SharedData {
         }
 
         for (Card card : cards) {
-            card.view.bringToFront();
+            card.bringToFront();
         }
 
         //following stuff in handlers, because they should wait until possible card movements are over.
-        if (option == 0) {
+        if (option == 0 && !stopMovements) {
             handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
             handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
         }

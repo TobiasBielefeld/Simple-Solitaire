@@ -3,106 +3,194 @@ package de.tobiasbielefeld.solitaire.helper;
 import android.os.AsyncTask;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.classes.State;
-import de.tobiasbielefeld.solitaire.games.Game;
+import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
 
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.logText;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.stopMovements;
 
 /**
- * Created by tobias on 20.03.18.
+ * Ensures that at least MIN_POSSIBLE_MOVEMENTS amount of movements are possible at the start of a game.
+ * It uses the Game.hintTest() method to find possible movements. If not enough movements are found
+ * or the timer runs out, a new game will be dealt and the test restarts.
+ *
+ * Everything happens inside the async task, the user only sees a spinning wait wheel. While the tests
+ * run, the stopMovements variable in SharedData is set to true, so cards won't move visible, but
+ * in the background they are assigned to other stacks and so on.
+ *
+ * IMPORTANT: The Game.hintTest() does NOT return every possible movement! For example in SimpleSimon:
+ * If a Hearts 9 lies on a Clubs 10 and could be moved to a Diamonds 10, it won't be shown. If it
+ * could be moved to a Hearts 10, this would be shown. This decision was made to not show redundant
+ * movements.
+ *
+ * This class will probably use another way to find movements (see the commented blocks) but it
+ * doesn't work correctly yet.
+ * TODO: Make the new way working!
  */
 
 public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
-    private static int MIN_POSSIBLE_MOVEMENTS =50;
+    private static int minPossibleMovements = 10;
     private static int MAX_TIME_MILLIS = 500;
 
-    Random random = new Random();
 
-    private ArrayList<PossibleMovement> possibleMovements = new ArrayList<>();
+
+    private DialogEnsureMovability dialog;
+
+    /*private ArrayList<PossibleMovement> possibleMovements = new ArrayList<>();
+    private Random random = new Random();
+    private List<Entry> trace = new ArrayList<>(MIN_POSSIBLE_MOVEMENTS);
+
+    public static class Entry {
+        public int card;
+        public int destination;
+        public int origin;
+
+        public Entry(int cardId, int destId, int originId) {
+            card = cardId;
+            destination = destId;
+            origin = originId;
+        }
+    }//*/
 
 
     @Override
     protected Boolean doInBackground(Object... objects) {
-        Stack[] normalStacks = (Stack[]) objects[0];
-        Card[] normalCards = (Card[]) objects[1];
+        minPossibleMovements = prefs.getSavedEnsureMovabilityMinMoves();
+        int counter = 0;
+        dialog = (DialogEnsureMovability) objects[0];
 
         long maxTime = System.currentTimeMillis() + MAX_TIME_MILLIS;
 
-        State state = new State(normalCards, normalStacks, 0);
-
         while (true) {
+            logText("running");
             if (System.currentTimeMillis() > maxTime){
                 return false;
             }
 
-            logText("trace size: "+state.trace.size());
+            if (counter == minPossibleMovements){
+                return true;
+            }
 
-            if (state.trace.size() >= MIN_POSSIBLE_MOVEMENTS) {
+            CardAndStack cardAndStack = currentGame.hintTest();
+
+
+            if (cardAndStack != null) {
+
+                Stack destination = cardAndStack.getStack();
+                Card card = cardAndStack.getCard();
+                Stack origin = card.getStack();
+
+                int size = origin.getSize() - card.getIndexOnStack();
+
+                ArrayList<Card> cardsToMove = new ArrayList<>(size);
+
+                for (int l = card.getIndexOnStack(); l < origin.getSize(); l++) {
+                    cardsToMove.add(origin.getCard(l));
+                }
+
+                moveToStack(cardsToMove,destination);
+
+                if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp()) {
+                    origin.getTopCard().flipWithAnim();
+                }
+
+                counter ++;
+            }  else if (currentGame.hasMainStack()){
+                currentGame.onMainStackTouch();
+            } else {
+                return false;
+            }
+
+
+            /*if (trace.size() == MIN_POSSIBLE_MOVEMENTS) {
                 return true;
             }
 
             possibleMovements.clear();
 
-            moveCard(state);
+            moveCard();
 
-            logText("possible movements: "+possibleMovements.size());
+            logText("possible movements: " + possibleMovements.size());
 
             if (possibleMovements.size() > 0) {
                 int index = random.nextInt(possibleMovements.size());
                 PossibleMovement movement = possibleMovements.get(index);
-                moveToStack(movement.state, movement.moveTo, movement.cardsToMove);
+
+                ArrayList<Card> cardsToMove = new ArrayList<>();
+
+                for (int i : movement.cardsToMove) {
+                    cardsToMove.add(cards[i]);
+                }
+
+                SharedData.moveToStack(cardsToMove, stacks[movement.moveTo]);
+
+                trace.add(new Entry(movement.cardsToMove[0], movement.moveTo, cards[movement.cardsToMove[0]].getStackId()));
+            } else if (currentGame.hasMainStack()){
+                currentGame.onMainStackTouch();
             } else {
-                state = new State(normalCards, normalStacks, 0);
-            }
+                return false;
+            }//*/
         }
     }
 
     @Override
     protected void onPostExecute(Boolean result) {
-        logText(""+result);
+        //logText(""+result);
+
+        if (!result){
+            gameLogic.newGameForEnsureMovability();
+        } else {
+            dialog.dismiss();
+            stopMovements = false;
+            gameLogic.redeal();
+        }
     }
 
+    @Override
+    protected void onCancelled() {
+        stopMovements = false;
+        gameLogic.redeal();
+    }
 
+    /*private static class PossibleMovement{
 
-
-    private static class PossibleMovement{
-
-        State state;
         int moveTo;
         int[] cardsToMove;
 
-        PossibleMovement(State state, int moveTo, int[] cardsToMove){
-            this.state = state;
+        PossibleMovement(int moveTo, int[] cardsToMove){
             this.moveTo = moveTo;
             this.cardsToMove = cardsToMove;
         }
     }
 
-    private void moveCard(State state){
+    private void moveCard(){
 
-        for (int i=0;i<state.stacks.length;i++){
+        for (int i=0;i<stacks.length;i++){
 
             //do not check cards on the foundation stack
             if (currentGame.foundationStacksContain(i)){
                 continue;
             }
 
-            for (int j=0;j<state.stacks[i].getSize();j++){
-                State.ReducedCard cardToMove = state.stacks[i].getCard(j);
+            for (int j=0;j<stacks[i].getSize();j++){
+                Card cardToMove = stacks[i].getCard(j);
 
-                if (cardToMove.isUp() && currentGame.addCardToMovementGameTest(cardToMove,state.stacks)){
+                if (cardToMove.isUp() && currentGame.addCardToMovementGameTest(cardToMove)){
 
                     for (int k=0;k < stacks.length;k++){
                         //for (int k=state.stacks.length-1;k>=0;k--){
-                        State.ReducedStack destination = state.stacks[k];
+                        Stack destination = stacks[k];
 
                         if (i!=k && currentGame.cardTest(destination,cardToMove)){
 
@@ -114,15 +202,15 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                             else if (currentGame.tableauStacksContain(i) && j == 0 && destination.isEmpty()){
                                 continue;
                             }
-                            //avoid moving cards between stacks, eg moving a nine lying on a ten moving to another then, moving it back and so on...
-                            else if (currentGame.tableauStacksContain(i) && currentGame.sameCardOnOtherStack(cardToMove,state.stacks[k], Game.testMode2.SAME_VALUE_AND_COLOR)) {
+                            //avoid moving cards between stacks, eg moving a nine lying on a ten moving to another ten, moving it back and so on...
+                            else if (currentGame.tableauStacksContain(i) && currentGame.sameCardOnOtherStack(cardToMove, destination, Game.testMode2.SAME_VALUE_AND_COLOR)) {
                                 continue;
                             }
-                            else if (alreadyMoved(state,cardToMove.getId(),k)){
+                            else if (alreadyMoved(cardToMove.getId(),k)){
                                 continue;
-                            }//*/
+                            }
 
-                            int size = state.stacks[i].getSize() - j;
+                            int size = stacks[i].getSize() - j;
 
                             int[] cardsToMove = new int[size];
 
@@ -130,8 +218,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                                 cardsToMove[l] = cardToMove.getStack().getCard(j + l).getId();
                             }
 
-                            possibleMovements.add(new PossibleMovement(state, k, cardsToMove));
-                            //moveToStack(state, k, cardsToMove);
+                            possibleMovements.add(new PossibleMovement(k, cardsToMove));
                         }
                     }
                 }
@@ -139,46 +226,20 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
         }
     }
 
-    private boolean alreadyMoved(State state, int cardId, int destinationId){
+    private boolean alreadyMoved(int cardId, int destinationId){
 
         if (!currentGame.tableauStacksContain(cardId)) {
             return false;
         }
 
-        for (int j=state.trace.size()-1;j>=0;j--){
-            State.Entry trace = state.trace.get(j);
+        for (int j=trace.size()-1;j>=0;j--){
+            Entry entry = trace.get(j);
 
-            if (trace.card == cardId && trace.origin == destinationId){
+            if (entry.card == cardId && entry.origin == destinationId){
                 return true;
             }
         }
 
-
         return false;
-    }
-
-    public void moveToStack(State state,  int destinationId, int... cardIds) {
-
-        state.addTrace(cardIds[0], destinationId, state.cards[cardIds[0]].getStackId());
-
-        State.ReducedCard firstCard = state.cards[cardIds[0]];
-        State.ReducedStack destination = state.stacks[destinationId];
-
-        int indexOfFirstCard = firstCard.getIndexOnStack();
-
-
-        //if the moving card is on the tableau, flip the card below it up
-        if (indexOfFirstCard>0 && currentGame.tableauStacksContain(firstCard.getStackId())) {
-            firstCard.getStack().getCard(indexOfFirstCard-1).flipUp();
-        }
-
-
-        for (int i : cardIds){
-            state.cards[i].removeFromCurrentStack();
-            destination.addCard( state.cards[i]);
-        }
-
-
-        //run(newState);
-    }
+    }//*/
 }

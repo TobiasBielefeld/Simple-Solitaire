@@ -54,4 +54,10 @@
         android:summary="@string/settings_auto_start_new_game_text"
         android:title="@string/settings_auto_start_new_game_title" />
 
+    <CheckBoxPreference
+        android:defaultValue="@bool/default_ensure_movability"
+        android:key="@string/pref_key_ensure_movability"
+        android:summary="@string/settings_ensure_movability_text"
+        android:title="@string/settings_ensure_movability_title" />
+
 </PreferenceScreen>

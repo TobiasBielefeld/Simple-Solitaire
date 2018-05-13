@@ -31,10 +31,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.classes.State;
+import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
@@ -73,7 +74,6 @@ public abstract class Game {
     private boolean bonusEnabled = true;
     private boolean pointsInDollar = false;
     private boolean hideRecycleCounter = false;
-    private boolean ensureMovability = false;
     private int hintCosts = 25;
     private int undoCosts = 25;
     protected ArrayList<TextView> textViews = new ArrayList<>();
@@ -843,7 +843,7 @@ public abstract class Game {
      * @param mode       Shows which color the other card should have
      * @return True if it is the same card (under the given conditions), false otherwise
      */
-    protected boolean sameCardOnOtherStack(Card card, Stack otherStack, testMode2 mode) {
+    public boolean sameCardOnOtherStack(Card card, Stack otherStack, testMode2 mode) {
         Stack origin = card.getStack();
 
         if (card.getIndexOnStack() > 0 && origin.getCard(card.getIndexOnStack() - 1).isUp() && otherStack.getSize() > 0) {
@@ -867,6 +867,22 @@ public abstract class Game {
         return false;
     }
 
+    public boolean movementDoneRecently(Card card, Stack destination){
+        for (int i=recordList.entries.size() -1; i >= recordList.entries.size() - 5; i--){
+            RecordList.Entry entry = recordList.entries.get(i);
+
+            for (int j=0;j<entry.getCurrentCards().size();j++){
+                Card cardInList = entry.getCurrentCards().get(j);
+                Stack originInList = entry.getCurrentOrigins().get(j);
+
+                if (card == cardInList && destination == originInList){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
     /**
      * Applies the direction borders, which were set using setDirectionBorders().
      * This will be automatically called when a game starts.
@@ -1125,14 +1141,6 @@ public abstract class Game {
         return hideRecycleCounter;
     }
 
-    protected void setEnsureMovability(){
-        ensureMovability = true;
-    }
-
-    public boolean ensuresMovability(){
-        return ensureMovability;
-    }
-
     public boolean tableauStacksContain(int ID){
         return ID <= getLastTableauId();
     }
@@ -1155,125 +1163,5 @@ public abstract class Game {
 
     public int getMainStackId(){
         return mainStackIDs[0];
-    }
-
-
-    public boolean addCardToMovementGameTest(State.ReducedCard card, State.ReducedStack[] stacks){
-        return false;
-    }
-
-    public boolean cardTest(State.ReducedStack stack, State.ReducedCard card) {
-        return false;
-    }
-
-
-    protected boolean canCardBePlaced(State.ReducedStack stack, State.ReducedCard card, testMode mode, testMode3 direction, boolean wrap) {
-
-        if (stack.isEmpty()) {
-            return true;
-        }
-
-        int topCardColor = stack.getTopCard().getColor();
-        int topCardValue = stack.getTopCard().getValue();
-        int cardColor = card.getColor();
-        int cardValue = card.getValue();
-
-        if (direction == testMode3.DESCENDING) {   //example move a 8 on top of a 9
-            switch (mode) {
-                case SAME_COLOR:
-                    return topCardColor % 2 == cardColor % 2 && (topCardValue == cardValue + 1 || (wrap && topCardValue == 1 && cardValue == 13));
-                case ALTERNATING_COLOR:
-                    return topCardColor % 2 != cardColor % 2 && (topCardValue == cardValue + 1 || (wrap && topCardValue == 1 && cardValue == 13));
-                case SAME_FAMILY:
-                    return topCardColor == cardColor && (topCardValue == cardValue + 1 || (wrap && topCardValue == 1 && cardValue == 13));
-                case DOESNT_MATTER:
-                    return topCardValue == cardValue + 1 || (wrap && topCardValue == 1 && cardValue == 13);
-            }
-        } else {                                //example move a 9 on top of a 8
-            switch (mode) {
-                case SAME_COLOR:
-                    return topCardColor % 2 == cardColor % 2 && (topCardValue == cardValue - 1 || (wrap && topCardValue == 13 && cardValue == 1));
-                case ALTERNATING_COLOR:
-                    return topCardColor % 2 != cardColor % 2 && (topCardValue == cardValue - 1 || (wrap && topCardValue == 13 && cardValue == 1));
-                case SAME_FAMILY:
-                    return topCardColor == cardColor && (topCardValue == cardValue - 1 || (wrap && topCardValue == 13 && cardValue == 1));
-                case DOESNT_MATTER:
-                    return topCardValue == cardValue - 1 || (wrap && topCardValue == 1 && cardValue == 13);
-            }
-        }
-
-        return false; //can't be reached
-    }
-
-    public boolean sameCardOnOtherStack(State.ReducedCard card, State.ReducedStack otherStack, testMode2 mode) {
-        State.ReducedStack origin = card.getStack();
-
-        if (card.getIndexOnStack() > 0 && origin.getCard(card.getIndexOnStack() - 1).isUp() && otherStack.getSize() > 0) {
-            State.ReducedCard cardBelow = origin.getCard(card.getIndexOnStack() - 1);
-
-            if (mode == SAME_VALUE_AND_COLOR) {
-                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() % 2 == otherStack.getTopCard().getColor() % 2) {
-                    return true;
-                }
-            } else if (mode == SAME_VALUE_AND_FAMILY) {
-                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() == otherStack.getTopCard().getColor()) {
-                    return true;
-                }
-            } else if (mode == SAME_VALUE) {
-                if (cardBelow.getValue() == otherStack.getTopCard().getValue()) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    public int onMainStackTouch(State state) {
-        return 0;
-    }
-
-    public boolean autoCompleteStartTest(State state){
-        return false;
-    }
-
-
-
-    protected boolean testCardsUpToTop(State.ReducedStack stack, int startPos, testMode mode) {
-
-        for (int i = startPos; i < stack.getSize() - 1; i++) {
-            State.ReducedCard bottomCard = stack.getCard(i);
-            State.ReducedCard upperCard = stack.getCard(i + 1);
-
-            if (!bottomCard.isUp() || !upperCard.isUp()) {
-                return false;
-            }
-
-            switch (mode) {
-                case ALTERNATING_COLOR:     //eg. black on red
-                    if ((bottomCard.getColor() % 2 == upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
-                        return false;
-                    }
-                    break;
-                case SAME_COLOR:            //eg. black on black
-                    if ((bottomCard.getColor() % 2 != upperCard.getColor() % 2) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
-                        return false;
-                    }
-                    break;
-                case SAME_FAMILY:           //eg spades on spades
-                    if ((bottomCard.getColor() != upperCard.getColor()) || (bottomCard.getValue() != upperCard.getValue() + 1)) {
-                        return false;
-                    }
-                    break;
-                case DOESNT_MATTER:
-                    if (bottomCard.getValue() != upperCard.getValue() + 1) {
-                        return false;
-                    }
-                    break;
-            }
-
-        }
-
-        return true;
     }
 }

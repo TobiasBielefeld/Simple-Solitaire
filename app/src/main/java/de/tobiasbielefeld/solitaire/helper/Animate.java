@@ -144,7 +144,7 @@ public class Animate {
      * @param destination The destination of the movement
      */
     public void cardHint(final Card card, final int offset, final Stack destination) {
-        card.view.bringToFront();
+        card.bringToFront();
         card.saveOldLocation();
         PointF pointAtStack = destination.getPosition(offset);
         float dist_x = pointAtStack.x - card.getX();
