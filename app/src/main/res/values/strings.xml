@@ -433,16 +433,15 @@
     <string name="settings_dialog_only_for_this_game_information_3">Those games won\'t be affected by changes made here.\n\nDo you want to remove the individual settings for all listed games?</string>
     <string name="settings_dialog_only_for_this_game_removed_all">Removed all individual settings</string>
 
-    <!-- Statistics -->
-
     <string name="settings_ensure_movability_title">Ensure movability</string>
     <string name="settings_ensure_movability_searching_games">Searching a suitable game…</string>
-    <string name="settings_ensure_movability_text">Make sure that at least %1$d movements are possible in a game before starting it</string>
+    <string name="settings_ensure_movability_text">Make sure that a certain amount of movements are possible in a game before starting it. The amount per game can be adjusted in the expert settings</string>
 
     <string name="settings_ensure_movability_min_moves_title">Ensure movability: amount of moves</string>
     <string name="settings_ensure_movability_min_moves_warning">Caution: Games won\'t start correctly if this number is set to high!</string>
 
     <!-- Statistics -->
+    
     <!-- %1$d and %2$d are placeholders for the values-->
     <string name="statistics_text_won_games">Won %1$d out of %2$d games</string>
     <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
