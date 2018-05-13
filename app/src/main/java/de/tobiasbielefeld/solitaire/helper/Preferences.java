@@ -272,7 +272,7 @@ public class Preferences {
 
         PREF_KEY_ENSURE_MOVABILITY = res.getString(R.string.pref_key_ensure_movability);
         PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES = res.getString(R.string.pref_key_ensure_movability_min_moves);
-        PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME = res.getString(R.string.pref_key_settings_only_for_this_game)
+        PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME = res.getString(R.string.pref_key_settings_only_for_this_game);
         PREF_KEY_DEALING_CARDS = "pref_key_dealing_cards";
         PREF_KEY_VEGAS_TIME = "pref_key_vegas_time";
         PREF_KEY_VEGAS_OLD_SCORE = "pref_key_vegas_old_score";

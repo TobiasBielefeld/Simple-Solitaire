@@ -439,7 +439,7 @@
     <string name="settings_ensure_movability_searching_games">Searching a suitable game…</string>
     <string name="settings_ensure_movability_text">Make sure that at least %1$d movements are possible in a game before starting it</string>
 
-    <string name="settings_ensure_movability_min_moves_title">Ensure movability amount</string>
+    <string name="settings_ensure_movability_min_moves_title">Ensure movability: amount of moves</string>
     <string name="settings_ensure_movability_min_moves_warning">Caution: Games won\'t start correctly if this number is set to high!</string>
 
     <!-- Statistics -->

@@ -123,7 +123,6 @@ public class GameLogic {
                 //in case the game was selected from the main menu and it was already won, start a new game
                 newGame();
             } else {
-
                 scores.load();
                 recordList.load();
                 timer.setCurrentTime(prefs.getSavedEndTime());
