@@ -65,7 +65,7 @@ public class FortyEight extends Game {
 
         stacks[17].view.setX((int) (layoutGame.getWidth() / 2 + 3 * Card.width + 3.5 * spacing));
         stacks[17].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
-        stacks[17].view.setImageBitmap(Stack.backgroundTalon);
+        stacks[17].setImageBitmap(Stack.backgroundTalon);
 
         stacks[16].setX(stacks[17].getX() - spacing - Card.width);
         stacks[16].setY(stacks[17].getY());
@@ -73,7 +73,7 @@ public class FortyEight extends Game {
         for (int i = 0; i < 8; i++) {
             stacks[8 + i].setX(startPos + i * (spacing + Card.width));
             stacks[8 + i].setY(stacks[17].getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
-            stacks[8 + i].view.setImageBitmap(Stack.background1);
+            stacks[8 + i].setImageBitmap(Stack.background1);
         }
 
         for (int i = 0; i < 8; i++) {

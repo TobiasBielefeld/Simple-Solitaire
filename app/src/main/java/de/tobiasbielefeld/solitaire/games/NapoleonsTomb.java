@@ -116,12 +116,12 @@ public class NapoleonsTomb extends Game {
         //also set backgrounds of the stacks
         for (Stack stack : stacks) {
             if (stack.getId() > 3 && stack.getId() <= 7)  {
-                stack.view.setImageBitmap(Stack.background7);
+                stack.setImageBitmap(Stack.background7);
             } else if (stack.getId() == 8) {
-                stack.view.setImageBitmap(Stack.background6);
+                stack.setImageBitmap(Stack.background6);
             }
             else if (stack.getId() == 10) {
-                stack.view.setImageBitmap(Stack.backgroundTalon);
+                stack.setImageBitmap(Stack.backgroundTalon);
             }
         }
 

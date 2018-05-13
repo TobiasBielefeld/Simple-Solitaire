@@ -133,7 +133,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         for (int i = 0; i < stacks.length; i++) {
             stacks[i] = new Stack(i);
             stacks[i].view = new CustomImageView(this, this, CustomImageView.Object.STACK, i);
-            stacks[i].view.setImageBitmap(Stack.backgroundDefault);
+            stacks[i].setImageBitmap(Stack.backgroundDefault);
             layoutGame.addView(stacks[i].view);
         }
 

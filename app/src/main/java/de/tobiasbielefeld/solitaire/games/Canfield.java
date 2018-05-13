@@ -101,10 +101,10 @@ public class Canfield extends Game {
 
         //also set backgrounds of the stacks
         for (int i = 9; i < 12; i++) {
-            stacks[i].view.setImageBitmap(Stack.backgroundTransparent);
+            stacks[i].setImageBitmap(Stack.backgroundTransparent);
         }
 
-        stacks[12].view.setImageBitmap(Stack.backgroundTalon);
+        stacks[12].setImageBitmap(Stack.backgroundTalon);
     }
 
     public boolean winTest() {
@@ -165,7 +165,7 @@ public class Canfield extends Game {
         }
 
         for (int i = 5; i < 9; i++) {
-            stacks[i].view.setImageBitmap(bitmap);
+            stacks[i].setImageBitmap(bitmap);
         }
     }
 

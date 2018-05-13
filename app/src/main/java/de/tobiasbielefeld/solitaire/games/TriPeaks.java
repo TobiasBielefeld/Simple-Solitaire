@@ -105,7 +105,7 @@ public class TriPeaks extends Game {
 
             stacks[i].setX(startPosX);
             stacks[i].setY(startPosY);
-            stacks[i].view.setImageBitmap(Stack.backgroundTransparent);
+            stacks[i].setImageBitmap(Stack.backgroundTransparent);
 
 
             if (i < 3)

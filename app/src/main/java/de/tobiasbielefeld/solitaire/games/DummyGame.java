@@ -222,9 +222,9 @@ public class DummyGame extends Game {
 
         //Last step: Set the drawables of the stacks. Default one is just gray.
         //So maybe show on some a big A for ace or make them transparent or something
-        stacks[6].view.setImageBitmap(Stack.background1);               //shows an A
-        stacks[6].view.setImageBitmap(Stack.backgroundTalon);           //shows a circle arrow
-        stacks[6].view.setImageBitmap(Stack.backgroundTransparent);     //no background at all
+        stacks[6].setImageBitmap(Stack.background1);               //shows an A
+        stacks[6].setImageBitmap(Stack.backgroundTalon);           //shows a circle arrow
+        stacks[6].setImageBitmap(Stack.backgroundTransparent);     //no background at all
     }
 
     /*

@@ -73,7 +73,6 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
         long maxTime = System.currentTimeMillis() + MAX_TIME_MILLIS;
 
         while (true) {
-            logText("running");
             if (System.currentTimeMillis() > maxTime){
                 return false;
             }

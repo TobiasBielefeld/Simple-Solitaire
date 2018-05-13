@@ -63,19 +63,19 @@ public class GrandfathersClock extends Game {
         }
 
         //set foundation backgrounds
-        stacks[18].view.setImageBitmap(Stack.background2);
-        stacks[17].view.setImageBitmap(Stack.background3);
-        stacks[16].view.setImageBitmap(Stack.background4);
-        stacks[15].view.setImageBitmap(Stack.background5);
-        stacks[13].view.setImageBitmap(Stack.background6);
-        stacks[8].view.setImageBitmap(Stack.background7);
-        stacks[9].view.setImageBitmap(Stack.background8);
-        stacks[10].view.setImageBitmap(Stack.background9);
-        stacks[11].view.setImageBitmap(Stack.background10);
-        stacks[12].view.setImageBitmap(Stack.background11);
-        stacks[14].view.setImageBitmap(Stack.background12);
-        stacks[19].view.setImageBitmap(Stack.background13);
-        stacks[20].view.setImageBitmap(Stack.backgroundTransparent);
+        stacks[18].setImageBitmap(Stack.background2);
+        stacks[17].setImageBitmap(Stack.background3);
+        stacks[16].setImageBitmap(Stack.background4);
+        stacks[15].setImageBitmap(Stack.background5);
+        stacks[13].setImageBitmap(Stack.background6);
+        stacks[8].setImageBitmap(Stack.background7);
+        stacks[9].setImageBitmap(Stack.background8);
+        stacks[10].setImageBitmap(Stack.background9);
+        stacks[11].setImageBitmap(Stack.background10);
+        stacks[12].setImageBitmap(Stack.background11);
+        stacks[14].setImageBitmap(Stack.background12);
+        stacks[19].setImageBitmap(Stack.background13);
+        stacks[20].setImageBitmap(Stack.backgroundTransparent);
     }
 
     private void setStacksPortrait(RelativeLayout layoutGame) {

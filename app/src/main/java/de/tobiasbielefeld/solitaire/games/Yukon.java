@@ -67,7 +67,7 @@ public class Yukon extends Game {
         }
         //nice background for foundation stacks
         for (int i = 7; i <= 10; i++) {
-            stacks[i].view.setImageBitmap(Stack.background1);
+            stacks[i].setImageBitmap(Stack.background1);
         }
     }
 

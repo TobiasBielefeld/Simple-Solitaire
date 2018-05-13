@@ -75,6 +75,12 @@ public class Stack {
         backgroundTransparent = bitmaps.getStackBackground(8, 1);
     }
 
+    public void setImageBitmap(Bitmap bitmap){
+        if (!stopMovements){
+            view.setImageBitmap(bitmap);
+        }
+    }
+
     /**
      * deletes the reference to the current cards, so the stack will be empty.
      */
@@ -471,13 +477,13 @@ public class Stack {
         final boolean leftHandedMode = prefs.getSavedLeftHandedMode();
 
         if(arrowDirection == ArrowDirection.LEFT && leftHandedMode) {
-            view.setImageBitmap(Stack.arrowRight);
+            setImageBitmap(Stack.arrowRight);
         } else if(arrowDirection == ArrowDirection.LEFT && !leftHandedMode) {
-            view.setImageBitmap(Stack.arrowLeft);
+            setImageBitmap(Stack.arrowLeft);
         } else if(arrowDirection == ArrowDirection.RIGHT && leftHandedMode) {
-            view.setImageBitmap(Stack.arrowLeft);
+            setImageBitmap(Stack.arrowLeft);
         } else if(arrowDirection == ArrowDirection.RIGHT && !leftHandedMode) {
-            view.setImageBitmap(Stack.arrowRight);
+            setImageBitmap(Stack.arrowRight);
         }
     }
 

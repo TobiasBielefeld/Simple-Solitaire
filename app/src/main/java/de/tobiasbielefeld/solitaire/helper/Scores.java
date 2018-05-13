@@ -307,6 +307,10 @@ public class Scores {
     }
 
     public void output() {
+        if (stopMovements){
+            return;
+        }
+
         gm.mainTextViewScore.post(new Runnable() {
             public void run() {
                 if (prefs.getSavedHideScore()) {

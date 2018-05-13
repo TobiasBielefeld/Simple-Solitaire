@@ -62,6 +62,12 @@ public class Card {
         value = (id % 13) + 1;
     }
 
+    public void setImageBitmap(Bitmap bitmap){
+        if (!stopMovements){
+            view.setImageBitmap(bitmap);
+        }
+    }
+
     /**
      * Sets the card drawables according to set preferences. Each card theme has one drawable file
      * with 52 cards in it. These will be loaded in bitmaps and applied to the cards. The bitmap array
@@ -139,14 +145,14 @@ public class Card {
      * color and value.
      */
     public void setCardFront() {
-        view.setImageBitmap(drawables[(color - 1) * 13 + value - 1]);
+        setImageBitmap(drawables[(color - 1) * 13 + value - 1]);
     }
 
     /**
      * Sets the card background, there is only one background for all cards.
      */
     public void setCardBack() {
-        view.setImageBitmap(background);
+        setImageBitmap(background);
     }
 
     /**

@@ -54,6 +54,11 @@ public class HandlerTimer extends Handler {
             gm.mainTextViewTime.setText("");
         }
         else {
+
+            if (stopMovements){
+                return;
+            }
+
             Long time = timer.getCurrentTime();
 
             gm.mainTextViewTime.setText(String.format(Locale.getDefault(),

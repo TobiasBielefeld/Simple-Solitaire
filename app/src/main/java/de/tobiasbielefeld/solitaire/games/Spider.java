@@ -214,13 +214,13 @@ public class Spider extends Game {
         for (int i = 0; i < 5; i++) {
             stacks[18 + i].setX(startPos + i * Card.width / 2);
             stacks[18 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
-            stacks[18 + i].view.setImageBitmap(Stack.backgroundTransparent);
+            stacks[18 + i].setImageBitmap(Stack.backgroundTransparent);
         }
         //foundation stacks
         for (int i = 0; i < 8; i++) {
             stacks[10 + i].setX(Card.width / 2 + i * Card.width / 2);
             stacks[10 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
-            stacks[10 + i].view.setImageBitmap(Stack.backgroundTransparent);
+            stacks[10 + i].setImageBitmap(Stack.backgroundTransparent);
         }
         //tableau stacks
         startPos = layoutGame.getWidth() / 2 - 5 * Card.width - 4 * spacing - spacing / 2;
