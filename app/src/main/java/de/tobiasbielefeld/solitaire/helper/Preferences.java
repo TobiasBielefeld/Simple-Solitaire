@@ -689,10 +689,6 @@ public class Preferences {
         return savedGameData.getInt(PREF_KEY_TOTAL_HINTS_SHOWN,0);
     }
 
-    public int getSavedStartCardValueCanfield(){
-        return savedGameData.getInt(PREF_KEY_CANFIELD_START_CARD_VALUE,0);
-    }
-
     public int getSavedRecycleCounter(int total){
         return savedGameData.getInt(PREF_KEY_GAME_REDEAL_COUNT,total);
     }
@@ -711,6 +707,10 @@ public class Preferences {
 
     public int getSavedNumberOfWonGames(){
         return savedGameData.getInt(PREF_KEY_GAME_NUMBER_OF_WON_GAMES,0);
+    }
+
+    public int getSavedEnsureMovabilityMinMoves(){
+        return savedGameData.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES,DEFAULT_ENSURE_MOVABILITY_MIN_MOVES);
     }
 
     public int getSavedRecordListEntriesSize(){
@@ -873,12 +873,12 @@ public class Preferences {
         savedGameData.edit().putInt(PREF_KEY_TOTAL_HINTS_SHOWN,value).apply();
     }
 
-    public void saveStartCardValueCanfield(int value){
-        savedGameData.edit().putInt(PREF_KEY_CANFIELD_START_CARD_VALUE,value).apply();
-    }
-
     public void saveRedealCount(int value){
         savedGameData.edit().putInt(PREF_KEY_GAME_REDEAL_COUNT,value).apply();
+    }
+
+    public void saveEnsureMovabilityMinMoves(int value){
+        savedGameData.edit().putInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, value).apply();
     }
 
     public void saveLongestRun(int value){
@@ -1045,10 +1045,6 @@ public class Preferences {
         } else {
             return Integer.parseInt(savedSharedData.getString(PREF_KEY_BACKGROUND_COLOR,DEFAULT_BACKGROUND_COLOR));
         }
-    }
-
-    public int getSavedEnsureMovabilityMinMoves(){
-        return savedSharedData.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES,DEFAULT_ENSURE_MOVABILITY_MIN_MOVES);
     }
 
     public int getSavedMenuColumnsPortrait(){
@@ -1325,10 +1321,6 @@ public class Preferences {
     }
 
     /* setters for shared data */
-
-    public void saveEnsureMovabilityMinMoves(int value){
-        savedSharedData.edit().putInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, value).apply();
-    }
 
     public void saveYukonRulesOld(){
         savedSharedData.edit().putString(PREF_KEY_YUKON_RULES_OLD, getSavedYukonRules()).apply();

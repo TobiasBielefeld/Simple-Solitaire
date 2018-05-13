@@ -341,7 +341,7 @@
     <string name="settings_vegas_bet_amount_text_2">Each card played to the foundation earns:</string>
     <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
     <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
-    <string name="settings_vegas_bet_amount_error">Can\'t save those numbers!</string>
+    <string name="settings_number_input_error">Can\'t save those numbers!</string>
     <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
     <string name="settings_use_true_randomisation_title">Use true randomization</string>
     <string name="settings_use_true_randomisation_text">The default randomization avoids similar cards next to each other. Check this to enable a truly uniform randomisation</string>

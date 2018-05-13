@@ -1,4 +1,5 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
     <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMaxNumberUndos
         android:key="@string/pref_key_max_number_undos"
         android:title="@string/settings_max_number_undos"
@@ -11,7 +12,7 @@
         android:title="@string/settings_ensure_movability_min_moves_title"
         android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@string/game_confirm"
-        android:summary=""/>
+        android:summary="@string/settings_ensure_movability_min_moves_text"/>
 
     <CheckBoxPreference
         android:defaultValue="@bool/default_show_advaced_settings"

@@ -505,7 +505,7 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_vegas_bet_amount_text_2">"Za przeniesienie każdej karty na stos bazowy dostajesz:"</string>
 <string name="settings_vegas_bet_amount_summary">"Rozdanie -%1$d$, wrzucenie karty: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Stuknij pojedynczo w kartę, aby przenieść ją na następny możliwy stos. Ustawienie takie same jak ruchów podwójnych. Wyłączone zostaną ruchy „wybierz przez stuknięcie”."</string>
-<string name="settings_vegas_bet_amount_error">"Nie można zapisać liczby!"</string>
+<string name="settings_number_input_error">"Nie można zapisać liczby!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Zmień wielkość stosu rezerwowego (łatwiej)"</string>
 <string name="settings_use_true_randomisation_title">"Stosowanie prawdziwej losowości"</string>
 <string name="settings_use_true_randomisation_text">"Domyślna losowość pozwala uniknąć podobnych kart obok siebie. Zaznacz tę opcję, aby zastosować prawdziwą losowość."</string>

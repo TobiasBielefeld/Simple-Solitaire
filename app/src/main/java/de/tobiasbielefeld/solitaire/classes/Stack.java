@@ -472,11 +472,11 @@ public class Stack {
 
         if(arrowDirection == ArrowDirection.LEFT && leftHandedMode) {
             view.setImageBitmap(Stack.arrowRight);
-        } else if(arrowDirection == ArrowDirection.LEFT && leftHandedMode) {
+        } else if(arrowDirection == ArrowDirection.LEFT && !leftHandedMode) {
             view.setImageBitmap(Stack.arrowLeft);
         } else if(arrowDirection == ArrowDirection.RIGHT && leftHandedMode) {
             view.setImageBitmap(Stack.arrowLeft);
-        } else if(arrowDirection == ArrowDirection.RIGHT && leftHandedMode) {
+        } else if(arrowDirection == ArrowDirection.RIGHT && !leftHandedMode) {
             view.setImageBitmap(Stack.arrowRight);
         }
     }

@@ -245,7 +245,7 @@ public class LoadGame {
     public ArrayList<String> getOrderedGameNameList(Resources res){
 
         ArrayList<Integer> savedList = getOrderedGameList();
-        ArrayList<String> returnList = new ArrayList<>();
+        ArrayList<String> returnList = new ArrayList<>(allGameInformation.size());
         String[] defaultList = getDefaultGameNameList(res);
 
         for (int i=0;i<getGameCount();i++){
@@ -268,6 +268,22 @@ public class LoadGame {
         }
 
         return list;
+    }
+
+    /**
+     * Returns a list of all the sharedPref names but in the same order as the ordered game list!
+     *
+     * @return      the shared pref name list as string array
+     */
+    public ArrayList<String> getOrderedSharedPrefNameList(){
+        ArrayList<Integer> savedList = getOrderedGameList();
+        ArrayList<String> returnList = new ArrayList<>(allGameInformation.size());
+
+        for (int i=0;i<getGameCount();i++){
+            returnList.add(allGameInformation.get(savedList.indexOf(i)).getSharedPrefName());
+        }
+
+        return returnList;
     }
 
     /**

@@ -64,7 +64,7 @@ public class DialogPreferenceVegasBetAmount extends DialogPreference{
                 prefs.saveVegasBetAmount(Integer.parseInt(input1.getText().toString()));
                 prefs.saveVegasWinAmount(Integer.parseInt(input2.getText().toString()));
             } catch (Exception e){
-                showToast(getContext().getString(R.string.settings_vegas_bet_amount_error), getContext());
+                showToast(getContext().getString(R.string.settings_number_input_error), getContext());
             }
         }
     }

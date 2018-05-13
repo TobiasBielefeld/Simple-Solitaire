@@ -508,7 +508,7 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_vegas_bet_amount_text_2">"Jokainen peruspinoon siirretty kortti tuottaa:"</string>
 <string name="settings_vegas_bet_amount_summary">"Alkujako: -%1$d$, kortti peruspinoon: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Paina korttia kerran siirtääksesi se seuraavaan mahdolliseen pinoon. Tämä noudattaa samaa asetusta kuin Kaksoisnapautus siirrot. Asetus poistaa Valitse napauttamalla siirrot käytöstä."</string>
-<string name="settings_vegas_bet_amount_error">"Kyseisiä numeroita ei voida tallettaa!"</string>
+<string name="settings_number_input_error">"Kyseisiä numeroita ei voida tallettaa!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Muuta varapakan kokoa (helpompi)"</string>
 <string name="settings_use_true_randomisation_title">"Käytä todellista sattumanvaraisuutta"</string>
 <string name="settings_use_true_randomisation_text">"Sattumanvaraisuuden oletusarvo välttelee samanlaisia kortteja vierekkäin. Valitse tämä jotta täydellinen sattumanvaraisuus otetaan käyttöön."</string>

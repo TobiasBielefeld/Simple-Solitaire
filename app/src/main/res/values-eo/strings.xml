@@ -505,7 +505,7 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_vegas_bet_amount_text_2">"Por movi karton al fundamenta stako gajnas:"</string>
 <string name="settings_vegas_bet_amount_summary">"Redisdono: -%1$d$, karto al fundamenta stako: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Unuoble frapetu karton por movi ĝin al la sekva ebla stako. Samaj agordoj kiel por duobla frapeto. Tio ĉi malaktivigos movojn “elekti-per-frapeto”."</string>
-<string name="settings_vegas_bet_amount_error">"Ne povas konservi numerojn!"</string>
+<string name="settings_number_input_error">"Ne povas konservi numerojn!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Ŝanĝi amplekson da rezerva stako (pli facile)"</string>
 <string name="settings_use_true_randomisation_title">"Uzi veran hazardecon"</string>
 <string name="settings_use_true_randomisation_text">"Implicita hazardeco evitas similajn kartojn apude. Marku tio ĉi por aktivigi vere egalan hazardecon."</string>

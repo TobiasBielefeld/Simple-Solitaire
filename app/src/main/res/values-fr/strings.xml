@@ -503,7 +503,7 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_vegas_bet_amount_text_2">"Chaque carte jouée vers la fondation fait gagner :"</string>
 <string name="settings_vegas_bet_amount_summary">"Donne initiale : -%1$d$, carte vers la fondation : +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Appuyez une fois sur une carte pour la déplacer vers la pile suivante. Il suit les mêmes réglages que les mouvements Double-Tap. Ceci désactive la sélection par un appui rapide."</string>
-<string name="settings_vegas_bet_amount_error">"On ne peut pas sauver ces numéros!"</string>
+<string name="settings_number_input_error">"On ne peut pas sauver ces numéros!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Changer la taille de la réserve (plus facile)"</string>
 <string name="settings_use_true_randomisation_title">"Utiliser la vraie randomisation"</string>
 <string name="settings_use_true_randomisation_text">"La randomisation par défaut permet d'éviter les cartes similaires les unes à côté des autres. Cochez cette case pour permettre une randomisation vraiment uniforme."</string>
