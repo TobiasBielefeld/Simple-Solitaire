@@ -438,8 +438,8 @@
     <string name="settings_ensure_movability_text">Make sure that a certain amount of movements are possible in a game before starting it. The amount per game can be adjusted in the expert settings</string>
 
     <string name="settings_ensure_movability_min_moves_title">Ensure movability: amount of moves</string>
-    <string name="settings_ensure_movability_min_moves_warning">Caution: Games won\'t start correctly if this number is set to high!</string>
-
+    <string name="settings_ensure_movability_min_moves_warning">Caution: Increasing the amount will result in longer waiting times before a game is started!</string>
+    <string name="settings_ensure_movability_min_moves_text">Change the amount of movements each game must at least have when starting it.</string>
     <!-- Statistics -->
     
     <!-- %1$d and %2$d are placeholders for the values-->
