@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- In Spanish it is necessary to use accented vowels with a tilde, but it is not obligatory. If it cause to much problem, using the vowel alone also works -->
+<string name="app_version">"Versión"</string>
+<string name="settings">"Opciones"</string>
+<string name="game_manual">"Manual"</string>
+<string name="game_score">"Puntaje"</string>
+<string name="game_time">"Tiempo"</string>
+<string name="game_cancel">"Cancelar"</string>
+<string name="game_confirm">"Confirmar"</string>
+<string name="game_auto_complete_text">"Autocompletar"</string>
+<string name="game_press_again">"Presiona otra vez para salir"</string>
+<string name="game_load_error">"Carga de datos fallida, iniciando un nuevo juego"</string>
+<string name="game_close">"Cerrar juego"</string>
+<string name="game_main_menu">"Menú Principal"</string>
+<string name="item_game_rules">"Reglas del juego"</string>
+<string name="item_return_to_main_menu">"Volver al menú principal"</string>
+
+<!-- Menu -->
+<string name="menu_undo">"Deshacer"</string>
+<string name="menu_main_menu">"Menú"</string>
+<string name="menu_settings">"Preferencias"</string>
+
+<!-- game names 
+
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Solitario"</string>
+<string name="games_Freecell">"Carta Blanca"</string>
+
+<!-- i don't know the name in spanish, so i let the original -->
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Solitario Spider"</string>
+<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_Golf">"Golf"</string>
+<string name="games_Pyramid">"Pyramid"</string>
+<string name="games_TriPeaks">"TriPeaks"</string>
+<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_AcesUp">"Aces Arriba"</string>
+<string name="games_Gypsy">"Gypsy"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"Canfield"</string>
+<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
+<string name="games_Vegas">"Vegas"</string>
+<string name="games_Calculation">"Calculation"</string>
+
+<!-- colors -->
+<string name="blue">"Azul"</string>
+<string name="green">"Verde"</string>
+<string name="red">"Rojo"</string>
+<string name="yellow">"Amarillo"</string>
+<string name="orange">"Naranja"</string>
+<string name="purple">"Violeta"</string>
+
+<!-- game stuff -->
+<string name="game_longest_run">"Mayor secuencia:"</string>
+
+<!-- dialog won -->
+<string name="dialog_win_titel">"Felicidades!"</string>
+<string name="dialog_win_score">"Puntaje: %1$d"</string>
+<string name="dialog_win_bonus">"Bonus: %1$d"</string>
+<string name="dialog_win_total">"Total: %1$d"</string>
+
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Mezclar Cartas"</string>
+<string name="dialog_mix_cards_text">"Esta opción mezcla todas las cartas, menos las secuencias correctas y las cartas en el pozo"</string>
+<string name="dialog_mix_cards_not_available">"Todavía hay movimientos posibles!"</string>
+
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Iniciar nuevo juego"</string>
+<string name="dialog_start_new_game_text">"Tu progreso se perderá y se repartirá un nuevo juego aleatorio"</string>
+
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Dar cartas otra vez"</string>
+<string name="dialog_redeal_text">"Tu progreso se perderá, pero las cartas se repartirán como en el juego actual"</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Manual"</string>
+<string name="title_activity_settings">"Opciones"</string>
+<string name="title_activity_about">"Acerca de"</string>
+<string name="title_activity_statistics">"Estadísticas"</string>
+
+<!-- About activity -->
+<string name="about_tab_1">"Información"</string>
+<string name="about_tab_2">"Licencias"</string>
+<string name="about_tab_3">"Cambios"</string>
+<string name="about_loading">"Cargando..."</string>
+<string name="about_developer">"Desarrollador"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Compilado en"</string>
+<string name="about_source_code">"Código fuente"</string>
+<string name="about_license">"Licencia"</string>
+<string name="about_translations">"Traducciones"</string>
+<string name="about_further_contributors">"Otros colaboradores"</string>
+
+<!-- is the original name of the library -->
+<string name="about_android_support_libraries_title">"Android support library"</string>
+<string name="about_android_support_libraries_usage">"Usada para un mejor diseño y un desarrollo más fácil"</string>
+<string name="about_material_icons_title">"Material design icons"</string>
+<string name="about_material_icons_usage">"Usados para todos los íconos en esta aplicación"</string>
+<string name="about_card_themes_title">"Tema de las cartas"</string>
+<string name="about_card_themes_usage">"Los temas de las cartas son de &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, para información detallada visitar &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;here&lt;/a&gt;
+"</string>
+<string name="about_poker_themes_usage">"Usado en el tema del Póker - Disponible en &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna library"</string>
+<string name="about_custom_color_picker_usage">"Usada para el selector de color propio"</string>
+<string name="about_sounds_title">"Sonidos"</string>
+<string name="about_sounds_usage">"Todos los sonidos fueron publicados originalmente en &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, para mayor información revisar &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;here&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
+<string name="about_sliding_tabs_usage">"Usada para las pestañas en la pantalla \"Acerca de\""</string>
+
+<!-- Manual -->
+<string name="manual_games">"Juegos"</string>
+<string name="manual_feedback">"Comentarios"</string>
+<string name="manual_startpage">"Página de inicio"</string>
+<string name="manual_back_to_game">"Volver al juego"</string>
+<string name="manual_structure">"Estructura"</string>
+<string name="manual_objective">"Objetivo"</string>
+<string name="manual_rules">"Reglas"</string>
+<string name="manual_scoring">"Puntaje"</string>
+<string name="manual_main_menu">"Menú principal"</string>
+<string name="manual_ui">"Interfaz de usuario"</string>
+<string name="page_load_error">"No existe entrada para este juego..."</string>
+<string name="manual_bonus">"Después de ganar un juego obtienes un bonus: mientras más rápido ganes, mayor será el mismo"</string>
+<string name="manual_open_google_play">"Abrir Google Play"</string>
+<string name="manual_open_github">"Abrir el repositorio en GitHub"</string>
+<string name="manual_games_text1">"Elige un juego para mostrar su estructura, objetivos, reglas y puntajes."</string>
+<string name="manual_startpage_text">"Bienvenido al manual de esta colección de juegos! espero que pueda explicarte todo.
+
+Usa el menú de la izquierda para acceder a otra páginas del manual"</string>
+<string name="manual_general_main_menu">"El uso del menú principal es relativamente simple. Solo toca sobre un juego para iniciarlo.
+
+La aplicación cargará automáticamente el último juego jugado en un reinicio, si la aplicación se pausó en él. Este comportamiento se puede deshabilitar en la configuración, en \"General\".
+
+Allí también puede encontrar la sección \"Menú principal\", donde es posible ocultar y reordenar los juegos en el menú y cambiar el número de columnas, para que más juegos quepan en la pantalla a la vez."</string>
+<string name="manual_ui_text">"Un juego siempre mostrará un pequeño menú en la parte inferior de la pantalla (modo Retrato) o en el lado derecho (modo Paisaje). También mostrará el puntaje actual y el tiempo actual del juego. Si es posible, estos dos valores se guardarán en la lista de puntajes. El menú contiene 5 elementos, que tienen los siguientes efectos (botones de izquierda a derecha):
+
+El botón \"Puntuaciones\" mostrará una nueva ventana con los puntajes más altos y el recuento de los juegos ganados del juego actual.
+
+El botón \"Sugerencia\" te ayudará mostrando hasta 3 posibles movimientos de cartas a la vez. Pero esto disminuirá el puntaje actual en 25. Observe que los movimientos triviales como mover cada carta a un campo vacío o presionar sobre el pozo principal no se muestran como una pista. Si no se mostró ninguna pista, la puntuación no disminuirá.
+
+El botón \"Menú\" muestra tres acciones diferentes: Comenzar una nueva partida mezclando las cartas y repartiendo una nueva mano. Dar cartas de nuevo hará lo mismo, pero sin la mezcla, es como un reinicio del juego actual. La última opción finalizará el juego actual y devolverá la aplicación al menú principal.
+
+El botón \"Deshacer\" revertirá el último movimiento, pero esto costará 25 puntos. Esto se puede usar para hasta 20 últimos movimientos.
+
+El botón \"Configuración\" simplemente abre el menú de configuración."</string>
+<string name="manual_feedback_text">"¿Encontraste un bug o un error? ¿Algo que debería mejorar? ¿Debo agregar otro juego a la colección? ¿Tal vez quieres ayudar con algunas traducciones? ¿O tienes otra idea?
+
+Me complace recibir cualquier tipo de comentario. Si siente la necesidad de contactarme, debe considerar las siguientes dos opciones:
+
+Usar el Issue Tracker en GitHub: el proyecto de esta aplicación en GitHub tiene una función clara para informar problemas. Simplemente haga clic en el botón en el lado izquierdo de la pantalla para abrir el Issue Tracker con el navegador de Internet.
+
+Use una calificación en Google Play: simplemente deje una calificación en la página de esta aplicación y escriba todo lo que quiera en ella. Haga clic en el botón a la derecha para abrir Google Play Store (si está instalado).
+
+Gracias de antemano por sus comentarios :)"</string>
+<string name="manual_Klondike_structure">"1 mazo de 52 cartas.
+
+7 pilas de tableau, 4 pilas de fundación, 1 principal y 1 pila de descartes"</string>
+<string name="manual_Klondike_objective">"Ordene cada carta en familias reales en orden ascendente en el pozo."</string>
+</resources>

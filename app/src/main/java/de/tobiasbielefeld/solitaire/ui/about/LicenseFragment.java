@@ -29,6 +29,7 @@ import android.widget.TextView;
 
 import de.tobiasbielefeld.solitaire.R;
 
+
 /**
  * Shows the licenses of all third party components
  */
@@ -46,6 +47,7 @@ public class LicenseFragment extends Fragment {
         TextView textCardThemesLicenseUsage = (TextView) view.findViewById(R.id.about_license_card_themes_usage);
         TextView textPokerLicense = (TextView) view.findViewById(R.id.about_license_poker_theme);
         TextView textPokerLicenseUsage = (TextView) view.findViewById(R.id.about_license_poker_theme_usage);
+        TextView textParisLicenseUsage = (TextView) view.findViewById(R.id.about_license_paris_theme_usage);
         TextView textCustomColorPickerLicense = (TextView) view.findViewById(R.id.about_license_custom_color_picker);
         TextView textSoundsLicense = (TextView) view.findViewById(R.id.about_license_sounds);
         TextView textSoundsLicenseUsage = (TextView) view.findViewById(R.id.about_license_sounds_usage);
@@ -55,11 +57,12 @@ public class LicenseFragment extends Fragment {
         TextView[] textViews = new TextView[]{textMaterialIconsLicense, textMaterialIconsLicense2, textMaterialIconsUsage2,
                 textCardThemesLicense, textCardThemesLicenseUsage, textPokerLicense, textPokerLicenseUsage,
                 textCustomColorPickerLicense,textSoundsLicense,textSoundsLicenseUsage,
-                textSlidingTabsLicense, textAndroidSupportLicense};
+                textSlidingTabsLicense, textAndroidSupportLicense, textParisLicenseUsage};
 
         //explicitly set the strings here, otherwise the links in them wouldn't show properly
         textCardThemesLicenseUsage.setText(Html.fromHtml(getString(R.string.about_card_themes_usage)));
         textPokerLicenseUsage.setText(Html.fromHtml(getString(R.string.about_poker_themes_usage)));
+        textParisLicenseUsage.setText(Html.fromHtml(getString(R.string.about_paris_themes_usage)));
         textSoundsLicenseUsage.setText(Html.fromHtml(getString(R.string.about_sounds_usage)));
         textMaterialIconsUsage2.setText(Html.fromHtml(getString(R.string.about_material_icons_2_usage)));
 

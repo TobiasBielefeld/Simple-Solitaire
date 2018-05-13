@@ -25,6 +25,10 @@
         android:title="@string/games_mod3" />
 
     <header
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames$NapoleonsTombPreferenceFragment"
+        android:title="@string/games_NapoleonsTomb" />
+
+    <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames$PyramidPreferenceFragment"
         android:title="@string/games_Pyramid" />
 

@@ -138,6 +138,7 @@ public abstract class Game {
 
     public void dealNewGame(){
         dealCards();
+        load();
 
         switch (prefs.getDeveloperOptionDealCorrectSequences()){
             case 1: //alternating color
@@ -392,7 +393,7 @@ public abstract class Game {
     }
 
     /**
-     * Gets executed on game starts, load stuff from sharedPrefs here, if necessary.
+     * Gets executed on game starts, load stuff from sharedPrefs or set other values here, if necessary.
      */
     public void load() {
     }

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Version"</string>
 <string name="settings">"Réglages"</string>
 <string name="game_manual">"Manuels"</string>
@@ -40,7 +38,7 @@
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -544,7 +542,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_language_japanese">"Japonais"</string>
 <string name="settings_language_polish">"Polonais"</string>
 <string name="settings_language_turkish">"Turc"</string>
-<string name="settings_language_norwegian">"Norvégien (Bokmål)"</string>
 <string name="settings_yukon_rules_1">"des couleurs différentes (par défaut)"</string>
 <string name="settings_yukon_rules_2">"la même famille de cartes (Solitaire russe)"</string>
 <string name="settings_movement_speed_1">"Très lente"</string>
@@ -598,33 +595,22 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 Le bouton \"Statistiques\" affichera une nouvelle fenêtre avec différentes statistiques du jeu en cours, comme les meilleurs scores.
 
 Le bouton \"Support\" affichera un petit menu d'aide. Ici, vous pouvez sélectionner :"</string>
-<string name="manual_ui_text_part_2">"Afficher les indices : Montrant jusqu'à 3 possibilités de mouvement à la fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont pas considérés comme des indices. Si aucun indice n'est montré, votre score ne diminuera pas. 
-"</string>
-<string name="manual_ui_text_part_3">"Mouvement automatique : Déplacer automatiquement autant de cartes que possible. Cette option est destinée à être utilisée dans des situations, par exemple. quand une seule carte est encore face cachée, mais vous devez déplacer toutes les autres cartes de cette pile pour y accéder. Cette option permet donc d'accélérer un peu le jeu.
-"</string>
-<string name="manual_ui_text_part_4">"Mélange de cartes : Si vous êtes dans une situation où aucun mouvement n'est possible, vous pouvez utiliser cette option pour mélanger les cartes actuelles. Notez que les cartes déjà dans l'ordre correct ou les cartes sur la fondation seront ignorées dans le mélange.
-"</string>
-<string name="manual_ui_text_part_5">"Règles du jeu : Ouvrir directement la page de manuel du jeu en cours.
-"</string>
+<string name="manual_ui_text_part_2">"Afficher les indices : Montrant jusqu'à 3 possibilités de mouvement à la fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont pas considérés comme des indices. Si aucun indice n'est montré, votre score ne diminuera pas."</string>
+<string name="manual_ui_text_part_3">"Mouvement automatique : Déplacer automatiquement autant de cartes que possible. Cette option est destinée à être utilisée dans des situations, par exemple. quand une seule carte est encore face cachée, mais vous devez déplacer toutes les autres cartes de cette pile pour y accéder. Cette option permet donc d'accélérer un peu le jeu."</string>
+<string name="manual_ui_text_part_4">"Mélange de cartes : Si vous êtes dans une situation où aucun mouvement n'est possible, vous pouvez utiliser cette option pour mélanger les cartes actuelles. Notez que les cartes déjà dans l'ordre correct ou les cartes sur la fondation seront ignorées dans le mélange."</string>
+<string name="manual_ui_text_part_5">"Règles du jeu : Ouvrir directement la page de manuel du jeu en cours."</string>
 <string name="manual_ui_text_part_6">"Le bouton \"Menu\" donne accès à trois actions différentes :"</string>
-<string name="manual_ui_text_part_7">"Démarer une nouvelle partie : Mélangez les cartes et tirez une nouvelle donne.
-"</string>
-<string name="manual_ui_text_part_8">"Redistribuer les cartes: Redémarrer le jeu actuel avec la même disposition des cartes.
-"</string>
-<string name="manual_ui_text_part_9">"Revenir au menu principal : Enregistrer l'état actuel du jeu et afficher le menu de sélection du jeu.
-"</string>
+<string name="manual_ui_text_part_7">"Démarer une nouvelle partie : Mélangez les cartes et tirez une nouvelle donne."</string>
+<string name="manual_ui_text_part_8">"Redistribuer les cartes: Redémarrer le jeu actuel avec la même disposition des cartes."</string>
+<string name="manual_ui_text_part_9">"Revenir au menu principal : Enregistrer l'état actuel du jeu et afficher le menu de sélection du jeu."</string>
 <string name="manual_ui_text_part_10">"Le bouton \"Annuler\" inverse le dernier mouvement, mais au prix de 25 points. Il n'est possible d'annuler que les 20 derniers mouvements. (Le montant peut être augmenté dans les réglages experts)
 
 Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="manual_statistics_part_1">"Il y a des statistiques collectées pour chaque jeu. Vous pouvez y accéder à partir de la barre de menu du jeu. Les informations collectées le sont :"</string>
-<string name="manual_statistics_part_2">"Le nombre de parties jouées et gagnées
-"</string>
-<string name="manual_statistics_part_3">"Le montant total des points gagnés.
-"</string>
-<string name="manual_statistics_part_4">"Le montant total des fonctions d'aide utilisées
-"</string>
-<string name="manual_statistics_part_5">"Une liste des meilleurs scores avec jusqu'à 10 entrées, seuls les scores supérieurs à 0 sont sauvegardés ici.
-"</string>
+<string name="manual_statistics_part_2">"Le nombre de parties jouées et gagnées"</string>
+<string name="manual_statistics_part_3">"Le montant total des points gagnés."</string>
+<string name="manual_statistics_part_4">"Le montant total des fonctions d'aide utilisées"</string>
+<string name="manual_statistics_part_5">"Une liste des meilleurs scores avec jusqu'à 10 entrées, seuls les scores supérieurs à 0 sont sauvegardés ici."</string>
 <string name="manual_statistics_part_6">"Une liste de pointage récente avec les 10 derniers pointages."</string>
 <string name="manual_statistics_part_7">"Il est également possible de supprimer toutes les données du jeu en cours, mais cela ne peut pas être annulé ! "</string>
 <string name="about_material_icons_2_usage">"L'icône Support est publiée sous la forme \"lightbulb-on\" sur &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt;. "</string>
@@ -645,4 +631,28 @@ Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="settings_hide_menu_button">"Cacher le bouton menu"</string>
 <string name="settings_immersive_mode_title">"Activer le mode plein écran"</string>
 <string name="settings_immersive_mode_text">"Masquer la barre de statut et la barre de navigation pendant la partie (uniquement sur Android 4.4 et plus)"</string>
+<string name="settings_language_norwegian">"Norvégien (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Utilisé comme thème 'Poker' - Disponible sur &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Tombeau de Napoléon"</string>
+<string name="manual_NapoleonsTomb_structure">"1 jeu de 52 cartes.
+
+4 piles sur le tableau, 5 piles de base, 1 talon et 1 défausse.
+
+Les 4 piles dans les coins avec un \"7\" et celle du centre sont les piles de base. Les piles entre elles sont les piles de tableau."</string>
+<string name="manual_NapoleonsTomb_objective">"Jouez chaque carte à la fondation, quelle que soit la couleur."</string>
+<string name="manual_NapoleonsTomb_rules">"Les 4 piles d'angle commencent avec un 7 et doivent être empilées dans l'ordre croissant jusqu'à ce qu'un roi. La pile de fondation centrale commence avec un 6 et doit être empilée dans l'ordre décroissant jusqu'à un As quatre fois. Il en résulte l'ordre suivant pour cette pile : 
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+La prochaine carte dans l'ordre sera également montrée au-dessus de la pile.
+
+En appuyant sur la pile principale, vous retournez une carte sur la pile de défausse. Peut être activé dans les paramètres de jeu : Si la pile principale est vide, appuyez de nouveau sur cette pile pour recycler les cartes de la pile de rejet.
+
+N'importe quelle carte peut être placée sur chaque pile de tableaux, mais chaque pile ne peut contenir qu'une seule carte à la fois."</string>
+<string name="manual_NapoleonsTomb_scoring">"A une pile de base : +45
+
+Déplacer les cartes de la défausse à la pioche : -200"</string>
+<string name="settings_language_spanish_argentina">"Espagnol (Argentine)"</string>
 </resources>

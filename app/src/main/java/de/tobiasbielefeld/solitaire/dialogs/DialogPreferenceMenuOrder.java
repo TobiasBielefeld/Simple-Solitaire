@@ -52,9 +52,7 @@ public class DialogPreferenceMenuOrder extends DialogPreference{
         gameList = new ArrayList<>();
         ArrayList<String> sortedGameList = lg.getOrderedGameNameList(getContext().getResources());
 
-        for (String game: sortedGameList){
-            gameList.add(game);
-        }
+        gameList.addAll(sortedGameList);
 
         adapter = new StableArrayAdapter(getContext(), R.layout.text_view, gameList);
         DynamicListView listView = (DynamicListView) view.findViewById(R.id.listview);

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Wersja"</string>
 <string name="settings">"Ustawienia"</string>
 <string name="game_manual">"Podręcznik"</string>
@@ -599,33 +597,22 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 Przycisk „statystyki” otwiera nowe okno zawierające różne statystyki dotyczące obecnej gry, np. najlepsze wyniki.
 
 Przycisk „wsparcie” otworzy niewielkie manu pomocy. Będziesz mógł wybrać:"</string>
-<string name="manual_ui_text_part_2">"Pokaż wskazówki: wyświetl maksymalnie 3 możliwe ruchy kart jednocześnie. Jednakże obniży to Twoją punktację o 25. Zauważ, że trywialne ruchy takie jak przeniesienie kart na puste pola, czy też stuknięcie w stos główny nie zostaną wyświetlone jako wskazówka. Jeżeli nie będzie możliwej wskazówki do pokazania, nie utracisz punktów.
-"</string>
-<string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę.
-"</string>
-<string name="manual_ui_text_part_4">"Tasuj karty: jeżeli stoisz w obliczu sytuacji, że nie ma już dostępnych ruchów, możesz użyć tej opcja, aby przetasować obecne karty. Zauważ, że karty już w poprawnej kolejności i karty na stosach bazowych nie zostaną przetasowane.
-"</string>
-<string name="manual_ui_text_part_5">"Zasady gry: otwiera stronę poradnika dotyczącą gry.
-"</string>
+<string name="manual_ui_text_part_2">"Pokaż wskazówki: wyświetl maksymalnie 3 możliwe ruchy kart jednocześnie. Jednakże obniży to Twoją punktację o 25. Zauważ, że trywialne ruchy takie jak przeniesienie kart na puste pola, czy też stuknięcie w stos główny nie zostaną wyświetlone jako wskazówka. Jeżeli nie będzie możliwej wskazówki do pokazania, nie utracisz punktów."</string>
+<string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę."</string>
+<string name="manual_ui_text_part_4">"Tasuj karty: jeżeli stoisz w obliczu sytuacji, że nie ma już dostępnych ruchów, możesz użyć tej opcja, aby przetasować obecne karty. Zauważ, że karty już w poprawnej kolejności i karty na stosach bazowych nie zostaną przetasowane."</string>
+<string name="manual_ui_text_part_5">"Zasady gry: otwiera stronę poradnika dotyczącą gry."</string>
 <string name="manual_ui_text_part_6">"Przycisk „menu” wywołuje następujące trzy akcje:"</string>
-<string name="manual_ui_text_part_7">"Rozpocznij nową grę: przetasowuje karty i rozpoczyna nowe rozdanie.
-"</string>
-<string name="manual_ui_text_part_8">"Ponownie rozdaj karty: restartuje nową grę z tym samym układem kart.
-"</string>
-<string name="manual_ui_text_part_9">"Powrót do menu głównego: zapisuje stan obecnej gry i wyświetla menu wybory gry.
-"</string>
+<string name="manual_ui_text_part_7">"Rozpocznij nową grę: przetasowuje karty i rozpoczyna nowe rozdanie."</string>
+<string name="manual_ui_text_part_8">"Ponownie rozdaj karty: restartuje nową grę z tym samym układem kart."</string>
+<string name="manual_ui_text_part_9">"Powrót do menu głównego: zapisuje stan obecnej gry i wyświetla menu wybory gry."</string>
 <string name="manual_ui_text_part_10">"Przycisk „cofnij” cofa ostatni ruch, ale to będzie kosztowało 25 punktów. Można cofnąć maksymalnie 20 ostatnich ruchów. (można zwiększyć ten parametr w ustawieniach specjalistycznych)
 
 Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="manual_statistics_part_1">"Dla każdej gry są zbierane statystyki. Możesz się do nich dostać z belki głównej w każdej grze. Zbierane informacje to:"</string>
-<string name="manual_statistics_part_2">"liczba rozegranych i wygranych gier
-"</string>
-<string name="manual_statistics_part_3">"całkowita liczba zebranych punktów
-"</string>
-<string name="manual_statistics_part_4">"całkowita liczba użytych funkcji pomocy
-"</string>
-<string name="manual_statistics_part_5">"10 najlepszych wyników, tylko wyniki dodatnie są zapisywane
-"</string>
+<string name="manual_statistics_part_2">"liczba rozegranych i wygranych gier"</string>
+<string name="manual_statistics_part_3">"całkowita liczba zebranych punktów"</string>
+<string name="manual_statistics_part_4">"całkowita liczba użytych funkcji pomocy"</string>
+<string name="manual_statistics_part_5">"10 najlepszych wyników, tylko wyniki dodatnie są zapisywane"</string>
 <string name="manual_statistics_part_6">"wyniki 10 ostatnich gier"</string>
 <string name="manual_statistics_part_7">"Jest także możliwe wyczyszczenie wszystkich statystyk dla danej gry, ale ta operacja jest nieodwracalna!"</string>
 <string name="about_material_icons_2_usage">"Ikona wsparcia została opublikowana na &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; jako „lightbulb-on”."</string>
@@ -646,4 +633,28 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="settings_hide_menu_button">"Ukryj przycisk menu"</string>
 <string name="settings_immersive_mode_title">"Włącz tryb pełnoekranowy"</string>
 <string name="settings_immersive_mode_text">"Ukryj paski statusu i nawigacji podczas gry (tylko na Androidzie 4.4 lub nowszym)"</string>
+<string name="settings_language_norwegian">"Norweski (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Użyto w stylu kart Paris - dostępne na &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Grób Napoleona"</string>
+<string name="manual_NapoleonsTomb_structure">"1 talia po 52 karty.
+
+4 stosy gry, 5 stosów bazowych, 1 główny i 1 stos odrzutów.
+
+4 narożne stosy z “7” i jeden środkowy są stosami bazowymi. Stosy pomiędzy nimi są stosami gry."</string>
+<string name="manual_NapoleonsTomb_objective">"Przenieś wszystkie karty na stosy bazowe, kolory kart nie mają znaczenia."</string>
+<string name="manual_NapoleonsTomb_rules">"Na 4 narożnych stosach znajdują się 7-ki i układamy na nich kary w kolejności rosnącej do króli. Centralny stos bazowy zawiera początkowo 6-kę i układany na nim karty w kolejności malejącej do asa czterokrotnie. Ostatecznie na tym stosie karty przyjmują następujący porządek:
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+Następna karta do położenia wyświetli się nad stosem.
+
+Stuknięcie w stos główny odkryje jedną kartę i przeniesie do stosu odrzutów. Do ustawienia w opcjach gry: Jeżeli zabraknie kart, stuknij ponownie, aby przenieść z powrotem wszystkie karty ze stosy odrzutów na stos główny.
+
+Każdą kartę można przenieść na pusty stos gry, ale każdy stos może zawierać tylko po jednej karcie."</string>
+<string name="manual_NapoleonsTomb_scoring">"Przeniesienie karty na stos bazowy: +50
+
+Przeniesienie wszystkich kart ze stosu odrzutów z powrotem na stos główny: -200"</string>
+<string name="settings_language_spanish_argentina">"Hiszpański (Argentyna)"</string>
 </resources>

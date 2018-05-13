@@ -59,7 +59,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         if (!prefs.getSavedStartWithMenu()) {
             int savedGame = prefs.getSavedCurrentGame();
 
-            if (savedGame != 0) {
+            if (savedGame != DEFAULT_CURRENT_GAME) {
                 Intent intent = new Intent(getApplicationContext(), GameManager.class);
                 intent.putExtra(GAME, savedGame);
                 startActivityForResult(intent, 0);
@@ -236,7 +236,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         index = orderedList.indexOf(index);
 
         //avoid loading two games at once when pressing two buttons at once
-        if (prefs.getSavedCurrentGame() != 0) {
+        if (prefs.getSavedCurrentGame() != DEFAULT_CURRENT_GAME) {
             return;
         }
 

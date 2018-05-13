@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Версія"</string>
 <string name="settings">"Налаштування"</string>
 <string name="game_manual">"Посібник"</string>
@@ -42,14 +40,11 @@
 <string name="orange">"Рудий"</string>
 <string name="purple">"Пурупровий"</string>
 
-<!-- game stuff -->
-
 <!-- dialog won -->
 <string name="dialog_win_titel">"Вітаємо!"</string>
 <string name="dialog_win_score">"Бали: %1$d"</string>
 <string name="dialog_win_bonus">"Бонуси: %1$d"</string>
 <string name="dialog_win_total">"Загалом: %1$d"</string>
-
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Почати нову гру"</string>
@@ -106,7 +101,6 @@
 <string name="manual_open_google_play">"Відкрити Google Play"</string>
 <string name="manual_open_github">"Відкрити GitHub репозиторій"</string>
 <string name="manual_games_text1">"Оберіть гру, для перегляду структури, завдання, правил та системи нарахування балів."</string>
-
 <string name="settings_portrait">"Портретний"</string>
 <string name="settings_landscape">"Ландшафтний"</string>
 <string name="settings_spider_difficultiy_1">"1 (Простий)"</string>
@@ -126,5 +120,4 @@
 <string name="statistics_button_delete_text">"Видалити всі записи даної гри! Впевнені?"</string>
 <string name="statistics_button_deleted_all_entries">"Записи видалено"</string>
 <string name="dialog_show_hints">"Показувати підказки"</string>
-
 </resources>

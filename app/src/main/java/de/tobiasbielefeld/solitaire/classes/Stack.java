@@ -235,7 +235,14 @@ public class Stack {
             //cards[i].view.bringToFront();
         }
 
-        updateSpacing();
+        if (!gameLogic.hasWon()) {
+            updateSpacing();
+        } else {
+            for (Card card : currentCards) {
+                card.setLocationWithoutMovement(-5000, -5000);
+            }
+
+        }
     }
 
     /**

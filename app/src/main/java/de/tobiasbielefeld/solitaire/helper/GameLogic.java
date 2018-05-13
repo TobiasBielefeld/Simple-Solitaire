@@ -108,8 +108,6 @@ public class GameLogic {
         Card.updateCardBackgroundChoice();
         animate.reset();
         autoComplete.reset();
-        currentGame.load();
-        currentGame.loadRecycleCount(gm);
         sounds.playSound(Sounds.names.DEAL_CARDS);
 
         for (Card card : cards) {
@@ -121,10 +119,9 @@ public class GameLogic {
             if (firstRun) {
                 newGame();
                 prefs.saveFirstRun(false);
-            }  else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()){        //in case the game was selected from the main menu and it was already won, start a new game
+            }  else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()){
+                //in case the game was selected from the main menu and it was already won, start a new game
                 newGame();
-            } else if (won) {                   //in case the screen orientation changes, do not immediately start a new game
-                loadRandomCards();
             } else {
 
                 scores.load();
@@ -143,6 +140,10 @@ public class GameLogic {
 
                 checkForAutoCompleteButton();
 
+                //load game independent data
+                currentGame.load();
+                currentGame.loadRecycleCount(gm);
+
                 //deal the cards again in case the app got killed while trying  before
                 /* (prefs.isDealingCards()){
                     handlerDealCards.sendEmptyMessage(0);
@@ -156,7 +157,7 @@ public class GameLogic {
     }
 
     public void checkForAutoCompleteButton(){
-        if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
+        if (!prefs.getHideAutoCompleteButton() && !autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest() && !hasWon()) {
             autoComplete.showButton();
         }
     }
@@ -377,10 +378,6 @@ public class GameLogic {
 
     private void incrementPlayedGames() {
         prefs.saveNumberOfPlayedGames(prefs.getSavedNumberOfPlayedGames()+1);
-    }
-
-    public void updateMenuBar() {
-        gm.updateMenuBar();
     }
 
     public void incrementNumberWonGames(){

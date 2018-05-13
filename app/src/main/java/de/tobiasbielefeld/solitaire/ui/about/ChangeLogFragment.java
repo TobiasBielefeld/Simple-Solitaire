@@ -35,6 +35,8 @@ import java.util.List;
 
 import de.tobiasbielefeld.solitaire.R;
 
+import static de.tobiasbielefeld.solitaire.SharedData.createBulletParagraph;
+
 /**
  * Shows the changelog, each version has an own string in strings-changelog.xml. This fragment
  * uses the version name to generate each entry
@@ -50,7 +52,7 @@ public class ChangeLogFragment extends Fragment{
 
         LinearLayout layoutContainer = (LinearLayout) view.findViewById(R.id.changelog_container);
 
-        String[] titles = new String[]{"3.11.2", "3.11.1", "3.11", "3.10.2", "3.10.1", "3.10", "3.9.2", "3.9.1", "3.9",
+        String[] titles = new String[]{"3.12.1", "3.12", "3.11.3", "3.11.2", "3.11.1", "3.11", "3.10.2", "3.10.1", "3.10", "3.9.2", "3.9.1", "3.9",
                 "3.8.6", "3.8.5", "3.8.4", "3.8.3", "3.8.2", "3.8.1", "3.8", "3.7.2", "3.7.1", "3.7",
                 "3.6.2", "3.6.1", "3.6", "3.5", "3.4", "3.3.5", "3.3.4", "3.3.3", "3.3.2", "3.3.1",
                 "3.3", "3.2", "3.1.5", "3.1.4", "3.1.3", "3.1.2", "3.1.1", "3.1", "3.0.1", "3.0",
@@ -89,14 +91,13 @@ public class ChangeLogFragment extends Fragment{
             }
         }
 
-        SpannableString spanns[] = new SpannableString[stringList.size()];
+        //convert to array
+        CharSequence[] strings = new CharSequence[stringList.size()];
 
-        //apply the bullet characters
-        for (int i=0;i<stringList.size();i++){
-            spanns[i] = new SpannableString(stringList.get(i));
-            spanns[i].setSpan(new BulletSpan(15), 0, stringList.get(i).length(), 0);
+        for (int i=0; i<strings.length; i++){
+            strings[i] = stringList.get(i);
         }
 
-        return TextUtils.concat(spanns);
+        return TextUtils.concat(createBulletParagraph(stringList.toArray(new CharSequence[stringList.size()])));
     }
 }

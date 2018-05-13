@@ -29,6 +29,7 @@ import de.tobiasbielefeld.solitaire.ui.GameManager;
 import static de.tobiasbielefeld.solitaire.SharedData.animate;
 import static de.tobiasbielefeld.solitaire.SharedData.autoMove;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
 import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 
@@ -60,7 +61,10 @@ public class HandlerAutoMove extends Handler {
         }
         //call the test after move method after every auto movement
         else if (testAfterMove) {
-            currentGame.testAfterMove();
+            if (!gameLogic.hasWon()) {
+                currentGame.testAfterMove();
+            }
+
             testAfterMove = false;
             autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME_SHORT);
             // else do the movement

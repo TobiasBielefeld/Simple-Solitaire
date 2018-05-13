@@ -18,28 +18,39 @@
 
 package de.tobiasbielefeld.solitaire.ui.settings;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.DialogPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import java.util.List;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceFourColorMode;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideAutoCompleteButton;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideMenuButton;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideScore;
+import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideTime;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
-import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardDialog;
-import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardBackground;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCards;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
+import static android.content.ContentValues.TAG;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
@@ -55,20 +66,40 @@ public class Settings extends AppCompatPreferenceActivity {
     private Preference preferenceMaxNumberUndos;
     private Preference preferenceEnsureMovabilityMinMoves;
     private Preference preferenceGameLayoutMargins;
+
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceEnsureMovabilty;
     private CheckBoxPreference preferenceTapToSelect;
     private CheckBoxPreference preferenceImmersiveMode;
-    private DialogPreferenceCardDialog preferenceCards;
+
+    private DialogPreferenceCards preferenceCards;
+    private DialogPreferenceCardBackground preferenceCardBackground;
+    private DialogPreferenceBackgroundColor preferenceBackgroundColor;
+    private DialogPreferenceOnlyForThisGame dialogPreferenceOnlyForThisGame;
+
+    private CheckBoxPreferenceFourColorMode preferenceFourColorMode;
+    private CheckBoxPreferenceHideAutoCompleteButton preferenceHideAutoCompleteButton;
+    private CheckBoxPreferenceHideMenuButton preferenceHideMenuButton;
+    private CheckBoxPreferenceHideScore preferenceHideScore;
+    private CheckBoxPreferenceHideTime preferenceHideTime;
+
+    private PreferenceCategory categoryOnlyForThisGame;
+
+    CustomizationPreferenceFragment customizationPreferenceFragment;
+
     private Sounds settingsSounds;
 
-    HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
+    //make this static so the preference fragments use the same intent
+    //don't forget: Android 8 doesn't call onCreate for the fragments, so there only one intent is
+    //created. Android 7 calls onCreate for each fragment and would create new intents
+    static Intent returnIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         reinitializeData(getApplicationContext());
         super.onCreate(savedInstanceState);
 
-        ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);                             //remove huge padding in landscape
+        ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);     //remove huge padding in landscape
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -78,6 +109,10 @@ public class Settings extends AppCompatPreferenceActivity {
         prefs.setCriticalSettings();
 
         settingsSounds = new Sounds(this);
+
+        if (returnIntent == null) {
+            returnIntent = new Intent();
+        }
     }
 
     @Override
@@ -101,6 +136,50 @@ public class Settings extends AppCompatPreferenceActivity {
      * I would need to write the strings manually in the cases.
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME)){
+
+            if (preferenceFourColorMode != null) {
+                preferenceFourColorMode.update();
+            }
+
+            if (preferenceHideAutoCompleteButton != null) {
+                preferenceHideAutoCompleteButton.update();
+            }
+
+            if (preferenceHideMenuButton != null) {
+                preferenceHideMenuButton.update();
+            }
+
+            if (preferenceHideScore != null) {
+                preferenceHideScore.update();
+            }
+
+            if (preferenceHideTime != null) {
+                preferenceHideTime.update();
+            }
+
+            if (preferenceCards != null) {
+                preferenceCards.updateSummary();
+            }
+
+            if (preferenceCardBackground != null) {
+                preferenceCardBackground.updateSummary();
+            }
+
+            if (preferenceBackgroundColor != null) {
+                preferenceBackgroundColor.updateSummary();
+            }
+
+            Card.updateCardDrawableChoice();
+            Card.updateCardBackgroundChoice();
+
+            updatePreferenceGameLayoutMarginsSummary();
+            updatePreferenceMenuBarPositionSummary();
+
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
+            returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
+            returnIntent.putExtra(getString(R.string.intent_background_color), true);
+        }
         if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
 
@@ -127,9 +206,7 @@ public class Settings extends AppCompatPreferenceActivity {
 
         } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();
-            if (gameLogic != null) {
-                gameLogic.updateMenuBar();
-            }
+            returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
 
         } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
@@ -187,12 +264,20 @@ public class Settings extends AppCompatPreferenceActivity {
             startActivity(intent);
         } else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)){
             updatePreferenceGameLayoutMarginsSummary();
-
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
         } else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)){
-            if (gameLogic != null) {
-                gameLogic.updateMenuBar();
-            }
+            returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
+        } else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
+        } else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM)){
+            returnIntent.putExtra(getString(R.string.intent_background_color), true);
         }
+    }
+
+    @Override
+    public void finish() {
+        setResult(Activity.RESULT_OK,returnIntent);
+        super.finish();
     }
 
     /**
@@ -310,12 +395,42 @@ public class Settings extends AppCompatPreferenceActivity {
 
             Settings settings = (Settings) getActivity();
 
+            settings.customizationPreferenceFragment = this;
+
             settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
-            settings.preferenceCards = (DialogPreferenceCardDialog) findPreference(getString(R.string.pref_key_cards));
+            settings.preferenceCards = (DialogPreferenceCards) findPreference(getString(R.string.pref_key_cards));
             settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
+            settings.preferenceCardBackground = (DialogPreferenceCardBackground) findPreference(getString(R.string.pref_key_cards_background));
+            settings.preferenceBackgroundColor = (DialogPreferenceBackgroundColor) findPreference(getString(R.string.pref_key_background_color));
+
+            settings.preferenceFourColorMode = (CheckBoxPreferenceFourColorMode) findPreference(getString(R.string.dummy_pref_key_4_color_mode));
+            settings.preferenceHideAutoCompleteButton = (CheckBoxPreferenceHideAutoCompleteButton) findPreference(getString(R.string.dummy_pref_key_hide_auto_complete_button));
+            settings.preferenceHideMenuButton = (CheckBoxPreferenceHideMenuButton) findPreference(getString(R.string.dummy_pref_key_hide_menu_button));
+            settings.preferenceHideScore = (CheckBoxPreferenceHideScore) findPreference(getString(R.string.dummy_pref_key_hide_score));
+            settings.preferenceHideTime = (CheckBoxPreferenceHideTime) findPreference(getString(R.string.dummy_pref_key_hide_time));
+            settings.dialogPreferenceOnlyForThisGame = (DialogPreferenceOnlyForThisGame) findPreference(getString(R.string.pref_key_settings_only_for_this_game));
+
+            //the preferenceCategory for the dialogPreferenceOnlyForThisGame is only used to make
+            //the widget update on Android 8+ devices (otherwise it wouldn't due to a bug)
+            //So remove the title with an empty layout of the category to make it (nearly) disappear
+            settings.categoryOnlyForThisGame = (PreferenceCategory)findPreference(getString(R.string.pref_cat_key_only_for_this_game));
+            settings.categoryOnlyForThisGame.setLayoutResource(R.layout.empty);
+
+            settings.preferenceFourColorMode.update();
+            settings.preferenceHideAutoCompleteButton.update();
+            settings.preferenceHideMenuButton.update();
+            settings.preferenceHideScore.update();
+            settings.preferenceHideTime.update();
 
             settings.updatePreferenceGameLayoutMarginsSummary();
             settings.updatePreferenceMenuBarPositionSummary();
+            settings.hidePreferenceOnlyForThisGame();
+        }
+    }
+
+    public void hidePreferenceOnlyForThisGame(){
+        if (dialogPreferenceOnlyForThisGame.canBeHidden()) {
+            customizationPreferenceFragment.getPreferenceScreen().removePreference(categoryOnlyForThisGame);
         }
     }
 
@@ -356,8 +471,6 @@ public class Settings extends AppCompatPreferenceActivity {
             settings.updatePreferenceBackgroundVolumeSummary();
         }
     }
-
-
 
     public static class MenuPreferenceFragment extends CustomPreferenceFragment {
 

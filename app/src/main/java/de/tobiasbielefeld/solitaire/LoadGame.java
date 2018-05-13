@@ -35,6 +35,7 @@ import de.tobiasbielefeld.solitaire.games.GrandfathersClock;
 import de.tobiasbielefeld.solitaire.games.Gypsy;
 import de.tobiasbielefeld.solitaire.games.Klondike;
 import de.tobiasbielefeld.solitaire.games.Mod3;
+import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
@@ -81,12 +82,13 @@ public class LoadGame {
             case 7: return new Gypsy();
             case 8: return new Klondike();
             case 9: return new Mod3();
-            case 10: return new Pyramid();
-            case 11:return new SimpleSimon();
-            case 12:return new Spider();
-            case 13:return new TriPeaks();
-            case 14:return new Vegas();
-            case 15:return new Yukon();
+            case 10: return new NapoleonsTomb();
+            case 11: return new Pyramid();
+            case 12:return new SimpleSimon();
+            case 13:return new Spider();
+            case 14:return new TriPeaks();
+            case 15:return new Vegas();
+            case 16:return new Yukon();
         }
     }
 
@@ -94,7 +96,10 @@ public class LoadGame {
      * Insert new games here and in loadClass(). The order is very important, so don't change it!
      * The resource id points to the name of the game, so it can be translated. The second parameter
      * is the prefix for the game saves (like order of the cards). It uses a separate sharedPref for
-     * each game. It is also the prefix for the manual entries. So use it when writing manual entries!
+     * each game. The string with the game name have to match the sharedPref name like
+     * "games_<sharedPrefName>". Look at the other game names for a hint! It is important for
+     * the manual pages. It is also the prefix for the manual entries. So use it when writing manual
+     * entries!
      *
      * If you add a game at the end, no further actions has to be done, expect updating the game
      * selector images and adding a manual entry. If you add it somewhere else (eg to get an
@@ -114,6 +119,7 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_Gypsy,"Gypsy"));
         allGameInformation.add(new AllGameInformation(R.string.games_Klondike,"Klondike"));
         allGameInformation.add(new AllGameInformation(R.string.games_mod3,"mod3"));
+        allGameInformation.add(new AllGameInformation(R.string.games_NapoleonsTomb,"NapoleonsTomb"));
         allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid"));
         allGameInformation.add(new AllGameInformation(R.string.games_SimpleSimon,"SimpleSimon"));
         allGameInformation.add(new AllGameInformation(R.string.games_Spider,"Spider"));
@@ -156,6 +162,9 @@ public class LoadGame {
         if (result.size() == 15) {                                                                  //new calculation game
             result.add(1, 1);
         }
+        if (result.size() == 16) {                                                                  //new Napoleons Tomb game
+            result.add(10, 1);
+        }
 
         if (result.size() < getGameCount()){
             for (int i=result.size();i<getGameCount();i++){
@@ -170,6 +179,8 @@ public class LoadGame {
      * Returns the game list as integers in order of the user settings. If the user didn't set up
      * a custom order yet, the default order will be returned. If there was added a new game,
      * it will the added at the end.
+     *
+     * YOU DONT NEED TO ADD A NEW GAME HERE!
      *
      * @return the game list in order of the user settings.
      */
@@ -242,6 +253,21 @@ public class LoadGame {
         }
 
         return returnList;
+    }
+
+    /**
+     * Returns a list of all the sharedPref names
+     *
+     * @return      the shared pref name list as string array
+     */
+    public String[] getSharedPrefNameList(){
+        String[] list = new String[allGameInformation.size()];
+
+        for (int i = 0; i< allGameInformation.size(); i++){
+            list[i] = allGameInformation.get(i).getSharedPrefName();
+        }
+
+        return list;
     }
 
     /**

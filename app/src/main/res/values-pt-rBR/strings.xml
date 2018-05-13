@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Versão"</string>
 <string name="settings">"Configurações"</string>
 <string name="game_manual">"Manual"</string>
@@ -35,13 +33,12 @@
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pirâmide"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight
-"</string>
+<string name="games_FortyEight">"Forty&amp;Eight"</string>
 <string name="games_AcesUp">"AcesUp"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Cálculo"</string>
 
