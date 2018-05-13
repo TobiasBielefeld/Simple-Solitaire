@@ -33,7 +33,7 @@ import static de.tobiasbielefeld.solitaire.classes.Card.movements.NONE;
 
 public class DialogEnsureMovability extends DialogFragment implements View.OnClickListener{
 
-    EnsureMovability ensureMovabilty;
+    EnsureMovability ensureMovabilty ;
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
