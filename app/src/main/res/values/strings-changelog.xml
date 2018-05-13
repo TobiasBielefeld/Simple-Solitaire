@@ -8,10 +8,10 @@
     -->
     <string name="changelog_50_1" translatable="false">Fix crash for Golf and TriPeaks, sorry!</string>
 
-    <string name="changelog_49_1" translatable="false">Little bug fix related the game layout\n</string>
-    <string name="changelog_49_2" translatable="false">Added two new card themes: Paris and Dondorf\n</string>
-    <string name="changelog_49_3" translatable="false">Added one new card background\n</string>
-    <string name="changelog_49_4" translatable="false">Added a new hard to win game: Napoleon\'s Tomb\n</string>
+    <string name="changelog_49_1" translatable="false">Little bug fix related the game layout</string>
+    <string name="changelog_49_2" translatable="false">Added two new card themes: Paris and Dondorf</string>
+    <string name="changelog_49_3" translatable="false">Added one new card background</string>
+    <string name="changelog_49_4" translatable="false">Added a new hard to win game: Napoleon\'s Tomb</string>
     <string name="changelog_49_5" translatable="false">Added Spanish (Argentina) translations, thanks to 4fff618 from GitHub!</string>
 
     <string name="changelog_48_1" translatable="false">Little bug fix related to hiding the in-game menu</string>
