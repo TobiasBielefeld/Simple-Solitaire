@@ -47,6 +47,7 @@ public class GameLogic {
     private GameManager gm;
     private boolean movedFirstCard = false;
     private DialogEnsureMovability dialogEnsureMovability;
+    private boolean lastGameWon = false;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -166,7 +167,7 @@ public class GameLogic {
         randomize(randomCards);
         redeal();
 
-        dialogEnsureMovability.startTest();
+        dialogEnsureMovability.startTest(lastGameWon);
     }
 
     /**
@@ -181,12 +182,35 @@ public class GameLogic {
             dialogEnsureMovability = new DialogEnsureMovability();
             dialogEnsureMovability.show(gm.getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
 
-            redeal();
+            lastGameWon = won;
 
-            dialogEnsureMovability.startTest();
+            redealForEnsureMovability();
+
+            dialogEnsureMovability.startTest(lastGameWon);
         } else {
             redeal();
         }
+    }
+
+    public void setWon(boolean value){
+        won = value;
+    }
+
+    /**
+     * starts a new game, but with the same deal.
+     */
+    public void redealForEnsureMovability() {
+
+        for (Stack stack : stacks) {
+            stack.reset();
+        }
+
+        for (Card card : randomCards) {
+            currentGame.getDealStack().addCard(card);
+            card.flipDown();
+        }
+
+        currentGame.dealNewGame();
     }
 
     /**

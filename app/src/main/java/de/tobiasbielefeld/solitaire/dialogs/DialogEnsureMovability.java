@@ -15,6 +15,7 @@ import android.widget.Button;
 import java.util.concurrent.ExecutionException;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -31,9 +32,10 @@ import static de.tobiasbielefeld.solitaire.classes.Card.movements.NONE;
  * and also has a cancel button.
  */
 
-public class DialogEnsureMovability extends DialogFragment implements View.OnClickListener{
+public class DialogEnsureMovability extends CustomDialogFragment implements View.OnClickListener{
 
     EnsureMovability ensureMovabilty ;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class DialogEnsureMovability extends DialogFragment implements View.OnCli
         cancelButton.setOnClickListener(this);
 
         builder.setView(view);
-        return builder.create();
+        return applyFlags(builder.create());
     }
 
     @Override
@@ -55,9 +57,9 @@ public class DialogEnsureMovability extends DialogFragment implements View.OnCli
         setCancelable(false);
     }
 
-    public void startTest(){
+    public void startTest(boolean hasWon){
         ensureMovabilty = new EnsureMovability();
-        ensureMovabilty.execute(this);
+        ensureMovabilty.execute(this, hasWon);
     }
 
     @Override

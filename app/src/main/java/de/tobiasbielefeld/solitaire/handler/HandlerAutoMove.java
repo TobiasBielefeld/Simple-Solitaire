@@ -76,7 +76,9 @@ public class HandlerAutoMove extends Handler {
                 movedFirstCard = true;
                 movingCards.reset();
 
-                if (currentGame instanceof Pyramid){    //TODO manage this in another way
+                //needed because in Pyramid, I save in cardTest() if cards need to move to the waste stack
+                //TODO manage this in another way
+                if (currentGame instanceof Pyramid){
                     currentGame.cardTest(cardAndStack.getStack(),cardAndStack.getCard());
                 }
 

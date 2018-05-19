@@ -46,6 +46,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
 
     private DialogEnsureMovability dialog;
+    private boolean hasWon;
 
     /*private ArrayList<PossibleMovement> possibleMovements = new ArrayList<>();
     private Random random = new Random();
@@ -69,11 +70,10 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
         minPossibleMovements = prefs.getSavedEnsureMovabilityMinMoves();
         int counter = 0;
         dialog = (DialogEnsureMovability) objects[0];
-
-        long maxTime = System.currentTimeMillis() + MAX_TIME_MILLIS;
+        hasWon = (boolean) objects[1];
 
         while (true) {
-            if (System.currentTimeMillis() > maxTime){
+            if (isCancelled()){
                 return false;
             }
 
@@ -103,6 +103,8 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                 if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp()) {
                     origin.getTopCard().flipWithAnim();
                 }
+
+                currentGame.testAfterMove();
 
                 counter ++;
             }  else if (currentGame.hasMainStack()){
@@ -151,6 +153,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
             gameLogic.newGameForEnsureMovability();
         } else {
             dialog.dismiss();
+            gameLogic.setWon(hasWon);
             stopMovements = false;
             gameLogic.redeal();
         }
@@ -158,6 +161,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
     @Override
     protected void onCancelled() {
+        gameLogic.setWon(hasWon);
         stopMovements = false;
         gameLogic.redeal();
     }
