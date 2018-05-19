@@ -38,4 +38,10 @@
         android:title="@string/settings_developer_options_no_saving_title"
         android:summary="@string/settings_developer_options_no_saving_text"/>
 
+    <CheckBoxPreference
+        android:defaultValue="@bool/default_improve_auto_move"
+        android:key="@string/pref_key_improve_auto_move"
+        android:title="@string/settings_developer_option_improve_auto_move_title"
+        android:summary="@string/settings_developer_option_improve_auto_move_text"/>
+
 </PreferenceScreen>

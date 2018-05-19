@@ -57,9 +57,9 @@ public class DialogEnsureMovability extends CustomDialogFragment implements View
         setCancelable(false);
     }
 
-    public void startTest(boolean hasWon){
+    public void startTest(){
         ensureMovabilty = new EnsureMovability();
-        ensureMovabilty.execute(this, hasWon);
+        ensureMovabilty.execute(this);
     }
 
     @Override

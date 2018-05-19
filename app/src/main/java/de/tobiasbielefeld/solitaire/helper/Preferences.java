@@ -151,6 +151,7 @@ public class Preferences {
     public static String PREF_KEY_SHOW_DIALOG_REDEAL;
     public static String PREF_KEY_SHOW_DIALOG_MIX_CARDS;
     public static String PREF_KEY_HIDE_MENU_BAR;
+    public static String PREF_KEY_IMRPOVE_AUTO_MOVE;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -206,6 +207,7 @@ public class Preferences {
     public static boolean DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST;
     public static boolean DEFAULT_WON;
     public static boolean DEFAULT_HIDE_MENU_BAR;
+    public static boolean DEFAULT_IMPROVE_AUTO_MOVE;
     public static boolean DEFAULT_WON_AND_RELOADED;
     public static boolean DEFAULT_FIRST_RUN;
     public static boolean DEFAULT_MOVED_FIRST_CARD;
@@ -300,6 +302,7 @@ public class Preferences {
         PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
         PREF_KEY_HIDE_MENU_BUTTON = res.getString(R.string.pref_key_hide_menu_button);
         PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
+        PREF_KEY_IMRPOVE_AUTO_MOVE = res.getString(R.string.pref_key_improve_auto_move);
         PREF_KEY_4_COLOR_MODE = res.getString(R.string.pref_key_4_color_mode);
         PREF_KEY_LEFT_HANDED_MODE = res.getString(R.string.pref_key_left_handed_mode);
         PREF_KEY_MENU_BAR_POS_PORTRAIT = res.getString(R.string.pref_key_menu_bar_position_portrait);
@@ -427,6 +430,7 @@ public class Preferences {
         DEFAULT_IMMERSIVE_MODE = res.getBoolean(R.bool.default_immersive_mode);
         DEFAULT_HIDE_MENU_BUTTON = res.getBoolean(R.bool.default_hide_menu_button);
         DEFAULT_ENSURE_MOVABILITY = res.getBoolean(R.bool.default_ensure_movability);
+        DEFAULT_IMPROVE_AUTO_MOVE = res.getBoolean(R.bool.default_improve_auto_move);
         DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME = false;
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
@@ -1310,6 +1314,10 @@ public class Preferences {
 
     public boolean getHideMenuBar(){
         return savedSharedData.getBoolean(PREF_KEY_HIDE_MENU_BAR, DEFAULT_HIDE_MENU_BAR);
+    }
+
+    public boolean getImproveAutoMove(){
+        return savedSharedData.getBoolean(PREF_KEY_IMRPOVE_AUTO_MOVE, DEFAULT_IMPROVE_AUTO_MOVE);
     }
 
     public ArrayList<Integer> getSavedMenuGamesList(){

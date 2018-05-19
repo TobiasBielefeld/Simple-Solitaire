@@ -47,7 +47,6 @@ public class GameLogic {
     private GameManager gm;
     private boolean movedFirstCard = false;
     private DialogEnsureMovability dialogEnsureMovability;
-    private boolean lastGameWon = false;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -142,7 +141,7 @@ public class GameLogic {
 
                 //load game independent data
                 currentGame.load();
-                currentGame.loadRecycleCount(gm);
+                currentGame.loadRecycleCount();
 
                 //deal the cards again in case the app got killed while trying  before
                 /* (prefs.isDealingCards()){
@@ -165,9 +164,9 @@ public class GameLogic {
     public void newGameForEnsureMovability(){
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
-        redeal();
+        redealForEnsureMovability();
 
-        dialogEnsureMovability.startTest(lastGameWon);
+        dialogEnsureMovability.startTest();
     }
 
     /**
@@ -182,11 +181,9 @@ public class GameLogic {
             dialogEnsureMovability = new DialogEnsureMovability();
             dialogEnsureMovability.show(gm.getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
 
-            lastGameWon = won;
-
             redealForEnsureMovability();
 
-            dialogEnsureMovability.startTest(lastGameWon);
+            dialogEnsureMovability.startTest();
         } else {
             redeal();
         }

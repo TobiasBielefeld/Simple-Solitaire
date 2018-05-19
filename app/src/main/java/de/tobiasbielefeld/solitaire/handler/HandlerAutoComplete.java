@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -83,6 +84,7 @@ public class HandlerAutoComplete extends Handler {
                         cards.add(cardAndStack.getCard().getStack().getCard(i));
                     }
 
+                    sounds.playSound(Sounds.names.CARD_SET);
                     moveToStack(cards, cardAndStack.getStack());
                 }
                 //else phase 2, move only one card but without the moveToStack method, it would
@@ -95,6 +97,7 @@ public class HandlerAutoComplete extends Handler {
                     card.removeFromCurrentStack();
                     destination.addCard(card);
                     card.bringToFront();
+                    sounds.playSound(Sounds.names.CARD_SET);
                     card.setLocation(destination.getX(),destination.getY());
                 }
 

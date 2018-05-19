@@ -12,6 +12,7 @@ import android.os.Build;
  */
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -35,7 +36,7 @@ public class Sounds {
 
     public void playSound(names name) {
 
-        if (prefs.getSavedSoundEnabled()) {
+        if (prefs.getSavedSoundEnabled() && !SharedData.stopMovements) {
             switch (name){
                 case CARD_RETURN:
                     sp.play(soundList[0], 1, 1, 0, 0, 1);

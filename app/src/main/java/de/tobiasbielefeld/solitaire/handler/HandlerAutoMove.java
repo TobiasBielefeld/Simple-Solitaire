@@ -31,6 +31,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.autoMove;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 
 /**
@@ -45,6 +46,7 @@ public class HandlerAutoMove extends Handler {
 
     private boolean testAfterMove = false;
     private boolean movedFirstCard = false;
+    private boolean mainStackAlreadyFlipped = false;
 
     private GameManager gm;
 
@@ -72,7 +74,13 @@ public class HandlerAutoMove extends Handler {
 
             CardAndStack cardAndStack = currentGame.hintTest();
 
-            if (cardAndStack != null && !currentGame.autoCompleteStartTest()) {
+            if (currentGame.autoCompleteStartTest() || currentGame.winTest()){
+                stop();
+                return;
+            }
+
+            if (cardAndStack != null) {
+                mainStackAlreadyFlipped = false;
                 movedFirstCard = true;
                 movingCards.reset();
 
@@ -85,19 +93,42 @@ public class HandlerAutoMove extends Handler {
                 movingCards.add(cardAndStack.getCard(), 0, 0);
                 movingCards.moveToDestination(cardAndStack.getStack());
 
-                testAfterMove = true;
-
-                //start the next handler in some milliseconds
-                autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME);
-            } else {
+                nextIteration();
+            } else if (prefs.getImproveAutoMove() && currentGame.hasMainStack()) {
+                switch (currentGame.mainStackTouch()){
+                    case 0:
+                        stop();
+                        break;
+                    case 1:
+                        nextIteration();
+                        break;
+                    case 2:
+                        if (mainStackAlreadyFlipped) {
+                            stop();
+                        } else {
+                            mainStackAlreadyFlipped = true;
+                            nextIteration();
+                        }
+                        break;
+                }
+            }else {
                 if (!movedFirstCard) {
                     showToast(gm.getString(R.string.dialog_no_movement_possible),gm);
                 }
 
-                autoMove.reset();
-                movedFirstCard = false;
-
+                stop();
             }
         }
+    }
+
+    private void nextIteration(){
+        testAfterMove = true;
+        autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME);
+    }
+
+    private void stop(){
+        autoMove.reset();
+        movedFirstCard = false;
+        mainStackAlreadyFlipped = false;
     }
 }

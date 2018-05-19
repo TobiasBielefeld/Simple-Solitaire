@@ -317,7 +317,15 @@ public abstract class Game {
      */
     abstract public int onMainStackTouch();
 
-    public void mainStackTouch(){
+    public int mainStackTouch(){
+
+        if (hasLimitedRecycles() && getDealStack().isEmpty() && discardStacksContainCards()) {
+            if (getRemainingNumberOfRecycles() == 0) {
+                return 0;
+            } else {
+                incrementRecycleCounter();
+            }
+        }
 
         int sound = onMainStackTouch();
 
@@ -331,6 +339,19 @@ public abstract class Game {
             default:    //no cards moved
                 break;
         }
+
+        return sound;
+    }
+
+    private boolean discardStacksContainCards(){
+
+        for (Stack stack : currentGame.getDiscardStacks()){
+            if (!stack.isEmpty()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -1062,23 +1083,23 @@ public abstract class Game {
         return remaining>0 ? remaining : 0;
     }
 
-    public void incrementRecycleCounter(GameManager gm) {
+    public void incrementRecycleCounter() {
         recycleCounter++;
-        gm.updateNumberOfRecycles();
+        recycleCounterCallback.updateTextView();
     }
 
-    public void decrementRecycleCounter(GameManager gm) {
+    public void decrementRecycleCounter() {
         recycleCounter--;
-        gm.updateNumberOfRecycles();
+        recycleCounterCallback.updateTextView();
     }
 
     public void saveRecycleCount() {
         prefs.saveRedealCount(recycleCounter);
     }
 
-    public void loadRecycleCount(GameManager gm) {
+    public void loadRecycleCount() {
         recycleCounter = prefs.getSavedRecycleCounter(totalRecycles);
-        gm.updateNumberOfRecycles();
+        recycleCounterCallback.updateTextView();
     }
 
     public boolean hasArrow() {
@@ -1164,5 +1185,17 @@ public abstract class Game {
 
     public int getMainStackId(){
         return mainStackIDs[0];
+    }
+
+
+    private RecycleCounterCallback recycleCounterCallback;
+
+    public interface RecycleCounterCallback {
+        public void updateTextView();
+
+    }
+
+    public void setRecycleCounterCallback(RecycleCounterCallback callback) {
+        recycleCounterCallback = callback;
     }
 }

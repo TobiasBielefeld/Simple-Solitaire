@@ -129,7 +129,7 @@ public class RecordList {
      * reverts one record, this will delete that record from the list and takes 25 points away
      * from the current score
      */
-    public void undo(GameManager gm) {
+    public void undo() {
         if (!entries.isEmpty()) {
             isWorking = true;
             sounds.playSound(Sounds.names.CARD_RETURN);
@@ -138,7 +138,7 @@ public class RecordList {
                 scores.update(-currentGame.getUndoCosts());
             }
 
-            entries.get(entries.size() - 1).undo(gm);
+            entries.get(entries.size() - 1).undo();
 
             int amount = prefs.getSavedTotalNumberUndos() + 1;
             prefs.saveTotalNumberUndos(amount);
@@ -345,8 +345,7 @@ public class RecordList {
         /**
          * Undos the latest entry.
          */
-        void undo(GameManager gm) {
-            this.gm = gm;
+        void undo() {
             alreadyDecremented = false;
 
             for (Card card : flipCards) {
@@ -371,7 +370,7 @@ public class RecordList {
                 for (int i=0;i<currentCards.size();i++){
 
                     if (currentCards.get(i).getStack() == currentGame.getDealStack() && discardStacks.contains(currentOrigins.get(i))) {
-                        currentGame.decrementRecycleCounter(gm);
+                        currentGame.decrementRecycleCounter();
                         alreadyDecremented = true;
                         break;
                     }

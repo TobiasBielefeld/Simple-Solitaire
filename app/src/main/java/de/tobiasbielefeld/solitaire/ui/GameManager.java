@@ -47,6 +47,7 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogInGameHelpMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogInGameMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
+import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
@@ -121,6 +122,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         timer = new Timer(gm);
         sounds = new Sounds(gm);
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
+
+        currentGame.setRecycleCounterCallback(new Game.RecycleCounterCallback() {
+            @Override
+            public void updateTextView() {
+                gm.updateNumberOfRecycles();
+            }
+        });
+
         prefs.setGamePreferences(this);
         Stack.loadBackgrounds();
         recordList = new RecordList();
@@ -310,16 +319,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean motionActionDown(CustomImageView v, MotionEvent event, float X, float Y) {
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
-            //test if the redeal counter needs to be updated
-            if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty() && discardStacksContainCards()) {
-                if (currentGame.getRemainingNumberOfRecycles() == 0) {
-                    return true;
-                } else {
-                    currentGame.incrementRecycleCounter(this);
-                }
+
+            //if no card could be moved, do nothing
+            if (currentGame.mainStackTouch() == 0){
+                return true;
             }
-            //do what the game wants to be done on a main stack press
-            currentGame.mainStackTouch();
+
             gameLogic.checkForAutoCompleteButton();
             handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
             return resetTappedCard();
@@ -688,7 +693,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 break;
             case R.id.mainButtonUndo:           //undo last movement
                 if (!gameLogic.hasWon()) {
-                    recordList.undo(this);
+                    recordList.undo();
                 }
                 break;
             case R.id.mainButtonHint:           //show a hint
@@ -822,17 +827,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void finish() {
         prefs.saveCurrentGame(DEFAULT_CURRENT_GAME);
         super.finish();
-    }
-
-    private boolean discardStacksContainCards(){
-
-        for (Stack stack : currentGame.getDiscardStacks()){
-            if (!stack.isEmpty()) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**

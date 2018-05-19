@@ -41,12 +41,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.stopMovements;
 public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
     private static int minPossibleMovements = 10;
-    private static int MAX_TIME_MILLIS = 500;
-
-
 
     private DialogEnsureMovability dialog;
-    private boolean hasWon;
 
     /*private ArrayList<PossibleMovement> possibleMovements = new ArrayList<>();
     private Random random = new Random();
@@ -69,20 +65,19 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
     protected Boolean doInBackground(Object... objects) {
         minPossibleMovements = prefs.getSavedEnsureMovabilityMinMoves();
         int counter = 0;
+        boolean mainStackAlreadyFlipped = false;
         dialog = (DialogEnsureMovability) objects[0];
-        hasWon = (boolean) objects[1];
 
         while (true) {
             if (isCancelled()){
                 return false;
             }
 
-            if (counter == minPossibleMovements){
+            if (counter == minPossibleMovements || currentGame.winTest()){
                 return true;
             }
 
             CardAndStack cardAndStack = currentGame.hintTest();
-
 
             if (cardAndStack != null) {
 
@@ -106,9 +101,22 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
                 currentGame.testAfterMove();
 
+                mainStackAlreadyFlipped = false;
                 counter ++;
             }  else if (currentGame.hasMainStack()){
-                currentGame.onMainStackTouch();
+                switch (currentGame.mainStackTouch()){
+                    case 0:
+                        return false;
+                    //case 1: just goto next iteration
+                    case 2:
+                        if (mainStackAlreadyFlipped) {
+                            return false;
+                        } else {
+                            mainStackAlreadyFlipped = true;
+                        }
+                        break;
+                }
+
             } else {
                 return false;
             }
@@ -153,7 +161,6 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
             gameLogic.newGameForEnsureMovability();
         } else {
             dialog.dismiss();
-            gameLogic.setWon(hasWon);
             stopMovements = false;
             gameLogic.redeal();
         }
@@ -161,7 +168,6 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
     @Override
     protected void onCancelled() {
-        gameLogic.setWon(hasWon);
         stopMovements = false;
         gameLogic.redeal();
     }

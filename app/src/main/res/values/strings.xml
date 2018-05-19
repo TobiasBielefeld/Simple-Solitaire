@@ -412,6 +412,8 @@
     <string name="settings_developer_option_deal_correct_sequences_3">Same family</string>
     <string name="settings_developer_option_deal_correct_sequences_4">Reversed alternating color</string>
     <string name="settings_developer_option_deal_correct_sequences_5">Reversed same family</string>
+    <string name="settings_developer_option_improve_auto_move_title">Improve Auto Move</string>
+    <string name="settings_developer_option_improve_auto_move_text">Auto Move will try to win the game by also using the main stack</string>
 
     <string name="settings_game_layout_margins_title">Game layout margins</string>
     <string name="settings_game_layout_margins_text">Add margins to the left and right side of the game layout. The cards will appear smaller, but overlapping will be reduced!</string>
