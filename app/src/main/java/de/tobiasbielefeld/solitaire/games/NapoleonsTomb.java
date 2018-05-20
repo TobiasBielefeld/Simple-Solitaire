@@ -128,11 +128,7 @@ public class NapoleonsTomb extends Game {
         //generate the textViews over the last foundation stack
         addTextViews(1, Card.width, layoutGame, context);
 
-        textViews.get(0).setX(stacks[8].getX());
-        textViews.get(0).setY(stacks[8].getY() - textViews.get(0).getMeasuredHeight());
-
-
-
+        textViewPutAboveStack(0, stacks[8]);
     }
 
     public boolean winTest() {
@@ -338,8 +334,7 @@ public class NapoleonsTomb extends Game {
                 break;
         }
 
-        textViews.get(0).setText(text);
-
+        textViewSetText(0, text);
     }
 
     @Override

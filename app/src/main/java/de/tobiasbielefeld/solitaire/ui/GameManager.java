@@ -126,7 +126,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         currentGame.setRecycleCounterCallback(new Game.RecycleCounterCallback() {
             @Override
             public void updateTextView() {
-                gm.updateNumberOfRecycles();
+                updateNumberOfRecycles();
             }
         });
 
@@ -756,7 +756,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     public void updateNumberOfRecycles() {
-        mainTextViewRecycles.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRecycles()));
+        if (!stopMovements) {
+            mainTextViewRecycles.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRecycles()));
+        }
     }
 
     /*

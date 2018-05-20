@@ -87,9 +87,7 @@ public class Calculation extends Game {
         addTextViews(4, Card.width, layoutGame, context);
 
         for (int i=0;i<4;i++){
-            textViews.get(i).setX(stacks[4+i].getX());
-            textViews.get(i).setY(stacks[4+i].getY() - textViews.get(i).getMeasuredHeight());
-
+            textViewPutAboveStack(i, stacks[4+i]);
         }
     }
 
@@ -270,6 +268,7 @@ public class Calculation extends Game {
     }
 
     private void setTexts(){
+
         for (int i = 0;i <4; i++) {
             if (stacks[4 + i].isEmpty()){
                 continue;
@@ -306,7 +305,7 @@ public class Calculation extends Game {
                     break;
             }
 
-            textViews.get(i).setText(text);
+            textViewSetText(i, text);
         }
     }
 }

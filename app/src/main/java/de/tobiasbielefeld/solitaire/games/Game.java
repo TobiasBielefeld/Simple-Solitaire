@@ -76,7 +76,7 @@ public abstract class Game {
     private boolean hideRecycleCounter = false;
     private int hintCosts = 25;
     private int undoCosts = 25;
-    protected ArrayList<TextView> textViews = new ArrayList<>();
+    private ArrayList<TextView> textViews = new ArrayList<>();
     private testMode mixCardsTestMode = testMode.DOESNT_MATTER;
 
     // some methods used by other classes
@@ -1191,11 +1191,24 @@ public abstract class Game {
     private RecycleCounterCallback recycleCounterCallback;
 
     public interface RecycleCounterCallback {
-        public void updateTextView();
+        void updateTextView();
 
     }
 
     public void setRecycleCounterCallback(RecycleCounterCallback callback) {
         recycleCounterCallback = callback;
     }
+
+    protected void textViewSetText(int index, String text){
+        if (!stopMovements){
+            textViews.get(index).setText(text);
+        }
+    }
+
+    protected void textViewPutAboveStack(int index, Stack stack){
+        textViews.get(index).setX(stack.getX());
+        textViews.get(index).setY(stack.getY() - textViews.get(index).getMeasuredHeight());
+    }
+
+
 }
