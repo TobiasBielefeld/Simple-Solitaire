@@ -66,7 +66,9 @@ public class Vegas extends Klondike {
             timer.setStartTime(System.currentTimeMillis() - prefs.getSavedVegasTime()*1000);
         }
 
-        scores.update(money-betAmount);
+        if (!stopMovements) {
+            scores.update(money - betAmount);
+        }
     }
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
