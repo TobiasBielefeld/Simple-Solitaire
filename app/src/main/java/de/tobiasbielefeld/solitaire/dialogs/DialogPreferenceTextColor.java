@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.R;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
+import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
@@ -93,8 +94,10 @@ public class DialogPreferenceTextColor extends DialogPreference {
 
         int textColor = prefs.getSavedTextColor();
 
-        setSummary("");                                                                         //this forces redrawing of the color preview
+        //this forces redrawing of the color preview
+        setSummary("");
 
+        //show as hex string, but without the opacity part at the beginning
         setSummary(String.format("#%06X", (0xFFFFFF & textColor)));
 
         if (image != null) {

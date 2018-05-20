@@ -8,6 +8,7 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
+import de.tobiasbielefeld.solitaire.games.Pyramid;
 
 import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
@@ -93,7 +94,12 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                     cardsToMove.add(origin.getCard(l));
                 }
 
-                moveToStack(cardsToMove,destination);
+                //TODO manage this in another way
+                if (currentGame instanceof Pyramid){
+                    currentGame.cardTest(destination,card);
+                }
+
+                moveToStack(cardsToMove, destination);
 
                 if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp()) {
                     origin.getTopCard().flipWithAnim();
@@ -155,12 +161,17 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
     @Override
     protected void onPostExecute(Boolean result) {
-        //logText(""+result);
 
-        if (!result){
+        if (!result && !isCancelled()){
             gameLogic.newGameForEnsureMovability();
         } else {
-            dialog.dismiss();
+
+            try {
+                dialog.dismiss();
+            } catch (IllegalStateException ignored){
+                //Meh
+            }
+
             stopMovements = false;
             gameLogic.redeal();
         }

@@ -76,7 +76,7 @@ public class Spider extends Game {
                     }
 
                     if (cardToMove.test(destStack)) {
-                        //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
+                        //if the card above has the correct value, and the card on destination is not the same family as the cardToMove, don't move it
                         if (j > 0 && sourceStack.getCard(j - 1).isUp() && sourceStack.getCard(j - 1).getValue() == cardToMove.getValue() + 1
                                 && destStack.getTopCard().getColor() != cardToMove.getColor()) {
                             continue;

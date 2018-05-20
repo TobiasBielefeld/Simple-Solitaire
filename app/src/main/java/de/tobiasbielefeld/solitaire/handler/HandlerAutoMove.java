@@ -63,18 +63,21 @@ public class HandlerAutoMove extends Handler {
         }
         //call the test after move method after every auto movement
         else if (testAfterMove) {
+
             if (!gameLogic.hasWon()) {
+                testAfterMove = false;
                 currentGame.testAfterMove();
+                autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME_SHORT);
+            } else {
+                stop();
             }
 
-            testAfterMove = false;
-            autoMove.handlerAutoMove.sendEmptyMessageDelayed(0, DELTA_TIME_SHORT);
             // else do the movement
         } else if (autoMove.isRunning()) {
 
             CardAndStack cardAndStack = currentGame.hintTest();
 
-            if (currentGame.autoCompleteStartTest() || currentGame.winTest()){
+            if (currentGame.winTest()){
                 stop();
                 return;
             }
@@ -129,6 +132,7 @@ public class HandlerAutoMove extends Handler {
     private void stop(){
         autoMove.reset();
         movedFirstCard = false;
+        testAfterMove = false;
         mainStackAlreadyFlipped = false;
     }
 }

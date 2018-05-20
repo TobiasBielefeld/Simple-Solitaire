@@ -217,7 +217,8 @@ public class SharedData {
 
 
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).getStack() == destinations.get(i)) {                                     //this means to flip a card
+            //this means to flip a card
+            if (cards.get(i).getStack() == destinations.get(i)) {
                 cards.get(i).flip();
             }
         }

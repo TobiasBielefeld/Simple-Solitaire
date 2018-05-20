@@ -77,7 +77,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRecycles;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
-    public View highlight;
+    public ImageView highlight;
     private long firstTapTime;                                                                       //stores the time of first tapping on a card
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
@@ -98,7 +98,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         setContentView(R.layout.activity_game_manager);
 
         // load stuff
-        highlight = findViewById(R.id.card_highlight);
+        highlight = (ImageView) findViewById(R.id.card_highlight);
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
         mainTextViewTime = (TextView) findViewById(R.id.mainTextViewTime);
         mainTextViewScore = (TextView) findViewById(R.id.mainTextViewScore);
@@ -550,6 +550,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         mainTextViewTime.setTextColor(textColor);
         mainTextViewScore.setTextColor(textColor);
         hideMenu.setColorFilter(textColor);
+        highlight.setColorFilter(textColor);
 
         for (Stack stack: stacks){
             stack.view.setColorFilter(textColor);

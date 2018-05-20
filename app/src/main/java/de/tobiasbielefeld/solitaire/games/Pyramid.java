@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
@@ -42,6 +43,12 @@ public class Pyramid extends Game {
 
     ArrayList<Card> cardsToMove = new ArrayList<>();
     ArrayList<Stack> origins = new ArrayList<>();
+
+    @Override
+    public void reset(GameManager gm) {
+        super.reset(gm);
+        cardsToMove.clear();
+    }
 
     public Pyramid() {
         setNumberOfDecks(1);
@@ -274,7 +281,9 @@ public class Pyramid extends Game {
             cardsToMove.clear();
             origins.clear();
 
-            handlerTestAfterMove.sendEmptyMessageDelayed(0, 200);
+            if (!stopMovements){
+                handlerTestAfterMove.sendEmptyMessageDelayed(0, 200);
+            }
 
         } else if (prefs.getSavedPyramidAutoMove()) {
             ArrayList<Card> tempCards = new ArrayList<>();

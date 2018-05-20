@@ -18,7 +18,7 @@
     <integer name="default_game_layout_margins_portrait">0</integer>
     <integer name="default_game_layout_margins_landscape">0</integer>
     <integer name="default_ensure_movability_min_moves">10</integer>
-    <integer name="default_text_color">0</integer> <!-- black -->
+    <integer name="default_text_color">0xFF000000</integer> <!-- black -->
 
     <!-- changing these to integers would cause problems with already saved values -->
     <string name="default_menu_columns_landscape" translatable="false">6</string>

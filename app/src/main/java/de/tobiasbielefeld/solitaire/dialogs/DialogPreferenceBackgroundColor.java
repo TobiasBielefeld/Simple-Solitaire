@@ -185,7 +185,10 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
         } else {
             int customColor = prefs.getSavedBackgroundCustomColor();
 
-            setSummary("");                                                                         //this forces redrawing of the color preview
+            //this forces redrawing of the color preview
+            setSummary("");
+
+            //show as hex string, but without the opacity part at the beginning
             setSummary(String.format("#%06X", (0xFFFFFF & customColor)));
 
             if (image != null) {

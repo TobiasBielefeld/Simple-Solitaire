@@ -159,7 +159,7 @@ public class Yukon extends Game {
                             continue;
                         //move kings not when they are the first card on a stack
                         //so they won't be moved around on empty fields
-                        if (cardToMove.getValue() == 13 && cardToMove.isFirstCard())
+                        if (cardToMove.getValue() == 13 && cardToMove.isFirstCard() && tableauStacksContain(j))
                             continue;
                         //example: i don't want to move a hearts 5 to a clubs 6 if the hearts card is already lying on a (faced up) spades 6.
                         if (sameCardOnOtherStack(cardToMove, otherStack, SAME_VALUE_AND_COLOR))

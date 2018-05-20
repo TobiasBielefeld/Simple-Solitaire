@@ -57,7 +57,6 @@ public class GameLogic {
      */
     public void checkFirstMovement() {
         if (!movedFirstCard) {
-         //   incrementPlayedGames();
             movedFirstCard = true;
         }
     }
@@ -397,7 +396,9 @@ public class GameLogic {
     }
 
     private void incrementPlayedGames() {
-        prefs.saveNumberOfPlayedGames(prefs.getSavedNumberOfPlayedGames()+1);
+        if (movedFirstCard) {
+            prefs.saveNumberOfPlayedGames(prefs.getSavedNumberOfPlayedGames() + 1);
+        }
     }
 
     public void incrementNumberWonGames(){
