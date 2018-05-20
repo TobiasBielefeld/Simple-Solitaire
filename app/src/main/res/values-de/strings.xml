@@ -443,7 +443,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_4_color_mode_title">"4 Farben Decks"</string>
 <string name="settings_4_color_mode_text">"Ändere die Farben von Kreuz zu Grün und von Karo zu Blau"</string>
 <string name="settings_additional_movements">"Weitere Karten Bewegungen"</string>
-<string name="settings_additional_movements_description">"Aktiviere und deaktivere Doppeltipp- und weitere Bewegungsmöglichkeiten"</string>
+<string name="settings_additional_movements_description">"Aktiviere und deaktiviere Doppeltipp- und weitere Bewegungsmöglichkeiten"</string>
 <string name="settings_double_tap">"Doppeltippen"</string>
 <string name="settings_double_tap_enable">"Erlaube Doppeltipp-Bewegungen"</string>
 <string name="settings_double_tap_enable_text">"Tippe eine Karte zweimal an, um sie zum nächstbesten Stapel zu bewegen"</string>
@@ -510,7 +510,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_developer_options_play_every_card_text">"Man kann jede aufgedeckte Karte spielen"</string>
 <string name="settings_developer_options_instant_win_title">"Sofortiger Gewinn"</string>
 <string name="settings_developer_options_instant_win_text">"Gewinne jedes Spiel nach einer Kartenbewegung"</string>
-<string name="settings_developer_options_no_saving_title">"Deaktivere Spielstand Speicherung"</string>
+<string name="settings_developer_options_no_saving_title">"Deaktiviere Spielstand Speicherung"</string>
 <string name="settings_developer_options_no_saving_text">"Bewegungen in den Spielen werden nicht mehr gespeichert"</string>
 <string name="settings_developer_options_deal_correct_sequences_title">"Gebe korrekte Sequenzen aus"</string>
 <string name="settings_max_number_undos">"Anzahl der umkehrbaren Bewegungen"</string>
@@ -573,14 +573,14 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="statistics_button_deleted_all_entries">"Alle Einträge gelöscht"</string>
 <string name="statistics_time_of_day">"Uhrzeit"</string>
 <string name="statistics_date">"Datum"</string>
-<string name="settings_diable_undo_costs">"Deaktiviere Strafpunkte für Zurücknehmen"</string>
-<string name="settings_diable_hint_costs">"Deaktiviere Strafpunkte für Hinweise"</string>
+<string name="settings_diable_undo_costs">"Keine Strafpunkte für Zurücknehmen"</string>
+<string name="settings_diable_hint_costs">"Keine Strafpunkte für Hinweise"</string>
 <string name="statistics_high_scores">"High Scores"</string>
 <string name="statistics_recent_scores">"letzte Scores"</string>
 <string name="statistics_total_time">"Gespielte Zeit"</string>
 <string name="statistics_total_hints_shown">"Gezeigte Hinweise"</string>
 <string name="statistics_total_number_undos">"Zurückgenommene Bewegungen"</string>
-<string name="statistics_total_points_earned">"Erlangte Punkte"</string>
+<string name="statistics_total_points_earned">"Erspielte Punkte"</string>
 <string name="statistics_no_entries">"Keine Einträge, spiele ein paar Runden!"</string>
 <string name="dialog_auto_move">"Automatisch Bewegen"</string>
 <string name="dialog_show_hints">"Zeige Hinweise"</string>
