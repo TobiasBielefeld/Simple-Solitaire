@@ -442,6 +442,8 @@
     <string name="settings_ensure_movability_min_moves_title">Ensure movability: amount of moves</string>
     <string name="settings_ensure_movability_min_moves_warning">Caution: Increasing the amount will result in longer waiting times before a game is started!</string>
     <string name="settings_ensure_movability_min_moves_text">Change the amount of movements each game must at least have when starting it.</string>
+    <string name="settings_text_color">Text and stack color</string>
+
     <!-- Statistics -->
     
     <!-- %1$d and %2$d are placeholders for the values-->

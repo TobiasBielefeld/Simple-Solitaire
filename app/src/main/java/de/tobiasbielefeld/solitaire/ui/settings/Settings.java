@@ -24,13 +24,10 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.DialogPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
 import android.support.v7.app.ActionBar;
-import android.util.Log;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -48,6 +45,7 @@ import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardBackground;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCards;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceTextColor;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static android.content.ContentValues.TAG;
@@ -67,13 +65,13 @@ public class Settings extends AppCompatPreferenceActivity {
     private Preference preferenceGameLayoutMargins;
 
     private CheckBoxPreference preferenceSingleTapAllGames;
-    private CheckBoxPreference preferenceEnsureMovabilty;
     private CheckBoxPreference preferenceTapToSelect;
     private CheckBoxPreference preferenceImmersiveMode;
 
     private DialogPreferenceCards preferenceCards;
     private DialogPreferenceCardBackground preferenceCardBackground;
     private DialogPreferenceBackgroundColor preferenceBackgroundColor;
+    private DialogPreferenceTextColor preferenceTextColor;
     private DialogPreferenceOnlyForThisGame dialogPreferenceOnlyForThisGame;
 
     private CheckBoxPreferenceFourColorMode preferenceFourColorMode;
@@ -169,6 +167,10 @@ public class Settings extends AppCompatPreferenceActivity {
                 preferenceBackgroundColor.updateSummary();
             }
 
+            if (preferenceTextColor != null) {
+                preferenceTextColor.updateSummary();
+            }
+
             Card.updateCardDrawableChoice();
             Card.updateCardBackgroundChoice();
 
@@ -178,6 +180,7 @@ public class Settings extends AppCompatPreferenceActivity {
             returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
+            returnIntent.putExtra(getString(R.string.intent_text_color), true);
         }
         if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
@@ -268,6 +271,8 @@ public class Settings extends AppCompatPreferenceActivity {
             returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
         } else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM)){
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
+        } else if (key.equals(PREF_KEY_TEXT_COLOR)){
+            returnIntent.putExtra(getString(R.string.intent_text_color), true);
         }
     }
 
@@ -393,6 +398,7 @@ public class Settings extends AppCompatPreferenceActivity {
             settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
             settings.preferenceCardBackground = (DialogPreferenceCardBackground) findPreference(getString(R.string.pref_key_cards_background));
             settings.preferenceBackgroundColor = (DialogPreferenceBackgroundColor) findPreference(getString(R.string.pref_key_background_color));
+            settings.preferenceTextColor = (DialogPreferenceTextColor) findPreference(getString(R.string.pref_key_text_color));
 
             settings.preferenceFourColorMode = (CheckBoxPreferenceFourColorMode) findPreference(getString(R.string.dummy_pref_key_4_color_mode));
             settings.preferenceHideAutoCompleteButton = (CheckBoxPreferenceHideAutoCompleteButton) findPreference(getString(R.string.dummy_pref_key_hide_auto_complete_button));
@@ -436,7 +442,6 @@ public class Settings extends AppCompatPreferenceActivity {
             Settings settings = (Settings) getActivity();
 
             settings.preferenceImmersiveMode = (CheckBoxPreference) findPreference(getString(R.string.pref_key_immersive_mode));
-            settings.preferenceEnsureMovabilty = (CheckBoxPreference) findPreference(getString(R.string.pref_key_ensure_movability));
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
                 settings.preferenceImmersiveMode.setEnabled(false);

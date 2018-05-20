@@ -134,10 +134,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         Stack.loadBackgrounds();
         recordList = new RecordList();
 
-        updateMenuBar();
-        loadBackgroundColor();
-
-
         //initialize cards and stacks
         for (int i = 0; i < stacks.length; i++) {
             stacks[i] = new Stack(i);
@@ -151,6 +147,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             cards[i].view = new CustomImageView(this, this, CustomImageView.Object.CARD, i);
             layoutGame.addView(cards[i].view);
         }
+
+        updateMenuBar();
+        loadBackgroundColor();
+        setUiElementsColor();
 
         scores.output();
 
@@ -544,6 +544,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
+    private void setUiElementsColor(){
+        int textColor = prefs.getSavedTextColor();
+
+        mainTextViewTime.setTextColor(textColor);
+        mainTextViewScore.setTextColor(textColor);
+        hideMenu.setColorFilter(textColor);
+
+        for (Stack stack: stacks){
+            stack.view.setColorFilter(textColor);
+        }
+    }
+
     public void applyGameLayoutMargins(RelativeLayout.LayoutParams params, boolean isLandscape){
         int savedValue;
         int margin = 0;
@@ -726,6 +738,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
                 if (data.hasExtra(getString(R.string.intent_update_menu_bar))){
                     updateMenuBar();
+                }
+                if (data.hasExtra(getString(R.string.intent_text_color))){
+                    setUiElementsColor();
                 }
             }
         }
