@@ -283,26 +283,6 @@ public class Freecell extends Game {
     }
 
     private int getPowerMoveCount(boolean movingToEmptyStack){
-        //thanks to matejx for providing this formula
-        int numberOfFreeCells = 0;
-        int numberOfFreeTableauStacks = 0;
-
-        for (int i=8;i<12;i++){
-            if (stacks[i].isEmpty()){
-                numberOfFreeCells++;
-            }
-        }
-
-        for (int i=0;i<8;i++){
-            if (stacks[i].isEmpty()){
-                numberOfFreeTableauStacks++;
-            }
-        }
-
-        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
-            numberOfFreeTableauStacks --;
-        }
-
-        return (numberOfFreeCells+1)*(1<<numberOfFreeTableauStacks);
+        return getPowerMoveCount(new int[]{8,9,10,11}, new int[]{0,1,2,3,4,5,6,7}, movingToEmptyStack);
     }
 }

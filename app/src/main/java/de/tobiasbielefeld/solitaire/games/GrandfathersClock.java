@@ -287,9 +287,9 @@ public class GrandfathersClock extends Game {
                 }
 
                 if (cardToMove.isTopCard()) {
-                    for (int k = 8; k < 19; k++) {
-                        if (cardToMove.test(stacks[k])) {
-                            return new CardAndStack(cardToMove, stacks[k]);
+                    for (int k = 0; k < 12; k++) {
+                        if (cardToMove.test(stacks[8+k])) {
+                            return new CardAndStack(cardToMove, stacks[8+k]);
                         }
                     }
                 }
@@ -312,7 +312,7 @@ public class GrandfathersClock extends Game {
             }
         }
 
-        return null;
+        return findBestSequenceToMoveToEmptyStack(DOESNT_MATTER);
     }
 
     public Stack doubleTapTest(Card card) {
@@ -396,19 +396,6 @@ public class GrandfathersClock extends Game {
     }
 
     private int getPowerMoveCount(boolean movingToEmptyStack){
-        //thanks to matejx for providing this formula
-        int numberOfFreeTableauStacks = 0;
-
-        for (int i=0;i<8;i++){
-            if (stacks[i].isEmpty()){
-                numberOfFreeTableauStacks++;
-            }
-        }
-
-        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
-            numberOfFreeTableauStacks --;
-        }
-
-        return (1<<numberOfFreeTableauStacks);
+        return getPowerMoveCount(new int[]{}, new int[]{0,1,2,3,4,5,6,7}, movingToEmptyStack);
     }
 }

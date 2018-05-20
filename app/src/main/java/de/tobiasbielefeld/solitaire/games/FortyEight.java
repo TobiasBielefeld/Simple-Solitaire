@@ -310,19 +310,6 @@ public class FortyEight extends Game {
     }
 
     private int getPowerMoveCount(boolean movingToEmptyStack){
-        //thanks to matejx for providing this formula
-        int numberOfFreeTableauStacks = 0;
-
-        for (int i=0;i<8;i++){
-            if (stacks[i].isEmpty()){
-                numberOfFreeTableauStacks++;
-            }
-        }
-
-        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
-            numberOfFreeTableauStacks --;
-        }
-
-        return (1<<numberOfFreeTableauStacks);
+        return getPowerMoveCount(new int[]{}, new int[]{0,1,2,3,4,5,6,7}, movingToEmptyStack);
     }
 }

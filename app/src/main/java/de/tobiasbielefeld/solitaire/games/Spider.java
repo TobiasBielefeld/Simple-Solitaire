@@ -102,7 +102,7 @@ public class Spider extends Game {
             }
         }
 
-        return null;
+        return findBestSequenceToMoveToEmptyStack(SAME_FAMILY);
     }
 
     public Stack doubleTapTest(Card card) {

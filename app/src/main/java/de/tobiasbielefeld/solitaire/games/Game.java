@@ -40,6 +40,7 @@ import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_COLOR;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_FAMILY;
@@ -905,6 +906,7 @@ public abstract class Game {
 
         return false;
     }
+
     /**
      * Applies the direction borders, which were set using setDirectionBorders().
      * This will be automatically called when a game starts.
@@ -923,6 +925,89 @@ public abstract class Game {
                 stack.setSpacingMax(layoutGame);
             }
         }
+    }
+
+    /*
+     * If no card could be found, try to move the longest correct sequence from the stacks to
+     * an empty one.
+     */
+    protected CardAndStack findBestSequenceToMoveToEmptyStack(testMode mode){
+
+        Card cardToMove = null;
+        int sequenceLength = 0;
+        Stack emptyStack = null;
+
+        //find an empty stack to move to.
+        for (int i = 0; i < 10; i++) {
+            if (stacks[i].isEmpty()) {
+               emptyStack = stacks[i];
+            }
+        }
+
+        if (emptyStack == null){
+            return null;
+        }
+
+        for (int i = 0; i < 10; i++) {
+            Stack sourceStack = stacks[i];
+
+            if (sourceStack.isEmpty() || foundationStacksContain(i)){
+                continue;
+            }
+
+            for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
+                if (testCardsUpToTop(sourceStack, j, mode)){
+                    Card card = sourceStack.getCard(j);
+
+                    if (j!=0 && !hint.hasVisited(sourceStack.getCard(j)) && cardTest(emptyStack, card)){
+                        int length = sourceStack.getSize() - j;
+
+                        if (length > sequenceLength) {
+                            cardToMove = card;
+                            sequenceLength = length;
+                        }
+                    }
+
+                    break;
+                }
+
+            }
+        }
+
+        //find an empty stack to move to.
+        if (cardToMove != null) {
+            for (int i = 0; i < 10; i++) {
+                if (stacks[i].isEmpty()) {
+                    return  new CardAndStack(cardToMove, stacks[i]);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    protected int getPowerMoveCount(int[] cellIDs, int[] stackIDs, boolean movingToEmptyStack){
+        //thanks to matejx for providing this formula
+        int numberOfFreeCells = 0;
+        int numberOfFreeTableauStacks = 0;
+
+        for (int id : cellIDs){
+            if (stacks[id].isEmpty()){
+                numberOfFreeCells++;
+            }
+        }
+
+        for (int id : stackIDs){
+            if (stacks[id].isEmpty()){
+                numberOfFreeTableauStacks++;
+            }
+        }
+
+        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
+            numberOfFreeTableauStacks --;
+        }
+
+        return (numberOfFreeCells+1)*(1<<numberOfFreeTableauStacks);
     }
 
     /**
