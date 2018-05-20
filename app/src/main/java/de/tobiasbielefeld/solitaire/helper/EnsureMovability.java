@@ -161,7 +161,6 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
     @Override
     protected void onPostExecute(Boolean result) {
-
         if (!result && !isCancelled()){
             gameLogic.newGameForEnsureMovability();
         } else {

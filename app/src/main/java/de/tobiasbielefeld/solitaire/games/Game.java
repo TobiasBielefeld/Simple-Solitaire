@@ -974,16 +974,7 @@ public abstract class Game {
             }
         }
 
-        //find an empty stack to move to.
-        if (cardToMove != null) {
-            for (int i = 0; i < 10; i++) {
-                if (stacks[i].isEmpty()) {
-                    return  new CardAndStack(cardToMove, stacks[i]);
-                }
-            }
-        }
-
-        return null;
+        return cardToMove != null ? new CardAndStack(cardToMove,emptyStack) : null;
     }
 
     protected int getPowerMoveCount(int[] cellIDs, int[] stackIDs, boolean movingToEmptyStack){

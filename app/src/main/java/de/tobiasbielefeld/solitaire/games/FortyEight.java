@@ -206,6 +206,10 @@ public class FortyEight extends Game {
                 if (!stacks[j].isEmpty() && cardTest(stacks[j], cardToTest) && cardToTest.getValue() != 1) {
                     return new CardAndStack(cardToTest, stacks[j]);
                 }
+
+                if (stacks[j].isEmpty() && cardToTest.getValue() == 13){
+                    return new CardAndStack(cardToTest, stacks[j]);
+                }
             }
 
             for (int j = 0; j < 8; j++) {
@@ -215,7 +219,18 @@ public class FortyEight extends Game {
             }
         }
 
-        return null;
+        /*if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard()) && getRemainingNumberOfRecycles() == 0) {
+            Card cardToTest = getDiscardStack().getTopCard();
+
+            for (int j = 0; j < 8; j++) {
+                if (stacks[j].isEmpty()) {
+                    return new CardAndStack(cardToTest, stacks[j]);
+                }
+            }
+        }*/
+
+
+        return findBestSequenceToMoveToEmptyStack(SAME_FAMILY);
     }
 
     @Override
