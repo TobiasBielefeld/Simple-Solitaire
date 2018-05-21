@@ -32,7 +32,6 @@ import java.util.Locale;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.handler.HandlerDealCards;
-import de.tobiasbielefeld.solitaire.handler.HandlerRecordListUndo;
 import de.tobiasbielefeld.solitaire.helper.AutoMove;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -91,7 +90,6 @@ public class SharedData {
 
     public static HandlerTestAfterMove handlerTestAfterMove = new HandlerTestAfterMove();
     public static HandlerTestIfWon handlerTestIfWon = new HandlerTestIfWon();
-    public static HandlerRecordListUndo handlerRecordListUndo = new HandlerRecordListUndo();
     public static HandlerDealCards handlerDealCards = new HandlerDealCards();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;

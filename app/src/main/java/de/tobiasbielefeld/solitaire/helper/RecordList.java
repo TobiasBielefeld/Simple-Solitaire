@@ -18,9 +18,13 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.os.Handler;
+import android.os.Message;
+
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CustomHandler;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
@@ -35,6 +39,7 @@ public class RecordList {
 
     public static int maxRecords;
     public ArrayList<Entry> entries = new ArrayList<>();
+    private CustomHandler handler;
 
     private boolean isWorking = false;
 
@@ -45,6 +50,12 @@ public class RecordList {
 
     public RecordList(){
         setMaxRecords();
+        handler = new CustomHandler(new CustomHandler.MessageCallBack() {
+            @Override
+            public void sendMessage() {
+                handleMessage();
+            }
+        });
     }
 
     /**
@@ -223,7 +234,6 @@ public class RecordList {
         private ArrayList<Stack> currentOrigins = new ArrayList<>();
         private ArrayList<Card> flipCards = new ArrayList<>();
 
-        private GameManager gm;
         private boolean alreadyDecremented = false;
 
         public ArrayList<Card> getCurrentCards(){
@@ -352,7 +362,7 @@ public class RecordList {
                 card.flipWithAnim();
             }
 
-            handlerRecordListUndo.sendEmptyMessageDelayed(0,0);
+            recordList.handler.sendDelayed();
         }
 
         /**
@@ -424,7 +434,7 @@ public class RecordList {
             for (int i = 0; i < tempCards.size(); i++) {
                 currentCards.add(tempCards.get(i));
                 currentOrigins.add(tempOrigins.get(i));
-                moveOrder.add(tempMoveOrders.get(i)+1);                                         //increment the orders by one
+                moveOrder.add(tempMoveOrders.get(i)+1);                                             //increment the orders by one
             }
         }
 
@@ -443,6 +453,13 @@ public class RecordList {
 
         while (entries.size() > maxRecords) {
             entries.remove(0);
+        }
+    }
+
+    private void handleMessage(){
+        if (recordList.hasMoreToUndo()){
+            recordList.undoMore();
+            handler.sendDelayed();
         }
     }
 }

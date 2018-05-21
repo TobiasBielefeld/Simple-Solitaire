@@ -14,6 +14,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
 import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
 
@@ -41,8 +42,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.stopMovements;
 
 public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
-    private static int minPossibleMovements = 10;
-
     private DialogEnsureMovability dialog;
 
     /*private ArrayList<PossibleMovement> possibleMovements = new ArrayList<>();
@@ -64,7 +63,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
     @Override
     protected Boolean doInBackground(Object... objects) {
-        minPossibleMovements = prefs.getSavedEnsureMovabilityMinMoves();
+        int minPossibleMovements = prefs.getSavedEnsureMovabilityMinMoves();
         int counter = 0;
         boolean mainStackAlreadyFlipped = false;
         dialog = (DialogEnsureMovability) objects[0];

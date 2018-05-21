@@ -79,6 +79,7 @@ public abstract class Game {
     private int undoCosts = 25;
     private ArrayList<TextView> textViews = new ArrayList<>();
     private testMode mixCardsTestMode = testMode.DOESNT_MATTER;
+    private RecycleCounterCallback recycleCounterCallback;
 
     // some methods used by other classes
 
@@ -391,15 +392,6 @@ public abstract class Game {
      */
     public CardAndStack autoCompletePhaseTwo() {
         return null;
-    }
-
-    /**
-     * This method should deal a winnable game, by starting from a winning positon and shuffling the
-     * chards to the default deal position. Per default, this method will call the random dealCards()
-     * method.
-     */
-    public void dealWinnableGame(){
-        dealCards();
     }
 
     public boolean saveRecentScore(){
@@ -891,7 +883,7 @@ public abstract class Game {
     }
 
     public boolean movementDoneRecently(Card card, Stack destination){
-        for (int i=recordList.entries.size() -1; i >= recordList.entries.size() - 5; i--){
+        for (int i=recordList.entries.size() -1; i >= recordList.entries.size() - 5 && i>0; i--){
             RecordList.Entry entry = recordList.entries.get(i);
 
             for (int j=0;j<entry.getCurrentCards().size();j++){
@@ -974,7 +966,11 @@ public abstract class Game {
             }
         }
 
-        return cardToMove != null ? new CardAndStack(cardToMove,emptyStack) : null;
+        if (cardToMove != null && !movementDoneRecently(cardToMove, emptyStack)) {
+            return new CardAndStack(cardToMove, emptyStack);
+        }
+
+        return null;
     }
 
     protected int getPowerMoveCount(int[] cellIDs, int[] stackIDs, boolean movingToEmptyStack){
@@ -1263,14 +1259,6 @@ public abstract class Game {
         return mainStackIDs[0];
     }
 
-
-    private RecycleCounterCallback recycleCounterCallback;
-
-    public interface RecycleCounterCallback {
-        void updateTextView();
-
-    }
-
     public void setRecycleCounterCallback(RecycleCounterCallback callback) {
         recycleCounterCallback = callback;
     }
@@ -1286,5 +1274,8 @@ public abstract class Game {
         textViews.get(index).setY(stack.getY() - textViews.get(index).getMeasuredHeight());
     }
 
+    public interface RecycleCounterCallback {
+        void updateTextView();
 
+    }
 }

@@ -18,11 +18,16 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.os.Handler;
+import android.os.Message;
+
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.CardAndStack;
+import de.tobiasbielefeld.solitaire.classes.CustomHandler;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.handler.HandlerHint;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -36,18 +41,38 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Hint {
 
-    public static final int MAX_NUMBER_OF_HINTS = 3;                                                //max number of hints which are shown when pressing the button
-    public HandlerHint handlerHint;                                             //handler to show the hinzd
+    private static final int MAX_NUMBER_OF_HINTS = 3;                                                //max number of hints which are shown when pressing the button
 
     private int counter = 0;                                                                        //counter to know how many hints were shown
-    private Card[] visited = new Card[MAX_NUMBER_OF_HINTS];                                         //array for already shown cards in hint
+    private boolean showedFirstHint = false;
+    private boolean working = false;
+    private GameManager gm;
+    private ArrayList<Card> visited;                                                                //array for already shown cards in hint
+    private CustomHandler handler;                                                                  //handler to show the hints
 
     public Hint(GameManager gm){
-        handlerHint = new HandlerHint(gm);
+        handler = new CustomHandler(new CustomHandler.MessageCallBack() {
+            @Override
+            public void sendMessage() {
+                handleMessage();
+            }
+        });
+
+        visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);
+        this.gm = gm;
     }
 
-    public void showHint() {
-        handlerHint.sendEmptyMessage(0);
+    public void start() {
+        showedFirstHint = false;
+        working = true;
+        visited.clear();
+        counter = 0;
+
+        handler.sendDelayed();
+    }
+
+    public void stop() {
+        working = false;
     }
 
     /**
@@ -64,7 +89,8 @@ public class Hint {
             scores.update(-currentGame.getHintCosts());
         }
 
-        visited[counter] = card;
+        addToVisited(card);
+
 
         for (int i = index; i < origin.getSize(); i++) {
             currentCards.add(origin.getCard(i));
@@ -75,35 +101,50 @@ public class Hint {
         }
     }
 
-    /**
-     * tests a card if it has been visited in the current hint
-     *
-     * @param test_card The card to test
-     * @return True if the card has been visited, false otherwise
-     */
-    public boolean hasVisited(Card test_card) {
-        for (int i = 0; i < counter; i++) {
-            if (test_card == visited[i]) {
-                return true;
-            }
-        }
+    public void handleMessage(){
+        if (working && counter < Hint.MAX_NUMBER_OF_HINTS) {
+            CardAndStack cardAndStack;
 
-        return false;
+            if (!animate.cardIsAnimating()) {
+                cardAndStack = currentGame.hintTest();
+
+                if (cardAndStack == null) {
+                    if (!showedFirstHint){
+                        showToast(gm.getString(R.string.dialog_no_hint_available),gm);
+                    }
+
+                    hint.stop();
+
+                } else {
+                    if (!showedFirstHint) {
+                        sounds.playSound(Sounds.names.HINT);
+                        showedFirstHint = true;
+
+                        int amount = prefs.getSavedTotalHintsShown() + 1;
+                        prefs.saveTotalHintsShown(amount);
+                    }
+
+                    hint.move(cardAndStack.getCard(), cardAndStack.getStack());
+                }
+
+                counter++;
+            }
+
+            handler.sendDelayed();
+        } else {
+            stop();
+        }
+    }
+
+    public void addToVisited(Card card){
+        visited.add(card);
+    }
+
+    public boolean hasVisited(Card testCard) {
+        return visited.contains(testCard);
     }
 
     public boolean isWorking() {
-        return counter != 0;
-    }
-
-    public void stop() {
-        counter = MAX_NUMBER_OF_HINTS;
-    }
-
-    public int getCounter() {
-        return counter;
-    }
-
-    public void setCounter(int value) {
-        counter = value;
+        return working;
     }
 }
