@@ -174,13 +174,13 @@ public class GameLogic {
         randomize(randomCards);
         redealForEnsureMovability();
 
-        if (dialogEnsureMovability == null) {
+        /*if (dialogEnsureMovability == null) {
             //dialogEnsureMovability = new DialogEnsureMovability();
             //dialogEnsureMovability.show(gm.getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
         } else {
 
             dialogEnsureMovability.startTest();
-        }
+        }*/
     }
 
     /**
@@ -220,6 +220,9 @@ public class GameLogic {
             card.flipDown();
         }
 
+        //to reset the recycle counter
+        currentGame.reset();
+
         currentGame.dealNewGame();
     }
 
@@ -234,7 +237,7 @@ public class GameLogic {
             currentGame.onGameEnd();
         }
 
-        currentGame.reset(gm);
+        currentGame.reset();
         animate.reset();
         scores.reset();
         movingCards.reset();

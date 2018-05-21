@@ -321,7 +321,6 @@ public abstract class Game {
     abstract public int onMainStackTouch();
 
     public int mainStackTouch(){
-
         if (hasLimitedRecycles() && getDealStack().isEmpty() && discardStacksContainCards()) {
             if (getRemainingNumberOfRecycles() == 0) {
                 return 0;
@@ -424,16 +423,12 @@ public abstract class Game {
     /**
      * Does stuff on game reset. By default, it resets the recycle counter (if there is one).
      * If games need to reset additional stuff, put it here
-     *
-     * @param gm A reference to the game manager, to update the ui redeal counter
      */
     @CallSuper
-    public void reset(GameManager gm) {
+    public void reset() {
         if (hasLimitedRecycles) {
             recycleCounter = 0;
-
             recycleCounterCallback.updateTextView();
-           // gm.updateNumberOfRecycles();
         }
     }
 

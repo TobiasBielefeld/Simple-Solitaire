@@ -62,8 +62,8 @@ public class Golf extends Game {
     }
 
     @Override
-    public void reset(GameManager gm) {
-        super.reset(gm);
+    public void reset() {
+        super.reset();
         runCounter = 0;
     }
 

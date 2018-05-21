@@ -175,7 +175,7 @@ public class Gypsy extends Game {
             }
         }
 
-        return null;
+        return findBestSequenceToMoveToEmptyStack(ALTERNATING_COLOR);
     }
 
     @Override

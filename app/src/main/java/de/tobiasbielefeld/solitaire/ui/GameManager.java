@@ -87,6 +87,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean activityPaused;
     public ImageView hideMenu;
     public LinearLayout menuBar;
+    private DialogEnsureMovability dialogEnsureMovability;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -138,10 +139,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         gameLogic.setStartEnsureMovabilityDialog(new GameLogic.StartEnsureMovabilityDialog() {
             @Override
             public DialogEnsureMovability show() {
-                DialogEnsureMovability dialog = new DialogEnsureMovability();
-                dialog.show(getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
+                dialogEnsureMovability = new DialogEnsureMovability();
+                dialogEnsureMovability.show(getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
 
-                return dialog;
+                return dialogEnsureMovability;
             }
         });
 
@@ -265,6 +266,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         activityPaused = true;
+
+        if (dialogEnsureMovability!=null && dialogEnsureMovability.isVisible()){
+           dialogEnsureMovability.stop();
+        }
     }
 
     @Override

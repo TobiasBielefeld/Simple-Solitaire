@@ -473,8 +473,8 @@ public class DummyGame extends Game {
      *  use this if you need to reset something on a game start. Call super if your games
      *  has limited recycles to reset them automatically
      */
-    public void reset(GameManager gm) {
-        super.reset(gm);
+    public void reset() {
+        super.reset();
     }
 
 

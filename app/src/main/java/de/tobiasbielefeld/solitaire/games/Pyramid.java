@@ -45,8 +45,8 @@ public class Pyramid extends Game {
     ArrayList<Stack> origins = new ArrayList<>();
 
     @Override
-    public void reset(GameManager gm) {
-        super.reset(gm);
+    public void reset() {
+        super.reset();
         cardsToMove.clear();
     }
 

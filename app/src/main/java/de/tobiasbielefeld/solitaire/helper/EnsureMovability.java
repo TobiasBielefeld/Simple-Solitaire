@@ -44,6 +44,8 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
     private DialogEnsureMovability dialog;
 
+    private int counter = 0;
+    private boolean mainStackAlreadyFlipped = false;
     /*private ArrayList<PossibleMovement> possibleMovements = new ArrayList<>();
     private Random random = new Random();
     private List<Entry> trace = new ArrayList<>(MIN_POSSIBLE_MOVEMENTS);
@@ -64,8 +66,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
     @Override
     protected Boolean doInBackground(Object... objects) {
         int minPossibleMovements = prefs.getSavedEnsureMovabilityMinMoves();
-        int counter = 0;
-        boolean mainStackAlreadyFlipped = false;
+
         dialog = (DialogEnsureMovability) objects[0];
 
         while (true) {
@@ -98,6 +99,8 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                     currentGame.cardTest(destination,card);
                 }
 
+                //logText("Moving " + cardsToMove.get(0).getValue() + " to stack " + cardsToMove.get(0).getStackId());
+                //logText("Counter: " + counter);
                 moveToStack(cardsToMove, destination);
 
                 if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp()) {
@@ -108,22 +111,17 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
                 mainStackAlreadyFlipped = false;
                 counter ++;
-            }  else if (currentGame.hasMainStack()){
-                switch (currentGame.mainStackTouch()){
-                    case 0:
-                        return false;
-                    //case 1: just goto next iteration
-                    case 2:
-                        if (mainStackAlreadyFlipped) {
-                            return false;
-                        } else {
-                            mainStackAlreadyFlipped = true;
-                        }
-                        break;
+            }  else if (currentGame.hasMainStack() && !isCancelled()){
+                int result = currentGame.mainStackTouch();
+
+                if (result == 0 || (result == 2 && mainStackAlreadyFlipped)) {
+                    nextTry();
+                } else if (result == 2){
+                    mainStackAlreadyFlipped = true;
                 }
 
             } else {
-                return false;
+                nextTry();
             }
 
 
@@ -158,11 +156,23 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
         }
     }
 
+    private void nextTry(){
+        //logText("starting new game");
+
+        if (isCancelled()){
+            return;
+        }
+
+        counter = 0;
+        mainStackAlreadyFlipped = false;
+        gameLogic.newGameForEnsureMovability();
+    }
+
     @Override
     protected void onPostExecute(Boolean result) {
-        if (!result && !isCancelled()){
-            gameLogic.newGameForEnsureMovability();
-        } else {
+        stopMovements = false;
+
+        if (result) {
 
             try {
                 dialog.dismiss();
@@ -170,15 +180,15 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                 //Meh
             }
 
-            stopMovements = false;
             gameLogic.redeal();
         }
+
     }
 
     @Override
     protected void onCancelled() {
-        stopMovements = false;
-        gameLogic.redeal();
+        //stopMovements = false;
+        //gameLogic.redeal();
     }
 
     /*private static class PossibleMovement{

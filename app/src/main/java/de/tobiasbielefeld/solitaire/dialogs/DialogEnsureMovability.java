@@ -25,6 +25,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.cards;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.stopMovements;
 import static de.tobiasbielefeld.solitaire.classes.Card.movements.NONE;
 
 /**
@@ -64,7 +65,14 @@ public class DialogEnsureMovability extends CustomDialogFragment implements View
 
     @Override
     public void onClick(View view) {
-        getDialog().dismiss();
+        stop();
+    }
+
+    public void stop(){
+        this.dismiss();
+
         ensureMovabilty.cancel(true);
+        stopMovements = false;
+        gameLogic.redeal();
     }
 }

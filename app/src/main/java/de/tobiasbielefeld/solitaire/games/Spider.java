@@ -87,6 +87,10 @@ public class Spider extends Game {
                             continue;
                         }
 
+                        if (j == 0 && destStack.getTopCard().getValue() == cardToMove.getValue() + 1 &&  destStack.getTopCard().getColor() != cardToMove.getColor()){
+                            continue;
+                        }
+
                         //try to prefer stacks with a top card of the same family as the moving card
                         if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor())) {
                             returnStack = destStack;
