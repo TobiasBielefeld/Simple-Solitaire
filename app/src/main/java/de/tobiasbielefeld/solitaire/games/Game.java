@@ -70,6 +70,7 @@ public abstract class Game {
     private int lastFoundationID = -1;
     private int recycleCounter = 0;
     private int totalRecycles = 0;
+    private int textViewColor = 0;
     private boolean hasArrow = false;
     private boolean singleTapEnabled = false;
     private boolean bonusEnabled = true;
@@ -547,7 +548,7 @@ public abstract class Game {
             textView.setWidth(width);
             TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat);
             textView.setGravity(Gravity.CENTER);
-            textView.setTextColor(Color.rgb(0, 0, 0));
+            textView.setTextColor(textViewColor);
             layout.addView(textView);
             textView.measure(0, 0);
             textViews.add(textView);
@@ -1277,5 +1278,13 @@ public abstract class Game {
     public interface RecycleCounterCallback {
         void updateTextView();
 
+    }
+
+    public void textViewSetColor(int color){
+        textViewColor = color;
+
+        for (TextView view : textViews){
+            view.setTextColor(color);
+        }
     }
 }

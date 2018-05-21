@@ -555,6 +555,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         for (Stack stack: stacks){
             stack.view.setColorFilter(textColor);
         }
+
+        currentGame.textViewSetColor(textColor);
     }
 
     public void applyGameLayoutMargins(RelativeLayout.LayoutParams params, boolean isLandscape){
