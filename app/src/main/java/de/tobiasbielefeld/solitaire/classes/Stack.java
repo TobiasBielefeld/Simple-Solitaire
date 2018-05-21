@@ -530,16 +530,16 @@ public class Stack {
      */
     public void setSpacingMax(RelativeLayout layoutGame) {
 
-        RelativeLayout container = (RelativeLayout) layoutGame.getParent();
-        RelativeLayout overlay = (RelativeLayout) container.findViewById(R.id.mainRelativeLayoutGameOverlay);
-        ImageView menuResize = (ImageView) overlay.findViewById(R.id.mainImageViewResize);
+        //RelativeLayout container = (RelativeLayout) layoutGame.getParent();
+        //RelativeLayout overlay = (RelativeLayout) container.findViewById(R.id.mainRelativeLayoutGameOverlay);
+        //ImageView menuResize = (ImageView) overlay.findViewById(R.id.mainImageViewResize);
 
         switch (spacingDirection) {
             case NONE:
             default:
                 break;
             case DOWN:
-                spacingMax = (float) (layoutGame.getHeight() - Card.height - menuResize.getHeight());
+                spacingMax = (float) (layoutGame.getHeight() - Card.height); // - menuResize.getHeight());
                 break;
             case UP:
                 spacingMax = 0;
