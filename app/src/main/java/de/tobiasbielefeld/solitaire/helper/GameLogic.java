@@ -379,8 +379,9 @@ public class GameLogic {
         if (currentGame.hasLimitedRecycles()) {
             currentGame.setNumberOfRecycles(key, defaultValue);
 
-            gm.updateNumberOfRecycles();
-            gm.updateLimitedRecyclesCounter();
+
+            //gm.updateNumberOfRecycles();
+            //gm.updateLimitedRecyclesCounter();
         }
     }
 

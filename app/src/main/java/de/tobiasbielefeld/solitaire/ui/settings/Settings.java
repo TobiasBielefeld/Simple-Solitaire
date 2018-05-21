@@ -180,6 +180,8 @@ public class Settings extends AppCompatPreferenceActivity {
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
             returnIntent.putExtra(getString(R.string.intent_text_color), true);
+            returnIntent.putExtra(getString(R.string.intent_update_score_visibility), true);
+            returnIntent.putExtra(getString(R.string.intent_update_time_visibility), true);
         }
         if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
@@ -234,10 +236,6 @@ public class Settings extends AppCompatPreferenceActivity {
         } else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)){
             restartApplication();
 
-        } else if (key.equals(PREF_KEY_HIDE_SCORE)) {
-            if (scores!=null) {
-                scores.output();
-            }
         } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
             if (sharedPreferences.getBoolean(key,false) && preferenceTapToSelect!=null) {
                 preferenceTapToSelect.setChecked(false);
@@ -272,6 +270,10 @@ public class Settings extends AppCompatPreferenceActivity {
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
         } else if (key.equals(PREF_KEY_TEXT_COLOR)){
             returnIntent.putExtra(getString(R.string.intent_text_color), true);
+        } else if (key.equals(PREF_KEY_HIDE_SCORE)){
+            returnIntent.putExtra(getString(R.string.intent_update_score_visibility), true);
+        } else if (key.equals(PREF_KEY_HIDE_TIME)){
+            returnIntent.putExtra(getString(R.string.intent_update_time_visibility), true);
         }
     }
 

@@ -432,7 +432,8 @@ public abstract class Game {
         if (hasLimitedRecycles) {
             recycleCounter = 0;
 
-            gm.updateNumberOfRecycles();
+            recycleCounterCallback.updateTextView();
+           // gm.updateNumberOfRecycles();
         }
     }
 
@@ -1084,6 +1085,10 @@ public abstract class Game {
     public void setNumberOfRecycles(String key, String defaultValue){
         int recycles = prefs.getSavedNumberOfRecycles(key, defaultValue);
         setLimitedRecycles(recycles);
+
+        if (recycleCounterCallback != null) {
+            recycleCounterCallback.updateTextView();
+        }
     }
 
     protected void disableBonus(){

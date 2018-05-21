@@ -190,5 +190,7 @@
     <string name="intent_text_color" translatable="false">intent_text_color</string>
     <string name="intent_update_game_layout" translatable="false">intent_update_game_layout</string>
     <string name="intent_update_menu_bar" translatable="false">intent_update_menu_bar</string>
+    <string name="intent_update_score_visibility" translatable="false">intent_update_score_visibility</string>
+    <string name="intent_update_time_visibility" translatable="false">intent_update_time_visibility</string>
 
 </resources>

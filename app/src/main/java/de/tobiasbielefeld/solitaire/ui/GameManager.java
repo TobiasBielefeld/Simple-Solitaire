@@ -62,6 +62,8 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 import de.tobiasbielefeld.solitaire.ui.statistics.StatisticsActivity;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.DOWN;
@@ -113,8 +115,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         hideMenu = (ImageView) findViewById(R.id.mainImageViewResize);
         menuBar = (LinearLayout) findViewById(R.id.linearLayoutMenuBar);
 
-        //imageView.getBackground().setLevel(5000);
-
         //initialize my static helper stuff
         final GameManager gm = this;
 
@@ -145,6 +145,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
         });
 
+        scores.setCallback(new Scores.UpdateScore() {
+            @Override
+            public void setText(long score, String dollar) {
+                updateScore(score,dollar);
+            }
+        });
+
         prefs.setGamePreferences(this);
         Stack.loadBackgrounds();
         recordList = new RecordList();
@@ -166,6 +173,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         updateMenuBar();
         loadBackgroundColor();
         setUiElementsColor();
+
+        if (prefs.getSavedHideScore()){
+            mainTextViewScore.setVisibility(GONE);
+        }
+
+        if (prefs.getSavedHideTime()){
+            mainTextViewTime.setVisibility(GONE);
+        }
 
         scores.output();
 
@@ -275,9 +290,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (gameLogic.stopConditions()){
+            return false;
+        }
+
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             showRestartDialog();
-
             return true;
         }
 
@@ -690,7 +708,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         gameOverlayLower.setLayoutParams(params2);
         gameOverlayUpper.setLayoutParams(params3);
 
-        menuBar.setVisibility(prefs.getHideMenuBar() ? View.GONE : View.VISIBLE);
+        menuBar.setVisibility(prefs.getHideMenuBar() ? GONE : VISIBLE);
         updateHideMenuButton(isLandscape);
     }
 
@@ -708,11 +726,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         switch (view.getId()) {
             case R.id.mainImageViewResize:
-                if (menuBar.getVisibility() == View.VISIBLE){
-                    menuBar.setVisibility(View.GONE);
+                if (menuBar.getVisibility() == VISIBLE){
+                    menuBar.setVisibility(GONE);
                     prefs.saveHideMenuBar(true);
                 } else {
-                    menuBar.setVisibility(View.VISIBLE);
+                    menuBar.setVisibility(VISIBLE);
                     prefs.saveHideMenuBar(false);
                 }
 
@@ -766,17 +784,23 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 if (data.hasExtra(getString(R.string.intent_text_color))){
                     setUiElementsColor();
                 }
+                if (data.hasExtra(getString(R.string.intent_update_score_visibility))){
+                    mainTextViewScore.setVisibility(prefs.getSavedHideScore() ? GONE : VISIBLE);
+                }
+                if (data.hasExtra(getString(R.string.intent_update_time_visibility))){
+                    mainTextViewTime.setVisibility(prefs.getSavedHideTime() ? GONE : VISIBLE);
+                }
             }
         }
     }
 
     private void updateHideMenuButton(boolean isLandscape){
-        boolean menuBarVisible = menuBar.getVisibility() == View.VISIBLE;
+        boolean menuBarVisible = menuBar.getVisibility() == VISIBLE;
 
         if (prefs.getHideMenuButton()){
-            hideMenu.setVisibility(View.GONE);
+            hideMenu.setVisibility(GONE);
         } else {
-            hideMenu.setVisibility(View.VISIBLE);
+            hideMenu.setVisibility(VISIBLE);
 
             if (!isLandscape) {
                 if (prefs.getSavedMenuBarPosPortrait().equals("bottom")) {
@@ -794,10 +818,29 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
-    public void updateNumberOfRecycles() {
+    private void updateNumberOfRecycles() {
         if (!stopMovements) {
-            mainTextViewRecycles.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRecycles()));
+            mainTextViewRecycles.post(new Runnable() {
+                @Override
+                public void run() {
+                    mainTextViewRecycles.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRecycles()));
+                }
+            });
         }
+    }
+
+    private void updateScore(final long score, final String dollar){
+        if (stopMovements){
+            return;
+        }
+
+        mainTextViewScore.post(new Runnable() {
+            @Override
+            public void run() {
+                mainTextViewScore.setText(String.format("%s: %s %s",
+                        getString(R.string.game_score), score, dollar));
+            }
+        });
     }
 
     /*
@@ -850,11 +893,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     public void updateLimitedRecyclesCounter(){
         if (currentGame.hasLimitedRecycles() && !currentGame.hidesRecycleCounter()) {
-            mainTextViewRecycles.setVisibility(View.VISIBLE);
+            mainTextViewRecycles.setVisibility(VISIBLE);
             mainTextViewRecycles.setX(currentGame.getMainStack().getX());
             mainTextViewRecycles.setY(currentGame.getMainStack().getY());
         } else {
-            mainTextViewRecycles.setVisibility(View.GONE);
+            mainTextViewRecycles.setVisibility(GONE);
         }
 
     }

@@ -42,6 +42,7 @@ public class Scores {
     private long savedHighScores[][] = new long[MAX_SAVED_SCORES][3];                               //array to hold the saved scores with score and time
     private long savedRecentScores[][] = new long[MAX_SAVED_SCORES][3];                                   //array to hold the saved scores with score and time
     private GameManager gm;
+    private UpdateScore callback;
 
     public Scores(GameManager gm) {
         this.gm = gm;
@@ -307,22 +308,8 @@ public class Scores {
     }
 
     public void output() {
-        if (stopMovements){
-            return;
-        }
-
-        gm.mainTextViewScore.post(new Runnable() {
-            public void run() {
-                if (prefs.getSavedHideScore()) {
-                            gm.mainTextViewScore.setText("");
-                } else {
-                    final String dollar = currentGame.isPointsInDollar() ? "$" : "";
-                            gm.mainTextViewScore.setText(String.format("%s: %s %s",
-                                    gm.getString(R.string.game_score), score, dollar));
-
-                }
-            }
-        });
+        String dollar = currentGame.isPointsInDollar() ? "$" : "";
+        callback.setText(score, dollar);
     }
 
     private void setTotalTimePlayed(long time){
@@ -350,4 +337,14 @@ public class Scores {
     public long getBonus(){
         return bonus;
     }
+
+    public void setCallback(UpdateScore callback){
+        this.callback = callback;
+    }
+
+    public interface UpdateScore{
+        void setText(long score, String dollar);
+    }
+
+
 }
