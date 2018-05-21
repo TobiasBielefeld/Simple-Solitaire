@@ -101,7 +101,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                 moveToStack(cardsToMove, destination);
 
                 if (origin.getSize() > 0 && origin.getId() <= currentGame.getLastTableauId() && !origin.getTopCard().isUp()) {
-                    origin.getTopCard().flipWithAnim();
+                    origin.getTopCard().flip();
                 }
 
                 currentGame.testAfterMove();

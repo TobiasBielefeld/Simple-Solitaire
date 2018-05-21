@@ -94,6 +94,7 @@ public class SharedData {
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
     public static boolean stopMovements = false;
+    public static boolean isDialogVisible = false;
 
     private static Toast toast;
 

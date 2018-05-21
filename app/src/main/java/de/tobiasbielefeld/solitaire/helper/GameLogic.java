@@ -47,9 +47,18 @@ public class GameLogic {
     private GameManager gm;
     private boolean movedFirstCard = false;
     private DialogEnsureMovability dialogEnsureMovability;
+    private StartEnsureMovabilityDialog startEnsureMovabilityDialog;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
+    }
+
+    public interface StartEnsureMovabilityDialog{
+        DialogEnsureMovability show();
+    }
+
+    public void setStartEnsureMovabilityDialog(StartEnsureMovabilityDialog callback){
+        startEnsureMovabilityDialog = callback;
     }
 
     /**
@@ -183,11 +192,10 @@ public class GameLogic {
 
         if (prefs.getSavedEnsureMovability()) {
             stopMovements = true;
-            dialogEnsureMovability = new DialogEnsureMovability();
-            dialogEnsureMovability.show(gm.getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
 
             redealForEnsureMovability();
 
+            dialogEnsureMovability = startEnsureMovabilityDialog.show();
             dialogEnsureMovability.startTest();
         } else {
             redeal();
@@ -419,6 +427,6 @@ public class GameLogic {
      */
     public boolean stopConditions() {
         return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking()
-                || recordList.isWorking() || autoMove.isRunning() || stopMovements);
+                || recordList.isWorking() || autoMove.isRunning() || isDialogVisible);
     }
 }

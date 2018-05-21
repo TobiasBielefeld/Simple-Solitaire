@@ -44,6 +44,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
 import de.tobiasbielefeld.solitaire.dialogs.DialogInGameHelpMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogInGameMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
@@ -97,6 +98,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
 
+        if (savedInstanceState != null && savedInstanceState.containsKey("CHANGED")){
+            logText("HAS CHANGD");
+        }
+
         // load stuff
         highlight = (ImageView) findViewById(R.id.card_highlight);
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
@@ -127,6 +132,16 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             @Override
             public void updateTextView() {
                 updateNumberOfRecycles();
+            }
+        });
+
+        gameLogic.setStartEnsureMovabilityDialog(new GameLogic.StartEnsureMovabilityDialog() {
+            @Override
+            public DialogEnsureMovability show() {
+                DialogEnsureMovability dialog = new DialogEnsureMovability();
+                dialog.show(getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
+
+                return dialog;
             }
         });
 
@@ -303,6 +318,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         return true;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("CHANGED",true);
     }
 
     /**

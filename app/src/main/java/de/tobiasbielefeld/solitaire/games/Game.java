@@ -1275,11 +1275,6 @@ public abstract class Game {
         textViews.get(index).setY(stack.getY() - textViews.get(index).getMeasuredHeight());
     }
 
-    public interface RecycleCounterCallback {
-        void updateTextView();
-
-    }
-
     public void textViewSetColor(int color){
         textViewColor = color;
 
@@ -1287,4 +1282,10 @@ public abstract class Game {
             view.setTextColor(color);
         }
     }
+
+    public interface RecycleCounterCallback {
+        void updateTextView();
+
+    }
+
 }
