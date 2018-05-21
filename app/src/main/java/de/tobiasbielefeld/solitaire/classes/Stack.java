@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.classes;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.graphics.RectF;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.classes.Card.movements.INSTANT;
 import static de.tobiasbielefeld.solitaire.classes.Card.movements.NONE;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card.movements;
 
 /*
@@ -238,7 +240,6 @@ public class Stack {
 
         for (Integer i : list) {
             addCard(cards[i]);
-            //cards[i].view.bringToFront();
         }
 
         if (!gameLogic.hasWon()) {
@@ -529,12 +530,16 @@ public class Stack {
      */
     public void setSpacingMax(RelativeLayout layoutGame) {
 
+        RelativeLayout container = (RelativeLayout) layoutGame.getParent();
+        RelativeLayout overlay = (RelativeLayout) container.findViewById(R.id.mainRelativeLayoutGameOverlay);
+        ImageView menuResize = (ImageView) overlay.findViewById(R.id.mainImageViewResize);
+
         switch (spacingDirection) {
             case NONE:
             default:
                 break;
             case DOWN:
-                spacingMax = (float) (layoutGame.getHeight() - Card.height);
+                spacingMax = (float) (layoutGame.getHeight() - Card.height - menuResize.getHeight());
                 break;
             case UP:
                 spacingMax = 0;

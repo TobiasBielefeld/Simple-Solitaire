@@ -48,7 +48,6 @@ import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceTextColor;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
-import static android.content.ContentValues.TAG;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
@@ -269,7 +268,7 @@ public class Settings extends AppCompatPreferenceActivity {
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
         } else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
             returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
-        } else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM)){
+        } else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM) || key.equals(PREF_KEY_BACKGROUND_COLOR_TYPE)){
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
         } else if (key.equals(PREF_KEY_TEXT_COLOR)){
             returnIntent.putExtra(getString(R.string.intent_text_color), true);

@@ -165,7 +165,13 @@ public class GameLogic {
         randomize(randomCards);
         redealForEnsureMovability();
 
-        dialogEnsureMovability.startTest();
+        if (dialogEnsureMovability == null) {
+            //dialogEnsureMovability = new DialogEnsureMovability();
+            //dialogEnsureMovability.show(gm.getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
+        } else {
+
+            dialogEnsureMovability.startTest();
+        }
     }
 
     /**
