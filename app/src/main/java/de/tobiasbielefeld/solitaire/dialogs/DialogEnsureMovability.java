@@ -60,7 +60,5 @@ public class DialogEnsureMovability extends CustomDialogFragment implements View
         this.dismiss();
 
         ensureMovabilty.cancel(true);
-        stopMovements = false;
-        gameLogic.redeal();
     }
 }

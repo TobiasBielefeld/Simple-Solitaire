@@ -111,7 +111,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
                 mainStackAlreadyFlipped = false;
                 counter ++;
-            }  else if (currentGame.hasMainStack() && !isCancelled()){
+            }  else if (currentGame.hasMainStack()){
                 int result = currentGame.mainStackTouch();
 
                 if (result == 0 || (result == 2 && mainStackAlreadyFlipped)) {
@@ -187,8 +187,10 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
 
     @Override
     protected void onCancelled() {
-        //stopMovements = false;
-        //gameLogic.redeal();
+        //will be called after the user presses the "cancel" button in the dialog and after
+        //executing doInBackground() the last time
+        stopMovements = false;
+        gameLogic.redeal();
     }
 
     /*private static class PossibleMovement{
