@@ -10,8 +10,8 @@ Contact address: tobias.bielefeld [at] gmail.com
 ## Help translating here: [<img src="https://poeditor.com/public/images/logo_small.png" alt="Help translating this project" height="30">](https://poeditor.com/join/project/PYX4vcwTjA)
 
 
-#### Now contains 16 different Solitaire games!
-AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, GrandfathersClock, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
+#### Now contains 17 different Solitaire games!
+AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, Grandfather's Clock, Gypsy, Klondike, Mod3, Napoleon's Tomb, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
 
 # Simple Solitaire
 
