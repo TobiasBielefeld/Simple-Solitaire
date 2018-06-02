@@ -74,7 +74,7 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                 return false;
             }
 
-            if (counter == minPossibleMovements || currentGame.winTest()){
+            if (counter == minPossibleMovements || currentGame.winTest()) {
                 return true;
             }
 
@@ -95,8 +95,8 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                 }
 
                 //TODO manage this in another way
-                if (currentGame instanceof Pyramid){
-                    currentGame.cardTest(destination,card);
+                if (currentGame instanceof Pyramid) {
+                    currentGame.cardTest(destination, card);
                 }
 
                 //logText("Moving " + cardsToMove.get(0).getValue() + " to stack " + cardsToMove.get(0).getStackId());
@@ -110,13 +110,13 @@ public class EnsureMovability extends AsyncTask<Object, Void, Boolean>{
                 currentGame.testAfterMove();
 
                 mainStackAlreadyFlipped = false;
-                counter ++;
-            }  else if (currentGame.hasMainStack()){
+                counter++;
+            } else if (currentGame.hasMainStack()) {
                 int result = currentGame.mainStackTouch();
 
                 if (result == 0 || (result == 2 && mainStackAlreadyFlipped)) {
                     nextTry();
-                } else if (result == 2){
+                } else if (result == 2) {
                     mainStackAlreadyFlipped = true;
                 }
 

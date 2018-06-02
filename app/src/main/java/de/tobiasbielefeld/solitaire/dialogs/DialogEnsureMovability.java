@@ -57,8 +57,7 @@ public class DialogEnsureMovability extends CustomDialogFragment implements View
     }
 
     public void stop(){
-        this.dismiss();
-
+        dismiss();
         ensureMovabilty.cancel(true);
     }
 }
