@@ -1,0 +1,7 @@
+Tiu ĉi kolekto enhavas la jenajn ludojn:
+
+Araneo, Ava Horloĝo, Calculation, Canfield, Cigano, FreeCell, Golfo, Jukono, Klondiko, Kvar Asoj, Kvardek&Ok, Mod3, Piramido, Simpla Simono, Tri Pintoj, Tombo de Napoleono kaj Vegaso!
+
+Personigebla: 8 kart-stiloj, 10 kart-malantaŭoj kaj 6 fonaj koloroj.
+
+Ĉefaj eblaĵoj: aŭtomate konservi progreson de ludo, plej bonaj rezultoj por ĉiu ludo, butono “malfari” kaj konsiloj, subteno por vertikala reĝimo akj por tabulkomputiloj.
