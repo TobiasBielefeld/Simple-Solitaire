@@ -36,12 +36,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ConcurrentModificationException;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
+import de.tobiasbielefeld.solitaire.classes.CustomHandler;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
@@ -88,6 +90,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public ImageView hideMenu;
     public LinearLayout menuBar;
     private DialogEnsureMovability dialogEnsureMovability;
+    private boolean pausedEnsureMovabilityDialog = false;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -100,12 +103,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
+        pausedEnsureMovabilityDialog = false;
 
-        if (savedInstanceState != null && savedInstanceState.containsKey("CHANGED")){
-            logText("HAS CHANGD");
-        }
+        /*
+         * Initializing stuff
+         */
 
-        // load stuff
         highlight = (ImageView) findViewById(R.id.card_highlight);
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
         mainTextViewTime = (TextView) findViewById(R.id.mainTextViewTime);
@@ -128,6 +131,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         timer = new Timer(gm);
         sounds = new Sounds(gm);
         currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
+
+        /*
+         * Setting up callbacks
+         */
 
         currentGame.setRecycleCounterCallback(new Game.RecycleCounterCallback() {
             @Override
@@ -152,6 +159,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 updateScore(score,dollar);
             }
         });
+
+        /*
+         * Setting up game data
+         */
 
         prefs.setGamePreferences(this);
         Stack.loadBackgrounds();
@@ -197,7 +208,37 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
-                initializeLayout(true);
+                if (savedInstanceState != null) {
+
+                    if (savedInstanceState.containsKey(getString(R.string.bundle_ensure_movabiltiy_running))){
+
+                        new CustomHandler(new CustomHandler.MessageCallBack() {
+                            @Override
+                            public void sendMessage() {
+                                initializeLayout(false);
+                                gameLogic.load(true);
+                                gameLogic.newGame();
+                            }
+
+                            @Override
+                            public boolean additionalStopCondition() {
+                                return stopUiUpdates;
+                            }
+                        }).sendEmptyMessage(0);
+                    } else if (savedInstanceState.containsKey(getString(R.string.bundle_reload_game))){
+                        initializeLayout(false);
+                        gameLogic.load(true);
+                    }
+
+                    if (savedInstanceState.containsKey(getString(R.string.bundle_auto_complete_running))) {
+                        autoComplete.start();
+                    }
+
+
+                } else {
+                    initializeLayout(true);
+
+                }
             }
         });
     }
@@ -250,7 +291,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         updateLimitedRecyclesCounter();
 
         if (loadNewGame) {
-            HandlerLoadGame handlerLoadGame = new HandlerLoadGame(this);
+            HandlerLoadGame handlerLoadGame = new HandlerLoadGame();
             handlerLoadGame.sendEmptyMessageDelayed(0, 200);
         }
     }
@@ -265,10 +306,25 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             gameLogic.save();
         }
 
-        activityPaused = true;
+        if ((dialogEnsureMovability != null && dialogEnsureMovability.isRunning())) {
+            dialogEnsureMovability.interrupt();
+            pausedEnsureMovabilityDialog = true;
+        }
 
-        if (dialogEnsureMovability!=null && dialogEnsureMovability.isVisible()){
-           dialogEnsureMovability.stop();
+        activityPaused = true;
+    }
+
+        @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean(getString(R.string.bundle_reload_game),true);
+
+        if (dialogEnsureMovability != null && dialogEnsureMovability.isRunning()) {
+            outState.putBoolean(getString(R.string.bundle_ensure_movabiltiy_running),true);
+            //dialogEnsureMovability.saveOldGameStateToBundle(getResources(), outState);
+        } else if (autoComplete.isRunning()){
+            outState.putBoolean(getString(R.string.bundle_auto_complete_running), true);
         }
     }
 
@@ -287,6 +343,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //    updateGameLayout();
         //}
         activityPaused = false;
+
+        if (pausedEnsureMovabilityDialog){
+            gameLogic.load(true);
+            gameLogic.newGame();
+            pausedEnsureMovabilityDialog = false;
+        }
     }
 
     /**
@@ -341,12 +403,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         return true;
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean("CHANGED",true);
     }
 
     /**
@@ -824,7 +880,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     private void updateNumberOfRecycles() {
-        if (!stopMovements) {
+        if (!stopUiUpdates) {
             mainTextViewRecycles.post(new Runnable() {
                 @Override
                 public void run() {
@@ -835,7 +891,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     private void updateScore(final long score, final String dollar){
-        if (stopMovements){
+        if (stopUiUpdates){
             return;
         }
 

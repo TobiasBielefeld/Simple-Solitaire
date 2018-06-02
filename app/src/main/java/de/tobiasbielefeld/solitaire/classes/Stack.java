@@ -21,17 +21,12 @@ package de.tobiasbielefeld.solitaire.classes;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.graphics.RectF;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.classes.Card.movements.INSTANT;
-import static de.tobiasbielefeld.solitaire.classes.Card.movements.NONE;
-
-import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.classes.Card.movements;
 
 /*
  *  Contains everything around the cards. The current cards on it and the list of bitmaps for the
@@ -78,7 +73,7 @@ public class Stack {
     }
 
     public void setImageBitmap(Bitmap bitmap){
-        if (!stopMovements){
+        if (!stopUiUpdates){
             view.setImageBitmap(bitmap);
         }
     }
@@ -230,10 +225,15 @@ public class Stack {
         prefs.saveStacks(list,id);
     }
 
+    public void load(){
+        load(false);
+    }
+
     /**
      * Loads the cards which are on this stack from a string list and move the cards to this stack.
+     * @param withoutMovement tells if the cards should be instantaneously at their place or not
      */
-    public void load() {
+    public void load(boolean withoutMovement) {
         reset();
 
         ArrayList<Integer> list = prefs.getSavedStacks(id);
@@ -243,12 +243,15 @@ public class Stack {
         }
 
         if (!gameLogic.hasWon()) {
-            updateSpacing();
+            if (withoutMovement){
+                updateSpacingWithoutMovement();
+            } else {
+                updateSpacing();
+            }
         } else {
             for (Card card : currentCards) {
                 card.setLocationWithoutMovement(-5000, -5000);
             }
-
         }
     }
 

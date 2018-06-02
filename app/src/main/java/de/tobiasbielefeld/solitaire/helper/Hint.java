@@ -56,6 +56,11 @@ public class Hint {
             public void sendMessage() {
                 handleMessage();
             }
+
+            @Override
+            public boolean additionalStopCondition() {
+                return false;
+            }
         });
 
         visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);

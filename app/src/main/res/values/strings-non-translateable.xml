@@ -193,4 +193,10 @@
     <string name="intent_update_score_visibility" translatable="false">intent_update_score_visibility</string>
     <string name="intent_update_time_visibility" translatable="false">intent_update_time_visibility</string>
 
+    <string name="bundle_card_state" translatable="false">bundle_card_state</string>
+    <string name="bundle_stack_states" translatable="false">bundle_stack_states</string>
+    <string name="bundle_ensure_movabiltiy_running" translatable="false">bundle_ensure_movabiltiy_running</string>
+    <string name="bundle_auto_complete_running" translatable="false">bundle_auto_complete_running</string>
+    <string name="bundle_reload_game" translatable="false">bundle_reload_game</string>
+
 </resources>

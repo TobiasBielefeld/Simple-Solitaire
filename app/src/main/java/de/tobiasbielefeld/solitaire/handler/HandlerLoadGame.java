@@ -31,16 +31,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class HandlerLoadGame extends Handler {
 
-    private GameManager gm;
-
-    public HandlerLoadGame(GameManager gm) {
-        this.gm = gm;
-    }
-
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
-        gameLogic.load();
-
-        gm.hasLoaded = true;
+        gameLogic.load(false);
     }
 }

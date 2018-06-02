@@ -24,17 +24,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-
-import static de.tobiasbielefeld.solitaire.classes.Card.movements.INSTANT;
-import static de.tobiasbielefeld.solitaire.classes.Card.movements.DEFAULT;
-import static de.tobiasbielefeld.solitaire.classes.Card.movements.NONE;
 
 /**
  * Contains stuff for the game which I didn't know where I should put it.
@@ -75,7 +70,7 @@ public class GameLogic {
      * when resuming the game, called in onPause() of the GameManager
      */
     public void save() {
-        if (!prefs.isDeveloperOptionSavingDisabled()) {
+        if (!prefs.isDeveloperOptionSavingDisabled() && !stopUiUpdates) {
             scores.save();
             recordList.save();
             prefs.saveWon(won);
@@ -106,7 +101,7 @@ public class GameLogic {
      * The main loading part is put in a try catch block, so when there goes something wrong
      * on saving/loading, it won't crash the game. (in that case, it loads a new game)
      */
-    public void load() {
+    public void load(boolean withoutMovement) {
         boolean firstRun = prefs.isFirstRun();
         won = prefs.isWon();
         wonAndReloaded = prefs.isWonAndReloaded();
@@ -116,11 +111,15 @@ public class GameLogic {
         Card.updateCardBackgroundChoice();
         animate.reset();
         autoComplete.reset();
-        sounds.playSound(Sounds.names.DEAL_CARDS);
 
-        for (Card card : cards) {
-            card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
-            card.flipDown();
+
+        if (!withoutMovement) {
+            sounds.playSound(Sounds.names.DEAL_CARDS);
+
+            for (Card card : cards) {
+                card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
+                card.flipDown();
+            }
         }
 
         try {
@@ -140,7 +139,7 @@ public class GameLogic {
                 Card.load();
 
                 for (Stack stack : stacks) {
-                    stack.load();
+                    stack.load(withoutMovement);
                 }
 
                 loadRandomCards();
@@ -161,6 +160,8 @@ public class GameLogic {
             showToast(gm.getString(R.string.game_load_error),gm);
             newGame();
         }
+
+        gm.hasLoaded = true;
     }
 
     public void checkForAutoCompleteButton(){
@@ -191,8 +192,8 @@ public class GameLogic {
         randomize(randomCards);
 
         if (prefs.getSavedEnsureMovability()) {
-            stopMovements = true;
-
+            gameLogic.save();
+            stopUiUpdates = true;
             redealForEnsureMovability();
 
             dialogEnsureMovability = startEnsureMovabilityDialog.show();
@@ -273,8 +274,8 @@ public class GameLogic {
         //save that the game is dealing cards, in case the application gets killed before calling the handler
         prefs.setDealingCards(true);
 
-        if (stopMovements) {
-            //no need to wait in the handler when stopMovements is true
+        if (stopUiUpdates) {
+            //no need to wait in the handler when stopUiUpdates is true
             currentGame.dealNewGame();
         } else {
             //and finally deal the cards from the game!

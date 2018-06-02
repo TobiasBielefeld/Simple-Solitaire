@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
@@ -281,7 +280,7 @@ public class Pyramid extends Game {
             cardsToMove.clear();
             origins.clear();
 
-            if (!stopMovements){
+            if (!stopUiUpdates){
                 handlerTestAfterMove.sendEmptyMessageDelayed(0, 200);
             }
 

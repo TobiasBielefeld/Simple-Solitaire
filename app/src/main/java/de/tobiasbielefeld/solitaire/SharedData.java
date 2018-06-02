@@ -93,7 +93,7 @@ public class SharedData {
     public static HandlerDealCards handlerDealCards = new HandlerDealCards();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static int activityCounter = 0;
-    public static boolean stopMovements = false;
+    public static boolean stopUiUpdates = false;
     public static boolean isDialogVisible = false;
 
     private static Toast toast;
@@ -194,7 +194,7 @@ public class SharedData {
      */
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
 
-        if (!stopMovements) {
+        if (!stopUiUpdates) {
             if (option == OPTION_UNDO) {
                 scores.undo(cards, destinations);
             } else if (option == 0) {
@@ -238,7 +238,7 @@ public class SharedData {
         }
 
         //following stuff in handlers, because they should wait until possible card movements are over.
-        if (option == 0 && !stopMovements) {
+        if (option == 0 && !stopUiUpdates) {
             handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
             handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
         }

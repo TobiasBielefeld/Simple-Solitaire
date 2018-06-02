@@ -55,6 +55,11 @@ public class RecordList {
             public void sendMessage() {
                 handleMessage();
             }
+
+            @Override
+            public boolean additionalStopCondition() {
+                return false;
+            }
         });
     }
 

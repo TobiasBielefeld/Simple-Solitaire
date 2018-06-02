@@ -66,7 +66,7 @@ public class Vegas extends Klondike {
             timer.setStartTime(System.currentTimeMillis() - prefs.getSavedVegasTime()*1000);
         }
 
-        if (!stopMovements) {
+        if (!stopUiUpdates) {
             scores.update(money - betAmount);
         }
     }

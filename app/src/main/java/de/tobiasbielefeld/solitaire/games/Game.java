@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.support.annotation.CallSuper;
 import android.support.v4.widget.TextViewCompat;
 import android.view.Gravity;
@@ -31,16 +30,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_COLOR;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_FAMILY;
@@ -1265,7 +1261,7 @@ public abstract class Game {
     }
 
     protected void textViewSetText(int index, String text){
-        if (!stopMovements){
+        if (!stopUiUpdates){
             textViews.get(index).setText(text);
         }
     }
