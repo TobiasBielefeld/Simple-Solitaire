@@ -42,7 +42,7 @@ public class HandlerTestAfterMove extends Handler {
             handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
 
             if (!autoComplete.isRunning() && !gameLogic.hasWon())  {
-                gameLogic.checkForAutoCompleteButton();
+                gameLogic.checkForAutoCompleteButton(false);
             }
         }
     }

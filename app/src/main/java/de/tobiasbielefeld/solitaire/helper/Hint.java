@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
@@ -27,6 +28,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomHandler;
+import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
@@ -39,45 +41,35 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * as a hint
  */
 
-public class Hint {
+public class Hint extends HelperCardMovement{
 
-    private static final int MAX_NUMBER_OF_HINTS = 3;                                                //max number of hints which are shown when pressing the button
+    private static final int MAX_NUMBER_OF_HINTS = 3;                                               //max number of hints which are shown when pressing the button
 
     private int counter = 0;                                                                        //counter to know how many hints were shown
     private boolean showedFirstHint = false;
-    private boolean working = false;
-    private GameManager gm;
-    private ArrayList<Card> visited;                                                                //array for already shown cards in hint
-    private CustomHandler handler;                                                                  //handler to show the hints
+    private ArrayList<Card> visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);                         //array for already shown cards in hint
 
     public Hint(GameManager gm){
-        handler = new CustomHandler(new CustomHandler.MessageCallBack() {
-            @Override
-            public void sendMessage() {
-                handleMessage();
-            }
-
-            @Override
-            public boolean additionalStopCondition() {
-                return false;
-            }
-        });
-
-        visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);
-        this.gm = gm;
+        super(gm, "HINT");
     }
 
+    @Override
     public void start() {
         showedFirstHint = false;
-        working = true;
         visited.clear();
         counter = 0;
 
-        handler.sendDelayed();
+        super.start();
     }
 
-    public void stop() {
-        working = false;
+    @Override
+    protected void saveState(Bundle bundle) {
+        bundle.putInt("BUNDLE_HINT_COUNTER",counter);
+    }
+
+    @Override
+    protected void loadState(Bundle bundle) {
+        counter = bundle.getInt("BUNDLE_HINT_COUNTER");
     }
 
     /**
@@ -85,7 +77,7 @@ public class Hint {
      * won't be used in the next step. It gets one card and the stack destination, but it
      * also adds all cards above.
      */
-    public void move(Card card, Stack destination) {
+    private void makeHint(Card card, Stack destination) {
         Stack origin = card.getStack();
         int index = origin.getIndexOfCard(card);
         ArrayList<Card> currentCards = new ArrayList<>();
@@ -94,8 +86,7 @@ public class Hint {
             scores.update(-currentGame.getHintCosts());
         }
 
-        addToVisited(card);
-
+        visited.add(card);
 
         for (int i = index; i < origin.getSize(); i++) {
             currentCards.add(origin.getCard(i));
@@ -106,50 +97,38 @@ public class Hint {
         }
     }
 
-    public void handleMessage(){
-        if (working && counter < Hint.MAX_NUMBER_OF_HINTS) {
-            CardAndStack cardAndStack;
-
-            if (!animate.cardIsAnimating()) {
-                cardAndStack = currentGame.hintTest();
-
-                if (cardAndStack == null) {
-                    if (!showedFirstHint){
-                        showToast(gm.getString(R.string.dialog_no_hint_available),gm);
-                    }
-
-                    hint.stop();
-
-                } else {
-                    if (!showedFirstHint) {
-                        sounds.playSound(Sounds.names.HINT);
-                        showedFirstHint = true;
-
-                        int amount = prefs.getSavedTotalHintsShown() + 1;
-                        prefs.saveTotalHintsShown(amount);
-                    }
-
-                    hint.move(cardAndStack.getCard(), cardAndStack.getStack());
-                }
-
-                counter++;
-            }
-
-            handler.sendDelayed();
-        } else {
-            stop();
-        }
+    @Override
+    protected boolean stopCondition() {
+        return counter >= Hint.MAX_NUMBER_OF_HINTS;
     }
 
-    public void addToVisited(Card card){
-        visited.add(card);
+    protected void moveCard(){
+
+        CardAndStack cardAndStack = currentGame.hintTest();
+
+        if (cardAndStack == null) {
+            if (!showedFirstHint){
+                showToast(gm.getString(R.string.dialog_no_hint_available),gm);
+            }
+
+            stop();
+        }
+        else {
+            if (!showedFirstHint) {
+                sounds.playSound(Sounds.names.HINT);
+                showedFirstHint = true;
+
+                int amount = prefs.getSavedTotalHintsShown() + 1;
+                prefs.saveTotalHintsShown(amount);
+            }
+
+            makeHint(cardAndStack.getCard(), cardAndStack.getStack());
+            counter++;
+            nextIteration();
+        }
     }
 
     public boolean hasVisited(Card testCard) {
         return visited.contains(testCard);
-    }
-
-    public boolean isWorking() {
-        return working;
     }
 }

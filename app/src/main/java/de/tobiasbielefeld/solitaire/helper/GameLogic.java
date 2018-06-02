@@ -41,7 +41,6 @@ public class GameLogic {
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
-    private DialogEnsureMovability dialogEnsureMovability;
     private StartEnsureMovabilityDialog startEnsureMovabilityDialog;
 
     public GameLogic(GameManager gm) {
@@ -110,7 +109,7 @@ public class GameLogic {
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
         animate.reset();
-        autoComplete.reset();
+        autoComplete.hideButton();
 
 
         if (!withoutMovement) {
@@ -144,16 +143,11 @@ public class GameLogic {
 
                 loadRandomCards();
 
-                checkForAutoCompleteButton();
+                checkForAutoCompleteButton(withoutMovement);
 
-                //load game independent data
+                //load game dependent data
                 currentGame.load();
                 currentGame.loadRecycleCount();
-
-                //deal the cards again in case the app got killed while trying  before
-                /* (prefs.isDealingCards()){
-                    handlerDealCards.sendEmptyMessage(0);
-                }*/
             }
         } catch (Exception e) {
             Log.e(gm.getString(R.string.loading_data_failed), e.toString());
@@ -164,9 +158,9 @@ public class GameLogic {
         gm.hasLoaded = true;
     }
 
-    public void checkForAutoCompleteButton(){
+    public void checkForAutoCompleteButton(boolean withoutMovement){
         if (!prefs.getHideAutoCompleteButton() && !autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest() && !hasWon()) {
-            autoComplete.showButton();
+            autoComplete.showButton(withoutMovement);
         }
     }
 
@@ -174,14 +168,6 @@ public class GameLogic {
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
         redealForEnsureMovability();
-
-        /*if (dialogEnsureMovability == null) {
-            //dialogEnsureMovability = new DialogEnsureMovability();
-            //dialogEnsureMovability.show(gm.getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
-        } else {
-
-            dialogEnsureMovability.startTest();
-        }*/
     }
 
     /**
@@ -196,7 +182,7 @@ public class GameLogic {
             stopUiUpdates = true;
             redealForEnsureMovability();
 
-            dialogEnsureMovability = startEnsureMovabilityDialog.show();
+            DialogEnsureMovability dialogEnsureMovability = startEnsureMovabilityDialog.show();
             dialogEnsureMovability.startTest();
         } else {
             redeal();
@@ -223,7 +209,6 @@ public class GameLogic {
 
         //to reset the recycle counter
         currentGame.reset();
-
         currentGame.dealNewGame();
     }
 
@@ -262,17 +247,9 @@ public class GameLogic {
             card.flipDown();
         }
 
-        //update the card images views after assigning them to the stacks.
-        /*for (Stack stack : stacks) {
-            stack.updateSpacing();
-        }*/
-
         movedFirstCard = false;
         won = false;
         wonAndReloaded = false;
-
-        //save that the game is dealing cards, in case the application gets killed before calling the handler
-        prefs.setDealingCards(true);
 
         if (stopUiUpdates) {
             //no need to wait in the handler when stopUiUpdates is true
@@ -431,7 +408,7 @@ public class GameLogic {
      * @return True if no movement is allowed, false otherwise
      */
     public boolean stopConditions() {
-        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking()
+        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isRunning()
                 || recordList.isWorking() || autoMove.isRunning() || isDialogVisible);
     }
 }

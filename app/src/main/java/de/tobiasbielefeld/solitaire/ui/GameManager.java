@@ -36,7 +36,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ConcurrentModificationException;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -130,7 +129,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         autoComplete = new AutoComplete(gm);
         timer = new Timer(gm);
         sounds = new Sounds(gm);
-        currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
+
+        if (savedInstanceState!=null && savedInstanceState.containsKey(GAME)) {
+            currentGame = lg.loadClass(this, savedInstanceState.getInt(GAME));
+        } else {
+            currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, -1));
+        }
 
         /*
          * Setting up callbacks
@@ -203,13 +207,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             public void onGlobalLayout() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     layoutGame.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                } else {
+                }
+                else {
                     //noinspection deprecation
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
                 if (savedInstanceState != null) {
-
                     if (savedInstanceState.containsKey(getString(R.string.bundle_ensure_movabiltiy_running))){
 
                         new CustomHandler(new CustomHandler.MessageCallBack() {
@@ -225,17 +229,17 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                                 return stopUiUpdates;
                             }
                         }).sendEmptyMessage(0);
-                    } else if (savedInstanceState.containsKey(getString(R.string.bundle_reload_game))){
+                    }
+                    else if (savedInstanceState.containsKey(getString(R.string.bundle_reload_game))){
                         initializeLayout(false);
                         gameLogic.load(true);
                     }
 
-                    if (savedInstanceState.containsKey(getString(R.string.bundle_auto_complete_running))) {
-                        autoComplete.start();
-                    }
-
-
-                } else {
+                    autoComplete.loadInstanceState(savedInstanceState);
+                    autoMove.loadInstanceState(savedInstanceState);
+                    hint.loadInstanceState(savedInstanceState);
+                }
+                else {
                     initializeLayout(true);
 
                 }
@@ -300,6 +304,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void onPause() {
         super.onPause();
 
+        autoComplete.pause();
+        autoMove.pause();
+        hint.pause();
+
         //ony save if the game has been loaded before
         if (hasLoaded) {
             timer.save();
@@ -319,13 +327,15 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         super.onSaveInstanceState(outState);
 
         outState.putBoolean(getString(R.string.bundle_reload_game),true);
+        outState.putInt(GAME, getIntent().getIntExtra(GAME, -1));
 
         if (dialogEnsureMovability != null && dialogEnsureMovability.isRunning()) {
             outState.putBoolean(getString(R.string.bundle_ensure_movabiltiy_running),true);
-            //dialogEnsureMovability.saveOldGameStateToBundle(getResources(), outState);
-        } else if (autoComplete.isRunning()){
-            outState.putBoolean(getString(R.string.bundle_auto_complete_running), true);
         }
+
+        autoComplete.saveInstanceState(outState);
+        autoMove.saveInstanceState(outState);
+        hint.saveInstanceState(outState);
     }
 
     @Override
@@ -335,13 +345,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         timer.load();
 
-        /* Orientation changes in other activities can also recreate the game manager, but its
-         * game layout will not be drawn because somehow the viewTreeObserver isn't fired.
-         * In this case, look here if the game was properly loaded. If not, do it here then.
-         */
-        //if (!hasLoaded){
-        //    updateGameLayout();
-        //}
         activityPaused = false;
 
         if (pausedEnsureMovabilityDialog){
@@ -349,6 +352,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             gameLogic.newGame();
             pausedEnsureMovabilityDialog = false;
         }
+
+        autoComplete.resume();
+        autoMove.resume();
+        hint.resume();
     }
 
     /**
@@ -369,7 +376,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         return super.onKeyDown(keyCode, event);
     }
 
-    /*
+    /**
      * Is the main input handler. Tracks the input position and moves cards according to that.
      * The motion events are put in extra methods, because before it got a bit unclear
      */
@@ -425,7 +432,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 return true;
             }
 
-            gameLogic.checkForAutoCompleteButton();
+            gameLogic.checkForAutoCompleteButton(false);
             handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
             return resetTappedCard();
         }
@@ -904,7 +911,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         });
     }
 
-    /*
+    /**
      * do not show the dialog while the activity is paused. This would cause a force close
      */
     public void showRestartDialog() {
@@ -925,9 +932,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
-    /*
-    * do not show the dialog while the activity is paused. This would cause a force close
-    */
+    /**
+     * do not show the dialog while the activity is paused. This would cause a force close
+     */
     public void showWonDialog() {
 
         try {
@@ -944,7 +951,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         return true;
     }
 
-    /*
+    /**
      * just to let the win animation handler know, if the game was paused (due to screen rotation)
      * so it can halt
      */
@@ -960,11 +967,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         } else {
             mainTextViewRecycles.setVisibility(GONE);
         }
-
     }
 
-
-    /*
+    /**
      * set the current game to 0, otherwise the menu would load the current game again,
      * because last played game will start
      */
