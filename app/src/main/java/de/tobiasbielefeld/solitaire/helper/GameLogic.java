@@ -244,8 +244,8 @@ public class GameLogic {
             //no need to wait in the handler when stopUiUpdates is true
             currentGame.dealNewGame();
         } else {
-            //and finally deal the cards from the game!
-            handlerDealCards.sendEmptyMessage(0);
+            //deal the cards from the game!
+            handlerDealCards.sendDelayed();
         }
     }
 

@@ -280,11 +280,9 @@ public class Pyramid extends Game {
             cardsToMove.clear();
             origins.clear();
 
-            if (!stopUiUpdates){
-                handlerTestAfterMove.sendEmptyMessageDelayed(0, 200);
-            }
-
-        } else if (prefs.getSavedPyramidAutoMove()) {
+            handlerTestAfterMove.sendDelayed();
+        }
+        else if (prefs.getSavedPyramidAutoMove()) {
             ArrayList<Card> tempCards = new ArrayList<>();
             ArrayList<Stack> origins = new ArrayList<>();
 

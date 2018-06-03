@@ -42,7 +42,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
-import de.tobiasbielefeld.solitaire.classes.WaitForAnimation;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
@@ -130,9 +130,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         ensureMovability = new EnsureMovability();
 
         if (savedInstanceState!=null && savedInstanceState.containsKey(GAME)) {
-            currentGame = lg.loadClass(this, savedInstanceState.getInt(GAME));
+            currentGame = lg.loadClass(gm, savedInstanceState.getInt(GAME));
         } else {
-            currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, -1));
+            currentGame = lg.loadClass(gm, getIntent().getIntExtra(GAME, -1));
         }
 
         /*
@@ -160,13 +160,59 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
         });
 
+        handlerDealCards = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+            @Override
+            public void doAfterAnimation() {
+                currentGame.dealNewGame();
+                sounds.playSound(Sounds.names.DEAL_CARDS);
+                handlerTestAfterMove.sendDelayed();
+            }
+
+            @Override
+            public boolean additionalHaltCondition() {
+                return false;
+            }
+        });
+
+        handlerTestAfterMove = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+            @Override
+            public void doAfterAnimation() {
+                if (!gameLogic.hasWon()) {
+                    currentGame.testAfterMove();
+                }
+
+                handlerTestIfWon.sendDelayed();
+
+                if (!autoComplete.isRunning() && !gameLogic.hasWon())  {
+                    gameLogic.checkForAutoCompleteButton(false);
+                }
+            }
+
+            @Override
+            public boolean additionalHaltCondition() {
+                return false;
+            }
+        });
+
+        handlerTestIfWon = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+            @Override
+            public void doAfterAnimation() {
+                gameLogic.testIfWon();
+            }
+
+            @Override
+            public boolean additionalHaltCondition() {
+                return false;
+            }
+        });
+
         /*
          * Setting up game data
          */
 
-        prefs.setGamePreferences(this);
+        prefs.setGamePreferences(gm);
         Stack.loadBackgrounds();
-        recordList = new RecordList();
+        recordList = new RecordList(gm);
 
         //initialize cards and stacks
         for (int i = 0; i < stacks.length; i++) {
@@ -210,27 +256,35 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
 
                 if (savedInstanceState != null) {
-                    //put the following in a wait handler, to wait after a possible background job
-                    //from EnsureMovability is finished.
-                    new WaitForAnimation(new WaitForAnimation.MessageCallBack() {
-                        @Override
-                        public void doAfterAnimation() {
-                            if (savedInstanceState.containsKey(getString(R.string.bundle_reload_game))){
+                    if (savedInstanceState.containsKey("BUNDLE_ENSURE_MOVABILITY")) {
+                        //put the following in a wait handler, to wait after a possible background job
+                        //from EnsureMovability is finished.
+                        new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+                            @Override
+                            public void doAfterAnimation() {
                                 initializeLayout(false);
                                 gameLogic.load(true);
+
+                                ensureMovability.loadInstanceState(savedInstanceState);
                             }
 
-                            ensureMovability.loadInstanceState(savedInstanceState);
-                            autoComplete.loadInstanceState(savedInstanceState);
-                            autoMove.loadInstanceState(savedInstanceState);
-                            hint.loadInstanceState(savedInstanceState);
+                            @Override
+                            public boolean additionalHaltCondition() {
+                                return stopUiUpdates;
+                            }
+                        }).forceSendNow();
+                    }
+                    else {
+                        if (savedInstanceState.containsKey(getString(R.string.bundle_reload_game))) {
+                            initializeLayout(false);
+                            gameLogic.load(true);
                         }
 
-                        @Override
-                        public boolean additionalHaltCondition() {
-                            return stopUiUpdates;
-                        }
-                    }).sendNow();
+                        ensureMovability.loadInstanceState(savedInstanceState);
+                        autoComplete.loadInstanceState(savedInstanceState);
+                        autoMove.loadInstanceState(savedInstanceState);
+                        hint.loadInstanceState(savedInstanceState);
+                    }
                 }
                 else {
                     initializeLayout(true);
@@ -264,15 +318,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             for (Stack stack : stacks) {
                 if (stack.getId() <= currentGame.getLastTableauId()) {
                     stack.setSpacingDirection(DOWN);
-                } else {
+                }
+                else {
                     stack.setSpacingDirection(NONE);
                 }
             }
-        } else {
+        }
+        else {
             for (int i = 0; i < stacks.length; i++) {
                 if (currentGame.directions.length > i) {
                     stacks[i].setSpacingDirection(currentGame.directions[i]);
-                } else {
+                }
+                else {
                     stacks[i].setSpacingDirection(NONE);
                 }
             }
@@ -412,7 +469,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
 
             gameLogic.checkForAutoCompleteButton(false);
-            handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
+            handlerTestAfterMove.sendDelayed();
             return resetTappedCard();
         }
 

@@ -132,7 +132,7 @@ public abstract class Game {
 
         //delete the record list, otherwise undoing movements would result in strange behavior
         recordList.reset();
-        handlerTestAfterMove.sendEmptyMessageDelayed(0,200);
+        handlerTestAfterMove.sendDelayed();
     }
 
     public void dealNewGame(){

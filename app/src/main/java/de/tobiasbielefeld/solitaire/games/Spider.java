@@ -300,8 +300,9 @@ public class Spider extends Game {
             }
 
             moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
+
             //test if a card family is now full
-            handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
+            handlerTestAfterMove.sendDelayed();
             return 1;
         }
 

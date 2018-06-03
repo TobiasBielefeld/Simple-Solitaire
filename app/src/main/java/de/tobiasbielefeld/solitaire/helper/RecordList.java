@@ -21,8 +21,9 @@ package de.tobiasbielefeld.solitaire.helper;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
-import de.tobiasbielefeld.solitaire.classes.WaitForAnimation;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -35,7 +36,7 @@ public class RecordList {
 
     public static int maxRecords;
     public ArrayList<Entry> entries = new ArrayList<>();
-    private WaitForAnimation handler;
+    private WaitForAnimationHandler handler;
 
     private boolean isWorking = false;
 
@@ -44,9 +45,10 @@ public class RecordList {
     }
 
 
-    public RecordList(){
+    public RecordList(GameManager gm){
         setMaxRecords();
-        handler = new WaitForAnimation(new WaitForAnimation.MessageCallBack() {
+
+        handler = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
             @Override
             public void doAfterAnimation() {
                 handleMessage();

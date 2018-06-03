@@ -31,14 +31,12 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-import de.tobiasbielefeld.solitaire.handler.HandlerDealCards;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.helper.AutoMove;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.games.Game;
-import de.tobiasbielefeld.solitaire.handler.HandlerTestAfterMove;
-import de.tobiasbielefeld.solitaire.handler.HandlerTestIfWon;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
@@ -66,6 +64,9 @@ public class SharedData {
     public static String RESTART_DIALOG = "dialogRestart";
     public static String WON_DIALOG = "dialogWon";
 
+
+    public static Game currentGame;
+
     public static Card[] cards;
     public static Stack[] stacks;
 
@@ -82,18 +83,17 @@ public class SharedData {
     public static AutoMove autoMove;
     public static Hint hint;
     public static EnsureMovability ensureMovability;
+
+    public static WaitForAnimationHandler handlerTestIfWon;
+    public static WaitForAnimationHandler handlerDealCards;
+    public static WaitForAnimationHandler handlerTestAfterMove;
+
     public static MovingCards movingCards = new MovingCards();
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
     public static CardHighlight cardHighlight = new CardHighlight();
-
-
-    public static Game currentGame;
-
-    public static HandlerTestAfterMove handlerTestAfterMove = new HandlerTestAfterMove();
-    public static HandlerTestIfWon handlerTestIfWon = new HandlerTestIfWon();
-    public static HandlerDealCards handlerDealCards = new HandlerDealCards();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
+
     public static int activityCounter = 0;
     public static boolean stopUiUpdates = false;
     public static boolean isDialogVisible = false;
@@ -241,8 +241,7 @@ public class SharedData {
 
         //following stuff in handlers, because they should wait until possible card movements are over.
         if (option == 0 && !stopUiUpdates) {
-            handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
-            handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
+            handlerTestAfterMove.sendDelayed();
         }
     }
 
