@@ -19,15 +19,12 @@
 package de.tobiasbielefeld.solitaire.helper;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
-import de.tobiasbielefeld.solitaire.classes.CustomHandler;
 import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -47,7 +44,7 @@ public class Hint extends HelperCardMovement{
 
     private int counter = 0;                                                                        //counter to know how many hints were shown
     private boolean showedFirstHint = false;
-    private ArrayList<Card> visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);                         //array for already shown cards in hint
+    private ArrayList<Integer> visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);                         //array for already shown cards in hint
 
     public Hint(GameManager gm){
         super(gm, "HINT");
@@ -65,11 +62,13 @@ public class Hint extends HelperCardMovement{
     @Override
     protected void saveState(Bundle bundle) {
         bundle.putInt("BUNDLE_HINT_COUNTER",counter);
+        bundle.putIntegerArrayList("BUNDLE_HINT_VISITED", visited);
     }
 
     @Override
     protected void loadState(Bundle bundle) {
         counter = bundle.getInt("BUNDLE_HINT_COUNTER");
+        visited = bundle.getIntegerArrayList("BUNDLE_HINT_VISITED");
     }
 
     /**
@@ -86,7 +85,7 @@ public class Hint extends HelperCardMovement{
             scores.update(-currentGame.getHintCosts());
         }
 
-        visited.add(card);
+        visited.add(card.getId());
 
         for (int i = index; i < origin.getSize(); i++) {
             currentCards.add(origin.getCard(i));
@@ -129,6 +128,6 @@ public class Hint extends HelperCardMovement{
     }
 
     public boolean hasVisited(Card testCard) {
-        return visited.contains(testCard);
+        return visited.contains(testCard.getId());
     }
 }

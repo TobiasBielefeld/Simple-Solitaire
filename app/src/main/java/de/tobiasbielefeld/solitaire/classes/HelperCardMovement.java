@@ -103,10 +103,6 @@ public abstract class HelperCardMovement {
         }
     }
 
-    public boolean isPaused(){
-        return paused;
-    }
-
     protected abstract void moveCard();
 
     protected abstract void saveState(Bundle bundle);

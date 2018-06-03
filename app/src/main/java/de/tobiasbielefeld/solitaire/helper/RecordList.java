@@ -18,15 +18,11 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
-import android.os.Handler;
-import android.os.Message;
-
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
-import de.tobiasbielefeld.solitaire.classes.CustomHandler;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimation;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -39,7 +35,7 @@ public class RecordList {
 
     public static int maxRecords;
     public ArrayList<Entry> entries = new ArrayList<>();
-    private CustomHandler handler;
+    private WaitForAnimation handler;
 
     private boolean isWorking = false;
 
@@ -50,14 +46,14 @@ public class RecordList {
 
     public RecordList(){
         setMaxRecords();
-        handler = new CustomHandler(new CustomHandler.MessageCallBack() {
+        handler = new WaitForAnimation(new WaitForAnimation.MessageCallBack() {
             @Override
-            public void sendMessage() {
+            public void doAfterAnimation() {
                 handleMessage();
             }
 
             @Override
-            public boolean additionalStopCondition() {
+            public boolean additionalHaltCondition() {
                 return false;
             }
         });

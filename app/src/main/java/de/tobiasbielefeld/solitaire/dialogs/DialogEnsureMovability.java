@@ -23,6 +23,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,10 +38,14 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
+import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
+import de.tobiasbielefeld.solitaire.ui.GameManager;
 
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
 import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.ensureMovability;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
@@ -49,8 +56,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.stacks;
  */
 
 public class DialogEnsureMovability extends CustomDialogFragment implements View.OnClickListener{
-
-    EnsureMovability ensureMovabilty ;
 
     @NonNull
     @Override
@@ -73,27 +78,9 @@ public class DialogEnsureMovability extends CustomDialogFragment implements View
         setCancelable(false);
     }
 
-    public void startTest(){
-        ensureMovabilty = new EnsureMovability();
-        ensureMovabilty.execute(this);
-    }
-
     @Override
     public void onClick(View view) {
-        stop();
+        ensureMovability.stop();
     }
 
-    public void stop(){
-        dismiss();
-        ensureMovabilty.cancel(true);
-    }
-
-    public void interrupt(){
-        dismiss();
-        ensureMovabilty.interrupt();
-    }
-
-    public boolean isRunning(){
-        return SharedData.stopUiUpdates;
-    }
 }

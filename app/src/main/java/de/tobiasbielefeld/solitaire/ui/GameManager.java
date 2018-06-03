@@ -42,7 +42,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
-import de.tobiasbielefeld.solitaire.classes.CustomHandler;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimation;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
@@ -54,6 +54,7 @@ import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.AutoMove;
+import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
@@ -88,8 +89,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean activityPaused;
     public ImageView hideMenu;
     public LinearLayout menuBar;
-    private DialogEnsureMovability dialogEnsureMovability;
-    private boolean pausedEnsureMovabilityDialog = false;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -102,7 +101,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
-        pausedEnsureMovabilityDialog = false;
 
         /*
          * Initializing stuff
@@ -129,6 +127,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         autoComplete = new AutoComplete(gm);
         timer = new Timer(gm);
         sounds = new Sounds(gm);
+        ensureMovability = new EnsureMovability();
 
         if (savedInstanceState!=null && savedInstanceState.containsKey(GAME)) {
             currentGame = lg.loadClass(this, savedInstanceState.getInt(GAME));
@@ -147,13 +146,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
         });
 
-        gameLogic.setStartEnsureMovabilityDialog(new GameLogic.StartEnsureMovabilityDialog() {
+        ensureMovability.setShowDialog(new EnsureMovability.ShowDialog() {
             @Override
-            public DialogEnsureMovability show() {
-                dialogEnsureMovability = new DialogEnsureMovability();
-                dialogEnsureMovability.show(getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
-
-                return dialogEnsureMovability;
+            public void show(DialogEnsureMovability dialog) {
+                dialog.show(getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
             }
         });
 
@@ -214,34 +210,30 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 }
 
                 if (savedInstanceState != null) {
-                    if (savedInstanceState.containsKey(getString(R.string.bundle_ensure_movabiltiy_running))){
-
-                        new CustomHandler(new CustomHandler.MessageCallBack() {
-                            @Override
-                            public void sendMessage() {
+                    //put the following in a wait handler, to wait after a possible background job
+                    //from EnsureMovability is finished.
+                    new WaitForAnimation(new WaitForAnimation.MessageCallBack() {
+                        @Override
+                        public void doAfterAnimation() {
+                            if (savedInstanceState.containsKey(getString(R.string.bundle_reload_game))){
                                 initializeLayout(false);
                                 gameLogic.load(true);
-                                gameLogic.newGame();
                             }
 
-                            @Override
-                            public boolean additionalStopCondition() {
-                                return stopUiUpdates;
-                            }
-                        }).sendEmptyMessage(0);
-                    }
-                    else if (savedInstanceState.containsKey(getString(R.string.bundle_reload_game))){
-                        initializeLayout(false);
-                        gameLogic.load(true);
-                    }
+                            ensureMovability.loadInstanceState(savedInstanceState);
+                            autoComplete.loadInstanceState(savedInstanceState);
+                            autoMove.loadInstanceState(savedInstanceState);
+                            hint.loadInstanceState(savedInstanceState);
+                        }
 
-                    autoComplete.loadInstanceState(savedInstanceState);
-                    autoMove.loadInstanceState(savedInstanceState);
-                    hint.loadInstanceState(savedInstanceState);
+                        @Override
+                        public boolean additionalHaltCondition() {
+                            return stopUiUpdates;
+                        }
+                    }).sendNow();
                 }
                 else {
                     initializeLayout(true);
-
                 }
             }
         });
@@ -304,20 +296,16 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void onPause() {
         super.onPause();
 
-        autoComplete.pause();
-        autoMove.pause();
-        hint.pause();
-
         //ony save if the game has been loaded before
         if (hasLoaded) {
             timer.save();
             gameLogic.save();
         }
 
-        if ((dialogEnsureMovability != null && dialogEnsureMovability.isRunning())) {
-            dialogEnsureMovability.interrupt();
-            pausedEnsureMovabilityDialog = true;
-        }
+        autoComplete.pause();
+        autoMove.pause();
+        hint.pause();
+        ensureMovability.pause();
 
         activityPaused = true;
     }
@@ -329,13 +317,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         outState.putBoolean(getString(R.string.bundle_reload_game),true);
         outState.putInt(GAME, getIntent().getIntExtra(GAME, -1));
 
-        if (dialogEnsureMovability != null && dialogEnsureMovability.isRunning()) {
-            outState.putBoolean(getString(R.string.bundle_ensure_movabiltiy_running),true);
-        }
-
         autoComplete.saveInstanceState(outState);
         autoMove.saveInstanceState(outState);
         hint.saveInstanceState(outState);
+        ensureMovability.saveInstanceState(outState);
     }
 
     @Override
@@ -343,19 +328,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         super.onResume();
         showOrHideNavBar();
 
-        timer.load();
-
         activityPaused = false;
 
-        if (pausedEnsureMovabilityDialog){
-            gameLogic.load(true);
-            gameLogic.newGame();
-            pausedEnsureMovabilityDialog = false;
-        }
-
+        timer.load();
         autoComplete.resume();
         autoMove.resume();
         hint.resume();
+        ensureMovability.resume();
     }
 
     /**

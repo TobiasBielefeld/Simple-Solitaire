@@ -26,7 +26,6 @@ import java.util.Random;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -41,18 +40,9 @@ public class GameLogic {
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
-    private StartEnsureMovabilityDialog startEnsureMovabilityDialog;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
-    }
-
-    public interface StartEnsureMovabilityDialog{
-        DialogEnsureMovability show();
-    }
-
-    public void setStartEnsureMovabilityDialog(StartEnsureMovabilityDialog callback){
-        startEnsureMovabilityDialog = callback;
     }
 
     /**
@@ -182,8 +172,7 @@ public class GameLogic {
             stopUiUpdates = true;
             redealForEnsureMovability();
 
-            DialogEnsureMovability dialogEnsureMovability = startEnsureMovabilityDialog.show();
-            dialogEnsureMovability.startTest();
+            ensureMovability.start();
         } else {
             redeal();
         }

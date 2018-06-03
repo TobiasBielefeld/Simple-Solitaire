@@ -43,6 +43,7 @@ import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
+import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
@@ -80,6 +81,7 @@ public class SharedData {
     public static RecordList recordList;
     public static AutoMove autoMove;
     public static Hint hint;
+    public static EnsureMovability ensureMovability;
     public static MovingCards movingCards = new MovingCards();
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
