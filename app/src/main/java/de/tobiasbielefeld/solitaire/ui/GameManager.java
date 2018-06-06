@@ -54,6 +54,7 @@ import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.AutoMove;
+import de.tobiasbielefeld.solitaire.helper.DealCards;
 import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
@@ -127,6 +128,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         autoComplete = new AutoComplete(gm);
         timer = new Timer(gm);
         sounds = new Sounds(gm);
+        dealCards = new DealCards(gm);
         ensureMovability = new EnsureMovability();
 
         if (savedInstanceState!=null && savedInstanceState.containsKey(GAME)) {
@@ -157,20 +159,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             @Override
             public void setText(long score, String dollar) {
                 updateScore(score,dollar);
-            }
-        });
-
-        handlerDealCards = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
-            @Override
-            public void doAfterAnimation() {
-                currentGame.dealNewGame();
-                sounds.playSound(Sounds.names.DEAL_CARDS);
-                handlerTestAfterMove.sendDelayed();
-            }
-
-            @Override
-            public boolean additionalHaltCondition() {
-                return false;
             }
         });
 
@@ -284,6 +272,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                         autoComplete.loadInstanceState(savedInstanceState);
                         autoMove.loadInstanceState(savedInstanceState);
                         hint.loadInstanceState(savedInstanceState);
+                        dealCards.loadInstanceState(savedInstanceState);
                     }
                 }
                 else {
@@ -363,6 +352,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         autoMove.pause();
         hint.pause();
         ensureMovability.pause();
+        dealCards.pause();
 
         activityPaused = true;
     }
@@ -378,6 +368,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         autoMove.saveInstanceState(outState);
         hint.saveInstanceState(outState);
         ensureMovability.saveInstanceState(outState);
+        dealCards.saveInstanceState(outState);
     }
 
     @Override
@@ -392,6 +383,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         autoMove.resume();
         hint.resume();
         ensureMovability.resume();
+        dealCards.resume();
     }
 
     /**

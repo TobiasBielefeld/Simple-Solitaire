@@ -24,7 +24,6 @@ import android.graphics.RectF;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -73,9 +72,7 @@ public class Stack {
     }
 
     public void setImageBitmap(Bitmap bitmap){
-        if (!stopUiUpdates){
-            view.setImageBitmap(bitmap);
-        }
+        view.setImageBitmap(bitmap);
     }
 
     /**

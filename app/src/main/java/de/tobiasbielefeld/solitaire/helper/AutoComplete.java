@@ -86,7 +86,8 @@ public class AutoComplete extends HelperCardMovement {
         if (!withoutMovement) {
             sounds.playSound(Sounds.names.SHOW_AUTOCOMPLETE);
             animate.showAutoCompleteButton();
-        } else {
+        }
+        else {
             gm.buttonAutoComplete.setVisibility(View.VISIBLE);
         }
     }
@@ -120,8 +121,8 @@ public class AutoComplete extends HelperCardMovement {
         if (cardAndStack == null) {
             phase = 2;
             nextIteration(0);
-
-        } else {
+        }
+        else {
             ArrayList<Card> cards = new ArrayList<>();
             Stack origin = cardAndStack.getCard().getStack();
 

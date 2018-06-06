@@ -245,7 +245,7 @@ public class GameLogic {
             currentGame.dealNewGame();
         } else {
             //deal the cards from the game!
-            handlerDealCards.sendDelayed();
+            dealCards.start();
         }
     }
 

@@ -105,9 +105,13 @@ public abstract class HelperCardMovement {
 
     protected abstract void moveCard();
 
-    protected abstract void saveState(Bundle bundle);
+    protected void saveState(Bundle bundle) {
+        //empty by default
+    }
 
-    protected abstract void loadState(Bundle bundle);
+    protected void loadState(Bundle bundle) {
+        //empty by default
+    }
 
     @CallSuper
     protected void nextIteration() {
