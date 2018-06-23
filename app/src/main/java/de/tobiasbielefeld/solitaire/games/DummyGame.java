@@ -334,7 +334,7 @@ public class DummyGame extends Game {
      *
      * Use hint.hasVisited(card) to getHighScore if the card has been visited, so it won't result in an endless loop
      */
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         //Short example from Klondike
         Card card;                                                                                  //card to test
 
@@ -348,7 +348,7 @@ public class DummyGame extends Game {
             /* last card of a stack to move to the foundation */
             card = origin.getTopCard();                                                             //in this part, getHighScore the top card of a stack
 
-            if (!hint.hasVisited(card)) {                                                           //if this card hasn't been visited
+            if (!visited.contains(card)) {                                                          //if this card hasn't been visited
                 for (int j = 7; j <= 10; j++) {                                                     //loop through every foundation stack as destination
                     if (card.test(stacks[j])) {                                                     //then test
 

@@ -144,7 +144,7 @@ public class Freecell extends Game {
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, ALTERNATING_COLOR);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 12; i++) {
 
             Stack sourceStack = stacks[i];
@@ -160,7 +160,7 @@ public class Freecell extends Game {
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR)) {
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR)) {
                     continue;
                 }
 

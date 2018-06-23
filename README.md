@@ -126,6 +126,8 @@ The Material Design Symbols used for the menu icons are made by Google Inc and a
 
 Custom color picker: Uses the [AmbilWarna library](https://github.com/yukuku/ambilwarna) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
+Sliding Tabs: Uses the [PagerSlidingTabStrip library](https://github.com/astuetz/PagerSlidingTabStrip#license) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
+
 All sounds used in this project were originally published on https://freesound.org under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
 This project is licensed under the GPLv3+ license! Full license text can be found [here](./LICENSE.txt)

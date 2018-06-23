@@ -44,7 +44,7 @@ public class Hint extends HelperCardMovement{
 
     private int counter = 0;                                                                        //counter to know how many hints were shown
     private boolean showedFirstHint = false;
-    private ArrayList<Integer> visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);                         //array for already shown cards in hint
+    private ArrayList<Card> visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);                         //array for already shown cards in hint
 
     public Hint(GameManager gm){
         super(gm, "HINT");
@@ -62,13 +62,28 @@ public class Hint extends HelperCardMovement{
     @Override
     protected void saveState(Bundle bundle) {
         bundle.putInt("BUNDLE_HINT_COUNTER",counter);
-        bundle.putIntegerArrayList("BUNDLE_HINT_VISITED", visited);
+
+        ArrayList<Integer> list = new ArrayList<>(visited.size());
+
+        for (Card card: visited){
+            list.add(card.getId());
+        }
+
+        bundle.putIntegerArrayList("BUNDLE_HINT_VISITED", list);
     }
 
     @Override
     protected void loadState(Bundle bundle) {
         counter = bundle.getInt("BUNDLE_HINT_COUNTER");
-        visited = bundle.getIntegerArrayList("BUNDLE_HINT_VISITED");
+        ArrayList<Integer> list = bundle.getIntegerArrayList("BUNDLE_HINT_VISITED");
+
+        visited.clear();
+
+        if (list != null) {
+            for (Integer i : list) {
+                visited.add(cards[i]);
+            }
+        }
     }
 
     /**
@@ -85,7 +100,7 @@ public class Hint extends HelperCardMovement{
             scores.update(-currentGame.getHintCosts());
         }
 
-        visited.add(card.getId());
+        visited.add(card);
 
         for (int i = index; i < origin.getSize(); i++) {
             currentCards.add(origin.getCard(i));
@@ -103,7 +118,7 @@ public class Hint extends HelperCardMovement{
 
     protected void moveCard(){
 
-        CardAndStack cardAndStack = currentGame.hintTest();
+        CardAndStack cardAndStack = currentGame.hintTest(visited);
 
         if (cardAndStack == null) {
             if (!showedFirstHint){
@@ -127,7 +142,5 @@ public class Hint extends HelperCardMovement{
         }
     }
 
-    public boolean hasVisited(Card testCard) {
-        return visited.contains(testCard.getId());
-    }
+
 }

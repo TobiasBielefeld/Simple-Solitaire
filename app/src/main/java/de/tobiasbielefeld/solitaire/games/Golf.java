@@ -135,13 +135,13 @@ public class Golf extends Game {
         return card.getStackId() < 7 && card.isTopCard();
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 7; i++) {
             if (stacks[i].isEmpty()) {
                 continue;
             }
 
-            if (!hint.hasVisited(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack())) {
+            if (!visited.contains(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack())) {
                 return new CardAndStack(stacks[i].getTopCard(), getDiscardStack());
             }
         }

@@ -151,7 +151,7 @@ public class FortyEight extends Game {
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, SAME_FAMILY);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
 
         for (int i = 0; i < 8; i++) {
 
@@ -166,7 +166,7 @@ public class FortyEight extends Game {
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
                     continue;
                 }
 
@@ -199,7 +199,7 @@ public class FortyEight extends Game {
             }
         }
 
-        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard())) {
+        if (!getDiscardStack().isEmpty() && !visited.contains(getDiscardStack().getTopCard())) {
             Card cardToTest = getDiscardStack().getTopCard();
 
             for (int j = 0; j < 8; j++) {

@@ -201,10 +201,10 @@ public class Calculation extends Game {
         setTexts();
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
 
         for (int j = 0; j < 4; j++) {
-            if (stacks[j].isEmpty() || hint.hasVisited(stacks[j].getTopCard())) {
+            if (stacks[j].isEmpty() || visited.contains(stacks[j].getTopCard())) {
                 continue;
             }
 
@@ -217,7 +217,7 @@ public class Calculation extends Game {
             }
         }
 
-        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard())){
+        if (!getDiscardStack().isEmpty() && !visited.contains(getDiscardStack().getTopCard())){
             Card cardToTest = getDiscardStack().getTopCard();
 
             for (int i = 0; i < 4; i++) {

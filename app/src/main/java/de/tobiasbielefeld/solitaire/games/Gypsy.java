@@ -132,7 +132,7 @@ public class Gypsy extends Game {
         return testCardsUpToTop(card.getStack(), card.getIndexOnStack(), ALTERNATING_COLOR);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
 
         for (int i = 0; i < 8; i++) {
             Stack sourceStack = stacks[i];
@@ -143,7 +143,7 @@ public class Gypsy extends Game {
             for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR))
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR))
                     continue;
 
                 if (cardToMove.getValue() != 1) {

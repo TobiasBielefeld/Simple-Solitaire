@@ -51,7 +51,7 @@ public class Spider extends Game {
         setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 10; i++) {
             Stack sourceStack = stacks[i];
 
@@ -62,7 +62,7 @@ public class Spider extends Game {
             for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
                     continue;
                 }
 

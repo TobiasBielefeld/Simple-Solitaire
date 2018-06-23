@@ -210,7 +210,7 @@ public class NapoleonsTomb extends Game {
         return card.isTopCard();
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         Card card;
 
         //from the cells to foundation
@@ -224,7 +224,7 @@ public class NapoleonsTomb extends Game {
 
             card = origin.getCard(0);
 
-            if (!hint.hasVisited(card)) {
+            if (!visited.contains(card)) {
                 for (int j = 4; j <= 8; j++) {
                     if (card.test(stacks[j])) {
                         return new CardAndStack(card, stacks[j]);
@@ -235,7 +235,7 @@ public class NapoleonsTomb extends Game {
         }
 
         //discard stack to all other stacks
-        if (stacks[9].getSize() > 0 && !hint.hasVisited(stacks[9].getTopCard())) {
+        if (stacks[9].getSize() > 0 && !visited.contains(stacks[9].getTopCard())) {
             for (int j = 4; j<=8; j++) {
                 if (stacks[9].getTopCard().test(stacks[j])) {
                     return new CardAndStack(stacks[9].getTopCard(), stacks[j]);

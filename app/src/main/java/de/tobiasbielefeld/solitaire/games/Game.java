@@ -292,9 +292,10 @@ public abstract class Game {
     /**
      * Checks every card of the game, if one can be moved as a hint.
      *
+     * @param visited List of cards, which are already shown as hint
      * @return The card and the destination
      */
-    abstract public CardAndStack hintTest();
+    abstract public CardAndStack hintTest(ArrayList<Card> visited);
 
     /**
      * Uses the given card and the movement (given as the stack id's) to update the current score.
@@ -944,7 +945,7 @@ public abstract class Game {
                 if (testCardsUpToTop(sourceStack, j, mode)){
                     Card card = sourceStack.getCard(j);
 
-                    if (j!=0 && !hint.hasVisited(sourceStack.getCard(j)) && cardTest(emptyStack, card)){
+                    if (j!=0 && cardTest(emptyStack, card)){
                         int length = sourceStack.getSize() - j;
 
                         if (length > sequenceLength) {
@@ -1284,4 +1285,9 @@ public abstract class Game {
 
     }
 
+    public CardAndStack hintTest(){
+        ArrayList<Card> emptyList = new ArrayList<>(3);
+
+        return hintTest(emptyList);
+    }
 }

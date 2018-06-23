@@ -268,7 +268,7 @@ public class GrandfathersClock extends Game {
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, DOESNT_MATTER);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 8; i++) {
 
             Stack sourceStack = stacks[i];
@@ -282,7 +282,7 @@ public class GrandfathersClock extends Game {
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, DOESNT_MATTER)) {
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, DOESNT_MATTER)) {
                     continue;
                 }
 

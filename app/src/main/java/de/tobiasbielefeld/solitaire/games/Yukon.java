@@ -136,7 +136,7 @@ public class Yukon extends Game {
         return true;
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 7; i++) {
             Stack sourceStack = stacks[i];
 
@@ -152,7 +152,7 @@ public class Yukon extends Game {
                     if (j >= 7 && !cardToMove.isTopCard())
                         continue;
 
-                    if (cardToMove.isUp() && !hint.hasVisited(cardToMove) && cardToMove.test(otherStack)) {
+                    if (cardToMove.isUp() && !visited.contains(cardToMove) && cardToMove.test(otherStack)) {
                         //don't move if it's an ace and not a top card and also not if the stack id is below 7
                         //so only move single aces to the foundation stacks
                         if (cardToMove.getValue() == 1 && j < 7)
