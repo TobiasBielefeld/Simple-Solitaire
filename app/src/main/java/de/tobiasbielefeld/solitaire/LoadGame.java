@@ -34,6 +34,7 @@ import de.tobiasbielefeld.solitaire.games.Golf;
 import de.tobiasbielefeld.solitaire.games.GrandfathersClock;
 import de.tobiasbielefeld.solitaire.games.Gypsy;
 import de.tobiasbielefeld.solitaire.games.Klondike;
+import de.tobiasbielefeld.solitaire.games.Maze;
 import de.tobiasbielefeld.solitaire.games.Mod3;
 import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
@@ -81,14 +82,15 @@ public class LoadGame {
             case 6: return new GrandfathersClock();
             case 7: return new Gypsy();
             case 8: return new Klondike();
-            case 9: return new Mod3();
-            case 10: return new NapoleonsTomb();
-            case 11: return new Pyramid();
-            case 12:return new SimpleSimon();
-            case 13:return new Spider();
-            case 14:return new TriPeaks();
-            case 15:return new Vegas();
-            case 16:return new Yukon();
+            case 9: return new Maze();
+            case 10: return new Mod3();
+            case 11: return new NapoleonsTomb();
+            case 12: return new Pyramid();
+            case 13:return new SimpleSimon();
+            case 14:return new Spider();
+            case 15:return new TriPeaks();
+            case 16:return new Vegas();
+            case 17:return new Yukon();
         }
     }
 
@@ -118,6 +120,7 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_GrandfathersClock,"GrandfathersClock"));
         allGameInformation.add(new AllGameInformation(R.string.games_Gypsy,"Gypsy"));
         allGameInformation.add(new AllGameInformation(R.string.games_Klondike,"Klondike"));
+        allGameInformation.add(new AllGameInformation(R.string.games_Maze,"Maze"));
         allGameInformation.add(new AllGameInformation(R.string.games_mod3,"mod3"));
         allGameInformation.add(new AllGameInformation(R.string.games_NapoleonsTomb,"NapoleonsTomb"));
         allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid"));
