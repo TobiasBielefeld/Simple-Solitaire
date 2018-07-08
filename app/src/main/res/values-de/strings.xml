@@ -497,7 +497,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_vegas_bet_amount_text_2">"Jede Karte, die zur Foundation gespielt wird, bringt:"</string>
 <string name="settings_vegas_bet_amount_summary">"Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen. Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert."</string>
-<string name="settings_number_input_error">"Kann diese Zahlen nicht speichern!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Ändere Größe der Reserve (Einfacher)"</string>
 <string name="settings_use_true_randomisation_title">"Benutze echten Zufall"</string>
 <string name="settings_use_true_randomisation_text">"Die Standard Randomisierung vermeidet ähnliche Karten übereinander. Setze das Häkchen, um eine uniforme Randomisierung zu nutzen."</string>
@@ -651,4 +650,36 @@ Jede Karte darf auf jeden Tableau-Stapel gespielt werden, aber die Stapel dürfe
 
 Bewege alle Karten vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
 <string name="settings_language_spanish_argentina">"Spanisch (Argentinien)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Wende Änderungen nur für %1$s an"</string>
+<string name="settings_hide_auto_complete_button">"Deaktivere Autovervollständigen Button"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Alle weiteren hier vorgenommenen Änderungen werden nur auf das aktuelle Spiel angewendet. Wenn Sie dann Einstellungen für andere Spiele ändern möchten, haben Sie die folgenden Möglichkeiten:"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Kehren Sie zum Hauptmenü zurück und öffnen Sie von dort aus die Einstellungen."</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Deaktivieren Sie diese Option"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Öffnen Sie die Einstellungen in einem Spiel, in dem diese Option nicht aktiviert ist"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Das Deaktivieren dieser Option stellt die vorherigen geteilten Einstellungen wieder her."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Die individuellen Einstellungen für dieses Spiel werden nun entfernt und die geteilten Einstellungen werden übernommen."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Änderungen wirken sich nicht auf alle Spiele aus. Hier für weitere Informationen klicken"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Die folgenden Spiele haben individuelle Einstellungen ermöglicht:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Diese Spiele sind von den hier vorgenommenen Änderungen nicht betroffen.
+
+Möchten Sie die individuellen Einstellungen für alle aufgeführten Spiele entfernen?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Alle individuellen Einstellungen entfernt"</string>
+<string name="settings_ensure_movability_title">"Garantierte Anzahl der Bewegungen"</string>
+<string name="settings_ensure_movability_searching_games">"Suche nach einem geeigneten Spiel…"</string>
+<string name="settings_ensure_movability_text">"Sichherstellen, dass eine bestimmte Anzahl von Bewegungen in einem Spiel möglich sind, bevor es gestartet wird"</string>
+<string name="settings_ensure_movability_min_moves_title">"Anzahl der Bewegungen ändern"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Vorsicht: Das Erhöhen der Beträge führt zu längeren Wartezeiten vor Spielbeginn. Änderungen der Spielregeln wirken sich auch auf die Wartezeit aus!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Ändere die Anzahl der Bewegungen, die jedes Spiel mindestens haben muss, wenn es gestartet wird."</string>
+<string name="settings_number_input_error">"Kann diese Zahlen nicht speichern!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Automatische Bewegung verbessern"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Die Automatische Bewegung wird versuchen das Spiel zu gewinnen, in dem es den Hauptstapel mitbenutzt"</string>
+<string name="black">"Schwarz"</string>
+<string name="white">"Weiß"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Bestimmte Spiele gewinnbar machen"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Der Betrag für einige Spiele kann hoch genug eingestellt werden, um sie immer gewinnbar zu machen, ohne die Wartezeit deutlich zu erhöhen."</string>
+<string name="settings_ensure_movability_winnable">"Gewinnbar"</string>
+<string name="settings_reset_to_defaults">"Auf Standardwerte zurücksetzen"</string>
+<string name="settings_text_color">"Text- und Stapelfarbe"</string>
 </resources>
