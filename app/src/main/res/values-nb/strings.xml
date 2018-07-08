@@ -296,7 +296,6 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_vegas_bet_amount_text_1">"Begynnende utdelingskostnader:"</string>
 <string name="settings_vegas_bet_amount_text_2">"Hvert kort som spilles til hjemmebunkene, tjener:"</string>
 <string name="settings_vegas_bet_amount_summary">"Begynnende utdeling: -%1$d$, kort til hjemmebunke: +%2$d$"</string>
-<string name="settings_number_input_error">"Kan ikke lagre disse numrene!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Endre størrelsen til reservebunken (Enklere)"</string>
 <string name="settings_use_true_randomisation_title">"Bruk sann tilfeldiggjøring"</string>
 <string name="settings_use_true_randomisation_text">"Den ordinære tilfeldiggjøreren unngår å plassere lignende kort nær hverandre. Huk av dette for å skru på en fullstendig tilfeldig tilfeldiggjører"</string>
