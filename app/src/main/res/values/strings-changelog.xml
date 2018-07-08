@@ -13,7 +13,8 @@
     <string name="changelog_51_4" translatable="false">The minimum amount of moves a game has to have when starting it can now be set up in the \"General\" settings</string>
     <string name="changelog_51_5" translatable="false">For games with simple rules, the amount of moves can be set up to make them always winnable!</string>
     <string name="changelog_51_6" translatable="false">Rotating the screen while movements like auto complete are running will not stop them anymore</string>
-    <string name="changelog_51_7" translatable="false">A lot of little changes and bug fixes</string>
+    <string name="changelog_51_7" translatable="false">Decreasing app size, thanks to SkewedZeppelin from GitHub!</string>
+    <string name="changelog_51_8" translatable="false">A lot of little changes and bug fixes</string>
 
     <string name="changelog_50_1" translatable="false">Fix crash for Golf and TriPeaks, sorry!</string>
 
