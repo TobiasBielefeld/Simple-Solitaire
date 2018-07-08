@@ -109,7 +109,7 @@ public class LoadGame {
     public void loadAllGames(){
         allGameInformation.clear();
 
-        allGameInformation.add(new AllGameInformation(R.string.games_AcesUp,"AcesUp", true, 40));
+        allGameInformation.add(new AllGameInformation(R.string.games_AcesUp,"AcesUp", false, 40));
         allGameInformation.add(new AllGameInformation(R.string.games_Calculation,"Calculation", false, 30));
         allGameInformation.add(new AllGameInformation(R.string.games_Canfield,"Canfield", false, 40));
         allGameInformation.add(new AllGameInformation(R.string.games_FortyEight,"FortyEight", false, 50));
