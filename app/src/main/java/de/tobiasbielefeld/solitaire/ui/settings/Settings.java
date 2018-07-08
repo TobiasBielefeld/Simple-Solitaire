@@ -30,9 +30,11 @@ import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import de.tobiasbielefeld.solitaire.LoadGame;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceFourColorMode;
 import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideAutoCompleteButton;
@@ -282,6 +284,14 @@ public class Settings extends AppCompatPreferenceActivity {
         }
         else if (key.equals(PREF_KEY_HIDE_TIME)){
             returnIntent.putExtra(getString(R.string.intent_update_time_visibility), true);
+        }
+        else if (key.equals(PREF_KEY_ENSURE_MOVABILITY)) {
+            ArrayList<LoadGame.AllGameInformation> gameInfoList = lg.getOrderedGameInfoList();
+
+            for (int i=0;i<lg.getGameCount();i++){
+                SharedPreferences sharedPref = getSharedPreferences(gameInfoList.get(i).getSharedPrefName(), MODE_PRIVATE);
+                sharedPref.edit().putInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, sharedPref.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, gameInfoList.get(i).getEnsureMovabilityMoves())).apply();
+            }
         }
     }
 

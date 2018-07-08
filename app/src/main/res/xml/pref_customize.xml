@@ -35,6 +35,8 @@
 
         <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceTextColor
             android:key="@string/pref_key_text_color"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/settings_background_color_custom"
             android:summary="%s"
             android:title="@string/settings_text_color"
             android:widgetLayout="@layout/preference_widget_layout_color" />

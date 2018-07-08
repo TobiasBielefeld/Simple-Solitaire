@@ -63,6 +63,8 @@
     <string name="yellow">Yellow</string>
     <string name="orange">Orange</string>
     <string name="purple">Purple</string>
+    <string name="black">Black</string>
+    <string name="white">White</string>
 
     <!-- game stuff -->
 
@@ -435,17 +437,21 @@
     <string name="settings_dialog_only_for_this_game_information_3">Those games won\'t be affected by changes made here.\n\nDo you want to remove the individual settings for all listed games?</string>
     <string name="settings_dialog_only_for_this_game_removed_all">Removed all individual settings</string>
 
-    <string name="settings_ensure_movability_title">Ensure movability</string>
+    <string name="settings_ensure_movability_title">Guarantee number of movements</string>
+    <string name="settings_ensure_movability_text">Make sure that a certain amount of movements are possible in a game before starting it</string>
     <string name="settings_ensure_movability_searching_games">Searching a suitable game…</string>
-    <string name="settings_ensure_movability_text">Make sure that a certain amount of movements are possible in a game before starting it. The amount per game can be adjusted in the expert settings</string>
+    <string name="settings_ensure_movability_min_moves_title">Change the amount of moves</string>
+    <string name="settings_ensure_movability_min_moves_warning">Caution: Increasing the amount will result in longer waiting times before a game is started. Changing game rules will also affect the waiting time!</string>
+    <string name="settings_ensure_movability_min_moves_text">Change the amount of movements each game must at least have when starting it</string>
+    <string name="settings_ensure_movability_make_game_winnable_button_title">Make certain games winnable</string>
+    <string name="settings_ensure_movability_make_game_winnable_text">The amount for some games can be set high enough to make them always winnable, without increasing the waiting time significantly.</string>
+    <string name="settings_ensure_movability_winnable">Winnable</string>
+    <string name="settings_reset_to_defaults">Reset to default values</string>
 
-    <string name="settings_ensure_movability_min_moves_title">Ensure movability: amount of moves</string>
-    <string name="settings_ensure_movability_min_moves_warning">Caution: Increasing the amount will result in longer waiting times before a game is started!</string>
-    <string name="settings_ensure_movability_min_moves_text">Change the amount of movements each game must at least have when starting it.</string>
     <string name="settings_text_color">Text and stack color</string>
 
     <!-- Statistics -->
-    
+
     <!-- %1$d and %2$d are placeholders for the values-->
     <string name="statistics_text_won_games">Won %1$d out of %2$d games</string>
     <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->

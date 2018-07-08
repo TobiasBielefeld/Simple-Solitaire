@@ -72,7 +72,9 @@ public class Stack {
     }
 
     public void setImageBitmap(Bitmap bitmap){
-        view.setImageBitmap(bitmap);
+        if (!stopUiUpdates) {
+            view.setImageBitmap(bitmap);
+        }
     }
 
     /**

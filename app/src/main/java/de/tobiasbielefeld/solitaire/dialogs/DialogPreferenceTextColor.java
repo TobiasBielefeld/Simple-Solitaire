@@ -28,13 +28,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Dialog for changing the background color. It uses a custom layout, so I can dynamically update
@@ -46,32 +46,84 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
  * permission to the external storage, and i wanted my app to use no permissions.
  */
 
-public class DialogPreferenceTextColor extends DialogPreference {
+public class DialogPreferenceTextColor extends DialogPreference implements View.OnClickListener {
 
+    final int colorBlack = 0xff000000;
+    final int colorWhite = 0xffffffff;
+
+    int colorValue;
+
+    private ArrayList<LinearLayout> linearLayouts;
     private Context context;
     private ImageView image;
 
     public DialogPreferenceTextColor(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setDialogLayoutResource(R.layout.dialog_text_color);
+        setDialogIcon(null);
         this.context = context;
     }
 
     @Override
-    protected void showDialog(Bundle state) {
-        AmbilWarnaDialog dialog = new AmbilWarnaDialog(context, prefs.getSavedTextColor(), new AmbilWarnaDialog.OnAmbilWarnaListener() {
-            @Override
-            public void onOk(AmbilWarnaDialog dialog, int color) {
-                prefs.saveTextColor(color);
-                updateSummary();
-                //getDialog().dismiss();
+    protected void onBindDialogView(View view) {
+        colorValue = prefs.getSavedTextColor();
+
+        linearLayouts = new ArrayList<>();
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorBlack));
+        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorWhite));
+
+
+        for (LinearLayout linearLayout : linearLayouts) {
+            linearLayout.setOnClickListener(this);
+        }
+
+        super.onBindDialogView(view);
+    }
+
+
+    @SuppressWarnings("SuspiciousMethodCalls")
+    public void onClick(View view) {
+        if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE)) {
+            AmbilWarnaDialog dialog = new AmbilWarnaDialog(context, colorValue, new AmbilWarnaDialog.OnAmbilWarnaListener() {
+                @Override
+                public void onOk(AmbilWarnaDialog dialog, int color) {
+                    prefs.saveTextColor(color);
+                    updateSummary();
+                    getDialog().dismiss();
+                }
+
+                @Override
+                public void onCancel(AmbilWarnaDialog dialog) {
+                    // cancel was selected by the user
+                }
+            });
+            dialog.show();
+        } else if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE)) {
+            getDialog().dismiss();
+        } else {
+            int selectedColor = linearLayouts.indexOf(view) + 1;
+
+            switch (selectedColor){
+                case 1:default:
+                    colorValue = colorBlack;
+                    break;
+                case 2:
+                    colorValue = colorWhite;
             }
 
-            @Override
-            public void onCancel(AmbilWarnaDialog dialog) {
-                // cancel was selected by the user
-            }
-        });
-        dialog.show();
+            prefs.saveTextColor(colorValue);
+
+            updateSummary();
+            getDialog().dismiss();
+        }
+    }
+
+    @Override
+    protected void showDialog(Bundle state) {
+        super.showDialog(state);
+
+        ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(this);
+        ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(this);
     }
 
     /*
@@ -91,18 +143,27 @@ public class DialogPreferenceTextColor extends DialogPreference {
      * Gets the saved data and updates the summary according to it
      */
     public void updateSummary() {
-
-        int textColor = prefs.getSavedTextColor();
+        int color = prefs.getSavedTextColor();
 
         //this forces redrawing of the color preview
         setSummary("");
 
-        //show as hex string, but without the opacity part at the beginning
-        setSummary(String.format("#%06X", (0xFFFFFF & textColor)));
+        switch (color){
+            case colorBlack:
+                setSummary(getContext().getString(R.string.black));
+                break;
+            case colorWhite:
+                setSummary(getContext().getString(R.string.white));
+                break;
+            default:
+                //show as hex string, but without the opacity part at the beginning
+                setSummary(String.format("#%06X", (0xFFFFFF & color)));
+                break;
+        }
 
         if (image != null) {
             image.setImageResource(0);
-            image.setBackgroundColor(textColor);
+            image.setBackgroundColor(color);
         }
 
     }
