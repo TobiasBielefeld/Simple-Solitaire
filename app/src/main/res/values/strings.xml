@@ -390,6 +390,7 @@
     <string name="settings_language_spanish_argentina">Spanish (Argentina)</string>
     <string name="settings_language_ukrainian">Ukrainian</string>
     <string name="settings_language_norwegian">Norwegian (Bokmål)</string>
+    <string name="settings_language_chinese_simplified">Chinese (Simplified)</string>
     <string name="settings_yukon_rules_1">different colors (Default)</string>
     <string name="settings_yukon_rules_2">same suit (Russian Solitaire)</string>
     <string name="settings_movement_speed_1">Very slow</string>

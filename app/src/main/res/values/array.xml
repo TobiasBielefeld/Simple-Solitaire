@@ -142,6 +142,7 @@
 
     <string-array name="pref_language_titles" translatable="false">
         <item>@string/settings_language_default</item>
+        <item>@string/settings_language_chinese_simplified</item>
         <item>@string/settings_language_english</item>
         <item>@string/settings_language_esperanto</item>
         <item>@string/settings_language_finnish</item>
@@ -160,6 +161,7 @@
     <!-- language variants are separated by a comma (,) from the "main" language-->
     <string-array name="pref_language_values" translatable="false">
         <item>default</item>    <!-- do not translate this one! -->
+        <item>zh,CN</item>      <!-- Portuguese (Brazil) -->
         <item>en</item>         <!-- English -->
         <item>eo</item>         <!-- Esperanto -->
         <item>fi</item>         <!-- Finnish -->

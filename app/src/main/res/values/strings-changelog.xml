@@ -14,7 +14,8 @@
     <string name="changelog_51_5" translatable="false">For games with simple rules, the amount of moves can be set up to make them always winnable!</string>
     <string name="changelog_51_6" translatable="false">Rotating the screen while movements like auto complete are running will not stop them anymore</string>
     <string name="changelog_51_7" translatable="false">Decreasing app size, thanks to SkewedZeppelin from GitHub!</string>
-    <string name="changelog_51_8" translatable="false">A lot of little changes and bug fixes</string>
+    <string name="changelog_51_8" translatable="false">Adding Chinese (simplified) translations, thanks to Tragic Life from POEditor!</string>
+    <string name="changelog_51_9" translatable="false">A lot of little changes and bug fixes</string>
 
     <string name="changelog_50_1" translatable="false">Fix crash for Golf and TriPeaks, sorry!</string>
 
@@ -30,8 +31,8 @@
     <string name="changelog_47_2" translatable="false">The button can also be hidden in the \"Appearance\" settings</string>
     <string name="changelog_47_3" translatable="false">Added a fullscreen mode in the \"General\" settings</string>
     <string name="changelog_47_4" translatable="false">Rearranged some settings entries</string>
-    <string name="changelog_47_5" translatable="false">Updated Portuguese translation, thanks to Alexandre Parente!</string>
-    <string name="changelog_47_6" translatable="false">Added Norwegian (Bokmål) translation, thanks to Imre Kristoffer Eilertsen!</string>
+    <string name="changelog_47_5" translatable="false">Updated Portuguese translation, thanks to Alexandre Parente from POEditor!</string>
+    <string name="changelog_47_6" translatable="false">Added Norwegian (Bokmål) translation, thanks to Imre Kristoffer Eilertsen from POEditor!</string>
 
     <string name="changelog_46_1" translatable="false">Reverted the changes of the Freecell layout</string>
     <string name="changelog_46_2" translatable="false">Instead added a new option in the \"Appearance\" settings to add margins to the game layout!</string>

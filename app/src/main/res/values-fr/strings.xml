@@ -541,6 +541,7 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_language_japanese">"Japonais"</string>
 <string name="settings_language_polish">"Polonais"</string>
 <string name="settings_language_turkish">"Turc"</string>
+ <string name="settings_language_chinese_simplified">"Chinois (simplifié)"</string>
 <string name="settings_yukon_rules_1">"des couleurs différentes (par défaut)"</string>
 <string name="settings_yukon_rules_2">"la même famille de cartes (Solitaire russe)"</string>
 <string name="settings_movement_speed_1">"Très lente"</string>
