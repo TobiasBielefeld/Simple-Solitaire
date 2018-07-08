@@ -673,6 +673,7 @@ Voulez-vous supprimer les paramètres individuels pour tous les jeux de la liste
 <string name="settings_dialog_only_for_this_game_removed_all">"Suppression de tous les paramètres individuels"</string>
 <string name="settings_ensure_movability_title">"Garantie du nombre de mouvements"</string>
 <string name="settings_ensure_movability_searching_games">"Recherche d'un jeu adapté…"</string>
+<string name="settings_ensure_movability_cancle_search">Annuler et commencer immédiatement</string>
 <string name="settings_ensure_movability_text">"S'assurer qu'un certain nombre de mouvements sont possibles dans un jeu avant de le commencer."</string>
 <string name="settings_ensure_movability_min_moves_title">"Modifier le nombre de coups"</string>
 <string name="settings_ensure_movability_min_moves_warning">"Attention : Si vous augmentez le montant, le temps d'attente avant le début d'une partie sera plus long. Changer les règles du jeu affectera aussi le temps d'attente !"</string>
