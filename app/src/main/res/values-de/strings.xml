@@ -669,7 +669,7 @@ Möchten Sie die individuellen Einstellungen für alle aufgeführten Spiele entf
 <string name="settings_dialog_only_for_this_game_removed_all">"Alle individuellen Einstellungen entfernt"</string>
 <string name="settings_ensure_movability_title">"Garantierte Anzahl der Bewegungen"</string>
 <string name="settings_ensure_movability_searching_games">"Suche nach einem geeigneten Spiel…"</string>
-<string name="settings_ensure_movability_text">"Sichherstellen, dass eine bestimmte Anzahl von Bewegungen in einem Spiel möglich sind, bevor es gestartet wird"</string>
+<string name="settings_ensure_movability_text">"Stelle sicher, dass eine bestimmte Anzahl von Bewegungen in einem Spiel möglich sind, bevor es gestartet wird"</string>
 <string name="settings_ensure_movability_min_moves_title">"Anzahl der Bewegungen ändern"</string>
 <string name="settings_ensure_movability_min_moves_warning">"Vorsicht: Das Erhöhen der Beträge führt zu längeren Wartezeiten vor Spielbeginn. Änderungen der Spielregeln wirken sich auch auf die Wartezeit aus!"</string>
 <string name="settings_ensure_movability_min_moves_text">"Ändere die Anzahl der Bewegungen, die jedes Spiel mindestens haben muss, wenn es gestartet wird."</string>
