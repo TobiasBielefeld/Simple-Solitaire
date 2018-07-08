@@ -29,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramid"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
-<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
+<string name="games_AcesUp">"Aces Up"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -630,7 +630,7 @@ Wird als Paris Thema verwendet - Verfügbar auf &lt;a href=https://sourceforge.n
 "</string>
 <string name="settings_cards_paris">"Paris"</string>
 <string name="settings_cards_dondorf">"Dondorf"</string>
-<string name="games_NapoleonsTomb">"Napoleon\'sTomb"</string>
+<string name="games_NapoleonsTomb">"Napoleon\'s Tomb"</string>
 <string name="manual_NapoleonsTomb_structure">"1 Deck aus 52 Karten.
 
 4 Tableau Stapel, 5 Foundation Stapel, 1 Haupt- und 1 Ablage Stapel

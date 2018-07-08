@@ -33,12 +33,12 @@
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pirâmide"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
-<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
+<string name="games_AcesUp">"Aces Up"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Cálculo"</string>
 

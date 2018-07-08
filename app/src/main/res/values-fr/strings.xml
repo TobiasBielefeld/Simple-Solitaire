@@ -29,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramide"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
 <string name="games_AcesUp">"4 As"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
