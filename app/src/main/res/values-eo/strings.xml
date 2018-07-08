@@ -505,7 +505,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_vegas_bet_amount_text_2">"Por movi karton al fundamenta stako gajnas:"</string>
 <string name="settings_vegas_bet_amount_summary">"Redisdono: -%1$d$, karto al fundamenta stako: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Unuoble frapetu karton por movi ĝin al la sekva ebla stako. Samaj agordoj kiel por duobla frapeto. Tio ĉi malaktivigos movojn “elekti-per-frapeto”."</string>
-<string name="settings_number_input_error">"Ne povas konservi numerojn!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Ŝanĝi amplekson da rezerva stako (pli facile)"</string>
 <string name="settings_use_true_randomisation_title">"Uzi veran hazardecon"</string>
 <string name="settings_use_true_randomisation_text">"Implicita hazardeco evitas similajn kartojn apude. Marku tio ĉi por aktivigi vere egalan hazardecon."</string>
@@ -657,4 +656,31 @@ Frapetu la ĉefan stakon por malkovri kaj movi unu karton al la forĵeta stako. 
 
 Transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200"</string>
 <string name="settings_language_spanish_argentina">"Hispana (Argentina)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Apliki ŝanĝojn nur por %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Kaŝi la butonon “mem-kompletiĝo”"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Ĉiuj pluaj ŝanĝoj estos aplikitaj nur por la nuna ludo. Jen manieroj por ŝanĝi agordojn de aliaj ludoj:"</string>
+
+<!-- When I add a new line, POEditor complains, that "the number of newlines at the end doesn't match", should I still add a new line, or let POEditor decide? -->
+<string name="settings_dialog_only_for_this_game_enable_3">"Revenu al la ĉefmenuo kaj malfermi agordoj de tie"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Malaktivigu tiun ĉi agordon"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Malfermu agordojn de ludo, kiu ne havas tiun ĉi agordon ŝaltitan"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Malaktivigu tiun ĉi agordon por restarigi antaŭajn komunajn agordojn."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Apartaj agordoj por tiu ĉi ludo estos forigitaj kaj komunaj agordoj estos aplikitaj."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Ŝanĝoj ne aplikiĝos por ĉiuj ludoj. Frapetu tien ĉi por pli da informoj."</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Por la jenaj ludoj estas aktivigitaj apartaj agordoj:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Por tiuj ĉi ludoj ŝanĝoj faritaj ĉi tie ne aplikiĝos.
+
+Ĉu vi volas forigi apartajn agordojn por ĉiuj enlistigitaj ludoj?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Forigi ĉiujn apartajn agordojn"</string>
+<string name="settings_ensure_movability_title">"Garantii movojn"</string>
+<string name="settings_ensure_movability_searching_games">"Serĉado de ludebla ludo…"</string>
+<string name="settings_ensure_movability_text">"Garantii, ke povas fari la elektitan nombron da movoj antaŭ komenci ludon"</string>
+<string name="settings_ensure_movability_min_moves_title">"Garantii movojn: nombro da movoj"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Averto: pliigo de tiu ĉi agordo rezultigos pli longan atendan tempon antaŭ komenco de ludo! Ŝanĝi ludajn regulojn ankaŭ influos la atendantan tempon!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Ŝanĝi minimuman nombron da eblaj movoj por ludo antaŭ komenci ĝin."</string>
+<string name="settings_number_input_error">"Ne povas konservi numerojn!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Plibonigita mem-kompletiĝo"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Mem-kompletiĝo provos venki ludon ankaŭ per uzi la ĉefan stakon"</string>
 </resources>
