@@ -1,474 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+<string name="app_version">"Version"</string>
+<string name="settings">"Settings"</string>
+<string name="game_manual">"Manual"</string>
+<string name="game_score">"Score"</string>
+<string name="game_time">"Time"</string>
+<string name="game_cancel">"Cancel"</string>
+<string name="game_confirm">"Confirm"</string>
+<string name="game_auto_complete_text">"Autocomplete"</string>
+<string name="game_press_again">"Press again to exit"</string>
+<string name="game_load_error">"Loading data failed, starting new game…"</string>
+<string name="game_close">"Close game"</string>
+<string name="game_main_menu">"Main menu"</string>
+<string name="item_game_rules">"Game rules"</string>
+<string name="item_return_to_main_menu">"Return to main menu"</string>
 
-    <!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
-    <string name="app_version">Version</string>
+<!-- Menu -->
+<string name="menu_undo">"Undo"</string>
+<string name="menu_main_menu">"Menu"</string>
+<string name="menu_settings">"Settings"</string>
 
-    <string name="title_activity_manual">Manual</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="title_activity_about">About Game</string>
-    <string name="title_activity_statistics">Statistics</string>
+<!-- game names 
 
-    <string name="settings">Settings</string>
-    <string name="game_manual">Manual</string>
-    <string name="game_score">Score</string>
-    <string name="game_time">Time</string>
-
-    <string name="game_cancel">Cancel</string>
-    <string name="game_confirm">Confirm</string>
-    <string name="game_auto_complete_text">Autocomplete</string>
-    <string name="game_press_again">Press again to exit</string>
-    <string name="game_load_error">Loading data failed, starting new game…</string>
-    <string name="game_close">Close game</string>
-    <string name="game_main_menu">Main menu</string>
-    <string name="item_game_rules">Game rules</string>
-    <string name="item_return_to_main_menu">Return to main menu</string>
-
-    <!-- Menu -->
-    <string name="menu_undo">Undo</string>
-    <string name="menu_main_menu">Menu</string>
-    <string name="menu_settings">Settings</string>
-
-    <string name="dialog_auto_move">Auto move</string>
-    <string name="dialog_show_hints">Show hints</string>
-
-    <!-- game names -->
-    <!--
      - if you want to translate names and a name gets very long, use spaces, so they can be displayed
      - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
-     - a single line
-     -->
-    <string name="games_Klondike">Klondike</string>
-    <string name="games_Freecell">FreeCell</string>
-    <string name="games_Yukon">Yukon</string>
-    <string name="games_Spider">Spider</string>
-    <string name="games_SimpleSimon">SimpleSimon</string>
-    <string name="games_Golf">Golf</string>
-    <string name="games_Pyramid">Pyramid</string>
-    <string name="games_TriPeaks">TriPeaks</string>
-    <string name="games_FortyEight">Forty&amp;Eight</string>
-    <string name="games_AcesUp">AcesUp</string>
-    <string name="games_Gypsy">Gypsy</string>
-    <string name="games_mod3">Mod3</string>
-    <string name="games_Canfield">Canfield</string>
-    <string name="games_GrandfathersClock">Grandfather\'sClock</string>
-    <string name="games_Vegas">Vegas</string>
-    <string name="games_Calculation">Calculation</string>
-    <string name="games_NapoleonsTomb">Napoleon\'sTomb</string>
+     - a single line -->
+<string name="games_Klondike">"Klondike"</string>
+<string name="games_Freecell">"FreeCell"</string>
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Spider"</string>
+<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_Golf">"Golf"</string>
+<string name="games_Pyramid">"Pyramid"</string>
+<string name="games_TriPeaks">"TriPeaks"</string>
+<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_Gypsy">"Gypsy"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"Canfield"</string>
+<string name="games_GrandfathersClock">"Grandfather'sClock"</string>
+<string name="games_Vegas">"Vegas"</string>
+<string name="games_Calculation">"Calculation"</string>
 
-    <!-- colors -->
+<!-- colors -->
+<string name="blue">"Blue"</string>
+<string name="green">"Green"</string>
+<string name="red">"Red"</string>
+<string name="yellow">"Yellow"</string>
+<string name="orange">"Orange"</string>
+<string name="purple">"Purple"</string>
 
-    <string name="blue">Blue</string>
-    <string name="green">Green</string>
-    <string name="red">Red</string>
-    <string name="yellow">Yellow</string>
-    <string name="orange">Orange</string>
-    <string name="purple">Purple</string>
-    <string name="black">Black</string>
-    <string name="white">White</string>
+<!-- game stuff -->
+<string name="game_longest_run">"Longest sequence:"</string>
 
-    <!-- game stuff -->
+<!-- dialog won -->
+<string name="dialog_win_titel">"Congratulations!"</string>
+<string name="dialog_win_score">"Score: %1$d"</string>
+<string name="dialog_win_bonus">"Bonus: %1$d"</string>
+<string name="dialog_win_total">"Total: %1$d"</string>
 
-    <string name="game_longest_run">Longest sequence:</string>
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Mix cards"</string>
+<string name="dialog_mix_cards_text">"This will shuffle all cards, except correct sequences and cards on the foundation."</string>
+<string name="dialog_mix_cards_not_available">"There are still possible moves!"</string>
 
-    <!-- dialogs-->
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Start new game"</string>
+<string name="dialog_start_new_game_text">"Your current progress will be lost and a new random game will be dealt."</string>
 
-    <string name="dialog_no_hint_available">No hint available!</string>
-    <string name="dialog_no_movement_possible">No movement to show!</string>
-    <string name="dialog_win_titel">Congratulations!</string>
-    <string name="dialog_win_score">Score: %1$d</string>
-    <string name="dialog_win_bonus">Bonus: %1$d</string>
-    <string name="dialog_win_total">Total: %1$d</string>
-    <string name="dialog_mix_cards_title">Mix cards</string>
-    <string name="dialog_mix_cards_text">This will shuffle all cards, except correct sequences and cards on the foundation.</string>
-    <string name="dialog_mix_cards_not_available">There are still possible moves!</string>
-    <string name="dialog_start_new_game_title">Start new game</string>
-    <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
-    <string name="dialog_redeal_title">Give cards again</string>
-    <string name="dialog_redeal_text">Your current progress will be lost, but the cards are dealt like in the current game.</string>
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Give cards again"</string>
+<string name="dialog_redeal_text">"Your current progress will be lost, but the cards are dealt like in the current game."</string>
 
-    <!-- About activity -->
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Manual"</string>
+<string name="title_activity_settings">"Settings"</string>
+<string name="title_activity_about">"About Game"</string>
+<string name="title_activity_statistics">"Statistics"</string>
 
-    <string name="about_tab_1">Information</string>
-    <string name="about_tab_2">Licenses</string>
-    <string name="about_tab_3">Changelog</string>
-    <string name="about_loading">Loading…</string>
+<!-- About activity -->
+<string name="about_tab_1">"Information"</string>
+<string name="about_tab_2">"Licenses"</string>
+<string name="about_tab_3">"Changelog"</string>
+<string name="about_loading">"Loading…"</string>
+<string name="about_developer">"Developer"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Compiled on"</string>
+<string name="about_source_code">"Source code"</string>
+<string name="about_license">"License"</string>
+<string name="about_translations">"Translations"</string>
+<string name="about_further_contributors">"Further contributors"</string>
+<string name="about_android_support_libraries_title">"Android support library"</string>
+<string name="about_android_support_libraries_usage">"Used for better design and easier development"</string>
+<string name="about_material_icons_title">"Material design icons"</string>
+<string name="about_material_icons_usage">"Used for all icons in this application"</string>
+<string name="about_card_themes_title">"Card themes"</string>
+<string name="about_card_themes_usage">"The card themes were taken from &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, for detailed information click &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;here&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"Used as Poker theme - Available on &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna library"</string>
+<string name="about_custom_color_picker_usage">"Used for the custom color picker"</string>
+<string name="about_sounds_title">"Sounds"</string>
+<string name="about_sounds_usage">"All sounds were originally published on &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, for detailed information click &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;here&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
+<string name="about_sliding_tabs_usage">"Used for the tabs in the \"About game\" screen"</string>
 
-    <string name="about_developer">Developer</string>
-    <string name="about_developer_name">Tobias Bielefeld</string>
-    <string name="about_compiled">Compiled on</string>
-    <string name="about_source_code">Source code</string>
-    <string name="about_license">License</string>
-    <string name="about_translations">Translations</string>
-    <string name="about_further_contributors">Further contributors</string>
-    <string name="about_android_support_libraries_title">Android support library</string>
-    <string name="about_android_support_libraries_usage">Used for better design and easier development</string>
-    <string name="about_material_icons_title">Material design icons</string>
-    <string name="about_material_icons_usage">Used for all icons in this application</string>
-    <string name="about_material_icons_2_usage">The Support icon is published as \"lightbulb-on\" on &lt;a href="https://materialdesignicons.com/icon/lightbulb-on"&gt;materialdesignicons.com&lt;/a&gt;.</string>
+<!-- Manual -->
+<string name="manual_games">"Games"</string>
+<string name="manual_feedback">"Feedback"</string>
+<string name="manual_startpage">"Start page"</string>
+<string name="manual_back_to_game">"Back to game"</string>
+<string name="manual_structure">"Structure"</string>
+<string name="manual_objective">"Objective"</string>
+<string name="manual_rules">"Rules"</string>
+<string name="manual_scoring">"Scoring"</string>
+<string name="manual_main_menu">"Main menu"</string>
+<string name="manual_ui">"User interface"</string>
+<string name="page_load_error">"No page for this game available…"</string>
+<string name="manual_bonus">"After winning a game, you get a bonus: The faster you win, the higher the bonus will be."</string>
+<string name="manual_open_google_play">"Open Google Play"</string>
+<string name="manual_open_github">"Open GitHub Repo"</string>
+<string name="manual_games_text1">"Choose a game to show its structure, objective, rules and scoring."</string>
+<string name="manual_startpage_text">"Welcome to the manual of this game collection! I hope it will explain everything. 
 
-    <string name="about_card_themes_title">Card themes</string>
-    <string name="about_card_themes_usage">The card themes were taken from &lt;a href="https://pixabay.com/"&gt;pixabay.com&lt;/a&gt;, for detailed information click &lt;a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt"&gt;here&lt;/a&gt;</string>
-    <string name="about_poker_themes_usage">Used as Poker theme - Available on &lt;a href="https://sourceforge.net/projects/vector-cards/"&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
-    <string name="about_paris_themes_usage">Used as Paris theme - Available on &lt;a href="https://sourceforge.net/projects/svg-cards/"&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr</string>
-    <string name="about_custom_color_picker_title">AmbilWarna library</string>
-    <string name="about_custom_color_picker_usage">Used for the custom color picker</string>
-    <string name="about_sounds_title">Sounds</string>
-    <string name="about_sounds_usage">All sounds were originally published on &lt;a href="https://freesound.org"&gt;freesound.org&lt;/a&gt;, for detailed information click &lt;a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt"&gt;here&lt;/a&gt;</string>
-    <string name="about_sliding_tabs_title">PagerSlidingTabStrip library</string>
-    <string name="about_sliding_tabs_usage">Used for the tabs in the \"About game\" screen</string>
+Use the menu on the left side to access the other manual pages."</string>
+<string name="manual_general_main_menu">"The usage of the main menu is relatively simple. Just tap on a game to start it. 
 
-    <!-- Manual -->
+The app will automatically load the last played game on a restart, if the app was paused in it. This behavior can be disabled in the settings under \"General\".
 
-    <string name="manual_games">Games</string>
-    <string name="manual_feedback">Feedback</string>
-    <string name="manual_startpage">Start page</string>
-    <string name="manual_back_to_game">Back to game</string>
-    <string name="manual_structure">Structure</string>
-    <string name="manual_objective">Objective</string>
-    <string name="manual_rules">Rules</string>
-    <string name="manual_scoring">Scoring</string>
-    <string name="manual_main_menu">Main menu</string>
-    <string name="manual_ui">User interface</string>
-    <string name="page_load_error">No page for this game available…</string>
-    <string name="manual_bonus">After winning a game, you get a bonus: The faster you win, the higher the bonus will be.</string>
-    <string name="manual_open_google_play">Open Google Play</string>
-    <string name="manual_open_github">Open GitHub Repo</string>
-    <string name="manual_games_text1">Choose a game to show its structure, objective, rules and scoring.</string>
-    <string name="manual_startpage_text">Welcome to the manual of this game collection! I hope it will explain everything. \n\nUse the menu on the left side to access the other manual pages.</string>
-    <string name="manual_general_main_menu">The usage of the main menu is relatively simple. Just tap on a game to start it. \n\nThe app will automatically load the last played game on a restart, if the app was paused in it. This behavior can be disabled in the settings under \"General\".\n\nThere you can also find the section \"Main menu\", where it\'s possible to hide and reorder games in the menu and change the number of columns, so more games fit on the screen at once.</string>
+There you can also find the section \"Main menu\", where it's possible to hide and reorder games in the menu and change the number of columns, so more games fit on the screen at once."</string>
+<string name="manual_ui_text">"A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. If possible, these two values will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons from left to right):
 
-    <string name="manual_ui_text">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. If possible, these two values will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons from left to right):\n\nThe \"Scores\" button will show a new window with the high scores and the count of won games of the current game.\n\nThe \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.\n\nThe \"Menu\" button shows three different actions: Start a new game by mixing the cards and drawing a new deal. Give cards again will do the same but without the mixing. So it\'s like a restart of the current game. The last option will end the current game and return the app to the main menu.\n\nThe \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements.\n\nThe \"Settings\" button simply opens the settings menu.</string>
+The \"Scores\" button will show a new window with the high scores and the count of won games of the current game.
 
-    <string name="manual_ui_text_part_1">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. The menu contains 5 items, which have the following effects (buttons from left to right)\n\nThe \"Statistics\" button will show a new window with different statistics of the current game, like the high scores.\n\nThe \"Support\" button will show a little help menu. Here you can select:</string>
-    <string name="manual_ui_text_part_2">Show hints: Show up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.</string>
-    <string name="manual_ui_text_part_3">Auto move: Automatically move as many cards as possible. This option is intended to be used in situations eg. when only one card is still faced down, but you need to move every other card on that stack to access it. So this option can speed up the game a little bit.</string>
-    <string name="manual_ui_text_part_4">Mix cards: If you are in a situation where no movement is possible, you can use this option to mix the current cards. Note that cards already in correct order or cards on the foundation will be ignored in the mixing.</string>
-    <string name="manual_ui_text_part_5">Game rules: Directly open the manual page of the current game.</string>
-    <string name="manual_ui_text_part_6">The \"Menu\" button shows three different actions:</string>
-    <string name="manual_ui_text_part_7">Start a new game: Mixing the cards and draw a new deal.</string>
-    <string name="manual_ui_text_part_8">Give cards again: Restart the current game with the same layout of cards.</string>
-    <string name="manual_ui_text_part_9">Return to main menu: Save the current game state and show the game selection menu.</string>
-    <string name="manual_ui_text_part_10">The \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements. (The amount can be increased in the expert settings)\n\nThe \"Settings\" button simply opens the settings menu.</string>
+The \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren't shown as a hint. If no hint was shown, the score won't decrease.
 
-    <string name="manual_statistics_part_1">There are statistics collected for each game. You can access them from the in-game menu bar. Collected information are:</string>
-    <string name="manual_statistics_part_2">The number of played and won games</string>
-    <string name="manual_statistics_part_3">The total amount of earned score points</string>
-    <string name="manual_statistics_part_4">The total amount of help functions used</string>
-    <string name="manual_statistics_part_5">A high-score list with up to 10 entries, only scores over 0 are saved here</string>
-    <string name="manual_statistics_part_6">A recent score list with the last 10 scores</string>
-    <string name="manual_statistics_part_7">It is also possible to delete all data for the current game, but this can\'t be undone!</string>
+The \"Menu\" button shows three different actions: Start a new game by mixing the cards and drawing a new deal. Give cards again will do the same but without the mixing. So it's like a restart of the current game. The last option will end the current game and return the app to the main menu.
 
-    <string name="manual_feedback_text">Found a bug or an error? Something I should improve? Should I add another game to the collection? Maybe you want to help with some translations? Or have another idea?\n\nI am happy to receive any kind of feedback. If you feel the need to contact me, you should consider the following two options:\n\nUse the Issue Tracker on GitHub: The project of this app on GitHub has a neat function to report issues. Just click on the button on the left side of the screen to open the Issue Tracker with the Internet browser.\n\nUse a rating in Google Play: Just leave a rating on the page from this app and write anything you want in it. Click on the button to the right side to open the Google Play Store (if installed).\n\nThank you in advance for your feedback :)</string>
-    <string name="manual_Klondike_structure">1 deck of 52 cards.\n\n7 tableau stacks, 4 foundation stacks, 1 main and 1 discard stack.</string>
-    <string name="manual_Klondike_objective">Order every card in real families in ascending order on the foundation.</string>
-    <string name="manual_Klondike_rules">Cards can be placed on the tableau in descending order and in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing on the main stack, cards will be moved to the discard stack from where you can use them. The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card will be moved (This is the default setting, for easier game play). With \"Draw 3\" enabled, 3 cards will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every card from the discard stack to the main stack and use them again.</string>
-    <string name="manual_Klondike_scoring">From tableau to foundation: +60\n\nFrom discard stack to foundation: +45\n\nFrom foundation to tableau: -75\n\nTurn a card over: +25\n\nReturn all cards from discard stack to main stack: -200</string>
-    <string name="manual_Freecell_structure">1 deck of 52 cards.\n\n8 tableau stacks, 4 foundation stacks and 4 free cells.</string>
-    <string name="manual_Freecell_objective">Order every card in real families in ascending order on the foundation.</string>
-    <string name="manual_Freecell_rules">Cards can be placed on the tableau in descending order and in alternating colors. On the foundation, cards can be placed only in ascending order on the corresponding family. The 4 cells on the top can only contain one card at a time.\n\nYou can move as many cards (which are in a correct sequence) at once, as there are free stacks (tableau and the cells) available. This corresponds to the rule, that only one card can be moved at once, but when there are free stacks available, the cards can be moved on the free stacks first and then to the destination stack.\n\nEvery card can be placed on empty tableau fields and cells. Aces can be placed on empty foundation fields.</string>
-    <string name="manual_Freecell_scoring">Move a card to foundation: +60\n\nMove a card from foundation: -75\n\nMove a king to an empty field: +20</string>
-    <string name="manual_Yukon_structure">1 deck of 52 cards.\n\n7 tableau stacks and 4 foundation stacks.</string>
-    <string name="manual_Yukon_objective">Order every card in real families in ascending order on the foundation.</string>
-    <string name="manual_Yukon_rules">Cards can be placed on the tableau in descending order and in alternating colors. On the foundation, cards can be placed only in ascending order on the corresponding family.\n\nYou can move every faced up card, no matter how many cards and which sequence the cards are on top of it.\n\nOnly kings can be placed on empty tableau fields and only aces can be placed on empty foundation fields.</string>
-    <string name="manual_Yukon_scoring">From tableau to foundation: +60\n\nFrom foundation to tableau: -75\n\nMove a king to an empty field: +20\n\nFlip a card up: +25</string>
-    <string name="manual_Spider_structure">2 decks of 52 cards.\n\n10 tableau stacks and 8 foundation stacks.\n\n1 main stack, separated in 5 different piles.\n\nDepending on settings: 1, 2 or 4 different card families.</string>
-    <string name="manual_Spider_objective">Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation.</string>
-    <string name="manual_Spider_rules">Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
-    <string name="manual_Spider_scoring">Move a card family to foundation: +200\n\n Flip a card up: +25</string>
-    <string name="manual_SimpleSimon_structure">1 deck of 52 cards.\n\n10 tableau stacks and 4 foundation stacks.</string>
-    <string name="manual_SimpleSimon_objective">Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation.</string>
-    <string name="manual_SimpleSimon_rules">Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau stacks.</string>
-    <string name="manual_SimpleSimon_scoring">Move a card family to foundation: +200</string>
-    <string name="manual_Golf_structure">1 deck of 52 cards.\n\n7 tableau stacks, 1 main and 1 discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
-    <string name="manual_Golf_objective">Move every card from the tableau to the discard stack.</string>
-    <string name="manual_Golf_rules">Every top card of a stack can be used to play. Cards can only be placed on the discard stack in ascending and descending order regardless of color.\n\nDepending on settings, you can also place a king on an ace and vice versa (easier game play).\n\nIf no card can be moved, press on the main stack to deal one card from it to the discard stack.</string>
-    <string name="manual_Golf_scoring">Move a card to the discard stack: +50</string>
-    <string name="manual_Pyramid_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main, 1 discard and 1 waste stack.\n\nCards from the discard stack can be moved back to the main stack only two times in a game.</string>
-    <string name="manual_Pyramid_objective">Move every card from the tableau to the waste. Depending on settings, also every card from main and discard stacks has to be moved to the waste.</string>
-    <string name="manual_Pyramid_rules">This game has slightly different rules compared to the other Solitare games. Every card, which isn\'t covered by another card can be played. Two cards, whose values add up to 13 can be moved to the waste. To do so, move a card on another free card. If both values are correct, they will be automatically moved to the waste.\n\nIt is also possible to use the cards from main and discard stack. If no card movement is possible, press on the arrow between these stacks to move one card from the main stack to the discard stack. If the main stack is empty, press again on it or on the arrow to return the cards from the discard stack to the main stack. This movement can only be used two times in a game. The remaining amount will be shown as the little number above the arrow.</string>
-    <string name="manual_Pyramid_scoring">Move a card to the waste: +50\n\nReturn all cards from discard stack to main stack: -200</string>
-    <string name="manual_TriPeaks_structure">1 deck of 52 cards.\n\n28 tableau stacks, 1 main and 1 discard stack.\n\nMoving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button).</string>
-    <string name="manual_TriPeaks_objective">Move every card from the tableau to the discard stack.</string>
-    <string name="manual_TriPeaks_rules">The rules of this game are similar to \"Golf\". Every card which isn\'t covered by another card can be used to play. Cards can only be placed on the discard stack in ascending and descending order regardless of color.\n\nIt is also possible to play kings on aces and vice versa.\n\nIf no card can be moved, press on the main stack to deal one card from it to the discard stack.</string>
-    <string name="manual_TriPeaks_scoring">Move a card to the waste: +50</string>
-    <string name="manual_FortyEight_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation stacks, 1 main and 1 discard stack.\n\nCards from the discard stack can be moved back to the main stack only once in a game.\n\n</string>
-    <string name="manual_FortyEight_objective">Order every card as real families in ascending order on the foundation.</string>
-    <string name="manual_FortyEight_rules">Cards can be placed on the tableau in descending order of the same family. On the foundation, cards can be placed only in ascending order on the corresponding family. \n\nYou can move as many cards (which are in a correct sequence) at once, as there are free stacks available. This corresponds to the rule, that only one card can be moved at once, but when there are free stacks available, the cards can be moved on the free stacks first and then to the destination stack. \n\nEvery card can be placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing on the main stack, one card will be moved to the discard stack from where you can play it.\n\nIf the main stack is empty, you can still press on it to move every card from the discard stack back to the main stack and use them again. But this is only once a game possible. The remaining amount is shown a the little number above the main stack.</string>
-    <string name="manual_FortyEight_scoring">Move a card to foundation: +45\n\nMove a card back to tableau: -60\n\nMove a card from the discard stack to tableau: +60\n\nReturn cards from discard to main stack: -200</string>
-    <string name="manual_mod3_structure">2 deck of 52 cards.\n\n32 tableau stacks, 1 main and 1 aces stack.</string>
-    <string name="manual_mod3_objective">Order every card on the top 3 rows of the tableau as sequences of the same color in the following way:\n\nFirst row: Sequences of 2–5–8–J\nSecond row: Sequences of 3–6–9–Q\nThird row: Sequences of 4–7–10–K\n\nAces will be put away.</string>
-    <string name="manual_mod3_rules">You can move only one card from the top of a stack at once. Cards can only be placed if the sequence shown under \"Objectives\" is correct. So you can place for example a Hearts 5 on a Hearts 2, but only if the Hearts 2 is in the first row of the tableau. Different families aren\'t allowed either.\n\nGain free stacks to place cards by moving aces to the aces stack above the main stack.\n\nThe fourth row is also the discard row for the cards from the main stack. Any card can be placed on a free stack of the forth row.\n\nPress on the main stack to deal one card to each stack of the forth row.</string>
-    <string name="manual_mod3_scoring">Move a card on a correct field of the tableau: +50\n\nMove a card back to the fourth row of the tableau: -75</string>
-    <string name="manual_Gypsy_structure">2 deck of 52 cards.\n\n8 tableau stacks, 8 foundation stacks, and 1 main stack.</string>
-    <string name="manual_Gypsy_objective">Order every card in real families in ascending order on the foundation.</string>
-    <string name="manual_Gypsy_rules">Cards can be placed on the tableau in descending order and in alternating colors. You can move a whole correct sequence of cards at once. On the foundation, cards can be placed only in ascending order on the corresponding family.\n\nEvery card can be placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing on the main stack, one card will be moved to each tableau stack.</string>
-    <string name="manual_Gypsy_scoring">Move a card to foundation: +75\n\nMove a card from foundation to tableau: -100\n\n Flip a card over: +50</string>
-    <string name="manual_AcesUp_structure">1 deck of 52 cards.\n\n4 tableau stacks, 1 main and 1 foundation stack.\n\nAces have the value 14, so they have a higher value than kings.</string>
-    <string name="manual_AcesUp_objective">Put all cards except the aces on the foundation stack, so there is one ace on every tableau stack left.</string>
-    <string name="manual_AcesUp_rules">You can move only the top card of a stack. Move cards which have a lower value than another top card of the same family to the foundation. For example: There are a Hearts 5 and a Hearts 10 on top of two tableau stacks. Then you can move the Hearts 5 to the foundation. Aces have a higher value than every other card.\n\nEvery movable card can be placed on empty tableau stacks.\n\nPress the main stack to deal one card to each tableau stack.</string>
-    <string name="manual_AcesUp_scoring">Move a card to the foundation stack: +50</string>
-    <string name="manual_Canfield_structure">1 deck of 52 cards.\n\n4 tableau stacks, 4 foundation stacks, 1 main, 1 discard stack and a reserve stack</string>
-    <string name="manual_Canfield_objective">Order every card in real families in ascending order on the foundation.</string>
-    <string name="manual_Canfield_rules">Cards can be placed on the tableau in descending order and in alternating colors. You can move a complete sequence of cards at once. On the foundation, cards can be placed only in ascending order on the corresponding family.\n\nEmpty tableau fields are filled with a card from the reserve. If the reserve is empty, a card from the main stack will be used.\n\nThe value of the first card drawn to the foundation will specify which cards can be placed on empty foundation fields. For example: If a Hearts 10 was drawn to the foundation, only cards with the value 10 can be placed on empty foundation fields. But the cards on the foundation can be placed cyclic, so it is also possible to play an ace on a king\n\nBy pressing on the main stack, cards will be moved to the discard stack from where you can use them. The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card will be moved. With \"Draw 3\" enabled, 3 cards will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every card from the discard stack to the main stack and use them again.</string>
-    <string name="manual_Canfield_scoring">From tableau to foundation: +60\n\nFrom discard stack to foundation: +45\n\nFrom foundation to tableau: -75\n\nTurn a card over: +25\n\nReturn all cards from discard stack to main stack: -200</string>
-    <string name="manual_GrandfathersClock_structure">1 deck of 52 cards.\n\n8 tableau stacks, 12 foundation stacks in the form of a clock. Each foundation stack already contains one card</string>
-    <string name="manual_GrandfathersClock_objective">Order every card in real families in ascending order on the foundation. At the end, the card values on the foundation match the values on a clock.</string>
-    <string name="manual_GrandfathersClock_rules">Cards can be placed on the tableau in descending order, the color doesn\'t matter. On the foundation, cards can be placed only in ascending order on the corresponding family. But Aces can be placed on top of kings. \n\nYou can move as many cards (which are in a correct sequence) at once on the tableau, as there are free stacks available. This corresponds to the rule, that only one card can be moved at once, but when there are free stacks available, the cards can be moved on the free stacks first and then to the destination stack.</string>
-    <string name="manual_GrandfathersClock_scoring">From tableau to foundation: +50</string>
-    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-    <string name="manual_Vegas_objective">Play cards to the foundation to win more money.</string>
-    <string name="manual_Vegas_rules">The rules are identical to the \"Klondike\"-Rules. \n\nCards can be placed on the tableau in descending order and in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards can be placed only in ascending order on the corresponding family.\n\nOnly kings can be placed on empty tableau stacks and only aces can be placed on empty foundation stacks.\n\nBy pressing on the main stack, cards will be moved to the discard stack from where you can use them. The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card will be moved. With \"Draw 3\" enabled, 3 cards will be moved at once.\n\nIf the main stack is empty, you can still press on it to move every card from the discard stack to the main stack and use them again.</string>
-    <string name="manual_Vegas_scoring">The amount of money you win depends on the bet you set up in the settings. You pay eg. 52$ at the beginning of the game, and with every card played to the foundation you win 5$. \n\nA game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2 * 5$. \n\nUsing the hint or undo functions will also cost 5$. \n\nThere is also an option to keep your score over multiple games. In that case, a score will be saved after resetting the score and starting a new game. \n\nDISCLAIMER: You do not play for real money in this game :)</string>
-    <string name="manual_Calculation_structure">1 deck of 52 cards.\n\n4 tableau stacks, 4 foundation stacks, 1 main and 1 discard stack</string>
-    <string name="manual_Calculation_objective">Place every card to the foundation, regardless of suit, until each foundation stack shows a king. The stacks have to be build in the following order: \n\n 1. stack in 1s: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K\n 2. stack in 2s: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K\n 3. stack in 3s: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K\n 4. stack in 4s: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K \n\nThe next playable cards are shown above the foundation stacks, too.</string>
-    <string name="manual_Calculation_rules">The 4 foundation stacks already start with the first cards, which are randomly chosen. Cards on the foundation have to follow the order given under Objective. \n\nCards from the discard stack can be moved to any tableau stack or on foundation stacks, if they fulfill the correct order. \n\nPressing the main stack will simply move the card on the discard stack to the tableau stack with the fewest cards. Alternative rule: The cards on the discard stack remain there, when pressing on the main stack (can be enabled in the game settings). \n\nOn the tableau, only top cards can be moved and they can only be moved to the foundation.</string>
-    <string name="manual_Calculation_scoring">Move a card to foundation: +50</string>
-    <string name="manual_NapoleonsTomb_structure">1 deck of 52 cards.\n\n4 tableau stacks, 5 foundation stacks, 1 main and 1 discard stack\n\nThe 4 stacks in the corners with a \"7\" and the one in the center are the foundation stacks. The stacks between them are the tableau stacks.</string>
-    <string name="manual_NapoleonsTomb_objective">Play every card to the foundation, regardless of suit.</string>
-    <string name="manual_NapoleonsTomb_rules">The 4 corner stacks start with a 7 and have to be stacked in ascending order until a king. The center foundation stack starts with a 6 and has to be stacked in descending order until an Ace four times. This results in the following order for this stack: \n\n6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A\n\nThe next card in the order will also be shown above the stack.\n\nPressing the main stack will flip one card over to the discard stack. Can be enabled in the game settings: If the main stack is empty, press it again to recycle the cards from the discard stack back to it.\n\nAny card can be placed on every tableau stack, but each stack can contain only one card at a time.</string>
-    <string name="manual_NapoleonsTomb_scoring">Move a card to foundation: +60\n\nRecycle cards from the discard stack: -200</string>
+The \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements.
 
-    <!-- Settings -->
+The \"Settings\" button simply opens the settings menu."</string>
+<string name="manual_feedback_text">"Found a bug or an error? Something I should improve? Should I add another game to the collection? Maybe you want to help with some translations? Or have another idea?
 
-    <string name="settings_apply_only_for_this_game">Apply changes only for %1$s</string>
-    <string name="settings_hide_auto_complete_button">Disable Autocomplete button</string>
-    <string name="settings_background_color">Background colour</string>
-    <string name="settings_hide_status_bar">Hide status bar</string>
-    <string name="settings_left_handed_mode">Left handed mode</string>
-    <string name="settings_left_handed_mode_description">Mirrors the card and stack positions to the left side</string>
-    <string name="settings_back_press">Confirm closing game</string>
-    <string name="settings_back_press_description">Press back button twice to close game</string>
-    <string name="settings_orientation">Screen orientation</string>
-    <string name="settings_cards">Cards</string>
-    <string name="settings_classic">Classic</string>
-    <string name="settings_simple">Simple</string>
-    <string name="settings_cards_paris">Paris</string>
-    <string name="settings_cards_dondorf">Dondorf</string>
-    <string name="settings_cards_back">Card backgrounds</string>
-    <string name="settings_modern">Modern</string>
-    <string name="settings_abstract">Abstract</string>
-    <string name="settings_basic">Basic</string>
-    <string name="settings_oxygen_dark">Oxygen Dark</string>
-    <string name="settings_oxygen_light">Oxygen Light</string>
-    <string name="settings_poker">Poker</string>
-    <string name="settings_background">Background number</string>
-    <string name="settings_customization">Appearance</string>
-    <string name="settings_other">General</string>
-    <string name="settings_other_description">Set all other settings</string>
-    <string name="settings_games">Games</string>
-    <string name="settings_games_description">Set preferences for the game variants</string>
-    <string name="settings_spider_difficulty">Number of different card families</string>
-    <string name="settings_klondike_draw">Number of cards to draw</string>
-    <string name="settings_canfield_draw">Number of cards to draw</string>
-    <string name="settings_show_main_menu">Start to main menu</string>
-    <string name="settings_show_main_menu_description">Do not enter the last played game on start</string>
-    <string name="settings_golf_easy">Cyclic moves (Easier)</string>
-    <string name="settings_golf_easy_description">Allow placing aces on kings and vice versa</string>
-    <string name="settings_restart_klondike">Start a new Klondike game to apply the change</string>
-    <string name="settings_restart_canfield">Start a new Canfield game to apply the change</string>
-    <string name="settings_restart_spider">Start a new Spider game to apply the change</string>
-    <string name="settings_restart_vegas">Start a new Vegas game to apply the change</string>
-    <string name="settings_restart_fortyeight">Start a new Forty&amp;Eight game to apply the change</string>
-    <string name="settings_restart_yukon">Start a new Yukon game to apply the change</string>
-    <string name="settings_menu">Main menu</string>
-    <string name="settings_menu_description">Change number of columns, show and hide games</string>
-    <string name="settings_pyramid_difficulty">Difficulty</string>
-    <string name="settings_menu_columns">Number of columns</string>
-    <string name="settings_menu_games">Show and hide games</string>
-    <string name="settings_menu_games_description">Select which games are shown in the menu</string>
-    <string name="settings_about_description">Show information about the game like licenses and changelog</string>
-    <string name="settings_change_language">Change language</string>
-    <string name="settings_yukon_rules">Place cards on…</string>
-    <string name="settings_icon_theme">Icon theme</string>
-    <string name="settings_menu_bar_position">Menu bar position</string>
-    <string name="settings_menu_bar_position_top">Top</string>
-    <string name="settings_menu_bar_position_bottom">Bottom</string>
-    <string name="settings_menu_bar_position_left">Left</string>
-    <string name="settings_menu_bar_position_right">Right</string>
-    <string name="settings_4_color_mode_title">4 color decks</string>
-    <string name="settings_4_color_mode_text">Change the colors from Clubs to green and from diamonds to blue</string>
-    <string name="settings_additional_movements">Additional card movements</string>
-    <string name="settings_additional_movements_description">Enable and disable double-tap and other movement methods</string>
-    <string name="settings_double_tap">Double-Tap</string>
-    <string name="settings_double_tap_enable">Enable double tap movements</string>
-    <string name="settings_double_tap_enable_text">Press a card twice to move it to the next possible stack</string>
-    <string name="settings_double_tap_all_cards">Move all possible cards</string>
-    <string name="settings_double_tap_all_cards_text">Move as many cards as possible from the stack, not only the touched card</string>
-    <string name="settings_tap_to_select">Tap-To-Select</string>
-    <string name="settings_tap_to_select_enable">Enable Tap-To-Select movements</string>
-    <string name="settings_tap_to_select_enable_text">Tap on a card to select it, then tap the destination stack to move it there</string>
-    <string name="settings_single_tap">Single-Tap</string>
-    <string name="settings_single_tap_enable_text">Only for Golf and TriPeaks: Press a card once to move it to the discard stack</string>
-    <string name="settings_double_tap_foundation_first">Move to foundation stack first</string>
-    <string name="settings_double_tap_foundation_first_text">Try to move the top card of the tapped stack to the foundation, before moving the other cards</string>
-    <string name="settings_movement_speed">Card movement speed</string>
-    <string name="Settings_sound">Enable sound in game</string>
-    <string name="Settings_sounds_title">Sounds</string>
-    <string name="Settings_sounds_text">Enable sounds, set up different sound effects</string>
-    <string name="Settings_win_sound_title">Winning sound effect</string>
-    <string name="Settings_background_music">Background music</string>
-    <string name="settings_background_color_custom">Custom</string>
-    <string name="Settings_background_volume">Background music volume</string>
-    <string name="settings_limit_number_of_recycles">Limit number of recycles</string>
-    <string name="settings_limit_number_of_recycles_text">Recycling the waste back to the main stack is limited</string>
-    <string name="settings_number_of_recycles">Amount of recycles</string>
-    <string name="settings_vegas_bet_amount">Bet Amount</string>
-    <string name="settings_menu_order_title">Menu order</string>
-    <string name="settings_menu_order_summary">Long click an entry, then use drag and drop to reorder the menu entries</string>
-    <string name="settings_menu_order_set_default">Reset order</string>
-    <string name="settings_auto_start_new_game_title">Start a new game when won</string>
-    <string name="settings_auto_start_new_game_text">If returned to an already won game, automatically start a new game</string>
-    <string name="settings_customization_description">Customize cards, backgrounds and user interface</string>
-    <string name="settings_force_tablet_layout_title">Force tablet layout</string>
-    <string name="settings_force_tablet_layout_text">Show the application as on large screens (≥7\")</string>
-    <string name="settings_restart_calculation">Start a new Calculation game to apply the change</string>
-    <string name="settings_calculation_alternative_title">Keep cards</string>
-    <string name="settings_calculation_alternative_text">On main stack press: Instead of moving the card from the discard stack to the tableau, keep it on the discard stack.</string>
-    <string name="settings_vegas_money_enabled">Keep the current balance</string>
-    <string name="settings_vegas_money_enabled_text">The balance will be transferred to following deals of Vegas, but you need to reset the balance and then start a new game for saving high-scores</string>
-    <string name="settings_vegas_money_reset">Reset balance</string>
-    <string name="settings_vegas_money_reset_text">The next Vegas deal will start with 0$</string>
-    <string name="settings_vegas_money_reset_confirm">Do you really want to reset your balance? This can\'t be reverted.</string>
-    <string name="settings_auto_move_title">Automatic movement</string>
-    <string name="settings_mod3_auto_move_text">Automatically move Aces to the discard stack, when possible</string>
-    <string name="settings_pyramid_auto_move_text">Automatically move Kings to the waste, when possible</string>
-    <string name="settings_rules">Rules</string>
-    <string name="settings_money">Money</string>
-    <string name="settings_support">Support</string>
-    <string name="settings_hide_time">Hide time</string>
-    <string name="settings_hide_score">Hide score</string>
-    <string name="settings_hide_menu_button">Hide menu button</string>
-    <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
-    <string name="settings_vegas_bet_amount_text_1">Initial deal costs:</string>
-    <string name="settings_vegas_bet_amount_text_2">Each card played to the foundation earns:</string>
-    <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
-    <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
-    <string name="settings_number_input_error">Can\'t save those numbers!</string>
-    <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
-    <string name="settings_use_true_randomisation_title">Use true randomization</string>
-    <string name="settings_use_true_randomisation_text">The default randomization avoids similar cards next to each other. Check this to enable a truly uniform randomisation</string>
-    <string name="settings_developer_options">Developer options</string>
-    <string name="settings_developer_options_description">Play around with crazy settings!</string>
-    <string name="settings_developer_options_move_card_everwhere_title">Move cards everywhere</string>
-    <string name="settings_developer_options_move_card_everwhere_text">You can place cards on any stack</string>
-    <string name="settings_developer_options_lock_text">These settings are intended for testing purpose only, the usage can result in strange behavior and crashes!</string>
-    <string name="settings_developer_options_play_every_card_title">Play every card</string>
-    <string name="settings_developer_options_play_every_card_text">You can play every revealed card</string>
-    <string name="settings_developer_options_instant_win_title">Instant win</string>
-    <string name="settings_developer_options_instant_win_text">Win every game after moving a card</string>
-    <string name="settings_developer_options_no_saving_title">Disable saving game state</string>
-    <string name="settings_developer_options_no_saving_text">Movements in a game won\'t be saved anymore</string>
-    <string name="settings_developer_options_deal_correct_sequences_title">Deal correct sequences</string>
-    <string name="settings_show_advanced_settings_title">Unlock the developer categories</string>
-    <string name="settings_max_number_undos">Maximum amount of undo movements</string>
-    <string name="settings_expert_settings">Expert settings</string>
-    <string name="settings_expert_settings_text">May be useful for some people</string>
-    <string name="settings_follow_system_settings">Follow system settings</string>
-    <string name="settings_portrait">Portrait</string>
-    <string name="settings_landscape">Landscape</string>
-    <string name="settings_landscape_upside_down">Landscape upside down</string>
-    <string name="settings_spider_difficultiy_1">1 (Easy)</string>
-    <string name="settings_spider_difficultiy_2">2 (Medium)</string>
-    <string name="settings_spider_difficultiy_3">4 (Hard)</string>
-    <string name="settings_draw_1">Draw 1</string>
-    <string name="settings_draw_3">Draw 3</string>
-    <string name="settings_pyramid_difficulty_1">Easy: Game is won when tableau is empty</string>
-    <string name="settings_pyramid_difficulty_2">Hard: Game is won when tableau and stock are empty</string>
-    <string name="settings_language_default">Default language</string>
-    <string name="settings_language_english">English</string>
-    <string name="settings_diable_undo_costs">Disable undo score penalty</string>
-    <string name="settings_diable_hint_costs">Disable hint score penalty</string>
-    <string name="settings_language_esperanto">Esperanto</string>
-    <string name="settings_language_finnish">Finnish</string>
-    <string name="settings_language_french">French</string>
-    <string name="settings_language_german">German</string>
-    <string name="settings_language_japanese">Japanese</string>
-    <string name="settings_language_polish">Polish</string>
-    <string name="settings_language_turkish">Turkish</string>
-    <string name="settings_language_italian">Italian</string>
-    <string name="settings_language_portuguese_brazil">Portuguese (Brazil)</string>
-    <string name="settings_language_spanish_argentina">Spanish (Argentina)</string>
-    <string name="settings_language_ukrainian">Ukrainian</string>
-    <string name="settings_language_norwegian">Norwegian (Bokmål)</string>
-    <string name="settings_yukon_rules_1">different colors (Default)</string>
-    <string name="settings_yukon_rules_2">same suit (Russian Solitaire)</string>
-    <string name="settings_movement_speed_1">Very slow</string>
-    <string name="settings_movement_speed_2">Slow</string>
-    <string name="settings_movement_speed_3">Normal</string>
-    <string name="settings_movement_speed_4">Fast</string>
-    <string name="settings_win_sounds_1">Default</string>
-    <string name="settings_win_sounds_2">Piano</string>
-    <string name="settings_win_sounds_3">8-Bit voice \"You win\"</string>
-    <string name="settings_win_sounds_4">>Cheering crowd</string>
-    <string name="settings_background_music_1">Disabled</string>
-    <string name="settings_background_music_2">Theme 1</string>
-    <string name="settings_background_music_3">Theme 2</string>
-    <string name="settings_background_music_4">Theme 3</string>
-    <string name="settings_background_music_5">Music Box</string>
-    <string name="settings_canfield_size_of_reserve_1">13 Cards (default)</string>
-    <string name="settings_canfield_size_of_reserve_2">10 Cards</string>
-    <string name="settings_canfield_size_of_reserve_3">7 Cards</string>
-    <string name="settings_canfield_size_of_reserve_4">4 Cards</string>
-    <string name="settings_developer_option_deal_correct_sequences_1">Deactivated</string>
-    <string name="settings_developer_option_deal_correct_sequences_2">Alternating color</string>
-    <string name="settings_developer_option_deal_correct_sequences_3">Same family</string>
-    <string name="settings_developer_option_deal_correct_sequences_4">Reversed alternating color</string>
-    <string name="settings_developer_option_deal_correct_sequences_5">Reversed same family</string>
-    <string name="settings_developer_option_improve_auto_move_title">Improve Auto Move</string>
-    <string name="settings_developer_option_improve_auto_move_text">Auto Move will try to win the game by also using the main stack</string>
+I am happy to receive any kind of feedback. If you feel the need to contact me, you should consider the following two options:
 
-    <string name="settings_game_layout_margins_title">Game layout margins</string>
-    <string name="settings_game_layout_margins_text">Add margins to the left and right side of the game layout. The cards will appear smaller, but overlapping will be reduced!</string>
-    <string name="settings_game_layout_margins_none">None</string>
-    <string name="settings_game_layout_margins_small">Small</string>
-    <string name="settings_game_layout_margins_medium">Medium</string>
-    <string name="settings_game_layout_margins_large">Large</string>
+Use the Issue Tracker on GitHub: The project of this app on GitHub has a neat function to report issues. Just click on the button on the left side of the screen to open the Issue Tracker with the Internet browser.
 
-    <string name="settings_immersive_mode_title">Enable full screen mode</string>
-    <string name="settings_immersive_mode_text">Hide the Status and Navigation Bar while playing (Only on Android 4.4 and above)</string>
-    <string name="settings_dialog_only_for_this_game_enable_1">All further changes made here will only be applied to the current game. If you then want to change settings for other games, you have the following options:</string>
-    <string name="settings_dialog_only_for_this_game_enable_3">Return to the main menu and open the settings from there</string>
-    <string name="settings_dialog_only_for_this_game_enable_2">Disable this option</string>
-    <string name="settings_dialog_only_for_this_game_enable_4">Open the settings from within a game, which doesn\'t have this option enabled</string>
-    <string name="settings_dialog_only_for_this_game_enable_5">Disabling this option will restore the previous shared settings.</string>
-    <string name="settings_dialog_only_for_this_game_disable">The individual settings for this game will now be removed and the shared settings will be applied.</string>
-    <string name="settings_dialog_only_for_this_game_information_1">Changes won\'t affect all games. Click here for more information</string>
-    <string name="settings_dialog_only_for_this_game_information_2">The following games have enabled individual settings:</string>
-    <string name="settings_dialog_only_for_this_game_information_3">Those games won\'t be affected by changes made here.\n\nDo you want to remove the individual settings for all listed games?</string>
-    <string name="settings_dialog_only_for_this_game_removed_all">Removed all individual settings</string>
+Use a rating in Google Play: Just leave a rating on the page from this app and write anything you want in it. Click on the button to the right side to open the Google Play Store (if installed).
 
-    <string name="settings_ensure_movability_title">Guarantee number of movements</string>
-    <string name="settings_ensure_movability_text">Make sure that a certain amount of movements are possible in a game before starting it</string>
-    <string name="settings_ensure_movability_searching_games">Searching a suitable game…</string>
-    <string name="settings_ensure_movability_min_moves_title">Change the amount of moves</string>
-    <string name="settings_ensure_movability_min_moves_warning">Caution: Increasing the amount will result in longer waiting times before a game is started. Changing game rules will also affect the waiting time!</string>
-    <string name="settings_ensure_movability_min_moves_text">Change the amount of movements each game must at least have when starting it</string>
-    <string name="settings_ensure_movability_make_game_winnable_button_title">Make certain games winnable</string>
-    <string name="settings_ensure_movability_make_game_winnable_text">The amount for some games can be set high enough to make them always winnable, without increasing the waiting time significantly.</string>
-    <string name="settings_ensure_movability_winnable">Winnable</string>
-    <string name="settings_reset_to_defaults">Reset to default values</string>
+Thank you in advance for your feedback :)"</string>
+<string name="manual_Klondike_structure">"1 deck of 52 cards.
 
-    <string name="settings_text_color">Text and stack color</string>
+7 tableau stacks, 4 foundation stacks, 1 main and 1 discard stack."</string>
+<string name="manual_Klondike_objective">"Order every card in real families in ascending order on the foundation."</string>
+<string name="manual_Klondike_rules">"Cards can be placed on the tableau in descending order and in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards can be placed only in ascending order on the corresponding family.
 
-    <!-- Statistics -->
+Only kings can be placed on empty tableau stacks and only aces can be placed on empty foundation stacks.
 
-    <!-- %1$d and %2$d are placeholders for the values-->
-    <string name="statistics_text_won_games">Won %1$d out of %2$d games</string>
-    <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%"-->
-    <string name="statistics_win_percentage">Your win percentage: %1$.0f%%</string>
-    <string name="statistics_button_delete">Delete all entries!</string>
-    <string name="statistics_button_delete_text">Delete all entries for this game! Are you sure?</string>
-    <string name="statistics_button_deleted_all_entries">Deleted all entries</string>
-    <string name="statistics_time_of_day">Daytime</string>
-    <string name="statistics_date">Date</string>
+By pressing on the main stack, cards will be moved to the discard stack from where you can use them. The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card will be moved (This is the default setting, for easier game play). With \"Draw 3\" enabled, 3 cards will be moved at once.
 
-    <string name="statistics_high_scores">High Scores</string>
-    <string name="statistics_recent_scores">Recent Scores</string>
+If the main stack is empty, you can still press on it to move every card from the discard stack to the main stack and use them again."</string>
+<string name="manual_Klondike_scoring">"From tableau to foundation: +60
 
-    <string name="statistics_total_time">Total time played</string>
-    <string name="statistics_total_hints_shown">Total hints shown</string>
-    <string name="statistics_total_number_undos">Total undo movements</string>
-    <string name="statistics_total_points_earned">Total points earned</string>
-    <string name="statistics_no_entries">No entries, go play some games!</string>
+From discard stack to foundation: +45
 
+From foundation to tableau: -75
+
+Turn a card over: +25
+
+Return all cards from discard stack to main stack: -200"</string>
+<string name="manual_Freecell_structure">"1 deck of 52 cards.
+
+8 tableau stacks, 4 foundation stacks and 4 free cells."</string>
+<string name="manual_Freecell_objective">"Order every card in real families in ascending order on the foundation."</string>
+<string name="manual_Freecell_rules">"Cards can be placed on the tableau in descending order and in alternating colors. On the foundation, cards can be placed only in ascending order on the corresponding family. The 4 cells on the top can only contain one card at a time.
+
+You can move as many cards (which are in a correct sequence) at once, as there are free stacks (tableau and the cells) available. This corresponds to the rule, that only one card can be moved at once, but when there are free stacks available, the cards can be moved on the free stacks first and then to the destination stack.
+
+Every card can be placed on empty tableau fields and cells. Aces can be placed on empty foundation fields."</string>
+<string name="manual_Freecell_scoring">"Move a card to foundation: +60
+
+Move a card from foundation: -75
+
+Move a king to an empty field: +20"</string>
+<string name="manual_Yukon_structure">"1 deck of 52 cards.
+
+7 tableau stacks and 4 foundation stacks."</string>
+<string name="manual_Yukon_objective">"Order every card in real families in ascending order on the foundation."</string>
+<string name="manual_Yukon_rules">"Cards can be placed on the tableau in descending order and in alternating colors. On the foundation, cards can be placed only in ascending order on the corresponding family.
+
+You can move every faced up card, no matter how many cards and which sequence the cards are on top of it.
+
+Only kings can be placed on empty tableau fields and only aces can be placed on empty foundation fields."</string>
+<string name="manual_Yukon_scoring">"From tableau to foundation: +60
+
+From foundation to tableau: -75
+
+Move a king to an empty field: +20
+
+Flip a card up: +25"</string>
+<string name="manual_Spider_structure">"2 decks of 52 cards.
+
+10 tableau stacks and 8 foundation stacks.
+
+1 main stack, separated in 5 different piles.
+
+Depending on settings: 1, 2 or 4 different card families."</string>
+<string name="manual_Spider_objective">"Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation."</string>
+<string name="manual_Spider_rules">"Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.
+
+Every card can be placed on empty tableau stacks.
+
+Press on the main stack to deal one card to every tableau stack at once."</string>
+<string name="manual_Spider_scoring">"Move a card family to foundation: +200
+
+ Flip a card up: +25"</string>
+<string name="manual_SimpleSimon_structure">"1 deck of 52 cards.
+
+10 tableau stacks and 4 foundation stacks."</string>
+<string name="manual_SimpleSimon_objective">"Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation."</string>
+<string name="manual_SimpleSimon_rules">"Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.
+
+Every card can be placed on empty tableau stacks."</string>
+<string name="manual_SimpleSimon_scoring">"Move a card family to foundation: +200"</string>
+<string name="manual_Golf_structure">"1 deck of 52 cards.
+
+7 tableau stacks, 1 main and 1 discard stack.
+
+Moving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button)."</string>
+<string name="manual_Golf_objective">"Move every card from the tableau to the discard stack."</string>
+<string name="manual_Golf_rules">"Every top card of a stack can be used to play. Cards can only be placed on the discard stack in ascending and descending order regardless of color.
+
+Depending on settings, you can also place a king on an ace and vice versa (easier game play).
+
+If no card can be moved, press on the main stack to deal one card from it to the discard stack."</string>
+<string name="manual_Golf_scoring">"Move a card to the discard stack: +50"</string>
+<string name="manual_Pyramid_structure">"1 deck of 52 cards.
+
+28 tableau stacks, 1 main, 1 discard and 1 waste stack.
+
+Cards from the discard stack can be moved back to the main stack only two times in a game."</string>
+<string name="manual_Pyramid_objective">"Move every card from the tableau to the waste. Depending on settings, also every card from main and discard stacks has to be moved to the waste."</string>
+<string name="manual_Pyramid_rules">"This game has slightly different rules compared to the other Solitare games. Every card, which isn't covered by another card can be played. Two cards, whose values add up to 13 can be moved to the waste. To do so, move a card on another free card. If both values are correct, they will be automatically moved to the waste.
+
+It is also possible to use the cards from main and discard stack. If no card movement is possible, press on the arrow between these stacks to move one card from the main stack to the discard stack. If the main stack is empty, press again on it or on the arrow to return the cards from the discard stack to the main stack. This movement can only be used two times in a game. The remaining amount will be shown as the little number above the arrow."</string>
+<string name="manual_Pyramid_scoring">"Move a card to the waste: +50
+
+Return all cards from discard stack to main stack: -200"</string>
+<string name="manual_TriPeaks_structure">"1 deck of 52 cards.
+
+28 tableau stacks, 1 main and 1 discard stack.
+
+Moving cards from the discard stack back to the main stack is not possible (Expect from using the Undo button)."</string>
+<string name="manual_TriPeaks_objective">"Move every card from the tableau to the discard stack."</string>
+<string name="manual_TriPeaks_rules">"The rules of this game are similar to \"Golf\". Every card which isn't covered by another card can be used to play. Cards can only be placed on the discard stack in ascending and descending order regardless of color.
+
+It is also possible to play kings on aces and vice versa.
+
+If no card can be moved, press on the main stack to deal one card from it to the discard stack."</string>
+<string name="manual_TriPeaks_scoring">"Move a card to the waste: +50"</string>
+<string name="manual_FortyEight_structure">"2 deck of 52 cards.
+
+8 tableau stacks, 8 foundation stacks, 1 main and 1 discard stack.
+
+Cards from the discard stack can be moved back to the main stack only once in a game.
+
+"</string>
+<string name="manual_FortyEight_objective">"Order every card as real families in ascending order on the foundation."</string>
+<string name="manual_FortyEight_rules">"Cards can be placed on the tableau in descending order of the same family. On the foundation, cards can be placed only in ascending order on the corresponding family. 
+
+You can move as many cards (which are in a correct sequence) at once, as there are free stacks available. This corresponds to the rule, that only one card can be moved at once, but when there are free stacks available, the cards can be moved on the free stacks first and then to the destination stack. 
+
+Every card can be placed on empty tableau stacks and only aces can be placed on empty foundation stacks.
+
+By pressing on the main stack, one card will be moved to the discard stack from where you can play it.
+
+If the main stack is empty, you can still press on it to move every card from the discard stack back to the main stack and use them again. But this is only once a game possible. The remaining amount is shown a the little number above the main stack."</string>
+<string name="manual_FortyEight_scoring">"Move a card to foundation: +45
+
+Move a card back to tableau: -60
+
+Move a card from the discard stack to tableau: +60
+
+Return cards from discard to main stack: -200"</string>
+<string name="manual_mod3_structure">"2 deck of 52 cards.
+
+32 tableau stacks, 1 main and 1 aces stack."</string>
+<string name="manual_mod3_objective">"Order every card on the top 3 rows of the tableau as sequences of the same color in the following way:
+
+First row: Sequences of 2–5–8–J
+Second row: Sequences of 3–6–9–Q
+Third row: Sequences of 4–7–10–K
+
+Aces will be put away."</string>
+<string name="manual_mod3_rules">"You can move only one card from the top of a stack at once. Cards can only be placed if the sequence shown under \"Objectives\" is correct. So you can place for example a Hearts 5 on a Hearts 2, but only if the Hearts 2 is in the first row of the tableau. Different families aren't allowed either.
+
+Gain free stacks to place cards by moving aces to the aces stack above the main stack.
+
+The fourth row is also the discard row for the cards from the main stack. Any card can be placed on a free stack of the forth row.
+
+Press on the main stack to deal one card to each stack of the forth row."</string>
+<string name="manual_mod3_scoring">"Move a card on a correct field of the tableau: +50
+
+Move a card back to the fourth row of the tableau: -75"</string>
+<string name="manual_Gypsy_structure">"2 deck of 52 cards.
+
+8 tableau stacks, 8 foundation stacks, and 1 main stack."</string>
+<string name="manual_Gypsy_objective">"Order every card in real families in ascending order on the foundation."</string>
+<string name="manual_Gypsy_rules">"Cards can be placed on the tableau in descending order and in alternating colors. You can move a whole correct sequence of cards at once. On the foundation, cards can be placed only in ascending order on the corresponding family.
+
+Every card can be placed on empty tableau stacks and only aces can be placed on empty foundation stacks.
+
+By pressing on the main stack, one card will be moved to each tableau stack."</string>
+<string name="manual_Gypsy_scoring">"Move a card to foundation: +75
+
+Move a card from foundation to tableau: -100
+
+ Flip a card over: +50"</string>
+<string name="manual_AcesUp_structure">"1 deck of 52 cards.
+
+4 tableau stacks, 1 main and 1 foundation stack.
+
+Aces have the value 14, so they have a higher value than kings."</string>
+<string name="manual_AcesUp_objective">"Put all cards except the aces on the foundation stack, so there is one ace on every tableau stack left."</string>
+<string name="manual_AcesUp_rules">"You can move only the top card of a stack. Move cards which have a lower value than another top card of the same family to the foundation. For example: There are a Hearts 5 and a Hearts 10 on top of two tableau stacks. Then you can move the Hearts 5 to the foundation. Aces have a higher value than every other card.
+
+Every movable card can be placed on empty tableau stacks.
+
+Press the main stack to deal one card to each tableau stack."</string>
+<string name="manual_AcesUp_scoring">"Move a card to the foundation stack: +50"</string>
+<string name="manual_Canfield_structure">"1 deck of 52 cards.
+
+4 tableau stacks, 4 foundation stacks, 1 main, 1 discard stack and a reserve stack"</string>
+<string name="manual_Canfield_objective">"Order every card in real families in ascending order on the foundation."</string>
+<string name="manual_Canfield_rules">"Cards can be placed on the tableau in descending order and in alternating colors. You can move a complete sequence of cards at once. On the foundation, cards can be placed only in ascending order on the corresponding family.
+
+Empty tableau fields are filled with a card from the reserve. If the reserve is empty, a card from the main stack will be used.
+
+The value of the first card drawn to the foundation will specify which cards can be placed on empty foundation fields. For example: If a Hearts 10 was drawn to the foundation, only cards with the value 10 can be placed on empty foundation fields. But the cards on the foundation can be placed cyclic, so it is also possible to play an ace on a king
+
+By pressing on the main stack, cards will be moved to the discard stack from where you can use them. The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card will be moved. With \"Draw 3\" enabled, 3 cards will be moved at once.
+
+If the main stack is empty, you can still press on it to move every card from the discard stack to the main stack and use them again."</string>
+<string name="manual_Canfield_scoring">"From tableau to foundation: +60
+
+From discard stack to foundation: +45
+
+From foundation to tableau: -75
+
+Turn a card over: +25
+
+Return all cards from discard stack to main stack: -200"</string>
+<string name="manual_GrandfathersClock_structure">"1 deck of 52 cards.
+
+8 tableau stacks, 12 foundation stacks in the form of a clock. Each foundation stack already contains one card"</string>
+<string name="manual_GrandfathersClock_objective">"Order every card in real families in ascending order on the foundation. At the end, the card values on the foundation match the values on a clock."</string>
+<string name="manual_GrandfathersClock_rules">"Cards can be placed on the tableau in descending order, the color doesn't matter. On the foundation, cards can be placed only in ascending order on the corresponding family. But Aces can be placed on top of kings. 
+
+You can move as many cards (which are in a correct sequence) at once on the tableau, as there are free stacks available. This corresponds to the rule, that only one card can be moved at once, but when there are free stacks available, the cards can be moved on the free stacks first and then to the destination stack."</string>
+<string name="manual_GrandfathersClock_scoring">"From tableau to foundation: +50"</string>
+<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+<string name="manual_Vegas_objective">"Play cards to the foundation to win more money."</string>
+<string name="manual_Vegas_rules">"The rules are identical to the \"Klondike\"-Rules. 
+
+Cards can be placed on the tableau in descending order and in alternating colors. You can move a whole sequence of cards at once. On the foundation, cards can be placed only in ascending order on the corresponding family.
+
+Only kings can be placed on empty tableau stacks and only aces can be placed on empty foundation stacks.
+
+By pressing on the main stack, cards will be moved to the discard stack from where you can use them. The amount of cards depends on the chosen settings. If \"Draw 1\" has been selected, only one card will be moved. With \"Draw 3\" enabled, 3 cards will be moved at once.
+
+If the main stack is empty, you can still press on it to move every card from the discard stack to the main stack and use them again."</string>
+
+<!-- adjusted the costs of movements -->
+<string name="manual_Vegas_scoring">"The amount of money you win depends on the bet you set up in the settings. You pay eg. 52$ at the beginning of the game, and with every card played to the foundation you win 5$. 
+
+A game will be saved as won, when the score is above 0. Playing cards back from the foundation costs 2 * 5$. 
+
+Using the hint or undo functions will also cost 5$. 
+
+There is also an option to keep your score over multiple games. In that case, a score will be saved after resetting the score and starting a new game. 
+
+DISCLAIMER: You do not play for real money in this game :)"</string>
+<string name="manual_Calculation_structure">"1 deck of 52 cards.
+
+4 tableau stacks, 4 foundation stacks, 1 main and 1 discard stack"</string>
+<string name="manual_Calculation_objective">"Place every card to the foundation, regardless of suit, until each foundation stack shows a king. The stacks have to be build in the following order: 
+
+ 1. stack in 1s: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+ 2. stack in 2s: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K
+ 3. stack in 3s: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K
+ 4. stack in 4s: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K 
+
+The next playable cards are shown above the foundation stacks, too."</string>
+<string name="manual_Calculation_rules">"The 4 foundation stacks already start with the first cards, which are randomly chosen. Cards on the foundation have to follow the order given under Objective. 
+
+Cards from the discard stack can be moved to any tableau stack or on foundation stacks, if they fulfill the correct order. 
+
+Pressing the main stack will simply move the card on the discard stack to the tableau stack with the fewest cards. Alternative rule: The cards on the discard stack remain there, when pressing on the main stack (can be enabled in the game settings). 
+
+On the tableau, only top cards can be moved and they can only be moved to the foundation."</string>
+<string name="manual_Calculation_scoring">"Move a card to foundation: +50"</string>
+
+<!-- Settings -->
+<string name="settings_background_color">"Background colour"</string>
+<string name="settings_hide_status_bar">"Hide status bar"</string>
+<string name="settings_left_handed_mode">"Left handed mode"</string>
+<string name="settings_left_handed_mode_description">"Mirrors the card and stack positions to the left side"</string>
+<string name="settings_back_press">"Confirm closing game"</string>
+<string name="settings_back_press_description">"Press back button twice to close game"</string>
+<string name="settings_orientation">"Screen orientation"</string>
+<string name="settings_cards">"Cards"</string>
+<string name="settings_classic">"Classic"</string>
+<string name="settings_simple">"Simple"</string>
+<string name="settings_cards_back">"Card backgrounds"</string>
+<string name="settings_modern">"Modern"</string>
+<string name="settings_abstract">"Abstract"</string>
+<string name="settings_basic">"Basic"</string>
+<string name="settings_oxygen_dark">"Oxygen Dark"</string>
+<string name="settings_oxygen_light">"Oxygen Light"</string>
+<string name="settings_poker">"Poker"</string>
+<string name="settings_background">"Background number"</string>
+<string name="settings_customization">"Appearance"</string>
+<string name="settings_other">"General"</string>
+<string name="settings_other_description">"Set all other settings"</string>
+<string name="settings_games">"Games"</string>
+<string name="settings_games_description">"Set preferences for the game variants"</string>
+<string name="settings_spider_difficulty">"Number of different card families"</string>
+<string name="settings_klondike_draw">"Number of cards to draw"</string>
+<string name="settings_canfield_draw">"Number of cards to draw"</string>
+<string name="settings_show_main_menu">"Start to main menu"</string>
+<string name="settings_show_main_menu_description">"Do not enter the last played game on start"</string>
+<string name="settings_golf_easy">"Cyclic moves (Easier)"</string>
+<string name="settings_golf_easy_description">"Allow placing aces on kings and vice versa"</string>
+<string name="settings_restart_klondike">"Start a new Klondike game to apply the change"</string>
+<string name="settings_restart_canfield">"Start a new Canfield game to apply the change"</string>
+<string name="settings_restart_spider">"Start a new Spider game to apply the change"</string>
+<string name="settings_restart_vegas">"Start a new Vegas game to apply the change"</string>
+<string name="settings_restart_fortyeight">"Start a new Forty&amp;Eight game to apply the change"</string>
+<string name="settings_restart_yukon">"Start a new Yukon game to apply the change"</string>
+<string name="settings_menu">"Main menu"</string>
+<string name="settings_menu_description">"Change number of columns, show and hide games"</string>
+<string name="settings_pyramid_difficulty">"Difficulty"</string>
+<string name="settings_menu_columns">"Number of columns"</string>
+<string name="settings_menu_games">"Show and hide games"</string>
+<string name="settings_menu_games_description">"Select which games are shown in the menu"</string>
+<string name="settings_about_description">"Show information about the game like licenses and changelog"</string>
+<string name="settings_change_language">"Change language"</string>
+<string name="settings_yukon_rules">"Place cards on…"</string>
+<string name="settings_icon_theme">"Icon theme"</string>
+<string name="settings_menu_bar_position">"Menu bar position"</string>
+<string name="settings_menu_bar_position_top">"Top"</string>
+<string name="settings_menu_bar_position_bottom">"Bottom"</string>
+<string name="settings_menu_bar_position_left">"Left"</string>
+<string name="settings_menu_bar_position_right">"Right"</string>
+<string name="settings_4_color_mode_title">"4 color decks"</string>
+<string name="settings_4_color_mode_text">"Change the colors from Clubs to green and from diamonds to blue"</string>
+<string name="settings_additional_movements">"Additional card movements"</string>
+<string name="settings_additional_movements_description">"Enable and disable double-tap and other movement methods"</string>
+<string name="settings_double_tap">"Double-Tap"</string>
+<string name="settings_double_tap_enable">"Enable double tap movements"</string>
+<string name="settings_double_tap_enable_text">"Press a card twice to move it to the next possible stack"</string>
+<string name="settings_double_tap_all_cards">"Move all possible cards"</string>
+<string name="settings_double_tap_all_cards_text">"Move as many cards as possible from the stack, not only the touched card"</string>
+<string name="settings_tap_to_select">"Tap-To-Select"</string>
+<string name="settings_tap_to_select_enable">"Enable Tap-To-Select movements"</string>
+<string name="settings_tap_to_select_enable_text">"Tap on a card to select it, then tap the destination stack to move it there"</string>
+<string name="settings_single_tap">"Single-Tap"</string>
+<string name="settings_single_tap_enable_text">"Only for Golf and TriPeaks: Press a card once to move it to the discard stack"</string>
+<string name="settings_double_tap_foundation_first">"Move to foundation stack first"</string>
+<string name="settings_double_tap_foundation_first_text">"Try to move the top card of the tapped stack to the foundation, before moving the other cards"</string>
+<string name="settings_movement_speed">"Card movement speed"</string>
+<string name="Settings_sound">"Enable sound in game"</string>
+<string name="Settings_sounds_title">"Sounds"</string>
+<string name="Settings_sounds_text">"Enable sounds, set up different sound effects"</string>
+<string name="Settings_win_sound_title">"Winning sound effect"</string>
+<string name="Settings_background_music">"Background music"</string>
+<string name="settings_background_color_custom">"Custom"</string>
+<string name="Settings_background_volume">"Background music volume"</string>
+<string name="settings_limit_number_of_recycles">"Limit number of recycles"</string>
+<string name="settings_limit_number_of_recycles_text">"Recycling the waste back to the main stack is limited"</string>
+<string name="settings_number_of_recycles">"Amount of recycles"</string>
+<string name="settings_vegas_bet_amount">"Bet Amount"</string>
+<string name="settings_menu_order_title">"Menu order"</string>
+<string name="settings_menu_order_summary">"Long click an entry, then use drag and drop to reorder the menu entries"</string>
+<string name="settings_menu_order_set_default">"Reset order"</string>
+<string name="settings_auto_start_new_game_title">"Start a new game when won"</string>
+<string name="settings_auto_start_new_game_text">"If returned to an already won game, automatically start a new game"</string>
+<string name="settings_customization_description">"Customize cards, backgrounds and user interface"</string>
+<string name="settings_force_tablet_layout_title">"Force tablet layout"</string>
+<string name="settings_force_tablet_layout_text">"Show the application as on large screens (≥7\")"</string>
+<string name="settings_restart_calculation">"Start a new Calculation game to apply the change"</string>
+<string name="settings_calculation_alternative_title">"Keep cards"</string>
+<string name="settings_calculation_alternative_text">"On main stack press: Instead of moving the card from the discard stack to the tableau, keep it on the discard stack."</string>
+<string name="settings_vegas_money_enabled">"Keep the current balance"</string>
+<string name="settings_vegas_money_enabled_text">"The balance will be transferred to following deals of Vegas, but you need to reset the balance and then start a new game for saving high-scores"</string>
+<string name="settings_vegas_money_reset">"Reset balance"</string>
+<string name="settings_vegas_money_reset_text">"The next Vegas deal will start with 0$"</string>
+<string name="settings_vegas_money_reset_confirm">"Do you really want to reset your balance? This can't be reverted."</string>
+<string name="settings_auto_move_title">"Automatic movement"</string>
+<string name="settings_mod3_auto_move_text">"Automatically move Aces to the discard stack, when possible"</string>
+<string name="settings_pyramid_auto_move_text">"Automatically move Kings to the waste, when possible"</string>
+<string name="settings_rules">"Rules"</string>
+<string name="settings_money">"Money"</string>
+<string name="settings_support">"Support"</string>
+<string name="settings_hide_time">"Hide time"</string>
+<string name="settings_hide_score">"Hide score"</string>
+<string name="settings_single_tap_enable">"Enable Single-Tap movements"</string>
+<string name="settings_vegas_bet_amount_text_1">"Initial deal costs:"</string>
+<string name="settings_vegas_bet_amount_text_2">"Each card played to the foundation earns:"</string>
+<string name="settings_vegas_bet_amount_summary">"Initial deal: -%1$d$, card to foundation: +%2$d$"</string>
+<string name="settings_single_tap_all_games_text">"Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements."</string>
+<string name="settings_canfield_size_of_reserve_title">"Change size of reserve (easier)"</string>
+<string name="settings_use_true_randomisation_title">"Use true randomization"</string>
+<string name="settings_use_true_randomisation_text">"The default randomization avoids similar cards next to each other. Check this to enable a truly uniform randomisation"</string>
+<string name="settings_developer_options">"Developer options"</string>
+<string name="settings_developer_options_description">"Play around with crazy settings!"</string>
+<string name="settings_developer_options_move_card_everwhere_title">"Move cards everywhere"</string>
+<string name="settings_developer_options_move_card_everwhere_text">"You can place cards on any stack"</string>
+<string name="settings_developer_options_lock_text">"These settings are intended for testing purpose only, the usage can result in strange behavior and crashes!"</string>
+<string name="settings_developer_options_play_every_card_title">"Play every card"</string>
+<string name="settings_developer_options_play_every_card_text">"You can play every revealed card"</string>
+<string name="settings_developer_options_instant_win_title">"Instant win"</string>
+<string name="settings_developer_options_instant_win_text">"Win every game after moving a card"</string>
+<string name="settings_developer_options_no_saving_title">"Disable saving game state"</string>
+<string name="settings_developer_options_no_saving_text">"Movements in a game won't be saved anymore"</string>
+<string name="settings_developer_options_deal_correct_sequences_title">"Deal correct sequences"</string>
+<string name="settings_max_number_undos">"Maximum amount of undo movements"</string>
+<string name="settings_expert_settings">"Expert settings"</string>
+<string name="settings_expert_settings_text">"May be useful for some people"</string>
+<string name="settings_follow_system_settings">"Follow system settings"</string>
+<string name="settings_portrait">"Portrait"</string>
+<string name="settings_landscape">"Landscape"</string>
+<string name="settings_landscape_upside_down">"Landscape upside down"</string>
+<string name="settings_spider_difficultiy_1">"1 (Easy)"</string>
+<string name="settings_spider_difficultiy_2">"2 (Medium)"</string>
+<string name="settings_spider_difficultiy_3">"4 (Hard)"</string>
+<string name="settings_draw_1">"Draw 1"</string>
+<string name="settings_draw_3">"Draw 3"</string>
+<string name="settings_pyramid_difficulty_1">"Easy: Game is won when tableau is empty"</string>
+<string name="settings_pyramid_difficulty_2">"Hard: Game is won when tableau and stock are empty"</string>
+<string name="settings_language_default">"Default language"</string>
+<string name="settings_language_english">"English"</string>
+<string name="settings_language_esperanto">"Esperanto"</string>
+<string name="settings_language_finnish">"Finnish"</string>
+<string name="settings_language_french">"French"</string>
+<string name="settings_language_german">"German"</string>
+<string name="settings_language_japanese">"Japanese"</string>
+<string name="settings_language_polish">"Polish"</string>
+<string name="settings_language_turkish">"Turkish"</string>
+<string name="settings_yukon_rules_1">"different colors (Default)"</string>
+<string name="settings_yukon_rules_2">"same suit (Russian Solitaire)"</string>
+<string name="settings_movement_speed_1">"Very slow"</string>
+<string name="settings_movement_speed_2">"Slow"</string>
+<string name="settings_movement_speed_3">"Normal"</string>
+<string name="settings_movement_speed_4">"Fast"</string>
+<string name="settings_win_sounds_1">"Default"</string>
+<string name="settings_win_sounds_2">"Piano"</string>
+<string name="settings_win_sounds_3">"8-Bit voice \"You win\""</string>
+<string name="settings_win_sounds_4">"&gt;Cheering crowd"</string>
+<string name="settings_background_music_1">"Disabled"</string>
+<string name="settings_background_music_2">"Theme 1"</string>
+<string name="settings_background_music_3">"Theme 2"</string>
+<string name="settings_background_music_4">"Theme 3"</string>
+<string name="settings_background_music_5">"Music Box"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 Cards (default)"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 Cards"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 Cards"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 Cards"</string>
+<string name="settings_developer_option_deal_correct_sequences_1">"Deactivated"</string>
+<string name="settings_developer_option_deal_correct_sequences_2">"Alternating color"</string>
+<string name="settings_developer_option_deal_correct_sequences_3">"Same family"</string>
+<string name="settings_developer_option_deal_correct_sequences_4">"Reversed alternating color"</string>
+<string name="settings_developer_option_deal_correct_sequences_5">"Reversed same family"</string>
+
+<!-- Statistics -->
+<string name="statistics_text_won_games">"Won %1$d out of %2$d games"</string>
+
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"Your win percentage: %1$.0f%%"</string>
+
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"Delete all entries!"</string>
+<string name="statistics_button_delete_text">"Delete all entries for this game! Are you sure?"</string>
+<string name="statistics_button_deleted_all_entries">"Deleted all entries"</string>
+<string name="statistics_time_of_day">"Daytime"</string>
+<string name="statistics_date">"Date"</string>
+<string name="settings_diable_undo_costs">"Disable undo score penalty"</string>
+<string name="settings_diable_hint_costs">"Disable hint score penalty"</string>
+<string name="statistics_high_scores">"High Scores"</string>
+<string name="statistics_recent_scores">"Recent Scores"</string>
+<string name="statistics_total_time">"Total time played"</string>
+<string name="statistics_total_hints_shown">"Total hints shown"</string>
+<string name="statistics_total_number_undos">"Total undo movements"</string>
+<string name="statistics_total_points_earned">"Total points earned"</string>
+<string name="statistics_no_entries">"No entries, go play some games!"</string>
+<string name="dialog_auto_move">"Auto move"</string>
+<string name="dialog_show_hints">"Show hints"</string>
+<string name="manual_ui_text_part_1">"A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. The menu contains 5 items, which have the following effects (buttons from left to right)
+
+The \"Statistics\" button will show a new window with different statistics of the current game, like the high scores.
+
+The \"Support\" button will show a little help menu. Here you can select:"</string>
+<string name="manual_ui_text_part_2">"Show hints: Show up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren't shown as a hint. If no hint was shown, the score won't decrease."</string>
+<string name="manual_ui_text_part_3">"Auto move: Automatically move as many cards as possible. This option is intended to be used in situations eg. when only one card is still faced down, but you need to move every other card on that stack to access it. So this option can speed up the game a little bit."</string>
+<string name="manual_ui_text_part_4">"Mix cards: If you are in a situation where no movement is possible, you can use this option to mix the current cards. Note that cards already in correct order or cards on the foundation will be ignored in the mixing."</string>
+<string name="manual_ui_text_part_5">"Game rules: Directly open the manual page of the current game."</string>
+<string name="manual_ui_text_part_6">"The \"Menu\" button shows three different actions:"</string>
+<string name="manual_ui_text_part_7">"Start a new game: Mixing the cards and draw a new deal."</string>
+<string name="manual_ui_text_part_8">"Give cards again: Restart the current game with the same layout of cards."</string>
+<string name="manual_ui_text_part_9">"Return to main menu: Save the current game state and show the game selection menu."</string>
+<string name="manual_ui_text_part_10">"The \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements. (The amount can be increased in the expert settings)
+
+The \"Settings\" button simply opens the settings menu."</string>
+<string name="manual_statistics_part_1">"There are statistics collected for each game. You can access them from the in-game menu bar. Collected information are:"</string>
+<string name="manual_statistics_part_2">"The number of played and won games"</string>
+<string name="manual_statistics_part_3">"The total amount of earned score points"</string>
+<string name="manual_statistics_part_4">"The total amount of help functions used"</string>
+<string name="manual_statistics_part_5">"A high-score list with up to 10 entries, only scores over 0 are saved here"</string>
+<string name="manual_statistics_part_6">"A recent score list with the last 10 scores"</string>
+<string name="manual_statistics_part_7">"It is also possible to delete all data for the current game, but this can't be undone!"</string>
+<string name="about_material_icons_2_usage">"The Support icon is published as \"lightbulb-on\" on &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt;."</string>
+
+<!-- dialogs -->
+<string name="dialog_no_hint_available">"No hint available!"</string>
+<string name="dialog_no_movement_possible">"No movement to show!"</string>
+<string name="settings_show_advanced_settings_title">"Unlock the developer categories"</string>
+<string name="settings_language_italian">"Italian"</string>
+<string name="settings_language_portuguese_brazil">"Portuguese (Brazil)"</string>
+<string name="settings_language_ukrainian">"Ukrainian"</string>
+<string name="settings_game_layout_margins_title">"Game layout margins"</string>
+<string name="settings_game_layout_margins_text">"Add margins to the left and right side of the game layout. The cards will appear smaller, but overlapping will be reduced!"</string>
+<string name="settings_game_layout_margins_none">"None"</string>
+<string name="settings_game_layout_margins_small">"Small"</string>
+<string name="settings_game_layout_margins_medium">"Medium"</string>
+<string name="settings_game_layout_margins_large">"Large"</string>
+<string name="settings_hide_menu_button">"Hide menu button"</string>
+<string name="settings_immersive_mode_title">"Enable full screen mode"</string>
+<string name="settings_immersive_mode_text">"Hide the Status and Navigation Bar while playing (Only on Android 4.4 and above)"</string>
+<string name="settings_language_norwegian">"Norwegian (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Used as Paris theme - Available on &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Napoleon'sTomb"</string>
+<string name="manual_NapoleonsTomb_structure">"1 deck of 52 cards.
+
+4 tableau stacks, 5 foundation stacks, 1 main and 1 discard stack
+
+The 4 stacks in the corners with a \"7\" and the one in the center are the foundation stacks. The stacks between them are the tableau stacks."</string>
+<string name="manual_NapoleonsTomb_objective">"Play every card to the foundation, regardless of suit."</string>
+<string name="manual_NapoleonsTomb_rules">"The 4 corner stacks start with a 7 and have to be stacked in ascending order until a king. The center foundation stack starts with a 6 and has to be stacked in descending order until an Ace four times. This results in the following order for this stack: 
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+The next card in the order will also be shown above the stack.
+
+Pressing the main stack will flip one card over to the discard stack. Can be enabled in the game settings: If the main stack is empty, press it again to recycle the cards from the discard stack back to it.
+
+Any card can be placed on every tableau stack, but each stack can contain only one card at a time."</string>
+<string name="manual_NapoleonsTomb_scoring">"Move a card to foundation: +60
+
+Recycle cards from the discard stack: -200"</string>
+<string name="settings_language_spanish_argentina">"Spanish (Argentina)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Apply changes only for %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Disable Autocomplete button"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"All further changes made here will only be applied to the current game. If you then want to change settings for other games, you have the following options:"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Return to the main menu and open the settings from there"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Disable this option"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Open the settings from within a game, which doesn't have this option enabled"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Disabling this option will restore the previous shared settings."</string>
+<string name="settings_dialog_only_for_this_game_disable">"The individual settings for this game will now be removed and the shared settings will be applied."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Changes won't affect all games. Click here for more information"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"The following games have enabled individual settings:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Those games won't be affected by changes made here.
+
+Do you want to remove the individual settings for all listed games?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Removed all individual settings"</string>
+<string name="settings_ensure_movability_title">"Guarantee number of movements"</string>
+<string name="settings_ensure_movability_searching_games">"Searching a suitable game…"</string>
+<string name="settings_ensure_movability_text">"Make sure that a certain amount of movements are possible in a game before starting it"</string>
+<string name="settings_ensure_movability_min_moves_title">"Change the amount of moves"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Caution: Increasing the amount will result in longer waiting times before a game is started. Changing game rules will also affect the waiting time!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Change the amount of movements each game must at least have when starting it"</string>
+<string name="settings_number_input_error">"Can't save those numbers!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Improve Auto Move"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Auto Move will try to win the game by also using the main stack"</string>
+<string name="black">"Black"</string>
+<string name="white">"White"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Make certain games winnable"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"The amount for some games can be set high enough to make them always winnable, without increasing the waiting time significantly."</string>
+<string name="settings_ensure_movability_winnable">"Winnable"</string>
+<string name="settings_reset_to_defaults">"Reset to default values"</string>
+<string name="settings_text_color">"Text and stack color"</string>
 </resources>
