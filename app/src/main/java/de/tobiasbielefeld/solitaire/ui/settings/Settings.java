@@ -24,18 +24,17 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.DialogPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
 import android.support.v7.app.ActionBar;
-import android.util.Log;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import de.tobiasbielefeld.solitaire.LoadGame;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceFourColorMode;
 import de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideAutoCompleteButton;
@@ -48,9 +47,9 @@ import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardBackground;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCards;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame;
+import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceTextColor;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
-import static android.content.ContentValues.TAG;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
@@ -67,13 +66,13 @@ public class Settings extends AppCompatPreferenceActivity {
     private Preference preferenceGameLayoutMargins;
 
     private CheckBoxPreference preferenceSingleTapAllGames;
-    private CheckBoxPreference preferenceEnsureMovabilty;
     private CheckBoxPreference preferenceTapToSelect;
     private CheckBoxPreference preferenceImmersiveMode;
 
     private DialogPreferenceCards preferenceCards;
     private DialogPreferenceCardBackground preferenceCardBackground;
     private DialogPreferenceBackgroundColor preferenceBackgroundColor;
+    private DialogPreferenceTextColor preferenceTextColor;
     private DialogPreferenceOnlyForThisGame dialogPreferenceOnlyForThisGame;
 
     private CheckBoxPreferenceFourColorMode preferenceFourColorMode;
@@ -169,6 +168,10 @@ public class Settings extends AppCompatPreferenceActivity {
                 preferenceBackgroundColor.updateSummary();
             }
 
+            if (preferenceTextColor != null) {
+                preferenceTextColor.updateSummary();
+            }
+
             Card.updateCardDrawableChoice();
             Card.updateCardBackgroundChoice();
 
@@ -178,96 +181,117 @@ public class Settings extends AppCompatPreferenceActivity {
             returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
+            returnIntent.putExtra(getString(R.string.intent_text_color), true);
+            returnIntent.putExtra(getString(R.string.intent_update_score_visibility), true);
+            returnIntent.putExtra(getString(R.string.intent_update_time_visibility), true);
         }
         if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
-
-        } else if (key.equals(PREF_KEY_CARD_BACKGROUND) || key.equals(PREF_KEY_CARD_BACKGROUND_COLOR)) {
+        }
+        else if (key.equals(PREF_KEY_CARD_BACKGROUND) || key.equals(PREF_KEY_CARD_BACKGROUND_COLOR)) {
             Card.updateCardBackgroundChoice();
-
-        } else if (key.equals(PREF_KEY_HIDE_STATUS_BAR)) {
+        }
+        else if (key.equals(PREF_KEY_HIDE_STATUS_BAR)) {
             showOrHideStatusBar();
-
-        } else if (key.equals(PREF_KEY_ORIENTATION)) {
+        }
+        else if (key.equals(PREF_KEY_ORIENTATION)) {
             setOrientation();
-
-        } else if (key.equals(PREF_KEY_LEFT_HANDED_MODE)) {
+        }
+        else if (key.equals(PREF_KEY_LEFT_HANDED_MODE)) {
             if (gameLogic != null) {
                 gameLogic.mirrorStacks();
             }
-
-        } else if (key.equals(PREF_KEY_MENU_COLUMNS_PORTRAIT) || key.equals(PREF_KEY_MENU_COLUMNS_LANDSCAPE)) {
+        }
+        else if (key.equals(PREF_KEY_MENU_COLUMNS_PORTRAIT) || key.equals(PREF_KEY_MENU_COLUMNS_LANDSCAPE)) {
             updatePreferenceMenuColumnsSummary();
-
-        } else if (key.equals(PREF_KEY_LANGUAGE)) {
+        }
+        else if (key.equals(PREF_KEY_LANGUAGE)) {
             bitmaps.resetMenuPreviews();
             restartApplication();
-
-        } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
+        }
+        else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
-
-        } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
+        }
+        else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
 
             if (preferenceCards!=null) {
                 preferenceCards.updateSummary();
             }
-
-        } else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
+        }
+        else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
             if (animate != null) {
                 animate.updateMovementSpeed();
             }
-
-        } else if (key.equals(PREF_KEY_WIN_SOUND)) {
+        }
+        else if (key.equals(PREF_KEY_WIN_SOUND)) {
             settingsSounds.playWinSound();
-
-        } else if (key.equals(PREF_KEY_BACKGROUND_MUSIC) || key.equals(PREF_KEY_SOUND_ENABLED)) {
+        }
+        else if (key.equals(PREF_KEY_BACKGROUND_MUSIC) || key.equals(PREF_KEY_SOUND_ENABLED)) {
             backgroundSound.doInBackground(this);
-
-        } else if (key.equals(PREF_KEY_BACKGROUND_VOLUME)){
+        }
+        else if (key.equals(PREF_KEY_BACKGROUND_VOLUME)){
             updatePreferenceBackgroundVolumeSummary();
             backgroundSound.doInBackground(this);
-
-        } else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)){
+        }
+        else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)){
             restartApplication();
-
-        } else if (key.equals(PREF_KEY_HIDE_SCORE)) {
-            if (scores!=null) {
-                scores.output();
-            }
-        } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
+        }
+        else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
             if (sharedPreferences.getBoolean(key,false) && preferenceTapToSelect!=null) {
                 preferenceTapToSelect.setChecked(false);
             }
-
-        } else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)){
+        }
+        else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)){
             if (sharedPreferences.getBoolean(key,false) && preferenceSingleTapAllGames!=null) {
                 preferenceSingleTapAllGames.setChecked(false);
             }
-
-        } else if (key.equals(PREF_KEY_MAX_NUMBER_UNDOS)) {
+        }
+        else if (key.equals(PREF_KEY_MAX_NUMBER_UNDOS)) {
             if (recordList !=null){
                 recordList.setMaxRecords();
             }
 
             updatePreferenceMaxNumberUndos();
-        } else if (key.equals(PREF_KEY_SHOW_ADVANCED_SETTINGS)) {
+        }
+        else if (key.equals(PREF_KEY_SHOW_ADVANCED_SETTINGS)) {
             final Intent intent = new Intent(getApplicationContext(), Settings.class);
 
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             finish();
             startActivity(intent);
-        } else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)){
+        }
+        else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)){
             updatePreferenceGameLayoutMarginsSummary();
             returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
-        } else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)){
+        }
+        else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)){
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
-        } else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
+        }
+        else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
             returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
-        } else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM)){
+        }
+        else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM) || key.equals(PREF_KEY_BACKGROUND_COLOR_TYPE)){
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
+        }
+        else if (key.equals(PREF_KEY_TEXT_COLOR)){
+            returnIntent.putExtra(getString(R.string.intent_text_color), true);
+        }
+        else if (key.equals(PREF_KEY_HIDE_SCORE)){
+            returnIntent.putExtra(getString(R.string.intent_update_score_visibility), true);
+        }
+        else if (key.equals(PREF_KEY_HIDE_TIME)){
+            returnIntent.putExtra(getString(R.string.intent_update_time_visibility), true);
+        }
+        else if (key.equals(PREF_KEY_ENSURE_MOVABILITY)) {
+            ArrayList<LoadGame.AllGameInformation> gameInfoList = lg.getOrderedGameInfoList();
+
+            for (int i=0;i<lg.getGameCount();i++){
+                SharedPreferences sharedPref = getSharedPreferences(gameInfoList.get(i).getSharedPrefName(), MODE_PRIVATE);
+                sharedPref.edit().putInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, sharedPref.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, gameInfoList.get(i).getEnsureMovabilityMoves())).apply();
+            }
         }
     }
 
@@ -393,6 +417,7 @@ public class Settings extends AppCompatPreferenceActivity {
             settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
             settings.preferenceCardBackground = (DialogPreferenceCardBackground) findPreference(getString(R.string.pref_key_cards_background));
             settings.preferenceBackgroundColor = (DialogPreferenceBackgroundColor) findPreference(getString(R.string.pref_key_background_color));
+            settings.preferenceTextColor = (DialogPreferenceTextColor) findPreference(getString(R.string.pref_key_text_color));
 
             settings.preferenceFourColorMode = (CheckBoxPreferenceFourColorMode) findPreference(getString(R.string.dummy_pref_key_4_color_mode));
             settings.preferenceHideAutoCompleteButton = (CheckBoxPreferenceHideAutoCompleteButton) findPreference(getString(R.string.dummy_pref_key_hide_auto_complete_button));
@@ -436,7 +461,6 @@ public class Settings extends AppCompatPreferenceActivity {
             Settings settings = (Settings) getActivity();
 
             settings.preferenceImmersiveMode = (CheckBoxPreference) findPreference(getString(R.string.pref_key_immersive_mode));
-            settings.preferenceEnsureMovabilty = (CheckBoxPreference) findPreference(getString(R.string.pref_key_ensure_movability));
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
                 settings.preferenceImmersiveMode.setEnabled(false);

@@ -1,31 +1,54 @@
+/*
+ * Copyright (C) 2016  Tobias Bielefeld
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
+ */
+
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.os.AsyncTask;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
+import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
-import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
+import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
+import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
-import de.tobiasbielefeld.solitaire.ui.statistics.StatisticsActivity;
 
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
 import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.ensureMovability;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
-import static de.tobiasbielefeld.solitaire.classes.Card.movements.NONE;
 
 /**
  * Dialog to show while the EnsureMovability asyncTask is running. It shows a spinning wheel
@@ -33,8 +56,6 @@ import static de.tobiasbielefeld.solitaire.classes.Card.movements.NONE;
  */
 
 public class DialogEnsureMovability extends CustomDialogFragment implements View.OnClickListener{
-
-    EnsureMovability ensureMovabilty ;
 
     @NonNull
     @Override
@@ -57,14 +78,9 @@ public class DialogEnsureMovability extends CustomDialogFragment implements View
         setCancelable(false);
     }
 
-    public void startTest(){
-        ensureMovabilty = new EnsureMovability();
-        ensureMovabilty.execute(this);
-    }
-
     @Override
     public void onClick(View view) {
-        getDialog().dismiss();
-        ensureMovabilty.cancel(true);
+        ensureMovability.stop();
     }
+
 }

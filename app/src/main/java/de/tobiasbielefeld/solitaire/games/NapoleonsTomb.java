@@ -128,11 +128,7 @@ public class NapoleonsTomb extends Game {
         //generate the textViews over the last foundation stack
         addTextViews(1, Card.width, layoutGame, context);
 
-        textViews.get(0).setX(stacks[8].getX());
-        textViews.get(0).setY(stacks[8].getY() - textViews.get(0).getMeasuredHeight());
-
-
-
+        textViewPutAboveStack(0, stacks[8]);
     }
 
     public boolean winTest() {
@@ -214,7 +210,7 @@ public class NapoleonsTomb extends Game {
         return card.isTopCard();
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         Card card;
 
         //from the cells to foundation
@@ -228,7 +224,7 @@ public class NapoleonsTomb extends Game {
 
             card = origin.getCard(0);
 
-            if (!hint.hasVisited(card)) {
+            if (!visited.contains(card)) {
                 for (int j = 4; j <= 8; j++) {
                     if (card.test(stacks[j])) {
                         return new CardAndStack(card, stacks[j]);
@@ -239,7 +235,7 @@ public class NapoleonsTomb extends Game {
         }
 
         //discard stack to all other stacks
-        if (stacks[9].getSize() > 0 && !hint.hasVisited(stacks[9].getTopCard())) {
+        if (stacks[9].getSize() > 0 && !visited.contains(stacks[9].getTopCard())) {
             for (int j = 4; j<=8; j++) {
                 if (stacks[9].getTopCard().test(stacks[j])) {
                     return new CardAndStack(stacks[9].getTopCard(), stacks[j]);
@@ -275,6 +271,11 @@ public class NapoleonsTomb extends Game {
         //tableau or discard stack to foundation
         if ((originID <=3 || originID == 9) && destinationID >= 4 && destinationID <= 8) {
             return 60;
+        }
+
+        //tableau or discard stack to foundation
+        if ((destinationID <=3 || destinationID == 9) && originID >= 4 && originID <= 8) {
+            return -75;
         }
 
         //returning cards to stock
@@ -338,8 +339,7 @@ public class NapoleonsTomb extends Game {
                 break;
         }
 
-        textViews.get(0).setText(text);
-
+        textViewSetText(0, text);
     }
 
     @Override

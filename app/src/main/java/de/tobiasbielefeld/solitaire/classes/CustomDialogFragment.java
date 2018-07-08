@@ -1,10 +1,15 @@
 package de.tobiasbielefeld.solitaire.classes;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.view.Window;
 import android.view.WindowManager;
 
+import de.tobiasbielefeld.solitaire.SharedData;
+
+import static de.tobiasbielefeld.solitaire.SharedData.logText;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
@@ -14,19 +19,23 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 public class CustomDialogFragment extends DialogFragment {
 
-    /*@Override
+    private static CustomDialogFragment shownDialog;
+
+    @Override
     public void show(FragmentManager manager, String tag) {
         super.show(manager, tag);
+        shownDialog = this;
+        SharedData.isDialogVisible = true;
+    }
 
-        if (prefs.getSavedImmersiveMode()) {
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
 
-            Window window = getDialog().getWindow();
-
-            if (window != null) {
-                window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
-            }
+        if (shownDialog == this) {
+            SharedData.isDialogVisible = false;
         }
-    }*/
+    }
 
     protected AlertDialog applyFlags(AlertDialog dialog){
         if (prefs.getSavedImmersiveMode()) {

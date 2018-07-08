@@ -87,7 +87,7 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
 
     @SuppressWarnings("SuspiciousMethodCalls")
     public void onClick(View view) {
-        if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE)) {
+        if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE)) {
             AmbilWarnaDialog dialog = new AmbilWarnaDialog(context, savedCustomColor, new AmbilWarnaDialog.OnAmbilWarnaListener() {
                 @Override
                 public void onOk(AmbilWarnaDialog dialog, int color) {
@@ -106,7 +106,7 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
                 }
             });
             dialog.show();
-        } else if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE)) {
+        } else if (view == ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE)) {
             getDialog().dismiss();
         } else {
             backgroundValue = linearLayouts.indexOf(view) + 1;
@@ -135,7 +135,7 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
     protected View onCreateView(ViewGroup parent) {
         View view = super.onCreateView(parent);
 
-        image = (ImageView) view.findViewById(R.id.preference_background_color_imageView);
+        image = (ImageView) view.findViewById(R.id.widget_layout_color_imageView);
         updateSummary();
 
         return view;
@@ -183,12 +183,17 @@ public class DialogPreferenceBackgroundColor extends DialogPreference implements
 
             setSummary(context.getString(stringID));
         } else {
-            setSummary("");                                                                         //this forces redrawing of the color preview
-            setSummary(context.getString(R.string.settings_background_color_custom));
+            int customColor = prefs.getSavedBackgroundCustomColor();
+
+            //this forces redrawing of the color preview
+            setSummary("");
+
+            //show as hex string, but without the opacity part at the beginning
+            setSummary(String.format("#%06X", (0xFFFFFF & customColor)));
 
             if (image != null) {
                 image.setImageResource(0);
-                image.setBackgroundColor(prefs.getSavedBackgroundCustomColor());
+                image.setBackgroundColor(customColor);
             }
         }
     }

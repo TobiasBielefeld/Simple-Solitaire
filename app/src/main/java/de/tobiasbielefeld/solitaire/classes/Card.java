@@ -23,8 +23,7 @@ import android.graphics.PointF;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import de.tobiasbielefeld.solitaire.SharedData;
+import java.util.StringTokenizer;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -63,7 +62,7 @@ public class Card {
     }
 
     public void setImageBitmap(Bitmap bitmap){
-        if (!stopMovements){
+        if (!stopUiUpdates){
             view.setImageBitmap(bitmap);
         }
     }
@@ -120,8 +119,9 @@ public class Card {
     public static void save() {
         List<Integer> list = new ArrayList<>(cards.length);
 
-        for (Card card : cards)
+        for (Card card : cards) {
             list.add(card.isUp ? 1 : 0);
+        }
 
         prefs.saveCards(list);
     }
@@ -133,10 +133,11 @@ public class Card {
         List<Integer> list = prefs.getSavedCards();
 
         for (int i = 0; i < cards.length; i++) {
-            if (list.get(i) == 1)
+            if (list.get(i) == 1) {
                 cards[i].flipUp();
-            else
+            } else {
                 cards[i].flipDown();
+            }
         }
     }
 
@@ -171,7 +172,7 @@ public class Card {
      * @param pY The y-coordinate of the destination
      */
     public void setLocation(float pX, float pY) {
-        if (!stopMovements) {
+        if (!stopUiUpdates) {
             if (view.getX() != pX || view.getY() != pY) {
                 animate.moveCard(this, pX, pY);
             }
@@ -185,7 +186,7 @@ public class Card {
      * @param pY The y-coordinate of the destination
      */
     public void setLocationWithoutMovement(float pX, float pY) {
-        if (!stopMovements) {
+        if (!stopUiUpdates) {
             view.bringToFront();
             view.setX(pX);
             view.setY(pY);
@@ -215,7 +216,7 @@ public class Card {
     public void flipUp() {
         isUp = true;
 
-        if (!stopMovements) {
+        if (!stopUiUpdates) {
             setCardFront();
         }
     }
@@ -226,7 +227,7 @@ public class Card {
     public void flipDown() {
         isUp = false;
 
-        if (!stopMovements) {
+        if (!stopUiUpdates) {
             setCardBack();
         }
     }
@@ -252,7 +253,7 @@ public class Card {
             //sounds.playSound(Sounds.names.CARD_FLIP_BACK);
             scores.undo(this, getStack());
 
-            if (!stopMovements) {
+            if (!stopUiUpdates) {
                 animate.flipCard(this, false);
             }
         } else {
@@ -261,7 +262,7 @@ public class Card {
             scores.move(this, getStack());
             recordList.addFlip(this);
 
-            if (!stopMovements) {
+            if (!stopUiUpdates) {
                 animate.flipCard(this, true);
             }
         }
@@ -359,7 +360,7 @@ public class Card {
     }
 
     public void bringToFront(){
-        if (!stopMovements){
+        if (!stopUiUpdates){
             view.bringToFront();
         }
     }

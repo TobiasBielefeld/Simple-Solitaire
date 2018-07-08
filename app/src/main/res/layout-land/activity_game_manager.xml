@@ -14,11 +14,11 @@
         android:layout_height="match_parent"
         android:layout_toLeftOf="@+id/linearLayoutMenuBar">
 
-        <View
+        <ImageView
             android:id="@+id/card_highlight"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:background="@drawable/card_highlight"
+            app:srcCompat="@drawable/card_highlight"
             android:visibility="gone" />
     </RelativeLayout>
 

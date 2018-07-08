@@ -36,7 +36,7 @@ public class Sounds {
 
     public void playSound(names name) {
 
-        if (prefs.getSavedSoundEnabled() && !SharedData.stopMovements) {
+        if (prefs.getSavedSoundEnabled() && !SharedData.stopUiUpdates) {
             switch (name){
                 case CARD_RETURN:
                     sp.play(soundList[0], 1, 1, 0, 0, 1);

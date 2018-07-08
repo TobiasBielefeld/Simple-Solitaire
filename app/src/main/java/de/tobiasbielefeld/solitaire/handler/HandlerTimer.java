@@ -55,7 +55,7 @@ public class HandlerTimer extends Handler {
         }
         else {
 
-            if (stopMovements){
+            if (stopUiUpdates){
                 return;
             }
 

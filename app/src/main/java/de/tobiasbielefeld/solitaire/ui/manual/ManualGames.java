@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.ui.manual;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -48,6 +49,8 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
     private static int COLUMNS = 2;
 
+    private GamePageShown mCallback;
+
     private ScrollView layout1, scrollView;
     private TextView textName, textStructure, textObjective, textRules, textScoring, textBonus;
 
@@ -55,7 +58,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_manual_games, container, false);
 
-        ((Manual) getActivity()).setGamePageShown(false);
+        mCallback.setGamePageShown(false);
 
         layout1 = (ScrollView) view.findViewById(R.id.manual_games_layout_selection);
         scrollView = (ScrollView) view.findViewById(R.id.manual_games_scrollView);
@@ -118,6 +121,17 @@ public class ManualGames extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mCallback = (GamePageShown) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement TextClicked");
+        }
+    }
+
+    @Override
     public void onClick(View v) {
         //get index of the button as seen from the container
         TableRow row = (TableRow) v.getParent();
@@ -154,5 +168,15 @@ public class ManualGames extends Fragment implements View.OnClickListener {
             Log.e("Manual page not found", gameName + ": " + e.toString());
             showToast(getString(R.string.page_load_error),getContext());
         }
+    }
+
+    public interface GamePageShown{
+        void setGamePageShown(boolean value);
+    }
+
+    @Override
+    public void onDetach() {
+        mCallback = null;
+        super.onDetach();
     }
 }

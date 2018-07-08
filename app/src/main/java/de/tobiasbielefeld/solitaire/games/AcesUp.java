@@ -135,10 +135,10 @@ public class AcesUp extends Game {
         return card.isTopCard() && card.getStack() != stacks[4];
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
 
         for (int j = 0; j < 4; j++) {
-            if (stacks[j].isEmpty() || hint.hasVisited(stacks[j].getTopCard())
+            if (stacks[j].isEmpty() || visited.contains(stacks[j].getTopCard())
                     || (stacks[j].getSize() == 1 && stacks[j].getTopCard().getValue() == 1)) {
                 continue;
             }
