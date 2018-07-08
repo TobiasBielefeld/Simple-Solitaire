@@ -31,31 +31,31 @@
         android:summary="%s"
         android:title="@string/settings_movement_speed" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="false"
         android:key="@string/pref_key_hide_status_bar"
         android:title="@string/settings_hide_status_bar" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_immersive_mode"
         android:key="@string/pref_key_immersive_mode"
         android:summary="@string/settings_immersive_mode_text"
         android:title="@string/settings_immersive_mode_title" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="false"
         android:key="@string/pref_key_left_handed_mode"
         android:summary="@string/settings_left_handed_mode_description"
         android:title="@string/settings_left_handed_mode" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_auto_start_new_game"
         android:key="@string/pref_key_auto_start_new_game"
         android:summary="@string/settings_auto_start_new_game_text"
         android:title="@string/settings_auto_start_new_game_title" />
 
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_ensure_movability"
         android:key="@string/pref_key_ensure_movability"
         android:summary="@string/settings_ensure_movability_text"

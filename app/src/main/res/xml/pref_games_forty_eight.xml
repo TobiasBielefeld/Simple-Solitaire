@@ -3,7 +3,7 @@
 
     <PreferenceCategory android:title="@string/settings_cards">
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_fortyeight_limited_recycles"
             android:key="@string/pref_key_fortyeight_limit_recycles"
             android:summary="@string/settings_limit_number_of_recycles_text"

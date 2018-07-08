@@ -23,13 +23,15 @@ import android.preference.DialogPreference;
 import android.util.AttributeSet;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
+
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /*
  * custom dialog to set the background music volume. it can be set from 0 (off) to 100%.
  */
 
-public class DialogPreferenceVegasResetMoney extends DialogPreference{
+public class DialogPreferenceVegasResetMoney extends CustomDialogPreference {
 
     public DialogPreferenceVegasResetMoney(Context context, AttributeSet attrs) {
         super(context, attrs);

@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -37,7 +38,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * the widget icon of the preference.
  */
 
-public class DialogPreferenceCards extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceCards extends CustomDialogPreference implements View.OnClickListener {
 
     private static int NUMBER_OF_CARD_THEMES = 10;
 

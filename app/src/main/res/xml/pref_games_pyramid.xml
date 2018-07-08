@@ -17,7 +17,7 @@
 
     <PreferenceCategory android:title="@string/settings_support">
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_pyramid_auto_move"
             android:key="@string/pref_key_pyramid_auto_move"
             android:summary="@string/settings_pyramid_auto_move_text"
@@ -27,7 +27,7 @@
 
     <PreferenceCategory android:title="@string/settings_cards">
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_pyramid_limited_recycles"
             android:key="@string/pref_key_pyramid_limit_recycles"
             android:summary="@string/settings_limit_number_of_recycles_text"

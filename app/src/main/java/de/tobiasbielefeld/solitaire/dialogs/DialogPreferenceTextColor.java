@@ -32,6 +32,7 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -46,7 +47,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * permission to the external storage, and i wanted my app to use no permissions.
  */
 
-public class DialogPreferenceTextColor extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceTextColor extends CustomDialogPreference implements View.OnClickListener {
 
     final int colorBlack = 0xff000000;
     final int colorWhite = 0xffffffff;

@@ -1,20 +1,20 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/settings_double_tap">
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_double_tap_enable"
             android:key="@string/pref_key_double_tap_enable"
             android:summary="@string/settings_double_tap_enable_text"
             android:title="@string/settings_double_tap_enable" />
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_double_tap_all_cards"
             android:dependency="@string/pref_key_double_tap_enable"
             android:key="@string/pref_key_double_tap_all_cards"
             android:summary="@string/settings_double_tap_all_cards_text"
             android:title="@string/settings_double_tap_all_cards" />
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_double_tap_foundation_first"
             android:dependency="@string/pref_key_double_tap_all_cards"
             android:key="@string/pref_key_double_tap_foundation_first"
@@ -25,7 +25,7 @@
 
 
     <PreferenceCategory android:title="@string/settings_tap_to_select">
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_tap_to_select_enable"
             android:key="@string/pref_key_tap_to_select_enable"
             android:summary="@string/settings_tap_to_select_enable_text"
@@ -34,13 +34,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_single_tap">
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_single_tap_all_games"
             android:key="@string/pref_key_single_tap_all_games"
             android:summary="@string/settings_single_tap_all_games_text"
             android:title="@string/settings_single_tap_enable" />
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_single_tap_enable"
             android:key="@string/pref_key_single_tap_special_games"
             android:summary="@string/settings_single_tap_enable_text"

@@ -35,6 +35,7 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.LoadGame;
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
 import static android.content.Context.MODE_PRIVATE;
 import static de.tobiasbielefeld.solitaire.SharedData.lg;
@@ -49,7 +50,7 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SETTINGS_
  * custom dialog to set the minimum moves for ensuring movability. It can be adjusted per game
  */
 
-public class DialogPreferenceEnsureMovabilityMinMoves extends DialogPreference implements View.OnClickListener{
+public class DialogPreferenceEnsureMovabilityMinMoves extends CustomDialogPreference implements View.OnClickListener{
 
     private Button makeGamesWinnableButton;
     private String winnableText;

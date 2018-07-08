@@ -31,6 +31,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -40,7 +41,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * just use a linearLayout with a button and a textView for each game
  */
 
-public class DialogPreferenceMenuHideGames extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceMenuHideGames extends CustomDialogPreference implements View.OnClickListener {
 
     private ArrayList<LinearLayout> linearLayouts = new ArrayList<>();
     private ArrayList<CheckBox> checkBoxes = new ArrayList<>();

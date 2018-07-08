@@ -7,28 +7,28 @@
         android:positiveButtonText="@string/game_confirm"
         android:summary=""/>
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_show_advaced_settings"
         android:key="@string/pref_key_show_advanced_settings"
         android:title="@string/settings_show_advanced_settings_title" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_disable_undo_costs"
         android:key="@string/pref_key_disable_undo_costs"
         android:title="@string/settings_diable_undo_costs" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_disable_hint_costs"
         android:key="@string/pref_key_disable_hint_costs"
         android:title="@string/settings_diable_hint_costs" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_force_tablet_layout"
         android:key="@string/pref_key_force_tablet_layout"
         android:summary="@string/settings_force_tablet_layout_text"
         android:title="@string/settings_force_tablet_layout_title" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_use_true_randomisation"
         android:key="@string/pref_key_use_true_randomisation"
         android:summary="@string/settings_use_true_randomisation_text"
