@@ -77,6 +77,10 @@ public class Stack {
         }
     }
 
+    public void forceSetImageBitmap(Bitmap bitmap){
+        view.setImageBitmap(bitmap);
+    }
+
     /**
      * deletes the reference to the current cards, so the stack will be empty.
      */
