@@ -48,6 +48,7 @@
     <string name="games_FortyEight">Forty &amp; Eight</string>
     <string name="games_AcesUp">Aces Up</string>
     <string name="games_Gypsy">Gypsy</string>
+    <string name="games_Maze">Maze</string>
     <string name="games_mod3">Mod3</string>
     <string name="games_Canfield">Canfield</string>
     <string name="games_GrandfathersClock">Grandfather\'s Clock</string>
@@ -227,6 +228,10 @@
     <string name="manual_NapoleonsTomb_objective">Play every card to the foundation, regardless of suit.</string>
     <string name="manual_NapoleonsTomb_rules">The 4 corner stacks start with a 7 and have to be stacked in ascending order until a king. The center foundation stack starts with a 6 and has to be stacked in descending order until an Ace four times. This results in the following order for this stack: \n\n6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A\n\nThe next card in the order will also be shown above the stack.\n\nPressing the main stack will flip one card over to the discard stack. Can be enabled in the game settings: If the main stack is empty, press it again to recycle the cards from the discard stack back to it.\n\nAny card can be placed on every tableau stack, but each stack can contain only one card at a time.</string>
     <string name="manual_NapoleonsTomb_scoring">Move a card to foundation: +60\n\nRecycle cards from the discard stack: -200</string>
+    <string name="manual_Maze_structure">1 deck of 52 cards, with Kings removed.\n\n54 tableau stacks in 6 rows and 9 columns</string>
+    <string name="manual_Maze_objective">Order cards on the tableau into sequences from Ace to Queen, one sequence per suit. Empty stacks are ignored.</string>
+    <string name="manual_Maze_rules">Any card can be moved to an empty stack immediately after the card of the same suit with value one lower, or to immediately before the card of the same suit with value one higher. Aces can be moved to immediately after any Queen.\n\nWithin a row, stacks are ordered left to right; the rows are ordered top to bottom. The last stack of one row is followed immediately by the first stack of the next row, wrapping around from bottom to top.</string>
+    <string name="manual_Maze_scoring">Each pair of adjacent (ignoring gaps) cards in the correct order: 25</string>
 
     <!-- Settings -->
 
