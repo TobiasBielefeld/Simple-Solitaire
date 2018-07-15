@@ -683,4 +683,13 @@ Czy chcesz skasować ustawienia indywidualne dla następujących gier?"</string>
 <string name="settings_number_input_error">"Nie można zapisać liczby!"</string>
 <string name="settings_developer_option_improve_auto_move_title">"Ulepszone automatyczne ruchy"</string>
 <string name="settings_developer_option_improve_auto_move_text">"Opcja automatyczne ruchy spróbuje wygrać grę używając głównego stosu"</string>
+<string name="black">"Czarny"</string>
+<string name="white">"Biały"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Gwarantuj wygrywalność części gier"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Można ustalić pewną liczbę gier, aby były możliwe do wygrania, bez znacznego zwiększenia czasu oczekiwania."</string>
+<string name="settings_ensure_movability_winnable">"Wygrywalne"</string>
+<string name="settings_reset_to_defaults">"Przywróć wartości domyślne"</string>
+<string name="settings_text_color">"Kolor tekstu i stosów"</string>
+<string name="settings_language_chinese_simplified">"Chiński (uproszczony)"</string>
+<string name="settings_ensure_movability_cancle_search">"Anuluj i natychmiast rozpocznij"</string>
 </resources>
