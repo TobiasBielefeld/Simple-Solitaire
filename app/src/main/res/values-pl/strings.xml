@@ -29,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Jukon"</string>
 <string name="games_Spider">"Pająk"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Piramida"</string>
 <string name="games_TriPeaks">"TrzyWieże"</string>
-<string name="games_FortyEight">"Czterdzieści&amp;Osiem"</string>
-<string name="games_AcesUp">"CzteryAsy"</string>
+<string name="games_FortyEight">"Czterdzieści &amp; Osiem"</string>
+<string name="games_AcesUp">"Cztery Asy"</string>
 <string name="games_Gypsy">"Cygan"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"ZegarekDziadka"</string>
+<string name="games_GrandfathersClock">"Zegarek Dziadka"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -505,7 +505,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_vegas_bet_amount_text_2">"Za przeniesienie każdej karty na stos bazowy dostajesz:"</string>
 <string name="settings_vegas_bet_amount_summary">"Rozdanie -%1$d$, wrzucenie karty: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Stuknij pojedynczo w kartę, aby przenieść ją na następny możliwy stos. Ustawienie takie same jak ruchów podwójnych. Wyłączone zostaną ruchy „wybierz przez stuknięcie”."</string>
-<string name="settings_number_input_error">"Nie można zapisać liczby!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Zmień wielkość stosu rezerwowego (łatwiej)"</string>
 <string name="settings_use_true_randomisation_title">"Stosowanie prawdziwej losowości"</string>
 <string name="settings_use_true_randomisation_text">"Domyślna losowość pozwala uniknąć podobnych kart obok siebie. Zaznacz tę opcję, aby zastosować prawdziwą losowość."</string>
@@ -598,6 +597,8 @@ Przycisk „statystyki” otwiera nowe okno zawierające różne statystyki doty
 
 Przycisk „wsparcie” otworzy niewielkie manu pomocy. Będziesz mógł wybrać:"</string>
 <string name="manual_ui_text_part_2">"Pokaż wskazówki: wyświetl maksymalnie 3 możliwe ruchy kart jednocześnie. Jednakże obniży to Twoją punktację o 25. Zauważ, że trywialne ruchy takie jak przeniesienie kart na puste pola, czy też stuknięcie w stos główny nie zostaną wyświetlone jako wskazówka. Jeżeli nie będzie możliwej wskazówki do pokazania, nie utracisz punktów."</string>
+
+<!-- Could you please explain that example? I know how auto move works in Pyramid and Mod3, but this description is senseless for me. -->
 <string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę."</string>
 <string name="manual_ui_text_part_4">"Tasuj karty: jeżeli stoisz w obliczu sytuacji, że nie ma już dostępnych ruchów, możesz użyć tej opcja, aby przetasować obecne karty. Zauważ, że karty już w poprawnej kolejności i karty na stosach bazowych nie zostaną przetasowane."</string>
 <string name="manual_ui_text_part_5">"Zasady gry: otwiera stronę poradnika dotyczącą gry."</string>
@@ -657,4 +658,38 @@ Każdą kartę można przenieść na pusty stos gry, ale każdy stos może zawie
 
 Przeniesienie wszystkich kart ze stosu odrzutów z powrotem na stos główny: -200"</string>
 <string name="settings_language_spanish_argentina">"Hiszpański (Argentyna)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Zostosuj zmiany tylko dla %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Ukryj przycisk „automatyczne ruchy”"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Wszelkie zmiany wprowadzone tutaj zostaną zastosowane tylko dla obecnej gry. Jeżeli chcesz skonfigurować pozostałe gry, masz następujące możliwości:"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Powróć do menu głównego i otworzyć stamtąd opcje"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Wyłącz tę opcję"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Otwórz ustawienia z gry, która nie ma tej opcji włączonej"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Wyłączenie tej opcji przywróci poprzednie wspólne ustawienia."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Indywidualne ustawienia dla tej gry zostaną skasowane i zostaną zastosowane wspólne ustawienia."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Zmiany nie zostaną zastosowane dla wszystkich ger. Stuknij, aby dowiedzieć się więcej"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Następujące gry mają ustawienia indywidualne:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Dla tych gier nie zostaną zastosowane zmiany wprowadzone tutaj.
+
+Czy chcesz skasować ustawienia indywidualne dla następujących gier?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Usuń wszystkie ustawienia indywidualne"</string>
+<string name="settings_ensure_movability_title">"Gwarantowane ruchy"</string>
+<string name="settings_ensure_movability_searching_games">"Wyszukiwanie grywalnej gry…"</string>
+<string name="settings_ensure_movability_text">"Zapewnia, że określona liczba ruchów w grze jest możliwa przed jej rozpoczęciem"</string>
+<string name="settings_ensure_movability_min_moves_title">"Gwarantowane ruchy: liczba ruchów"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Ostrzeżenie: zwiększenie tej wartości spowoduje wydłużenie czasu ładowania przed rozpoczęciem gry! Zmiana zasad gry wpłynie również na czas oczekiwania!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Ustaw minimalną liczbę możliwych gwarantowanych ruchów gry przed jej rozpoczęciem."</string>
+<string name="settings_number_input_error">"Nie można zapisać liczby!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Ulepszone automatyczne ruchy"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Opcja automatyczne ruchy spróbuje wygrać grę używając głównego stosu"</string>
+<string name="black">"Czarny"</string>
+<string name="white">"Biały"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Gwarantuj wygrywalność części gier"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Można ustalić pewną liczbę gier, aby były możliwe do wygrania, bez znacznego zwiększenia czasu oczekiwania."</string>
+<string name="settings_ensure_movability_winnable">"Wygrywalne"</string>
+<string name="settings_reset_to_defaults">"Przywróć wartości domyślne"</string>
+<string name="settings_text_color">"Kolor tekstu i stosów"</string>
+<string name="settings_language_chinese_simplified">"Chiński (uproszczony)"</string>
+<string name="settings_ensure_movability_cancle_search">"Anuluj i natychmiast rozpocznij"</string>
 </resources>

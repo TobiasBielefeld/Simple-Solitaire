@@ -31,6 +31,7 @@ import android.widget.LinearLayout;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -39,7 +40,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * the widget icon of the preference.
  */
 
-public class DialogPreferenceCardBackground extends DialogPreference implements View.OnClickListener {
+public class DialogPreferenceCardBackground extends CustomDialogPreference implements View.OnClickListener {
 
     private static int NUMBER_OF_CARD_BACKGROUNDS = 10;
 

@@ -34,6 +34,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -62,7 +63,7 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SETTINGS_
  * Android 8+ devices (bug?)
  */
 
-public class DialogPreferenceOnlyForThisGame extends DialogPreference{
+public class DialogPreferenceOnlyForThisGame extends CustomDialogPreference {
 
     private Context context;
     private CheckBox widget;

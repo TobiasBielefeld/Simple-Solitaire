@@ -21,7 +21,7 @@
         android:summary="@string/settings_menu_games_description"
         android:title="@string/settings_menu_games" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="false"
         android:key="@string/pref_key_start_menu"
         android:summary="@string/settings_show_main_menu_description"

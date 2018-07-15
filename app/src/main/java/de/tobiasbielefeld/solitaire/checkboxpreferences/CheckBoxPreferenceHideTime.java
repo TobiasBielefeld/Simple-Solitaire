@@ -23,6 +23,8 @@ import android.os.Build;
 import android.preference.CheckBoxPreference;
 import android.util.AttributeSet;
 
+import de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference;
+
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
@@ -30,7 +32,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
  * This is needed so I can set up some settings on a per game basis.
  */
 
-public class CheckBoxPreferenceHideTime extends CheckBoxPreference {
+public class CheckBoxPreferenceHideTime extends CustomCheckBoxPreference {
 
     public CheckBoxPreferenceHideTime(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);

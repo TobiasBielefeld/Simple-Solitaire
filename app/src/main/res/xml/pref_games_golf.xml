@@ -3,7 +3,7 @@
 
     <PreferenceCategory android:title="@string/settings_rules">
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="true"
             android:key="@string/pref_key_golf_cyclic"
             android:summary="@string/settings_golf_easy_description"

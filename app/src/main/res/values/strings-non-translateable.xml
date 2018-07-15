@@ -104,6 +104,7 @@
     <string name="pref_key_settings_only_for_this_game" translatable="false">pref_key_settings_only_for_this_game</string>
     <string name="pref_cat_key_only_for_this_game" translatable="false">pref_cat_key_only_for_this_game</string>
     <string name="pref_key_improve_auto_move" translatable="false">pref_key_improve_auto_move</string>
+    <string name="pref_key_text_color" translatable="false">pref_key_text_color</string>
 
     <!-- some dummy preference keys for the checkbox preferences. The value is saved in the "original"
          key version, but for accessing the preference per ID, I need the additional dummy version.
@@ -164,6 +165,9 @@
     <string name="contributors_romainhk_cicithesquirrel" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
     <string name="contributors_todor_balabanov" translatable="false"><a href="https://github.com/TodorBalabanov">TodorBalabanov</a></string>
     <string name="contributors_strooonger" translatable="false"><a href="https://github.com/strooonger">strooonger</a></string>
+    <string name="contributors_SkewedZeppelin" translatable="false"><a href="https://github.com/SkewedZeppelin">SkewedZeppelin</a></string>
+    <string name="contributors_tragic_life" translatable="false">Tragic Life</string>
+
 
     <string name="contributors_imko92_dankan1890" translatable="false">imko92, <a href="https://github.com/dankan1890">dankan1890</a></string>
     <string name="contributors_alexandre_parente" translatable="false">Alexandre Parente</string>
@@ -180,13 +184,18 @@
     <string name="about_poker_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
     <string name="about_sounds_license" translatable="false"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
     <string name="about_custom_color_picker_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
-    <string name="about_sliding_tabs_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
+    <string name="about_sliding_tabs_license" translatable="false"><a href="https://github.com/astuetz/PagerSlidingTabStrip#license">Apache 2.0</a></string>
     <string name="about_material_icons_SIL" translatable="false"><a href="http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web">SIL OFL 1.1</a></string>
     <string name="about_android_support_libraries_license" translatable="false"><a href="https://github.com/android/platform_frameworks_support/blob/master/LICENSE.txt">Apache 2.0</a></string>
 
     <!-- used for return intents from the settings menu -->
     <string name="intent_background_color" translatable="false">intent_background_color</string>
+    <string name="intent_text_color" translatable="false">intent_text_color</string>
     <string name="intent_update_game_layout" translatable="false">intent_update_game_layout</string>
     <string name="intent_update_menu_bar" translatable="false">intent_update_menu_bar</string>
+    <string name="intent_update_score_visibility" translatable="false">intent_update_score_visibility</string>
+    <string name="intent_update_time_visibility" translatable="false">intent_update_time_visibility</string>
+
+    <string name="bundle_reload_game" translatable="false">bundle_reload_game</string>
 
 </resources>

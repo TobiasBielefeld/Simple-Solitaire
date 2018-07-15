@@ -370,7 +370,7 @@ public class Canfield extends Game {
                 || (card.getStackId() == 9 && !stacks[10].isEmpty()));
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         Card card;
 
         for (int i = 0; i <= 4; i++) {
@@ -384,7 +384,7 @@ public class Canfield extends Game {
             /* complete visible part of a stack to move on the tableau */
             card = origin.getCard(0);
 
-            if (!hint.hasVisited(card) && card.getValue() != startCardValue) {
+            if (!visited.contains(card) && card.getValue() != startCardValue) {
                 for (int j = 0; j <= 3; j++) {
                     if (j == i || stacks[j].isEmpty()) {
                         continue;
@@ -399,7 +399,7 @@ public class Canfield extends Game {
             /* last card of a stack to move to the foundation */
             card = origin.getTopCard();
 
-            if (!hint.hasVisited(card)) {
+            if (!visited.contains(card)) {
                 for (int j = 5; j <= 8; j++) {
                     if (card.test(stacks[j])) {
                         return new CardAndStack(card, stacks[j]);
@@ -415,7 +415,7 @@ public class Canfield extends Game {
                 continue;
             }
 
-            if (stacks[9 + i].getSize() > 0 && !hint.hasVisited(stacks[9 + i].getTopCard())) {
+            if (stacks[9 + i].getSize() > 0 && !visited.contains(stacks[9 + i].getTopCard())) {
                 for (int j = 5; j <= 8; j++) {
                     if (stacks[9 + i].getTopCard().test(stacks[j])) {
                         return new CardAndStack(stacks[9 + i].getTopCard(), stacks[j]);

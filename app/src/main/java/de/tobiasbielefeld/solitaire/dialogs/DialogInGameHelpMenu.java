@@ -24,8 +24,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
@@ -60,7 +58,7 @@ public class DialogInGameHelpMenu extends CustomDialogFragment {
                         switch (which) {
                             case 0:
                                 if (!gameLogic.hasWon()) {
-                                    hint.showHint();
+                                    hint.start();
                                 }
                                 break;
                             case 1:

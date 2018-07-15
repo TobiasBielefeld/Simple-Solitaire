@@ -144,7 +144,7 @@ public class Freecell extends Game {
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, ALTERNATING_COLOR);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 12; i++) {
 
             Stack sourceStack = stacks[i];
@@ -160,7 +160,7 @@ public class Freecell extends Game {
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR)) {
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR)) {
                     continue;
                 }
 
@@ -283,26 +283,6 @@ public class Freecell extends Game {
     }
 
     private int getPowerMoveCount(boolean movingToEmptyStack){
-        //thanks to matejx for providing this formula
-        int numberOfFreeCells = 0;
-        int numberOfFreeTableauStacks = 0;
-
-        for (int i=8;i<12;i++){
-            if (stacks[i].isEmpty()){
-                numberOfFreeCells++;
-            }
-        }
-
-        for (int i=0;i<8;i++){
-            if (stacks[i].isEmpty()){
-                numberOfFreeTableauStacks++;
-            }
-        }
-
-        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
-            numberOfFreeTableauStacks --;
-        }
-
-        return (numberOfFreeCells+1)*(1<<numberOfFreeTableauStacks);
+        return getPowerMoveCount(new int[]{8,9,10,11}, new int[]{0,1,2,3,4,5,6,7}, movingToEmptyStack);
     }
 }

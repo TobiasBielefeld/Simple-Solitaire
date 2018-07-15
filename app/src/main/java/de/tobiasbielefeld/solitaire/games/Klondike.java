@@ -307,7 +307,7 @@ public class Klondike extends Game {
                 || (card.getStackId() == 11 && !stacks[12].isEmpty()));
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         Card card;
 
         for (int i = 0; i <= 6; i++) {
@@ -321,7 +321,7 @@ public class Klondike extends Game {
             /* complete visible part of a stack to move on the tableau */
             card = origin.getFirstUpCard();
 
-            if (!hint.hasVisited(card) && !(card.isFirstCard() && card.getValue() == 13)
+            if (!visited.contains(card) && !(card.isFirstCard() && card.getValue() == 13)
                     && card.getValue() != 1) {
                 for (int j = 0; j <= 6; j++) {
                     if (j == i) {
@@ -337,7 +337,7 @@ public class Klondike extends Game {
             /* last card of a stack to move to the foundation */
             card = origin.getTopCard();
 
-            if (!hint.hasVisited(card)) {
+            if (!visited.contains(card)) {
                 for (int j = 7; j <= 10; j++) {
                     if (card.test(stacks[j])) {
                         return new CardAndStack(card, stacks[j]);
@@ -353,7 +353,7 @@ public class Klondike extends Game {
                 continue;
             }
 
-            if (stacks[11 + i].getSize() > 0 && !hint.hasVisited(stacks[11 + i].getTopCard())) {
+            if (stacks[11 + i].getSize() > 0 && !visited.contains(stacks[11 + i].getTopCard())) {
                 for (int j = 10; j >= 0; j--) {
                     if (stacks[11 + i].getTopCard().test(stacks[j])) {
                         return new CardAndStack(stacks[11 + i].getTopCard(), stacks[j]);

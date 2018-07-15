@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.support.annotation.CallSuper;
 import android.support.v4.widget.TextViewCompat;
 import android.view.Gravity;
@@ -31,13 +30,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE;
@@ -69,6 +66,7 @@ public abstract class Game {
     private int lastFoundationID = -1;
     private int recycleCounter = 0;
     private int totalRecycles = 0;
+    private int textViewColor = 0;
     private boolean hasArrow = false;
     private boolean singleTapEnabled = false;
     private boolean bonusEnabled = true;
@@ -76,8 +74,9 @@ public abstract class Game {
     private boolean hideRecycleCounter = false;
     private int hintCosts = 25;
     private int undoCosts = 25;
-    protected ArrayList<TextView> textViews = new ArrayList<>();
+    private ArrayList<TextView> textViews = new ArrayList<>();
     private testMode mixCardsTestMode = testMode.DOESNT_MATTER;
+    private RecycleCounterCallback recycleCounterCallback;
 
     // some methods used by other classes
 
@@ -133,7 +132,7 @@ public abstract class Game {
 
         //delete the record list, otherwise undoing movements would result in strange behavior
         recordList.reset();
-        handlerTestAfterMove.sendEmptyMessageDelayed(0,200);
+        handlerTestAfterMove.sendDelayed();
     }
 
     public void dealNewGame(){
@@ -293,9 +292,10 @@ public abstract class Game {
     /**
      * Checks every card of the game, if one can be moved as a hint.
      *
+     * @param visited List of cards, which are already shown as hint
      * @return The card and the destination
      */
-    abstract public CardAndStack hintTest();
+    abstract public CardAndStack hintTest(ArrayList<Card> visited);
 
     /**
      * Uses the given card and the movement (given as the stack id's) to update the current score.
@@ -318,7 +318,6 @@ public abstract class Game {
     abstract public int onMainStackTouch();
 
     public int mainStackTouch(){
-
         if (hasLimitedRecycles() && getDealStack().isEmpty() && discardStacksContainCards()) {
             if (getRemainingNumberOfRecycles() == 0) {
                 return 0;
@@ -392,15 +391,6 @@ public abstract class Game {
         return null;
     }
 
-    /**
-     * This method should deal a winnable game, by starting from a winning positon and shuffling the
-     * chards to the default deal position. Per default, this method will call the random dealCards()
-     * method.
-     */
-    public void dealWinnableGame(){
-        dealCards();
-    }
-
     public boolean saveRecentScore(){
         return false;
     }
@@ -430,15 +420,12 @@ public abstract class Game {
     /**
      * Does stuff on game reset. By default, it resets the recycle counter (if there is one).
      * If games need to reset additional stuff, put it here
-     *
-     * @param gm A reference to the game manager, to update the ui redeal counter
      */
     @CallSuper
-    public void reset(GameManager gm) {
+    public void reset() {
         if (hasLimitedRecycles) {
             recycleCounter = 0;
-
-            gm.updateNumberOfRecycles();
+            recycleCounterCallback.updateTextView();
         }
     }
 
@@ -554,7 +541,7 @@ public abstract class Game {
             textView.setWidth(width);
             TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat);
             textView.setGravity(Gravity.CENTER);
-            textView.setTextColor(Color.rgb(0, 0, 0));
+            textView.setTextColor(textViewColor);
             layout.addView(textView);
             textView.measure(0, 0);
             textViews.add(textView);
@@ -890,7 +877,7 @@ public abstract class Game {
     }
 
     public boolean movementDoneRecently(Card card, Stack destination){
-        for (int i=recordList.entries.size() -1; i >= recordList.entries.size() - 5; i--){
+        for (int i=recordList.entries.size() -1; i >= recordList.entries.size() - 5 && i>0; i--){
             RecordList.Entry entry = recordList.entries.get(i);
 
             for (int j=0;j<entry.getCurrentCards().size();j++){
@@ -905,6 +892,7 @@ public abstract class Game {
 
         return false;
     }
+
     /**
      * Applies the direction borders, which were set using setDirectionBorders().
      * This will be automatically called when a game starts.
@@ -923,6 +911,84 @@ public abstract class Game {
                 stack.setSpacingMax(layoutGame);
             }
         }
+    }
+
+    /*
+     * If no card could be found, try to move the longest correct sequence from the stacks to
+     * an empty one.
+     */
+    protected CardAndStack findBestSequenceToMoveToEmptyStack(testMode mode){
+
+        Card cardToMove = null;
+        int sequenceLength = 0;
+        Stack emptyStack = null;
+
+        //find an empty stack to move to.
+        for (int i = 0; i < 10; i++) {
+            if (stacks[i].isEmpty()) {
+               emptyStack = stacks[i];
+            }
+        }
+
+        if (emptyStack == null){
+            return null;
+        }
+
+        for (int i = 0; i < 10; i++) {
+            Stack sourceStack = stacks[i];
+
+            if (sourceStack.isEmpty() || foundationStacksContain(i)){
+                continue;
+            }
+
+            for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
+                if (testCardsUpToTop(sourceStack, j, mode)){
+                    Card card = sourceStack.getCard(j);
+
+                    if (j!=0 && cardTest(emptyStack, card)){
+                        int length = sourceStack.getSize() - j;
+
+                        if (length > sequenceLength) {
+                            cardToMove = card;
+                            sequenceLength = length;
+                        }
+                    }
+
+                    break;
+                }
+
+            }
+        }
+
+        if (cardToMove != null && !movementDoneRecently(cardToMove, emptyStack)) {
+            return new CardAndStack(cardToMove, emptyStack);
+        }
+
+        return null;
+    }
+
+    protected int getPowerMoveCount(int[] cellIDs, int[] stackIDs, boolean movingToEmptyStack){
+        //thanks to matejx for providing this formula
+        int numberOfFreeCells = 0;
+        int numberOfFreeTableauStacks = 0;
+
+        for (int id : cellIDs){
+            if (stacks[id].isEmpty()){
+                numberOfFreeCells++;
+            }
+        }
+
+        for (int id : stackIDs){
+            if (stacks[id].isEmpty()){
+                numberOfFreeTableauStacks++;
+            }
+        }
+
+        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
+            numberOfFreeTableauStacks --;
+        }
+
+        return (numberOfFreeCells+1)*(1<<numberOfFreeTableauStacks);
     }
 
     /**
@@ -1011,6 +1077,10 @@ public abstract class Game {
     public void setNumberOfRecycles(String key, String defaultValue){
         int recycles = prefs.getSavedNumberOfRecycles(key, defaultValue);
         setLimitedRecycles(recycles);
+
+        if (recycleCounterCallback != null) {
+            recycleCounterCallback.updateTextView();
+        }
     }
 
     protected void disableBonus(){
@@ -1187,15 +1257,37 @@ public abstract class Game {
         return mainStackIDs[0];
     }
 
+    public void setRecycleCounterCallback(RecycleCounterCallback callback) {
+        recycleCounterCallback = callback;
+    }
 
-    private RecycleCounterCallback recycleCounterCallback;
+    protected void textViewSetText(int index, String text){
+        if (!stopUiUpdates){
+            textViews.get(index).setText(text);
+        }
+    }
+
+    protected void textViewPutAboveStack(int index, Stack stack){
+        textViews.get(index).setX(stack.getX());
+        textViews.get(index).setY(stack.getY() - textViews.get(index).getMeasuredHeight());
+    }
+
+    public void textViewSetColor(int color){
+        textViewColor = color;
+
+        for (TextView view : textViews){
+            view.setTextColor(color);
+        }
+    }
 
     public interface RecycleCounterCallback {
-        public void updateTextView();
+        void updateTextView();
 
     }
 
-    public void setRecycleCounterCallback(RecycleCounterCallback callback) {
-        recycleCounterCallback = callback;
+    public CardAndStack hintTest(){
+        ArrayList<Card> emptyList = new ArrayList<>(3);
+
+        return hintTest(emptyList);
     }
 }

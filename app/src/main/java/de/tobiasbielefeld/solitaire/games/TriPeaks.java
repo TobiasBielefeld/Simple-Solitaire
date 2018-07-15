@@ -62,8 +62,8 @@ public class TriPeaks extends Game {
     }
 
     @Override
-    public void reset(GameManager gm) {
-        super.reset(gm);
+    public void reset() {
+        super.reset();
         runCounter = 0;
     }
 
@@ -166,12 +166,12 @@ public class TriPeaks extends Game {
         return card.getStackId() != getDiscardStack().getId();
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 28; i++) {
             if (stacks[i].isEmpty() || !stacks[i].getTopCard().isUp())
                 continue;
 
-            if (!hint.hasVisited(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack()))
+            if (!visited.contains(stacks[i].getTopCard()) && stacks[i].getTopCard().test(getDiscardStack()))
                 return new CardAndStack(stacks[i].getTopCard(), getDiscardStack());
         }
 

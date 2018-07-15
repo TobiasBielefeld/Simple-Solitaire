@@ -50,7 +50,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.isLargeTablet;
  */
 
 public class Manual extends CustomAppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener, ManualGames.GamePageShown{
 
     DrawerLayout drawer;
     ListView listView;
@@ -281,7 +281,8 @@ public class Manual extends CustomAppCompatActivity
         lastSelectedView.setBackgroundColor(getResources().getColor(R.color.colorDrawerSelected));
     }
 
-    public void setGamePageShown(boolean shown) {
-        gamePageShown = shown;
+    @Override
+    public void setGamePageShown(boolean value){
+        gamePageShown = value;
     }
 }

@@ -29,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramid"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
-<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
+<string name="games_AcesUp">"Aces Up"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -443,7 +443,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_4_color_mode_title">"4 Farben Decks"</string>
 <string name="settings_4_color_mode_text">"Ändere die Farben von Kreuz zu Grün und von Karo zu Blau"</string>
 <string name="settings_additional_movements">"Weitere Karten Bewegungen"</string>
-<string name="settings_additional_movements_description">"Aktiviere und deaktivere Doppeltipp- und weitere Bewegungsmöglichkeiten"</string>
+<string name="settings_additional_movements_description">"Aktiviere und deaktiviere Doppeltipp- und weitere Bewegungsmöglichkeiten"</string>
 <string name="settings_double_tap">"Doppeltippen"</string>
 <string name="settings_double_tap_enable">"Erlaube Doppeltipp-Bewegungen"</string>
 <string name="settings_double_tap_enable_text">"Tippe eine Karte zweimal an, um sie zum nächstbesten Stapel zu bewegen"</string>
@@ -497,7 +497,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_vegas_bet_amount_text_2">"Jede Karte, die zur Foundation gespielt wird, bringt:"</string>
 <string name="settings_vegas_bet_amount_summary">"Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen. Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert."</string>
-<string name="settings_number_input_error">"Kann diese Zahlen nicht speichern!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Ändere Größe der Reserve (Einfacher)"</string>
 <string name="settings_use_true_randomisation_title">"Benutze echten Zufall"</string>
 <string name="settings_use_true_randomisation_text">"Die Standard Randomisierung vermeidet ähnliche Karten übereinander. Setze das Häkchen, um eine uniforme Randomisierung zu nutzen."</string>
@@ -510,7 +509,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_developer_options_play_every_card_text">"Man kann jede aufgedeckte Karte spielen"</string>
 <string name="settings_developer_options_instant_win_title">"Sofortiger Gewinn"</string>
 <string name="settings_developer_options_instant_win_text">"Gewinne jedes Spiel nach einer Kartenbewegung"</string>
-<string name="settings_developer_options_no_saving_title">"Deaktivere Spielstand Speicherung"</string>
+<string name="settings_developer_options_no_saving_title">"Deaktiviere Spielstand Speicherung"</string>
 <string name="settings_developer_options_no_saving_text">"Bewegungen in den Spielen werden nicht mehr gespeichert"</string>
 <string name="settings_developer_options_deal_correct_sequences_title">"Gebe korrekte Sequenzen aus"</string>
 <string name="settings_max_number_undos">"Anzahl der umkehrbaren Bewegungen"</string>
@@ -536,6 +535,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_language_japanese">"Japanisch"</string>
 <string name="settings_language_polish">"Polnisch"</string>
 <string name="settings_language_turkish">"Türkisch"</string>
+<string name="settings_language_chinese_simplified">"Chinesisch (Vereinfacht)"</string>
 <string name="settings_yukon_rules_1">"unterschiedliche Farben (Standard)"</string>
 <string name="settings_yukon_rules_2">"selbe Familie (Russian Solitare)"</string>
 <string name="settings_movement_speed_1">"Sehr langsam"</string>
@@ -573,14 +573,14 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="statistics_button_deleted_all_entries">"Alle Einträge gelöscht"</string>
 <string name="statistics_time_of_day">"Uhrzeit"</string>
 <string name="statistics_date">"Datum"</string>
-<string name="settings_diable_undo_costs">"Deaktiviere Strafpunkte für Zurücknehmen"</string>
-<string name="settings_diable_hint_costs">"Deaktiviere Strafpunkte für Hinweise"</string>
+<string name="settings_diable_undo_costs">"Keine Strafpunkte für Zurücknehmen"</string>
+<string name="settings_diable_hint_costs">"Keine Strafpunkte für Hinweise"</string>
 <string name="statistics_high_scores">"High Scores"</string>
 <string name="statistics_recent_scores">"letzte Scores"</string>
 <string name="statistics_total_time">"Gespielte Zeit"</string>
 <string name="statistics_total_hints_shown">"Gezeigte Hinweise"</string>
 <string name="statistics_total_number_undos">"Zurückgenommene Bewegungen"</string>
-<string name="statistics_total_points_earned">"Erlangte Punkte"</string>
+<string name="statistics_total_points_earned">"Erspielte Punkte"</string>
 <string name="statistics_no_entries">"Keine Einträge, spiele ein paar Runden!"</string>
 <string name="dialog_auto_move">"Automatisch Bewegen"</string>
 <string name="dialog_show_hints">"Zeige Hinweise"</string>
@@ -631,7 +631,7 @@ Wird als Paris Thema verwendet - Verfügbar auf &lt;a href=https://sourceforge.n
 "</string>
 <string name="settings_cards_paris">"Paris"</string>
 <string name="settings_cards_dondorf">"Dondorf"</string>
-<string name="games_NapoleonsTomb">"Napoleon\'sTomb"</string>
+<string name="games_NapoleonsTomb">"Napoleon\'s Tomb"</string>
 <string name="manual_NapoleonsTomb_structure">"1 Deck aus 52 Karten.
 
 4 Tableau Stapel, 5 Foundation Stapel, 1 Haupt- und 1 Ablage Stapel
@@ -651,4 +651,37 @@ Jede Karte darf auf jeden Tableau-Stapel gespielt werden, aber die Stapel dürfe
 
 Bewege alle Karten vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
 <string name="settings_language_spanish_argentina">"Spanisch (Argentinien)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Wende Änderungen nur für %1$s an"</string>
+<string name="settings_hide_auto_complete_button">"Deaktivere Autovervollständigen Button"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Alle weiteren hier vorgenommenen Änderungen werden nur auf das aktuelle Spiel angewendet. Wenn Sie dann Einstellungen für andere Spiele ändern möchten, haben Sie die folgenden Möglichkeiten:"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Kehren Sie zum Hauptmenü zurück und öffnen Sie von dort aus die Einstellungen."</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Deaktivieren Sie diese Option"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Öffnen Sie die Einstellungen in einem Spiel, in dem diese Option nicht aktiviert ist"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Das Deaktivieren dieser Option stellt die vorherigen geteilten Einstellungen wieder her."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Die individuellen Einstellungen für dieses Spiel werden nun entfernt und die geteilten Einstellungen werden übernommen."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Änderungen wirken sich nicht auf alle Spiele aus. Hier für weitere Informationen klicken"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Die folgenden Spiele haben individuelle Einstellungen ermöglicht:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Diese Spiele sind von den hier vorgenommenen Änderungen nicht betroffen.
+
+Möchten Sie die individuellen Einstellungen für alle aufgeführten Spiele entfernen?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Alle individuellen Einstellungen entfernt"</string>
+<string name="settings_ensure_movability_title">"Garantierte Anzahl der Bewegungen"</string>
+<string name="settings_ensure_movability_searching_games">"Suche nach einem geeigneten Spiel…"</string>
+<string name="settings_ensure_movability_cancle_search">Abbrechen und sofort starten</string>
+<string name="settings_ensure_movability_text">"Stelle sicher, dass eine bestimmte Anzahl von Bewegungen in einem Spiel möglich sind, bevor es gestartet wird"</string>
+<string name="settings_ensure_movability_min_moves_title">"Anzahl der Bewegungen ändern"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Vorsicht: Das Erhöhen der Beträge führt zu längeren Wartezeiten vor Spielbeginn. Änderungen der Spielregeln wirken sich auch auf die Wartezeit aus!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Ändere die Anzahl der Bewegungen, die jedes Spiel mindestens haben muss, wenn es gestartet wird."</string>
+<string name="settings_number_input_error">"Kann diese Zahlen nicht speichern!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Automatische Bewegung verbessern"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Die Automatische Bewegung wird versuchen das Spiel zu gewinnen, in dem es den Hauptstapel mitbenutzt"</string>
+<string name="black">"Schwarz"</string>
+<string name="white">"Weiß"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Bestimmte Spiele gewinnbar machen"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Der Betrag für einige Spiele kann hoch genug eingestellt werden, um sie immer gewinnbar zu machen, ohne die Wartezeit deutlich zu erhöhen."</string>
+<string name="settings_ensure_movability_winnable">"Gewinnbar"</string>
+<string name="settings_reset_to_defaults">"Auf Standardwerte zurücksetzen"</string>
+<string name="settings_text_color">"Text- und Stapelfarbe"</string>
 </resources>

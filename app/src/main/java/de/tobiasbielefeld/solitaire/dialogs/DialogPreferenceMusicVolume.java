@@ -28,6 +28,7 @@ import android.widget.TextView;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -36,7 +37,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * custom dialog to set the background music volume. it can be set from 0 (off) to 100%.
  */
 
-public class DialogPreferenceMusicVolume extends DialogPreference implements SeekBar.OnSeekBarChangeListener{
+public class DialogPreferenceMusicVolume extends CustomDialogPreference implements SeekBar.OnSeekBarChangeListener{
 
     private SeekBar mSeekBar;
     private TextView mTextView;

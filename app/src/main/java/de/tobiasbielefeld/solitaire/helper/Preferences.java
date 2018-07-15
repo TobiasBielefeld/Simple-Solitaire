@@ -108,6 +108,7 @@ public class Preferences {
     public static String PREF_KEY_BACKGROUND_COLOR;
     public static String PREF_KEY_BACKGROUND_COLOR_CUSTOM;
     public static String PREF_KEY_MOVEMENT_SPEED;
+    public static String PREF_KEY_TEXT_COLOR;
     public static String PREF_KEY_SOUND_ENABLED;
     public static String PREF_KEY_WIN_SOUND;
     public static String PREF_KEY_BACKGROUND_MUSIC;
@@ -189,6 +190,7 @@ public class Preferences {
     public static int DEFAULT_VEGAS_MONEY;
     public static int DEFAULT_MAX_NUMBER_UNDOS;
     public static int DEFAULT_ENSURE_MOVABILITY_MIN_MOVES;
+    public static int DEFAULT_TEXT_COLOR;
     public static boolean DEFAULT_ENSURE_MOVABILITY;
     public static boolean DEFAULT_HIDE_AUTOCOMPLETE_BUTTON;
     public static boolean DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME;
@@ -370,6 +372,7 @@ public class Preferences {
         PREF_KEY_GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
         PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT = res.getString(R.string.pref_key_game_layout_margins_portrait);
         PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE = res.getString(R.string.pref_key_game_layout_margins_landscape);
+        PREF_KEY_TEXT_COLOR = res.getString(R.string.pref_key_text_color);
 
         PREF_KEY_CANFIELD_START_CARD_VALUE = res.getString(R.string.canfield_start_value);
         PREF_KEY_SCORE = res.getString(R.string.score);
@@ -433,6 +436,7 @@ public class Preferences {
         DEFAULT_IMPROVE_AUTO_MOVE = res.getBoolean(R.bool.default_improve_auto_move);
         DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME = false;
         DEFAULT_CURRENT_GAME = res.getInteger(R.integer.default_current_game);
+        DEFAULT_TEXT_COLOR = res.getInteger(R.integer.default_text_color);
         DEFAULT_MENU_COLUMNS_LANDSCAPE = res.getString(R.string.default_menu_columns_landscape);
         DEFAULT_MENU_COLUMNS_PORTRAIT = res.getString(R.string.default_menu_columns_portrait);
         DEFAULT_MENU_BAR_POSITION_LANDSCAPE = res.getString(R.string.default_menu_bar_position_landscape);
@@ -1051,6 +1055,14 @@ public class Preferences {
         }
     }
 
+    public int getSavedTextColor(){
+        if (hasSettingsOnlyForThisGame()){
+            return savedGameData.getInt(PREF_KEY_TEXT_COLOR,DEFAULT_TEXT_COLOR);
+        } else {
+            return savedSharedData.getInt(PREF_KEY_TEXT_COLOR,DEFAULT_TEXT_COLOR);
+        }
+    }
+
     public int getSavedMenuColumnsPortrait(){
         return Integer.parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_PORTRAIT,DEFAULT_MENU_COLUMNS_PORTRAIT));
     }
@@ -1482,6 +1494,14 @@ public class Preferences {
         savedSharedData.edit().putInt(PREF_KEY_MAX_NUMBER_UNDOS,value).apply();
     }
 
+    public void saveTextColor(int value){
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putInt(PREF_KEY_TEXT_COLOR, value).apply();
+        } else {
+            savedSharedData.edit().putInt(PREF_KEY_TEXT_COLOR, value).apply();
+        }
+    }
+
     public void saveMenuBarPosPortrait(String value){
         if (hasSettingsOnlyForThisGame()){
             savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_PORTRAIT,value).apply();
@@ -1593,6 +1613,7 @@ public class Preferences {
         savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_LANDSCAPE,getSavedMenuBarPosLandscape()).apply();
 
         savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT,getSavedGameLayoutMarginsPortrait()).apply();
+        savedGameData.edit().putInt(PREF_KEY_TEXT_COLOR,getSavedTextColor()).apply();
         savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE,getSavedGameLayoutMarginsLandscape()).apply();
         savedGameData.edit().putString(PREF_KEY_BACKGROUND_COLOR,Integer.toString(getSavedBackgroundColor())).apply();
         savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_TYPE,getSavedBackgroundColorType()).apply();

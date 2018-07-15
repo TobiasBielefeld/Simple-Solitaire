@@ -33,16 +33,16 @@
 <!-- i don't know the name in spanish, so i let the original -->
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Solitario Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramid"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
 <string name="games_AcesUp">"Aces Arriba"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -101,13 +101,13 @@
 <string name="about_material_icons_title">"Material design icons"</string>
 <string name="about_material_icons_usage">"Usados para todos los íconos en esta aplicación"</string>
 <string name="about_card_themes_title">"Tema de las cartas"</string>
-<string name="about_card_themes_usage">"Los temas de las cartas son de &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, para información detallada visitar &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;here&lt;/a&gt;
+<string name="about_card_themes_usage">"Los temas de las cartas son de &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, para información detallada visitar &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;link&lt;/a&gt;
 "</string>
 <string name="about_poker_themes_usage">"Usado en el tema del Póker - Disponible en &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Usada para el selector de color propio"</string>
 <string name="about_sounds_title">"Sonidos"</string>
-<string name="about_sounds_usage">"Todos los sonidos fueron publicados originalmente en &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, para mayor información revisar &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;here&lt;/a&gt;"</string>
+<string name="about_sounds_usage">"Todos los sonidos fueron publicados originalmente en &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, para mayor información revisar &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;link&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
 <string name="about_sliding_tabs_usage">"Usada para las pestañas en la pantalla \"Acerca de\""</string>
 
@@ -155,8 +155,30 @@ Usar el Issue Tracker en GitHub: el proyecto de esta aplicación en GitHub tiene
 Use una calificación en Google Play: simplemente deje una calificación en la página de esta aplicación y escriba todo lo que quiera en ella. Haga clic en el botón a la derecha para abrir Google Play Store (si está instalado).
 
 Gracias de antemano por sus comentarios :)"</string>
+
+<!-- i dont have the correct translation for "tableau" yet -->
 <string name="manual_Klondike_structure">"1 mazo de 52 cartas.
 
-7 pilas de tableau, 4 pilas de fundación, 1 principal y 1 pila de descartes"</string>
+7 pilas de juego, 4 pilas de fundación, 1 principal y 1 pila de descartes"</string>
 <string name="manual_Klondike_objective">"Ordene cada carta en familias reales en orden ascendente en el pozo."</string>
+<string name="manual_Klondike_rules">"Las cartas se pueden colocar en la mesa de juego en orden descendente y en colores alternos. Puedes mover una secuencia completa de cartas a la vez. En las pilas base, las tarjetas se pueden colocar solo en orden ascendente en la familia correspondiente.
+
+Solo los reyes se pueden colocar en pilas de la mesa de juego vacías y solo los ases se pueden colocar en las pilas de base vacías.
+
+Al presionar en la pila principal, las cartas se moverán a la pila de descarte desde donde puedes usarlas. La cantidad de cartas depende de la configuración elegida. Si se seleccionó \"Repartir 1\", solo se moverá una tarjeta (Esta es la configuración predeterminada, para facilitar el juego). Con \"Repartir 3\" activado, 3 tarjetas se moverán a la vez.
+
+Si la pila principal está vacía, puedes presionarla para mover cada carta de la pila de descarte a la pila principal y usarlas nuevamente."</string>
+<string name="manual_Klondike_scoring">"De la mesa de juego a la pila base: +60
+
+De la pila de descarte a la base: +45
+
+De la pila base a la mesa: -75
+
+Girar una carta: +25
+
+Devolver todas las cartas de la pila de descarte a la pila principal: -200"</string>
+<string name="manual_Freecell_structure">"1 juego de 52 cartas.
+
+8 pilas de mesa, 4 pilas de base y 4 lugares libres."</string>
+<string name="manual_Freecell_objective">"Ordenar cada carta en familias reales en orden ascendente en la base."</string>
 </resources>

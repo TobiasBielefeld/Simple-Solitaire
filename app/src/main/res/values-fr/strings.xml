@@ -29,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramide"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
 <string name="games_AcesUp">"4 As"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"Grandfather\'sClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -503,7 +503,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_vegas_bet_amount_text_2">"Chaque carte jouée vers la fondation fait gagner :"</string>
 <string name="settings_vegas_bet_amount_summary">"Donne initiale : -%1$d$, carte vers la fondation : +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Appuyez une fois sur une carte pour la déplacer vers la pile suivante. Il suit les mêmes réglages que les mouvements Double-Tap. Ceci désactive la sélection par un appui rapide."</string>
-<string name="settings_number_input_error">"On ne peut pas sauver ces numéros!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Changer la taille de la réserve (plus facile)"</string>
 <string name="settings_use_true_randomisation_title">"Utiliser la vraie randomisation"</string>
 <string name="settings_use_true_randomisation_text">"La randomisation par défaut permet d'éviter les cartes similaires les unes à côté des autres. Cochez cette case pour permettre une randomisation vraiment uniforme."</string>
@@ -542,6 +541,7 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_language_japanese">"Japonais"</string>
 <string name="settings_language_polish">"Polonais"</string>
 <string name="settings_language_turkish">"Turc"</string>
+ <string name="settings_language_chinese_simplified">"Chinois (simplifié)"</string>
 <string name="settings_yukon_rules_1">"des couleurs différentes (par défaut)"</string>
 <string name="settings_yukon_rules_2">"la même famille de cartes (Solitaire russe)"</string>
 <string name="settings_movement_speed_1">"Très lente"</string>
@@ -655,4 +655,37 @@ N'importe quelle carte peut être placée sur chaque pile de tableaux, mais chaq
 
 Déplacer les cartes de la défausse à la pioche : -200"</string>
 <string name="settings_language_spanish_argentina">"Espagnol (Argentine)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Appliquer les changements uniquement pour %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Désactiver le bouton Autocomplete"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Toutes les autres modifications apportées ici ne s'appliqueront qu'au jeu en cours. Si vous souhaitez ensuite modifier les paramètres d'autres jeux, vous disposez des options suivantes :"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Revenir au menu principal et ouvrir les réglages à partir de là"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Désactiver cette option"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Ouvrir les options à partir d'un jeu qui n'a pas cette option activée."</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Si vous désactivez cette option, les options partagés précédents seront restaurés."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Les paramètres individuels de ce jeu seront maintenant supprimés et les paramètres partagés seront appliqués."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Les changements n'affecteront pas tous les jeux. Cliquez ici pour plus d'informations"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Les jeux suivants ont permis des réglages individuels :"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Ces jeux ne seront pas affectés par les changements apportés ici.
+
+Voulez-vous supprimer les paramètres individuels pour tous les jeux de la liste ?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Suppression de tous les paramètres individuels"</string>
+<string name="settings_ensure_movability_title">"Garantie du nombre de mouvements"</string>
+<string name="settings_ensure_movability_searching_games">"Recherche d'un jeu adapté…"</string>
+<string name="settings_ensure_movability_cancle_search">Annuler et commencer immédiatement</string>
+<string name="settings_ensure_movability_text">"S'assurer qu'un certain nombre de mouvements sont possibles dans un jeu avant de le commencer."</string>
+<string name="settings_ensure_movability_min_moves_title">"Modifier le nombre de coups"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Attention : Si vous augmentez le montant, le temps d'attente avant le début d'une partie sera plus long. Changer les règles du jeu affectera aussi le temps d'attente !"</string>
+<string name="settings_ensure_movability_min_moves_text">"Modifier le nombre de mouvements que chaque jeu doit avoir au moins au début du jeu"</string>
+<string name="settings_number_input_error">"On ne peut pas sauver ces numéros!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Améliorez le mouvement automatique"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Auto Move tentera de gagner la partie en utilisant également la pile principale"</string>
+<string name="black">"Noir"</string>
+<string name="white">"Blanc"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Rendre certains jeux gagnants"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Le montant de certains jeux peut être suffisamment élevé pour qu'ils soient toujours gagnants, sans augmenter significativement le temps d'attente."</string>
+<string name="settings_ensure_movability_winnable">"Gagnant"</string>
+<string name="settings_reset_to_defaults">"Réinitialisation des valeurs par défaut"</string>
+<string name="settings_text_color">"Couleur du texte et de la pile"</string>
 </resources>

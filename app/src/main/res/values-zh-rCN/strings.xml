@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_version">"版本"</string>
+<string name="settings">"设置"</string>
+<string name="game_manual">"手册"</string>
+<string name="game_score">"分数"</string>
+<string name="game_time">"时间"</string>
+<string name="game_cancel">"取消"</string>
+<string name="game_confirm">"确认"</string>
+<string name="game_auto_complete_text">"自动完成"</string>
+<string name="game_press_again">"再次点击以退出"</string>
+<string name="game_load_error">"无法加载数据，开始新游戏…"</string>
+<string name="game_close">"关闭游戏"</string>
+<string name="game_main_menu">"主菜单"</string>
+<string name="item_game_rules">"游戏规则"</string>
+<string name="item_return_to_main_menu">"回到主菜单"</string>
+
+<!-- Menu -->
+<string name="menu_undo">"撤销"</string>
+<string name="menu_main_menu">"菜单"</string>
+<string name="menu_settings">"设置"</string>
+
+<!-- game names 
+
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"克朗代克"</string>
+<string name="games_Freecell">"空当接龙"</string>
+<string name="games_Yukon">"育空"</string>
+<string name="games_Spider">"蜘蛛纸牌"</string>
+<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_Golf">"高尔夫"</string>
+<string name="games_Pyramid">"金字塔"</string>
+<string name="games_TriPeaks">"接龙"</string>
+<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_Gypsy">"吉普赛人"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"坎菲尔德"</string>
+<string name="games_GrandfathersClock">"祖父的钟"</string>
+<string name="games_Vegas">"维加斯"</string>
+<string name="games_Calculation">"计算"</string>
+
+<!-- colors -->
+<string name="blue">"蓝"</string>
+<string name="green">"绿"</string>
+<string name="red">"红"</string>
+<string name="yellow">"黄"</string>
+<string name="orange">"橙"</string>
+<string name="purple">"紫"</string>
+
+<!-- game stuff -->
+<string name="game_longest_run">"最长序列："</string>
+
+<!-- dialog won -->
+<string name="dialog_win_titel">"祝贺！"</string>
+<string name="dialog_win_score">"分数：%1$d"</string>
+<string name="dialog_win_bonus">"奖金：%1$d"</string>
+<string name="dialog_win_total">"总计：%1$d"</string>
+
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"混合纸牌"</string>
+<string name="dialog_mix_cards_not_available">"依然有可移动机会！"</string>
+
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"开始新游戏"</string>
+<string name="dialog_start_new_game_text">"你的当前进度将会丢失，新的随机游戏将会开启"</string>
+
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"重发卡牌"</string>
+<string name="dialog_redeal_text">"你的当前进度将会丢失，但新的游戏中卡牌将与当前游戏相同"</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"手册"</string>
+<string name="title_activity_settings">"设置"</string>
+<string name="title_activity_about">"关于游戏"</string>
+<string name="title_activity_statistics">"数据"</string>
+
+<!-- About activity -->
+<string name="about_tab_1">"信息"</string>
+<string name="about_tab_2">"版权"</string>
+<string name="about_tab_3">"更新日志"</string>
+<string name="about_loading">"加载中…"</string>
+<string name="about_developer">"开发者"</string>
+<string name="about_developer_name">"托比阿斯 贝列弗德"</string>
+<string name="about_compiled">"编译于"</string>
+<string name="about_source_code">"源码"</string>
+<string name="about_license">"版权"</string>
+<string name="about_translations">"翻译"</string>
+<string name="about_further_contributors">"进一步贡献者"</string>
+<string name="about_android_support_libraries_title">"Android 支持库"</string>
+<string name="about_android_support_libraries_usage">"用于更好的设计和更容易的开发工作"</string>
+<string name="about_material_icons_title">"质感设计图标"</string>
+<string name="about_material_icons_usage">"用于所有此应用图标"</string>
+<string name="about_card_themes_title">"卡牌主题"</string>
+<string name="about_card_themes_usage">"卡牌主题来自&lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, 点击&lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;获取更多信息&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"用于扑克牌的主题 - 可用于 &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - 版权所有 2015 - 克里斯 · 阿格莱 - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna 库"</string>
+<string name="about_custom_color_picker_usage">"使用于自定义色彩选取器"</string>
+<string name="about_sounds_title">"音效"</string>
+<string name="about_sounds_usage">"所有音效都来源于 &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, 点击 &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;获取更多信息&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip 库"</string>
+<string name="about_sliding_tabs_usage">"使用于 “关于游戏” 屏幕的条目"</string>
+
+<!-- Manual -->
+<string name="manual_games">"游戏"</string>
+<string name="manual_feedback">"反馈"</string>
+<string name="manual_startpage">"开始界面"</string>
+<string name="manual_back_to_game">"回到游戏"</string>
+<string name="manual_structure">"结构"</string>
+<string name="manual_objective">"目的"</string>
+<string name="manual_rules">"规则"</string>
+<string name="manual_scoring">"得分"</string>
+<string name="manual_main_menu">"主菜单"</string>
+<string name="manual_ui">"用户界面"</string>
+<string name="page_load_error">"该游戏没用可用界面"</string>
+<string name="manual_open_google_play">"打开 Google Play"</string>
+<string name="manual_open_github">"打开 GitHub Repo"</string>
+<string name="manual_startpage_text">"欢迎来到此游戏组合的手册！我希望这会解释所有的一切
+
+使用左侧栏菜单来查看其他手册页面。"</string>
+<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+
+<!-- Settings -->
+<string name="settings_background_color">"背景色"</string>
+<string name="settings_hide_status_bar">"隐藏状态栏"</string>
+<string name="settings_left_handed_mode">"左利手模式"</string>
+<string name="settings_back_press">"确认关闭游戏"</string>
+<string name="settings_back_press_description">"双击返回键退出游戏"</string>
+<string name="settings_orientation">"屏幕方向"</string>
+<string name="settings_cards">"卡牌"</string>
+<string name="settings_classic">"经典"</string>
+<string name="settings_simple">"简约"</string>
+<string name="settings_cards_back">"卡牌背景"</string>
+<string name="settings_modern">"现代"</string>
+<string name="settings_abstract">"抽象"</string>
+<string name="settings_basic">"基础"</string>
+<string name="settings_poker">"扑克"</string>
+<string name="settings_background">"背景数字"</string>
+<string name="settings_customization">"外观"</string>
+<string name="settings_other">"一般"</string>
+<string name="settings_other_description">"查看其他设置"</string>
+<string name="settings_games">"游戏"</string>
+<string name="settings_games_description">"为不同游戏设置选项"</string>
+<string name="settings_spider_difficulty">"不同卡组的数量"</string>
+<string name="settings_show_main_menu">"前往主菜单"</string>
+<string name="settings_show_main_menu_description">"开启应用时不进入最后一次游玩的游戏进度中"</string>
+<string name="settings_restart_fortyeight">"开启一场新的 Forty&amp;Eight 游戏以应用更改"</string>
+<string name="settings_restart_yukon">"开启一场新的育空游戏以应用更改"</string>
+<string name="settings_menu">"主菜单"</string>
+<string name="settings_pyramid_difficulty">"难度"</string>
+<string name="settings_menu_games">"显/隐游戏"</string>
+<string name="settings_menu_games_description">"选择出现在菜单中的游戏"</string>
+<string name="settings_about_description">"显示游戏信息，如版权与更新日志"</string>
+<string name="settings_change_language">"更改语言"</string>
+<string name="settings_yukon_rules">"将卡牌置于…"</string>
+<string name="settings_icon_theme">"图标主题"</string>
+<string name="settings_menu_bar_position">"菜单栏位置"</string>
+<string name="settings_menu_bar_position_top">"顶部"</string>
+<string name="settings_menu_bar_position_bottom">"底部"</string>
+<string name="settings_menu_bar_position_left">"左部"</string>
+<string name="settings_menu_bar_position_right">"右部"</string>
+<string name="settings_additional_movements">"附加卡牌可移动次数"</string>
+<string name="settings_additional_movements_description">"启用/禁用双击和其他手势操作"</string>
+<string name="settings_double_tap">"双击"</string>
+<string name="settings_double_tap_enable">"开启双击动作"</string>
+<string name="settings_double_tap_all_cards">"移动所有可能卡牌"</string>
+<string name="settings_tap_to_select">"点按"</string>
+<string name="settings_tap_to_select_enable">"启用点按移动"</string>
+<string name="settings_single_tap">"单击"</string>
+<string name="settings_movement_speed">"卡牌移动速度"</string>
+<string name="Settings_sound">"启用游戏音效"</string>
+<string name="Settings_sounds_title">"音效"</string>
+<string name="Settings_sounds_text">"启用音效，设置不同音效"</string>
+<string name="Settings_win_sound_title">"胜利音效"</string>
+<string name="Settings_background_music">"背景音乐"</string>
+<string name="settings_background_color_custom">"自定义"</string>
+<string name="Settings_background_volume">"背景音乐音量"</string>
+<string name="settings_limit_number_of_recycles">"有限回收数"</string>
+<string name="settings_number_of_recycles">"回收数量"</string>
+<string name="settings_menu_order_title">"菜单顺序"</string>
+<string name="settings_menu_order_set_default">"恢复顺序"</string>
+<string name="settings_auto_start_new_game_title">"胜利时开启新游戏"</string>
+<string name="settings_customization_description">"自定义卡牌，背景和用户界面"</string>
+<string name="settings_force_tablet_layout_title">"强制平板布局"</string>
+<string name="settings_force_tablet_layout_text">"以大屏幕样式显示 （7英寸以上）"</string>
+<string name="settings_restart_calculation">"开启一次新的计算游戏以应用更改"</string>
+<string name="settings_calculation_alternative_title">"保留卡牌"</string>
+<string name="settings_vegas_money_enabled">"保持当前平衡性"</string>
+<string name="settings_vegas_money_reset">"重置平衡性"</string>
+<string name="settings_auto_move_title">"自动移动"</string>
+<string name="settings_rules">"规则"</string>
+<string name="settings_money">"钱"</string>
+<string name="settings_support">"支持"</string>
+<string name="settings_hide_time">"隐藏时间"</string>
+<string name="settings_hide_score">"隐藏分数"</string>
+<string name="settings_single_tap_enable">"开启单击动作"</string>
+<string name="settings_use_true_randomisation_title">"使用真实重置"</string>
+<string name="settings_use_true_randomisation_text">"默认重置方案阻止了相同卡牌出现在相邻位置。选择这个可以启用真正的随机方式"</string>
+<string name="settings_developer_options">"开发者选项"</string>
+<string name="settings_developer_options_description">"使用疯狂的设置进行游戏"</string>
+<string name="settings_developer_options_move_card_everwhere_title">"任意移动卡牌"</string>
+<string name="settings_developer_options_play_every_card_title">"打出任何卡牌"</string>
+<string name="settings_developer_options_instant_win_title">"强制胜利"</string>
+<string name="settings_developer_options_instant_win_text">"在移动卡牌后就获得胜利"</string>
+<string name="settings_developer_options_no_saving_title">"禁用保存游戏状态"</string>
+<string name="settings_developer_options_no_saving_text">"游戏的移动将不再被保存"</string>
+<string name="settings_max_number_undos">"撤销操作的最大数量"</string>
+<string name="settings_expert_settings">"专家设置"</string>
+<string name="settings_expert_settings_text">"也许对一些人有作用"</string>
+<string name="settings_follow_system_settings">"跟随系统设置"</string>
+<string name="settings_portrait">"竖屏"</string>
+<string name="settings_landscape">"横屏"</string>
+<string name="settings_spider_difficultiy_1">"1 （简单）"</string>
+<string name="settings_spider_difficultiy_2">"2 （中等）"</string>
+<string name="settings_spider_difficultiy_3">"4 （难）"</string>
+<string name="settings_draw_1">"Draw 1"</string>
+<string name="settings_draw_3">"Draw 3"</string>
+<string name="settings_language_default">"默认语言"</string>
+<string name="settings_language_english">"英语"</string>
+<string name="settings_language_esperanto">"世界语"</string>
+<string name="settings_language_finnish">"芬兰语"</string>
+<string name="settings_language_french">"法语"</string>
+<string name="settings_language_german">"德语"</string>
+<string name="settings_language_japanese">"日语"</string>
+<string name="settings_language_polish">"波兰语"</string>
+<string name="settings_language_turkish">"土耳其语"</string>
+<string name="settings_yukon_rules_1">"不同颜色 （默认）"</string>
+<string name="settings_yukon_rules_2">"相同外观 （俄罗斯纸牌）"</string>
+<string name="settings_movement_speed_1">"极慢"</string>
+<string name="settings_movement_speed_2">"慢"</string>
+<string name="settings_movement_speed_3">"正常"</string>
+<string name="settings_movement_speed_4">"快"</string>
+<string name="settings_win_sounds_1">"默认"</string>
+<string name="settings_win_sounds_2">"钢琴"</string>
+<string name="settings_win_sounds_3">"8节音效 “你胜利了”"</string>
+<string name="settings_win_sounds_4">"&gt;欢呼人群"</string>
+<string name="settings_background_music_1">"禁用"</string>
+<string name="settings_background_music_2">"主题 1"</string>
+<string name="settings_background_music_3">"主题2"</string>
+<string name="settings_background_music_4">"主题3"</string>
+<string name="settings_background_music_5">"音乐盒"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 张卡牌 （默认）"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 卡牌"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 卡牌"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 卡牌"</string>
+<string name="settings_developer_option_deal_correct_sequences_1">"未激活"</string>
+<string name="settings_developer_option_deal_correct_sequences_2">"替换颜色"</string>
+<string name="settings_developer_option_deal_correct_sequences_3">"保存卡组"</string>
+
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"绘制 1"</string>
+
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"删除所有记录！"</string>
+<string name="statistics_button_delete_text">"将删除全部游戏记录！你确定吗？"</string>
+<string name="statistics_button_deleted_all_entries">"已删除全部记录"</string>
+<string name="statistics_time_of_day">"日间"</string>
+<string name="statistics_date">"日期"</string>
+<string name="settings_diable_undo_costs">"绘制 3"</string>
+<string name="statistics_high_scores">"高分"</string>
+<string name="statistics_recent_scores">"最近成绩"</string>
+<string name="statistics_total_time">"总游玩时间"</string>
+<string name="statistics_total_hints_shown">"总点击数"</string>
+<string name="statistics_total_number_undos">"总撤销数"</string>
+<string name="statistics_total_points_earned">"总挣得点数"</string>
+<string name="statistics_no_entries">"无记录，去玩些什么吧！"</string>
+<string name="dialog_auto_move">"自动移动"</string>
+<string name="dialog_show_hints">"显示点击"</string>
+<string name="manual_ui_text_part_5">"游戏规则：直接打开当前游戏的手册页面"</string>
+<string name="manual_ui_text_part_6">"“菜单” 按钮显示出三种不同动作："</string>
+<string name="manual_ui_text_part_9">"回到主菜单：保存当前游戏状态并显示游戏选择菜单"</string>
+<string name="manual_statistics_part_2">"游戏数和胜利数"</string>
+<string name="manual_statistics_part_3">"挣得点数总数量"</string>
+<string name="manual_statistics_part_4">"帮助功能使用总数量"</string>
+<string name="manual_statistics_part_6">"一个含有最近10次成绩的最近成绩表"</string>
+
+<!-- dialogs -->
+<string name="dialog_no_hint_available">"无可用操作！"</string>
+<string name="dialog_no_movement_possible">"无可显示移动"</string>
+<string name="settings_show_advanced_settings_title">"解锁开发者分类"</string>
+<string name="settings_language_italian">"意大利语"</string>
+<string name="settings_language_portuguese_brazil">"葡萄牙语 （巴西）"</string>
+<string name="settings_language_ukrainian">"乌克兰语"</string>
+<string name="settings_game_layout_margins_title">"游戏布局边距"</string>
+<string name="settings_game_layout_margins_none">"无"</string>
+<string name="settings_game_layout_margins_small">"小"</string>
+<string name="settings_game_layout_margins_medium">"中"</string>
+<string name="settings_game_layout_margins_large">"大"</string>
+<string name="settings_hide_menu_button">"隐藏菜单按钮"</string>
+<string name="settings_immersive_mode_title">"开启全屏模式"</string>
+<string name="settings_immersive_mode_text">"游戏中隐藏状态栏与导航栏 （只可用于 Android 4.4 及以上系统）"</string>
+<string name="settings_language_norwegian">"挪威语"</string>
+<string name="settings_cards_paris">"巴黎"</string>
+<string name="games_NapoleonsTomb">"拿破仑之墓"</string>
+<string name="settings_language_spanish_argentina">"西班牙语 （阿根廷）"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"只为 %1$s 保存更改"</string>
+<string name="settings_hide_auto_complete_button">"禁用自动完成按钮"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"回到主菜单并从该处打开设置"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"取消这个选项"</string>
+<string name="settings_dialog_only_for_this_game_information_1">"改动将不能影响游戏。点击这里以获取更多信息"</string>
+<string name="settings_ensure_movability_title">"确认可动性"</string>
+<string name="settings_ensure_movability_searching_games">"选择一个合适的游戏…"</string>
+<string name="settings_ensure_movability_min_moves_title">"确认可动性：移动数量"</string>
+<string name="settings_number_input_error">"无法保存这些数字！"</string>
+<string name="settings_developer_option_improve_auto_move_title">"改善自动移动"</string>
+</resources>

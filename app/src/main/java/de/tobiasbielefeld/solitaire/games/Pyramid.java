@@ -43,6 +43,12 @@ public class Pyramid extends Game {
     ArrayList<Card> cardsToMove = new ArrayList<>();
     ArrayList<Stack> origins = new ArrayList<>();
 
+    @Override
+    public void reset() {
+        super.reset();
+        cardsToMove.clear();
+    }
+
     public Pyramid() {
         setNumberOfDecks(1);
         setNumberOfStacks(32);
@@ -180,20 +186,20 @@ public class Pyramid extends Game {
 
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
 
         ArrayList<Stack> freeStacks = new ArrayList<>();
 
         for (int i = 0; i <= getLastTableauId(); i++) {
-            if (stackIsFree(stacks[i]) && !stacks[i].isEmpty() && !hint.hasVisited(stacks[i].getTopCard()))
+            if (stackIsFree(stacks[i]) && !stacks[i].isEmpty() && !visited.contains(stacks[i].getTopCard()))
                 freeStacks.add(stacks[i]);
         }
 
         //first discard stack
-        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard()))
+        if (!getDiscardStack().isEmpty() && !visited.contains(getDiscardStack().getTopCard()))
             freeStacks.add(getDiscardStack());
         //second discard stack
-        if (!stacks[30].isEmpty() && !hint.hasVisited(stacks[30].getTopCard()))
+        if (!stacks[30].isEmpty() && !visited.contains(stacks[30].getTopCard()))
             freeStacks.add(stacks[30]);
 
         for (Stack stack : freeStacks) {
@@ -274,9 +280,9 @@ public class Pyramid extends Game {
             cardsToMove.clear();
             origins.clear();
 
-            handlerTestAfterMove.sendEmptyMessageDelayed(0, 200);
-
-        } else if (prefs.getSavedPyramidAutoMove()) {
+            handlerTestAfterMove.sendDelayed();
+        }
+        else if (prefs.getSavedPyramidAutoMove()) {
             ArrayList<Card> tempCards = new ArrayList<>();
             ArrayList<Stack> origins = new ArrayList<>();
 

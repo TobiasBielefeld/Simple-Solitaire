@@ -34,7 +34,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.handler.HandlerAfterWon;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -47,14 +47,33 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Animate {
 
-    public HandlerAfterWon handlerAfterWon;
+    public WaitForAnimationHandler handlerAfterWon;
     private GameManager gm;
     private float speedFactor;
+    int phase = 1;
 
-    public Animate(GameManager gm) {
-        this.gm = gm;
-        handlerAfterWon = new HandlerAfterWon(gm);
+    public Animate(GameManager gameManager) {
+        this.gm = gameManager;
         speedFactor = prefs.getSavedMovementSpeed();
+
+        handlerAfterWon = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+            @Override
+            public void doAfterAnimation() {
+                if (phase == 1) {
+                    wonAnimationPhase2();
+                    phase = 2;
+                    handlerAfterWon.sendDelayed();
+                } else {
+                    phase = 1;
+                    gm.showWonDialog();
+                }
+            }
+
+            @Override
+            public boolean additionalHaltCondition() {
+                return false;
+            }
+        });
     }
 
     public void updateMovementSpeed() {
@@ -74,7 +93,7 @@ public class Animate {
         }
 
         sounds.playWinSound();
-        handlerAfterWon.sendEmptyMessageDelayed(0, 100);
+        handlerAfterWon.sendDelayed();
     }
 
     /**

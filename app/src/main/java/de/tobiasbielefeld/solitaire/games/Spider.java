@@ -51,7 +51,7 @@ public class Spider extends Game {
         setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 10; i++) {
             Stack sourceStack = stacks[i];
 
@@ -62,7 +62,7 @@ public class Spider extends Game {
             for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
                     continue;
                 }
 
@@ -76,7 +76,7 @@ public class Spider extends Game {
                     }
 
                     if (cardToMove.test(destStack)) {
-                        //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
+                        //if the card above has the correct value, and the card on destination is not the same family as the cardToMove, don't move it
                         if (j > 0 && sourceStack.getCard(j - 1).isUp() && sourceStack.getCard(j - 1).getValue() == cardToMove.getValue() + 1
                                 && destStack.getTopCard().getColor() != cardToMove.getColor()) {
                             continue;
@@ -84,6 +84,10 @@ public class Spider extends Game {
 
                         //if the card is already on the same card as on the other stack, don't return it
                         if (sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
+                            continue;
+                        }
+
+                        if (j == 0 && destStack.getTopCard().getValue() == cardToMove.getValue() + 1 &&  destStack.getTopCard().getColor() != cardToMove.getColor()){
                             continue;
                         }
 
@@ -102,7 +106,7 @@ public class Spider extends Game {
             }
         }
 
-        return null;
+        return findBestSequenceToMoveToEmptyStack(SAME_FAMILY);
     }
 
     public Stack doubleTapTest(Card card) {
@@ -296,8 +300,9 @@ public class Spider extends Game {
             }
 
             moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
+
             //test if a card family is now full
-            handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
+            handlerTestAfterMove.sendDelayed();
             return 1;
         }
 

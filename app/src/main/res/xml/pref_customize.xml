@@ -27,11 +27,19 @@
 
         <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceBackgroundColor
             android:key="@string/pref_key_background_color"
-            android:negativeButtonText="@string/settings_background_color_custom"
-            android:positiveButtonText="@string/game_cancel"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/settings_background_color_custom"
             android:summary="%s"
             android:title="@string/settings_background_color"
-            android:widgetLayout="@layout/preference_widget_layout_background_color" />
+            android:widgetLayout="@layout/preference_widget_layout_color" />
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceTextColor
+            android:key="@string/pref_key_text_color"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/settings_background_color_custom"
+            android:summary="%s"
+            android:title="@string/settings_text_color"
+            android:widgetLayout="@layout/preference_widget_layout_color" />
 
         <!-- use the dummy versions of the keys, explanation at the dummy key location -->
         <de.tobiasbielefeld.solitaire.checkboxpreferences.CheckBoxPreferenceHideTime
