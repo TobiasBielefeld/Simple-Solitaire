@@ -1,4 +1,0 @@
-rounded rectangles 15°
-filter -> decoration -> chamfering edge (Rand abschrägen) -> 20
-1080*890
-333

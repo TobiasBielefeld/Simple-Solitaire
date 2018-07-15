@@ -168,6 +168,9 @@ public class LoadGame {
         if (result.size() == 16) {                                                                  //new Napoleons Tomb game
             result.add(10, 1);
         }
+        if (result.size() == 17) {                                                                  //new Napoleons Tomb game
+            result.add(9, 1);
+        }
 
         if (result.size() < getGameCount()){
             for (int i=result.size();i<getGameCount();i++){
