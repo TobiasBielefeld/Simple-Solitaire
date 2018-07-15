@@ -123,7 +123,7 @@ public class Maze extends Game {
     }
 
     @Override
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         // Make list of potential destination stacks.
         ArrayList<Stack> gaps = new ArrayList<Stack>();
         for (int i = 0; i <= getLastTableauId(); ++i) {
@@ -140,7 +140,7 @@ public class Maze extends Game {
 
             Card card = stacks[i].getTopCard();
 
-            if (hint.hasVisited(card)) {
+            if (visited.contains(card)) {
                 continue;
             }
 

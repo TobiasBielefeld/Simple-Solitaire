@@ -1,0 +1,5 @@
+This file should describe how I make the menu pictures.
+
+1. Open the app in an Android emulator with 1920 x 1080 resolution
+2. When the new game is implemented and added to the LoadGame.java file, you then can open the game from the main menu. (It will most likely have the menu picture of another game)
+3. Set the card theme like in the other menu pictures: Set cards to "Classic" and the card background to choice #1 in blue.

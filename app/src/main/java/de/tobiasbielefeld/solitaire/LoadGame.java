@@ -120,7 +120,7 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_GrandfathersClock,"GrandfathersClock", true, 50));
         allGameInformation.add(new AllGameInformation(R.string.games_Gypsy,"Gypsy", false, 80));
         allGameInformation.add(new AllGameInformation(R.string.games_Klondike,"Klondike", true, 30));
-        allGameInformation.add(new AllGameInformation(R.string.games_Maze,"Maze", false, 20))
+        allGameInformation.add(new AllGameInformation(R.string.games_Maze,"Maze", false, 20));
         allGameInformation.add(new AllGameInformation(R.string.games_mod3,"mod3", true, 70));
         allGameInformation.add(new AllGameInformation(R.string.games_NapoleonsTomb,"NapoleonsTomb", false, 20));
         allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid", true, 40));
