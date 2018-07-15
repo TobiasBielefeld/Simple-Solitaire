@@ -161,7 +161,7 @@
     <!-- language variants are separated by a comma (,) from the "main" language-->
     <string-array name="pref_language_values" translatable="false">
         <item>default</item>    <!-- do not translate this one! -->
-        <item>zh,CN</item>      <!-- Portuguese (Brazil) -->
+        <item>zh,CN</item>      <!-- Chinese (Simplified) -->
         <item>en</item>         <!-- English -->
         <item>eo</item>         <!-- Esperanto -->
         <item>fi</item>         <!-- Finnish -->
