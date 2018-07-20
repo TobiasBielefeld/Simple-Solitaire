@@ -40,6 +40,7 @@ import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
+import de.tobiasbielefeld.solitaire.games.Spiderette;
 import de.tobiasbielefeld.solitaire.games.TriPeaks;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
@@ -88,9 +89,10 @@ public class LoadGame {
             case 12: return new Pyramid();
             case 13:return new SimpleSimon();
             case 14:return new Spider();
-            case 15:return new TriPeaks();
-            case 16:return new Vegas();
-            case 17:return new Yukon();
+            case 15: return new Spiderette();
+            case 16:return new TriPeaks();
+            case 17:return new Vegas();
+            case 18:return new Yukon();
         }
     }
 
@@ -126,6 +128,7 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid", true, 40));
         allGameInformation.add(new AllGameInformation(R.string.games_SimpleSimon,"SimpleSimon", false, 25));
         allGameInformation.add(new AllGameInformation(R.string.games_Spider,"Spider", false, 50));
+        allGameInformation.add(new AllGameInformation(R.string.games_Spiderette,"Spider", false, 50));
         allGameInformation.add(new AllGameInformation(R.string.games_TriPeaks,"TriPeaks", true, 40));
         allGameInformation.add(new AllGameInformation(R.string.games_Vegas,"Vegas", false, 30));
         allGameInformation.add(new AllGameInformation(R.string.games_Yukon,"Yukon", true, 80));

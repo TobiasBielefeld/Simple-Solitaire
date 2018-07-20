@@ -41,6 +41,7 @@
     <string name="games_Freecell">FreeCell</string>
     <string name="games_Yukon">Yukon</string>
     <string name="games_Spider">Spider</string>
+    <string name="games_Spiderette">Spiderette</string>
     <string name="games_SimpleSimon">Simple Simon</string>
     <string name="games_Golf">Golf</string>
     <string name="games_Pyramid">Pyramid</string>
@@ -176,6 +177,12 @@
     <string name="manual_Spider_objective">Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation.</string>
     <string name="manual_Spider_rules">Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
     <string name="manual_Spider_scoring">Move a card family to foundation: +200\n\n Flip a card up: +25</string>
+
+    <string name="manual_Spiderette_structure">1 decks of 52 cards.\n\n7 tableau stacks and 4 foundation stacks.\n\n1 main stack, separated in 4 different piles.\n\nDepending on settings: 1, 2 or 4 different card families.</string>
+    <string name="manual_Spiderette_objective">Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation.</string>
+    <string name="manual_Spiderette_rules">Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
+    <string name="manual_Spiderette_scoring">Move a card family to foundation: +200\n\n Flip a card up: +25</string>
+
     <string name="manual_SimpleSimon_structure">1 deck of 52 cards.\n\n10 tableau stacks and 4 foundation stacks.</string>
     <string name="manual_SimpleSimon_objective">Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation.</string>
     <string name="manual_SimpleSimon_rules">Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau stacks.</string>
