@@ -156,22 +156,22 @@ public class LoadGame {
          * need to do anything, it will be appended automatically.
          */
 
-        if (result.size() == 12) {                                                                  //new canfield game
+        if (result.size() == 12) {                                                                  //canfield
             result.add(1, 1);
         }
-        if (result.size() == 13) {                                                                  //new grand fathers clock game
+        if (result.size() == 13) {                                                                  //grand fathers clock
             result.add(5, 1);
         }
-        if (result.size() == 14) {                                                                  //new vegas game
+        if (result.size() == 14) {                                                                  //vegas
             result.add(13, 1);
         }
-        if (result.size() == 15) {                                                                  //new calculation game
+        if (result.size() == 15) {                                                                  //calculation
             result.add(1, 1);
         }
-        if (result.size() == 16) {                                                                  //new Napoleons Tomb game
+        if (result.size() == 16) {                                                                  //Napoleons Tomb
             result.add(10, 1);
         }
-        if (result.size() == 17) {                                                                  //new Napoleons Tomb game
+        if (result.size() == 17) {                                                                  //Napoleons Tomb
             result.add(9, 1);
         }
 
