@@ -111,7 +111,10 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
         } else if (key.equals(PREF_KEY_SPIDER_DIFFICULTY)) {
             showToast(getString(R.string.settings_restart_spider),this);
 
-        } else if (key.equals(PREF_KEY_YUKON_RULES)) {
+        } else if (key.equals(PREF_KEY_SPIDERETTE_DIFFICULTY)) {
+            showToast(getString(R.string.settings_restart_spiderette),this);
+
+        }else if (key.equals(PREF_KEY_YUKON_RULES)) {
             showToast(getString(R.string.settings_restart_yukon),this);
 
         } else if (key.equals(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES)) {
@@ -186,6 +189,7 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
                 || VegasPreferenceFragment.class.getName().equals(fragmentName)
                 || YukonPreferenceFragment.class.getName().equals(fragmentName)
                 || SpiderPreferenceFragment.class.getName().equals(fragmentName)
+                || SpiderettePreferenceFragment.class.getName().equals(fragmentName)
                 || Mod3PreferenceFragment.class.getName().equals(fragmentName)
                 || NapoleonsTombPreferenceFragment.class.getName().equals(fragmentName);
     }
@@ -263,6 +267,16 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_games_spider);
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public static class SpiderettePreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_games_spiderette);
             setHasOptionsMenu(true);
         }
     }

@@ -91,6 +91,8 @@ public class Preferences {
     public static String PREF_KEY_PYRAMID_DIFFICULTY;
     public static String PREF_KEY_SPIDER_DIFFICULTY;
     public static String PREF_KEY_SPIDER_DIFFICULTY_OLD;
+    public static String PREF_KEY_SPIDERETTE_DIFFICULTY;
+    public static String PREF_KEY_SPIDERETTE_DIFFICULTY_OLD;
     public static String PREF_KEY_LANGUAGE;
     public static String PREF_KEY_CURRENT_GAME;
     public static String PREF_KEY_ORIENTATION;
@@ -161,6 +163,7 @@ public class Preferences {
     public static String DEFAULT_MENU_BAR_POSITION_PORTRAIT;
     public static String DEFAULT_PYRAMID_DIFFICULTY;
     public static String DEFAULT_SPIDER_DIFFICULTY;
+    public static String DEFAULT_SPIDERETTE_DIFFICULTY;
     public static String DEFAULT_LANGUAGE;
     public static String DEFAULT_MENU_COLUMNS_LANDSCAPE;
     public static String DEFAULT_MENU_COLUMNS_PORTRAIT;
@@ -298,6 +301,8 @@ public class Preferences {
         PREF_KEY_PYRAMID_DIFFICULTY = res.getString(R.string.pref_key_pyramid_difficulty);
         PREF_KEY_SPIDER_DIFFICULTY = res.getString(R.string.pref_key_spider_difficulty);
         PREF_KEY_SPIDER_DIFFICULTY_OLD = PREF_KEY_SPIDER_DIFFICULTY + OLD;
+        PREF_KEY_SPIDERETTE_DIFFICULTY = res.getString(R.string.pref_key_spiderette_difficulty);
+        PREF_KEY_SPIDERETTE_DIFFICULTY_OLD = PREF_KEY_SPIDERETTE_DIFFICULTY + OLD;
         PREF_KEY_SHOW_ADVANCED_SETTINGS = res.getString(R.string.pref_key_show_advanced_settings);
         PREF_KEY_LANGUAGE = res.getString(R.string.pref_key_language);
         PREF_KEY_CURRENT_GAME = res.getString(R.string.pref_key_current_game);
@@ -406,6 +411,7 @@ public class Preferences {
         DEFAULT_PYRAMID_DIFFICULTY = res.getStringArray(R.array.pref_pyramid_difficulty_values)[0];
         DEFAULT_LANGUAGE = res.getStringArray(R.array.pref_language_values)[0];
         DEFAULT_SPIDER_DIFFICULTY = res.getStringArray(R.array.pref_spider_difficulty_values)[0];
+        DEFAULT_SPIDERETTE_DIFFICULTY = res.getStringArray(R.array.pref_spider_difficulty_values)[0];   //same as in Spider
         DEFAULT_ORIENTATION = res.getStringArray(R.array.pref_orientation_values)[0];
         DEFAULT_DOUBLE_TAP_ALL_CARDS = res.getBoolean(R.bool.default_double_tap_all_cards);
         DEFAULT_DOUBLE_TAP_ENABLE = res.getBoolean(R.bool.default_double_tap_enable);
@@ -614,6 +620,7 @@ public class Preferences {
         saveKlondikeDrawMode(getSavedKlondikeDrawMode());
         saveVegasDrawMode(getSavedVegasDrawMode());
         saveSpiderDifficulty(getSavedSpiderDifficulty());
+        saveSpideretteDifficulty(getSavedSpideretteDifficulty());
         saveYukonRules(getSavedYukonRules());
     }
 
@@ -1127,6 +1134,14 @@ public class Preferences {
         return savedSharedData.getString(PREF_KEY_SPIDER_DIFFICULTY_OLD,DEFAULT_SPIDER_DIFFICULTY);
     }
 
+    public String getSavedSpideretteDifficulty(){
+        return savedSharedData.getString(PREF_KEY_SPIDERETTE_DIFFICULTY,DEFAULT_SPIDERETTE_DIFFICULTY);
+    }
+
+    public String getSavedSpideretteDifficultyOld(){
+        return savedSharedData.getString(PREF_KEY_SPIDERETTE_DIFFICULTY_OLD,DEFAULT_SPIDERETTE_DIFFICULTY);
+    }
+
     public String getSavedYukonRules(){
         return savedSharedData.getString(PREF_KEY_YUKON_RULES,DEFAULT_YUKON_RULES);
     }
@@ -1460,6 +1475,14 @@ public class Preferences {
 
     public void saveSpiderDifficultyOld(){
         savedSharedData.edit().putString(PREF_KEY_SPIDER_DIFFICULTY_OLD,getSavedSpiderDifficulty()).apply();
+    }
+
+    public void saveSpideretteDifficulty(String value){
+        savedSharedData.edit().putString(PREF_KEY_SPIDERETTE_DIFFICULTY,value).apply();
+    }
+
+    public void saveSpideretteDifficultyOld(){
+        savedSharedData.edit().putString(PREF_KEY_SPIDERETTE_DIFFICULTY_OLD,getSavedSpideretteDifficulty()).apply();
     }
 
     public void saveYukonRules(String value){

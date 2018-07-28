@@ -37,6 +37,10 @@
         android:title="@string/games_Spider" />
 
     <header
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames$SpiderettePreferenceFragment"
+        android:title="@string/games_Spiderette" />
+
+    <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames$VegasPreferenceFragment"
         android:title="@string/games_Vegas" />
 

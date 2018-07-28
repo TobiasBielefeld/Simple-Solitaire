@@ -256,7 +256,7 @@ public class Spiderette extends Game {
 
     public void dealCards() {
         //when starting a new game, load the difficulty preference in the "old" preference
-        prefs.saveSpiderDifficultyOld();
+        prefs.saveSpideretteDifficultyOld();
         loadCards();
 
         for (int i = 0; i <= 6; i++) {
@@ -341,7 +341,7 @@ public class Spiderette extends Game {
         /*
          * load the card families depending on the preference
          */
-        switch (prefs.getSavedSpiderDifficultyOld()) {
+        switch (prefs.getSavedSpideretteDifficultyOld()) {
             case "1":
                 setCardFamilies(3, 3, 3, 3);
                 break;
