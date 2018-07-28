@@ -79,7 +79,7 @@ public class Bitmaps {
         if (menu == null) {
             menu = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu);
             menuWidth = menu.getWidth() / 6;
-            menuHeight = menu.getHeight() / 3;
+            menuHeight = menu.getHeight() / 4;
         }
 
         if (menuText == null){
