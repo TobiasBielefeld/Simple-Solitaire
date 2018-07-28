@@ -87,12 +87,12 @@ public class LoadGame {
             case 10: return new Mod3();
             case 11: return new NapoleonsTomb();
             case 12: return new Pyramid();
-            case 13:return new SimpleSimon();
-            case 14:return new Spider();
+            case 13: return new SimpleSimon();
+            case 14: return new Spider();
             case 15: return new Spiderette();
-            case 16:return new TriPeaks();
-            case 17:return new Vegas();
-            case 18:return new Yukon();
+            case 16: return new TriPeaks();
+            case 17: return new Vegas();
+            case 18: return new Yukon();
         }
     }
 
@@ -128,7 +128,7 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid", true, 40));
         allGameInformation.add(new AllGameInformation(R.string.games_SimpleSimon,"SimpleSimon", false, 25));
         allGameInformation.add(new AllGameInformation(R.string.games_Spider,"Spider", false, 50));
-        allGameInformation.add(new AllGameInformation(R.string.games_Spiderette,"Spider", false, 50));
+        allGameInformation.add(new AllGameInformation(R.string.games_Spiderette,"Spiderette", false, 30));
         allGameInformation.add(new AllGameInformation(R.string.games_TriPeaks,"TriPeaks", true, 40));
         allGameInformation.add(new AllGameInformation(R.string.games_Vegas,"Vegas", false, 30));
         allGameInformation.add(new AllGameInformation(R.string.games_Yukon,"Yukon", true, 80));
@@ -150,12 +150,6 @@ public class LoadGame {
     public ArrayList<Integer> getMenuShownList(){
         ArrayList<Integer> result = prefs.getSavedMenuGamesList();
 
-        /*
-         * If added more games, insert them here in the correct order. Don't forget to add it also
-         * in getOrderedGameList()! If the new game is at the end of the game list, you don't
-         * need to do anything, it will be appended automatically.
-         */
-
         if (result.size() == 12) {                                                                  //canfield
             result.add(1, 1);
         }
@@ -171,8 +165,11 @@ public class LoadGame {
         if (result.size() == 16) {                                                                  //Napoleons Tomb
             result.add(10, 1);
         }
-        if (result.size() == 17) {                                                                  //Napoleons Tomb
+        if (result.size() == 17) {                                                                  //Maze
             result.add(9, 1);
+        }
+        if (result.size() == 18) {                                                                  //Spiderette
+            result.add(15, 1);
         }
 
         if (result.size() < getGameCount()){
