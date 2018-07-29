@@ -27,6 +27,7 @@ import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 import static de.tobiasbielefeld.solitaire.SharedData.showToast;
@@ -67,7 +68,7 @@ public class AutoMove extends HelperCardMovement {
 
     @Override
     protected boolean stopCondition() {
-        return currentGame.winTest();
+        return gameLogic.hasWon() || currentGame.winTest();
     }
 
     @Override
