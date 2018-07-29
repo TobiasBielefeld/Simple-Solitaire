@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -120,13 +119,7 @@ public class Maze extends Game {
 
     @Override
     public CardAndStack hintTest(ArrayList<Card> visited) {
-        // Make list of potential destination stacks.
-        ArrayList<Stack> gaps = new ArrayList<Stack>();
-        for (int i = 0; i <= getLastTableauId(); ++i) {
-            if (stacks[i].isEmpty()) {
-                gaps.add(stacks[i]);
-            }
-        }
+        ArrayList<Stack> gaps = getGaps();
 
         // Test every card to see if it can be moved to any gap.
         for (int i = 0; i <= getLastTableauId(); ++i) {
@@ -136,7 +129,11 @@ public class Maze extends Game {
 
             Card card = stacks[i].getTopCard();
 
-            if (visited.contains(card)) {
+            Stack prevStack = stacks[(i + getLastTableauId()) % (getLastTableauId() + 1)];
+            Stack nextStack = stacks[(i + 1) % (getLastTableauId() + 1)];
+
+            if (visited.contains(card) || (!nextStack.isEmpty() && areCardsInOrder(card, nextStack.getTopCard()))
+                    || (!prevStack.isEmpty() && areCardsInOrder(prevStack.getTopCard(), card))) {
                 continue;
             }
 
@@ -172,8 +169,15 @@ public class Maze extends Game {
     }
 
     @Override
-    Stack doubleTapTest(Card card)
-    {
+    Stack doubleTapTest(Card card) {
+        ArrayList<Stack> gaps = getGaps();
+
+        for (Stack stack : gaps) {
+            if (card.test(stack)) {
+                return stack;
+            }
+        }
+
         return null;
     }
 
@@ -223,5 +227,19 @@ public class Maze extends Game {
     private void updateScore() {
         long newScore = countCardsInOrder() * POINTS_PER_ORDERED_PAIR - undoCount * getUndoCosts();
         scores.update(newScore - scores.getScore());
+    }
+
+    /**
+     * Make list of potential destination stacks.
+     */
+    private  ArrayList<Stack> getGaps(){
+        ArrayList<Stack> gaps = new ArrayList<>();
+        for (int i = 0; i <= getLastTableauId(); ++i) {
+            if (stacks[i].isEmpty()) {
+                gaps.add(stacks[i]);
+            }
+        }
+
+        return gaps;
     }
 }
