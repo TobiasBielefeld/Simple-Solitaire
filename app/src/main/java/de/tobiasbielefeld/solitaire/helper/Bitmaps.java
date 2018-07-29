@@ -89,17 +89,20 @@ public class Bitmaps {
         int posX = index%6;
         int posY = index/6;
 
+        Bitmap gamePicture;
+
+        //get the preview of the game itself
         try {
-            //just the preview of the game itself
-            Bitmap gamePicture = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
-            //get the game name picture
-            Bitmap gameText = drawTextToBitmap(lg.getGameName(res,index));
-            //append both parts
-            bitmap = putTogether(gamePicture,gameText);
+            gamePicture = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
         } catch (Exception e){
             Log.e("Bitmap.getMenu()","No picture for current game available\n" + e.toString());
-            bitmap = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
+            gamePicture = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
         }
+
+        //get the game name picture
+        Bitmap gameText = drawTextToBitmap(lg.getGameName(res,index));
+        //append both parts
+        bitmap = putTogether(gamePicture,gameText);
 
         menuBitMaps[index] = bitmap;
 
