@@ -256,6 +256,11 @@ public class Animate {
      */
     public void moveCardSlow(final Card card, final float pX, final float pY) {
         final CustomImageView view = card.view;
+
+        if (card.isInvisible()){
+            return;
+        }
+
         int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
 
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());

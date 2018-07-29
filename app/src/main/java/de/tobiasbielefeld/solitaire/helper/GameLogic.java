@@ -111,7 +111,7 @@ public class GameLogic {
             }
         }
 
-        try {
+//        try {
             if (firstRun) {
                 newGame();
                 prefs.saveFirstRun(false);
@@ -125,12 +125,12 @@ public class GameLogic {
 
                 //timer will be loaded in onResume() of the game manager
 
-                Card.load();
 
                 for (Stack stack : stacks) {
                     stack.load(withoutMovement);
                 }
 
+                Card.load();
                 loadRandomCards();
 
                 checkForAutoCompleteButton(withoutMovement);
@@ -139,11 +139,11 @@ public class GameLogic {
                 currentGame.load();
                 currentGame.loadRecycleCount();
             }
-        } catch (Exception e) {
-            Log.e(gm.getString(R.string.loading_data_failed), e.toString());
-            showToast(gm.getString(R.string.game_load_error),gm);
-            newGame();
-        }
+//        } catch (Exception e) {
+//            Log.e(gm.getString(R.string.loading_data_failed), e.toString());
+//            showToast(gm.getString(R.string.game_load_error),gm);
+//            newGame();
+//        }
 
         gm.hasLoaded = true;
     }

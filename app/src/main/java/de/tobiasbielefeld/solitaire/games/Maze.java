@@ -23,7 +23,7 @@ public class Maze extends Game {
 
     public Maze() {
         setNumberOfDecks(1);
-        setNumberOfStacks(ROWS * COLS + 1);
+        setNumberOfStacks(ROWS * COLS);
         setDealFromID(0);
         setLastTableauID(ROWS * COLS - 1);
         setDiscardStackIDs(ROWS * COLS);
@@ -47,10 +47,6 @@ public class Maze extends Game {
                 stacks[stackIdx].setY(startY + (row + 1) * spacing + row * Card.height);
             }
         }
-
-        // Place the discard stack off-screen.
-        stacks[stacks.length - 1].setX(-2 * Card.width);
-        stacks[stacks.length - 1].setY(-2 * Card.height);
     }
 
     @Override
@@ -81,7 +77,7 @@ public class Maze extends Game {
         // Remove the kings.
         for (Card card : cards) {
             if (card.getValue() == 13) {
-                moveToStack(card, stacks[stacks.length - 1], OPTION_NO_RECORD);
+                card.removeFromGame();
             }
         }
 
@@ -119,7 +115,7 @@ public class Maze extends Game {
     @Override
     public boolean addCardToMovementGameTest(Card card) {
         // Anything on the tableau can be moved.
-        return card.getStack().getId() <= getLastTableauId();
+        return true;
     }
 
     @Override

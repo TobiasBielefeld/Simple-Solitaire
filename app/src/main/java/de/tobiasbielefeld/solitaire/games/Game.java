@@ -32,6 +32,7 @@ import java.util.Random;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
+import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
@@ -47,6 +48,9 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_F
  */
 
 public abstract class Game {
+
+    //stack not visibile on the screen, used to remove cards from a game
+    public Stack offScreenStack;
 
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};
     public Stack.SpacingDirection[] directions;
@@ -1289,5 +1293,10 @@ public abstract class Game {
         ArrayList<Card> emptyList = new ArrayList<>(3);
 
         return hintTest(emptyList);
+    }
+
+    public void setOffScreenStack() {
+        offScreenStack.setX(-2 * Card.width);
+        offScreenStack.setY(-2 * Card.height);
     }
 }

@@ -210,6 +210,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             layoutGame.addView(stacks[i].view);
         }
 
+        currentGame.offScreenStack = new Stack(-1);
+        currentGame.offScreenStack.setSpacingDirection(NONE);
+        currentGame.offScreenStack.view = new CustomImageView(this, null, CustomImageView.Object.STACK, -1);
+        layoutGame.addView(currentGame.offScreenStack.view);
+
         for (int i = 0; i < cards.length; i++) {
             cards[i] = new Card(i);
             cards[i].view = new CustomImageView(this, this, CustomImageView.Object.CARD, i);
@@ -286,6 +291,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
         currentGame.setStacks(layoutGame, isLandscape, getApplicationContext());
+        currentGame.setOffScreenStack();
 
         //if left handed mode is true, mirror all stacks
         if (prefs.getSavedLeftHandedMode()) {

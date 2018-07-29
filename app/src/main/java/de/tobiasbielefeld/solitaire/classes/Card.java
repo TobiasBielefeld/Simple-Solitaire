@@ -20,10 +20,10 @@ package de.tobiasbielefeld.solitaire.classes;
 
 import android.graphics.Bitmap;
 import android.graphics.PointF;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -44,7 +44,18 @@ public class Card {
     private Stack stack;                                                                            //saves the stack where the card is placed
     private int id;                                                                                 //internal id
     private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
+    private boolean isInvisible;
     private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
+
+    public static int ACE = 1;
+    public static int JOKER = 11;
+    public static int QUEEN = 12;
+    public static int KING = 13;
+
+    //no enum, I want to explicitly set the values, because they are saved in the sharedPref and
+    private static final int STATE_FACED_DOWN = 0;
+    public static final int STATE_FACED_UP = 1;
+    public static final int STATE_INVISBLE = 2;
 
     /**
      * Sets id, color and value. The cards are initialized at game start with a for loop.
@@ -120,7 +131,13 @@ public class Card {
         List<Integer> list = new ArrayList<>(cards.length);
 
         for (Card card : cards) {
-            list.add(card.isUp ? 1 : 0);
+            int state = card.isUp ? STATE_FACED_UP : STATE_FACED_DOWN;
+
+            if (card.isInvisible){
+                state = STATE_INVISBLE;
+            }
+
+            list.add(state);
         }
 
         prefs.saveCards(list);
@@ -133,10 +150,18 @@ public class Card {
         List<Integer> list = prefs.getSavedCards();
 
         for (int i = 0; i < cards.length; i++) {
-            if (list.get(i) == 1) {
-                cards[i].flipUp();
-            } else {
-                cards[i].flipDown();
+            switch (list.get(i)){
+                case STATE_FACED_UP:
+                    cards[i].flipUp();
+                    break;
+                case STATE_FACED_DOWN:
+                    cards[i].flipDown();
+                    break;
+                case STATE_INVISBLE:
+                    cards[i].view.setVisibility(View.GONE);
+                    cards[i].isInvisible = true;
+                    //cards[i].removeFromGame();
+                    break;
             }
         }
     }
@@ -172,6 +197,11 @@ public class Card {
      * @param pY The y-coordinate of the destination
      */
     public void setLocation(float pX, float pY) {
+
+        if (isInvisible){
+            setLocationWithoutMovement(pX, pY);
+        }
+
         if (!stopUiUpdates) {
             if (view.getX() != pX || view.getY() != pY) {
                 animate.moveCard(this, pX, pY);
@@ -340,6 +370,10 @@ public class Card {
         return stack.getId();
     }
 
+    public boolean isInvisible(){
+        return isInvisible;
+    }
+
     public void removeFromCurrentStack(){
         if (stack!=null) {
             stack.removeCard(this);
@@ -363,5 +397,18 @@ public class Card {
         if (!stopUiUpdates){
             view.bringToFront();
         }
+    }
+
+    public void removeFromGame(){
+        view.setVisibility(View.GONE);
+        isInvisible = true;
+        moveToStack(this, currentGame.offScreenStack);
+    }
+
+    public void addBackToGame(Stack moveTo){
+        isInvisible = false;
+        flipUp();
+        view.setVisibility(View.VISIBLE);
+        moveToStack(this, moveTo);
     }
 }
