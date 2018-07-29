@@ -42,6 +42,7 @@ public class Preferences {
     public static String PREF_KEY_TOTAL_TIME_PLAYED;
     public static String PREF_KEY_DEALING_CARDS;
     public static String PREF_KEY_HIDE_MENU_BUTTON;
+    public static String PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE;
     public static String OLD;
 
     public static String PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT;
@@ -194,6 +195,7 @@ public class Preferences {
     public static int DEFAULT_MAX_NUMBER_UNDOS;
     public static int DEFAULT_ENSURE_MOVABILITY_MIN_MOVES;
     public static int DEFAULT_TEXT_COLOR;
+    public static boolean DEFAULT_STATISTICS_HIDE_WIN_PERCENTAGE;
     public static boolean DEFAULT_ENSURE_MOVABILITY;
     public static boolean DEFAULT_HIDE_AUTOCOMPLETE_BUTTON;
     public static boolean DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME;
@@ -277,6 +279,7 @@ public class Preferences {
 
         OLD = "_old";
 
+        PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE = res.getString(R.string.pref_key_statistics_hide_win_percentage);
         PREF_KEY_ENSURE_MOVABILITY = res.getString(R.string.pref_key_ensure_movability);
         PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES = res.getString(R.string.pref_key_ensure_movability_min_moves);
         PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME = res.getString(R.string.pref_key_settings_only_for_this_game);
@@ -422,6 +425,7 @@ public class Preferences {
         DEFAULT_SINGLE_TAP_SPECIAL_GAMES_ENABLED = res.getBoolean(R.bool.default_single_tap_enable);
         DEFAULT_AUTO_START_NEW_GAME = res.getBoolean(R.bool.default_auto_start_new_game);
         DEFAULT_KLONDIKE_LIMITED_RECYCLES = res.getBoolean(R.bool.default_klondike_limited_recycles);
+        DEFAULT_STATISTICS_HIDE_WIN_PERCENTAGE = res.getBoolean(R.bool.default_statistics_hide_win_percentage);
         DEFAULT_CALCULATION_ALTERNATIVE = res.getBoolean(R.bool.default_calculation_alternative);
         DEFAULT_HIDE_TIME = res.getBoolean(R.bool.default_hide_time);
         DEFAULT_HIDE_SCORE = res.getBoolean(R.bool.default_hide_score);
@@ -1195,6 +1199,10 @@ public class Preferences {
         return savedSharedData.getBoolean(PREF_KEY_HIDE_STATUS_BAR,false);
     }
 
+    public boolean getSavedStatisticsHideWinPercentage(){
+        return savedSharedData.getBoolean(PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE,DEFAULT_STATISTICS_HIDE_WIN_PERCENTAGE);
+    }
+
     public boolean getHideMenuButton(){
         if (hasSettingsOnlyForThisGame()){
             return savedGameData.getBoolean(PREF_KEY_HIDE_MENU_BUTTON,DEFAULT_HIDE_MENU_BUTTON);
@@ -1503,6 +1511,10 @@ public class Preferences {
 
     public void saveHideMenuBar(boolean value){
         savedSharedData.edit().putBoolean(PREF_KEY_HIDE_MENU_BAR,value).apply();
+    }
+
+    public void saveStatisticsHideWinPercentage(boolean value){
+        savedSharedData.edit().putBoolean(PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE,value).apply();
     }
 
     public void saveBackgroundColor(int value){

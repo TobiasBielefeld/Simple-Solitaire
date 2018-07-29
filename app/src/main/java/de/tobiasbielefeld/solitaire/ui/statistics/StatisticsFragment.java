@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.ui.statistics;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,11 @@ import android.widget.TextView;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.helper.Scores;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 /**
  * Shows the high scores of the current game
@@ -42,7 +45,10 @@ public class StatisticsFragment extends Fragment{
     private TextView textWonGames, textWinPercentage, textAdditionalStatisticsTitle, textAdditionalStatisticsValue,
             textTotalTimePlayed, textTotalPointsEarned, textTotalHintsShown, textTotalNumberUndos;
 
+    private CardView winPercentageCardView;
+
     private TableRow tableRowAdditionalText;
+
 
 
     /**
@@ -51,6 +57,8 @@ public class StatisticsFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_statistics_tab1, container, false);
+
+        winPercentageCardView = (CardView) view.findViewById(R.id.statisticsCardViewWinPercentage);
 
         textWonGames = (TextView) view.findViewById(R.id.statisticsTextViewGamesWon);
         textWinPercentage = (TextView) view.findViewById(R.id.statisticsTextViewWinPercentage);
@@ -71,6 +79,15 @@ public class StatisticsFragment extends Fragment{
             getActivity().finish();
             return view;
         }
+
+        ((StatisticsActivity)getActivity()).setCallback(new StatisticsActivity.HideWinPercentage() {
+            @Override
+            public void sendNewState(boolean state) {
+                updateWinPercentageView(state);
+            }
+        });
+
+        winPercentageCardView.setVisibility(prefs.getSavedStatisticsHideWinPercentage() ? View.GONE : View.VISIBLE);
 
         return view;
     }
@@ -99,6 +116,12 @@ public class StatisticsFragment extends Fragment{
 
         if (added) {
             tableRowAdditionalText.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void updateWinPercentageView(boolean hide){
+        if (winPercentageCardView != null){
+            winPercentageCardView.setVisibility(hide ? View.GONE : View.VISIBLE);
         }
     }
 }

@@ -482,5 +482,6 @@
     <string name="statistics_total_number_undos">Total undo movements</string>
     <string name="statistics_total_points_earned">Total points earned</string>
     <string name="statistics_no_entries">No entries, go play some games!</string>
+    <string name="statistics_hide_win_percentage">Hide win percentage</string>
 
 </resources>

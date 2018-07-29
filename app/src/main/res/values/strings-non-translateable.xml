@@ -106,6 +106,7 @@
     <string name="pref_cat_key_only_for_this_game" translatable="false">pref_cat_key_only_for_this_game</string>
     <string name="pref_key_improve_auto_move" translatable="false">pref_key_improve_auto_move</string>
     <string name="pref_key_text_color" translatable="false">pref_key_text_color</string>
+    <string name="pref_key_statistics_hide_win_percentage" translatable="false">pref_key_statistics_hide_win_percentage</string>
 
     <!-- some dummy preference keys for the checkbox preferences. The value is saved in the "original"
          key version, but for accessing the preference per ID, I need the additional dummy version.
