@@ -146,8 +146,7 @@
 <string name="settings_spider_difficulty">"不同卡组的数量"</string>
 <string name="settings_show_main_menu">"前往主菜单"</string>
 <string name="settings_show_main_menu_description">"开启应用时不进入最后一次游玩的游戏进度中"</string>
-<string name="settings_restart_fortyeight">"开启一场新的 Forty&amp;Eight 游戏以应用更改"</string>
-<string name="settings_restart_yukon">"开启一场新的育空游戏以应用更改"</string>
+<string name="settings_restart_game">"开启一场新的%1$s游戏以应用更改"</string>
 <string name="settings_menu">"主菜单"</string>
 <string name="settings_pyramid_difficulty">"难度"</string>
 <string name="settings_menu_games">"显/隐游戏"</string>
@@ -185,7 +184,6 @@
 <string name="settings_customization_description">"自定义卡牌，背景和用户界面"</string>
 <string name="settings_force_tablet_layout_title">"强制平板布局"</string>
 <string name="settings_force_tablet_layout_text">"以大屏幕样式显示 （7英寸以上）"</string>
-<string name="settings_restart_calculation">"开启一次新的计算游戏以应用更改"</string>
 <string name="settings_calculation_alternative_title">"保留卡牌"</string>
 <string name="settings_vegas_money_enabled">"保持当前平衡性"</string>
 <string name="settings_vegas_money_reset">"重置平衡性"</string>

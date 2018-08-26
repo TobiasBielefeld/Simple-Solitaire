@@ -220,12 +220,7 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_show_main_menu_description">"Ikke gå inn i det sist spilte spillet ved oppstart"</string>
 <string name="settings_golf_easy">"Sirkulerende trekk (Enklere)"</string>
 <string name="settings_golf_easy_description">"Tillat å plassere ess på konger og omvendt"</string>
-<string name="settings_restart_klondike">"Start en ny Klondike-omgang for å bruke endringene"</string>
-<string name="settings_restart_canfield">"Start en ny Canfield-omgang for å bruke endringene"</string>
-<string name="settings_restart_spider">"Start en ny Edderkopp-omgang for å bruke endringene"</string>
-<string name="settings_restart_vegas">"Start en ny Vegas-omgang for å bruke endringene"</string>
-<string name="settings_restart_fortyeight">"Start en ny Førtiåtte-omgang for å bruke endringene"</string>
-<string name="settings_restart_yukon">"Start en ny Yukon-omgang for å bruke endringene"</string>
+<string name="settings_restart_game">"Start en ny %1$s-omgang for å bruke endringene"</string>
 <string name="settings_menu">"Hovedmeny"</string>
 <string name="settings_menu_description">"Endre antall kolonner, og vis/skjul spill"</string>
 <string name="settings_pyramid_difficulty">"Vanskelighetsgrad"</string>
@@ -277,7 +272,6 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_customization_description">"Tilpass kort, bakgrunner og brukergrensesnittet"</string>
 <string name="settings_force_tablet_layout_title">"Fremtving nettbrettoppsettet"</string>
 <string name="settings_force_tablet_layout_text">"Vis appen som om den var på en stor skjerm (≥18cm)"</string>
-<string name="settings_restart_calculation">"Start en ny Kalkulering-omgang for å bruke endringene"</string>
 <string name="settings_calculation_alternative_title">"Behold kortene"</string>
 <string name="settings_calculation_alternative_text">"Ved trykk på hovedbunken: I stedet for å flytte kortet fra forkastningsbunken til tablået, behold den i forkastningsbunken."</string>
 <string name="settings_vegas_money_enabled">"Behold den nåværende saldoen"</string>

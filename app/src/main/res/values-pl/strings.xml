@@ -427,12 +427,7 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_show_main_menu_description">"Nie przechodź do ostatnio otwartej gry przy starcie"</string>
 <string name="settings_golf_easy">"Cykliczne ruchy (łatwiejsze)"</string>
 <string name="settings_golf_easy_description">"Zezwól kłaść asy na króli i odwrotnie"</string>
-<string name="settings_restart_klondike">"Aby zastosować zmiany, rozpocznij nową grę Klondkie"</string>
-<string name="settings_restart_canfield">"Aby zastosować zmiany, rozpocznij nową grę Canfield"</string>
-<string name="settings_restart_spider">"Aby zastosować zmiany, rozpocznij nową grę Pająk"</string>
-<string name="settings_restart_vegas">"Aby zastosować zmiany, rozpocznij nową grę Vegas"</string>
-<string name="settings_restart_fortyeight">"Aby zastosować zmiany, rozpocznij nową grę Czterdzieści&amp;Osiem"</string>
-<string name="settings_restart_yukon">"Aby zastosować zmiany, rozpocznij nową grę Yukon"</string>
+<string name="settings_restart_game">"Aby zastosować zmiany, rozpocznij nową grę %1$s"</string>
 <string name="settings_menu">"Menu główne"</string>
 <string name="settings_menu_description">"Zmień liczbę kolumn, pokaż i ukryj gry"</string>
 <string name="settings_pyramid_difficulty">"Trudność"</string>
@@ -484,7 +479,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_customization_description">"Dostosuj karty, tła i interfejs użytkownika"</string>
 <string name="settings_force_tablet_layout_title">"Wymuś tryb tabletu"</string>
 <string name="settings_force_tablet_layout_text">"Wyświetl aplikację tak jak na dużych ekranach (≥7\")"</string>
-<string name="settings_restart_calculation">"Aby zastosować zmiany, rozpocznij nową grę Calculation"</string>
 <string name="settings_calculation_alternative_title">"Trzymaj karty"</string>
 <string name="settings_calculation_alternative_text">"Po stuknięciu w stos główny: zamiast przeniesienia karty ze stosu odrzutów na stos gry, zatrzymaj ją na stosu odrzutów."</string>
 <string name="settings_vegas_money_enabled">"Zapamiętaj stan konta"</string>

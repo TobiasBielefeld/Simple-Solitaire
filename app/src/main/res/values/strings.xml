@@ -273,13 +273,7 @@
     <string name="settings_show_main_menu_description">Do not enter the last played game on start</string>
     <string name="settings_golf_easy">Cyclic moves (Easier)</string>
     <string name="settings_golf_easy_description">Allow placing aces on kings and vice versa</string>
-    <string name="settings_restart_klondike">Start a new Klondike game to apply the change</string>
-    <string name="settings_restart_canfield">Start a new Canfield game to apply the change</string>
-    <string name="settings_restart_spider">Start a new Spider game to apply the change</string>
-    <string name="settings_restart_spiderette">Start a new Spiderette game to apply the change</string>
-    <string name="settings_restart_vegas">Start a new Vegas game to apply the change</string>
-    <string name="settings_restart_fortyeight">Start a new Forty&amp;Eight game to apply the change</string>
-    <string name="settings_restart_yukon">Start a new Yukon game to apply the change</string>
+    <string name="settings_restart_game">Start a new %1$s game to apply the change</string>
     <string name="settings_menu">Main menu</string>
     <string name="settings_menu_description">Change number of columns, show and hide games</string>
     <string name="settings_pyramid_difficulty">Difficulty</string>
@@ -331,7 +325,6 @@
     <string name="settings_customization_description">Customize cards, backgrounds and user interface</string>
     <string name="settings_force_tablet_layout_title">Force tablet layout</string>
     <string name="settings_force_tablet_layout_text">Show the application as on large screens (≥7\")</string>
-    <string name="settings_restart_calculation">Start a new Calculation game to apply the change</string>
     <string name="settings_calculation_alternative_title">Keep cards</string>
     <string name="settings_calculation_alternative_text">On main stack press: Instead of moving the card from the discard stack to the tableau, keep it on the discard stack.</string>
     <string name="settings_vegas_money_enabled">Keep the current balance</string>

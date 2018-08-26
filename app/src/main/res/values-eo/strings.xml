@@ -427,12 +427,7 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_show_main_menu_description">"Ne malfermi laste malfermitan ludon dum starto"</string>
 <string name="settings_golf_easy">"Ciklaj movoj (pli facile)"</string>
 <string name="settings_golf_easy_description">"Permesi meti asojn sur reĝojn kaj inverse"</string>
-<string name="settings_restart_klondike">"Komencu novan ludon Klondiko por apliki ŝanĝojn"</string>
-<string name="settings_restart_canfield">"Komencu novan ludon Canfield por apliki ŝanĝojn"</string>
-<string name="settings_restart_spider">"Komencu novan ludon Araneo por apliki ŝanĝojn"</string>
-<string name="settings_restart_vegas">"Komencu novan ludon Vegaso por apliki ŝanĝojn"</string>
-<string name="settings_restart_fortyeight">"Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn"</string>
-<string name="settings_restart_yukon">"Komencu novan ludon Jukono por apliki ŝanĝojn"</string>
+<string name="settings_restart_game">"Komencu novan ludon %1$s por apliki ŝanĝojn"</string>
 <string name="settings_menu">"Ĉefmenuo"</string>
 <string name="settings_menu_description">"Ŝanĝi nombron da kolumnoj, montri kaj kaŝu ludojn"</string>
 <string name="settings_pyramid_difficulty">"Facileco"</string>
@@ -484,7 +479,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_customization_description">"Alĝustigi kartojn, fonojn kaj fasadon"</string>
 <string name="settings_force_tablet_layout_title">"Devigi tabulkomputilan reĝimon"</string>
 <string name="settings_force_tablet_layout_text">"Vidigi la aplikaĵon same kiel sur grandaj ekranoj (≥7\")"</string>
-<string name="settings_restart_calculation">"Komencu novan ludon Calculation por apliki ŝanĝojn"</string>
 <string name="settings_calculation_alternative_title">"Teni kartojn"</string>
 <string name="settings_calculation_alternative_text">"Je premado sur ĉefa stako: anstataŭ movi karton de forĵeta stako al tablamasa stako, teni ĝin sur la forĵeta stako."</string>
 <string name="settings_vegas_money_enabled">"Konservi nunan monstaton"</string>

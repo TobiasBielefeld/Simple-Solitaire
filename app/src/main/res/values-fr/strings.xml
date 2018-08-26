@@ -425,12 +425,7 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_show_main_menu_description">"Ne pas lancer la dernière partie au démarrage"</string>
 <string name="settings_golf_easy">"Mouvements cycliques (Facile)"</string>
 <string name="settings_golf_easy_description">"Permettre de placer un as sur un roi, et inversement"</string>
-<string name="settings_restart_klondike">"Démarrer une nouvelle parte de Klondike pour appliquer les modifications"</string>
-<string name="settings_restart_canfield">"Démarrer une nouvelle parte de Canfield pour appliquer les modifications"</string>
-<string name="settings_restart_spider">"Démarrer une nouvelle parte de Spider pour appliquer les modifications"</string>
-<string name="settings_restart_vegas">"Démarrer une nouvelle parte de Vegas pour appliquer les modifications"</string>
-<string name="settings_restart_fortyeight">"Démarrer une nouvelle parte de Forty&amp;Eight pour appliquer les modifications"</string>
-<string name="settings_restart_yukon">"Démarrer une nouvelle parte de Yukon pour appliquer les modifications"</string>
+<string name="settings_restart_game">"Démarrer une nouvelle parte de %1$s pour appliquer les modifications"</string>>
 <string name="settings_menu">"Menu principal"</string>
 <string name="settings_menu_description">"Changer le nombre de colonnes, afficher et masquer des jeux"</string>
 <string name="settings_pyramid_difficulty">"Difficulté"</string>
@@ -482,7 +477,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_customization_description">"Modifier les cartes, les arrière-plans et l'interface utilisateur"</string>
 <string name="settings_force_tablet_layout_title">"Forcer la disposition de la tablette"</string>
 <string name="settings_force_tablet_layout_text">"Afficher l'application sur grand écran (≥7\")"</string>
-<string name="settings_restart_calculation">"Démarrer une nouvelle parte de Calculation pour appliquer les modifications"</string>
 <string name="settings_calculation_alternative_title">"Conserver les cartes"</string>
 <string name="settings_calculation_alternative_text">"Sur la presse au talon: au lieu de déplacer la carte de la défausse au tableau, gardez-le sur la défausse."</string>
 <string name="settings_vegas_money_enabled">"Conserver le solde actuel"</string>

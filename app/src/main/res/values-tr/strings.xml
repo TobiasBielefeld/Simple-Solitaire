@@ -336,12 +336,7 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="settings_show_main_menu_description">"Başlangıçta son oynanan oyuna dönme"</string>
 <string name="settings_golf_easy">"Döngüsel hareketler (Daha Kolay)"</string>
 <string name="settings_golf_easy_description">"Asları papazların üzerine ve papazları asların üzerine yerleştirmeye izin ver"</string>
-<string name="settings_restart_klondike">"Değişikliği uygulamak için yeni bir Klondike oyununa başlayın"</string>
-<string name="settings_restart_canfield">"Değişikliği uygulamak için yeni bir Canfield oyununa başlayın"</string>
-<string name="settings_restart_spider">"Değişikliği uygulamak için yeni bir Spider oyununa başlayın"</string>
-<string name="settings_restart_vegas">"Değişikliği uygulamak için yeni bir Vegas oyununa başlayın"</string>
-<string name="settings_restart_fortyeight">"Değişikliği uygulamak için yeni bir Forty&amp;Eight oyununa başlayın"</string>
-<string name="settings_restart_yukon">"Değişikliği uygulamak için yeni bir Yukon oyununa başlayın"</string>
+<string name="settings_restart_game">"Değişikliği uygulamak için yeni bir %1$s oyununa başlayın"</string>
 <string name="settings_menu">"Ana menü"</string>
 <string name="settings_menu_description">"Sütun sayısını değiştirme, oyunları gösterme ve gizleme"</string>
 <string name="settings_pyramid_difficulty">"Zorluk"</string>

@@ -419,12 +419,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_show_main_menu_description">"Beim Starten nicht das zuletzt gespielte Spiel öffnen"</string>
 <string name="settings_golf_easy">"Zyklische Bewegungen (Einfacher)"</string>
 <string name="settings_golf_easy_description">"Erlaube das Setzen von Assen auf Könige und umgekehrt"</string>
-<string name="settings_restart_klondike">"Starte ein neues Klondike Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_canfield">"Starte ein neues Canfield Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_spider">"Starte ein neues Spider Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_vegas">"Starte ein neues Vegas Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_fortyeight">"Starte ein neues Forty&amp;Eight Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_yukon">"Starte ein neues Yukon Spiel um die Änderung anzuwenden"</string>
+<string name="settings_restart_game">"Starte ein neues %1$s Spiel um die Änderung anzuwenden"</string>
 <string name="settings_menu">"Hauptmenü"</string>
 <string name="settings_menu_description">"Ändere Anzahl der Spalten, zeige und verstecke Spiele"</string>
 <string name="settings_pyramid_difficulty">"Schwierigkeit"</string>
@@ -476,7 +471,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_customization_description">"Passe Karten, Hintergründe und Benutzeroberfläche an"</string>
 <string name="settings_force_tablet_layout_title">"Erzwinge Tablet Layout"</string>
 <string name="settings_force_tablet_layout_text">"Zeige die Anwendung wie auf großen Bildschirmen (≥7\")"</string>
-<string name="settings_restart_calculation">"Starte ein neues Calculation Spiel um die Änderung anzuwenden"</string>
 <string name="settings_calculation_alternative_title">"Behalte Karten"</string>
 <string name="settings_calculation_alternative_text">"Beim Drücken auf dem Haupt-Stapel: Bewege Karten vom Ablage-Stapel nicht zum Tableau, behalte sie auf dem Ablage-Stapel"</string>
 <string name="settings_vegas_money_enabled">"Behalte aktuellen Kontostand"</string>
