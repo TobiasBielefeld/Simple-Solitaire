@@ -152,6 +152,7 @@
         <item>@string/settings_language_japanese</item>
         <item>@string/settings_language_norwegian</item>
         <item>@string/settings_language_polish</item>
+        <item>@string/settings_language_portuguese</item>
         <item>@string/settings_language_portuguese_brazil</item>
         <item>@string/settings_language_spanish_argentina</item>
         <item>@string/settings_language_turkish</item>
