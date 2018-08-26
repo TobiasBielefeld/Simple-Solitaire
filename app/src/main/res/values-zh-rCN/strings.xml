@@ -282,6 +282,7 @@
 <string name="settings_show_advanced_settings_title">"解锁开发者分类"</string>
 <string name="settings_language_italian">"意大利语"</string>
 <string name="settings_language_portuguese_brazil">"葡萄牙语 （巴西）"</string>
+<string name="settings_language_portuguese">"葡萄牙语"</string>
 <string name="settings_language_ukrainian">"乌克兰语"</string>
 <string name="settings_game_layout_margins_title">"游戏布局边距"</string>
 <string name="settings_game_layout_margins_none">"无"</string>

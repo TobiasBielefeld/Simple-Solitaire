@@ -86,7 +86,7 @@
 <string name="about_tab_1">"Información"</string>
 <string name="about_tab_2">"Licencias"</string>
 <string name="about_tab_3">"Cambios"</string>
-<string name="about_loading">"Cargando..."</string>
+<string name="about_loading">"Cargando…"</string>
 <string name="about_developer">"Desarrollador"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Compilado en"</string>
@@ -122,7 +122,7 @@
 <string name="manual_scoring">"Puntaje"</string>
 <string name="manual_main_menu">"Menú principal"</string>
 <string name="manual_ui">"Interfaz de usuario"</string>
-<string name="page_load_error">"No existe entrada para este juego..."</string>
+<string name="page_load_error">"No existe entrada para este juego…"</string>
 <string name="manual_bonus">"Después de ganar un juego obtienes un bonus: mientras más rápido ganes, mayor será el mismo"</string>
 <string name="manual_open_google_play">"Abrir Google Play"</string>
 <string name="manual_open_github">"Abrir el repositorio en GitHub"</string>

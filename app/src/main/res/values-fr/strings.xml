@@ -621,6 +621,7 @@ Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="settings_show_advanced_settings_title">"Déverrouiller les catégories de développeurs"</string>
 <string name="settings_language_italian">"Italiens"</string>
 <string name="settings_language_portuguese_brazil">"Portugais (Brésil)"</string>
+<string name="settings_language_portuguese">"Portugais"</string>
 <string name="settings_language_ukrainian">"Ukrainien"</string>
 <string name="settings_game_layout_margins_title">"Marges de la structure du jeu"</string>
 <string name="settings_game_layout_margins_text">"Ajoutez des marges à gauche et à droite de la disposition du jeu. Les cartes apparaîtront plus petites, mais le chevauchement sera réduit !"</string>

@@ -190,6 +190,7 @@
 
 
                 <TableLayout
+                    android:id="@+id/about_table_translators"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="7dp"
@@ -202,9 +203,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/settings_language_japanese"
                             android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:text="@string/settings_language_japanese"
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:id="@+id/about_japanese_contributors"
@@ -212,7 +213,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_naofum"/>
+                            android:text="@string/contributors_japanese" />
                     </TableRow>
 
                     <TableRow
@@ -222,9 +223,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/settings_language_esperanto"
                             android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:text="@string/settings_language_esperanto"
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:id="@+id/about_esperanto_contributors"
@@ -232,7 +233,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_verdulo"/>
+                            android:text="@string/contributors_esperanto" />
                     </TableRow>
 
                     <TableRow
@@ -242,9 +243,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/settings_language_polish"
                             android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:text="@string/settings_language_polish"
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:id="@+id/about_polish_contributors"
@@ -252,7 +253,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_verdulo"/>
+                            android:text="@string/contributors_polish" />
                     </TableRow>
 
                     <TableRow
@@ -262,9 +263,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/settings_language_french"
                             android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:text="@string/settings_language_french"
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:id="@+id/about_french_contributors"
@@ -272,7 +273,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_romainhk_cicithesquirrel" />
+                            android:text="@string/contributors_french" />
 
                     </TableRow>
 
@@ -283,9 +284,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/settings_language_finnish"
                             android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:text="@string/settings_language_finnish"
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:id="@+id/about_finnish_contributors"
@@ -293,7 +294,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_winjar"/>
+                            android:text="@string/contributors_finnish" />
                     </TableRow>
 
                     <TableRow
@@ -303,9 +304,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/settings_language_turkish"
                             android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:text="@string/settings_language_turkish"
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:id="@+id/about_turkish_contributors"
@@ -313,7 +314,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_sekmenhuseyin"/>
+                            android:text="@string/contributors_turkish" />
 
                     </TableRow>
 
@@ -324,16 +325,16 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:padding="7dp"
                             android:text="@string/settings_language_italian"
-                            android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_imko92_dankan1890" />
+                            android:text="@string/contributors_italian" />
 
                     </TableRow>
 
@@ -344,16 +345,36 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:padding="7dp"
+                            android:text="@string/settings_language_portuguese"
+                            android:textColor="?android:attr/textColorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/contributors_portuguese" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="7dp"
                             android:text="@string/settings_language_portuguese_brazil"
-                            android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_alexandre_parente" />
+                            android:text="@string/contributors_portuguese_brazil" />
 
                     </TableRow>
 
@@ -364,16 +385,16 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:padding="7dp"
                             android:text="@string/settings_language_ukrainian"
-                            android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_olexn" />
+                            android:text="@string/contributors_ukranian" />
 
                     </TableRow>
 
@@ -384,16 +405,16 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:padding="7dp"
                             android:text="@string/settings_language_norwegian"
-                            android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributer_imre_kristoffer_eilertsen" />
+                            android:text="@string/contributors_norwegian_bokmal" />
 
                     </TableRow>
 
@@ -404,9 +425,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/settings_language_spanish_argentina"
                             android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:text="@string/settings_language_spanish_argentina"
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:id="@+id/about_spanish_argentina_contributers"
@@ -414,7 +435,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_4fff618" />
+                            android:text="@string/contributors_spanish_argentina" />
 
                     </TableRow>
 
@@ -425,9 +446,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/settings_language_chinese_simplified"
                             android:padding="7dp"
-                            android:textColor="?android:attr/textColorPrimary"/>
+                            android:text="@string/settings_language_chinese_simplified"
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:id="@+id/about_chinese_contributers"
@@ -435,7 +456,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_tragic_life" />
+                            android:text="@string/contributors_chinese_simplified" />
 
                     </TableRow>
 
@@ -474,12 +495,13 @@
 
 
                 <TableLayout
+                    android:id="@+id/about_table_furhter_contributors"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/about_further_contributors_1"
@@ -487,7 +509,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_tryton_vanmeer" />
+                            android:text="@string/further_contributors_tryton_vanmeer" />
 
                         <TextView
                             android:id="@+id/about_further_contributors_2"
@@ -495,13 +517,13 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_todor_balabanov" />
+                            android:text="@string/further_contributors_todor_balabanov" />
 
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/about_further_contributors_3"
@@ -509,7 +531,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_strooonger" />
+                            android:text="@string/further_contributors_strooonger" />
 
                         <TextView
                             android:id="@+id/about_further_contributors_4"
@@ -517,7 +539,51 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="7dp"
-                            android:text="@string/contributors_SkewedZeppelin" />
+                            android:text="@string/further_contributors_SkewedZeppelin" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/about_further_contributors_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/further_contributors_dankan1890" />
+
+                        <TextView
+                            android:id="@+id/about_further_contributors_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/further_contributors_anok" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/about_further_contributors_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/further_contributors_dseomn" />
+
+                        <TextView
+                            android:id="@+id/about_further_contributors_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="" />
 
                     </TableRow>
 

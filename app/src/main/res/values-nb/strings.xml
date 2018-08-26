@@ -401,6 +401,7 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_show_advanced_settings_title">"Lås opp utviklerkategoriene"</string>
 <string name="settings_language_italian">"Italiensk"</string>
 <string name="settings_language_portuguese_brazil">"Portugisisk for Brasil"</string>
+<string name="settings_language_portuguese">"Portugisisk"</string>
 <string name="settings_language_ukrainian">"Ukrainsk"</string>
 <string name="settings_game_layout_margins_title">"Spilloppsettsmarginer"</string>
 <string name="settings_game_layout_margins_text">"Legg til marginer til venstre og høyre side av spilloppsettet. Kortene vil se mindre ut, men overlapping vil bli redusert!"</string>
