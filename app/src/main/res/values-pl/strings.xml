@@ -427,7 +427,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_show_main_menu_description">"Nie przechodź do ostatnio otwartej gry przy starcie"</string>
 <string name="settings_golf_easy">"Cykliczne ruchy (łatwiejsze)"</string>
 <string name="settings_golf_easy_description">"Zezwól kłaść asy na króli i odwrotnie"</string>
-<string name="settings_restart_game">"Aby zastosować zmiany, rozpocznij nową grę %1$s"</string>
 <string name="settings_menu">"Menu główne"</string>
 <string name="settings_menu_description">"Zmień liczbę kolumn, pokaż i ukryj gry"</string>
 <string name="settings_pyramid_difficulty">"Trudność"</string>
@@ -618,7 +617,6 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="settings_show_advanced_settings_title">"Odblokowanie kategorii deweloperów"</string>
 <string name="settings_language_italian">"Włoski"</string>
 <string name="settings_language_portuguese_brazil">"Portugalski (Brazylia)"</string>
-<string name="settings_language_portuguese">"Portugalski"</string>
 <string name="settings_language_ukrainian">"Ukraiński"</string>
 <string name="settings_game_layout_margins_title">"Marginesy układu gry"</string>
 <string name="settings_game_layout_margins_text">"Dodaje marginesy z lewej i prawej strony układu gry. Karty będą wyglądać na mniejsze, ale nakładanie się zostanie zredukowane!"</string>
@@ -687,4 +685,24 @@ Czy chcesz skasować ustawienia indywidualne dla następujących gier?"</string>
 <string name="settings_text_color">"Kolor tekstu i stosów"</string>
 <string name="settings_language_chinese_simplified">"Chiński (uproszczony)"</string>
 <string name="settings_ensure_movability_cancle_search">"Anuluj i natychmiast rozpocznij"</string>
+<string name="games_Maze">"Labirynt"</string>
+<string name="games_Spiderette">"Pajączek"</string>
+<string name="manual_Spiderette_structure">"1 talia po 52 karty.
+
+7 stosów gry i 4 stosy bazowe.
+
+1 główny stos, rozdawany w 4 rzutach.
+
+Zależnie od ustawień: 1, 2 lub 4 różne kolory kart."</string>
+<string name="manual_Spiderette_objective">"Uszereguj wszystkie karty w rodziny tego samego koloru malejąco gdziekolwiek na polu gry. Kompletne rodziny kart zostaną automatycznie przeniesione do stosów bazowych."</string>
+<string name="manual_Spiderette_rules">"Karty można kłaść na dowolną kartę w kolejności malejącej. Ale tylko poprawne sekwencje tego samego koloru kart można razem przenosić.
+
+Na pustych polach gry można umieścić dowolną kartę.
+
+Stuknij w stos główny, aby rozdać po jednej karcie na każdy stos gry."</string>
+<string name="manual_Spiderette_scoring">"Przeniesienie rodziny kart na stos bazowy: +200
+
+Odsłonięcie karty: +25"</string>
+<string name="settings_language_portuguese">"Portugalski"</string>
+<string name="settings_restart_game">"Aby zastosować zmiany, rozpocznij nową grę %1$s"</string>
 </resources>
