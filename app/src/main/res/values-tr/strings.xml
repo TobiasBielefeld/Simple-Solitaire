@@ -336,7 +336,6 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="settings_show_main_menu_description">"Başlangıçta son oynanan oyuna dönme"</string>
 <string name="settings_golf_easy">"Döngüsel hareketler (Daha Kolay)"</string>
 <string name="settings_golf_easy_description">"Asları papazların üzerine ve papazları asların üzerine yerleştirmeye izin ver"</string>
-<string name="settings_restart_game">"Değişikliği uygulamak için yeni bir %1$s oyununa başlayın"</string>
 <string name="settings_menu">"Ana menü"</string>
 <string name="settings_menu_description">"Sütun sayısını değiştirme, oyunları gösterme ve gizleme"</string>
 <string name="settings_pyramid_difficulty">"Zorluk"</string>
@@ -452,4 +451,5 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="statistics_time_of_day">"Saat"</string>
 <string name="statistics_date">"Tarih"</string>
 <string name="statistics_high_scores">"En Yüksek Puanlar"</string>
+<string name="settings_restart_game">"Değişikliği uygulamak için yeni bir %1$s oyununa başlayın"</string>
 </resources>
