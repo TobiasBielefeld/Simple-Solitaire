@@ -61,6 +61,7 @@
 
 <!-- dialog mix cards -->
 <string name="dialog_mix_cards_title">"混合纸牌"</string>
+<string name="dialog_mix_cards_text">"将会洗牌，除了已正确排序的牌和牌堆中的牌"</string>
 <string name="dialog_mix_cards_not_available">"依然有可移动机会！"</string>
 
 <!-- dialog start new game -->
@@ -115,8 +116,10 @@
 <string name="manual_main_menu">"主菜单"</string>
 <string name="manual_ui">"用户界面"</string>
 <string name="page_load_error">"该游戏没用可用界面"</string>
+<string name="manual_bonus">"游戏获胜后，你将会获得奖励：你完成的越快，你的奖励就会越丰厚。"</string>
 <string name="manual_open_google_play">"打开 Google Play"</string>
 <string name="manual_open_github">"打开 GitHub Repo"</string>
+<string name="manual_games_text1">"选择一个游戏以了解其玩法"</string>
 <string name="manual_startpage_text">"欢迎来到此游戏组合的手册！我希望这会解释所有的一切
 
 使用左侧栏菜单来查看其他手册页面。"</string>
@@ -146,7 +149,6 @@
 <string name="settings_spider_difficulty">"不同卡组的数量"</string>
 <string name="settings_show_main_menu">"前往主菜单"</string>
 <string name="settings_show_main_menu_description">"开启应用时不进入最后一次游玩的游戏进度中"</string>
-<string name="settings_restart_game">"开启一场新的%1$s游戏以应用更改"</string>
 <string name="settings_menu">"主菜单"</string>
 <string name="settings_pyramid_difficulty">"难度"</string>
 <string name="settings_menu_games">"显/隐游戏"</string>
@@ -273,6 +275,7 @@
 <string name="manual_statistics_part_3">"挣得点数总数量"</string>
 <string name="manual_statistics_part_4">"帮助功能使用总数量"</string>
 <string name="manual_statistics_part_6">"一个含有最近10次成绩的最近成绩表"</string>
+<string name="manual_statistics_part_7">"这也可能会删除当前游戏的所有数据，且此操作无法撤销。"</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"无可用操作！"</string>
@@ -280,7 +283,6 @@
 <string name="settings_show_advanced_settings_title">"解锁开发者分类"</string>
 <string name="settings_language_italian">"意大利语"</string>
 <string name="settings_language_portuguese_brazil">"葡萄牙语 （巴西）"</string>
-<string name="settings_language_portuguese">"葡萄牙语"</string>
 <string name="settings_language_ukrainian">"乌克兰语"</string>
 <string name="settings_game_layout_margins_title">"游戏布局边距"</string>
 <string name="settings_game_layout_margins_none">"无"</string>
@@ -300,10 +302,21 @@
 <string name="settings_hide_auto_complete_button">"禁用自动完成按钮"</string>
 <string name="settings_dialog_only_for_this_game_enable_3">"回到主菜单并从该处打开设置"</string>
 <string name="settings_dialog_only_for_this_game_enable_2">"取消这个选项"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"禁用此选项会重置先前的共享设置"</string>
+<string name="settings_dialog_only_for_this_game_disable">"此操作将移除自定义设置并使用共享设置"</string>
 <string name="settings_dialog_only_for_this_game_information_1">"改动将不能影响游戏。点击这里以获取更多信息"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"清除所有自定义设置"</string>
 <string name="settings_ensure_movability_title">"确认可动性"</string>
 <string name="settings_ensure_movability_searching_games">"选择一个合适的游戏…"</string>
 <string name="settings_ensure_movability_min_moves_title">"确认可动性：移动数量"</string>
+<string name="settings_ensure_movability_min_moves_warning">"注意：增加数量将会增加游戏开始前的的等待时间。改变游戏规则同样会影响等待时间。"</string>
 <string name="settings_number_input_error">"无法保存这些数字！"</string>
 <string name="settings_developer_option_improve_auto_move_title">"改善自动移动"</string>
+<string name="black">"黑"</string>
+<string name="white">"白"</string>
+<string name="settings_reset_to_defaults">"恢复默认值"</string>
+<string name="settings_language_chinese_simplified">"中文（简体）"</string>
+<string name="settings_ensure_movability_cancle_search">"取消并立即开始"</string>
+<string name="settings_language_portuguese">"葡萄牙语"</string>
+<string name="settings_restart_game">"开启一场新的%1$s游戏以应用更改"</string>
 </resources>
