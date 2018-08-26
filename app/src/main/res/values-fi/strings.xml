@@ -430,7 +430,6 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_show_main_menu_description">"Älä siirry käynnistyessä edelliseen pelattuun peliin"</string>
 <string name="settings_golf_easy">"Kierteiset siirrot (Helpompi)"</string>
 <string name="settings_golf_easy_description">"Salli ässien asettaminen kuninkaiden päälle ja päinvastoin"</string>
-<string name="settings_restart_game">"Aloita uusi %1$s peli jotta muutokset tulevat voimaan"</string>
 <string name="settings_menu">"Päävalikko"</string>
 <string name="settings_menu_description">"Muuta sarakkeiden määrää, tuo esiin ja piilota pelejä"</string>
 <string name="settings_pyramid_difficulty">"Vaikeustaso"</string>
@@ -482,7 +481,6 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_customization_description">"Muuta kortteja, taustaa ja käyttöliittymää"</string>
 <string name="settings_force_tablet_layout_title">"Pakota pöydän ulkoasu"</string>
 <string name="settings_force_tablet_layout_text">"Näytä sovellus samalla tavalla kuin isolla näytöllä (≥7\")"</string>
-<string name="settings_restart_calculation">"Aloita uusi Calculation peli ottaaksesi muutokset käyttöön"</string>
 <string name="settings_calculation_alternative_title">"Pidä kortit"</string>
 <string name="settings_calculation_alternative_text">"Painaminen käsipakasta: Sen sijaan, että kortti siirrettäisiin kääntöpakasta pöytäpinoon, pidä se kääntöpakassa."</string>
 <string name="settings_vegas_money_enabled">"Pidä nykyinen saldo"</string>
@@ -580,4 +578,5 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="statistics_date">"Päiväys"</string>
 <string name="statistics_high_scores">"Ennätykset"</string>
 <string name="settings_number_input_error">"Kyseisiä numeroita ei voida tallettaa!"</string>
+<string name="settings_restart_game">"Aloita uusi %1$s peli jotta muutokset tulevat voimaan"</string>
 </resources>
