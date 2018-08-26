@@ -101,6 +101,20 @@
 <string name="manual_open_google_play">"Відкрити Google Play"</string>
 <string name="manual_open_github">"Відкрити GitHub репозиторій"</string>
 <string name="manual_games_text1">"Оберіть гру, для перегляду структури, завдання, правил та системи нарахування балів."</string>
+<string name="settings_menu">"Головне меню"</string>
+<string name="settings_change_language">"Змінити мову"</string>
+<string name="settings_icon_theme">"Тема значків"</string>
+<string name="settings_menu_bar_position">"Положення панелі меню"</string>
+<string name="settings_menu_bar_position_top">"Зверху"</string>
+<string name="settings_menu_bar_position_bottom">"Знизу"</string>
+<string name="settings_menu_bar_position_left">"Ліворуч"</string>
+<string name="settings_menu_bar_position_right">"Праворуч"</string>
+<string name="Settings_sounds_title">"Звуки"</string>
+<string name="settings_rules">"Правила"</string>
+<string name="settings_money">"Гроші"</string>
+<string name="settings_support">"Підтримка"</string>
+<string name="settings_hide_time">"Приховати час"</string>
+<string name="settings_hide_score">"Приховати бали"</string>
 <string name="settings_portrait">"Портретний"</string>
 <string name="settings_landscape">"Ландшафтний"</string>
 <string name="settings_spider_difficultiy_1">"1 (Простий)"</string>
@@ -110,10 +124,22 @@
 <string name="settings_movement_speed_1">"Дуже повільно"</string>
 <string name="settings_movement_speed_2">"Повільно"</string>
 <string name="settings_movement_speed_3">"Нормально"</string>
+<string name="settings_win_sounds_1">"Типовий"</string>
+<string name="settings_background_music_1">"Вимкнуто"</string>
+<string name="settings_background_music_2">"Тема 1"</string>
+<string name="settings_background_music_3">"Тема 2"</string>
+<string name="settings_background_music_4">"Тема 3"</string>
+<string name="settings_background_music_5">"Музична скриня"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 карт (типово)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 карт"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 карт"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 карти"</string>
+
+<!-- Statistics -->
+<string name="statistics_text_won_games">"Виграно %1$d ігор з %2$d"</string>
+
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"Відсоток перемог: %1$.0f%%"</string>
 
 <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
 <string name="statistics_button_delete">"Видалити всі записи!"</string>
