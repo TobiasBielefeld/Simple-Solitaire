@@ -322,7 +322,6 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="settings_show_main_menu_description">"開始時に、最後にプレイしたゲームに入りません"</string>
 <string name="settings_golf_easy">"循環的な移動 （より簡単に）"</string>
 <string name="settings_golf_easy_description">"エースをキングに置くことを許可する、またはその逆"</string>
-<string name="settings_restart_game">"変更を適用するための新しい%1$sゲームを開始します"</string>
 <string name="settings_menu">"メインメニュー"</string>
 <string name="settings_menu_description">"列数の変更、ゲームの表示と非表示"</string>
 <string name="settings_pyramid_difficulty">"難易度"</string>
@@ -358,4 +357,5 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="statistics_button_delete_text">"このゲームのすべてのエントリーを削除します! よろしいですか?"</string>
 <string name="statistics_button_deleted_all_entries">"すべてのエントリーを削除しました"</string>
 <string name="statistics_high_scores">"高得点"</string>
+<string name="settings_restart_game">"変更を適用するための新しい%1$sゲームを開始します"</string>
 </resources>
