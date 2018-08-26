@@ -419,7 +419,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_show_main_menu_description">"Beim Starten nicht das zuletzt gespielte Spiel öffnen"</string>
 <string name="settings_golf_easy">"Zyklische Bewegungen (Einfacher)"</string>
 <string name="settings_golf_easy_description">"Erlaube das Setzen von Assen auf Könige und umgekehrt"</string>
-<string name="settings_restart_game">"Starte ein neues %1$s Spiel um die Änderung anzuwenden"</string>
 <string name="settings_menu">"Hauptmenü"</string>
 <string name="settings_menu_description">"Ändere Anzahl der Spalten, zeige und verstecke Spiele"</string>
 <string name="settings_pyramid_difficulty">"Schwierigkeit"</string>
@@ -529,7 +528,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_language_japanese">"Japanisch"</string>
 <string name="settings_language_polish">"Polnisch"</string>
 <string name="settings_language_turkish">"Türkisch"</string>
-<string name="settings_language_chinese_simplified">"Chinesisch (Vereinfacht)"</string>
 <string name="settings_yukon_rules_1">"unterschiedliche Farben (Standard)"</string>
 <string name="settings_yukon_rules_2">"selbe Familie (Russian Solitare)"</string>
 <string name="settings_movement_speed_1">"Sehr langsam"</string>
@@ -609,7 +607,6 @@ Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 <string name="settings_show_advanced_settings_title">"Schalte Entwickler Kategorien frei"</string>
 <string name="settings_language_italian">"Italienisch"</string>
 <string name="settings_language_portuguese_brazil">"Portugiesisch (Brasilien)"</string>
-<string name="settings_language_portuguese">"Portugiesisch"</string>
 <string name="settings_language_ukrainian">"Ukrainisch"</string>
 <string name="settings_game_layout_margins_title">"Spielfeld Ränder"</string>
 <string name="settings_game_layout_margins_text">"Füge Ränder zur linken und rechten Seite des Spielfelds hinzu. Die Karten werden dadurch kleiner, aber werden weniger überlappen!"</string>
@@ -664,7 +661,6 @@ Möchten Sie die individuellen Einstellungen für alle aufgeführten Spiele entf
 <string name="settings_dialog_only_for_this_game_removed_all">"Alle individuellen Einstellungen entfernt"</string>
 <string name="settings_ensure_movability_title">"Garantierte Anzahl der Bewegungen"</string>
 <string name="settings_ensure_movability_searching_games">"Suche nach einem geeigneten Spiel…"</string>
-<string name="settings_ensure_movability_cancle_search">Abbrechen und sofort starten</string>
 <string name="settings_ensure_movability_text">"Stelle sicher, dass eine bestimmte Anzahl von Bewegungen in einem Spiel möglich sind, bevor es gestartet wird"</string>
 <string name="settings_ensure_movability_min_moves_title">"Anzahl der Bewegungen ändern"</string>
 <string name="settings_ensure_movability_min_moves_warning">"Vorsicht: Das Erhöhen der Beträge führt zu längeren Wartezeiten vor Spielbeginn. Änderungen der Spielregeln wirken sich auch auf die Wartezeit aus!"</string>
@@ -679,4 +675,8 @@ Möchten Sie die individuellen Einstellungen für alle aufgeführten Spiele entf
 <string name="settings_ensure_movability_winnable">"Gewinnbar"</string>
 <string name="settings_reset_to_defaults">"Auf Standardwerte zurücksetzen"</string>
 <string name="settings_text_color">"Text- und Stapelfarbe"</string>
+<string name="settings_language_chinese_simplified">"Chinesisch (Vereinfacht)"</string>
+<string name="settings_ensure_movability_cancle_search">"Abbrechen und sofort starten"</string>
+<string name="settings_language_portuguese">"Portugiesisch"</string>
+<string name="settings_restart_game">"Starte ein neues %1$s Spiel um die Änderung anzuwenden"</string>
 </resources>
