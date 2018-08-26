@@ -427,7 +427,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_show_main_menu_description">"Ne malfermi laste malfermitan ludon dum starto"</string>
 <string name="settings_golf_easy">"Ciklaj movoj (pli facile)"</string>
 <string name="settings_golf_easy_description">"Permesi meti asojn sur reĝojn kaj inverse"</string>
-<string name="settings_restart_game">"Komencu novan ludon %1$s por apliki ŝanĝojn"</string>
 <string name="settings_menu">"Ĉefmenuo"</string>
 <string name="settings_menu_description">"Ŝanĝi nombron da kolumnoj, montri kaj kaŝu ludojn"</string>
 <string name="settings_pyramid_difficulty">"Facileco"</string>
@@ -616,7 +615,6 @@ La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 <string name="settings_show_advanced_settings_title">"Malŝlosi programistajn agordojn"</string>
 <string name="settings_language_italian">"Itala"</string>
 <string name="settings_language_portuguese_brazil">"Portugala (Brazila)"</string>
-<string name="settings_language_portuguese">"Portugala"</string>
 <string name="settings_language_ukrainian">"Ukraina"</string>
 <string name="settings_game_layout_margins_title">"Lud-aranĝaj marĝenoj"</string>
 <string name="settings_game_layout_margins_text">"Aldoni marĝenojn al dekstra kaj maldekstra flanko de lud-aranĝo. Kartoj aspektos malpli grandaj, sed surmeteco estos malpliigita!"</string>
@@ -687,4 +685,24 @@ Transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200"</string>
 <string name="settings_text_color">"Koloro de teksto kaj stakoj"</string>
 <string name="settings_language_chinese_simplified">"Ĉina (simpligita)"</string>
 <string name="settings_ensure_movability_cancle_search">"Nuligi kaj senprokraste ekigi"</string>
+<string name="games_Maze">"Labirinto"</string>
+<string name="games_Spiderette">"Araneeto"</string>
+<string name="manual_Spiderette_structure">"1 kartaro po 52 kartoj.
+
+7 tablamasaj stakoj kaj 4 fundamentaj stakoj.
+
+1 ĉefa stako, disdonata en 4 diversaj disdonoj.
+
+Depende de agordoj: 1, 2 aŭ 4 diversaj kartaj emblemoj."</string>
+<string name="manual_Spiderette_objective">"Ordigu ĉiujn kartojn de ĉiu emblemo malkreskante ie ajn sur la tablamaso. Kompletaj familioj de kartoj estos aŭtomate movitaj al fundamentaj stakoj."</string>
+<string name="manual_Spiderette_rules">"Kartojn oni povas meti sur iun ajn karton en malkreskanta ordo. Tamen nur serioj de samaj kartaj emblemoj povas esti movitaj per unu fojo.
+
+Ĉiun karton oni povas meti sur malplenan tablamasan kampon.
+
+Frapetu la ĉefan stakon por dsdoni po unu karto por ĉiu tablamasa stako samtempe."</string>
+<string name="manual_Spiderette_scoring">"Movi kartan familion al fundamenta stako: +200
+
+Malkovri karton: +25"</string>
+<string name="settings_language_portuguese">"Portugala"</string>
+<string name="settings_restart_game">"Komencu novan ludon %1$s por apliki ŝanĝojn"</string>
 </resources>
