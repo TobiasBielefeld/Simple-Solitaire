@@ -195,7 +195,6 @@ Não é possível mover cartas da pilha de descarte para a pilha principal (exce
 <string name="dialog_no_movement_possible">"Nenhum movimento para mostrar!"</string>
 <string name="settings_language_italian">"Italiano"</string>
 <string name="settings_language_portuguese_brazil">"Português (Brasil)"</string>
-<string name="settings_language_portuguese">"Português"</string>
 <string name="settings_language_ukrainian">"Ucraniano"</string>
 <string name="settings_game_layout_margins_title">"Margens do layout do jogo"</string>
 <string name="settings_game_layout_margins_text">"Adicione margens aos lados esquerdo e direito do layout. As cartas aparecerão menores, mas a sobreposição será reduzida!"</string>
@@ -203,4 +202,5 @@ Não é possível mover cartas da pilha de descarte para a pilha principal (exce
 <string name="settings_game_layout_margins_small">"Pequena"</string>
 <string name="settings_game_layout_margins_medium">"Média"</string>
 <string name="settings_game_layout_margins_large">"Grande"</string>
+<string name="settings_language_portuguese">"Português"</string>
 </resources>
