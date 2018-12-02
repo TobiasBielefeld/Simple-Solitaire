@@ -2,14 +2,10 @@
 https://stackoverflow.com/questions/16736856/what-should-be-in-my-gitignore-for-an-android-studio-project
 
 #built application files
-#*.apk
-#*.ap_
+*.apk
 
 # files for the dex VM
 *.dex
-
-# Java class files
-*.class
 
 # generated files
 bin/
@@ -32,9 +28,5 @@ Thumbs.db
 # Android Studio
 *.iml
 .idea/
-#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
 .gradle
 build/
-
-#NDK
-obj/
