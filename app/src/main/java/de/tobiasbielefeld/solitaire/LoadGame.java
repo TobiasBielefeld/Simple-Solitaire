@@ -18,8 +18,8 @@
 
 package de.tobiasbielefeld.solitaire;
 
-import android.app.Activity;
 import android.content.res.Resources;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -67,7 +67,7 @@ public class LoadGame {
      * @param activity The activity to get the strings from the xml file
      * @param index    The index of the game to start
      */
-    public Game loadClass(Activity activity, int index) {
+    public Game loadClass(AppCompatActivity activity, int index) {
 
         sharedPrefName = allGameInformation.get(index).getSharedPrefName();
         gameName = allGameInformation.get(index).getName(activity.getResources());

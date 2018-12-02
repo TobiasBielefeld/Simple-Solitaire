@@ -18,9 +18,9 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +33,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Dialog for changing the background color. It uses a custom layout, so I can dynamically update
