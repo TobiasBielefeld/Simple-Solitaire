@@ -1,134 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_version">"Versione"</string>
-<string name="settings">"Impostazioni"</string>
-<string name="game_manual">"Istruzioni"</string>
-<string name="game_score">"Punteggio"</string>
-<string name="game_time">"Tempo"</string>
-<string name="game_cancel">"Annulla"</string>
-<string name="game_confirm">"Conferma"</string>
-<string name="game_auto_complete_text">"Completa automaticamente"</string>
-<string name="game_press_again">"Premi ancora per uscire"</string>
-<string name="game_load_error">"Caricamento dati fallito, avvio di una nuova partita"</string>
-<string name="game_close">"Chiudi gioco"</string>
-<string name="game_main_menu">"Menu principale"</string>
-<string name="item_game_rules">"Regole del gioco"</string>
-<string name="item_return_to_main_menu">"Ritorna al menu principale"</string>
+    <string name="app_version">"Versione"</string>
+    <string name="settings">"Impostazioni"</string>
+    <string name="game_manual">"Istruzioni"</string>
+    <string name="game_score">"Punteggio"</string>
+    <string name="game_time">"Tempo"</string>
+    <string name="game_cancel">"Annulla"</string>
+    <string name="game_confirm">"Conferma"</string>
+    <string name="game_auto_complete_text">"Completa automaticamente"</string>
+    <string name="game_press_again">"Premi ancora per uscire"</string>
+    <string name="game_load_error">"Caricamento dati fallito, avvio di una nuova partita"</string>
+    <string name="game_close">"Chiudi gioco"</string>
+    <string name="game_main_menu">"Menu principale"</string>
+    <string name="item_game_rules">"Regole del gioco"</string>
+    <string name="item_return_to_main_menu">"Ritorna al menu principale"</string>
 
-<!-- Menu -->
-<string name="menu_undo">"Annulla"</string>
-<string name="menu_main_menu">"Menu"</string>
-<string name="menu_settings">"Impostazioni"</string>
+    <!-- Menu -->
+    <string name="menu_undo">"Annulla"</string>
+    <string name="menu_main_menu">"Menu"</string>
+    <string name="menu_settings">"Impostazioni"</string>
 
-<!-- game names 
+    <!-- game names
 
-     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
-     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
-     - a single line -->
-<string name="games_Klondike">"Klondike"</string>
-<string name="games_Freecell">"FreeCell"</string>
-<string name="games_Yukon">"Yukon"</string>
-<string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"Simple Simon"</string>
-<string name="games_Golf">"Golf"</string>
-<string name="games_Pyramid">"Pyramid"</string>
-<string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty &amp; Eight"</string>
-<string name="games_AcesUp">"Aces Up"</string>
-<string name="games_Gypsy">"Gypsy"</string>
-<string name="games_mod3">"Mod3"</string>
-<string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
-<string name="games_Vegas">"Vegas"</string>
-<string name="games_Calculation">"Calculation"</string>
+         - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+         - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+         - a single line -->
+    <string name="games_Klondike">"Klondike"</string>
+    <string name="games_Freecell">"FreeCell"</string>
+    <string name="games_Yukon">"Yukon"</string>
+    <string name="games_Spider">"Spider"</string>
+    <string name="games_SimpleSimon">"Simple Simon"</string>
+    <string name="games_Golf">"Golf"</string>
+    <string name="games_Pyramid">"Pyramid"</string>
+    <string name="games_TriPeaks">"TriPeaks"</string>
+    <string name="games_FortyEight">"Forty &amp; Eight"</string>
+    <string name="games_AcesUp">"Aces Up"</string>
+    <string name="games_Gypsy">"Gypsy"</string>
+    <string name="games_mod3">"Mod3"</string>
+    <string name="games_Canfield">"Canfield"</string>
+    <string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
+    <string name="games_Vegas">"Vegas"</string>
+    <string name="games_Calculation">"Calculation"</string>
 
-<!-- colors -->
-<string name="blue">"Blu"</string>
-<string name="green">"Verde"</string>
-<string name="red">"Rosso"</string>
-<string name="yellow">"Giallo"</string>
-<string name="orange">"Arancione"</string>
-<string name="purple">"Viola"</string>
+    <!-- colors -->
+    <string name="blue">"Blu"</string>
+    <string name="green">"Verde"</string>
+    <string name="red">"Rosso"</string>
+    <string name="yellow">"Giallo"</string>
+    <string name="orange">"Arancione"</string>
+    <string name="purple">"Viola"</string>
 
-<!-- game stuff -->
-<string name="game_longest_run">"Sequenza più lunga"</string>
+    <!-- game stuff -->
+    <string name="game_longest_run">"Sequenza più lunga"</string>
 
-<!-- dialog won -->
-<string name="dialog_win_titel">"Congratulazioni!"</string>
-<string name="dialog_win_score">"Punteggio: %1$d"</string>
-<string name="dialog_win_bonus">"Bonus: %1$d"</string>
-<string name="dialog_win_total">"Totale: %1$d"</string>
+    <!-- dialog won -->
+    <string name="dialog_win_titel">"Congratulazioni!"</string>
+    <string name="dialog_win_score">"Punteggio: %1$d"</string>
+    <string name="dialog_win_bonus">"Bonus: %1$d"</string>
+    <string name="dialog_win_total">"Totale: %1$d"</string>
 
-<!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Mischia le carte"</string>
-<string name="dialog_mix_cards_text">"Questo mischierà tutte le carte, eccetto le sequenze corrette e le carte nella casa."</string>
-<string name="dialog_mix_cards_not_available">"Ci sono ancora mosse possibili! (Usa la funzione di aiuto per mostrarle)"</string>
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">"Mischia le carte"</string>
+    <string name="dialog_mix_cards_text">"Questo mischierà tutte le carte, eccetto le sequenze corrette e le carte nella casa."</string>
+    <string name="dialog_mix_cards_not_available">"Ci sono ancora mosse possibili! (Usa la funzione di aiuto per mostrarle)"</string>
 
-<!-- dialog start new game -->
-<string name="dialog_start_new_game_title">"Comincia una nuova partita"</string>
-<string name="dialog_start_new_game_text">"I tuoi progressi correnti saranno persi e sarà avviata una nuova partita casuale."</string>
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">"Comincia una nuova partita"</string>
+    <string name="dialog_start_new_game_text">"I tuoi progressi correnti saranno persi e sarà avviata una nuova partita casuale."</string>
 
-<!-- dialog redeal -->
-<string name="dialog_redeal_title">"Ridai le carte"</string>
-<string name="dialog_redeal_text">"I tuoi progressi correnti saranno persi, ma sarà"</string>
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">"Ridai le carte"</string>
+    <string name="dialog_redeal_text">"I tuoi progressi correnti saranno persi, ma sarà"</string>
 
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
-<string name="title_activity_manual">"Manuale"</string>
-<string name="title_activity_settings">"Impostazioni"</string>
-<string name="title_activity_about">"Sul Gioco"</string>
-<string name="title_activity_statistics">"Statistiche"</string>
+    <!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+    <string name="title_activity_manual">"Manuale"</string>
+    <string name="title_activity_settings">"Impostazioni"</string>
+    <string name="title_activity_about">"Sul Gioco"</string>
+    <string name="title_activity_statistics">"Statistiche"</string>
 
-<!-- About activity -->
-<string name="about_tab_1">"Informazioni"</string>
-<string name="about_tab_2">"Licenze"</string>
-<string name="about_tab_3">"Changelog"</string>
-<string name="about_loading">"Caricamento…"</string>
-<string name="about_developer">"Sviluppatore"</string>
-<string name="about_developer_name">"Tobias Bielefeld"</string>
-<string name="about_compiled">"Compilato su"</string>
-<string name="about_source_code">"Cordice sorgente"</string>
-<string name="about_license">"Licenza"</string>
-<string name="about_translations">"Traduzioni"</string>
-<string name="about_further_contributors">"Altre contribuzioni"</string>
-<string name="about_android_support_libraries_title">"Android support library"</string>
-<string name="about_android_support_libraries_usage">"Usata per un design migliore e uno sviluppo più semplice"</string>
-<string name="about_material_icons_title">"Material design icons"</string>
-<string name="about_material_icons_usage">"Usata per tutte le icone in questa applicazione"</string>
-<string name="about_card_themes_title">"Card themes"</string>
-<string name="about_card_themes_usage">"I temi dei mazzi di carte sono presi da &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, per informazioni dettagliate clicca &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;qui&lt;/a&gt;"</string>
-<string name="about_poker_themes_usage">"Usato come tema per il Poker - Disponibile su &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
-<string name="about_custom_color_picker_title">"AmbilWarna library"</string>
-<string name="about_custom_color_picker_usage">"Usata per il color picker personalizzato"</string>
-<string name="about_sounds_title">"Suoni"</string>
-<string name="about_sounds_usage">"Tutti i suoni sono stati pubblicati inizialmente su &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, per informazioni dettagliate clicca &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;qui&lt;/a&gt;"</string>
-<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
-<string name="about_sliding_tabs_usage">"Usata per le tab nella schermata \"Sul Gioco\""</string>
+    <!-- About activity -->
+    <string name="about_tab_1">"Informazioni"</string>
+    <string name="about_tab_2">"Licenze"</string>
+    <string name="about_tab_3">"Changelog"</string>
+    <string name="about_loading">"Caricamento…"</string>
+    <string name="about_developer">"Sviluppatore"</string>
+    <string name="about_developer_name">"Tobias Bielefeld"</string>
+    <string name="about_compiled">"Compilato su"</string>
+    <string name="about_source_code">"Cordice sorgente"</string>
+    <string name="about_license">"Licenza"</string>
+    <string name="about_translations">"Traduzioni"</string>
+    <string name="about_further_contributors">"Altre contribuzioni"</string>
+    <string name="about_android_support_libraries_title">"Android support library"</string>
+    <string name="about_android_support_libraries_usage">"Usata per un design migliore e uno sviluppo più semplice"</string>
+    <string name="about_material_icons_title">"Material design icons"</string>
+    <string name="about_material_icons_usage">"Usata per tutte le icone in questa applicazione"</string>
+    <string name="about_card_themes_title">"Card themes"</string>
+    <string name="about_card_themes_usage">"I temi dei mazzi di carte sono presi da &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, per informazioni dettagliate clicca &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;qui&lt;/a&gt;"</string>
+    <string name="about_poker_themes_usage">"Usato come tema per il Poker - Disponibile su &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+    <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
+    <string name="about_custom_color_picker_usage">"Usata per il color picker personalizzato"</string>
+    <string name="about_sounds_title">"Suoni"</string>
+    <string name="about_sounds_usage">"Tutti i suoni sono stati pubblicati inizialmente su &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, per informazioni dettagliate clicca &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;qui&lt;/a&gt;"</string>
+    <string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
+    <string name="about_sliding_tabs_usage">"Usata per le tab nella schermata \"Sul Gioco\""</string>
 
-<!-- Manual -->
-<string name="manual_games">"Giochi"</string>
-<string name="manual_feedback">"Commenti"</string>
-<string name="manual_startpage">"Pagina iniziale"</string>
-<string name="manual_back_to_game">"Torna al gioco"</string>
-<string name="manual_structure">"Struttura"</string>
-<string name="manual_objective">"Obiettivo"</string>
-<string name="manual_rules">"Regole"</string>
-<string name="manual_scoring">"Attribuzione del punteggio"</string>
-<string name="manual_main_menu">"Menu principale"</string>
-<string name="manual_ui">"Interfaccia grafica"</string>
-<string name="page_load_error">"Nessuna pagina disponibile per questo gioco…"</string>
-<string name="manual_bonus">"Dopo aver vinto il gioco, ottieni un bonus: più veloce vinci, maggiore sarà il bonus."</string>
-<string name="manual_open_google_play">"Apri Google Play"</string>
-<string name="manual_open_github">"Apri Repo GitHub"</string>
-<string name="manual_games_text1">"Scegli un gioco per mostrare struttura, obiettivo, regole e attribuzione del punteggio."</string>
-<string name="manual_startpage_text">"Benvenuto nel manuale di questa collezione di giochi! Spero che chiarirà tutto.
+    <!-- Manual -->
+    <string name="manual_games">"Giochi"</string>
+    <string name="manual_feedback">"Commenti"</string>
+    <string name="manual_startpage">"Pagina iniziale"</string>
+    <string name="manual_back_to_game">"Torna al gioco"</string>
+    <string name="manual_structure">"Struttura"</string>
+    <string name="manual_objective">"Obiettivo"</string>
+    <string name="manual_rules">"Regole"</string>
+    <string name="manual_scoring">"Attribuzione del punteggio"</string>
+    <string name="manual_main_menu">"Menu principale"</string>
+    <string name="manual_ui">"Interfaccia grafica"</string>
+    <string name="page_load_error">"Nessuna pagina disponibile per questo gioco…"</string>
+    <string name="manual_bonus">"Dopo aver vinto il gioco, ottieni un bonus: più veloce vinci, maggiore sarà il bonus."</string>
+    <string name="manual_open_google_play">"Apri Google Play"</string>
+    <string name="manual_open_github">"Apri Repo GitHub"</string>
+    <string name="manual_games_text1">"Scegli un gioco per mostrare struttura, obiettivo, regole e attribuzione del punteggio."</string>
+    <string name="manual_startpage_text">"Benvenuto nel manuale di questa collezione di giochi! Spero che chiarirà tutto.
 
 Usa il menu sulla sinistra per accedere alle altre pagine del manuale."</string>
-<string name="manual_general_main_menu">"L'uso del menu principale è relativamente semplice. Premi su un gioco per iniziarlo.
+    <string name="manual_general_main_menu">"L'uso del menu principale è relativamente semplice. Premi su un gioco per iniziarlo.
 
 Se rifatta partire, l'applicazione caricherà automaticamente l'ultima partita giocata, se la partita è stata messa in pausa. Questo comportamento può essere disabilitato nelle impostazioni sotto \"Generali\".
 
 Lì si può trovare la sezione \"Menu principale\", dove è possibile nascondere i giochi dal menu e cambiare il numero di colonne, cosicché più giochi stiano sulllo schermo."</string>
-<string name="manual_ui_text">"In una partita verrà sempre visualizzato un menu nella parte bassa dello schermo (Modalità verticale) o nella parte destra (Modalità orizzontale). Sarà inoltre visualizzato il punteggio corrente e il tempo trascorso in partita. Se possibile, questi due valori saranno salvati nella lista dei punteggi più alti. Il menu contiene 5 elementi, che hanno i seguenti effetti (bottoni da sinistra a destra):
+    <string name="manual_ui_text">"In una partita verrà sempre visualizzato un menu nella parte bassa dello schermo (Modalità verticale) o nella parte destra (Modalità orizzontale). Sarà inoltre visualizzato il punteggio corrente e il tempo trascorso in partita. Se possibile, questi due valori saranno salvati nella lista dei punteggi più alti. Il menu contiene 5 elementi, che hanno i seguenti effetti (bottoni da sinistra a destra):
 
 Il bottone \"Punteggi\" mostrerà una nuova finestra con i punteggi più alti e il numeri delle partite vinte del gioco corrente.
 
@@ -140,36 +140,36 @@ Il bottone \"Annulla\" annullerà l'ultimo movimento, ma ti costerà 25 punti. P
 
 Il bottone \"Impostazioni\" aprirà semplicemente il menu delle impostazioni."</string>
 
-<!-- Settings -->
-<string name="settings_background_color">"Colore di sfondo"</string>
-<string name="settings_hide_status_bar">"Nascondi la barra di stato"</string>
-<string name="settings_left_handed_mode">"Modalità per mancini"</string>
-<string name="settings_customization">"Aspetto"</string>
-<string name="settings_other">"Generali"</string>
-<string name="settings_other_description">"Modifica tutte le altre impostazioni"</string>
-<string name="settings_show_main_menu">"Avvia dal menu principale"</string>
-<string name="settings_show_main_menu_description">"Non entrare nell'ultima partita giocata alla partenza"</string>
-<string name="settings_menu">"Menu principale"</string>
-<string name="settings_menu_description">"Cambia il numero di colonne, visualizza o nascondi i giochi"</string>
-<string name="settings_menu_columns">"Numero di colonne"</string>
-<string name="settings_menu_games">"Visualizza o nascondi i giochi"</string>
-<string name="settings_menu_bar_position">"Posizione della barra dei menu"</string>
-<string name="settings_menu_bar_position_bottom">"Sotto"</string>
-<string name="settings_menu_bar_position_left">"Sinistra"</string>
-<string name="settings_menu_bar_position_right">"Destra"</string>
-<string name="Settings_sounds_title">"Suoni"</string>
-<string name="Settings_sounds_text">"Abilita i suoni, imposta vari effetti sonori"</string>
-<string name="settings_customization_description">"Personalizza carte, sfondi e interfaccia utente"</string>
-<string name="settings_support">"Aiuto"</string>
-<string name="settings_hide_time">"Nascondi il tempo"</string>
-<string name="settings_hide_score">"Nascondi il punteggio"</string>
-<string name="settings_expert_settings">"Impostazioni per Esperti"</string>
-<string name="settings_win_sounds_1">"Default"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="statistics_total_hints_shown">"Totale aiuti utilizzati"</string>
-<string name="dialog_show_hints">"Ricevi un'aiuto"</string>
-<string name="settings_game_layout_margins_title">"Margini"</string>
-<string name="settings_game_layout_margins_none">"Nessuno"</string>
-<string name="settings_hide_menu_button">"Nascondi il pulsante menu"</string>
-<string name="settings_immersive_mode_text">"Nascondi le barre di stato e di navigazione mentre giochi (solo su Android 4.4 e versioni successive)"</string>
+    <!-- Settings -->
+    <string name="settings_background_color">"Colore di sfondo"</string>
+    <string name="settings_hide_status_bar">"Nascondi la barra di stato"</string>
+    <string name="settings_left_handed_mode">"Modalità per mancini"</string>
+    <string name="settings_customization">"Aspetto"</string>
+    <string name="settings_other">"Generali"</string>
+    <string name="settings_other_description">"Modifica tutte le altre impostazioni"</string>
+    <string name="settings_show_main_menu">"Avvia dal menu principale"</string>
+    <string name="settings_show_main_menu_description">"Non entrare nell'ultima partita giocata alla partenza"</string>
+    <string name="settings_menu">"Menu principale"</string>
+    <string name="settings_menu_description">"Cambia il numero di colonne, visualizza o nascondi i giochi"</string>
+    <string name="settings_menu_columns">"Numero di colonne"</string>
+    <string name="settings_menu_games">"Visualizza o nascondi i giochi"</string>
+    <string name="settings_menu_bar_position">"Posizione della barra dei menu"</string>
+    <string name="settings_menu_bar_position_bottom">"Sotto"</string>
+    <string name="settings_menu_bar_position_left">"Sinistra"</string>
+    <string name="settings_menu_bar_position_right">"Destra"</string>
+    <string name="Settings_sounds_title">"Suoni"</string>
+    <string name="Settings_sounds_text">"Abilita i suoni, imposta vari effetti sonori"</string>
+    <string name="settings_customization_description">"Personalizza carte, sfondi e interfaccia utente"</string>
+    <string name="settings_support">"Aiuto"</string>
+    <string name="settings_hide_time">"Nascondi il tempo"</string>
+    <string name="settings_hide_score">"Nascondi il punteggio"</string>
+    <string name="settings_expert_settings">"Impostazioni per Esperti"</string>
+    <string name="settings_win_sounds_1">"Default"</string>
+    <string name="settings_win_sounds_2">"Piano"</string>
+    <string name="statistics_total_hints_shown">"Totale aiuti utilizzati"</string>
+    <string name="dialog_show_hints">"Ricevi un'aiuto"</string>
+    <string name="settings_game_layout_margins_title">"Margini"</string>
+    <string name="settings_game_layout_margins_none">"Nessuno"</string>
+    <string name="settings_hide_menu_button">"Nascondi il pulsante menu"</string>
+    <string name="settings_immersive_mode_text">"Nascondi le barre di stato e di navigazione mentre giochi (solo su Android 4.4 e versioni successive)"</string>
 </resources>

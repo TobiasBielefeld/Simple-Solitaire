@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference
-        android:summary="@string/settings_developer_options_lock_text"/>
+    <Preference android:summary="@string/settings_developer_options_lock_text" />
 
     <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
         android:defaultValue="0"
@@ -17,31 +16,31 @@
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_developer_option_move_cards_everywhere"
         android:key="@string/pref_key_developer_option_move_cards_everywhere"
-        android:title="@string/settings_developer_options_move_card_everwhere_title"
-        android:summary="@string/settings_developer_options_move_card_everwhere_text"/>
+        android:summary="@string/settings_developer_options_move_card_everwhere_text"
+        android:title="@string/settings_developer_options_move_card_everwhere_title" />
 
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_developer_option_play_every_card"
         android:key="@string/pref_key_developer_option_play_every_card"
-        android:title="@string/settings_developer_options_play_every_card_title"
-        android:summary="@string/settings_developer_options_play_every_card_text"/>
+        android:summary="@string/settings_developer_options_play_every_card_text"
+        android:title="@string/settings_developer_options_play_every_card_title" />
 
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_developer_option_instant_win"
         android:key="@string/pref_key_developer_option_instant_win"
-        android:title="@string/settings_developer_options_instant_win_title"
-        android:summary="@string/settings_developer_options_instant_win_text"/>
+        android:summary="@string/settings_developer_options_instant_win_text"
+        android:title="@string/settings_developer_options_instant_win_title" />
 
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_developer_option_no_saving"
         android:key="@string/pref_key_developer_option_no_saving"
-        android:title="@string/settings_developer_options_no_saving_title"
-        android:summary="@string/settings_developer_options_no_saving_text"/>
+        android:summary="@string/settings_developer_options_no_saving_text"
+        android:title="@string/settings_developer_options_no_saving_title" />
 
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_improve_auto_move"
         android:key="@string/pref_key_improve_auto_move"
-        android:title="@string/settings_developer_option_improve_auto_move_title"
-        android:summary="@string/settings_developer_option_improve_auto_move_text"/>
+        android:summary="@string/settings_developer_option_improve_auto_move_text"
+        android:title="@string/settings_developer_option_improve_auto_move_title" />
 
 </PreferenceScreen>

@@ -25,7 +25,7 @@
             android:id="@+id/nav_feedback"
             android:title="@string/manual_feedback" />
     </group>
-    <group android:id="@+id/idgroup2" >
+    <group android:id="@+id/idgroup2">
         <item
             android:id="@+id/nav_back_to_game"
             android:title="@string/manual_back_to_game" />

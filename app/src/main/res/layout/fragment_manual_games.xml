@@ -28,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
+                android:gravity="start"
                 android:text="@string/manual_games_text1"
                 android:textAlignment="viewStart"
                 android:textSize="14sp" />
@@ -78,8 +79,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:text="@string/manual_objective"
                 android:textSize="20sp"
                 android:textStyle="normal|bold" />
@@ -93,8 +94,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:text="@string/manual_rules"
                 android:textSize="20sp"
                 android:textStyle="normal|bold" />
@@ -108,8 +109,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:text="@string/manual_scoring"
                 android:textSize="20sp"
                 android:textStyle="normal|bold" />

@@ -14,10 +14,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFF"
-    android:textSize="@dimen/list_text_size"
     android:gravity="center_vertical"
+    android:minHeight="@dimen/list_item_height"
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
-    android:minHeight="@dimen/list_item_height"
     android:textColor="#000000"
-    />
+    android:textSize="@dimen/list_text_size" />

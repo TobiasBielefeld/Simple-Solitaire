@@ -2,10 +2,10 @@
 
     <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMaxNumberUndos
         android:key="@string/pref_key_max_number_undos"
-        android:title="@string/settings_max_number_undos"
         android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@string/game_confirm"
-        android:summary=""/>
+        android:summary=""
+        android:title="@string/settings_max_number_undos" />
 
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_show_advaced_settings"

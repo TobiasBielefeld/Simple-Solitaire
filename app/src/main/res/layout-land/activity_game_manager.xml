@@ -12,20 +12,22 @@
         android:id="@+id/mainRelativeLayoutGame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_toStartOf="@+id/linearLayoutMenuBar"
         android:layout_toLeftOf="@+id/linearLayoutMenuBar">
 
         <ImageView
             android:id="@+id/card_highlight"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            app:srcCompat="@drawable/card_highlight"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_highlight" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/mainRelativeLayoutGameOverlayLower"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_toStartOf="@+id/linearLayoutMenuBar"
         android:layout_toLeftOf="@+id/linearLayoutMenuBar">
 
         <TextView
@@ -43,6 +45,7 @@
         android:id="@+id/mainRelativeLayoutGameOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_toStartOf="@+id/linearLayoutMenuBar"
         android:layout_toLeftOf="@+id/linearLayoutMenuBar">
 
         <ImageView
@@ -51,12 +54,13 @@
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/icon_arrow_right"
-            android:onClick="menuClick" />
+            android:onClick="menuClick"
+            app:srcCompat="@drawable/icon_arrow_right" />
 
         <View
             android:layout_width="4dp"
             android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/shadow_left_to_right" />
@@ -65,23 +69,25 @@
             android:id="@+id/frameLayout2"
             android:layout_width="1dp"
             android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:background="#000000" />
 
         <View
             android:layout_width="4dp"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:background="@drawable/shadow_right_to_left" />
 
         <TextView
             android:id="@+id/mainTextViewScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:layout_margin="5dp"
             android:maxLines="1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -92,8 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="5dp"
-            android:layout_toLeftOf="@+id/frameLayout"
             android:layout_toStartOf="@+id/frameLayout"
+            android:layout_toLeftOf="@+id/frameLayout"
             android:maxLines="1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -101,7 +107,7 @@
             android:id="@+id/frameLayout"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="#000000" />
 
@@ -123,14 +129,14 @@
         android:id="@+id/linearLayoutMenuBar"
         android:layout_width="?attr/actionBarSize"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:background="#e7e7e7"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="visible"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:visibility="visible">
 
         <FrameLayout
             android:id="@+id/mainButtonScores"
