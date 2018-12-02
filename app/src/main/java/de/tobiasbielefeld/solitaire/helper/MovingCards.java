@@ -34,7 +34,7 @@ import static java.lang.Math.abs;
 
 public class MovingCards {
 
-    private ArrayList<Card> currentCards = new ArrayList<>();                                       //array list containing the current cards to move
+    private ArrayList<Card> currentCards = new ArrayList<>(); //array list containing the current cards to move
     private float offsetX, offsetY;
     private boolean moveStarted;
 

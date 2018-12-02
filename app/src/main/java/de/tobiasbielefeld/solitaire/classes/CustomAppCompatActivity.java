@@ -18,14 +18,10 @@
 
 package de.tobiasbielefeld.solitaire.classes;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.WindowManager;
 
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
@@ -109,8 +105,7 @@ public class CustomAppCompatActivity extends AppCompatActivity {
         if (prefs.getSavedHideStatusBar()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
-        else {
+        } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
     }

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.annotation.LayoutRes;
@@ -21,9 +20,7 @@ import android.view.WindowManager;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
-import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
-import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * A {@link android.preference.PreferenceActivity} which implements and proxies the necessary calls
@@ -32,7 +29,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
  * This is auto generated with the "Create settings activity" tool from Android Studio.
  */
 
-public abstract class AppCompatPreferenceActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public abstract class AppCompatPreferenceActivity extends PreferenceActivity
+        implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private AppCompatDelegate mDelegate;
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
@@ -85,7 +83,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity imp
         getDelegate().addContentView(view, params);
     }
 
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
 
         prefs.registerListener(this);
@@ -95,6 +93,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity imp
         activityCounter++;
         backgroundSound.doInBackground(this);
     }
+
     @Override
     protected void onPostResume() {
         super.onPostResume();
@@ -113,7 +112,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity imp
         getDelegate().onConfigurationChanged(newConfig);
     }
 
-    protected void onPause(){
+    protected void onPause() {
         super.onPause();
 
         prefs.unregisterListener(this);
@@ -121,6 +120,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity imp
         activityCounter--;
         handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -173,7 +173,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity imp
     protected void restartApplication() {
         Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
 
-        if (i!=null) {
+        if (i != null) {
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             finish();

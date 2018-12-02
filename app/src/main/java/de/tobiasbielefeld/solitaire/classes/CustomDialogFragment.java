@@ -9,8 +9,7 @@ import android.view.WindowManager;
 
 import de.tobiasbielefeld.solitaire.SharedData;
 
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Little custom dialog fragment for the in game dialogs. I added a fullscreen mode, but the dialogs
@@ -37,7 +36,7 @@ public class CustomDialogFragment extends DialogFragment {
         }
     }
 
-    protected AlertDialog applyFlags(AlertDialog dialog){
+    protected AlertDialog applyFlags(AlertDialog dialog) {
         if (prefs.getSavedImmersiveMode()) {
             Window window = dialog.getWindow();
 

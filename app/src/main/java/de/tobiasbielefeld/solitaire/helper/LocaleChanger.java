@@ -30,8 +30,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import de.tobiasbielefeld.solitaire.SharedData;
-
 /**
  * Update locale in the activities,
  * created with this guide: http://gunhansancar.com/change-language-programmatically-in-android/
@@ -51,7 +49,8 @@ public class LocaleChanger {
     public static String getLanguage(Context context) {
         PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getString("pref_key_language", Locale.getDefault().getLanguage());       //I can't use my static variable for the string, because it isn't initialized here yet
+        return preferences.getString("pref_key_language", Locale.getDefault().getLanguage());
+        //I can't use my static variable for the string because it isn't initialized here yet
     }
 
     public static Context setLocale(Context context) {
@@ -80,9 +79,9 @@ public class LocaleChanger {
         if (language.equals("default")) {
             locale = defaultLocale;
         } else {
-            if (localeList.size()==2) {
+            if (localeList.size() == 2) {
                 locale = new Locale(localeList.get(0), localeList.get(1));
-            } else{
+            } else {
                 locale = new Locale(localeList.get(0));
             }
 
@@ -111,9 +110,9 @@ public class LocaleChanger {
         if (language.equals("default")) {
             locale = defaultLocale;
         } else {
-            if (localeList.size()==2) {
+            if (localeList.size() == 2) {
                 locale = new Locale(localeList.get(0), localeList.get(1));
-            } else{
+            } else {
                 locale = new Locale(localeList.get(0));
             }
 

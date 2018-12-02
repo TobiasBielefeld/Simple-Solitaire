@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -34,13 +33,13 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Scores {
 
-    public final static int MAX_SAVED_SCORES = 10;                                                  //set how many scores will be saved and shown
+    public final static int MAX_SAVED_SCORES = 10;                      //set how many scores will be saved and shown
 
-    private long score;                                                                             //the current score
+    private long score;                                                 //the current score
     private long preBonus;
     private long bonus;
-    private long savedHighScores[][] = new long[MAX_SAVED_SCORES][3];                               //array to hold the saved scores with score and time
-    private long savedRecentScores[][] = new long[MAX_SAVED_SCORES][3];                                   //array to hold the saved scores with score and time
+    private long savedHighScores[][] = new long[MAX_SAVED_SCORES][3];   //array to hold the saved scores with score and time
+    private long savedRecentScores[][] = new long[MAX_SAVED_SCORES][3]; //array to hold the saved scores with score and time
     private GameManager gm;
     private UpdateScore callback;
 
@@ -154,11 +153,11 @@ public class Scores {
      * Adds a bonus to the score, used after a game has been won
      */
     public void updateBonus() {
-        long currentTime =  timer.getCurrentTime();                                          //in seconds
+        long currentTime = timer.getCurrentTime(); //in seconds
         preBonus = score;
 
-        if (currentGame.isBonusEnabled() && currentTime>0 && score>0) {
-            bonus = 20 * (score/currentTime);
+        if (currentGame.isBonusEnabled() && currentTime > 0 && score > 0) {
+            bonus = 20 * (score / currentTime);
             //bonus = max((int) (2 * score - (5 * timer.getCurrentTime() / 1000)), 0);
             update(bonus);
         } else {
@@ -175,7 +174,7 @@ public class Scores {
      * and moved in direction of the highest score until it is in the correct position
      */
     public void addNewHighScore(long newScore, long timeTaken) {
-        if (!currentGame.processScore(newScore) || newScore <= 0){
+        if (!currentGame.processScore(newScore) || newScore <= 0) {
             return;
         }
 
@@ -186,14 +185,14 @@ public class Scores {
         //The new score is larger than the saved one OR
         //the new score is the same as the saved one BUT the time taken for the game is less than or equals the saved one OR
         //The saved score equals zero (so it is empty, nothing saved yet)
-        if (newScore > savedHighScores[index][0] || savedHighScores[index][0] == 0 ||
-                (newScore == savedHighScores[index][0] && timeTaken <= savedHighScores[index][1])) {
+        if (newScore > savedHighScores[index][0]
+                || newScore == savedHighScores[index][0] && timeTaken <= savedHighScores[index][1]) {
             savedHighScores[index] = new long[]{newScore, timeTaken, systemTime};
 
-            while (index > 0 && (savedHighScores[index - 1][0] == 0                                     //while the index is greater than 0 and the score before the index is empty
-                    || savedHighScores[index - 1][0] < savedHighScores[index][0]                            //or the score at index is less than the score before it
-                    || (savedHighScores[index - 1][0] == savedHighScores[index][0]                          //or the scores are the same...
-                    && savedHighScores[index - 1][1] >= savedHighScores[index][1]))) {                      //but the time is less
+            while (index > 0 && (savedHighScores[index - 1][0] == 0                    //while the index is greater than 0 and the score before the index is empty
+                    || savedHighScores[index - 1][0] < savedHighScores[index][0]       //or the score at index is less than the score before it
+                    || (savedHighScores[index - 1][0] == savedHighScores[index][0]     //or the scores are the same...
+                    && savedHighScores[index - 1][1] >= savedHighScores[index][1]))) { //but the time is less
                 long dummy[] = savedHighScores[index];
                 savedHighScores[index] = savedHighScores[index - 1];
                 savedHighScores[index - 1] = dummy;
@@ -237,7 +236,7 @@ public class Scores {
      */
     public void addNewScore(boolean savesRecentScore) {
         long time = timer.getCurrentTime();
-        addNewHighScore(score,time);
+        addNewHighScore(score, time);
 
         if (savesRecentScore) {
             addNewRecentScore(score, time);
@@ -312,13 +311,13 @@ public class Scores {
         callback.setText(score, dollar);
     }
 
-    private void setTotalTimePlayed(long time){
+    private void setTotalTimePlayed(long time) {
         long totalTime = prefs.getSavedTotalTimePlayed() + time;
         prefs.saveTotalTimePlayed(totalTime);
     }
 
-    private void setTotalPointsEarned(long score){
-        if (score < 0){
+    private void setTotalPointsEarned(long score) {
+        if (score < 0) {
             return;
         }
 
@@ -326,23 +325,23 @@ public class Scores {
         prefs.saveTotalPointsEarned(totalPoints);
     }
 
-    public long getScore(){
+    public long getScore() {
         return score;
     }
 
-    public long getPreBonus(){
+    public long getPreBonus() {
         return preBonus;
     }
 
-    public long getBonus(){
+    public long getBonus() {
         return bonus;
     }
 
-    public void setCallback(UpdateScore callback){
+    public void setCallback(UpdateScore callback) {
         this.callback = callback;
     }
 
-    public interface UpdateScore{
+    public interface UpdateScore {
         void setText(long score, String dollar);
     }
 

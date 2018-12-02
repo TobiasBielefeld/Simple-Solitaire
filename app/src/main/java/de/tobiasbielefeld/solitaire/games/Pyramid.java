@@ -28,9 +28,7 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Pyramid Solitaire! It has a lot of stacks.
@@ -53,15 +51,15 @@ public class Pyramid extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(32);
 
-        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27);
-        setDiscardStackIDs(29,30);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27);
+        setDiscardStackIDs(29, 30);
         setMainStackIDs(31);
         setDealFromID(30);
 
         //empty so all stacks have no spacing direction
         setDirections();
 
-        setNumberOfRecycles(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
+        setNumberOfRecycles(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES, DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
 
         toggleRecycles(prefs.getSavedPyramidLimitedRecycles());
     }
@@ -98,7 +96,7 @@ public class Pyramid extends Game {
 
         stacks[31].setX(stacks[29].getX() + Card.width + spacing);
         stacks[31].setY(stacks[28].getY());
-        setArrow(stacks[31], LEFT);
+        setArrow(stacks[31]);
 
         stacks[30].setX(stacks[31].getX() + Card.width + spacing);
         stacks[30].setY(stacks[28].getY());
@@ -281,17 +279,16 @@ public class Pyramid extends Game {
             origins.clear();
 
             handlerTestAfterMove.sendDelayed();
-        }
-        else if (prefs.getSavedPyramidAutoMove()) {
+        } else if (prefs.getSavedPyramidAutoMove()) {
             ArrayList<Card> tempCards = new ArrayList<>();
             ArrayList<Stack> origins = new ArrayList<>();
 
-            for (int i=0;i<32;i++){
-                if (i==28){
+            for (int i = 0; i < 32; i++) {
+                if (i == 28) {
                     continue;
                 }
 
-                if (!stacks[i].isEmpty() && stackIsFree(stacks[i]) && stacks[i].getTopCard().getValue()==13){
+                if (!stacks[i].isEmpty() && stackIsFree(stacks[i]) && stacks[i].getTopCard().getValue() == 13) {
                     tempCards.add(stacks[i].getTopCard());
                     origins.add(stacks[i]);
                 }
@@ -317,7 +314,7 @@ public class Pyramid extends Game {
     /*
      * override this in your games to customize behavior
      */
-    protected boolean excludeCardFromMixing(Card card){
+    protected boolean excludeCardFromMixing(Card card) {
         return card.getStack() == stacks[28];
     }
 }

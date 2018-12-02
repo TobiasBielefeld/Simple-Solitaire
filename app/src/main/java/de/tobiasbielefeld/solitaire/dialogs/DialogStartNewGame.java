@@ -20,16 +20,13 @@ package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Little confirmation dialog for starting a new game
@@ -42,15 +39,9 @@ public class DialogStartNewGame extends CustomDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.dialog_start_new_game_title)
                 .setMessage(R.string.dialog_start_new_game_text)
-                .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        gameLogic.newGame();
-                    }
-                })
-                .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
-                    }
+                .setPositiveButton(R.string.game_confirm, (dialog, id) -> gameLogic.newGame())
+                .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
+                    // User cancelled the dialog
                 });
 
         return applyFlags(builder.create());

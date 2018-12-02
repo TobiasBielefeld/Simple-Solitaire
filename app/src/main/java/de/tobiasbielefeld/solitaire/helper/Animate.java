@@ -257,7 +257,7 @@ public class Animate {
     public void moveCardSlow(final Card card, final float pX, final float pY) {
         final CustomImageView view = card.view;
 
-        if (card.isInvisible()){
+        if (card.isInvisible()) {
             return;
         }
 

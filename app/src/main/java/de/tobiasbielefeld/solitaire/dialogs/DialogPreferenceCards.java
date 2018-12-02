@@ -19,9 +19,7 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +29,8 @@ import android.widget.LinearLayout;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * dialog for picking the card front drawable. It uses a custom layout, so I can dynamically update
@@ -57,16 +56,16 @@ public class DialogPreferenceCards extends CustomDialogPreference implements Vie
     protected void onBindDialogView(View view) {
         int row = prefs.getSavedFourColorMode() ? 1 : 0;
 
-        linearLayouts[0] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsBasic);
-        linearLayouts[1] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsClassic);
-        linearLayouts[2] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsAbstract);
-        linearLayouts[3] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsSimple);
-        linearLayouts[4] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsModern);
-        linearLayouts[5] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsOxygenDark);
-        linearLayouts[6] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsOxygenLight);
-        linearLayouts[7] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsPoker);
-        linearLayouts[8] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsParis);
-        linearLayouts[9] = (LinearLayout) view.findViewById(R.id.settingsLinearLayoutCardsDondorf);
+        linearLayouts[0] = view.findViewById(R.id.settingsLinearLayoutCardsBasic);
+        linearLayouts[1] = view.findViewById(R.id.settingsLinearLayoutCardsClassic);
+        linearLayouts[2] = view.findViewById(R.id.settingsLinearLayoutCardsAbstract);
+        linearLayouts[3] = view.findViewById(R.id.settingsLinearLayoutCardsSimple);
+        linearLayouts[4] = view.findViewById(R.id.settingsLinearLayoutCardsModern);
+        linearLayouts[5] = view.findViewById(R.id.settingsLinearLayoutCardsOxygenDark);
+        linearLayouts[6] = view.findViewById(R.id.settingsLinearLayoutCardsOxygenLight);
+        linearLayouts[7] = view.findViewById(R.id.settingsLinearLayoutCardsPoker);
+        linearLayouts[8] = view.findViewById(R.id.settingsLinearLayoutCardsParis);
+        linearLayouts[9] = view.findViewById(R.id.settingsLinearLayoutCardsDondorf);
 
         for (int i = 0; i < NUMBER_OF_CARD_THEMES; i++) {
             linearLayouts[i].setOnClickListener(this);
@@ -126,7 +125,7 @@ public class DialogPreferenceCards extends CustomDialogPreference implements Vie
     protected View onCreateView(ViewGroup parent) {
         View view = super.onCreateView(parent);
 
-        image = (ImageView) view.findViewById(R.id.preference_cards_imageView);
+        image = view.findViewById(R.id.preference_cards_imageView);
         updateSummary();
 
         return view;

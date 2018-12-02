@@ -40,11 +40,11 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class AutoComplete extends HelperCardMovement {
 
-    private final static int START_TIME = 300;                                                  //start velocity of the handler callings
-    private final static int DELTA_TIME = 5;                                                    //will be decreased on every call by this number
-    private final static int MIN_TIME = 50;                                                     //minimum to avoid errors
-    private int currentTime = START_TIME;                                                                    //current velocity of the handler calling
-    private boolean isFinished = false;                                                                 //needed to know when to call the win animation
+    private final static int START_TIME = 300; //start velocity of the handler callings
+    private final static int DELTA_TIME = 5;   //will be decreased on every call by this number
+    private final static int MIN_TIME = 50;    //minimum to avoid errors
+    private int currentTime = START_TIME;      //current velocity of the handler calling
+    private boolean isFinished = false;        //needed to know when to call the win animation
     private int phase = 1;
 
     private boolean buttonShown = false;
@@ -64,8 +64,8 @@ public class AutoComplete extends HelperCardMovement {
 
     @Override
     protected void saveState(Bundle bundle) {
-        bundle.putInt("AUTOCOMPLETE_CURRENT_TIME",currentTime);
-        bundle.putInt("AUTOCOMPLETE_PHASE",phase);
+        bundle.putInt("AUTOCOMPLETE_CURRENT_TIME", currentTime);
+        bundle.putInt("AUTOCOMPLETE_PHASE", phase);
     }
 
     @Override
@@ -86,8 +86,7 @@ public class AutoComplete extends HelperCardMovement {
         if (!withoutMovement) {
             sounds.playSound(Sounds.names.SHOW_AUTOCOMPLETE);
             animate.showAutoCompleteButton();
-        }
-        else {
+        } else {
             gm.buttonAutoComplete.setVisibility(View.VISIBLE);
         }
     }
@@ -102,14 +101,15 @@ public class AutoComplete extends HelperCardMovement {
 
     @Override
     protected void moveCard() {
-        switch (phase){
+        switch (phase) {
             case 1:
                 phase1();
                 break;
             case 2:
                 phase2();
                 break;
-            case 3: default:
+            case 3:
+            default:
                 phase3();
                 break;
         }
@@ -121,8 +121,7 @@ public class AutoComplete extends HelperCardMovement {
         if (cardAndStack == null) {
             phase = 2;
             nextIteration(0);
-        }
-        else {
+        } else {
             ArrayList<Card> cards = new ArrayList<>();
             Stack origin = cardAndStack.getCard().getStack();
 
@@ -146,8 +145,7 @@ public class AutoComplete extends HelperCardMovement {
         if (cardAndStack == null) {
             phase = 3;
             nextIteration(START_TIME);
-        }
-        else {
+        } else {
             Card card = cardAndStack.getCard();
             Stack destination = cardAndStack.getStack();
 
@@ -156,7 +154,7 @@ public class AutoComplete extends HelperCardMovement {
             destination.addCard(card);
             card.bringToFront();
             sounds.playSound(Sounds.names.CARD_SET);
-            card.setLocation(destination.getX(),destination.getY());
+            card.setLocation(destination.getX(), destination.getY());
 
             //start the next handler in some milliseconds
             currentTime = max(currentTime - DELTA_TIME, MIN_TIME);
@@ -164,7 +162,7 @@ public class AutoComplete extends HelperCardMovement {
         }
     }
 
-    public void phase3(){
+    public void phase3() {
         stop();
         gameLogic.testIfWon();
     }

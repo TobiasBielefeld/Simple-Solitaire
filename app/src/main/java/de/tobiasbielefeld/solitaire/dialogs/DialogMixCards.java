@@ -20,10 +20,8 @@ package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
@@ -41,17 +39,11 @@ public class DialogMixCards extends CustomDialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.dialog_mix_cards_title)
-            .setMessage(R.string.dialog_mix_cards_text)
-            .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    currentGame.mixCards();
-                }
-            })
-            .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
+                .setMessage(R.string.dialog_mix_cards_text)
+                .setPositiveButton(R.string.game_confirm, (dialog, id) -> currentGame.mixCards())
+                .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
                     // User cancelled the dialog
-                }
-            });
+                });
 
         return applyFlags(builder.create());
     }

@@ -20,14 +20,13 @@ package de.tobiasbielefeld.solitaire.ui.manual;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.SpannableString;
-import android.text.style.BulletSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import de.tobiasbielefeld.solitaire.R;
+
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
@@ -40,7 +39,7 @@ public class ManualStatistics extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_manual_statistics, container, false);
 
-        TextView textView = (TextView) view.findViewById(R.id.manual_statistics_list);
+        TextView textView = view.findViewById(R.id.manual_statistics_list);
 
         //get the strings for the enumerated text part (with bullet characters)
         CharSequence strings[] = new CharSequence[]{

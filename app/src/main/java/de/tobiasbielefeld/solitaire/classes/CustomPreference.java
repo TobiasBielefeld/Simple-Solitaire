@@ -37,7 +37,7 @@ public class CustomPreference extends Preference {
         View view = super.onCreateView(parent);
 
         //get rid of the stupid single line restriction for the title
-        TextView textView = (TextView) view.findViewById(android.R.id.title);
+        TextView textView = view.findViewById(android.R.id.title);
         if (textView != null) {
             textView.setSingleLine(false);
         }

@@ -32,7 +32,7 @@ import android.content.Context;
  * the onAnimationStart() and onAnimationEnd() methods. I still had the problem that the movement
  * produces flickering. This was solved by setting animation.setFillEnabled(true) before starting
  * the animation
- *
+ * <p>
  * There is also another problem: In very rare cases, where card is moved to multiple locations
  * (first to stack x, then to stack y, then...) in a single loop, the location of the image view
  * isn't updated properly. My solution is to do the calculation part first and THEN move the image views.
@@ -56,7 +56,7 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
     public CustomImageView(Context context, OnTouchListener listener, Object object, int ID) {
         super(context);
 
-        if (listener != null){
+        if (listener != null) {
             setOnTouchListener(listener);
         }
 

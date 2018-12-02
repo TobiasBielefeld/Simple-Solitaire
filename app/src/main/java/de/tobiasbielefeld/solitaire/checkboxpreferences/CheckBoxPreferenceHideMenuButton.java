@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.checkboxpreferences;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.preference.CheckBoxPreference;
 import android.util.AttributeSet;
 
 import de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference;
@@ -58,7 +57,7 @@ public class CheckBoxPreferenceHideMenuButton extends CustomCheckBoxPreference {
         setChecked(value);
     }
 
-    public void update(){
+    public void update() {
         setChecked(prefs.getHideMenuButton());
     }
 }

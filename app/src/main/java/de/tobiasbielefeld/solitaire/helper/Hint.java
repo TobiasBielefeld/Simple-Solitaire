@@ -38,15 +38,15 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * as a hint
  */
 
-public class Hint extends HelperCardMovement{
+public class Hint extends HelperCardMovement {
 
-    private static final int MAX_NUMBER_OF_HINTS = 3;                                               //max number of hints which are shown when pressing the button
+    private static final int MAX_NUMBER_OF_HINTS = 3;                       //max number of hints which are shown when pressing the button
 
-    private int counter = 0;                                                                        //counter to know how many hints were shown
+    private int counter = 0;                                                //counter to know how many hints were shown
     private boolean showedFirstHint = false;
-    private ArrayList<Card> visited = new ArrayList<>(MAX_NUMBER_OF_HINTS);                         //array for already shown cards in hint
+    private ArrayList<Card> visited = new ArrayList<>(MAX_NUMBER_OF_HINTS); //array for already shown cards in hint
 
-    public Hint(GameManager gm){
+    public Hint(GameManager gm) {
         super(gm, "HINT");
     }
 
@@ -61,11 +61,11 @@ public class Hint extends HelperCardMovement{
 
     @Override
     protected void saveState(Bundle bundle) {
-        bundle.putInt("BUNDLE_HINT_COUNTER",counter);
+        bundle.putInt("BUNDLE_HINT_COUNTER", counter);
 
         ArrayList<Integer> list = new ArrayList<>(visited.size());
 
-        for (Card card: visited){
+        for (Card card : visited) {
             list.add(card.getId());
         }
 
@@ -116,18 +116,17 @@ public class Hint extends HelperCardMovement{
         return counter >= Hint.MAX_NUMBER_OF_HINTS;
     }
 
-    protected void moveCard(){
+    protected void moveCard() {
 
         CardAndStack cardAndStack = currentGame.hintTest(visited);
 
         if (cardAndStack == null) {
-            if (!showedFirstHint){
-                showToast(gm.getString(R.string.dialog_no_hint_available),gm);
+            if (!showedFirstHint) {
+                showToast(gm.getString(R.string.dialog_no_hint_available), gm);
             }
 
             stop();
-        }
-        else {
+        } else {
             if (!showedFirstHint) {
                 sounds.playSound(Sounds.names.HINT);
                 showedFirstHint = true;
@@ -141,6 +140,4 @@ public class Hint extends HelperCardMovement{
             nextIteration();
         }
     }
-
-
 }

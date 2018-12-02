@@ -40,23 +40,23 @@ public class LicenseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about_tab2, container, false);
 
-        TextView textMaterialIconsLicense = (TextView) view.findViewById(R.id.about_license_material_icons);
-        TextView textMaterialIconsLicense2 = (TextView) view.findViewById(R.id.about_license_material_icons_2);
-        TextView textMaterialIconsUsage2 = (TextView) view.findViewById(R.id.about_license_material_icons_2_usage);
-        TextView textCardThemesLicense = (TextView) view.findViewById(R.id.about_license_cards_theme);
-        TextView textCardThemesLicenseUsage = (TextView) view.findViewById(R.id.about_license_card_themes_usage);
-        TextView textPokerLicense = (TextView) view.findViewById(R.id.about_license_poker_theme);
-        TextView textPokerLicenseUsage = (TextView) view.findViewById(R.id.about_license_poker_theme_usage);
-        TextView textParisLicenseUsage = (TextView) view.findViewById(R.id.about_license_paris_theme_usage);
-        TextView textCustomColorPickerLicense = (TextView) view.findViewById(R.id.about_license_custom_color_picker);
-        TextView textSoundsLicense = (TextView) view.findViewById(R.id.about_license_sounds);
-        TextView textSoundsLicenseUsage = (TextView) view.findViewById(R.id.about_license_sounds_usage);
-        TextView textSlidingTabsLicense = (TextView) view.findViewById(R.id.about_license_sliding_tabs);
-        TextView textAndroidSupportLicense = (TextView) view.findViewById(R.id.about_license_android_support_libraries);
+        TextView textMaterialIconsLicense = view.findViewById(R.id.about_license_material_icons);
+        TextView textMaterialIconsLicense2 = view.findViewById(R.id.about_license_material_icons_2);
+        TextView textMaterialIconsUsage2 = view.findViewById(R.id.about_license_material_icons_2_usage);
+        TextView textCardThemesLicense = view.findViewById(R.id.about_license_cards_theme);
+        TextView textCardThemesLicenseUsage = view.findViewById(R.id.about_license_card_themes_usage);
+        TextView textPokerLicense = view.findViewById(R.id.about_license_poker_theme);
+        TextView textPokerLicenseUsage = view.findViewById(R.id.about_license_poker_theme_usage);
+        TextView textParisLicenseUsage = view.findViewById(R.id.about_license_paris_theme_usage);
+        TextView textCustomColorPickerLicense = view.findViewById(R.id.about_license_custom_color_picker);
+        TextView textSoundsLicense = view.findViewById(R.id.about_license_sounds);
+        TextView textSoundsLicenseUsage = view.findViewById(R.id.about_license_sounds_usage);
+        TextView textSlidingTabsLicense = view.findViewById(R.id.about_license_sliding_tabs);
+        TextView textAndroidSupportLicense = view.findViewById(R.id.about_license_android_support_libraries);
 
         TextView[] textViews = new TextView[]{textMaterialIconsLicense, textMaterialIconsLicense2, textMaterialIconsUsage2,
                 textCardThemesLicense, textCardThemesLicenseUsage, textPokerLicense, textPokerLicenseUsage,
-                textCustomColorPickerLicense,textSoundsLicense,textSoundsLicenseUsage,
+                textCustomColorPickerLicense, textSoundsLicense, textSoundsLicenseUsage,
                 textSlidingTabsLicense, textAndroidSupportLicense, textParisLicenseUsage};
 
         //explicitly set the strings here, otherwise the links in them wouldn't show properly
@@ -66,7 +66,7 @@ public class LicenseFragment extends Fragment {
         textSoundsLicenseUsage.setText(Html.fromHtml(getString(R.string.about_sounds_usage)));
         textMaterialIconsUsage2.setText(Html.fromHtml(getString(R.string.about_material_icons_2_usage)));
 
-        for (TextView textView : textViews){
+        for (TextView textView : textViews) {
             textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
 

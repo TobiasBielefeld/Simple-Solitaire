@@ -39,8 +39,8 @@ public class Calculation extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(10);
 
-        setTableauStackIDs(0,1,2,3);
-        setFoundationStackIDs(4,5,6,7);
+        setTableauStackIDs(0, 1, 2, 3);
+        setFoundationStackIDs(4, 5, 6, 7);
         setDiscardStackIDs(8);
         setMainStackIDs(9);
 
@@ -54,18 +54,18 @@ public class Calculation extends Game {
 
         int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
 
-        int startPosX = (int) (layoutGame.getWidth()  - 6.5 * Card.width - 4 * spacing)/2;
+        int startPosX = (int) (layoutGame.getWidth() - 6.5 * Card.width - 4 * spacing) / 2;
         int startPosY = isLandscape ? Card.height / 4 : Card.height / 2;
 
         //foundation stacks
         for (int i = 0; i < 4; i++) {
-            stacks[4+i].setX(startPosX  + i * (spacing + Card.width));
-            stacks[4+i].setY(startPosY);
+            stacks[4 + i].setX(startPosX + i * (spacing + Card.width));
+            stacks[4 + i].setY(startPosY);
         }
 
         //tableau stacks
         for (int i = 0; i < 4; i++) {
-            stacks[i].setX(startPosX  + i * (spacing + Card.width));
+            stacks[i].setX(startPosX + i * (spacing + Card.width));
             stacks[i].setY(startPosY + Card.height + (isLandscape ? Card.height / 8 : Card.height / 4) + 1);
         }
 
@@ -86,14 +86,14 @@ public class Calculation extends Game {
 
         addTextViews(4, Card.width, layoutGame, context);
 
-        for (int i=0;i<4;i++){
-            textViewPutAboveStack(i, stacks[4+i]);
+        for (int i = 0; i < 4; i++) {
+            textViewPutAboveStack(i, stacks[4 + i]);
         }
     }
 
     public boolean winTest() {
         for (int i = 0; i < 4; i++) {
-            if (stacks[4+i].currentCards.size()!=13){
+            if (stacks[4 + i].currentCards.size() != 13) {
                 return false;
             }
         }
@@ -107,10 +107,10 @@ public class Calculation extends Game {
 
         //deal cards to foundation: search an ace for the first stack, a two for the second and so on
         for (int i = 0; i < 4; i++) {
-            for (Card card : getMainStack().currentCards){
-                if (card.getValue()==(i+1)){
-                    moveToStack(card, stacks[4+i], OPTION_NO_RECORD);
-                    stacks[4+i].getCard(0).flipUp();
+            for (Card card : getMainStack().currentCards) {
+                if (card.getValue() == (i + 1)) {
+                    moveToStack(card, stacks[4 + i], OPTION_NO_RECORD);
+                    stacks[4 + i].getCard(0).flipUp();
                     break;
                 }
             }
@@ -135,18 +135,21 @@ public class Calculation extends Game {
                 getDiscardStack().getTopCard().flipUp();
                 return 1;
             } else {
-                return 0;                                                                           //no moving cards back to main stack
-                /*ArrayList<Card> cardsReversed = new ArrayList<>();
+                return 0; //no moving cards back to main stack
+/*
+                ArrayList<Card> cardsReversed;
                 for (int i = 0; i < getDiscardStack().currentCards.size(); i++) {
-                    cardsReversed.add(getDiscardStack().currentCards.getHighScore(getDiscardStack().currentCards.size() - 1 - i));
+                    cardsReversed.add(getDiscardStack().currentCards.getHighScore(
+                            getDiscardStack().currentCards.size() - 1 - i));
                 }
 
                 moveToStack(cardsReversed, getMainStack(), OPTION_REVERSED_RECORD);
-                return 2;*/
+                return 2;
+*/
             }
         }
 
-        if (getMainStack().getSize()==0 || getDiscardStack().getSize()==0){
+        if (getMainStack().getSize() == 0 || getDiscardStack().getSize() == 0) {
             return 0;
         }
 
@@ -159,9 +162,9 @@ public class Calculation extends Game {
         }
 
         //then a new card to discard stack
-        moveToStack(getDiscardStack().getTopCard(),stacks[stackID]);
+        moveToStack(getDiscardStack().getTopCard(), stacks[stackID]);
         recordList.addToLastEntry(getMainStack().getTopCard(), getMainStack());
-        moveToStack(getMainStack().getTopCard(),stacks[8], OPTION_NO_RECORD);
+        moveToStack(getMainStack().getTopCard(), stacks[8], OPTION_NO_RECORD);
 
         return 1;
     }
@@ -169,28 +172,26 @@ public class Calculation extends Game {
     public boolean cardTest(Stack stack, Card card) {
         if (stack.getId() < 4) {
             return card.getStack() == getDiscardStack();
-        } else if (stack.getId() <8 && stack.getTopCard().getValue()!=13) {
-            int requestedDistance = stack.getId()-3;
+        } else if (stack.getId() < 8 && stack.getTopCard().getValue() != 13) {
+            int requestedDistance = stack.getId() - 3;
             int stackCardValue = stack.getTopCard().getValue();
             int cardToMoveValue = card.getValue() < stackCardValue ? 13 + card.getValue() : card.getValue();
 
-            if (cardToMoveValue - stackCardValue == requestedDistance){
-                return true;
-            }
+            return cardToMoveValue - stackCardValue == requestedDistance;
         }
 
         return false;
     }
 
     public boolean addCardToMovementGameTest(Card card) {
-        return card.getStackId()<4 && card.isTopCard() || card.getStack()==getDiscardStack();
+        return card.getStackId() < 4 && card.isTopCard() || card.getStack() == getDiscardStack();
     }
 
     @Override
     public void testAfterMove() {
-        if (getDiscardStack().isEmpty() && !getMainStack().isEmpty()){
+        if (getDiscardStack().isEmpty() && !getMainStack().isEmpty()) {
             recordList.addToLastEntry(getMainStack().getTopCard(), getMainStack());
-            moveToStack(getMainStack().getTopCard(),stacks[8], OPTION_NO_RECORD);
+            moveToStack(getMainStack().getTopCard(), stacks[8], OPTION_NO_RECORD);
         }
 
         setTexts();
@@ -211,18 +212,18 @@ public class Calculation extends Game {
             Card cardToTest = stacks[j].getTopCard();
 
             for (int i = 0; i < 4; i++) {
-                if (cardTest(stacks[4+i],cardToTest)) {
-                    return new CardAndStack(cardToTest, stacks[4+i]);
+                if (cardTest(stacks[4 + i], cardToTest)) {
+                    return new CardAndStack(cardToTest, stacks[4 + i]);
                 }
             }
         }
 
-        if (!getDiscardStack().isEmpty() && !visited.contains(getDiscardStack().getTopCard())){
+        if (!getDiscardStack().isEmpty() && !visited.contains(getDiscardStack().getTopCard())) {
             Card cardToTest = getDiscardStack().getTopCard();
 
             for (int i = 0; i < 4; i++) {
-                if (cardTest(stacks[4+i],cardToTest)) {
-                    return new CardAndStack(cardToTest, stacks[4+i]);
+                if (cardTest(stacks[4 + i], cardToTest)) {
+                    return new CardAndStack(cardToTest, stacks[4 + i]);
                 }
             }
         }
@@ -235,13 +236,13 @@ public class Calculation extends Game {
         for (int j = 0; j < 4; j++) {
 
             for (int i = 0; i < 4; i++) {
-                if (cardTest(stacks[4+i],card)) {
-                    return stacks[4+i];
+                if (cardTest(stacks[4 + i], card)) {
+                    return stacks[4 + i];
                 }
             }
         }
 
-        if (card.getStack()==getDiscardStack()){
+        if (card.getStack() == getDiscardStack()) {
             //tableau stack with the fewest cards
             int stackID = 0;
             for (int i = 1; i < 4; i++) {
@@ -256,21 +257,22 @@ public class Calculation extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs,
+                                boolean isUndoMovement) {
         int destinationID = destinationIDs[0];
 
         //cards can't be moved away from the foundation, so don't need to check originID
-        if (destinationID >=4 && destinationID <8) {                                                //anywhere to foundation
+        if (destinationID >= 4 && destinationID < 8) {          //anywhere to foundation
             return 50;
         }
 
         return 0;
     }
 
-    private void setTexts(){
+    private void setTexts() {
 
-        for (int i = 0;i <4; i++) {
-            if (stacks[4 + i].isEmpty()){
+        for (int i = 0; i < 4; i++) {
+            if (stacks[4 + i].isEmpty()) {
                 continue;
             }
 
@@ -279,9 +281,9 @@ public class Calculation extends Game {
             String text;
 
             if (topCardValue == 13) {
-                value = -1;                                                                         //signalise that the stack is full
+                value = -1;                          //signalise that the stack is full
             } else {
-                value = (topCardValue + i+1) % 13;                                                  //getHighScore the value of the next playable card
+                value = (topCardValue + i + 1) % 13; //getHighScore the value of the next playable card
             }
 
             switch (value) {
@@ -294,7 +296,7 @@ public class Calculation extends Game {
                 case 12:
                     text = "Q";
                     break;
-                case 0:                                                                             //because it is mod 13
+                case 0:                             //because it is mod 13
                     text = "K";
                     break;
                 case -1:

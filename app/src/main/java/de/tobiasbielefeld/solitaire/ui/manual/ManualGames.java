@@ -60,27 +60,27 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
         mCallback.setGamePageShown(false);
 
-        layout1 = (ScrollView) view.findViewById(R.id.manual_games_layout_selection);
-        scrollView = (ScrollView) view.findViewById(R.id.manual_games_scrollView);
-        textName = (TextView) view.findViewById(R.id.manual_games_name);
-        textStructure = (TextView) view.findViewById(R.id.manual_games_structure);
-        textObjective = (TextView) view.findViewById(R.id.manual_games_objective);
-        textRules = (TextView) view.findViewById(R.id.manual_games_rules);
-        textScoring = (TextView) view.findViewById(R.id.manual_games_scoring);
-        textBonus = (TextView) view.findViewById(R.id.manual_games_bonus);
+        layout1 = view.findViewById(R.id.manual_games_layout_selection);
+        scrollView = view.findViewById(R.id.manual_games_scrollView);
+        textName = view.findViewById(R.id.manual_games_name);
+        textStructure = view.findViewById(R.id.manual_games_structure);
+        textObjective = view.findViewById(R.id.manual_games_objective);
+        textRules = view.findViewById(R.id.manual_games_rules);
+        textScoring = view.findViewById(R.id.manual_games_scoring);
+        textBonus = view.findViewById(R.id.manual_games_bonus);
 
         layout1.setVisibility(View.VISIBLE);
         scrollView.setVisibility(View.GONE);
 
         //if the manual is called from the in game menu, show the corresponding game rule page
-        if (getArguments()!=null && getArguments().containsKey(GAME)){
+        if (getArguments() != null && getArguments().containsKey(GAME)) {
             loadGameText(getArguments().getString(GAME));
         }
 
         //load the table
         String[] gameList = lg.getDefaultGameNameList(getResources());
         TableRow row = new TableRow(getContext());
-        TableLayout tableLayout = (TableLayout) view.findViewById(R.id.manual_games_container);
+        TableLayout tableLayout = view.findViewById(R.id.manual_games_container);
         TypedValue typedValue = new TypedValue();
         getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
 
@@ -136,7 +136,7 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         //get index of the button as seen from the container
         TableRow row = (TableRow) v.getParent();
         TableLayout table = (TableLayout) row.getParent();
-        int index = table.indexOfChild(row)*COLUMNS + row.indexOfChild(v);
+        int index = table.indexOfChild(row) * COLUMNS + row.indexOfChild(v);
 
         loadGameText(index);
     }
@@ -166,11 +166,11 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         } catch (Exception e) {
             //no page available
             Log.e("Manual page not found", gameName + ": " + e.toString());
-            showToast(getString(R.string.page_load_error),getContext());
+            showToast(getString(R.string.page_load_error), getContext());
         }
     }
 
-    public interface GamePageShown{
+    public interface GamePageShown {
         void setGamePageShown(boolean value);
     }
 

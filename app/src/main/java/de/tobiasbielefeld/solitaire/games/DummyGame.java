@@ -26,15 +26,11 @@ import java.util.ArrayList;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.classes.Stack.ArrowDirection.LEFT;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.ALTERNATING_COLOR;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.ASCENDING;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 
 /**
  * Dummy Game, so you can see what to do if you want to add more games
@@ -119,7 +115,7 @@ public class DummyGame extends Game {
 
         //sets an arrow as the background of a stack, use the constants LEFT and RIGHT for the direction.
         //it will automatically flip the direction, if left handed mode is enabled
-        setArrow(stacks[1], LEFT);
+        setArrow(stacks[1]);
 
         //if your game needs to have limited recycles, so after a few tries of moving the cards from
         //the discard stack back to the main stack, it won't be possible anymore, use this method
@@ -363,12 +359,12 @@ public class DummyGame extends Game {
     }
 
     /*
-    * test when to show the auto complete button.
-    * return true if it can be shown, false otherwise.
-    * It's called on every card movement
-    *
-    * don't override it, if there is no auto complete
-    */
+     * test when to show the auto complete button.
+     * return true if it can be shown, false otherwise.
+     * It's called on every card movement
+     *
+     * don't override it, if there is no auto complete
+     */
     public boolean autoCompleteStartTest() {
         //Example from Klondike: If every card is faced up, return true. Return false otherwiese
         for (int i = 0; i < 7; i++)
@@ -533,7 +529,7 @@ public class DummyGame extends Game {
 
 
     //called after undo movement
-    public void afterUndo(){
+    public void afterUndo() {
         //check stuff here
     }
 
@@ -556,7 +552,7 @@ public class DummyGame extends Game {
             return false;
         }
 
-        if (foundationStacksContain(stack.getId())){
+        if (foundationStacksContain(stack.getId())) {
             return true;
         }
 

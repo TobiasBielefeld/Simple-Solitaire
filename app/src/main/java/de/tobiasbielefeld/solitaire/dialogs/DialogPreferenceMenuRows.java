@@ -19,7 +19,6 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Spinner;
@@ -45,11 +44,11 @@ public class DialogPreferenceMenuRows extends CustomDialogPreference {
 
     @Override
     protected void onBindDialogView(View view) {
-        spinnerPortrait = (Spinner) view.findViewById(R.id.dialogSettingsMenuColumnsPortrait);
-        spinnerLandscape = (Spinner) view.findViewById(R.id.dialogSettingsMenuColumnsLandscape);
+        spinnerPortrait = view.findViewById(R.id.dialogSettingsMenuColumnsPortrait);
+        spinnerLandscape = view.findViewById(R.id.dialogSettingsMenuColumnsLandscape);
 
         //minus 1 because the values are 1 to 10, indexes are from 0 to 9
-        spinnerPortrait.setSelection(prefs.getSavedMenuColumnsPortrait()-1);
+        spinnerPortrait.setSelection(prefs.getSavedMenuColumnsPortrait() - 1);
         spinnerLandscape.setSelection(prefs.getSavedMenuColumnsLandscape() - 1);
 
         super.onBindDialogView(view);

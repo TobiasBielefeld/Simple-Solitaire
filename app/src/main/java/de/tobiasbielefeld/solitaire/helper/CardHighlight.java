@@ -23,7 +23,6 @@ import android.widget.RelativeLayout;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static android.view.View.GONE;
@@ -34,7 +33,6 @@ import static android.view.View.GONE;
  */
 
 public class CardHighlight {
-
 
     int padding, width, height;
     private boolean moveStarted;

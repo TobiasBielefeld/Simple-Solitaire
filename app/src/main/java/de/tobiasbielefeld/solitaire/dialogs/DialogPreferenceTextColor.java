@@ -21,13 +21,11 @@ package de.tobiasbielefeld.solitaire.dialogs;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 
 import java.util.ArrayList;
 
@@ -35,7 +33,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * Dialog for changing the background color. It uses a custom layout, so I can dynamically update
@@ -70,8 +68,8 @@ public class DialogPreferenceTextColor extends CustomDialogPreference implements
         colorValue = prefs.getSavedTextColor();
 
         linearLayouts = new ArrayList<>();
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorBlack));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorWhite));
+        linearLayouts.add(view.findViewById(R.id.dialogBackgroundColorBlack));
+        linearLayouts.add(view.findViewById(R.id.dialogBackgroundColorWhite));
 
 
         for (LinearLayout linearLayout : linearLayouts) {
@@ -104,8 +102,9 @@ public class DialogPreferenceTextColor extends CustomDialogPreference implements
         } else {
             int selectedColor = linearLayouts.indexOf(view) + 1;
 
-            switch (selectedColor){
-                case 1:default:
+            switch (selectedColor) {
+                case 1:
+                default:
                     colorValue = colorBlack;
                     break;
                 case 2:
@@ -134,7 +133,7 @@ public class DialogPreferenceTextColor extends CustomDialogPreference implements
     protected View onCreateView(ViewGroup parent) {
         View view = super.onCreateView(parent);
 
-        image = (ImageView) view.findViewById(R.id.widget_layout_color_imageView);
+        image = view.findViewById(R.id.widget_layout_color_imageView);
         updateSummary();
 
         return view;
@@ -149,7 +148,7 @@ public class DialogPreferenceTextColor extends CustomDialogPreference implements
         //this forces redrawing of the color preview
         setSummary("");
 
-        switch (color){
+        switch (color) {
             case colorBlack:
                 setSummary(getContext().getString(R.string.black));
                 break;

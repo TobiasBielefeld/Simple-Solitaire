@@ -31,7 +31,6 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -47,13 +46,13 @@ public class Golf extends Game {
     static int MAX_SAVED_RUN_RECORDS;
 
     int runCounter = 0; //to count how many cards are moved in one "run"
-    ArrayList<Integer> savedRunRecords = new ArrayList<>();                                         //need to save the scores of recorded movements, because the class RecordList can't do that
+    ArrayList<Integer> savedRunRecords = new ArrayList<>(); //need to save the scores of recorded movements, because the class RecordList can't do that
 
     public Golf() {
         setNumberOfDecks(1);
         setNumberOfStacks(9);
 
-        setTableauStackIDs(0,1,2,3,4,5,6);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6);
         setDiscardStackIDs(7);
         setMainStackIDs(8);
 
@@ -169,9 +168,9 @@ public class Golf extends Game {
 
                 savedRunRecords.add(runCounter * 50);
                 points += runCounter * 50;
-            } else if (savedRunRecords.size()>0){
-                points += savedRunRecords.get(savedRunRecords.size() - 1);                            //getHighScore last entry
-                savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
+            } else if (savedRunRecords.size() > 0) {
+                points += savedRunRecords.get(savedRunRecords.size() - 1);    //getHighScore last entry
+                savedRunRecords.remove(savedRunRecords.size() - 1);    //and remove it
 
                 if (runCounter > 0) {
                     runCounter--;
@@ -212,7 +211,7 @@ public class Golf extends Game {
     }
 
     @Override
-    protected boolean excludeCardFromMixing(Card card){
+    protected boolean excludeCardFromMixing(Card card) {
         return false;
     }
 }

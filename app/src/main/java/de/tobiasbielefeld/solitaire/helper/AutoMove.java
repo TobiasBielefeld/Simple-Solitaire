@@ -26,11 +26,7 @@ import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.SharedData.showToast;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * if the last card on the tableau is flipped up, the auto complete can be run. it simply test
@@ -45,12 +41,12 @@ public class AutoMove extends HelperCardMovement {
     private boolean movedFirstCard = false;
     private boolean mainStackAlreadyFlipped = false;
 
-    public AutoMove(GameManager gm){
-        super(gm,"AUTO_MOVE");
+    public AutoMove(GameManager gm) {
+        super(gm, "AUTO_MOVE");
     }
 
     @Override
-    public void start(){
+    public void start() {
         movedFirstCard = false;
         testAfterMove = false;
         mainStackAlreadyFlipped = false;
@@ -78,8 +74,7 @@ public class AutoMove extends HelperCardMovement {
             currentGame.testAfterMove();
             testAfterMove = false;
             nextIteration();
-        }
-        else {
+        } else {
             CardAndStack cardAndStack = currentGame.hintTest();
 
             if (cardAndStack != null) {
@@ -89,8 +84,8 @@ public class AutoMove extends HelperCardMovement {
 
                 //needed because in Pyramid, I save in cardTest() if cards need to move to the waste stack
                 //TODO manage this in another way
-                if (currentGame instanceof Pyramid){
-                    currentGame.cardTest(cardAndStack.getStack(),cardAndStack.getCard());
+                if (currentGame instanceof Pyramid) {
+                    currentGame.cardTest(cardAndStack.getStack(), cardAndStack.getCard());
                 }
 
                 movingCards.add(cardAndStack.getCard(), 0, 0);
@@ -98,9 +93,8 @@ public class AutoMove extends HelperCardMovement {
 
                 testAfterMove = true;
                 nextIteration();
-            }
-            else if (prefs.getImproveAutoMove() && currentGame.hasMainStack()) {
-                switch (currentGame.mainStackTouch()){
+            } else if (prefs.getImproveAutoMove() && currentGame.hasMainStack()) {
+                switch (currentGame.mainStackTouch()) {
                     case 0:
                         stop();
                     case 1:
@@ -117,10 +111,9 @@ public class AutoMove extends HelperCardMovement {
                         }
                         break;
                 }
-            }
-            else {
+            } else {
                 if (!movedFirstCard) {
-                    showToast(gm.getString(R.string.dialog_no_movement_possible),gm);
+                    showToast(gm.getString(R.string.dialog_no_movement_possible), gm);
                 }
 
                 stop();

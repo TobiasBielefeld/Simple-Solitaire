@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.ui.statistics;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,14 +34,13 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Shows the recent scores of the current game
  */
 
-public class RecentScoresFragment extends Fragment{
+public class RecentScoresFragment extends Fragment {
 
     private String dollar;
 
@@ -63,28 +61,29 @@ public class RecentScoresFragment extends Fragment{
             return view;
         }
 
-        TableLayout tableLayout = (TableLayout) view.findViewById(R.id.statisticsTableHighScores);
-        TextView textNoEntries = (TextView) view.findViewById(R.id.statisticsTextNoEntries);
+        TableLayout tableLayout = view.findViewById(R.id.statisticsTableHighScores);
+        TextView textNoEntries = view.findViewById(R.id.statisticsTextNoEntries);
 
         if (scores.getRecentScore(0, 2) != 0) {
             textNoEntries.setVisibility(View.GONE);
         }
 
-        for (int i = 0; i < Scores.MAX_SAVED_SCORES; i++) {                                         //for each entry in highScores, add a new view with it
-            if (scores.getRecentScore(i, 2) == 0) {                                                //if the score is zero, don't show it
+        for (int i = 0; i < Scores.MAX_SAVED_SCORES; i++) { //for each entry in highScores, add a new view with it
+            if (scores.getRecentScore(i, 2) == 0) {      //if the score is zero, don't show it
                 continue;
             }
 
-            TableRow row = (TableRow) LayoutInflater.from(getContext()).inflate(R.layout.statistics_scores_row, null);
+            TableRow row = (TableRow) LayoutInflater.from(getContext())
+                    .inflate(R.layout.statistics_scores_row, null);
 
-            TextView textView1 = (TextView) row.findViewById(R.id.row_cell_1);
-            TextView textView2 = (TextView) row.findViewById(R.id.row_cell_2);
-            TextView textView3 = (TextView) row.findViewById(R.id.row_cell_3);
-            TextView textView4 = (TextView) row.findViewById(R.id.row_cell_4);
+            TextView textView1 = row.findViewById(R.id.row_cell_1);
+            TextView textView2 = row.findViewById(R.id.row_cell_2);
+            TextView textView3 = row.findViewById(R.id.row_cell_3);
+            TextView textView4 = row.findViewById(R.id.row_cell_4);
 
-            textView1.setText(String.format(Locale.getDefault(), "%s %s", scores.getRecentScore(i, 0),dollar));
+            textView1.setText(String.format(Locale.getDefault(), "%s %s", scores.getRecentScore(i, 0), dollar));
             long time = scores.getRecentScore(i, 1);
-            textView2.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d",time / 3600, (time % 3600) / 60, (time % 60)));
+            textView2.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d", time / 3600, (time % 3600) / 60, (time % 60)));
             textView3.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(scores.getRecentScore(i, 2)));
             textView4.setText(new SimpleDateFormat("HH:mm", Locale.getDefault()).format(scores.getRecentScore(i, 2)));
 
