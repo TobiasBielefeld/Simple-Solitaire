@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Versio"</string>
 <string name="settings">"Agordoj"</string>
 <string name="game_manual">"Manlibro"</string>
@@ -31,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Jukono"</string>
 <string name="games_Spider">"Araneo"</string>
-<string name="games_SimpleSimon">"SimplaSimono"</string>
+<string name="games_SimpleSimon">"Simpla Simono"</string>
 <string name="games_Golf">"Golfo"</string>
 <string name="games_Pyramid">"Piramido"</string>
 <string name="games_TriPeaks">"TriPintoj"</string>
-<string name="games_FortyEight">"Kvardek&amp;Ok"</string>
-<string name="games_AcesUp">"KvarAsoj"</string>
+<string name="games_FortyEight">"Kvardek &amp; Ok"</string>
+<string name="games_AcesUp">"Kvar Asoj"</string>
 <string name="games_Gypsy">"Cigano"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"AvaHorloĝo"</string>
+<string name="games_GrandfathersClock">"Ava Horloĝo"</string>
 <string name="games_Vegas">"Vegaso"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -429,12 +427,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_show_main_menu_description">"Ne malfermi laste malfermitan ludon dum starto"</string>
 <string name="settings_golf_easy">"Ciklaj movoj (pli facile)"</string>
 <string name="settings_golf_easy_description">"Permesi meti asojn sur reĝojn kaj inverse"</string>
-<string name="settings_restart_klondike">"Komencu novan ludon Klondiko por apliki ŝanĝojn"</string>
-<string name="settings_restart_canfield">"Komencu novan ludon Canfield por apliki ŝanĝojn"</string>
-<string name="settings_restart_spider">"Komencu novan ludon Araneo por apliki ŝanĝojn"</string>
-<string name="settings_restart_vegas">"Komencu novan ludon Vegaso por apliki ŝanĝojn"</string>
-<string name="settings_restart_fortyeight">"Komencu novan ludon Kvardek&amp;Ok por apliki ŝanĝojn"</string>
-<string name="settings_restart_yukon">"Komencu novan ludon Jukono por apliki ŝanĝojn"</string>
 <string name="settings_menu">"Ĉefmenuo"</string>
 <string name="settings_menu_description">"Ŝanĝi nombron da kolumnoj, montri kaj kaŝu ludojn"</string>
 <string name="settings_pyramid_difficulty">"Facileco"</string>
@@ -486,7 +478,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_customization_description">"Alĝustigi kartojn, fonojn kaj fasadon"</string>
 <string name="settings_force_tablet_layout_title">"Devigi tabulkomputilan reĝimon"</string>
 <string name="settings_force_tablet_layout_text">"Vidigi la aplikaĵon same kiel sur grandaj ekranoj (≥7\")"</string>
-<string name="settings_restart_calculation">"Komencu novan ludon Calculation por apliki ŝanĝojn"</string>
 <string name="settings_calculation_alternative_title">"Teni kartojn"</string>
 <string name="settings_calculation_alternative_text">"Je premado sur ĉefa stako: anstataŭ movi karton de forĵeta stako al tablamasa stako, teni ĝin sur la forĵeta stako."</string>
 <string name="settings_vegas_money_enabled">"Konservi nunan monstaton"</string>
@@ -507,7 +498,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_vegas_bet_amount_text_2">"Por movi karton al fundamenta stako gajnas:"</string>
 <string name="settings_vegas_bet_amount_summary">"Redisdono: -%1$d$, karto al fundamenta stako: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Unuoble frapetu karton por movi ĝin al la sekva ebla stako. Samaj agordoj kiel por duobla frapeto. Tio ĉi malaktivigos movojn “elekti-per-frapeto”."</string>
-<string name="settings_vegas_bet_amount_error">"Ne povas konservi numerojn!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Ŝanĝi amplekson da rezerva stako (pli facile)"</string>
 <string name="settings_use_true_randomisation_title">"Uzi veran hazardecon"</string>
 <string name="settings_use_true_randomisation_text">"Implicita hazardeco evitas similajn kartojn apude. Marku tio ĉi por aktivigi vere egalan hazardecon."</string>
@@ -599,33 +589,22 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 La butono “statistikoj” malfermos novan langeton kun diversaj statistikoj pri la ludata ludo, ekzemple plej altan poentaron.
 
 La butono “subteno” malfermos etan helpan menuon. Tie vi povos elekti:"</string>
-<string name="manual_ui_text_part_2">"Montri konsilon: montri maksimume 3 eblajn kart-movojn. Tamen tio ĉi malpliigos vian poentaron je 25. Rimarku, ke banalaj movoj kiel movi ĉiun karton al malplena kampo aŭ frapeti la ĉefan stakon ne estos montritaj kiel konsilo. Se neniu konsilo estos montrita, la poentaro ne malpliiĝos.
-"</string>
-<string name="manual_ui_text_part_3">"Aŭtomate movi: aŭtomate movi tiom da kartoj, kiom tio eblas. Tiu ĉiu eblo estas uzebla kiam ekzemple nur unu karto estas malkovrita, sed vi devas movi ĉiujn kartojn de tiu stako por aliri ĝin. Do tiu ĉi eblo povas ete plirapidigi la ludon.
-"</string>
-<string name="manual_ui_text_part_4">"Miksi kartojn: se vi spertas situacion, kiam neniuj kart-movoj eblas, vi povas uzi tiun ĉi eblon por miksi nunajn kartojn. Rimarku, ke kartoj jam en ĝusta ordo aŭ kartoj sur fundamentaj stakoj ne estos miksitaj.
-"</string>
-<string name="manual_ui_text_part_5">"Reguloj de ludo: malfermi paĝon en manlibro pri la nuna ludo.
-"</string>
+<string name="manual_ui_text_part_2">"Montri konsilon: montri maksimume 3 eblajn kart-movojn. Tamen tio ĉi malpliigos vian poentaron je 25. Rimarku, ke banalaj movoj kiel movi ĉiun karton al malplena kampo aŭ frapeti la ĉefan stakon ne estos montritaj kiel konsilo. Se neniu konsilo estos montrita, la poentaro ne malpliiĝos."</string>
+<string name="manual_ui_text_part_3">"Aŭtomate movi: aŭtomate movi tiom da kartoj, kiom tio eblas. Tiu ĉiu eblo estas uzebla kiam ekzemple nur unu karto estas malkovrita, sed vi devas movi ĉiujn kartojn de tiu stako por aliri ĝin. Do tiu ĉi eblo povas ete plirapidigi la ludon."</string>
+<string name="manual_ui_text_part_4">"Miksi kartojn: se vi spertas situacion, kiam neniuj kart-movoj eblas, vi povas uzi tiun ĉi eblon por miksi nunajn kartojn. Rimarku, ke kartoj jam en ĝusta ordo aŭ kartoj sur fundamentaj stakoj ne estos miksitaj."</string>
+<string name="manual_ui_text_part_5">"Reguloj de ludo: malfermi paĝon en manlibro pri la nuna ludo."</string>
 <string name="manual_ui_text_part_6">"La butono “menuo” ebligas tri diversajn agojn:"</string>
-<string name="manual_ui_text_part_7">"Komenci novan ludon: miksi kartojn kaj redisdoni ilin.
-"</string>
-<string name="manual_ui_text_part_8">"Disdoni kartojn ree: restari la nunan ludon kun la sama ordo de kartoj.
-"</string>
-<string name="manual_ui_text_part_9">"Reveni al ĉefmenuo: konservi la nunan lud-staton kaj vidigi la menuon de lud-elekto.
-"</string>
+<string name="manual_ui_text_part_7">"Komenci novan ludon: miksi kartojn kaj redisdoni ilin."</string>
+<string name="manual_ui_text_part_8">"Disdoni kartojn ree: restari la nunan ludon kun la sama ordo de kartoj."</string>
+<string name="manual_ui_text_part_9">"Reveni al ĉefmenuo: konservi la nunan lud-staton kaj vidigi la menuon de lud-elekto."</string>
 <string name="manual_ui_text_part_10">"La butono “malfari” malfaros la lastan movon, sed tio ĉi kostos 25 poentojn. Oni povas ĝin uzi por maksimume 20 lastaj movoj. (pliigebla en altnivelaj agordoj)
 
 La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 <string name="manual_statistics_part_1">"Estas statistikoj por ĉiu ludo. Vi povas aliri ilin per en-luda menu-breto. Kolektataj informoj estas:"</string>
-<string name="manual_statistics_part_2">"nombro da ludataj ludoj kaj venkoj
-"</string>
-<string name="manual_statistics_part_3">"tuto da akiritaj poentoj
-"</string>
-<string name="manual_statistics_part_4">"tuto da uzitaj helpiloj
-"</string>
-<string name="manual_statistics_part_5">"listo de plejbonuloj kun maksimume 10 rezultoj, nur pozitivaj rezultoj estos konservitaj
-"</string>
+<string name="manual_statistics_part_2">"nombro da ludataj ludoj kaj venkoj"</string>
+<string name="manual_statistics_part_3">"tuto da akiritaj poentoj"</string>
+<string name="manual_statistics_part_4">"tuto da uzitaj helpiloj"</string>
+<string name="manual_statistics_part_5">"listo de plejbonuloj kun maksimume 10 rezultoj, nur pozitivaj rezultoj estos konservitaj"</string>
 <string name="manual_statistics_part_6">"listo de poentaroj de 10 lastaj ludoj"</string>
 <string name="manual_statistics_part_7">"Ankaŭ eblas forviŝi ĉiujn datumojn pri la nuna ludo, sed tio ĉi estas neinversigebla!"</string>
 <string name="about_material_icons_2_usage">"La piktogramo de subteno estis publikigita ĉe &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; kiel “lightbulb-on”."</string>
@@ -643,4 +622,87 @@ La butono “agordoj” simple malfermos la menuon de preferoj."</string>
 <string name="settings_game_layout_margins_small">"Mallarĝaj"</string>
 <string name="settings_game_layout_margins_medium">"Mezaj"</string>
 <string name="settings_game_layout_margins_large">"Larĝaj"</string>
+<string name="settings_hide_menu_button">"Kaŝi menu-butonon"</string>
+<string name="settings_immersive_mode_title">"Aktivigi plenekranan reĝimon"</string>
+<string name="settings_immersive_mode_text">"Kaŝi statan kaj navigan bretojn dum ludado (nur ĉe Androido 4.4 aŭ pli nova)"</string>
+<string name="settings_language_norwegian">"Norvega (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Uzitaj por kart-temo “Paris”, disponeblaj ĉe a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Kopirajto 2005 - David BELLOT - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Tombo de Napoleono"</string>
+<string name="manual_NapoleonsTomb_structure">"1 kartaro po 52 kartoj.
+
+4 tablamasoj, 5 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj.
+
+4 stakoj en anguloj kun “7” kaj unu en la centro estas fundamentaj stakoj. La stakoj inter ili estas tablamasaj stakoj."</string>
+<string name="manual_NapoleonsTomb_objective">"Movu ĉiujn kartojn sur fundamentajn stakojn, sendepende de emblemo."</string>
+<string name="manual_NapoleonsTomb_rules">"La angulaj stakoj komenciĝas 7 kaj oni metas tien kartojn kreskante ĝis reĝoj. La centra stako komenciĝas kun 6 kaj oni metas tien kartojn malkreskante ĝis aso kvarfoje. Jen la rezulto:
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+La sekva karto de la ordo estos montrata supre de la stako.
+
+Frapetu la ĉefan stakon por malkovri kaj movi unu karton al la forĵeta stako. Ŝanĝebla en agordoj:  Se la ĉefa stako malpleniĝos, frapetu denove por movi reen ĉiujn kartojn de forĵeta stako al ĉefa stako.
+
+Ĉiun karton oni povas meti sur malplenan tablamasan stakon, sed ĉiu stako povas enhavi nur unu karton samtempe."</string>
+<string name="manual_NapoleonsTomb_scoring">"Movi karton al fundamenta stako: +60
+
+Transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200"</string>
+<string name="settings_language_spanish_argentina">"Hispana (Argentina)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Apliki ŝanĝojn nur por %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Kaŝi la butonon “mem-kompletiĝo”"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Ĉiuj pluaj ŝanĝoj estos aplikitaj nur por la nuna ludo. Jen manieroj por ŝanĝi agordojn de aliaj ludoj:"</string>
+
+<!-- When I add a new line, POEditor complains, that "the number of newlines at the end doesn't match", should I still add a new line, or let POEditor decide? -->
+<string name="settings_dialog_only_for_this_game_enable_3">"Revenu al la ĉefmenuo kaj malfermi agordoj de tie"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Malaktivigu tiun ĉi agordon"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Malfermu agordojn de ludo, kiu ne havas tiun ĉi agordon ŝaltitan"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Malaktivigu tiun ĉi agordon por restarigi antaŭajn komunajn agordojn."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Apartaj agordoj por tiu ĉi ludo estos forigitaj kaj komunaj agordoj estos aplikitaj."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Ŝanĝoj ne aplikiĝos por ĉiuj ludoj. Frapetu tien ĉi por pli da informoj."</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Por la jenaj ludoj estas aktivigitaj apartaj agordoj:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Por tiuj ĉi ludoj ŝanĝoj faritaj ĉi tie ne aplikiĝos.
+
+Ĉu vi volas forigi apartajn agordojn por ĉiuj enlistigitaj ludoj?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Forigi ĉiujn apartajn agordojn"</string>
+<string name="settings_ensure_movability_title">"Garantii movojn"</string>
+<string name="settings_ensure_movability_searching_games">"Serĉado de ludebla ludo…"</string>
+<string name="settings_ensure_movability_text">"Garantii, ke povas fari la elektitan nombron da movoj antaŭ komenci ludon"</string>
+<string name="settings_ensure_movability_min_moves_title">"Garantii movojn: nombro da movoj"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Averto: pliigo de tiu ĉi agordo rezultigos pli longan atendan tempon antaŭ komenco de ludo! Ŝanĝi ludajn regulojn ankaŭ influos la atendantan tempon!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Ŝanĝi minimuman nombron da eblaj movoj por ludo antaŭ komenci ĝin."</string>
+<string name="settings_number_input_error">"Ne povas konservi numerojn!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Plibonigita mem-kompletiĝo"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Mem-kompletiĝo provos venki ludon ankaŭ per uzi la ĉefan stakon"</string>
+<string name="black">"Nigra"</string>
+<string name="white">"Blanka"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Igi iomajn ludojn venkeblaj"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Kvanto da ludoj por agordi ilin ĉiam venkeblaj, sen signifa pliigo de atenda tempo."</string>
+<string name="settings_ensure_movability_winnable">"Venkeblaj"</string>
+<string name="settings_reset_to_defaults">"Restarigi implicitajn valorojn"</string>
+<string name="settings_text_color">"Koloro de teksto kaj stakoj"</string>
+<string name="settings_language_chinese_simplified">"Ĉina (simpligita)"</string>
+<string name="settings_ensure_movability_cancle_search">"Nuligi kaj senprokraste ekigi"</string>
+<string name="games_Maze">"Labirinto"</string>
+<string name="games_Spiderette">"Araneeto"</string>
+<string name="manual_Spiderette_structure">"1 kartaro po 52 kartoj.
+
+7 tablamasaj stakoj kaj 4 fundamentaj stakoj.
+
+1 ĉefa stako, disdonata en 4 diversaj disdonoj.
+
+Depende de agordoj: 1, 2 aŭ 4 diversaj kartaj emblemoj."</string>
+<string name="manual_Spiderette_objective">"Ordigu ĉiujn kartojn de ĉiu emblemo malkreskante ie ajn sur la tablamaso. Kompletaj familioj de kartoj estos aŭtomate movitaj al fundamentaj stakoj."</string>
+<string name="manual_Spiderette_rules">"Kartojn oni povas meti sur iun ajn karton en malkreskanta ordo. Tamen nur serioj de samaj kartaj emblemoj povas esti movitaj per unu fojo.
+
+Ĉiun karton oni povas meti sur malplenan tablamasan kampon.
+
+Frapetu la ĉefan stakon por dsdoni po unu karto por ĉiu tablamasa stako samtempe."</string>
+<string name="manual_Spiderette_scoring">"Movi kartan familion al fundamenta stako: +200
+
+Malkovri karton: +25"</string>
+<string name="settings_language_portuguese">"Portugala"</string>
+<string name="settings_restart_game">"Komencu novan ludon %1$s por apliki ŝanĝojn"</string>
 </resources>

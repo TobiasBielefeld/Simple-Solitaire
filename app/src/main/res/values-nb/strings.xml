@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_version">"Versjon"</string>
+<string name="settings">"Innstillinger"</string>
+<string name="game_manual">"Bruksanvisning"</string>
+<string name="game_score">"Poeng"</string>
+<string name="game_time">"Tid"</string>
+<string name="game_cancel">"Avbryt"</string>
+<string name="game_confirm">"Bekreft"</string>
+<string name="game_auto_complete_text">"Autofullfør"</string>
+<string name="game_press_again">"Trykk igjen for å avslutte"</string>
+<string name="game_load_error">"Innlasting av data mislyktes, starter en ny omgang…"</string>
+<string name="game_close">"Lukk spillet"</string>
+<string name="game_main_menu">"Hovedmeny"</string>
+<string name="item_game_rules">"Spillets regler"</string>
+<string name="item_return_to_main_menu">"Gå tilbake til hovedmenyen"</string>
+
+<!-- Menu -->
+<string name="menu_undo">"Angre"</string>
+<string name="menu_main_menu">"Meny"</string>
+<string name="menu_settings">"Innstillinger"</string>
+
+<!-- game names 
+
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Klondike"</string>
+<string name="games_Freecell">"FreeCell"</string>
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Edderkopp"</string>
+<string name="games_SimpleSimon">"Enkel Erik"</string>
+<string name="games_Golf">"Golf"</string>
+<string name="games_Pyramid">"Pyramide"</string>
+<string name="games_TriPeaks">"Trippeltopp"</string>
+<string name="games_FortyEight">"Førtiåtte"</string>
+<string name="games_AcesUp">"Essene opp"</string>
+<string name="games_Gypsy">"Sigøyner"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"Canfield"</string>
+<string name="games_GrandfathersClock">"Bestefarsklokke"</string>
+<string name="games_Vegas">"Vegas"</string>
+<string name="games_Calculation">"Kalkulering"</string>
+
+<!-- colors -->
+<string name="blue">"Blå"</string>
+<string name="green">"Grønn"</string>
+<string name="red">"Rød"</string>
+<string name="yellow">"Gul"</string>
+<string name="orange">"Oransje"</string>
+<string name="purple">"Lilla"</string>
+
+<!-- game stuff -->
+<string name="game_longest_run">"Lengste sekvens:"</string>
+
+<!-- dialog won -->
+<string name="dialog_win_titel">"Gratulerer!"</string>
+<string name="dialog_win_score">"Poeng: %1$d"</string>
+<string name="dialog_win_bonus">"Bonus: %1$d"</string>
+<string name="dialog_win_total">"Total: %1$d"</string>
+
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Stokk kortene"</string>
+
+<!-- There's a mistake in the source string, as I can see that it's meant to be "except" instead of "expect". -->
+<string name="dialog_mix_cards_text">"Dette vil stokke alle kortene, bortsett fra korrekte sekvenser og kort som er i grunnmuren."</string>
+<string name="dialog_mix_cards_not_available">"Det er fortsatt mulige trekk igjen!"</string>
+
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Start en ny omgang"</string>
+<string name="dialog_start_new_game_text">"Din nåværende fremgang vil gå tapt, og en ny tilfeldig omgang vil bli delt ut."</string>
+
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Del ut kortene på nytt"</string>
+<string name="dialog_redeal_text">"Din nåværende fremgang vil gå tapt, men kortene blir delt ut som i den opprinnelige omgangen."</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Bruksanvisning"</string>
+<string name="title_activity_settings">"Innstillinger"</string>
+<string name="title_activity_about">"Om spillet"</string>
+<string name="title_activity_statistics">"Statistikker"</string>
+
+<!-- About activity -->
+<string name="about_tab_1">"Informasjon"</string>
+<string name="about_tab_2">"Lisenser"</string>
+<string name="about_tab_3">"Endringslogg"</string>
+<string name="about_loading">"Laster inn…"</string>
+<string name="about_developer">"Utvikleren"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Kompilert den"</string>
+<string name="about_source_code">"Kildekode"</string>
+<string name="about_license">"Lisens"</string>
+<string name="about_translations">"Oversettelser"</string>
+<string name="about_further_contributors">"Ytterligere bidrag"</string>
+<string name="about_android_support_libraries_title">"Android-støttebibliotek"</string>
+<string name="about_android_support_libraries_usage">"Brukt for bedre utforming og enklere utvikling"</string>
+<string name="about_material_icons_title">"Materialutformingsikoner"</string>
+<string name="about_material_icons_usage">"Brukt for alle ikonene i denne appen"</string>
+<string name="about_card_themes_title">"Kortenes temaer"</string>
+<string name="about_card_themes_usage">"Kortenes temaer ble tatt fra &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;. For detaljert informasjon, klikk &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;her&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"Brukt som pokertema - Tilgjengelig hos &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - © 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna-bibliotek"</string>
+<string name="about_custom_color_picker_usage">"Brukt for den tilpassede fargevelgeren"</string>
+<string name="about_sounds_title">"Lyder"</string>
+<string name="about_sounds_usage">"Alle lyder ble opprinnelig publisert på &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;. For detaljert informasjon, klikk &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;her&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip-bibliotek"</string>
+<string name="about_sliding_tabs_usage">"Brukt for fanene på \"Om spillet\"-skjermen"</string>
+
+<!-- Manual -->
+<string name="manual_games">"Spillene"</string>
+<string name="manual_feedback">"Tilbakemeldinger"</string>
+<string name="manual_startpage">"Hjemmeside"</string>
+<string name="manual_back_to_game">"Tilbake til omgangen"</string>
+<string name="manual_structure">"Strukturen"</string>
+<string name="manual_objective">"Objektiv"</string>
+<string name="manual_rules">"Regler"</string>
+<string name="manual_scoring">"Hvordan få poeng"</string>
+<string name="manual_main_menu">"Hovedmeny"</string>
+<string name="manual_ui">"Brukergrensesnitt"</string>
+<string name="page_load_error">"Ingen sider er tilgjengelige for dette spillet…"</string>
+<string name="manual_bonus">"Etter å ha vunnet en omgang, får du en bonus. Jo fortere du vinner, desto høyere blir bonusen."</string>
+<string name="manual_open_google_play">"Åpne Google Play"</string>
+<string name="manual_open_github">"Åpne GitHub-repoet"</string>
+
+<!-- A spelling error in the source string: It's meant to be "its" instead of "it's". -->
+<string name="manual_games_text1">"Velg et spill for å vise dens struktur, objektiv, regler, og hvordan få poeng."</string>
+<string name="manual_startpage_text">"Velkommen til bruksanvisningen til denne spillsamlingen! Jeg håper den vil forklare alt sammen.
+
+Bruk menyen på venstre side for å få tilgang til de andre sidene i bruksanvisningen."</string>
+<string name="manual_Klondike_structure">"1 stokk med 52 kort.
+
+7 tablåkort, 4 hjemmestabler, 1 hovedstabel og 1 forkastningsstabel."</string>
+<string name="manual_Klondike_objective">"Sorter hvert kort i sine sanne hjem(mestabler) i stigende rekkefølge."</string>
+<string name="manual_Klondike_scoring">"Fra tablå til hjem: +60
+Fra forkastningsbunken til hjem: +45
+Fra hjem til tablå: -75
+Snu et kort: +25
+Sett alle kortene i forkastningsbunken tilbake i hovedbunken: -200"</string>
+<string name="manual_Freecell_structure">"1 bunke med 52 kort.
+
+8 tablåstabler, 4 hjemmebunker, og 4 fristeder."</string>
+<string name="manual_Freecell_objective">"Sorter hvert kort i sine sanne hjem(mebunker) i stigende rekkefølge."</string>
+<string name="manual_Freecell_scoring">"Flytt et kort til hjemmebunken: +6+
+Flytt et kort fra hjemmebunken: -75
+Flytt en konge til et tomt felt: +20"</string>
+<string name="manual_Yukon_structure">"1 stokk med 52 kort.
+
+7 tablåbunker og 4 hjemmebunker."</string>
+<string name="manual_Yukon_scoring">"Fra tablå til hjemmebunke: +60
+
+Fra hjemmebunke til tablå: -75
+
+Flytt en konge til et tomt felt: +20
+
+Snu et kort opp: +25"</string>
+<string name="manual_SimpleSimon_structure">"1 stokk med 52 kort.
+
+10 tablåbunker og 4 hjemmebunker."</string>
+<string name="manual_Golf_objective">"Flytt alle kortene fra tablåen til forkastningsbunken."</string>
+<string name="manual_Golf_scoring">"Flytt et kort til forkastningsbunken: +50"</string>
+<string name="manual_Pyramid_scoring">"Kast et kort i søpla: +50
+Legg alle kortene for forkastningsbunken tilbake i hovedbunken: -200"</string>
+<string name="manual_TriPeaks_objective">"Flytt alle kortene fra tablået til forkastningsbunken."</string>
+<string name="manual_TriPeaks_scoring">"Kast et kort i søpla: +50"</string>
+<string name="manual_mod3_structure">"2 stokker med 52 kort i hver.
+
+32 tablåbunker, 1 hoved- og 1 ess-bunke."</string>
+<string name="manual_mod3_scoring">"Flytt et kort til en korrekt del av tablået: +50
+
+Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
+<string name="manual_Gypsy_structure">"2 stokker med 52 kort i hver.
+
+8 tablåbunker, 8 hjemmebunker, og 1 hovedbunke."</string>
+<string name="manual_AcesUp_objective">"Dra opp alle kortene unntatt essene til hjemmebunken, sånn at det er ett ess igjen på hver tablåbunke."</string>
+<string name="manual_AcesUp_scoring">"Flytt et kort til hjemmebunken: +50"</string>
+<string name="manual_Canfield_structure">"1 stokk med 52 kort.
+
+4 tablåbunker, 4 hjemmebunker, 1 hovedbunke, 1 forkastningsbunke, og 1 reservebunke."</string>
+<string name="manual_GrandfathersClock_structure">"1 stokk med 52 kort.
+
+8 tablåbunker, 12 hjemmebunker i form av en klokke. Hver hjemmebunke inneholder allerede ett kort."</string>
+<string name="manual_GrandfathersClock_scoring">"Fra tablå til hjem: +50"</string>
+
+<!-- Is this meant to be a placeholder string? -->
+<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+<string name="manual_Vegas_objective">"Spill kortene til hjemmebunkene for å tjene mere penger."</string>
+<string name="manual_Calculation_structure">"1 stokk med 52 kort.
+
+4 tablåbunker, 4 hjemmebunker, 1 hovedbunke og 1 forkastningsbunke"</string>
+<string name="manual_Calculation_scoring">"Flytt et kort til hjemmebunke: +50"</string>
+
+<!-- Settings -->
+<string name="settings_background_color">"Bakgrunnsfarge"</string>
+<string name="settings_hide_status_bar">"Skjul statuslinjen"</string>
+<string name="settings_left_handed_mode">"Venstrehendt modus"</string>
+<string name="settings_left_handed_mode_description">"Speilvender kortene og bunkeposisjonene til venstre"</string>
+<string name="settings_back_press">"Bekreft lukking av spillet"</string>
+<string name="settings_back_press_description">"Trykk på Tilbake-knappen igjen for å lukke spillet"</string>
+<string name="settings_orientation">"Skjermorientering"</string>
+<string name="settings_cards">"Kort"</string>
+<string name="settings_classic">"Klassisk"</string>
+<string name="settings_simple">"Enkelt"</string>
+<string name="settings_cards_back">"Kortenes bakgrunner"</string>
+<string name="settings_modern">"Moderne"</string>
+<string name="settings_abstract">"Abstrakt"</string>
+<string name="settings_basic">"Grunnleggende"</string>
+<string name="settings_oxygen_dark">"Oksygen, mørk"</string>
+<string name="settings_oxygen_light">"Oksygen, lys"</string>
+<string name="settings_poker">"Poker"</string>
+<string name="settings_background">"Bakgrunnsnummer"</string>
+<string name="settings_customization">"Utseende"</string>
+<string name="settings_other">"Generelt"</string>
+<string name="settings_other_description">"Velg alle andre innstillinger"</string>
+<string name="settings_games">"Spillene"</string>
+<string name="settings_games_description">"Velg preferanser for spillvariantene"</string>
+<string name="settings_spider_difficulty">"Antall forskjellige kortfarger"</string>
+<string name="settings_klondike_draw">"Antall kort som skal deles ut"</string>
+<string name="settings_canfield_draw">"Antall kort som skal deles ut"</string>
+<string name="settings_show_main_menu">"Begynn på hovedmenyen"</string>
+<string name="settings_show_main_menu_description">"Ikke gå inn i det sist spilte spillet ved oppstart"</string>
+<string name="settings_golf_easy">"Sirkulerende trekk (Enklere)"</string>
+<string name="settings_golf_easy_description">"Tillat å plassere ess på konger og omvendt"</string>
+<string name="settings_menu">"Hovedmeny"</string>
+<string name="settings_menu_description">"Endre antall kolonner, og vis/skjul spill"</string>
+<string name="settings_pyramid_difficulty">"Vanskelighetsgrad"</string>
+<string name="settings_menu_columns">"Antall kolonner"</string>
+<string name="settings_menu_games">"Vis og skjul spill"</string>
+<string name="settings_menu_games_description">"Velg hvilke spill som vises i menyen"</string>
+<string name="settings_about_description">"Vis informasjon om spillet, f.eks. lisenser og endringsloggene"</string>
+<string name="settings_change_language">"Velg språk"</string>
+<string name="settings_yukon_rules">"Plasser kortene på…"</string>
+<string name="settings_icon_theme">"Ikontema"</string>
+<string name="settings_menu_bar_position">"Menylinjeplassering"</string>
+<string name="settings_menu_bar_position_top">"Øverst"</string>
+<string name="settings_menu_bar_position_bottom">"Nederst"</string>
+<string name="settings_menu_bar_position_left">"Venstre"</string>
+<string name="settings_menu_bar_position_right">"Høyre"</string>
+<string name="settings_4_color_mode_title">"4 fargebunker"</string>
+<string name="settings_4_color_mode_text">"Endre fargene på kløvere til grønn og rutere til blå"</string>
+<string name="settings_additional_movements">"Ytterligere kortbevegelser"</string>
+<string name="settings_additional_movements_description">"Aktiver og deaktiver dobbelttrykk og andre bevegelsesmetoder"</string>
+<string name="settings_double_tap">"Dobbelttrykk"</string>
+<string name="settings_double_tap_enable">"Aktiver dobbelttrykkbevegelser"</string>
+<string name="settings_double_tap_enable_text">"Trykk på et kort to ganger for å flytte den til den neste mulige bunken"</string>
+<string name="settings_double_tap_all_cards">"Flytt alle mulige kort"</string>
+<string name="settings_double_tap_all_cards_text">"Flytt så mange kort som mulig fra bunken, og ikke bare det påtrykte kortet"</string>
+<string name="settings_tap_to_select">"Trykk for å velge"</string>
+<string name="settings_tap_to_select_enable">"Aktiver velgingstrykkbevegelser"</string>
+<string name="settings_tap_to_select_enable_text">"Trykk på et kort for å velge den, og så trykk på destinasjonsbunken for å flytte den dit"</string>
+<string name="settings_single_tap">"Enkelttrykk"</string>
+<string name="settings_single_tap_enable_text">"Kun for Golf og Trippeltopp: Trykk på et kort én gang for å flytte den til forkastningsbunken"</string>
+<string name="settings_double_tap_foundation_first">"Flytt til hjemmebunkene først"</string>
+<string name="settings_double_tap_foundation_first_text">"Prøv å flytte toppkortet til den påtrykte bunken til hjemmebunken, før de andre kortene blir flyttet på"</string>
+<string name="settings_movement_speed">"Kortenes bevegelsesfart"</string>
+<string name="Settings_sound">"Aktiver lyder i spillet"</string>
+<string name="Settings_sounds_title">"Lyder"</string>
+<string name="Settings_sounds_text">"Aktiver lyder, sett opp forskjellige lydeffekter"</string>
+<string name="Settings_win_sound_title">"Lydeffekt for seiere"</string>
+<string name="Settings_background_music">"Bakgrunnsmusikk"</string>
+<string name="settings_background_color_custom">"Tilpasset"</string>
+<string name="Settings_background_volume">"Bakgrunnsmusikkens volum"</string>
+<string name="settings_limit_number_of_recycles">"Begrens antall resirkuleringer"</string>
+<string name="settings_limit_number_of_recycles_text">"Resirkulering av søplet tilbake i hovedbunken er begrenset"</string>
+<string name="settings_number_of_recycles">"Antall resirkuleringer"</string>
+<string name="settings_vegas_bet_amount">"Innsatsmengde"</string>
+<string name="settings_menu_order_title">"Menyrekkefølge"</string>
+<string name="settings_menu_order_summary">"Klikk lenge på en oppføring, og så dra-og-slipp for å stokke om på menyoppføringene"</string>
+<string name="settings_menu_order_set_default">"Tilbakestill rekkefølgen"</string>
+<string name="settings_auto_start_new_game_title">"Start en ny omgang når du har vunnet"</string>
+<string name="settings_auto_start_new_game_text">"Hvis du går tilbake til en omgang som allerede er vunnet, så start automatisk en ny omgang"</string>
+<string name="settings_customization_description">"Tilpass kort, bakgrunner og brukergrensesnittet"</string>
+<string name="settings_force_tablet_layout_title">"Fremtving nettbrettoppsettet"</string>
+<string name="settings_force_tablet_layout_text">"Vis appen som om den var på en stor skjerm (≥18cm)"</string>
+<string name="settings_calculation_alternative_title">"Behold kortene"</string>
+<string name="settings_calculation_alternative_text">"Ved trykk på hovedbunken: I stedet for å flytte kortet fra forkastningsbunken til tablået, behold den i forkastningsbunken."</string>
+<string name="settings_vegas_money_enabled">"Behold den nåværende saldoen"</string>
+<string name="settings_vegas_money_reset">"Tilbakestill saldoen"</string>
+<string name="settings_vegas_money_reset_text">"Den neste Vegas-utdelingen vil begynne på 0$"</string>
+<string name="settings_vegas_money_reset_confirm">"Vil du virkelig tilbakestille saldoen din? Dette kan ikke bli angret på."</string>
+<string name="settings_auto_move_title">"Automatiske bevegelser"</string>
+<string name="settings_mod3_auto_move_text">"Flytt automatisk essene til forkastningsbunken hvis det er mulig"</string>
+<string name="settings_pyramid_auto_move_text">"Flytt automatisk kongene til søpla hvis det er mulig"</string>
+<string name="settings_rules">"Regler"</string>
+<string name="settings_money">"Penger"</string>
+<string name="settings_support">"Kundestøtte"</string>
+<string name="settings_hide_time">"Skjul tiden"</string>
+<string name="settings_hide_score">"Skjul poengsummen"</string>
+<string name="settings_single_tap_enable">"Aktiver enkelttrykksbevegelser"</string>
+<string name="settings_vegas_bet_amount_text_1">"Begynnende utdelingskostnader:"</string>
+<string name="settings_vegas_bet_amount_text_2">"Hvert kort som spilles til hjemmebunkene, tjener:"</string>
+<string name="settings_vegas_bet_amount_summary">"Begynnende utdeling: -%1$d$, kort til hjemmebunke: +%2$d$"</string>
+<string name="settings_canfield_size_of_reserve_title">"Endre størrelsen til reservebunken (Enklere)"</string>
+<string name="settings_use_true_randomisation_title">"Bruk sann tilfeldiggjøring"</string>
+<string name="settings_use_true_randomisation_text">"Den ordinære tilfeldiggjøreren unngår å plassere lignende kort nær hverandre. Huk av dette for å skru på en fullstendig tilfeldig tilfeldiggjører"</string>
+<string name="settings_developer_options">"Utviklerinnstillinger"</string>
+<string name="settings_developer_options_description">"Lek rundt med disse forskrudde innstillingene!"</string>
+<string name="settings_developer_options_move_card_everwhere_title">"Flytt kort overalt"</string>
+<string name="settings_developer_options_move_card_everwhere_text">"Du kan plassere kort på enhver bunke"</string>
+<string name="settings_developer_options_lock_text">"Disse innstillingene er kun beregnet for testformål, og bruken av dem kan føre til merkelig oppførsel og krasjer!"</string>
+<string name="settings_developer_options_play_every_card_title">"Spill med hvert kort"</string>
+<string name="settings_developer_options_play_every_card_text">"Du kan bruke ethvert avslørt kort"</string>
+<string name="settings_developer_options_instant_win_title">"Umiddelbar seier"</string>
+<string name="settings_developer_options_instant_win_text">"Vinn hver omgang etter å ha flyttet på et kort"</string>
+<string name="settings_developer_options_no_saving_title">"Deaktiver lagring av omgangstilstander"</string>
+<string name="settings_developer_options_no_saving_text">"Bevegelser i en omgang vil ikke bli lagret lengre"</string>
+<string name="settings_developer_options_deal_correct_sequences_title">"Del ut riktige sekvenser"</string>
+<string name="settings_max_number_undos">"Maks antall angrebevegelser"</string>
+<string name="settings_expert_settings">"Ekspertinnstillinger"</string>
+<string name="settings_expert_settings_text">"Kan være nyttige for noen personer"</string>
+<string name="settings_follow_system_settings">"Følg systeminnstillingene"</string>
+<string name="settings_portrait">"Portrett"</string>
+<string name="settings_landscape">"Landskap"</string>
+<string name="settings_landscape_upside_down">"Opp-ned-landskap"</string>
+<string name="settings_spider_difficultiy_1">"1 (Enkel)"</string>
+<string name="settings_spider_difficultiy_2">"2 (Middels)"</string>
+<string name="settings_spider_difficultiy_3">"4 (Vanskelig)"</string>
+<string name="settings_draw_1">"Del ut 1"</string>
+<string name="settings_draw_3">"Del ut 3"</string>
+<string name="settings_pyramid_difficulty_1">"Lett: Spillet er vunnet når tablåbunkene er tomme"</string>
+<string name="settings_pyramid_difficulty_2">"Vanskelig: Spillet er vunnet når tablåbunkene og hovedbunken er tom"</string>
+<string name="settings_language_default">"Standardspråk"</string>
+<string name="settings_language_english">"Engelsk"</string>
+<string name="settings_language_esperanto">"Esperanto"</string>
+<string name="settings_language_finnish">"Finsk"</string>
+<string name="settings_language_french">"Fransk"</string>
+<string name="settings_language_german">"Tysk"</string>
+<string name="settings_language_japanese">"Japansk"</string>
+<string name="settings_language_polish">"Polsk"</string>
+<string name="settings_language_turkish">"Tyrkisk"</string>
+<string name="settings_yukon_rules_1">"standardfarger (Standard)"</string>
+<string name="settings_yukon_rules_2">"samme farge (Russisk kabal)"</string>
+<string name="settings_movement_speed_1">"Veldig treg"</string>
+<string name="settings_movement_speed_2">"Treg"</string>
+<string name="settings_movement_speed_3">"Vanlig"</string>
+<string name="settings_movement_speed_4">"Rask"</string>
+<string name="settings_win_sounds_1">"Standard"</string>
+<string name="settings_win_sounds_2">"Piano"</string>
+<string name="settings_win_sounds_3">"8-bitstemme som sier «You win»"</string>
+<string name="settings_win_sounds_4">"&gt;Jublende folkemengde"</string>
+<string name="settings_background_music_1">"Skrudd av"</string>
+<string name="settings_background_music_2">"Sang 1"</string>
+<string name="settings_background_music_3">"Sang 2"</string>
+<string name="settings_background_music_4">"Sang 3"</string>
+<string name="settings_background_music_5">"Musikkboks"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 kort (standard)"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 kort"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 kort"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 kort"</string>
+<string name="settings_developer_option_deal_correct_sequences_1">"Skrudd av"</string>
+<string name="settings_developer_option_deal_correct_sequences_2">"Vekslende farge"</string>
+<string name="settings_developer_option_deal_correct_sequences_3">"Samme type"</string>
+<string name="settings_developer_option_deal_correct_sequences_4">"Reversert vekslende farge"</string>
+
+<!-- Statistics -->
+<string name="statistics_text_won_games">"Har vunnet %1$d av %2$d omganger"</string>
+
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"Din seiersprosent: %1$.0f%%"</string>
+
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"Slett alle oppføringene!"</string>
+<string name="statistics_button_delete_text">"Sletter alle oppføringene for dette spillet! Er du sikker på dette?"</string>
+<string name="statistics_button_deleted_all_entries">"Alle oppføringene ble slettet"</string>
+<string name="statistics_time_of_day">"Tidspunkt"</string>
+<string name="statistics_date">"Dato"</string>
+<string name="settings_diable_undo_costs">"Deaktiver poengstraffen for angringer"</string>
+<string name="settings_diable_hint_costs">"Deaktiver poengstraff for hint"</string>
+<string name="statistics_high_scores">"Toppsummer"</string>
+<string name="statistics_recent_scores">"Nylige poengsummer"</string>
+<string name="statistics_total_time">"Totalt antall tid spilt"</string>
+<string name="statistics_total_hints_shown">"Totalt antall hint vist"</string>
+<string name="statistics_total_number_undos">"Totalt antall angringsbevegelser"</string>
+<string name="statistics_total_points_earned">"Totalt antall poeng tjent"</string>
+<string name="statistics_no_entries">"Ingen oppføringer, gå og spill noen spill!"</string>
+<string name="dialog_auto_move">"Auto-flytting"</string>
+<string name="dialog_show_hints">"Vis hint"</string>
+<string name="manual_ui_text_part_5">"Spillregler: Åpne bruksanvisningen til det nåværende spillet direkte."</string>
+<string name="manual_ui_text_part_6">"Meny-knappen viser tre forskjellige handlinger:"</string>
+<string name="manual_ui_text_part_7">"Start et nytt spill: Blander kortene og deler ut en ny omgang."</string>
+<string name="manual_ui_text_part_8">"Del ut kort igjen: Start det nåværende spillet på nytt med samme kort-oppsett."</string>
+<string name="manual_ui_text_part_9">"Tilbake til hovedmenyen: Lagre den nåværende spilltilstanden og vis spillutvalgsmenyen."</string>
+<string name="manual_statistics_part_1">"Statistikker blir samlet inn for hvert spill. Du kan få tilgang til dem i menylinjen. Innsamlet informasjon er:"</string>
+<string name="manual_statistics_part_2">"Antall spilte og vunnede omganger"</string>
+<string name="manual_statistics_part_3">"Totalt antall inntjente poeng"</string>
+<string name="manual_statistics_part_4">"Totalt antall hjelpefunksjoner som har blitt brukt"</string>
+<string name="manual_statistics_part_5">"En toppsumliste med opp til 10 oppføringer (Kun summer over 0 blir lagret her)"</string>
+<string name="manual_statistics_part_6">"En nylig sumliste med de seneste 10 summene"</string>
+<string name="manual_statistics_part_7">"Det er også mulig å slette alle dataer for det nåværende spillet, men dette kan ikke bli omgjort!"</string>
+<string name="about_material_icons_2_usage">"Kundestøtte-ikonet er publisert som «lightbulb-on» på &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt;."</string>
+
+<!-- dialogs -->
+<string name="dialog_no_hint_available">"Ingen hint er tilgjengelige!"</string>
+<string name="dialog_no_movement_possible">"Det er ingen bevegelser som kan vises!"</string>
+<string name="settings_show_advanced_settings_title">"Lås opp utviklerkategoriene"</string>
+<string name="settings_language_italian">"Italiensk"</string>
+<string name="settings_language_portuguese_brazil">"Portugisisk for Brasil"</string>
+<string name="settings_language_ukrainian">"Ukrainsk"</string>
+<string name="settings_game_layout_margins_title">"Spilloppsettsmarginer"</string>
+<string name="settings_game_layout_margins_text">"Legg til marginer til venstre og høyre side av spilloppsettet. Kortene vil se mindre ut, men overlapping vil bli redusert!"</string>
+<string name="settings_game_layout_margins_none">"Ingen"</string>
+<string name="settings_game_layout_margins_small">"Små"</string>
+<string name="settings_game_layout_margins_medium">"Middels"</string>
+<string name="settings_game_layout_margins_large">"Stor"</string>
+<string name="settings_hide_menu_button">"Skjul menyknappen"</string>
+<string name="settings_immersive_mode_title">"Aktiver fullskjermsmodus"</string>
+<string name="settings_immersive_mode_text">"Skjul status- og navigasjons-linjene når du spiller (Kun på Android ≥4.4)"</string>
+<string name="settings_language_portuguese">"Portugisisk"</string>
+<string name="settings_restart_game">"Start en ny %1$s-omgang for å bruke endringene"</string>
+</resources>

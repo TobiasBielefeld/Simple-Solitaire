@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_rules">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="1"
+            android:entries="@array/pref_spider_difficulty_titles"
+            android:entryValues="@array/pref_spider_difficulty_values"
+            android:key="@string/pref_key_spiderette_difficulty"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_spider_difficulty" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

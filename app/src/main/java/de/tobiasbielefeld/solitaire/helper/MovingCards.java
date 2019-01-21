@@ -113,7 +113,7 @@ public class MovingCards {
         }
 
         currentCards.clear();
-        gameLogic.checkForAutoCompleteButton();
+        gameLogic.checkForAutoCompleteButton(false);
     }
 
     /**

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Version"</string>
 <string name="settings">"Réglages"</string>
 <string name="game_manual">"Manuels"</string>
@@ -31,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramide"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
 <string name="games_AcesUp">"4 As"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -427,12 +425,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_show_main_menu_description">"Ne pas lancer la dernière partie au démarrage"</string>
 <string name="settings_golf_easy">"Mouvements cycliques (Facile)"</string>
 <string name="settings_golf_easy_description">"Permettre de placer un as sur un roi, et inversement"</string>
-<string name="settings_restart_klondike">"Démarrer une nouvelle parte de Klondike pour appliquer les modifications"</string>
-<string name="settings_restart_canfield">"Démarrer une nouvelle parte de Canfield pour appliquer les modifications"</string>
-<string name="settings_restart_spider">"Démarrer une nouvelle parte de Spider pour appliquer les modifications"</string>
-<string name="settings_restart_vegas">"Démarrer une nouvelle parte de Vegas pour appliquer les modifications"</string>
-<string name="settings_restart_fortyeight">"Démarrer une nouvelle parte de Forty&amp;Eight pour appliquer les modifications"</string>
-<string name="settings_restart_yukon">"Démarrer une nouvelle parte de Yukon pour appliquer les modifications"</string>
 <string name="settings_menu">"Menu principal"</string>
 <string name="settings_menu_description">"Changer le nombre de colonnes, afficher et masquer des jeux"</string>
 <string name="settings_pyramid_difficulty">"Difficulté"</string>
@@ -484,7 +476,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_customization_description">"Modifier les cartes, les arrière-plans et l'interface utilisateur"</string>
 <string name="settings_force_tablet_layout_title">"Forcer la disposition de la tablette"</string>
 <string name="settings_force_tablet_layout_text">"Afficher l'application sur grand écran (≥7\")"</string>
-<string name="settings_restart_calculation">"Démarrer une nouvelle parte de Calculation pour appliquer les modifications"</string>
 <string name="settings_calculation_alternative_title">"Conserver les cartes"</string>
 <string name="settings_calculation_alternative_text">"Sur la presse au talon: au lieu de déplacer la carte de la défausse au tableau, gardez-le sur la défausse."</string>
 <string name="settings_vegas_money_enabled">"Conserver le solde actuel"</string>
@@ -505,7 +496,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_vegas_bet_amount_text_2">"Chaque carte jouée vers la fondation fait gagner :"</string>
 <string name="settings_vegas_bet_amount_summary">"Donne initiale : -%1$d$, carte vers la fondation : +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Appuyez une fois sur une carte pour la déplacer vers la pile suivante. Il suit les mêmes réglages que les mouvements Double-Tap. Ceci désactive la sélection par un appui rapide."</string>
-<string name="settings_vegas_bet_amount_error">"On ne peut pas sauver ces numéros!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Changer la taille de la réserve (plus facile)"</string>
 <string name="settings_use_true_randomisation_title">"Utiliser la vraie randomisation"</string>
 <string name="settings_use_true_randomisation_text">"La randomisation par défaut permet d'éviter les cartes similaires les unes à côté des autres. Cochez cette case pour permettre une randomisation vraiment uniforme."</string>
@@ -597,33 +587,22 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 Le bouton \"Statistiques\" affichera une nouvelle fenêtre avec différentes statistiques du jeu en cours, comme les meilleurs scores.
 
 Le bouton \"Support\" affichera un petit menu d'aide. Ici, vous pouvez sélectionner :"</string>
-<string name="manual_ui_text_part_2">"Afficher les indices : Montrant jusqu'à 3 possibilités de mouvement à la fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont pas considérés comme des indices. Si aucun indice n'est montré, votre score ne diminuera pas. 
-"</string>
-<string name="manual_ui_text_part_3">"Mouvement automatique : Déplacer automatiquement autant de cartes que possible. Cette option est destinée à être utilisée dans des situations, par exemple. quand une seule carte est encore face cachée, mais vous devez déplacer toutes les autres cartes de cette pile pour y accéder. Cette option permet donc d'accélérer un peu le jeu.
-"</string>
-<string name="manual_ui_text_part_4">"Mélange de cartes : Si vous êtes dans une situation où aucun mouvement n'est possible, vous pouvez utiliser cette option pour mélanger les cartes actuelles. Notez que les cartes déjà dans l'ordre correct ou les cartes sur la fondation seront ignorées dans le mélange.
-"</string>
-<string name="manual_ui_text_part_5">"Règles du jeu : Ouvrir directement la page de manuel du jeu en cours.
-"</string>
+<string name="manual_ui_text_part_2">"Afficher les indices : Montrant jusqu'à 3 possibilités de mouvement à la fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont pas considérés comme des indices. Si aucun indice n'est montré, votre score ne diminuera pas."</string>
+<string name="manual_ui_text_part_3">"Mouvement automatique : Déplacer automatiquement autant de cartes que possible. Cette option est destinée à être utilisée dans des situations, par exemple. quand une seule carte est encore face cachée, mais vous devez déplacer toutes les autres cartes de cette pile pour y accéder. Cette option permet donc d'accélérer un peu le jeu."</string>
+<string name="manual_ui_text_part_4">"Mélange de cartes : Si vous êtes dans une situation où aucun mouvement n'est possible, vous pouvez utiliser cette option pour mélanger les cartes actuelles. Notez que les cartes déjà dans l'ordre correct ou les cartes sur la fondation seront ignorées dans le mélange."</string>
+<string name="manual_ui_text_part_5">"Règles du jeu : Ouvrir directement la page de manuel du jeu en cours."</string>
 <string name="manual_ui_text_part_6">"Le bouton \"Menu\" donne accès à trois actions différentes :"</string>
-<string name="manual_ui_text_part_7">"Démarer une nouvelle partie : Mélangez les cartes et tirez une nouvelle donne.
-"</string>
-<string name="manual_ui_text_part_8">"Redistribuer les cartes: Redémarrer le jeu actuel avec la même disposition des cartes.
-"</string>
-<string name="manual_ui_text_part_9">"Revenir au menu principal : Enregistrer l'état actuel du jeu et afficher le menu de sélection du jeu.
-"</string>
+<string name="manual_ui_text_part_7">"Démarer une nouvelle partie : Mélangez les cartes et tirez une nouvelle donne."</string>
+<string name="manual_ui_text_part_8">"Redistribuer les cartes: Redémarrer le jeu actuel avec la même disposition des cartes."</string>
+<string name="manual_ui_text_part_9">"Revenir au menu principal : Enregistrer l'état actuel du jeu et afficher le menu de sélection du jeu."</string>
 <string name="manual_ui_text_part_10">"Le bouton \"Annuler\" inverse le dernier mouvement, mais au prix de 25 points. Il n'est possible d'annuler que les 20 derniers mouvements. (Le montant peut être augmenté dans les réglages experts)
 
 Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="manual_statistics_part_1">"Il y a des statistiques collectées pour chaque jeu. Vous pouvez y accéder à partir de la barre de menu du jeu. Les informations collectées le sont :"</string>
-<string name="manual_statistics_part_2">"Le nombre de parties jouées et gagnées
-"</string>
-<string name="manual_statistics_part_3">"Le montant total des points gagnés.
-"</string>
-<string name="manual_statistics_part_4">"Le montant total des fonctions d'aide utilisées
-"</string>
-<string name="manual_statistics_part_5">"Une liste des meilleurs scores avec jusqu'à 10 entrées, seuls les scores supérieurs à 0 sont sauvegardés ici.
-"</string>
+<string name="manual_statistics_part_2">"Le nombre de parties jouées et gagnées"</string>
+<string name="manual_statistics_part_3">"Le montant total des points gagnés."</string>
+<string name="manual_statistics_part_4">"Le montant total des fonctions d'aide utilisées"</string>
+<string name="manual_statistics_part_5">"Une liste des meilleurs scores avec jusqu'à 10 entrées, seuls les scores supérieurs à 0 sont sauvegardés ici."</string>
 <string name="manual_statistics_part_6">"Une liste de pointage récente avec les 10 derniers pointages."</string>
 <string name="manual_statistics_part_7">"Il est également possible de supprimer toutes les données du jeu en cours, mais cela ne peut pas être annulé ! "</string>
 <string name="about_material_icons_2_usage">"L'icône Support est publiée sous la forme \"lightbulb-on\" sur &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt;. "</string>
@@ -641,4 +620,67 @@ Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="settings_game_layout_margins_small">"Petit"</string>
 <string name="settings_game_layout_margins_medium">"Moyen"</string>
 <string name="settings_game_layout_margins_large">"Grand"</string>
+<string name="settings_hide_menu_button">"Cacher le bouton menu"</string>
+<string name="settings_immersive_mode_title">"Activer le mode plein écran"</string>
+<string name="settings_immersive_mode_text">"Masquer la barre de statut et la barre de navigation pendant la partie (uniquement sur Android 4.4 et plus)"</string>
+<string name="settings_language_norwegian">"Norvégien (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Utilisé comme thème 'Poker' - Disponible sur &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Tombeau de Napoléon"</string>
+<string name="manual_NapoleonsTomb_structure">"1 jeu de 52 cartes.
+
+4 piles sur le tableau, 5 piles de base, 1 talon et 1 défausse.
+
+Les 4 piles dans les coins avec un \"7\" et celle du centre sont les piles de base. Les piles entre elles sont les piles de tableau."</string>
+<string name="manual_NapoleonsTomb_objective">"Jouez chaque carte à la fondation, quelle que soit la couleur."</string>
+<string name="manual_NapoleonsTomb_rules">"Les 4 piles d'angle commencent avec un 7 et doivent être empilées dans l'ordre croissant jusqu'à ce qu'un roi. La pile de fondation centrale commence avec un 6 et doit être empilée dans l'ordre décroissant jusqu'à un As quatre fois. Il en résulte l'ordre suivant pour cette pile : 
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+La prochaine carte dans l'ordre sera également montrée au-dessus de la pile.
+
+En appuyant sur la pile principale, vous retournez une carte sur la pile de défausse. Peut être activé dans les paramètres de jeu : Si la pile principale est vide, appuyez de nouveau sur cette pile pour recycler les cartes de la pile de rejet.
+
+N'importe quelle carte peut être placée sur chaque pile de tableaux, mais chaque pile ne peut contenir qu'une seule carte à la fois."</string>
+<string name="manual_NapoleonsTomb_scoring">"A une pile de base : +45
+
+Déplacer les cartes de la défausse à la pioche : -200"</string>
+<string name="settings_language_spanish_argentina">"Espagnol (Argentine)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Appliquer les changements uniquement pour %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Désactiver le bouton Autocomplete"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Toutes les autres modifications apportées ici ne s'appliqueront qu'au jeu en cours. Si vous souhaitez ensuite modifier les paramètres d'autres jeux, vous disposez des options suivantes :"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Revenir au menu principal et ouvrir les réglages à partir de là"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Désactiver cette option"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Ouvrir les options à partir d'un jeu qui n'a pas cette option activée."</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Si vous désactivez cette option, les options partagés précédents seront restaurés."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Les paramètres individuels de ce jeu seront maintenant supprimés et les paramètres partagés seront appliqués."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Les changements n'affecteront pas tous les jeux. Cliquez ici pour plus d'informations"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Les jeux suivants ont permis des réglages individuels :"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Ces jeux ne seront pas affectés par les changements apportés ici.
+
+Voulez-vous supprimer les paramètres individuels pour tous les jeux de la liste ?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Suppression de tous les paramètres individuels"</string>
+<string name="settings_ensure_movability_title">"Garantie du nombre de mouvements"</string>
+<string name="settings_ensure_movability_searching_games">"Recherche d'un jeu adapté…"</string>
+<string name="settings_ensure_movability_text">"S'assurer qu'un certain nombre de mouvements sont possibles dans un jeu avant de le commencer."</string>
+<string name="settings_ensure_movability_min_moves_title">"Modifier le nombre de coups"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Attention : Si vous augmentez le montant, le temps d'attente avant le début d'une partie sera plus long. Changer les règles du jeu affectera aussi le temps d'attente !"</string>
+<string name="settings_ensure_movability_min_moves_text">"Modifier le nombre de mouvements que chaque jeu doit avoir au moins au début du jeu"</string>
+<string name="settings_number_input_error">"On ne peut pas sauver ces numéros!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Améliorez le mouvement automatique"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Auto Move tentera de gagner la partie en utilisant également la pile principale"</string>
+<string name="black">"Noir"</string>
+<string name="white">"Blanc"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Rendre certains jeux gagnants"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Le montant de certains jeux peut être suffisamment élevé pour qu'ils soient toujours gagnants, sans augmenter significativement le temps d'attente."</string>
+<string name="settings_ensure_movability_winnable">"Gagnant"</string>
+<string name="settings_reset_to_defaults">"Réinitialisation des valeurs par défaut"</string>
+<string name="settings_text_color">"Couleur du texte et de la pile"</string>
+<string name="settings_language_chinese_simplified">"Chinois (simplifié)"</string>
+<string name="settings_ensure_movability_cancle_search">"Annuler et commencer immédiatement"</string>
+<string name="settings_language_portuguese">"Portugais"</string>
+<string name="settings_restart_game">"Démarrer une nouvelle parte de %1$s pour appliquer les modifications"</string>
 </resources>

@@ -222,9 +222,9 @@ public class DummyGame extends Game {
 
         //Last step: Set the drawables of the stacks. Default one is just gray.
         //So maybe show on some a big A for ace or make them transparent or something
-        stacks[6].view.setImageBitmap(Stack.background1);               //shows an A
-        stacks[6].view.setImageBitmap(Stack.backgroundTalon);           //shows a circle arrow
-        stacks[6].view.setImageBitmap(Stack.backgroundTransparent);     //no background at all
+        stacks[6].setImageBitmap(Stack.background1);               //shows an A
+        stacks[6].setImageBitmap(Stack.backgroundTalon);           //shows a circle arrow
+        stacks[6].setImageBitmap(Stack.backgroundTransparent);     //no background at all
     }
 
     /*
@@ -334,7 +334,7 @@ public class DummyGame extends Game {
      *
      * Use hint.hasVisited(card) to getHighScore if the card has been visited, so it won't result in an endless loop
      */
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         //Short example from Klondike
         Card card;                                                                                  //card to test
 
@@ -348,7 +348,7 @@ public class DummyGame extends Game {
             /* last card of a stack to move to the foundation */
             card = origin.getTopCard();                                                             //in this part, getHighScore the top card of a stack
 
-            if (!hint.hasVisited(card)) {                                                           //if this card hasn't been visited
+            if (!visited.contains(card)) {                                                          //if this card hasn't been visited
                 for (int j = 7; j <= 10; j++) {                                                     //loop through every foundation stack as destination
                     if (card.test(stacks[j])) {                                                     //then test
 
@@ -473,8 +473,8 @@ public class DummyGame extends Game {
      *  use this if you need to reset something on a game start. Call super if your games
      *  has limited recycles to reset them automatically
      */
-    public void reset(GameManager gm) {
-        super.reset(gm);
+    public void reset() {
+        super.reset();
     }
 
 

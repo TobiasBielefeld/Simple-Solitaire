@@ -139,9 +139,9 @@ public class Mod3 extends Game {
         return card.isTopCard() && card.getStack() != getDiscardStack();
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i <= getLastTableauId(); i++) {
-            if (stacks[i].isEmpty() || (i < 24 && stacks[i].getSize() > 1) || hint.hasVisited(stacks[i].getTopCard()))
+            if (stacks[i].isEmpty() || (i < 24 && stacks[i].getSize() > 1) || visited.contains(stacks[i].getTopCard()))
                 continue;
 
             Card cardToTest = stacks[i].getTopCard();

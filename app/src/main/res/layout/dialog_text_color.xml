@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/layout_padding">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/dialogBackgroundColorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="@dimen/dialogBackgroundColorBoxWidth"
+                android:layout_height="@dimen/dialogBackgroundColorBoxWidth"
+                android:background="@drawable/image_border"
+                app:srcCompat="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dialogBackgroundColorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="@dimen/dialogBackgroundColorBoxWidth"
+                android:layout_height="@dimen/dialogBackgroundColorBoxWidth"
+                android:background="@drawable/image_border"
+                app:srcCompat="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/white" />
+        </LinearLayout>
+
+    </TableRow>
+
+</TableLayout>

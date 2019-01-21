@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Versão"</string>
 <string name="settings">"Configurações"</string>
 <string name="game_manual">"Manual"</string>
@@ -35,13 +33,12 @@
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pirâmide"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight
-"</string>
-<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
+<string name="games_AcesUp">"Aces Up"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Cálculo"</string>
 
@@ -129,11 +126,81 @@ Use o menu do lado esquerdo para acessar as outras páginas de manual."</string>
 O aplicativo carregará automaticamente o último jogo utilizado, se o aplicativo tiver sido interrompido nele. Esse comportamento pode ser desabilitado nas configurações \"Gerais\".
 
 Lá, você também pode encontrar a seção \"Menu principal\", onde é possível ocultar jogos do menu e alterar o número de colunas, de modo que mais jogos caibam na tela ao mesmo tempo."</string>
-
 <string name="manual_Golf_structure">"1 baralho de 52 cartas.
 
 7 pilhas na mesa, 1 pilha principal e 1 descarte.
 
 Não é possível mover cartas da pilha de descarte para a pilha principal (exceto usando o botão Desfazer)."</string>
 <string name="manual_Golf_objective">"Mova cada carta da mesa para a pilha de descarte."</string>
+<string name="settings_rules">"Regras"</string>
+<string name="settings_money">"Dinheiro"</string>
+<string name="settings_support">"Ajuda"</string>
+<string name="settings_hide_time">"Ocultar tempo"</string>
+<string name="settings_hide_score">"Ocultar pontuação"</string>
+<string name="settings_developer_options">"Opções de desenvolvedor"</string>
+<string name="settings_expert_settings">"Configurações avançadas"</string>
+<string name="settings_portrait">"Retrato"</string>
+<string name="settings_landscape">"Paisagem"</string>
+<string name="settings_spider_difficultiy_1">"1(Fácil)"</string>
+<string name="settings_spider_difficultiy_2">"2(Médio)"</string>
+<string name="settings_spider_difficultiy_3">"4(Difícil)"</string>
+<string name="settings_language_default">"Língua padrão"</string>
+<string name="settings_language_english">"Inglês"</string>
+<string name="settings_language_esperanto">"Esperando"</string>
+<string name="settings_language_finnish">"Finlandês"</string>
+<string name="settings_language_french">"Francês"</string>
+<string name="settings_language_german">"Alemão"</string>
+<string name="settings_language_japanese">"Japonês"</string>
+<string name="settings_language_polish">"Polonês"</string>
+<string name="settings_language_turkish">"Turco"</string>
+<string name="settings_yukon_rules_1">"Cores diferentes (padrão)"</string>
+<string name="settings_movement_speed_1">"Muito lento"</string>
+<string name="settings_movement_speed_2">"Lento"</string>
+<string name="settings_movement_speed_3">"Normal"</string>
+<string name="settings_movement_speed_4">"Rápido"</string>
+<string name="settings_win_sounds_1">"Padrão"</string>
+<string name="settings_win_sounds_2">"Piano"</string>
+<string name="settings_background_music_1">"Desativado"</string>
+<string name="settings_background_music_2">"Tema 1"</string>
+<string name="settings_background_music_3">"Tema 2"</string>
+<string name="settings_background_music_4">"Tema 3"</string>
+<string name="settings_background_music_5">"Caixa de música"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 cartas (padrão)"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 cartas"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 cartas"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 cartas"</string>
+<string name="settings_developer_option_deal_correct_sequences_1">"Desativado"</string>
+
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"Sua porcentagem de vitórias: %1$.0f%%"</string>
+
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"Apague todos os registros!"</string>
+<string name="statistics_button_deleted_all_entries">"Apague todos os registros"</string>
+<string name="statistics_time_of_day">"Horário"</string>
+<string name="statistics_date">"Data"</string>
+<string name="settings_diable_undo_costs">"Desativar penalidade por voltar jogada"</string>
+<string name="settings_diable_hint_costs">"Desativar a penalidade por sugestões"</string>
+<string name="statistics_high_scores">"Melhores resultados"</string>
+<string name="statistics_recent_scores">"Resultados recentes"</string>
+<string name="statistics_total_time">"Total de tempo jogado"</string>
+<string name="statistics_total_hints_shown">"Total de sugestões mostradas"</string>
+<string name="statistics_total_number_undos">"Total movimentos para voltar jogada"</string>
+<string name="statistics_total_points_earned">"Total de pontos ganhos"</string>
+<string name="dialog_auto_move">"Movimento automático"</string>
+<string name="dialog_show_hints">"Mostrar sugestões"</string>
+
+<!-- dialogs -->
+<string name="dialog_no_hint_available">"Nenhuma sugestão disponível!"</string>
+<string name="dialog_no_movement_possible">"Nenhum movimento para mostrar!"</string>
+<string name="settings_language_italian">"Italiano"</string>
+<string name="settings_language_portuguese_brazil">"Português (Brasil)"</string>
+<string name="settings_language_ukrainian">"Ucraniano"</string>
+<string name="settings_game_layout_margins_title">"Margens do layout do jogo"</string>
+<string name="settings_game_layout_margins_text">"Adicione margens aos lados esquerdo e direito do layout. As cartas aparecerão menores, mas a sobreposição será reduzida!"</string>
+<string name="settings_game_layout_margins_none">"Nenhuma"</string>
+<string name="settings_game_layout_margins_small">"Pequena"</string>
+<string name="settings_game_layout_margins_medium">"Média"</string>
+<string name="settings_game_layout_margins_large">"Grande"</string>
+<string name="settings_language_portuguese">"Português"</string>
 </resources>

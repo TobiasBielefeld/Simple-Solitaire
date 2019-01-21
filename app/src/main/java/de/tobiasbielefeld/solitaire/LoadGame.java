@@ -34,10 +34,13 @@ import de.tobiasbielefeld.solitaire.games.Golf;
 import de.tobiasbielefeld.solitaire.games.GrandfathersClock;
 import de.tobiasbielefeld.solitaire.games.Gypsy;
 import de.tobiasbielefeld.solitaire.games.Klondike;
+import de.tobiasbielefeld.solitaire.games.Maze;
 import de.tobiasbielefeld.solitaire.games.Mod3;
+import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
+import de.tobiasbielefeld.solitaire.games.Spiderette;
 import de.tobiasbielefeld.solitaire.games.TriPeaks;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
@@ -80,13 +83,16 @@ public class LoadGame {
             case 6: return new GrandfathersClock();
             case 7: return new Gypsy();
             case 8: return new Klondike();
-            case 9: return new Mod3();
-            case 10: return new Pyramid();
-            case 11:return new SimpleSimon();
-            case 12:return new Spider();
-            case 13:return new TriPeaks();
-            case 14:return new Vegas();
-            case 15:return new Yukon();
+            case 9: return new Maze();
+            case 10: return new Mod3();
+            case 11: return new NapoleonsTomb();
+            case 12: return new Pyramid();
+            case 13: return new SimpleSimon();
+            case 14: return new Spider();
+            case 15: return new Spiderette();
+            case 16: return new TriPeaks();
+            case 17: return new Vegas();
+            case 18: return new Yukon();
         }
     }
 
@@ -94,7 +100,10 @@ public class LoadGame {
      * Insert new games here and in loadClass(). The order is very important, so don't change it!
      * The resource id points to the name of the game, so it can be translated. The second parameter
      * is the prefix for the game saves (like order of the cards). It uses a separate sharedPref for
-     * each game. It is also the prefix for the manual entries. So use it when writing manual entries!
+     * each game. The string with the game name have to match the sharedPref name like
+     * "games_<sharedPrefName>". Look at the other game names for a hint! It is important for
+     * the manual pages. It is also the prefix for the manual entries. So use it when writing manual
+     * entries!
      *
      * If you add a game at the end, no further actions has to be done, expect updating the game
      * selector images and adding a manual entry. If you add it somewhere else (eg to get an
@@ -104,23 +113,26 @@ public class LoadGame {
     public void loadAllGames(){
         allGameInformation.clear();
 
-        allGameInformation.add(new AllGameInformation(R.string.games_AcesUp,"AcesUp"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Calculation,"Calculation"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Canfield,"Canfield"));
-        allGameInformation.add(new AllGameInformation(R.string.games_FortyEight,"FortyEight"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Freecell,"Freecell"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Golf,"Golf"));
-        allGameInformation.add(new AllGameInformation(R.string.games_GrandfathersClock,"GrandfathersClock"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Gypsy,"Gypsy"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Klondike,"Klondike"));
-        allGameInformation.add(new AllGameInformation(R.string.games_mod3,"mod3"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid"));
-        allGameInformation.add(new AllGameInformation(R.string.games_SimpleSimon,"SimpleSimon"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Spider,"Spider"));
-        allGameInformation.add(new AllGameInformation(R.string.games_TriPeaks,"TriPeaks"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Vegas,"Vegas"));
-        allGameInformation.add(new AllGameInformation(R.string.games_Yukon,"Yukon"));
-
+        allGameInformation.add(new AllGameInformation(R.string.games_AcesUp,"AcesUp", false, 40));
+        allGameInformation.add(new AllGameInformation(R.string.games_Calculation,"Calculation", false, 30));
+        allGameInformation.add(new AllGameInformation(R.string.games_Canfield,"Canfield", false, 40));
+        allGameInformation.add(new AllGameInformation(R.string.games_FortyEight,"FortyEight", false, 50));
+        allGameInformation.add(new AllGameInformation(R.string.games_Freecell,"Freecell", false, 15));
+        allGameInformation.add(new AllGameInformation(R.string.games_Golf,"Golf", true, 40));
+        allGameInformation.add(new AllGameInformation(R.string.games_GrandfathersClock,"GrandfathersClock", true, 50));
+        allGameInformation.add(new AllGameInformation(R.string.games_Gypsy,"Gypsy", false, 80));
+        allGameInformation.add(new AllGameInformation(R.string.games_Klondike,"Klondike", true, 30));
+        allGameInformation.add(new AllGameInformation(R.string.games_Maze,"Maze", false, 20));
+        allGameInformation.add(new AllGameInformation(R.string.games_mod3,"mod3", true, 70));
+        allGameInformation.add(new AllGameInformation(R.string.games_NapoleonsTomb,"NapoleonsTomb", false, 20));
+        allGameInformation.add(new AllGameInformation(R.string.games_Pyramid,"Pyramid", true, 40));
+        allGameInformation.add(new AllGameInformation(R.string.games_SimpleSimon,"SimpleSimon", false, 25));
+        allGameInformation.add(new AllGameInformation(R.string.games_Spider,"Spider", false, 50));
+        allGameInformation.add(new AllGameInformation(R.string.games_Spiderette,"Spiderette", false, 30));
+        allGameInformation.add(new AllGameInformation(R.string.games_TriPeaks,"TriPeaks", true, 40));
+        allGameInformation.add(new AllGameInformation(R.string.games_Vegas,"Vegas", false, 30));
+        allGameInformation.add(new AllGameInformation(R.string.games_Yukon,"Yukon", true, 80));
+      
         GAME_COUNT = allGameInformation.size();
     }
 
@@ -138,23 +150,26 @@ public class LoadGame {
     public ArrayList<Integer> getMenuShownList(){
         ArrayList<Integer> result = prefs.getSavedMenuGamesList();
 
-        /*
-         * If added more games, insert them here in the correct order. Don't forget to add it also
-         * in getOrderedGameList()! If the new game is at the end of the game list, you don't
-         * need to do anything, it will be appended automatically.
-         */
-
-        if (result.size() == 12) {                                                                  //new canfield game
+        if (result.size() == 12) {                                                                  //canfield
             result.add(1, 1);
         }
-        if (result.size() == 13) {                                                                  //new grand fathers clock game
+        if (result.size() == 13) {                                                                  //grand fathers clock
             result.add(5, 1);
         }
-        if (result.size() == 14) {                                                                  //new vegas game
+        if (result.size() == 14) {                                                                  //vegas
             result.add(13, 1);
         }
-        if (result.size() == 15) {                                                                  //new calculation game
+        if (result.size() == 15) {                                                                  //calculation
             result.add(1, 1);
+        }
+        if (result.size() == 16) {                                                                  //Napoleons Tomb
+            result.add(10, 1);
+        }
+        if (result.size() == 17) {                                                                  //Maze
+            result.add(9, 1);
+        }
+        if (result.size() == 18) {                                                                  //Spiderette
+            result.add(15, 1);
         }
 
         if (result.size() < getGameCount()){
@@ -171,6 +186,8 @@ public class LoadGame {
      * a custom order yet, the default order will be returned. If there was added a new game,
      * it will the added at the end.
      *
+     * YOU DONT NEED TO ADD A NEW GAME HERE!
+     *
      * @return the game list in order of the user settings.
      */
     public ArrayList<Integer> getOrderedGameList(){
@@ -180,18 +197,6 @@ public class LoadGame {
             for (int i=0;i<getGameCount();i++){
                 result.add(i);
             }
-        }
-
-       /*
-         * If added more games, insert them here in the correct order. Don't forget to add it also
-         * in getMenuShownList()! If the new game is at the end of the game list, you don't
-         * need to do anything, it will be appended automatically.
-         *
-         * This is an example, if a new game has been added at the second last position. In the
-         * ordered game list, it has to appear at the very end:
-         */
-        if (result.size()==15){                                                                     //added Calculation at index 1
-            result.add(1,result.size());
         }
 
         if (result.size() < getGameCount()){                                                        //add new games at the end
@@ -234,7 +239,7 @@ public class LoadGame {
     public ArrayList<String> getOrderedGameNameList(Resources res){
 
         ArrayList<Integer> savedList = getOrderedGameList();
-        ArrayList<String> returnList = new ArrayList<>();
+        ArrayList<String> returnList = new ArrayList<>(allGameInformation.size());
         String[] defaultList = getDefaultGameNameList(res);
 
         for (int i=0;i<getGameCount();i++){
@@ -243,6 +248,38 @@ public class LoadGame {
 
         return returnList;
     }
+
+    /**
+     * Returns a list of all the sharedPref names
+     *
+     * @return      the shared pref name list as string array
+     */
+    public String[] getSharedPrefNameList(){
+        String[] list = new String[allGameInformation.size()];
+
+        for (int i = 0; i< allGameInformation.size(); i++){
+            list[i] = allGameInformation.get(i).getSharedPrefName();
+        }
+
+        return list;
+    }
+
+    /**
+     * Returns the ordered game information list
+     *
+     * @return   teh game list
+     */
+    public ArrayList<AllGameInformation> getOrderedGameInfoList(){
+        ArrayList<Integer> savedList = getOrderedGameList();
+        ArrayList<AllGameInformation> returnList = new ArrayList<>(allGameInformation.size());
+
+        for (int i=0;i<getGameCount();i++){
+            returnList.add(allGameInformation.get(savedList.indexOf(i)));
+        }
+
+        return returnList;
+    }
+
 
     /**
      * Returns the shared pref prefix of the given game. Used in the manual, so on a click to the
@@ -271,14 +308,18 @@ public class LoadGame {
     /**
      * little class to collect all needed game information in one array list.
      */
-    private class AllGameInformation {
+    public class AllGameInformation {
 
         private int shownNameResID;
         private String sharedPrefName;
+        private boolean canStartWinnableGame;
+        private int ensureMovabilityMoves;
 
-        AllGameInformation(int shownNameResID, String sharedPrefName){
+        AllGameInformation(int shownNameResID, String sharedPrefName, boolean canStartWinnableGame, int ensureMovabilityMoves){
             this.shownNameResID = shownNameResID;
             this.sharedPrefName = sharedPrefName;
+            this.canStartWinnableGame = canStartWinnableGame;
+            this.ensureMovabilityMoves = ensureMovabilityMoves;
         }
 
         public String getName(Resources res){
@@ -287,6 +328,14 @@ public class LoadGame {
 
         public String getSharedPrefName(){
             return sharedPrefName;
+        }
+
+        public boolean canStartWinnableGame() {
+            return canStartWinnableGame;
+        }
+
+        public int getEnsureMovabilityMoves(){
+            return ensureMovabilityMoves;
         }
     }
 }

@@ -1,0 +1,9 @@
+* Added the ability to change the "Appearance" settings per game!
+* Added an option to hide the auto complete button in the "Appearance" settings
+* Added an option to change the text and stack color in the "Appearance" settings
+* The minimum amount of moves a game has to have when starting it can now be set up in the "General" settings
+* For games with simple rules, the amount of moves can be set up to make them always winnable!
+* Rotating the screen while movements like auto complete are running will not stop them any more
+* Decreasing app size, thanks to SkewedZeppelin from GitHub!
+* Adding Chinese (simplified) translations, thanks to Tragic Life from POEditor!
+* A lot of little changes and bug fixes

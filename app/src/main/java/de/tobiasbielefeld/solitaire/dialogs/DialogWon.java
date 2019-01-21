@@ -22,7 +22,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -31,6 +30,7 @@ import android.widget.TextView;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -40,7 +40,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * to the main menu. It also shows the current score.
  */
 
-public class DialogWon extends DialogFragment {
+public class DialogWon extends CustomDialogFragment {
 
     private static String KEY_SCORE = "PREF_KEY_SCORE";
     private static String KEY_BONUS = "BONUS";
@@ -106,9 +106,7 @@ public class DialogWon extends DialogFragment {
             layoutScores.setVisibility(View.GONE);
         }
 
-
-
-        return builder.create();
+        return applyFlags(builder.create());
     }
 
     @Override

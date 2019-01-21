@@ -58,7 +58,7 @@ public class CardHighlight {
         gm.highlight.bringToFront();
 
         for (int i = card.getIndexOnStack(); i < stack.getSize(); i++) {
-            stack.getCard(i).view.bringToFront();
+            stack.getCard(i).bringToFront();
         }
 
         moveStarted = false;

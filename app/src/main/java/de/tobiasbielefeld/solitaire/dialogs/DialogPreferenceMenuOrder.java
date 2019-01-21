@@ -27,6 +27,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 import de.tobiasbielefeld.solitaire.classes.DynamicListView;
 import de.tobiasbielefeld.solitaire.classes.StableArrayAdapter;
 
@@ -36,7 +37,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
-public class DialogPreferenceMenuOrder extends DialogPreference{
+public class DialogPreferenceMenuOrder extends CustomDialogPreference {
 
     private ArrayList<String> gameList;
     StableArrayAdapter adapter;
@@ -52,9 +53,7 @@ public class DialogPreferenceMenuOrder extends DialogPreference{
         gameList = new ArrayList<>();
         ArrayList<String> sortedGameList = lg.getOrderedGameNameList(getContext().getResources());
 
-        for (String game: sortedGameList){
-            gameList.add(game);
-        }
+        gameList.addAll(sortedGameList);
 
         adapter = new StableArrayAdapter(getContext(), R.layout.text_view, gameList);
         DynamicListView listView = (DynamicListView) view.findViewById(R.id.listview);

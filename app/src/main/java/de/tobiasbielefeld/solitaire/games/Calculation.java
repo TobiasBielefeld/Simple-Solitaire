@@ -77,33 +77,17 @@ public class Calculation extends Game {
         stacks[9].setX(stacks[8].getX() + Card.width + spacing);
         stacks[9].setY(stacks[4].getY());
 
-        stacks[4].view.setImageBitmap(Stack.background1);
-        stacks[5].view.setImageBitmap(Stack.background2);
-        stacks[6].view.setImageBitmap(Stack.background3);
-        stacks[7].view.setImageBitmap(Stack.background4);
+        stacks[4].setImageBitmap(Stack.background1);
+        stacks[5].setImageBitmap(Stack.background2);
+        stacks[6].setImageBitmap(Stack.background3);
+        stacks[7].setImageBitmap(Stack.background4);
 
         //generate the textViews over the foundation stacks
 
         addTextViews(4, Card.width, layoutGame, context);
 
         for (int i=0;i<4;i++){
-            textViews.get(i).setX(stacks[4+i].getX());
-            textViews.get(i).setY(stacks[4+i].getY() - textViews.get(i).getMeasuredHeight());
-
-        }
-
-        //load the next card values for the foundation from saved games
-        ArrayList<String> list = prefs.getSavedCalculationNextCardsList();
-
-        if (!list.isEmpty()){
-            for (int i=0;i<4;i++) {
-                textViews.get(i).setText(list.get(i));
-            }
-        } else {
-            textViews.get(0).setText("2");
-            textViews.get(1).setText("4");
-            textViews.get(2).setText("6");
-            textViews.get(3).setText("8");
+            textViewPutAboveStack(i, stacks[4+i]);
         }
     }
 
@@ -135,19 +119,12 @@ public class Calculation extends Game {
         //card to trash
         moveToStack(getMainStack().getTopCard(), stacks[8], OPTION_NO_RECORD);
         stacks[8].getCard(0).flipUp();
-
-        setTexts();
     }
 
     @Override
-    public void save() {
-        ArrayList<String> list = new ArrayList<>();
-
-        for (int i=0;i<4;i++){
-            list.add(textViews.get(i).getText().toString());
-        }
-
-        prefs.saveCalculationNextCardsList(list);
+    public void load() {
+        //just use this method to set the texts, because it gets called after a game was loaded
+        setTexts();
     }
 
     public int onMainStackTouch() {
@@ -224,10 +201,10 @@ public class Calculation extends Game {
         setTexts();
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
 
         for (int j = 0; j < 4; j++) {
-            if (stacks[j].isEmpty() || hint.hasVisited(stacks[j].getTopCard())) {
+            if (stacks[j].isEmpty() || visited.contains(stacks[j].getTopCard())) {
                 continue;
             }
 
@@ -240,7 +217,7 @@ public class Calculation extends Game {
             }
         }
 
-        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard())){
+        if (!getDiscardStack().isEmpty() && !visited.contains(getDiscardStack().getTopCard())){
             Card cardToTest = getDiscardStack().getTopCard();
 
             for (int i = 0; i < 4; i++) {
@@ -291,6 +268,7 @@ public class Calculation extends Game {
     }
 
     private void setTexts(){
+
         for (int i = 0;i <4; i++) {
             if (stacks[4 + i].isEmpty()){
                 continue;
@@ -327,7 +305,7 @@ public class Calculation extends Game {
                     break;
             }
 
-            textViews.get(i).setText(text);
+            textViewSetText(i, text);
         }
     }
 }

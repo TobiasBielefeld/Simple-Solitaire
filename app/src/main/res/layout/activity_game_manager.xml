@@ -12,21 +12,21 @@
         android:id="@+id/mainRelativeLayoutGame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout">
+        android:layout_above="@+id/linearLayoutMenuBar">
 
-        <View
+        <ImageView
             android:id="@+id/card_highlight"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:background="@drawable/card_highlight"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_highlight" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/mainRelativeLayoutGameOverlayLower"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout">
+        android:layout_above="@+id/linearLayoutMenuBar">
 
         <TextView
             android:id="@+id/textViewRecycles"
@@ -38,6 +38,7 @@
             android:background="@drawable/circle"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
+            android:text="0"
             android:textColor="@android:color/background_dark"
             android:visibility="gone" />
     </RelativeLayout>
@@ -46,7 +47,7 @@
         android:id="@+id/mainRelativeLayoutGameOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout">
+        android:layout_above="@+id/linearLayoutMenuBar">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -66,6 +67,15 @@
             android:layout_margin="5dp"
             android:maxLines="1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/mainImageViewResize"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="menuClick"
+            app:srcCompat="@drawable/icon_arrow_down" />
 
         <TextView
             android:id="@+id/mainTextViewScore"
@@ -119,7 +129,7 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutMenuBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
@@ -145,8 +155,7 @@
             <ImageView
                 android:id="@+id/button_scores"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/title_activity_statistics"
                 app:srcCompat="@drawable/icon_star" />
 
@@ -177,8 +186,7 @@
             <ImageView
                 android:id="@+id/button_hint"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/title_activity_statistics"
                 app:srcCompat="@drawable/icon_lightbulb_on" />
 
@@ -209,8 +217,7 @@
             <ImageView
                 android:id="@+id/button_restart"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/menu_main_menu"
                 app:srcCompat="@drawable/icon_menu" />
 
@@ -241,8 +248,7 @@
             <ImageView
                 android:id="@+id/button_undo"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:adjustViewBounds="false"
                 android:contentDescription="@string/menu_undo"
                 app:srcCompat="@drawable/icon_undo" />
@@ -274,8 +280,7 @@
             <ImageView
                 android:id="@+id/button_settings"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/menu_settings"
                 app:srcCompat="@drawable/icon_settings_black" />
 

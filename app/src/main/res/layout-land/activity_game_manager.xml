@@ -12,13 +12,13 @@
         android:id="@+id/mainRelativeLayoutGame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toLeftOf="@+id/linearLayout">
+        android:layout_toLeftOf="@+id/linearLayoutMenuBar">
 
-        <View
+        <ImageView
             android:id="@+id/card_highlight"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:background="@drawable/card_highlight"
+            app:srcCompat="@drawable/card_highlight"
             android:visibility="gone" />
     </RelativeLayout>
 
@@ -26,7 +26,7 @@
         android:id="@+id/mainRelativeLayoutGameOverlayLower"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toLeftOf="@+id/linearLayout">
+        android:layout_toLeftOf="@+id/linearLayoutMenuBar">
 
         <TextView
             android:id="@+id/textViewRecycles"
@@ -35,6 +35,7 @@
             android:background="@drawable/circle"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
+            android:text="0"
             android:visibility="gone" />
     </RelativeLayout>
 
@@ -42,7 +43,16 @@
         android:id="@+id/mainRelativeLayoutGameOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toLeftOf="@+id/linearLayout">
+        android:layout_toLeftOf="@+id/linearLayoutMenuBar">
+
+        <ImageView
+            android:id="@+id/mainImageViewResize"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/icon_arrow_right"
+            android:onClick="menuClick" />
 
         <View
             android:layout_width="4dp"
@@ -110,7 +120,7 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutMenuBar"
         android:layout_width="?attr/actionBarSize"
         android:layout_height="match_parent"
         android:background="#e7e7e7"

@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.RectF;
@@ -30,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -40,15 +42,20 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
 import de.tobiasbielefeld.solitaire.dialogs.DialogInGameHelpMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogInGameMenu;
 import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
+import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.AutoMove;
+import de.tobiasbielefeld.solitaire.helper.DealCards;
+import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
@@ -58,6 +65,8 @@ import de.tobiasbielefeld.solitaire.helper.Timer;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 import de.tobiasbielefeld.solitaire.ui.statistics.StatisticsActivity;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.DOWN;
@@ -74,11 +83,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public Button buttonAutoComplete;                                                               //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRecycles;                       //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                                               //contains the game stacks and cards
-    public View highlight;
+    public ImageView highlight;
     private long firstTapTime;                                                                       //stores the time of first tapping on a card
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
     private boolean activityPaused;
+    public ImageView hideMenu;
+    public LinearLayout menuBar;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -92,14 +103,19 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
 
-        // load stuff
-        highlight = findViewById(R.id.card_highlight);
+        /*
+         * Initializing stuff
+         */
+
+        highlight = (ImageView) findViewById(R.id.card_highlight);
         layoutGame = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
         mainTextViewTime = (TextView) findViewById(R.id.mainTextViewTime);
         mainTextViewScore = (TextView) findViewById(R.id.mainTextViewScore);
         mainTextViewRecycles = (TextView) findViewById(R.id.textViewRecycles);
         buttonAutoComplete = (Button) findViewById(R.id.buttonMainAutoComplete);
         mainRelativeLayoutBackground = (RelativeLayout) findViewById(R.id.mainRelativeLayoutBackground);
+        hideMenu = (ImageView) findViewById(R.id.mainImageViewResize);
+        menuBar = (LinearLayout) findViewById(R.id.linearLayoutMenuBar);
 
         //initialize my static helper stuff
         final GameManager gm = this;
@@ -112,26 +128,109 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         autoComplete = new AutoComplete(gm);
         timer = new Timer(gm);
         sounds = new Sounds(gm);
-        currentGame = lg.loadClass(this, getIntent().getIntExtra(GAME, 1));
-        prefs.setGamePreferences(this);
+        dealCards = new DealCards(gm);
+        ensureMovability = new EnsureMovability();
+
+        if (savedInstanceState!=null && savedInstanceState.containsKey(GAME)) {
+            currentGame = lg.loadClass(gm, savedInstanceState.getInt(GAME));
+        } else {
+            currentGame = lg.loadClass(gm, getIntent().getIntExtra(GAME, -1));
+        }
+
+        /*
+         * Setting up callbacks
+         */
+
+        currentGame.setRecycleCounterCallback(new Game.RecycleCounterCallback() {
+            @Override
+            public void updateTextView() {
+                updateNumberOfRecycles();
+            }
+        });
+
+        ensureMovability.setShowDialog(new EnsureMovability.ShowDialog() {
+            @Override
+            public void show(DialogEnsureMovability dialog) {
+                dialog.show(getSupportFragmentManager(), "DIALOG_ENSURE_MOVABILITY");
+            }
+        });
+
+        scores.setCallback(new Scores.UpdateScore() {
+            @Override
+            public void setText(long score, String dollar) {
+                updateScore(score,dollar);
+            }
+        });
+
+        handlerTestAfterMove = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+            @Override
+            public void doAfterAnimation() {
+                if (!gameLogic.hasWon()) {
+                    currentGame.testAfterMove();
+                }
+
+                handlerTestIfWon.sendDelayed();
+
+                if (!autoComplete.isRunning() && !gameLogic.hasWon())  {
+                    gameLogic.checkForAutoCompleteButton(false);
+                }
+            }
+
+            @Override
+            public boolean additionalHaltCondition() {
+                return false;
+            }
+        });
+
+        handlerTestIfWon = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+            @Override
+            public void doAfterAnimation() {
+                gameLogic.testIfWon();
+            }
+
+            @Override
+            public boolean additionalHaltCondition() {
+                return false;
+            }
+        });
+
+        /*
+         * Setting up game data
+         */
+
+        prefs.setGamePreferences(gm);
         Stack.loadBackgrounds();
-        recordList = new RecordList();
-
-        updateMenuBar();
-
+        recordList = new RecordList(gm);
 
         //initialize cards and stacks
         for (int i = 0; i < stacks.length; i++) {
             stacks[i] = new Stack(i);
             stacks[i].view = new CustomImageView(this, this, CustomImageView.Object.STACK, i);
-            stacks[i].view.setImageBitmap(Stack.backgroundDefault);
+            stacks[i].forceSetImageBitmap(Stack.backgroundDefault);
             layoutGame.addView(stacks[i].view);
         }
+
+        currentGame.offScreenStack = new Stack(-1);
+        currentGame.offScreenStack.setSpacingDirection(NONE);
+        currentGame.offScreenStack.view = new CustomImageView(this, null, CustomImageView.Object.STACK, -1);
+        layoutGame.addView(currentGame.offScreenStack.view);
 
         for (int i = 0; i < cards.length; i++) {
             cards[i] = new Card(i);
             cards[i].view = new CustomImageView(this, this, CustomImageView.Object.CARD, i);
             layoutGame.addView(cards[i].view);
+        }
+
+        updateMenuBar();
+        loadBackgroundColor();
+        setUiElementsColor();
+
+        if (prefs.getSavedHideScore()){
+            mainTextViewScore.setVisibility(GONE);
+        }
+
+        if (prefs.getSavedHideTime()){
+            mainTextViewTime.setVisibility(GONE);
         }
 
         scores.output();
@@ -143,20 +242,56 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             public void onGlobalLayout() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     layoutGame.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                } else {
+                }
+                else {
                     //noinspection deprecation
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
-                initializeLayout();
+                if (savedInstanceState != null) {
+                    if (savedInstanceState.containsKey("BUNDLE_ENSURE_MOVABILITY")) {
+                        //put the following in a wait handler, to wait after a possible background job
+                        //from EnsureMovability is finished.
+                        new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+                            @Override
+                            public void doAfterAnimation() {
+                                initializeLayout(false);
+                                gameLogic.load(true);
+
+                                ensureMovability.loadInstanceState(savedInstanceState);
+                            }
+
+                            @Override
+                            public boolean additionalHaltCondition() {
+                                return stopUiUpdates;
+                            }
+                        }).forceSendNow();
+                    }
+                    else {
+                        if (savedInstanceState.containsKey(getString(R.string.bundle_reload_game))) {
+                            initializeLayout(false);
+                            gameLogic.load(true);
+                        }
+
+                        ensureMovability.loadInstanceState(savedInstanceState);
+                        autoComplete.loadInstanceState(savedInstanceState);
+                        autoMove.loadInstanceState(savedInstanceState);
+                        hint.loadInstanceState(savedInstanceState);
+                        dealCards.loadInstanceState(savedInstanceState);
+                    }
+                }
+                else {
+                    initializeLayout(true);
+                }
             }
         });
     }
 
-    private void initializeLayout() {
+    private void initializeLayout(boolean loadNewGame) {
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
         currentGame.setStacks(layoutGame, isLandscape, getApplicationContext());
+        currentGame.setOffScreenStack();
 
         //if left handed mode is true, mirror all stacks
         if (prefs.getSavedLeftHandedMode()) {
@@ -178,15 +313,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             for (Stack stack : stacks) {
                 if (stack.getId() <= currentGame.getLastTableauId()) {
                     stack.setSpacingDirection(DOWN);
-                } else {
+                }
+                else {
                     stack.setSpacingDirection(NONE);
                 }
             }
-        } else {
+        }
+        else {
             for (int i = 0; i < stacks.length; i++) {
                 if (currentGame.directions.length > i) {
                     stacks[i].setSpacingDirection(currentGame.directions[i]);
-                } else {
+                }
+                else {
                     stacks[i].setSpacingDirection(NONE);
                 }
             }
@@ -197,8 +335,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         currentGame.applyDirectionBorders(layoutGame);
 
         scores.load();
-        HandlerLoadGame handlerLoadGame = new HandlerLoadGame(this);
-        handlerLoadGame.sendEmptyMessageDelayed(0, 200);
+
+        updateLimitedRecyclesCounter();
+
+        if (loadNewGame) {
+            HandlerLoadGame handlerLoadGame = new HandlerLoadGame();
+            handlerLoadGame.sendEmptyMessageDelayed(0, 200);
+        }
     }
 
     @Override
@@ -211,17 +354,42 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             gameLogic.save();
         }
 
+        autoComplete.pause();
+        autoMove.pause();
+        hint.pause();
+        ensureMovability.pause();
+        dealCards.pause();
+
         activityPaused = true;
+    }
+
+        @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean(getString(R.string.bundle_reload_game),true);
+        outState.putInt(GAME, getIntent().getIntExtra(GAME, -1));
+
+        autoComplete.saveInstanceState(outState);
+        autoMove.saveInstanceState(outState);
+        hint.saveInstanceState(outState);
+        ensureMovability.saveInstanceState(outState);
+        dealCards.saveInstanceState(outState);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        timer.load();
-        loadBackgroundColor();
+        showOrHideNavBar();
 
         activityPaused = false;
+
+        timer.load();
+        autoComplete.resume();
+        autoMove.resume();
+        hint.resume();
+        ensureMovability.resume();
+        dealCards.resume();
     }
 
     /**
@@ -230,24 +398,27 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (gameLogic.stopConditions()){
+            return false;
+        }
+
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             showRestartDialog();
-
             return true;
         }
 
         return super.onKeyDown(keyCode, event);
     }
 
-    /*
+    /**
      * Is the main input handler. Tracks the input position and moves cards according to that.
      * The motion events are put in extra methods, because before it got a bit unclear
      */
     public boolean onTouch(View view, MotionEvent event) {
-
         CustomImageView v = (CustomImageView) view;
+
         //if something important happens don't accept input
-        if (gameLogic.stopConditions()) {
+        if (gameLogic.stopConditions() || gameLogic.hasWon()) {
             return true;
         }
 
@@ -289,18 +460,14 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean motionActionDown(CustomImageView v, MotionEvent event, float X, float Y) {
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
-            //test if the redeal counter needs to be updated
-            if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty() && discardStacksContainCards()) {
-                if (currentGame.getRemainingNumberOfRecycles() == 0) {
-                    return true;
-                } else {
-                    currentGame.incrementRecycleCounter(this);
-                }
+
+            //if no card could be moved, do nothing
+            if (currentGame.mainStackTouch() == 0){
+                return true;
             }
-            //do what the game wants to be done on a main stack press
-            currentGame.mainStackTouch();
-            gameLogic.checkForAutoCompleteButton();
-            handlerTestAfterMove.sendEmptyMessageDelayed(0,100);
+
+            gameLogic.checkForAutoCompleteButton(false);
+            handlerTestAfterMove.sendDelayed();
             return resetTappedCard();
         }
 
@@ -518,6 +685,21 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
+    private void setUiElementsColor(){
+        int textColor = prefs.getSavedTextColor();
+
+        mainTextViewTime.setTextColor(textColor);
+        mainTextViewScore.setTextColor(textColor);
+        hideMenu.setColorFilter(textColor);
+        highlight.setColorFilter(textColor);
+
+        for (Stack stack: stacks){
+            stack.view.setColorFilter(textColor);
+        }
+
+        currentGame.textViewSetColor(textColor);
+    }
+
     public void applyGameLayoutMargins(RelativeLayout.LayoutParams params, boolean isLandscape){
         int savedValue;
         int margin = 0;
@@ -559,10 +741,21 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
-                initializeLayout();
+                initializeLayout(false);
+
+                if (gameLogic.hasWon()) {
+                    for (Card card : cards) {
+                        card.setLocationWithoutMovement(layoutGame.getWidth(), 0);
+                    }
+                } else {
+                    for (Stack stack : stacks) {
+                        stack.updateSpacingWithoutMovement();
+                    }
+                }
             }
         });
     }
+
     /**
      * Updates the menu bar position according to the user settings
      */
@@ -579,7 +772,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //params for the game overlay
         RelativeLayout.LayoutParams params3 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
-        LinearLayout menu = (LinearLayout) findViewById(R.id.linearLayout);
+        LinearLayout menu = (LinearLayout) findViewById(R.id.linearLayoutMenuBar);
         RelativeLayout gameWindow = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGame);
         RelativeLayout gameOverlayLower = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlayLower);
         RelativeLayout gameOverlayUpper = (RelativeLayout) findViewById(R.id.mainRelativeLayoutGameOverlay);
@@ -589,32 +782,36 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
             if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
-                params3.addRule(RelativeLayout.LEFT_OF, R.id.linearLayout);
+                params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayout);
-                params3.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayout);
+                params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
             }
         } else {
             params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.menuBarHeight));
 
             if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-                params2.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
-                params3.addRule(RelativeLayout.ABOVE, R.id.linearLayout);
+                params2.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
 
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-                params2.addRule(RelativeLayout.BELOW, R.id.linearLayout);
-                params3.addRule(RelativeLayout.BELOW, R.id.linearLayout);
+                params2.addRule(RelativeLayout.BELOW, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.BELOW, R.id.linearLayoutMenuBar);
             }
         }
+
 
         menu.setLayoutParams(params1);
         gameWindow.setLayoutParams(params2);
         gameOverlayLower.setLayoutParams(params2);
         gameOverlayUpper.setLayoutParams(params3);
+
+        menuBar.setVisibility(prefs.getHideMenuBar() ? GONE : VISIBLE);
+        updateHideMenuButton(isLandscape);
     }
 
     public void menuClick(View view) {
@@ -630,12 +827,29 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         resetTappedCard();
 
         switch (view.getId()) {
+            case R.id.mainImageViewResize:
+                if (menuBar.getVisibility() == VISIBLE){
+                    menuBar.setVisibility(GONE);
+                    prefs.saveHideMenuBar(true);
+                } else {
+                    menuBar.setVisibility(VISIBLE);
+                    prefs.saveHideMenuBar(false);
+                }
+
+                menuBar.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        gameLogic.save();
+                        updateGameLayout();
+                    }
+                });
+                break;
             case R.id.mainButtonScores:         //open high scores activity
                 startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
                 break;
             case R.id.mainButtonUndo:           //undo last movement
                 if (!gameLogic.hasWon()) {
-                    recordList.undo(this);
+                    recordList.undo();
                 }
                 break;
             case R.id.mainButtonHint:           //show a hint
@@ -645,7 +859,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 showRestartDialog();
                 break;
             case R.id.mainButtonSettings:       //open Settings activity
-                startActivity(new Intent(getApplicationContext(), Settings.class));
+                Intent i = new Intent(this, Settings.class);
+                startActivityForResult(i, 1);
                 break;
             case R.id.buttonMainAutoComplete:   //start auto complete
                 autoComplete.start();
@@ -653,11 +868,84 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
-    public void updateNumberOfRecycles() {
-        mainTextViewRecycles.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRecycles()));
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                if (data.hasExtra(getString(R.string.intent_update_game_layout))){
+                    updateGameLayout();
+                }
+                if (data.hasExtra(getString(R.string.intent_background_color))){
+                    loadBackgroundColor();
+                }
+                if (data.hasExtra(getString(R.string.intent_update_menu_bar))){
+                    updateMenuBar();
+                }
+                if (data.hasExtra(getString(R.string.intent_text_color))){
+                    setUiElementsColor();
+                }
+                if (data.hasExtra(getString(R.string.intent_update_score_visibility))){
+                    mainTextViewScore.setVisibility(prefs.getSavedHideScore() ? GONE : VISIBLE);
+                }
+                if (data.hasExtra(getString(R.string.intent_update_time_visibility))){
+                    mainTextViewTime.setVisibility(prefs.getSavedHideTime() ? GONE : VISIBLE);
+                }
+            }
+        }
     }
 
-    /*
+    private void updateHideMenuButton(boolean isLandscape){
+        boolean menuBarVisible = menuBar.getVisibility() == VISIBLE;
+
+        if (prefs.getHideMenuButton()){
+            hideMenu.setVisibility(GONE);
+        } else {
+            hideMenu.setVisibility(VISIBLE);
+
+            if (!isLandscape) {
+                if (prefs.getSavedMenuBarPosPortrait().equals("bottom")) {
+                    hideMenu.setImageResource(menuBarVisible ? R.drawable.icon_arrow_down : R.drawable.icon_arrow_up);
+                } else {
+                    hideMenu.setImageResource(menuBarVisible ? R.drawable.icon_arrow_up : R.drawable.icon_arrow_down);
+                }
+            } else {
+                if (prefs.getSavedMenuBarPosLandscape().equals("right")) {
+                    hideMenu.setImageResource(menuBarVisible ? R.drawable.icon_arrow_right : R.drawable.icon_arrow_left);
+                } else {
+                    hideMenu.setImageResource(menuBarVisible ? R.drawable.icon_arrow_left : R.drawable.icon_arrow_right);
+                }
+            }
+        }
+    }
+
+    private void updateNumberOfRecycles() {
+        if (!stopUiUpdates) {
+            mainTextViewRecycles.post(new Runnable() {
+                @Override
+                public void run() {
+                    mainTextViewRecycles.setText(String.format(Locale.getDefault(), "%d", currentGame.getRemainingNumberOfRecycles()));
+                }
+            });
+        }
+    }
+
+    private void updateScore(final long score, final String dollar){
+        if (stopUiUpdates){
+            return;
+        }
+
+        mainTextViewScore.post(new Runnable() {
+            @Override
+            public void run() {
+                mainTextViewScore.setText(String.format("%s: %s %s",
+                        getString(R.string.game_score), score, dollar));
+            }
+        });
+    }
+
+    /**
      * do not show the dialog while the activity is paused. This would cause a force close
      */
     public void showRestartDialog() {
@@ -678,9 +966,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
     }
 
-    /*
-    * do not show the dialog while the activity is paused. This would cause a force close
-    */
+    /**
+     * do not show the dialog while the activity is paused. This would cause a force close
+     */
     public void showWonDialog() {
 
         try {
@@ -697,7 +985,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         return true;
     }
 
-    /*
+    /**
      * just to let the win animation handler know, if the game was paused (due to screen rotation)
      * so it can halt
      */
@@ -707,17 +995,15 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     public void updateLimitedRecyclesCounter(){
         if (currentGame.hasLimitedRecycles() && !currentGame.hidesRecycleCounter()) {
-            mainTextViewRecycles.setVisibility(View.VISIBLE);
+            mainTextViewRecycles.setVisibility(VISIBLE);
             mainTextViewRecycles.setX(currentGame.getMainStack().getX());
             mainTextViewRecycles.setY(currentGame.getMainStack().getY());
         } else {
-            mainTextViewRecycles.setVisibility(View.GONE);
+            mainTextViewRecycles.setVisibility(GONE);
         }
-
     }
 
-
-    /*
+    /**
      * set the current game to 0, otherwise the menu would load the current game again,
      * because last played game will start
      */
@@ -727,14 +1013,24 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         super.finish();
     }
 
-    private boolean discardStacksContainCards(){
+    /**
+     * Enables the fullscreen immersive mode. Only works on Kitkat and above. Also start a listener
+     * in case the fullscreen mode is deactivated from the settings, so the game layout has to redraw.
+     */
+    private void showOrHideNavBar(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            View decorView = getWindow().getDecorView();
 
-        for (Stack stack : currentGame.getDiscardStacks()){
-            if (!stack.isEmpty()) {
-                return true;
+            if (prefs.getSavedImmersiveMode()) {
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+            } else {
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             }
         }
-
-        return false;
     }
 }

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Versiyon"</string>
 <string name="settings">"Ayarlar"</string>
 <string name="game_manual">"Kılavuz"</string>
@@ -19,7 +17,6 @@
 
 <!-- Menu -->
 <string name="menu_undo">"Geri Al"</string>
-<string name="settings_support">"Destek"</string>
 <string name="menu_main_menu">"Menü"</string>
 <string name="menu_settings">"Ayarlar"</string>
 
@@ -32,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramid"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
-<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
+<string name="games_AcesUp">"Aces Up"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -80,7 +77,6 @@
 <string name="title_activity_settings">"Ayarlar"</string>
 <string name="title_activity_about">"Hakkında"</string>
 <string name="title_activity_statistics">"Istatistik"</string>
-<string name="statistics_high_scores">"En Yüksek Puanlar"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Bilgi"</string>
@@ -340,12 +336,6 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="settings_show_main_menu_description">"Başlangıçta son oynanan oyuna dönme"</string>
 <string name="settings_golf_easy">"Döngüsel hareketler (Daha Kolay)"</string>
 <string name="settings_golf_easy_description">"Asları papazların üzerine ve papazları asların üzerine yerleştirmeye izin ver"</string>
-<string name="settings_restart_klondike">"Değişikliği uygulamak için yeni bir Klondike oyununa başlayın"</string>
-<string name="settings_restart_canfield">"Değişikliği uygulamak için yeni bir Canfield oyununa başlayın"</string>
-<string name="settings_restart_spider">"Değişikliği uygulamak için yeni bir Spider oyununa başlayın"</string>
-<string name="settings_restart_vegas">"Değişikliği uygulamak için yeni bir Vegas oyununa başlayın"</string>
-<string name="settings_restart_fortyeight">"Değişikliği uygulamak için yeni bir Forty&amp;Eight oyununa başlayın"</string>
-<string name="settings_restart_yukon">"Değişikliği uygulamak için yeni bir Yukon oyununa başlayın"</string>
 <string name="settings_menu">"Ana menü"</string>
 <string name="settings_menu_description">"Sütun sayısını değiştirme, oyunları gösterme ve gizleme"</string>
 <string name="settings_pyramid_difficulty">"Zorluk"</string>
@@ -395,6 +385,7 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="settings_auto_start_new_game_title">"Kazandığında yeni oyun başlat"</string>
 <string name="settings_auto_start_new_game_text">"Kazanılan bir oyuna geri dönülürse, otomatik olarak yeni bir oyun başlat"</string>
 <string name="settings_customization_description">"Kartları, arkaplanı ve kullanıcı arayüzüözelleştir"</string>
+<string name="settings_support">"Destek"</string>
 <string name="settings_single_tap_enable">"Tek dokunuş hareketlerini etkinleştir"</string>
 <string name="settings_vegas_bet_amount_text_1">"İlk sağıtım masrafı:"</string>
 <string name="settings_vegas_bet_amount_text_2">"Toplanan her kartın kazandırdığı:"</string>
@@ -459,4 +450,6 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="statistics_button_deleted_all_entries">"Tüm girişler silindi"</string>
 <string name="statistics_time_of_day">"Saat"</string>
 <string name="statistics_date">"Tarih"</string>
+<string name="statistics_high_scores">"En Yüksek Puanlar"</string>
+<string name="settings_restart_game">"Değişikliği uygulamak için yeni bir %1$s oyununa başlayın"</string>
 </resources>

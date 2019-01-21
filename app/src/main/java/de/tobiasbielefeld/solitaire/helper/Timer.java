@@ -63,6 +63,10 @@ public class Timer {
      * Save all necessary data to retreive the played time on the next load.
      */
     public void save() {
+        if (stopUiUpdates){
+            return;
+        }
+
         running = false;
         if (!gameLogic.hasWon()) {
             prefs.saveEndTime(System.currentTimeMillis());

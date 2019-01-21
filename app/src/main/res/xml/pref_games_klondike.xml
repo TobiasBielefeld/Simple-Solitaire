@@ -13,7 +13,7 @@
             android:summary="%s"
             android:title="@string/settings_klondike_draw" />
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_klondike_limited_recycles"
             android:key="@string/pref_key_klondike_limit_recycles"
             android:summary="@string/settings_limit_number_of_recycles_text"

@@ -21,6 +21,9 @@ package de.tobiasbielefeld.solitaire.classes;
 import android.content.Context;
 import android.preference.ListPreference;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Custom list preference, because "%s" as summary doesn't update the summary on Android 4. So override
@@ -46,5 +49,18 @@ public class ListPreferenceWithSummary extends ListPreference {
     @Override
     public void setSummary(CharSequence summary) {
         super.setSummary(getEntry());
+    }
+
+    @Override
+    protected View onCreateView(ViewGroup parent) {
+        View view = super.onCreateView(parent);
+
+        //get rid of the stupid single line restriction for the title
+        TextView textView = (TextView) view.findViewById(android.R.id.title);
+        if (textView != null) {
+            textView.setSingleLine(false);
+        }
+
+        return view;
     }
 }

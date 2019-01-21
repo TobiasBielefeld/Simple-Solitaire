@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -50,7 +51,7 @@ public class Spider extends Game {
         setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         for (int i = 0; i < 10; i++) {
             Stack sourceStack = stacks[i];
 
@@ -61,7 +62,7 @@ public class Spider extends Game {
             for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
                     continue;
                 }
 
@@ -75,7 +76,7 @@ public class Spider extends Game {
                     }
 
                     if (cardToMove.test(destStack)) {
-                        //if the card above has the corret value, and the card on destination is not the same family as the cardToMove, don't move it
+                        //if the card above has the correct value, and the card on destination is not the same family as the cardToMove, don't move it
                         if (j > 0 && sourceStack.getCard(j - 1).isUp() && sourceStack.getCard(j - 1).getValue() == cardToMove.getValue() + 1
                                 && destStack.getTopCard().getColor() != cardToMove.getColor()) {
                             continue;
@@ -86,12 +87,13 @@ public class Spider extends Game {
                             continue;
                         }
 
-                        if (cardToMove.test(destStack) && !sameCardOnOtherStack(cardToMove, destStack, SAME_VALUE_AND_FAMILY)) {
+                        if (j == 0 && destStack.getTopCard().getValue() == cardToMove.getValue() + 1 &&  destStack.getTopCard().getColor() != cardToMove.getColor()){
+                            continue;
+                        }
 
-                            //try to prefer stacks with a top card of the same family as the moving card
-                            if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor())) {
-                                returnStack = destStack;
-                            }
+                        //try to prefer stacks with a top card of the same family as the moving card
+                        if (returnStack == null || (destStack.getTopCard().getColor() != returnStack.getTopCard().getColor() && destStack.getTopCard().getColor() == cardToMove.getColor())) {
+                            returnStack = destStack;
                         }
 
                         //return new CardAndStack(cardToMove, destStack);
@@ -104,7 +106,7 @@ public class Spider extends Game {
             }
         }
 
-        return null;
+        return findBestSequenceToMoveToEmptyStack(SAME_FAMILY);
     }
 
     public Stack doubleTapTest(Card card) {
@@ -216,13 +218,13 @@ public class Spider extends Game {
         for (int i = 0; i < 5; i++) {
             stacks[18 + i].setX(startPos + i * Card.width / 2);
             stacks[18 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
-            stacks[18 + i].view.setImageBitmap(Stack.backgroundTransparent);
+            stacks[18 + i].setImageBitmap(Stack.backgroundTransparent);
         }
         //foundation stacks
         for (int i = 0; i < 8; i++) {
             stacks[10 + i].setX(Card.width / 2 + i * Card.width / 2);
             stacks[10 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
-            stacks[10 + i].view.setImageBitmap(Stack.backgroundTransparent);
+            stacks[10 + i].setImageBitmap(Stack.backgroundTransparent);
         }
         //tableau stacks
         startPos = layoutGame.getWidth() / 2 - 5 * Card.width - 4 * spacing - spacing / 2;
@@ -269,7 +271,7 @@ public class Spider extends Game {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 if (stacks[18+i].getSize()>j) {
-                    stacks[18 + i].getCard(j).view.bringToFront();
+                    stacks[18 + i].getCard(j).bringToFront();
                 }
             }
         }
@@ -298,8 +300,9 @@ public class Spider extends Game {
             }
 
             moveToStack(cards, destinations, OPTION_REVERSED_RECORD);
+
             //test if a card family is now full
-            handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
+            handlerTestAfterMove.sendDelayed();
             return 1;
         }
 

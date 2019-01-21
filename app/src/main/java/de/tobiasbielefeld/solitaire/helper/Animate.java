@@ -34,7 +34,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.handler.HandlerAfterWon;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -47,14 +47,33 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Animate {
 
-    public HandlerAfterWon handlerAfterWon;
+    public WaitForAnimationHandler handlerAfterWon;
     private GameManager gm;
     private float speedFactor;
+    int phase = 1;
 
-    public Animate(GameManager gm) {
-        this.gm = gm;
-        handlerAfterWon = new HandlerAfterWon(gm);
+    public Animate(GameManager gameManager) {
+        this.gm = gameManager;
         speedFactor = prefs.getSavedMovementSpeed();
+
+        handlerAfterWon = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+            @Override
+            public void doAfterAnimation() {
+                if (phase == 1) {
+                    wonAnimationPhase2();
+                    phase = 2;
+                    handlerAfterWon.sendDelayed();
+                } else {
+                    phase = 1;
+                    gm.showWonDialog();
+                }
+            }
+
+            @Override
+            public boolean additionalHaltCondition() {
+                return false;
+            }
+        });
     }
 
     public void updateMovementSpeed() {
@@ -74,7 +93,7 @@ public class Animate {
         }
 
         sounds.playWinSound();
-        handlerAfterWon.sendEmptyMessageDelayed(0, 100);
+        handlerAfterWon.sendDelayed();
     }
 
     /**
@@ -144,7 +163,7 @@ public class Animate {
      * @param destination The destination of the movement
      */
     public void cardHint(final Card card, final int offset, final Stack destination) {
-        card.view.bringToFront();
+        card.bringToFront();
         card.saveOldLocation();
         PointF pointAtStack = destination.getPosition(offset);
         float dist_x = pointAtStack.x - card.getX();
@@ -237,6 +256,11 @@ public class Animate {
      */
     public void moveCardSlow(final Card card, final float pX, final float pY) {
         final CustomImageView view = card.view;
+
+        if (card.isInvisible()){
+            return;
+        }
+
         int distance = (int) Math.sqrt(Math.pow(pX - view.getX(), 2) + Math.pow(pY - view.getY(), 2));
 
         TranslateAnimation animation = new TranslateAnimation(0, pX - view.getX(), 0, pY - view.getY());

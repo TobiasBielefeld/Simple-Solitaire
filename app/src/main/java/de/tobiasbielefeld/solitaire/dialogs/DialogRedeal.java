@@ -23,18 +23,16 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 
 /**
  * Little confirmation dialog for redealing the current game
  */
 
-public class DialogRedeal extends DialogFragment {
+public class DialogRedeal extends CustomDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -52,6 +50,6 @@ public class DialogRedeal extends DialogFragment {
                     }
                 });
 
-        return builder.create();
+        return applyFlags(builder.create());
     }
 }

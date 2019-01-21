@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -57,13 +58,9 @@ public class Canfield extends Game {
     }
 
     @Override
-    public void save() {
-        prefs.saveStartCardValueCanfield(startCardValue);
-    }
-
-    @Override
     public void load() {
-        startCardValue = prefs.getSavedStartCardValueCanfield();
+        startCardValue = stacks[5].getCard(0).getValue();
+        setFoundationBackgrounds();
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -104,12 +101,10 @@ public class Canfield extends Game {
 
         //also set backgrounds of the stacks
         for (int i = 9; i < 12; i++) {
-            stacks[i].view.setImageBitmap(Stack.backgroundTransparent);
+            stacks[i].setImageBitmap(Stack.backgroundTransparent);
         }
 
-        stacks[12].view.setImageBitmap(Stack.backgroundTalon);
-        load();
-        setFoundationBackgrounds();
+        stacks[12].setImageBitmap(Stack.backgroundTalon);
     }
 
     public boolean winTest() {
@@ -170,7 +165,7 @@ public class Canfield extends Game {
         }
 
         for (int i = 5; i < 9; i++) {
-            stacks[i].view.setImageBitmap(bitmap);
+            stacks[i].setImageBitmap(bitmap);
         }
     }
 
@@ -276,11 +271,11 @@ public class Canfield extends Game {
 
                 //now bring the cards to front
                 if (!stacks[10].isEmpty()) {
-                    stacks[10].getTopCard().view.bringToFront();
+                    stacks[10].getTopCard().bringToFront();
                 }
 
                 if (!stacks[11].isEmpty()) {
-                    stacks[11].getTopCard().view.bringToFront();
+                    stacks[11].getTopCard().bringToFront();
                 }
 
                 //reverse everything so the cards on the stack will be in the right order when using an undo
@@ -375,7 +370,7 @@ public class Canfield extends Game {
                 || (card.getStackId() == 9 && !stacks[10].isEmpty()));
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
         Card card;
 
         for (int i = 0; i <= 4; i++) {
@@ -389,7 +384,7 @@ public class Canfield extends Game {
             /* complete visible part of a stack to move on the tableau */
             card = origin.getCard(0);
 
-            if (!hint.hasVisited(card) && card.getValue() != startCardValue) {
+            if (!visited.contains(card) && card.getValue() != startCardValue) {
                 for (int j = 0; j <= 3; j++) {
                     if (j == i || stacks[j].isEmpty()) {
                         continue;
@@ -404,7 +399,7 @@ public class Canfield extends Game {
             /* last card of a stack to move to the foundation */
             card = origin.getTopCard();
 
-            if (!hint.hasVisited(card)) {
+            if (!visited.contains(card)) {
                 for (int j = 5; j <= 8; j++) {
                     if (card.test(stacks[j])) {
                         return new CardAndStack(card, stacks[j]);
@@ -420,7 +415,7 @@ public class Canfield extends Game {
                 continue;
             }
 
-            if (stacks[9 + i].getSize() > 0 && !hint.hasVisited(stacks[9 + i].getTopCard())) {
+            if (stacks[9 + i].getSize() > 0 && !visited.contains(stacks[9 + i].getTopCard())) {
                 for (int j = 5; j <= 8; j++) {
                     if (stacks[9 + i].getTopCard().test(stacks[j])) {
                         return new CardAndStack(stacks[9 + i].getTopCard(), stacks[j]);

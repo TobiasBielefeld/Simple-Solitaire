@@ -2,14 +2,16 @@
 ![license](http://img.shields.io/badge/license-GPLv3+-brightgreen.svg)
 ![platform](http://img.shields.io/badge/platform-Android-blue.svg)
 
+Contact address: tobias.bielefeld [at] gmail.com
+
 [<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire) 
 
 
 ## Help translating here: [<img src="https://poeditor.com/public/images/logo_small.png" alt="Help translating this project" height="30">](https://poeditor.com/join/project/PYX4vcwTjA)
 
 
-#### Now contains 16 different Solitaire games!
-AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, GrandfathersClock, Gypsy, Klondike, Mod3, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
+#### Now contains 17 different Solitaire games!
+AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, Grandfather's Clock, Gypsy, Klondike, Mod3, Napoleon's Tomb, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
 
 # Simple Solitaire
 
@@ -67,7 +69,7 @@ The instructions to compile this app are very easy. Just download the project an
 Or alternatively, follow this guide to compile the app on the command line: https://developer.android.com/studio/build/building-cmdline.html
 
 ## Usage
-If you want to use my work for your own project (which means in most cases: Put ads in it and publish on Google Play Store) YOU HAVE TO FOLLOW THE GPL LICENSE! This means, your project MUST be open source under a GPLv3+ compatible license and MUST contain attribution for the original work! I already found a lot of copies which simply removed my "About Game" screen and changed some graphics. If I see your work violating the GPL rules, I will let it get removed by Google. 
+If you want to use my work for your own project (which means in most cases: Put ads in it and publish on Google Play Store) YOU HAVE TO FOLLOW THE GPL LICENSE! This means, your project MUST be open source under a GPLv3+ compatible license and MUST contain attribution for the original work! I already found a lot of copies which simply removed my "About Game" screen and changed some graphics.
 
 So please follow the rules! Use this attribution text (or a similar one)
 
@@ -123,6 +125,8 @@ Every card theme was modified by me to add a four color theme! You can download 
 The Material Design Symbols used for the menu icons are made by Google Inc and are published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 Custom color picker: Uses the [AmbilWarna library](https://github.com/yukuku/ambilwarna) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+Sliding Tabs: Uses the [PagerSlidingTabStrip library](https://github.com/astuetz/PagerSlidingTabStrip#license) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 All sounds used in this project were originally published on https://freesound.org under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
 

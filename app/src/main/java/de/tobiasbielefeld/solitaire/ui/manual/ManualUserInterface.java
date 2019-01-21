@@ -30,6 +30,8 @@ import android.widget.TextView;
 
 import de.tobiasbielefeld.solitaire.R;
 
+import static de.tobiasbielefeld.solitaire.SharedData.createBulletParagraph;
+
 /**
  * Just show a textView for the user interface page
  */
@@ -54,23 +56,9 @@ public class ManualUserInterface extends Fragment {
                 getText(R.string.manual_ui_text_part_9)
         };
 
-        SpannableString spanns1[] = new SpannableString[strings1.length];
-        SpannableString spanns2[] = new SpannableString[strings2.length];
-
-        //apply the bullet characters
-        for (int i=0;i<strings1.length;i++){
-            spanns1[i] = new SpannableString(strings1[i]);
-            spanns1[i].setSpan(new BulletSpan(15), 0, strings1[i].length(), 0);
-        }
-
-        for (int i=0;i<strings2.length;i++){
-            spanns2[i] = new SpannableString(strings2[i]);
-            spanns2[i].setSpan(new BulletSpan(15), 0, strings2[i].length(), 0);
-        }
-
         //set up the textViews
-        textView1.setText(TextUtils.concat(spanns1));
-        textView2.setText(TextUtils.concat(spanns2));
+        textView1.setText(createBulletParagraph(strings1));
+        textView2.setText(createBulletParagraph(strings2));
 
         return view;
     }

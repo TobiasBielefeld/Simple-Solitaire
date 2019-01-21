@@ -20,7 +20,7 @@
     <string name="game_load_error">Loading data failed, starting new game…</string>
     <string name="game_close">Close game</string>
     <string name="game_main_menu">Main menu</string>
-    <string name="item_game_rules">Game rule</string>
+    <string name="item_game_rules">Game rules</string>
     <string name="item_return_to_main_menu">Return to main menu</string>
 
     <!-- Menu -->
@@ -41,18 +41,21 @@
     <string name="games_Freecell">FreeCell</string>
     <string name="games_Yukon">Yukon</string>
     <string name="games_Spider">Spider</string>
-    <string name="games_SimpleSimon">SimpleSimon</string>
+    <string name="games_Spiderette">Spiderette</string>
+    <string name="games_SimpleSimon">Simple Simon</string>
     <string name="games_Golf">Golf</string>
     <string name="games_Pyramid">Pyramid</string>
     <string name="games_TriPeaks">TriPeaks</string>
-    <string name="games_FortyEight">Forty&amp;Eight</string>
-    <string name="games_AcesUp">AcesUp</string>
+    <string name="games_FortyEight">Forty &amp; Eight</string>
+    <string name="games_AcesUp">Aces Up</string>
     <string name="games_Gypsy">Gypsy</string>
+    <string name="games_Maze">Maze</string>
     <string name="games_mod3">Mod3</string>
     <string name="games_Canfield">Canfield</string>
-    <string name="games_GrandfathersClock">GrandfathersClock</string>
+    <string name="games_GrandfathersClock">Grandfather\'s Clock</string>
     <string name="games_Vegas">Vegas</string>
     <string name="games_Calculation">Calculation</string>
+    <string name="games_NapoleonsTomb">Napoleon\'s Tomb</string>
 
     <!-- colors -->
 
@@ -62,6 +65,8 @@
     <string name="yellow">Yellow</string>
     <string name="orange">Orange</string>
     <string name="purple">Purple</string>
+    <string name="black">Black</string>
+    <string name="white">White</string>
 
     <!-- game stuff -->
 
@@ -76,7 +81,7 @@
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
     <string name="dialog_mix_cards_title">Mix cards</string>
-    <string name="dialog_mix_cards_text">This will shuffle all cards, expect correct sequences and cards on the foundation.</string>
+    <string name="dialog_mix_cards_text">This will shuffle all cards, except correct sequences and cards on the foundation.</string>
     <string name="dialog_mix_cards_not_available">There are still possible moves!</string>
     <string name="dialog_start_new_game_title">Start new game</string>
     <string name="dialog_start_new_game_text">Your current progress will be lost and a new random game will be dealt.</string>
@@ -106,6 +111,7 @@
     <string name="about_card_themes_title">Card themes</string>
     <string name="about_card_themes_usage">The card themes were taken from &lt;a href="https://pixabay.com/"&gt;pixabay.com&lt;/a&gt;, for detailed information click &lt;a href="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt"&gt;here&lt;/a&gt;</string>
     <string name="about_poker_themes_usage">Used as Poker theme - Available on &lt;a href="https://sourceforge.net/projects/vector-cards/"&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com</string>
+    <string name="about_paris_themes_usage">Used as Paris theme - Available on &lt;a href="https://sourceforge.net/projects/svg-cards/"&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr</string>
     <string name="about_custom_color_picker_title">AmbilWarna library</string>
     <string name="about_custom_color_picker_usage">Used for the custom color picker</string>
     <string name="about_sounds_title">Sounds</string>
@@ -129,28 +135,28 @@
     <string name="manual_bonus">After winning a game, you get a bonus: The faster you win, the higher the bonus will be.</string>
     <string name="manual_open_google_play">Open Google Play</string>
     <string name="manual_open_github">Open GitHub Repo</string>
-    <string name="manual_games_text1">Choose a game to show it\'s structure, objective, rules and scoring.</string>
+    <string name="manual_games_text1">Choose a game to show its structure, objective, rules and scoring.</string>
     <string name="manual_startpage_text">Welcome to the manual of this game collection! I hope it will explain everything. \n\nUse the menu on the left side to access the other manual pages.</string>
     <string name="manual_general_main_menu">The usage of the main menu is relatively simple. Just tap on a game to start it. \n\nThe app will automatically load the last played game on a restart, if the app was paused in it. This behavior can be disabled in the settings under \"General\".\n\nThere you can also find the section \"Main menu\", where it\'s possible to hide and reorder games in the menu and change the number of columns, so more games fit on the screen at once.</string>
 
     <string name="manual_ui_text">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. If possible, these two values will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons from left to right):\n\nThe \"Scores\" button will show a new window with the high scores and the count of won games of the current game.\n\nThe \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.\n\nThe \"Menu\" button shows three different actions: Start a new game by mixing the cards and drawing a new deal. Give cards again will do the same but without the mixing. So it\'s like a restart of the current game. The last option will end the current game and return the app to the main menu.\n\nThe \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements.\n\nThe \"Settings\" button simply opens the settings menu.</string>
 
     <string name="manual_ui_text_part_1">A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. The menu contains 5 items, which have the following effects (buttons from left to right)\n\nThe \"Statistics\" button will show a new window with different statistics of the current game, like the high scores.\n\nThe \"Support\" button will show a little help menu. Here you can select:</string>
-    <string name="manual_ui_text_part_2">Show hints: Show up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.\n</string>
-    <string name="manual_ui_text_part_3">Auto move: Automatically move as many cards as possible. This option is intended to be used in situations eg. when only one card is still faced down, but you need to move every other card on that stack to access it. So this option can speed up the game a little bit.\n</string>
-    <string name="manual_ui_text_part_4">Mix cards: If you are in a situation where no movement is possible, you can use this option to mix the current cards. Note that cards already in correct order or cards on the foundation will be ignored in the mixing.\n</string>
-    <string name="manual_ui_text_part_5">Game rules: Directly open the manual page of the current game.\n</string>
+    <string name="manual_ui_text_part_2">Show hints: Show up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren\'t shown as a hint. If no hint was shown, the score won\'t decrease.</string>
+    <string name="manual_ui_text_part_3">Auto move: Automatically move as many cards as possible. This option is intended to be used in situations eg. when only one card is still faced down, but you need to move every other card on that stack to access it. So this option can speed up the game a little bit.</string>
+    <string name="manual_ui_text_part_4">Mix cards: If you are in a situation where no movement is possible, you can use this option to mix the current cards. Note that cards already in correct order or cards on the foundation will be ignored in the mixing.</string>
+    <string name="manual_ui_text_part_5">Game rules: Directly open the manual page of the current game.</string>
     <string name="manual_ui_text_part_6">The \"Menu\" button shows three different actions:</string>
-    <string name="manual_ui_text_part_7">Start a new game: Mixing the cards and draw a new deal.\n</string>
-    <string name="manual_ui_text_part_8">Give cards again: Restart the current game with the same layout of cards.\n</string>
-    <string name="manual_ui_text_part_9">Return to main menu: Save the current game state and show the game selection menu.\n</string>
+    <string name="manual_ui_text_part_7">Start a new game: Mixing the cards and draw a new deal.</string>
+    <string name="manual_ui_text_part_8">Give cards again: Restart the current game with the same layout of cards.</string>
+    <string name="manual_ui_text_part_9">Return to main menu: Save the current game state and show the game selection menu.</string>
     <string name="manual_ui_text_part_10">The \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements. (The amount can be increased in the expert settings)\n\nThe \"Settings\" button simply opens the settings menu.</string>
 
     <string name="manual_statistics_part_1">There are statistics collected for each game. You can access them from the in-game menu bar. Collected information are:</string>
-    <string name="manual_statistics_part_2">The number of played and won games\n</string>
-    <string name="manual_statistics_part_3">The total amount of earned score points\n</string>
-    <string name="manual_statistics_part_4">The total amount of help functions used\n</string>
-    <string name="manual_statistics_part_5">A high-score list with up to 10 entries, only scores over 0 are saved here\n</string>
+    <string name="manual_statistics_part_2">The number of played and won games</string>
+    <string name="manual_statistics_part_3">The total amount of earned score points</string>
+    <string name="manual_statistics_part_4">The total amount of help functions used</string>
+    <string name="manual_statistics_part_5">A high-score list with up to 10 entries, only scores over 0 are saved here</string>
     <string name="manual_statistics_part_6">A recent score list with the last 10 scores</string>
     <string name="manual_statistics_part_7">It is also possible to delete all data for the current game, but this can\'t be undone!</string>
 
@@ -171,6 +177,12 @@
     <string name="manual_Spider_objective">Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation.</string>
     <string name="manual_Spider_rules">Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
     <string name="manual_Spider_scoring">Move a card family to foundation: +200\n\n Flip a card up: +25</string>
+
+    <string name="manual_Spiderette_structure">1 decks of 52 cards.\n\n7 tableau stacks and 4 foundation stacks.\n\n1 main stack, separated in 4 different piles.\n\nDepending on settings: 1, 2 or 4 different card families.</string>
+    <string name="manual_Spiderette_objective">Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation.</string>
+    <string name="manual_Spiderette_rules">Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau stacks.\n\nPress on the main stack to deal one card to every tableau stack at once.</string>
+    <string name="manual_Spiderette_scoring">Move a card family to foundation: +200\n\n Flip a card up: +25</string>
+
     <string name="manual_SimpleSimon_structure">1 deck of 52 cards.\n\n10 tableau stacks and 4 foundation stacks.</string>
     <string name="manual_SimpleSimon_objective">Place every card in true descending card families anywhere on the tableau. The built card families will be automatically moved to the foundation.</string>
     <string name="manual_SimpleSimon_rules">Cards can be placed on any card in descending order. But only real card family sequences can be moved at once.\n\nEvery card can be placed on empty tableau stacks.</string>
@@ -219,9 +231,16 @@
     <string name="manual_Calculation_objective">Place every card to the foundation, regardless of suit, until each foundation stack shows a king. The stacks have to be build in the following order: \n\n 1. stack in 1s: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K\n 2. stack in 2s: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K\n 3. stack in 3s: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K\n 4. stack in 4s: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K \n\nThe next playable cards are shown above the foundation stacks, too.</string>
     <string name="manual_Calculation_rules">The 4 foundation stacks already start with the first cards, which are randomly chosen. Cards on the foundation have to follow the order given under Objective. \n\nCards from the discard stack can be moved to any tableau stack or on foundation stacks, if they fulfill the correct order. \n\nPressing the main stack will simply move the card on the discard stack to the tableau stack with the fewest cards. Alternative rule: The cards on the discard stack remain there, when pressing on the main stack (can be enabled in the game settings). \n\nOn the tableau, only top cards can be moved and they can only be moved to the foundation.</string>
     <string name="manual_Calculation_scoring">Move a card to foundation: +50</string>
+    <string name="manual_NapoleonsTomb_structure">1 deck of 52 cards.\n\n4 tableau stacks, 5 foundation stacks, 1 main and 1 discard stack\n\nThe 4 stacks in the corners with a \"7\" and the one in the center are the foundation stacks. The stacks between them are the tableau stacks.</string>
+    <string name="manual_NapoleonsTomb_objective">Play every card to the foundation, regardless of suit.</string>
+    <string name="manual_NapoleonsTomb_rules">The 4 corner stacks start with a 7 and have to be stacked in ascending order until a king. The center foundation stack starts with a 6 and has to be stacked in descending order until an Ace four times. This results in the following order for this stack: \n\n6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A\n\nThe next card in the order will also be shown above the stack.\n\nPressing the main stack will flip one card over to the discard stack. Can be enabled in the game settings: If the main stack is empty, press it again to recycle the cards from the discard stack back to it.\n\nAny card can be placed on every tableau stack, but each stack can contain only one card at a time.</string>
+    <string name="manual_NapoleonsTomb_scoring">Move a card to foundation: +60\n\nRecycle cards from the discard stack: -200</string>
+
 
     <!-- Settings -->
 
+    <string name="settings_apply_only_for_this_game">Apply changes only for %1$s</string>
+    <string name="settings_hide_auto_complete_button">Disable Autocomplete button</string>
     <string name="settings_background_color">Background colour</string>
     <string name="settings_hide_status_bar">Hide status bar</string>
     <string name="settings_left_handed_mode">Left handed mode</string>
@@ -232,6 +251,8 @@
     <string name="settings_cards">Cards</string>
     <string name="settings_classic">Classic</string>
     <string name="settings_simple">Simple</string>
+    <string name="settings_cards_paris">Paris</string>
+    <string name="settings_cards_dondorf">Dondorf</string>
     <string name="settings_cards_back">Card backgrounds</string>
     <string name="settings_modern">Modern</string>
     <string name="settings_abstract">Abstract</string>
@@ -252,12 +273,7 @@
     <string name="settings_show_main_menu_description">Do not enter the last played game on start</string>
     <string name="settings_golf_easy">Cyclic moves (Easier)</string>
     <string name="settings_golf_easy_description">Allow placing aces on kings and vice versa</string>
-    <string name="settings_restart_klondike">Start a new Klondike game to apply the change</string>
-    <string name="settings_restart_canfield">Start a new Canfield game to apply the change</string>
-    <string name="settings_restart_spider">Start a new Spider game to apply the change</string>
-    <string name="settings_restart_vegas">Start a new Vegas game to apply the change</string>
-    <string name="settings_restart_fortyeight">Start a new Forty&amp;Eight game to apply the change</string>
-    <string name="settings_restart_yukon">Start a new Yukon game to apply the change</string>
+    <string name="settings_restart_game">Start a new %1$s game to apply the change</string>
     <string name="settings_menu">Main menu</string>
     <string name="settings_menu_description">Change number of columns, show and hide games</string>
     <string name="settings_pyramid_difficulty">Difficulty</string>
@@ -309,7 +325,6 @@
     <string name="settings_customization_description">Customize cards, backgrounds and user interface</string>
     <string name="settings_force_tablet_layout_title">Force tablet layout</string>
     <string name="settings_force_tablet_layout_text">Show the application as on large screens (≥7\")</string>
-    <string name="settings_restart_calculation">Start a new Calculation game to apply the change</string>
     <string name="settings_calculation_alternative_title">Keep cards</string>
     <string name="settings_calculation_alternative_text">On main stack press: Instead of moving the card from the discard stack to the tableau, keep it on the discard stack.</string>
     <string name="settings_vegas_money_enabled">Keep the current balance</string>
@@ -323,14 +338,15 @@
     <string name="settings_rules">Rules</string>
     <string name="settings_money">Money</string>
     <string name="settings_support">Support</string>
-    <string name="settings_hide_time">Hide Time</string>
-    <string name="settings_hide_score">Hide Score</string>
+    <string name="settings_hide_time">Hide time</string>
+    <string name="settings_hide_score">Hide score</string>
+    <string name="settings_hide_menu_button">Hide menu button</string>
     <string name="settings_single_tap_enable">Enable Single-Tap movements</string>
     <string name="settings_vegas_bet_amount_text_1">Initial deal costs:</string>
     <string name="settings_vegas_bet_amount_text_2">Each card played to the foundation earns:</string>
     <string name="settings_vegas_bet_amount_summary">Initial deal: -%1$d$, card to foundation: +%2$d$</string>
     <string name="settings_single_tap_all_games_text">Press a card once to move it to the next possible stack. It follows the same settings as Double-Tap movements. This will disable Tap-To-Select movements.</string>
-    <string name="settings_vegas_bet_amount_error">Can\'t save those numbers!</string>
+    <string name="settings_number_input_error">Can\'t save those numbers!</string>
     <string name="settings_canfield_size_of_reserve_title">Change size of reserve (easier)</string>
     <string name="settings_use_true_randomisation_title">Use true randomization</string>
     <string name="settings_use_true_randomisation_text">The default randomization avoids similar cards next to each other. Check this to enable a truly uniform randomisation</string>
@@ -373,8 +389,12 @@
     <string name="settings_language_polish">Polish</string>
     <string name="settings_language_turkish">Turkish</string>
     <string name="settings_language_italian">Italian</string>
+    <string name="settings_language_portuguese">Portuguese</string>
     <string name="settings_language_portuguese_brazil">Portuguese (Brazil)</string>
+    <string name="settings_language_spanish_argentina">Spanish (Argentina)</string>
     <string name="settings_language_ukrainian">Ukrainian</string>
+    <string name="settings_language_norwegian">Norwegian (Bokmål)</string>
+    <string name="settings_language_chinese_simplified">Chinese (Simplified)</string>
     <string name="settings_yukon_rules_1">different colors (Default)</string>
     <string name="settings_yukon_rules_2">same suit (Russian Solitaire)</string>
     <string name="settings_movement_speed_1">Very slow</string>
@@ -384,7 +404,7 @@
     <string name="settings_win_sounds_1">Default</string>
     <string name="settings_win_sounds_2">Piano</string>
     <string name="settings_win_sounds_3">8-Bit voice \"You win\"</string>
-    <string name="settings_win_sounds_4">>Cheering crowd</string>
+    <string name="settings_win_sounds_4">Cheering crowd</string>
     <string name="settings_background_music_1">Disabled</string>
     <string name="settings_background_music_2">Theme 1</string>
     <string name="settings_background_music_3">Theme 2</string>
@@ -399,6 +419,8 @@
     <string name="settings_developer_option_deal_correct_sequences_3">Same family</string>
     <string name="settings_developer_option_deal_correct_sequences_4">Reversed alternating color</string>
     <string name="settings_developer_option_deal_correct_sequences_5">Reversed same family</string>
+    <string name="settings_developer_option_improve_auto_move_title">Improve Auto Move</string>
+    <string name="settings_developer_option_improve_auto_move_text">Auto Move will try to win the game by also using the main stack</string>
 
     <string name="settings_game_layout_margins_title">Game layout margins</string>
     <string name="settings_game_layout_margins_text">Add margins to the left and right side of the game layout. The cards will appear smaller, but overlapping will be reduced!</string>
@@ -406,6 +428,34 @@
     <string name="settings_game_layout_margins_small">Small</string>
     <string name="settings_game_layout_margins_medium">Medium</string>
     <string name="settings_game_layout_margins_large">Large</string>
+
+    <string name="settings_immersive_mode_title">Enable full screen mode</string>
+    <string name="settings_immersive_mode_text">Hide the Status and Navigation Bar while playing (Only on Android 4.4 and above)</string>
+    <string name="settings_dialog_only_for_this_game_enable_1">All further changes made here will only be applied to the current game. If you then want to change settings for other games, you have the following options:</string>
+    <string name="settings_dialog_only_for_this_game_enable_3">Return to the main menu and open the settings from there</string>
+    <string name="settings_dialog_only_for_this_game_enable_2">Disable this option</string>
+    <string name="settings_dialog_only_for_this_game_enable_4">Open the settings from within a game, which doesn\'t have this option enabled</string>
+    <string name="settings_dialog_only_for_this_game_enable_5">Disabling this option will restore the previous shared settings.</string>
+    <string name="settings_dialog_only_for_this_game_disable">The individual settings for this game will now be removed and the shared settings will be applied.</string>
+    <string name="settings_dialog_only_for_this_game_information_1">Changes won\'t affect all games. Click here for more information</string>
+    <string name="settings_dialog_only_for_this_game_information_2">The following games have enabled individual settings:</string>
+    <string name="settings_dialog_only_for_this_game_information_3">Those games won\'t be affected by changes made here.\n\nDo you want to remove the individual settings for all listed games?</string>
+    <string name="settings_dialog_only_for_this_game_removed_all">Removed all individual settings</string>
+
+    <string name="settings_ensure_movability_title">Guarantee number of movements</string>
+    <string name="settings_ensure_movability_text">Make sure that a certain amount of movements are possible in a game before starting it</string>
+    <string name="settings_ensure_movability_searching_games">Searching a suitable game…</string>
+    <string name="settings_ensure_movability_cancle_search">Cancel and start immediately</string>
+    <string name="settings_ensure_movability_min_moves_title">Change the amount of moves</string>
+    <string name="settings_ensure_movability_min_moves_warning">Caution: Increasing the amount will result in longer waiting times before a game is started. Changing game rules will also affect the waiting time!</string>
+    <string name="settings_ensure_movability_min_moves_text">Change the amount of movements each game must at least have when starting it</string>
+    <string name="settings_ensure_movability_make_game_winnable_button_title">Make certain games winnable</string>
+    <string name="settings_ensure_movability_make_game_winnable_text">The amount for some games can be set high enough to make them always winnable, without increasing the waiting time significantly.</string>
+    <string name="settings_ensure_movability_winnable">Winnable</string>
+    <string name="settings_reset_to_defaults">Reset to default values</string>
+
+    <string name="settings_text_color">Text and stack color</string>
+
     <!-- Statistics -->
 
     <!-- %1$d and %2$d are placeholders for the values-->
@@ -426,5 +476,6 @@
     <string name="statistics_total_number_undos">Total undo movements</string>
     <string name="statistics_total_points_earned">Total points earned</string>
     <string name="statistics_no_entries">No entries, go play some games!</string>
+    <string name="statistics_hide_win_percentage">Hide win percentage</string>
 
 </resources>

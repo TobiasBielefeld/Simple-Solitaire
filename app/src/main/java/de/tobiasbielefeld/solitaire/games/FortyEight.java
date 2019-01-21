@@ -65,7 +65,7 @@ public class FortyEight extends Game {
 
         stacks[17].view.setX((int) (layoutGame.getWidth() / 2 + 3 * Card.width + 3.5 * spacing));
         stacks[17].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
-        stacks[17].view.setImageBitmap(Stack.backgroundTalon);
+        stacks[17].setImageBitmap(Stack.backgroundTalon);
 
         stacks[16].setX(stacks[17].getX() - spacing - Card.width);
         stacks[16].setY(stacks[17].getY());
@@ -73,7 +73,7 @@ public class FortyEight extends Game {
         for (int i = 0; i < 8; i++) {
             stacks[8 + i].setX(startPos + i * (spacing + Card.width));
             stacks[8 + i].setY(stacks[17].getY() + Card.height + (isLandscape ? Card.width / 4 : Card.width / 2));
-            stacks[8 + i].view.setImageBitmap(Stack.background1);
+            stacks[8 + i].setImageBitmap(Stack.background1);
         }
 
         for (int i = 0; i < 8; i++) {
@@ -151,7 +151,7 @@ public class FortyEight extends Game {
         return card.getStack().getIndexOfCard(card) >= startPos && testCardsUpToTop(sourceStack, startPos, SAME_FAMILY);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
 
         for (int i = 0; i < 8; i++) {
 
@@ -166,7 +166,7 @@ public class FortyEight extends Game {
             for (int j = startPos; j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, SAME_FAMILY)) {
                     continue;
                 }
 
@@ -199,11 +199,15 @@ public class FortyEight extends Game {
             }
         }
 
-        if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard())) {
+        if (!getDiscardStack().isEmpty() && !visited.contains(getDiscardStack().getTopCard())) {
             Card cardToTest = getDiscardStack().getTopCard();
 
             for (int j = 0; j < 8; j++) {
                 if (!stacks[j].isEmpty() && cardTest(stacks[j], cardToTest) && cardToTest.getValue() != 1) {
+                    return new CardAndStack(cardToTest, stacks[j]);
+                }
+
+                if (stacks[j].isEmpty() && cardToTest.getValue() == 13){
                     return new CardAndStack(cardToTest, stacks[j]);
                 }
             }
@@ -215,7 +219,18 @@ public class FortyEight extends Game {
             }
         }
 
-        return null;
+        /*if (!getDiscardStack().isEmpty() && !hint.hasVisited(getDiscardStack().getTopCard()) && getRemainingNumberOfRecycles() == 0) {
+            Card cardToTest = getDiscardStack().getTopCard();
+
+            for (int j = 0; j < 8; j++) {
+                if (stacks[j].isEmpty()) {
+                    return new CardAndStack(cardToTest, stacks[j]);
+                }
+            }
+        }*/
+
+
+        return findBestSequenceToMoveToEmptyStack(SAME_FAMILY);
     }
 
     @Override
@@ -310,19 +325,6 @@ public class FortyEight extends Game {
     }
 
     private int getPowerMoveCount(boolean movingToEmptyStack){
-        //thanks to matejx for providing this formula
-        int numberOfFreeTableauStacks = 0;
-
-        for (int i=0;i<8;i++){
-            if (stacks[i].isEmpty()){
-                numberOfFreeTableauStacks++;
-            }
-        }
-
-        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
-            numberOfFreeTableauStacks --;
-        }
-
-        return (1<<numberOfFreeTableauStacks);
+        return getPowerMoveCount(new int[]{}, new int[]{0,1,2,3,4,5,6,7}, movingToEmptyStack);
     }
 }

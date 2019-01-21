@@ -34,6 +34,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Klondike;
+import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
@@ -45,11 +46,9 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
  * Settings activity created with the "Create settings activity" tool from Android Studio.
  */
 
-public class SettingsGames extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class SettingsGames extends AppCompatPreferenceActivity  {
 
     private Preference preferenceVegasBetAmount;
-
-    HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +79,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
     public void onResume() {
         super.onResume();
 
-        prefs.registerListener(this);
-        showOrHideStatusBar();
-        setOrientation();
 
-        activityCounter++;
-        backgroundSound.doInBackground(this);
     }
 
     @Override
@@ -104,19 +98,22 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(PREF_KEY_KLONDIKE_DRAW)) {
-            showToast(getString(R.string.settings_restart_klondike),this);
+            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Klondike)), this);
 
         } else if (key.equals(PREF_KEY_VEGAS_DRAW)) {
-            showToast(getString(R.string.settings_restart_vegas),this);
+            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Vegas)), this);
 
         } else if (key.equals(PREF_KEY_CANFIELD_DRAW)) {
-            showToast(getString(R.string.settings_restart_canfield),this);
+            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Canfield)), this);
 
         } else if (key.equals(PREF_KEY_SPIDER_DIFFICULTY)) {
-            showToast(getString(R.string.settings_restart_spider),this);
+            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Spider)), this);
 
-        } else if (key.equals(PREF_KEY_YUKON_RULES)) {
-            showToast(getString(R.string.settings_restart_yukon),this);
+        } else if (key.equals(PREF_KEY_SPIDERETTE_DIFFICULTY)) {
+            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Spiderette)), this);
+
+        }else if (key.equals(PREF_KEY_YUKON_RULES)) {
+            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Yukon)), this);
 
         } else if (key.equals(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES)) {
             if (currentGame instanceof FortyEight) {
@@ -133,6 +130,11 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
                 gameLogic.setNumberOfRecycles(key,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
             }
 
+        } else if (key.equals(PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES)){
+            if (currentGame instanceof NapoleonsTomb) {
+                gameLogic.setNumberOfRecycles(key,DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES);
+            }
+
         } else if (key.equals(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES)){
             if (currentGame instanceof FortyEight) {
                 gameLogic.setNumberOfRecycles(key,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
@@ -145,7 +147,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
 
         } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT) || key.equals(PREF_KEY_VEGAS_WIN_AMOUNT)){
             updatePreferenceVegasBetAmountSummary();
-            showToast(getString(R.string.settings_restart_vegas),this);
+            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Vegas)), this);
 
         } else if (key.equals(PREF_KEY_VEGAS_MONEY_ENABLED)) {
             if (!prefs.getSavedVegasSaveMoneyEnabled()) {
@@ -163,8 +165,7 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
             }
 
         } else if (key.equals(PREF_KEY_CALCULATION_ALTERNATIVE)){
-            showToast(getString(R.string.settings_restart_calculation),this);
-
+            //showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Calculation)), this);
         }
     }
 
@@ -185,39 +186,9 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
                 || VegasPreferenceFragment.class.getName().equals(fragmentName)
                 || YukonPreferenceFragment.class.getName().equals(fragmentName)
                 || SpiderPreferenceFragment.class.getName().equals(fragmentName)
-                || Mod3PreferenceFragment.class.getName().equals(fragmentName);
-    }
-
-    /**
-     * Applies the user setting of the screen orientation.
-     */
-    private void setOrientation() {
-        switch (prefs.getSavedOrientation()) {
-            case 1: //follow system settings
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
-                break;
-            case 2: //portrait
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                break;
-            case 3: //landscape
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-            case 4: //landscape upside down
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                break;
-        }
-    }
-
-    /**
-     * Applies the user setting of the status bar.
-     */
-    private void showOrHideStatusBar() {
-        if (prefs.getSavedHideStatusBar()) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
+                || SpiderettePreferenceFragment.class.getName().equals(fragmentName)
+                || Mod3PreferenceFragment.class.getName().equals(fragmentName)
+                || NapoleonsTombPreferenceFragment.class.getName().equals(fragmentName);
     }
 
     private void updatePreferenceVegasBetAmountSummary(){
@@ -297,6 +268,16 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
         }
     }
 
+    public static class SpiderettePreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_games_spiderette);
+            setHasOptionsMenu(true);
+        }
+    }
+
     public static class VegasPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
@@ -328,6 +309,16 @@ public class SettingsGames extends AppCompatPreferenceActivity implements Shared
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_games_mod3);
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public static class NapoleonsTombPreferenceFragment extends CustomPreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_games_napoleons_tomb);
             setHasOptionsMenu(true);
         }
     }

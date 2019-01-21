@@ -31,6 +31,7 @@
     <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
     <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
     <string name="pref_key_spider_difficulty" translatable="false">pref_key_spider_difficulty</string>
+    <string name="pref_key_spiderette_difficulty" translatable="false">pref_key_spiderette_difficulty</string>
     <string name="pref_key_klondike_draw" translatable="false">pref_key_klondike_draw</string>
     <string name="pref_key_vegas_draw" translatable="false">pref_key_vegas_draw</string>
     <string name="pref_key_canfield_draw" translatable="false">pref_key_canfield_draw</string>
@@ -94,6 +95,28 @@
     <string name="pref_key_game_layout_margins" translatable="false">pref_key_game_layout_margins</string>
     <string name="pref_key_game_layout_margins_portrait" translatable="false">pref_key_game_layout_margins_portrait</string>
     <string name="pref_key_game_layout_margins_landscape" translatable="false">pref_key_game_layout_margins_landscape</string>
+    <string name="pref_key_hide_menu_bar" translatable="false">pref_key_hide_menu_bar</string>
+    <string name="pref_key_immersive_mode" translatable="false">pref_key_immersive_mode</string>
+    <string name="pref_key_hide_menu_button" translatable="false">pref_key_hide_menu_button</string>
+    <string name="pref_key_ensure_movability" translatable="false">pref_key_ensure_movability</string>
+    <string name="pref_key_ensure_movability_min_moves" translatable="false">pref_key_ensure_movability_min_moves</string>
+    <string name="pref_key_hide_auto_complete_button" translatable="false">pref_key_hide_auto_complete_button</string>
+    <string name="pref_key_napoleons_tomb_number_of_recycles" translatable="false">pref_key_napoleons_tomb_number_of_recycles</string>
+    <string name="pref_key_settings_only_for_this_game" translatable="false">pref_key_settings_only_for_this_game</string>
+    <string name="pref_cat_key_only_for_this_game" translatable="false">pref_cat_key_only_for_this_game</string>
+    <string name="pref_key_improve_auto_move" translatable="false">pref_key_improve_auto_move</string>
+    <string name="pref_key_text_color" translatable="false">pref_key_text_color</string>
+    <string name="pref_key_statistics_hide_win_percentage" translatable="false">pref_key_statistics_hide_win_percentage</string>
+
+    <!-- some dummy preference keys for the checkbox preferences. The value is saved in the "original"
+         key version, but for accessing the preference per ID, I need the additional dummy version.
+         The value is saved in the "original" key, because the settings can be changed on a per game
+         basis, so I control where the value is saved manually -->
+    <string name="dummy_pref_key_4_color_mode" translatable="false">dummy_pref_key_4_color_mode</string>
+    <string name="dummy_pref_key_hide_time" translatable="false">dummy_pref_key_hide_time</string>
+    <string name="dummy_pref_key_hide_score" translatable="false">dummy_pref_key_hide_score</string>
+    <string name="dummy_pref_key_hide_auto_complete_button" translatable="false">dummy_pref_key_hide_auto_complete_button</string>
+    <string name="dummy_pref_key_hide_menu_button" translatable="false">dummy_pref_key_hide_menu_button</string>
 
     <!-- internal stuff only used in program code -->
     <string name="games_menu" translatable="false">Menu</string>
@@ -135,30 +158,50 @@
     <string name="score" translatable="false">Score</string>
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
 
-    <!-- github profiles of contributors -->
-    <string name="contributors_verdulo" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
-    <string name="contributors_winjar" translatable="false"><a href="https://github.com/winjar">winjar</a></string>
-    <string name="contributors_dankan1890" translatable="false"><a href="https://github.com/dankan1890">dankan1890</a></string>
-    <string name="contributors_tryton_vanmeer" translatable="false"><a href="https://github.com/tryton-vanmeer">tryton-vanmeer</a></string>
-    <string name="contributors_naofum" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
-    <string name="contributors_sekmenhuseyin" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
-    <string name="contributors_romainhk_cicithesquirrel" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
-    <string name="contributors_todor_balabanov" translatable="false"><a href="https://github.com/TodorBalabanov">TodorBalabanov</a></string>
-    <string name="contributors_strooonger" translatable="false"><a href="https://github.com/strooonger">strooonger</a></string>
+    <!-- contributors -->
+    <string name="contributors_japanese" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
+    <string name="contributors_chinese_simplified" translatable="false">Tragic Life, LaiJM</string>
+    <string name="contributors_esperanto" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
+    <string name="contributors_polish" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
+    <string name="contributors_french" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
+    <string name="contributors_finnish" translatable="false"><a href="https://github.com/winjar">winjar</a></string>
+    <string name="contributors_turkish" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
+    <string name="contributors_italian" translatable="false">imko92, <a href="https://github.com/dankan1890">dankan1890</a></string>
+    <string name="contributors_portuguese_brazil" translatable="false">Alexandre Parente</string>
+    <string name="contributors_portuguese" translatable="false">Rui</string>
+    <string name="contributors_ukranian" translatable="false">olexn</string>
+    <string name="contributors_norwegian_bokmal" translatable="false">Imre Kristoffer Eilertsen</string>
+    <string name="contributors_spanish_argentina" translatable="false"><a href="https://github.com/4fff618">4fff618</a></string>
 
-    <string name="contributors_imko92" translatable="false">imko92</string>
-    <string name="contributors_alexandre_parente" translatable="false">Alexandre Parente</string>
-    <string name="contributors_olexn" translatable="false">olexn</string>
+    <string name="further_contributors_tryton_vanmeer" translatable="false"><a href="https://github.com/tryton-vanmeer">tryton-vanmeer</a></string>
+    <string name="further_contributors_todor_balabanov" translatable="false"><a href="https://github.com/TodorBalabanov">TodorBalabanov</a></string>
+    <string name="further_contributors_strooonger" translatable="false"><a href="https://github.com/strooonger">strooonger</a></string>
+    <string name="further_contributors_SkewedZeppelin" translatable="false"><a href="https://github.com/SkewedZeppelin">SkewedZeppelin</a></string>
+    <string name="further_contributors_dankan1890" translatable="false"><a href="https://github.com/dankan1890">dankan1890</a></string>
+    <string name="further_contributors_anok" translatable="false"><a href="https://github.com/anok">anok</a></string>
+    <string name="further_contributors_dseomn" translatable="false"><a href="https://github.com/dseomn">dseomn</a></string>
 
     <!-- urls in about screen -->
     <string name="about_material_icons_license" translatable="false"><a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>
     <string name="about_card_themes_license" translatable="false"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
     <string name="about_poker_themes_title" translatable="false">Vectorized Playing Cards 2.0</string>  <!-- not translatable, because name of the software-->
+    <string name="about_paris_themes_title" translatable="false">SVG-cards 2.1</string>  <!-- not translatable, because name of the software-->
+    <string name="about_paris_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-2.1.html">LGPL 2.1</a></string>
     <string name="about_poker_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
     <string name="about_sounds_license" translatable="false"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
     <string name="about_custom_color_picker_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
-    <string name="about_sliding_tabs_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
+    <string name="about_sliding_tabs_license" translatable="false"><a href="https://github.com/astuetz/PagerSlidingTabStrip#license">Apache 2.0</a></string>
     <string name="about_material_icons_SIL" translatable="false"><a href="http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web">SIL OFL 1.1</a></string>
     <string name="about_android_support_libraries_license" translatable="false"><a href="https://github.com/android/platform_frameworks_support/blob/master/LICENSE.txt">Apache 2.0</a></string>
+
+    <!-- used for return intents from the settings menu -->
+    <string name="intent_background_color" translatable="false">intent_background_color</string>
+    <string name="intent_text_color" translatable="false">intent_text_color</string>
+    <string name="intent_update_game_layout" translatable="false">intent_update_game_layout</string>
+    <string name="intent_update_menu_bar" translatable="false">intent_update_menu_bar</string>
+    <string name="intent_update_score_visibility" translatable="false">intent_update_score_visibility</string>
+    <string name="intent_update_time_visibility" translatable="false">intent_update_time_visibility</string>
+
+    <string name="bundle_reload_game" translatable="false">bundle_reload_game</string>
 
 </resources>

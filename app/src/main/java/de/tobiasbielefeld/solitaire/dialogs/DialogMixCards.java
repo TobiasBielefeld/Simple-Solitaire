@@ -26,6 +26,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 
@@ -33,7 +34,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
  * Dialog for deleting all high scores
  */
 
-public class DialogMixCards extends DialogFragment {
+public class DialogMixCards extends CustomDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -52,6 +53,6 @@ public class DialogMixCards extends DialogFragment {
                 }
             });
 
-        return builder.create();
+        return applyFlags(builder.create());
     }
 }

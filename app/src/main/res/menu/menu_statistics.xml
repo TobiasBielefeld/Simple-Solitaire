@@ -4,4 +4,9 @@
         android:id="@+id/item_delete"
         android:title="@string/statistics_button_delete" />
 
+    <item
+        android:id="@+id/item_hide"
+        android:checkable="true"
+        android:title="@string/statistics_hide_win_percentage" />
+
 </menu>

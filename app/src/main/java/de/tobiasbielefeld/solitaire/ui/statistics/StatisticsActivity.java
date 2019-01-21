@@ -35,6 +35,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class StatisticsActivity extends CustomAppCompatActivity {
 
+    private HideWinPercentage callback;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +62,8 @@ public class StatisticsActivity extends CustomAppCompatActivity {
     public boolean onCreateOptionsMenu(android.view.Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_statistics, menu);
+        menu.getItem(1).setChecked(prefs.getSavedStatisticsHideWinPercentage());
+
         return true;
     }
 
@@ -69,12 +73,28 @@ public class StatisticsActivity extends CustomAppCompatActivity {
                 DialogFragment deleteDialog = new DialogHighScoreDelete();
                 deleteDialog.show(getSupportFragmentManager(), "high_score_delete");
                 break;
+            case R.id.item_hide:
+                boolean checked = !prefs.getSavedStatisticsHideWinPercentage();
+
+                prefs.saveStatisticsHideWinPercentage(checked);
+                item.setChecked(checked);
+                callback.sendNewState(checked);
+
+                break;
             case android.R.id.home:
                 finish();
                 break;
         }
 
         return true;
+    }
+
+    public void setCallback(HideWinPercentage callback){
+        this.callback = callback;
+    }
+
+    public interface HideWinPercentage{
+        void sendNewState(boolean state);
     }
 
     /**

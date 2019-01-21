@@ -25,6 +25,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
 import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 import static de.tobiasbielefeld.solitaire.SharedData.showToast;
@@ -34,7 +35,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.stringFormat;
  * custom dialog to set the maximum amount of undos
  */
 
-public class DialogPreferenceMaxNumberUndos extends DialogPreference{
+public class DialogPreferenceMaxNumberUndos extends CustomDialogPreference {
 
     private EditText input;
 
@@ -63,13 +64,13 @@ public class DialogPreferenceMaxNumberUndos extends DialogPreference{
             try {
                 //Saving zero would cause force closes, so just catch it here
                 if (Integer.parseInt(input.getText().toString()) < 1) {
-                    showToast(getContext().getString(R.string.settings_vegas_bet_amount_error),getContext());
+                    showToast(getContext().getString(R.string.settings_number_input_error),getContext());
                     return;
                 }
 
                 prefs.saveMaxNumberUndos(Integer.parseInt(input.getText().toString()));
             } catch (Exception e){
-                showToast(getContext().getString(R.string.settings_vegas_bet_amount_error),getContext());
+                showToast(getContext().getString(R.string.settings_number_input_error),getContext());
             }
         }
     }

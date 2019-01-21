@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="@string/pref_key_hide_status_bar"
-        android:title="@string/settings_hide_status_bar" />
-
     <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
         android:defaultValue="1"
         android:entries="@array/pref_orientation_titles"
@@ -36,22 +31,44 @@
         android:summary="%s"
         android:title="@string/settings_movement_speed" />
 
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/pref_key_hide_status_bar"
+        android:title="@string/settings_hide_status_bar" />
+
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+        android:defaultValue="@bool/default_immersive_mode"
+        android:key="@string/pref_key_immersive_mode"
+        android:summary="@string/settings_immersive_mode_text"
+        android:title="@string/settings_immersive_mode_title" />
+
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="false"
         android:key="@string/pref_key_left_handed_mode"
         android:summary="@string/settings_left_handed_mode_description"
         android:title="@string/settings_left_handed_mode" />
 
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="@string/pref_key_start_menu"
-        android:summary="@string/settings_show_main_menu_description"
-        android:title="@string/settings_show_main_menu" />
-
-    <CheckBoxPreference
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_auto_start_new_game"
         android:key="@string/pref_key_auto_start_new_game"
         android:summary="@string/settings_auto_start_new_game_text"
         android:title="@string/settings_auto_start_new_game_title" />
+
+
+    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+        android:defaultValue="@bool/default_ensure_movability"
+        android:key="@string/pref_key_ensure_movability"
+        android:summary="@string/settings_ensure_movability_text"
+        android:title="@string/settings_ensure_movability_title" />
+
+    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceEnsureMovabilityMinMoves
+        android:dependency="@string/pref_key_ensure_movability"
+        android:key="@string/pref_key_ensure_movability_min_moves"
+        android:title="@string/settings_ensure_movability_min_moves_title"
+        android:negativeButtonText="@string/game_cancel"
+        android:positiveButtonText="@string/game_confirm"
+        android:summary="@string/settings_ensure_movability_min_moves_text"/>
+
+
 
 </PreferenceScreen>

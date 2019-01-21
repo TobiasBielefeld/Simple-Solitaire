@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Version"</string>
 <string name="settings">"Einstellungen"</string>
 <string name="game_manual">"Handbuch"</string>
@@ -31,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramid"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
-<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
+<string name="games_AcesUp">"Aces Up"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -421,12 +419,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_show_main_menu_description">"Beim Starten nicht das zuletzt gespielte Spiel öffnen"</string>
 <string name="settings_golf_easy">"Zyklische Bewegungen (Einfacher)"</string>
 <string name="settings_golf_easy_description">"Erlaube das Setzen von Assen auf Könige und umgekehrt"</string>
-<string name="settings_restart_klondike">"Starte ein neues Klondike Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_canfield">"Starte ein neues Canfield Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_spider">"Starte ein neues Spider Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_vegas">"Starte ein neues Vegas Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_fortyeight">"Starte ein neues Forty&amp;Eight Spiel um die Änderung anzuwenden"</string>
-<string name="settings_restart_yukon">"Starte ein neues Yukon Spiel um die Änderung anzuwenden"</string>
 <string name="settings_menu">"Hauptmenü"</string>
 <string name="settings_menu_description">"Ändere Anzahl der Spalten, zeige und verstecke Spiele"</string>
 <string name="settings_pyramid_difficulty">"Schwierigkeit"</string>
@@ -445,7 +437,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_4_color_mode_title">"4 Farben Decks"</string>
 <string name="settings_4_color_mode_text">"Ändere die Farben von Kreuz zu Grün und von Karo zu Blau"</string>
 <string name="settings_additional_movements">"Weitere Karten Bewegungen"</string>
-<string name="settings_additional_movements_description">"Aktiviere und deaktivere Doppeltipp- und weitere Bewegungsmöglichkeiten"</string>
+<string name="settings_additional_movements_description">"Aktiviere und deaktiviere Doppeltipp- und weitere Bewegungsmöglichkeiten"</string>
 <string name="settings_double_tap">"Doppeltippen"</string>
 <string name="settings_double_tap_enable">"Erlaube Doppeltipp-Bewegungen"</string>
 <string name="settings_double_tap_enable_text">"Tippe eine Karte zweimal an, um sie zum nächstbesten Stapel zu bewegen"</string>
@@ -478,7 +470,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_customization_description">"Passe Karten, Hintergründe und Benutzeroberfläche an"</string>
 <string name="settings_force_tablet_layout_title">"Erzwinge Tablet Layout"</string>
 <string name="settings_force_tablet_layout_text">"Zeige die Anwendung wie auf großen Bildschirmen (≥7\")"</string>
-<string name="settings_restart_calculation">"Starte ein neues Calculation Spiel um die Änderung anzuwenden"</string>
 <string name="settings_calculation_alternative_title">"Behalte Karten"</string>
 <string name="settings_calculation_alternative_text">"Beim Drücken auf dem Haupt-Stapel: Bewege Karten vom Ablage-Stapel nicht zum Tableau, behalte sie auf dem Ablage-Stapel"</string>
 <string name="settings_vegas_money_enabled">"Behalte aktuellen Kontostand"</string>
@@ -499,7 +490,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_vegas_bet_amount_text_2">"Jede Karte, die zur Foundation gespielt wird, bringt:"</string>
 <string name="settings_vegas_bet_amount_summary">"Spielkosten: -%1$d$, Karte zur Foundation: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen. Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert."</string>
-<string name="settings_vegas_bet_amount_error">"Kann diese Zahlen nicht speichern!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Ändere Größe der Reserve (Einfacher)"</string>
 <string name="settings_use_true_randomisation_title">"Benutze echten Zufall"</string>
 <string name="settings_use_true_randomisation_text">"Die Standard Randomisierung vermeidet ähnliche Karten übereinander. Setze das Häkchen, um eine uniforme Randomisierung zu nutzen."</string>
@@ -512,10 +502,10 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_developer_options_play_every_card_text">"Man kann jede aufgedeckte Karte spielen"</string>
 <string name="settings_developer_options_instant_win_title">"Sofortiger Gewinn"</string>
 <string name="settings_developer_options_instant_win_text">"Gewinne jedes Spiel nach einer Kartenbewegung"</string>
-<string name="settings_developer_options_no_saving_title">"Deaktivere Spielstand Speicherung"</string>
+<string name="settings_developer_options_no_saving_title">"Deaktiviere Spielstand Speicherung"</string>
 <string name="settings_developer_options_no_saving_text">"Bewegungen in den Spielen werden nicht mehr gespeichert"</string>
 <string name="settings_developer_options_deal_correct_sequences_title">"Gebe korrekte Sequenzen aus"</string>
-<string name="settings_max_number_undos">"Maximale Anzahl der umkehrbaren Bewegungen"</string>
+<string name="settings_max_number_undos">"Anzahl der umkehrbaren Bewegungen"</string>
 <string name="settings_expert_settings">"Experten Einstellungen"</string>
 <string name="settings_expert_settings_text">"Könnten für Einige nützlich sein"</string>
 <string name="settings_follow_system_settings">"System Einstellungen folgen"</string>
@@ -575,14 +565,14 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="statistics_button_deleted_all_entries">"Alle Einträge gelöscht"</string>
 <string name="statistics_time_of_day">"Uhrzeit"</string>
 <string name="statistics_date">"Datum"</string>
-<string name="settings_diable_undo_costs">"Deaktiviere Strafpunkte für Zurücknehmen"</string>
-<string name="settings_diable_hint_costs">"Deaktiviere Strafpunkte für Hinweise"</string>
+<string name="settings_diable_undo_costs">"Keine Strafpunkte für Zurücknehmen"</string>
+<string name="settings_diable_hint_costs">"Keine Strafpunkte für Hinweise"</string>
 <string name="statistics_high_scores">"High Scores"</string>
 <string name="statistics_recent_scores">"letzte Scores"</string>
 <string name="statistics_total_time">"Gespielte Zeit"</string>
 <string name="statistics_total_hints_shown">"Gezeigte Hinweise"</string>
 <string name="statistics_total_number_undos">"Zurückgenommene Bewegungen"</string>
-<string name="statistics_total_points_earned">"Erlangte Punkte"</string>
+<string name="statistics_total_points_earned">"Erspielte Punkte"</string>
 <string name="statistics_no_entries">"Keine Einträge, spiele ein paar Runden!"</string>
 <string name="dialog_auto_move">"Automatisch Bewegen"</string>
 <string name="dialog_show_hints">"Zeige Hinweise"</string>
@@ -591,33 +581,22 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 Der \"Statistiken\" Punkt zeigt ein neues Fenster mit verschiedenen Statistiken zum aktuellen Spiel an, zum Beispiel die High Scores.
 
 Der \"Hilfe\" Punkt wird ein kleines Hilfsmenü anzeigen. Hier kann ausgewählt werden:"</string>
-<string name="manual_ui_text_part_2">"Zeige Hinweise: zeigt bis zu 3 mögliche Karten Bewegungen an. Aber diese Aktion wird die aktuelle Punktzahl um 25 reduzieren. Bemerke, dass triviale Bewegungen wie das Bewegen von einer beliebigen Karte auf einen leeren Platz oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis angezeigt wird, wird auch die Punktzahl nicht reduziert.
-"</string>
-<string name="manual_ui_text_part_3">"Automatisch Bewegen: Bewege automatisch so viele Karten wie möglich. Diese Option ist für Situationen gedacht, falls zum Beispiel nur noch eine Karte zugedeckt ist, aber man müsste alle anderen Karten auf dem Stapel bewegen um an diese Karte gelangen. Also kann diese Option das Spiel etwas beschleunigen.
-"</string>
-<string name="manual_ui_text_part_4">"Karten mischen: Falls man in eine Situation gerät, in der keine weitere Bewegung möglich ist, kann diese Option zum Mischen der Karten verwendet werden. Karten die bereits in korrekter Reihenfolge sind oder Karten auf der Foundation werden beim Mischen ignoriert.
-"</string>
-<string name="manual_ui_text_part_5">"Spielregeln: Öffne direkt die Handbuchseite zum aktuellen Spiel.
-"</string>
+<string name="manual_ui_text_part_2">"Zeige Hinweise: zeigt bis zu 3 mögliche Karten Bewegungen an. Aber diese Aktion wird die aktuelle Punktzahl um 25 reduzieren. Bemerke, dass triviale Bewegungen wie das Bewegen von einer beliebigen Karte auf einen leeren Platz oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis angezeigt wird, wird auch die Punktzahl nicht reduziert."</string>
+<string name="manual_ui_text_part_3">"Automatisch Bewegen: Bewege automatisch so viele Karten wie möglich. Diese Option ist für Situationen gedacht, falls zum Beispiel nur noch eine Karte zugedeckt ist, aber man müsste alle anderen Karten auf dem Stapel bewegen um an diese Karte gelangen. Also kann diese Option das Spiel etwas beschleunigen."</string>
+<string name="manual_ui_text_part_4">"Karten mischen: Falls man in eine Situation gerät, in der keine weitere Bewegung möglich ist, kann diese Option zum Mischen der Karten verwendet werden. Karten die bereits in korrekter Reihenfolge sind oder Karten auf der Foundation werden beim Mischen ignoriert."</string>
+<string name="manual_ui_text_part_5">"Spielregeln: Öffne direkt die Handbuchseite zum aktuellen Spiel."</string>
 <string name="manual_ui_text_part_6">"Der \"Menü\" Punkt zeigt drei mögliche Aktionen an:"</string>
-<string name="manual_ui_text_part_7">"Neues Spiel starten: Mische die Karten und gebe ein neues Spiel aus.
-"</string>
-<string name="manual_ui_text_part_8">"Spiel wiederholen: Starte das Spiel mit demselben Kartenlayout neu.
-"</string>
-<string name="manual_ui_text_part_9">"Zurück zum Hauptmenü: Speicher das aktuelle Spiel und zeige das Hauptmenü.
-"</string>
+<string name="manual_ui_text_part_7">"Neues Spiel starten: Mische die Karten und gebe ein neues Spiel aus."</string>
+<string name="manual_ui_text_part_8">"Spiel wiederholen: Starte das Spiel mit demselben Kartenlayout neu."</string>
+<string name="manual_ui_text_part_9">"Zurück zum Hauptmenü: Speicher das aktuelle Spiel und zeige das Hauptmenü."</string>
 <string name="manual_ui_text_part_10">"Der \"Zurück\" Punkt wird die letzte Kartenbewegung rückgängig machen, aber dies wird 25 Punkte kosten. Diese Aktion kann für die letzten 20 Kartenbewegungen genutzt werden. (Die Anzahl kann in den Experten Einstellungen vergrößert werden)
 
 Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 <string name="manual_statistics_part_1">"Es werden für jedes Spiel Statistiken gesammelt. Sie können über das In-Game Menü erreicht werden. Gesammelte Informationen sind:"</string>
-<string name="manual_statistics_part_2">"Die Anzahl der gespielten und gewonnen Spiele
-"</string>
-<string name="manual_statistics_part_3">"Die Gesamtzahl der erreichten Punkte
-"</string>
-<string name="manual_statistics_part_4">"Die Gesamtzahl der genutzten Hilfsfunktionen
-"</string>
-<string name="manual_statistics_part_5">"Eine High-Score Liste mit bis zu 10 Einträgen, nur Scores über 0 werden hier gespeichert.
-"</string>
+<string name="manual_statistics_part_2">"Die Anzahl der gespielten und gewonnen Spiele"</string>
+<string name="manual_statistics_part_3">"Die Gesamtzahl der erreichten Punkte"</string>
+<string name="manual_statistics_part_4">"Die Gesamtzahl der genutzten Hilfsfunktionen"</string>
+<string name="manual_statistics_part_5">"Eine High-Score Liste mit bis zu 10 Einträgen, nur Scores über 0 werden hier gespeichert."</string>
 <string name="manual_statistics_part_6">"Eine Liste mit den 10 letzten Scores"</string>
 <string name="manual_statistics_part_7">"Es ist auch möglich alle Daten für das aktuelle Spiel zu löschen, aber dies kann nicht rückgängig gemacht werden!"</string>
 <string name="about_material_icons_2_usage">"Das Hilfe-Icon wurde als \"lightbulb-on\" auf &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; veröffentlicht."</string>
@@ -635,4 +614,69 @@ Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 <string name="settings_game_layout_margins_small">"Klein"</string>
 <string name="settings_game_layout_margins_medium">"Medium"</string>
 <string name="settings_game_layout_margins_large">"Groß"</string>
+<string name="settings_hide_menu_button">"Verstecke Menü Button"</string>
+<string name="settings_immersive_mode_title">"Vollbildmodus aktivieren"</string>
+<string name="settings_immersive_mode_text">"Verstecke Status und Navigation Bar während des Spielens (Nur auf Android 4.4 und höher)"</string>
+<string name="settings_language_norwegian">"Norwegisch (Bokmål)"</string>
+<string name="about_paris_themes_usage">"
+Wird als Paris Thema verwendet - Verfügbar auf &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr
+"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Napoleon\'s Tomb"</string>
+<string name="manual_NapoleonsTomb_structure">"1 Deck aus 52 Karten.
+
+4 Tableau Stapel, 5 Foundation Stapel, 1 Haupt- und 1 Ablage Stapel
+
+Die 4 Stapel in den Ecken mit einer \"7\" und der Stapel in der Mitte sind Foundation Stapel. Die Stapel dazwischen gehören zum Tableau."</string>
+<string name="manual_NapoleonsTomb_objective">"Spiele jede Karte zur Foundation, unabhängig von der Familie."</string>
+<string name="manual_NapoleonsTomb_rules">"Die 4 Foundation-Stapel in den Ecken starten mit einer 7 und müssen in aufsteigender Reihenfolge bis zu einem König gestapelt werden. Der zentrale Foundation-Stapel startet mit einer 6 und muss in absteigender Reihenfolge 4 mal bis zu einem Ass gestapelt werden. Dies führt zur folgenden Reihenfolge:
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+Die nächste Karte der Sequenz wird auch über dem Stapel gezeigt.
+
+Das Drücken auf dem Haupt-Stapel wird eine Karte zum Ablage-Stapel bewegen. In den Spieleinstellungen aktivierbar: Falls der Haupt-Stapel leer ist, tippe drauf um jede Karte vom Ablage-Stapel zurück auf den Haupt-Stapel zu bewegen.
+
+Jede Karte darf auf jeden Tableau-Stapel gespielt werden, aber die Stapel dürfen jeweils nur eine Karte enthalten."</string>
+<string name="manual_NapoleonsTomb_scoring">"Bewege eine Karte zur Foundation: +60
+
+Bewege alle Karten vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
+<string name="settings_language_spanish_argentina">"Spanisch (Argentinien)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Wende Änderungen nur für %1$s an"</string>
+<string name="settings_hide_auto_complete_button">"Deaktivere Autovervollständigen Button"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Alle weiteren hier vorgenommenen Änderungen werden nur auf das aktuelle Spiel angewendet. Wenn Sie dann Einstellungen für andere Spiele ändern möchten, haben Sie die folgenden Möglichkeiten:"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Kehren Sie zum Hauptmenü zurück und öffnen Sie von dort aus die Einstellungen."</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Deaktivieren Sie diese Option"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Öffnen Sie die Einstellungen in einem Spiel, in dem diese Option nicht aktiviert ist"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Das Deaktivieren dieser Option stellt die vorherigen geteilten Einstellungen wieder her."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Die individuellen Einstellungen für dieses Spiel werden nun entfernt und die geteilten Einstellungen werden übernommen."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Änderungen wirken sich nicht auf alle Spiele aus. Hier für weitere Informationen klicken"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Die folgenden Spiele haben individuelle Einstellungen ermöglicht:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Diese Spiele sind von den hier vorgenommenen Änderungen nicht betroffen.
+
+Möchten Sie die individuellen Einstellungen für alle aufgeführten Spiele entfernen?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Alle individuellen Einstellungen entfernt"</string>
+<string name="settings_ensure_movability_title">"Garantierte Anzahl der Bewegungen"</string>
+<string name="settings_ensure_movability_searching_games">"Suche nach einem geeigneten Spiel…"</string>
+<string name="settings_ensure_movability_text">"Stelle sicher, dass eine bestimmte Anzahl von Bewegungen in einem Spiel möglich sind, bevor es gestartet wird"</string>
+<string name="settings_ensure_movability_min_moves_title">"Anzahl der Bewegungen ändern"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Vorsicht: Das Erhöhen der Beträge führt zu längeren Wartezeiten vor Spielbeginn. Änderungen der Spielregeln wirken sich auch auf die Wartezeit aus!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Ändere die Anzahl der Bewegungen, die jedes Spiel mindestens haben muss, wenn es gestartet wird."</string>
+<string name="settings_number_input_error">"Kann diese Zahlen nicht speichern!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Automatische Bewegung verbessern"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Die Automatische Bewegung wird versuchen das Spiel zu gewinnen, in dem es den Hauptstapel mitbenutzt"</string>
+<string name="black">"Schwarz"</string>
+<string name="white">"Weiß"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Bestimmte Spiele gewinnbar machen"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Der Betrag für einige Spiele kann hoch genug eingestellt werden, um sie immer gewinnbar zu machen, ohne die Wartezeit deutlich zu erhöhen."</string>
+<string name="settings_ensure_movability_winnable">"Gewinnbar"</string>
+<string name="settings_reset_to_defaults">"Auf Standardwerte zurücksetzen"</string>
+<string name="settings_text_color">"Text- und Stapelfarbe"</string>
+<string name="settings_language_chinese_simplified">"Chinesisch (Vereinfacht)"</string>
+<string name="settings_ensure_movability_cancle_search">"Abbrechen und sofort starten"</string>
+<string name="settings_language_portuguese">"Portugiesisch"</string>
+<string name="settings_restart_game">"Starte ein neues %1$s Spiel um die Änderung anzuwenden"</string>
 </resources>

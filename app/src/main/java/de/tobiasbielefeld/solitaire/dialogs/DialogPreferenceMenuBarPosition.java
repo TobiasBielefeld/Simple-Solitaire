@@ -25,6 +25,7 @@ import android.view.View;
 import android.widget.RadioButton;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -32,7 +33,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
  */
 
-public class DialogPreferenceMenuBarPosition extends DialogPreference {
+public class DialogPreferenceMenuBarPosition extends CustomDialogPreference {
 
     RadioButton top, bottom, left, right;
 

@@ -26,6 +26,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
@@ -34,7 +35,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
  * Little confirmation dialog for starting a new game
  */
 
-public class DialogStartNewGame extends DialogFragment {
+public class DialogStartNewGame extends CustomDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -52,6 +53,6 @@ public class DialogStartNewGame extends DialogFragment {
                     }
                 });
 
-        return builder.create();
+        return applyFlags(builder.create());
     }
 }

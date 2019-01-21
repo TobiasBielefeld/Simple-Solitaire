@@ -42,6 +42,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Bitmaps {
 
+    static int NUM_CARD_THEMES = 10;
+    static int NUM_CARD_BACKGROUNDS = 10;
+
     int menuWidth, menuHeight, stackBackgroundWidth, stackBackgroundHeight,
             cardBackWidth, cardBackHeight, cardFrontWidth, cardFrontHeight,
             cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
@@ -76,7 +79,7 @@ public class Bitmaps {
         if (menu == null) {
             menu = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu);
             menuWidth = menu.getWidth() / 6;
-            menuHeight = menu.getHeight() / 3;
+            menuHeight = menu.getHeight() / 4;
         }
 
         if (menuText == null){
@@ -86,17 +89,20 @@ public class Bitmaps {
         int posX = index%6;
         int posY = index/6;
 
+        Bitmap gamePicture;
+
+        //get the preview of the game itself
         try {
-            //just the preview of the game itself
-            Bitmap gamePicture = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
-            //get the game name picture
-            Bitmap gameText = drawTextToBitmap(lg.getGameName(res,index));
-            //append both parts
-            bitmap = putTogether(gamePicture,gameText);
+            gamePicture = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
         } catch (Exception e){
             Log.e("Bitmap.getMenu()","No picture for current game available\n" + e.toString());
-            bitmap = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
+            gamePicture = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
         }
+
+        //get the game name picture
+        Bitmap gameText = drawTextToBitmap(lg.getGameName(res,index));
+        //append both parts
+        bitmap = putTogether(gamePicture,gameText);
 
         menuBitMaps[index] = bitmap;
 
@@ -230,6 +236,12 @@ public class Bitmaps {
                 case 8:
                     resID = R.drawable.cards_poker;
                     break;
+                case 9:
+                    resID = R.drawable.cards_paris;
+                    break;
+                case 10:
+                    resID = R.drawable.cards_dondorf;
+                    break;
             }
 
             cardFront = BitmapFactory.decodeResource(res, resID);
@@ -252,7 +264,7 @@ public class Bitmaps {
 
         if (cardBack == null) {
             cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
-            cardBackWidth = cardBack.getWidth() / 9;
+            cardBackWidth = cardBack.getWidth() / NUM_CARD_BACKGROUNDS;
             cardBackHeight = cardBack.getHeight() / 4;
         }
 
@@ -271,7 +283,7 @@ public class Bitmaps {
 
         if (cardPreview == null) {
             cardPreview = BitmapFactory.decodeResource(res, R.drawable.card_previews);
-            cardPreviewWidth = cardPreview.getWidth() / 8;
+            cardPreviewWidth = cardPreview.getWidth() / NUM_CARD_THEMES;
             cardPreviewHeight = cardPreview.getHeight() / 2;
         }
 
@@ -293,7 +305,7 @@ public class Bitmaps {
 
         if (cardPreview2 == null) {
             cardPreview2 = BitmapFactory.decodeResource(res, R.drawable.card_previews);
-            cardPreview2Width = cardPreview2.getWidth() / 16;
+            cardPreview2Width = cardPreview2.getWidth() / (NUM_CARD_THEMES * 2);
             cardPreview2Height = cardPreview2.getHeight() / 2;
         }
 

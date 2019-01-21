@@ -2,8 +2,8 @@
 https://stackoverflow.com/questions/16736856/what-should-be-in-my-gitignore-for-an-android-studio-project
 
 #built application files
-*.apk
-*.ap_
+#*.apk
+#*.ap_
 
 # files for the dex VM
 *.dex

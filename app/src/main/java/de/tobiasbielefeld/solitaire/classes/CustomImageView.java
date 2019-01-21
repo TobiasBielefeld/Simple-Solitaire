@@ -56,7 +56,10 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
     public CustomImageView(Context context, OnTouchListener listener, Object object, int ID) {
         super(context);
 
-        setOnTouchListener(listener);
+        if (listener != null){
+            setOnTouchListener(listener);
+        }
+
         setId(ID);
 
         switch (object) {

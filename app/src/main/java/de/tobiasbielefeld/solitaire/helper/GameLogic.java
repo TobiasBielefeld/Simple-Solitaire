@@ -50,7 +50,6 @@ public class GameLogic {
      */
     public void checkFirstMovement() {
         if (!movedFirstCard) {
-         //   incrementPlayedGames();
             movedFirstCard = true;
         }
     }
@@ -60,7 +59,7 @@ public class GameLogic {
      * when resuming the game, called in onPause() of the GameManager
      */
     public void save() {
-        if (!prefs.isDeveloperOptionSavingDisabled()) {
+        if (!prefs.isDeveloperOptionSavingDisabled() && !stopUiUpdates) {
             scores.save();
             recordList.save();
             prefs.saveWon(won);
@@ -91,7 +90,7 @@ public class GameLogic {
      * The main loading part is put in a try catch block, so when there goes something wrong
      * on saving/loading, it won't crash the game. (in that case, it loads a new game)
      */
-    public void load() {
+    public void load(boolean withoutMovement) {
         boolean firstRun = prefs.isFirstRun();
         won = prefs.isWon();
         wonAndReloaded = prefs.isWonAndReloaded();
@@ -100,61 +99,65 @@ public class GameLogic {
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
         animate.reset();
-        autoComplete.reset();
-        currentGame.load();
-        currentGame.loadRecycleCount(gm);
-        sounds.playSound(Sounds.names.DEAL_CARDS);
+        autoComplete.hideButton();
 
-        try {
+
+        if (!withoutMovement) {
+            sounds.playSound(Sounds.names.DEAL_CARDS);
+
+            for (Card card : cards) {
+                card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
+                card.flipDown();
+            }
+        }
+
+//        try {
             if (firstRun) {
                 newGame();
                 prefs.saveFirstRun(false);
-            }  else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()){        //in case the game was selected from the main menu and it was already won, start a new game
+            }  else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()){
+                //in case the game was selected from the main menu and it was already won, start a new game
                 newGame();
-            } else if (won) {                   //in case the screen orientation changes, do not immediately start a new game
-                loadRandomCards();
-
-                for (Card card : cards) {
-                    card.setLocationWithoutMovement(gm.layoutGame.getWidth(), 0);
-                }
             } else {
-                for (Card card : cards) {
-                    card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
-                    card.flipDown();
-                }
-
                 scores.load();
                 recordList.load();
                 timer.setCurrentTime(prefs.getSavedEndTime());
 
                 //timer will be loaded in onResume() of the game manager
 
-                Card.load();
 
                 for (Stack stack : stacks) {
-                    stack.load();
+                    stack.load(withoutMovement);
                 }
 
+                Card.load();
                 loadRandomCards();
 
-                checkForAutoCompleteButton();
+                checkForAutoCompleteButton(withoutMovement);
 
-                //deal the cards again in case the app got killed while trying  before
-                if (prefs.isDealingCards()){
-                    handlerDealCards.sendEmptyMessage(0);
-                }
+                //load game dependent data
+                currentGame.load();
+                currentGame.loadRecycleCount();
             }
-        } catch (Exception e) {
-            Log.e(gm.getString(R.string.loading_data_failed), e.toString());
-            showToast(gm.getString(R.string.game_load_error),gm);
-            newGame();
+//        } catch (Exception e) {
+//            Log.e(gm.getString(R.string.loading_data_failed), e.toString());
+//            showToast(gm.getString(R.string.game_load_error),gm);
+//            newGame();
+//        }
+
+        gm.hasLoaded = true;
+    }
+
+    public void checkForAutoCompleteButton(boolean withoutMovement){
+        if (!prefs.getHideAutoCompleteButton() && !autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest() && !hasWon()) {
+            autoComplete.showButton(withoutMovement);
         }
     }
 
-    public void checkForAutoCompleteButton(){
-        if (!autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest()) {
-            autoComplete.showButton();
-        }
+    public void newGameForEnsureMovability(){
+        System.arraycopy(cards, 0, randomCards, 0, cards.length);
+        randomize(randomCards);
+        redealForEnsureMovability();
     }
 
     /**
@@ -162,10 +165,40 @@ public class GameLogic {
      */
     public void newGame() {
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
-
         randomize(randomCards);
 
-        redeal();
+        if (prefs.getSavedEnsureMovability()) {
+            gameLogic.save();
+            stopUiUpdates = true;
+            redealForEnsureMovability();
+
+            ensureMovability.start();
+        } else {
+            redeal();
+        }
+    }
+
+    public void setWon(boolean value){
+        won = value;
+    }
+
+    /**
+     * starts a new game, but with the same deal.
+     */
+    public void redealForEnsureMovability() {
+
+        for (Stack stack : stacks) {
+            stack.reset();
+        }
+
+        for (Card card : randomCards) {
+            currentGame.getDealStack().addCard(card);
+            card.flipDown();
+        }
+
+        //to reset the recycle counter
+        currentGame.reset();
+        currentGame.dealNewGame();
     }
 
     /**
@@ -179,7 +212,7 @@ public class GameLogic {
             currentGame.onGameEnd();
         }
 
-        currentGame.reset(gm);
+        currentGame.reset();
         animate.reset();
         scores.reset();
         movingCards.reset();
@@ -191,7 +224,7 @@ public class GameLogic {
             stack.reset();
         }
 
-        //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
+        //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game)
         for (Card card : randomCards) {
             if (won) {
                 card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
@@ -199,24 +232,21 @@ public class GameLogic {
                 card.setLocation(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
             }
 
-            currentGame.getDealStack().addCard(card,false);
+            currentGame.getDealStack().addCard(card);
             card.flipDown();
         }
-
-        //update the card images views after assigning them to the stacks.
-        /*for (Stack stack : stacks) {
-            stack.updateSpacing();
-        }*/
 
         movedFirstCard = false;
         won = false;
         wonAndReloaded = false;
 
-        //save that the game is dealing cards, in case the application gets killed before calling the handler
-        prefs.setDealingCards(true);
-
-        //and finally deal the cards from the game!
-        handlerDealCards.sendEmptyMessage(0);
+        if (stopUiUpdates) {
+            //no need to wait in the handler when stopUiUpdates is true
+            currentGame.dealNewGame();
+        } else {
+            //deal the cards from the game!
+            dealCards.start();
+        }
     }
 
     /**
@@ -243,7 +273,7 @@ public class GameLogic {
      *
      * @param array The array to randomize
      */
-    private void randomize(Card[] array) {
+    public void randomize(Card[] array) {
         int index;
         Card dummy;
         Random random = getPrng();
@@ -319,8 +349,9 @@ public class GameLogic {
         if (currentGame.hasLimitedRecycles()) {
             currentGame.setNumberOfRecycles(key, defaultValue);
 
-            gm.updateNumberOfRecycles();
-            gm.updateLimitedRecyclesCounter();
+
+            //gm.updateNumberOfRecycles();
+            //gm.updateLimitedRecyclesCounter();
         }
     }
 
@@ -350,15 +381,9 @@ public class GameLogic {
     }
 
     private void incrementPlayedGames() {
-        prefs.saveNumberOfPlayedGames(prefs.getSavedNumberOfPlayedGames()+1);
-    }
-
-    public void updateMenuBar() {
-        gm.updateMenuBar();
-    }
-
-    public void updateGameLayout() {
-        gm.updateGameLayout();
+        if (movedFirstCard) {
+            prefs.saveNumberOfPlayedGames(prefs.getSavedNumberOfPlayedGames() + 1);
+        }
     }
 
     public void incrementNumberWonGames(){
@@ -372,10 +397,7 @@ public class GameLogic {
      * @return True if no movement is allowed, false otherwise
      */
     public boolean stopConditions() {
-        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isWorking() || recordList.isWorking() || autoMove.isRunning());
-    }
-
-    public boolean getMovedFirstCard(){
-        return movedFirstCard;
+        return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isRunning()
+                || recordList.isWorking() || autoMove.isRunning() || isDialogVisible);
     }
 }

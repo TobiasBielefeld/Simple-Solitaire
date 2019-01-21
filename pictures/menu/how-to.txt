@@ -1,0 +1,33 @@
+This file should describe how I make the menu pictures.
+
+1. Open the app in an Android emulator with 1080 x 1920 resolution
+2. When the new game is implemented and added to the LoadGame.java file, you then can open the game
+   from the main menu. (It will most likely have the menu picture of another game)
+3. Set the card theme like in the other menu pictures: Set cards to "Classic" and the card
+   background to choice #1 in blue.
+4. Make a screenshot with the emulator
+5. Open the screenshot with GIMP
+6. See if the cards of the game fit in a 1080 x 890 rectangular selection window.
+   * If so, remove the other part of the screen shot (CTRL + I, press DEL, then again CTRL + I)
+   * If not, open the appearance settings in the game and increase the game margins and try again
+     until it fits
+7. Make a new rectangular selection window with a size of eg 1080 x 1500 and lay it on the image so
+   it fits with the upper side of the image and the selection window has a lot of empty space on the
+   lower side
+8. Then do the following: Open Selection -> Rounded Rectangle -> Set to 15°
+9. Remove the other part of the image (CTRL + I, press DEL, then again CTRL + I). It should have
+   only removed the upper left and right corners of the image, because the selection window was big
+   enough to not affect the lower corners. Keep this window!
+10. Now do: Filter -> decoration -> chamfering edge (in german: Rand abschrägen) -> 20
+11. With the result: Image -> automatic cropping (if thats the right name in english)
+12. Then select: Image -> scale image, set the width to 333 and press Ok
+12. The result can now be added to backgrounds_menu.png in the same folder (also using GIMP)
+13. Make place at the position where your new game is inserted at by moving all other images
+    "one place the right" from that position. Open the game and look where your game is inserted at
+    in the main menu, or look in the LoadGame.java loadAllGames() function for the correct position.
+    Note: You need the default menu order if you look in the main menu, so the LoadGame.java file
+    is maybe a better place to look for the right position.
+14. Insert  the image now. if there is a one-pixel-line of empty space left after inserting the
+    new image, borrow a fitting line from another image :)
+15. Save the result
+16. Export the result to app/src/main/res/drawable-nodpi/backgrounds_menu.png

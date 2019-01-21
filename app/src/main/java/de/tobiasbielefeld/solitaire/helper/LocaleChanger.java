@@ -26,7 +26,11 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.preference.PreferenceManager;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
+
+import de.tobiasbielefeld.solitaire.SharedData;
 
 /**
  * Update locale in the activities,
@@ -71,10 +75,17 @@ public class LocaleChanger {
     private static Context updateResources(Context context, String language) {
         Locale locale;
 
+        List<String> localeList = Arrays.asList(language.split(","));
+
         if (language.equals("default")) {
             locale = defaultLocale;
         } else {
-            locale = new Locale(language);
+            if (localeList.size()==2) {
+                locale = new Locale(localeList.get(0), localeList.get(1));
+            } else{
+                locale = new Locale(localeList.get(0));
+            }
+
             Locale.setDefault(locale);
         }
 
@@ -95,10 +106,17 @@ public class LocaleChanger {
     private static Context updateResourcesLegacy(Context context, String language) {
         Locale locale;
 
+        List<String> localeList = Arrays.asList(language.split(","));
+
         if (language.equals("default")) {
             locale = defaultLocale;
         } else {
-            locale = new Locale(language);
+            if (localeList.size()==2) {
+                locale = new Locale(localeList.get(0), localeList.get(1));
+            } else{
+                locale = new Locale(localeList.get(0));
+            }
+
             Locale.setDefault(locale);
         }
 

@@ -35,7 +35,7 @@
             android:positiveButtonText="@string/game_confirm"
             android:summary=""/>
 
-        <CheckBoxPreference
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_vegas_money_enabled"
             android:key="@string/pref_key_vegas_money_enabled"
             android:summary="@string/settings_vegas_money_enabled_text"

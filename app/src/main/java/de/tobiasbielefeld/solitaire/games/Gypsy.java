@@ -60,7 +60,7 @@ public class Gypsy extends Game {
         for (int i = 0; i < 8; i++) {
             stacks[8 + i].setX(startPos + i * (spacing + Card.width));
             stacks[8 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 1);
-            stacks[8 + i].view.setImageBitmap(Stack.background1);
+            stacks[8 + i].setImageBitmap(Stack.background1);
         }
 
         for (int i = 0; i < 8; i++) {
@@ -132,7 +132,7 @@ public class Gypsy extends Game {
         return testCardsUpToTop(card.getStack(), card.getIndexOnStack(), ALTERNATING_COLOR);
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest(ArrayList<Card> visited) {
 
         for (int i = 0; i < 8; i++) {
             Stack sourceStack = stacks[i];
@@ -143,7 +143,7 @@ public class Gypsy extends Game {
             for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
                 Card cardToMove = sourceStack.getCard(j);
 
-                if (hint.hasVisited(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR))
+                if (visited.contains(cardToMove) || !testCardsUpToTop(sourceStack, j, ALTERNATING_COLOR))
                     continue;
 
                 if (cardToMove.getValue() != 1) {
@@ -175,7 +175,7 @@ public class Gypsy extends Game {
             }
         }
 
-        return null;
+        return findBestSequenceToMoveToEmptyStack(ALTERNATING_COLOR);
     }
 
     @Override

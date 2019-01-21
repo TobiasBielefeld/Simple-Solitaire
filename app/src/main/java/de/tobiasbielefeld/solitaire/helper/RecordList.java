@@ -21,6 +21,7 @@ package de.tobiasbielefeld.solitaire.helper;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
@@ -34,7 +35,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class RecordList {
 
     public static int maxRecords;
-    private ArrayList<Entry> entries = new ArrayList<>();
+    public ArrayList<Entry> entries = new ArrayList<>();
+    private WaitForAnimationHandler handler;
 
     private boolean isWorking = false;
 
@@ -43,8 +45,20 @@ public class RecordList {
     }
 
 
-    public RecordList(){
+    public RecordList(GameManager gm){
         setMaxRecords();
+
+        handler = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
+            @Override
+            public void doAfterAnimation() {
+                handleMessage();
+            }
+
+            @Override
+            public boolean additionalHaltCondition() {
+                return false;
+            }
+        });
     }
 
     /**
@@ -129,7 +143,7 @@ public class RecordList {
      * reverts one record, this will delete that record from the list and takes 25 points away
      * from the current score
      */
-    public void undo(GameManager gm) {
+    public void undo() {
         if (!entries.isEmpty()) {
             isWorking = true;
             sounds.playSound(Sounds.names.CARD_RETURN);
@@ -138,7 +152,7 @@ public class RecordList {
                 scores.update(-currentGame.getUndoCosts());
             }
 
-            entries.get(entries.size() - 1).undo(gm);
+            entries.get(entries.size() - 1).undo();
 
             int amount = prefs.getSavedTotalNumberUndos() + 1;
             prefs.saveTotalNumberUndos(amount);
@@ -217,14 +231,21 @@ public class RecordList {
         return isWorking;
     }
 
-    private class Entry {
+    public static class Entry {
         private ArrayList<Integer> moveOrder = new ArrayList<>();
         private ArrayList<Card> currentCards = new ArrayList<>();
         private ArrayList<Stack> currentOrigins = new ArrayList<>();
         private ArrayList<Card> flipCards = new ArrayList<>();
 
-        private GameManager gm;
         private boolean alreadyDecremented = false;
+
+        public ArrayList<Card> getCurrentCards(){
+            return currentCards;
+        }
+
+        public ArrayList<Stack> getCurrentOrigins(){
+            return currentOrigins;
+        }
 
         /**
          * This constructor is used to load saved entries.
@@ -337,15 +358,14 @@ public class RecordList {
         /**
          * Undos the latest entry.
          */
-        void undo(GameManager gm) {
-            this.gm = gm;
+        void undo() {
             alreadyDecremented = false;
 
             for (Card card : flipCards) {
                 card.flipWithAnim();
             }
 
-            handlerRecordListUndo.sendEmptyMessageDelayed(0,0);
+            recordList.handler.sendDelayed();
         }
 
         /**
@@ -363,7 +383,7 @@ public class RecordList {
                 for (int i=0;i<currentCards.size();i++){
 
                     if (currentCards.get(i).getStack() == currentGame.getDealStack() && discardStacks.contains(currentOrigins.get(i))) {
-                        currentGame.decrementRecycleCounter(gm);
+                        currentGame.decrementRecycleCounter();
                         alreadyDecremented = true;
                         break;
                     }
@@ -417,7 +437,7 @@ public class RecordList {
             for (int i = 0; i < tempCards.size(); i++) {
                 currentCards.add(tempCards.get(i));
                 currentOrigins.add(tempOrigins.get(i));
-                moveOrder.add(tempMoveOrders.get(i)+1);                                         //increment the orders by one
+                moveOrder.add(tempMoveOrders.get(i)+1);                                             //increment the orders by one
             }
         }
 
@@ -436,6 +456,13 @@ public class RecordList {
 
         while (entries.size() > maxRecords) {
             entries.remove(0);
+        }
+    }
+
+    private void handleMessage(){
+        if (recordList.hasMoreToUndo()){
+            recordList.undoMore();
+            handler.sendDelayed();
         }
     }
 }

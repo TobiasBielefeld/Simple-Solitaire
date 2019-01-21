@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Wersja"</string>
 <string name="settings">"Ustawienia"</string>
 <string name="game_manual">"Podręcznik"</string>
@@ -31,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Jukon"</string>
 <string name="games_Spider">"Pająk"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Piramida"</string>
 <string name="games_TriPeaks">"TrzyWieże"</string>
-<string name="games_FortyEight">"Czterdzieści&amp;Osiem"</string>
-<string name="games_AcesUp">"CzteryAsy"</string>
+<string name="games_FortyEight">"Czterdzieści &amp; Osiem"</string>
+<string name="games_AcesUp">"Cztery Asy"</string>
 <string name="games_Gypsy">"Cygan"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"ZegarekDziadka"</string>
+<string name="games_GrandfathersClock">"Zegarek Dziadka"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -429,12 +427,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_show_main_menu_description">"Nie przechodź do ostatnio otwartej gry przy starcie"</string>
 <string name="settings_golf_easy">"Cykliczne ruchy (łatwiejsze)"</string>
 <string name="settings_golf_easy_description">"Zezwól kłaść asy na króli i odwrotnie"</string>
-<string name="settings_restart_klondike">"Aby zastosować zmiany, rozpocznij nową grę Klondkie"</string>
-<string name="settings_restart_canfield">"Aby zastosować zmiany, rozpocznij nową grę Canfield"</string>
-<string name="settings_restart_spider">"Aby zastosować zmiany, rozpocznij nową grę Pająk"</string>
-<string name="settings_restart_vegas">"Aby zastosować zmiany, rozpocznij nową grę Vegas"</string>
-<string name="settings_restart_fortyeight">"Aby zastosować zmiany, rozpocznij nową grę Czterdzieści&amp;Osiem"</string>
-<string name="settings_restart_yukon">"Aby zastosować zmiany, rozpocznij nową grę Yukon"</string>
 <string name="settings_menu">"Menu główne"</string>
 <string name="settings_menu_description">"Zmień liczbę kolumn, pokaż i ukryj gry"</string>
 <string name="settings_pyramid_difficulty">"Trudność"</string>
@@ -486,7 +478,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_customization_description">"Dostosuj karty, tła i interfejs użytkownika"</string>
 <string name="settings_force_tablet_layout_title">"Wymuś tryb tabletu"</string>
 <string name="settings_force_tablet_layout_text">"Wyświetl aplikację tak jak na dużych ekranach (≥7\")"</string>
-<string name="settings_restart_calculation">"Aby zastosować zmiany, rozpocznij nową grę Calculation"</string>
 <string name="settings_calculation_alternative_title">"Trzymaj karty"</string>
 <string name="settings_calculation_alternative_text">"Po stuknięciu w stos główny: zamiast przeniesienia karty ze stosu odrzutów na stos gry, zatrzymaj ją na stosu odrzutów."</string>
 <string name="settings_vegas_money_enabled">"Zapamiętaj stan konta"</string>
@@ -507,7 +498,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_vegas_bet_amount_text_2">"Za przeniesienie każdej karty na stos bazowy dostajesz:"</string>
 <string name="settings_vegas_bet_amount_summary">"Rozdanie -%1$d$, wrzucenie karty: +%2$d$"</string>
 <string name="settings_single_tap_all_games_text">"Stuknij pojedynczo w kartę, aby przenieść ją na następny możliwy stos. Ustawienie takie same jak ruchów podwójnych. Wyłączone zostaną ruchy „wybierz przez stuknięcie”."</string>
-<string name="settings_vegas_bet_amount_error">"Nie można zapisać liczby!"</string>
 <string name="settings_canfield_size_of_reserve_title">"Zmień wielkość stosu rezerwowego (łatwiej)"</string>
 <string name="settings_use_true_randomisation_title">"Stosowanie prawdziwej losowości"</string>
 <string name="settings_use_true_randomisation_text">"Domyślna losowość pozwala uniknąć podobnych kart obok siebie. Zaznacz tę opcję, aby zastosować prawdziwą losowość."</string>
@@ -599,33 +589,24 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 Przycisk „statystyki” otwiera nowe okno zawierające różne statystyki dotyczące obecnej gry, np. najlepsze wyniki.
 
 Przycisk „wsparcie” otworzy niewielkie manu pomocy. Będziesz mógł wybrać:"</string>
-<string name="manual_ui_text_part_2">"Pokaż wskazówki: wyświetl maksymalnie 3 możliwe ruchy kart jednocześnie. Jednakże obniży to Twoją punktację o 25. Zauważ, że trywialne ruchy takie jak przeniesienie kart na puste pola, czy też stuknięcie w stos główny nie zostaną wyświetlone jako wskazówka. Jeżeli nie będzie możliwej wskazówki do pokazania, nie utracisz punktów.
-"</string>
-<string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę.
-"</string>
-<string name="manual_ui_text_part_4">"Tasuj karty: jeżeli stoisz w obliczu sytuacji, że nie ma już dostępnych ruchów, możesz użyć tej opcja, aby przetasować obecne karty. Zauważ, że karty już w poprawnej kolejności i karty na stosach bazowych nie zostaną przetasowane.
-"</string>
-<string name="manual_ui_text_part_5">"Zasady gry: otwiera stronę poradnika dotyczącą gry.
-"</string>
+<string name="manual_ui_text_part_2">"Pokaż wskazówki: wyświetl maksymalnie 3 możliwe ruchy kart jednocześnie. Jednakże obniży to Twoją punktację o 25. Zauważ, że trywialne ruchy takie jak przeniesienie kart na puste pola, czy też stuknięcie w stos główny nie zostaną wyświetlone jako wskazówka. Jeżeli nie będzie możliwej wskazówki do pokazania, nie utracisz punktów."</string>
+
+<!-- Could you please explain that example? I know how auto move works in Pyramid and Mod3, but this description is senseless for me. -->
+<string name="manual_ui_text_part_3">"Automatyczne ruchy: przenosi automatycznie jak najwięcej możliwych kart. Ta opcja jest przeznaczona do użytku w sytuacjach kiedy np. tylko jedna karta jest zakryta, ale wymagane jest przeniesienie innych kart na ten stos, aby dostać się do niego. Więc ta opcja może niewiele przyspieszyć grę."</string>
+<string name="manual_ui_text_part_4">"Tasuj karty: jeżeli stoisz w obliczu sytuacji, że nie ma już dostępnych ruchów, możesz użyć tej opcja, aby przetasować obecne karty. Zauważ, że karty już w poprawnej kolejności i karty na stosach bazowych nie zostaną przetasowane."</string>
+<string name="manual_ui_text_part_5">"Zasady gry: otwiera stronę poradnika dotyczącą gry."</string>
 <string name="manual_ui_text_part_6">"Przycisk „menu” wywołuje następujące trzy akcje:"</string>
-<string name="manual_ui_text_part_7">"Rozpocznij nową grę: przetasowuje karty i rozpoczyna nowe rozdanie.
-"</string>
-<string name="manual_ui_text_part_8">"Ponownie rozdaj karty: restartuje nową grę z tym samym układem kart.
-"</string>
-<string name="manual_ui_text_part_9">"Powrót do menu głównego: zapisuje stan obecnej gry i wyświetla menu wybory gry.
-"</string>
+<string name="manual_ui_text_part_7">"Rozpocznij nową grę: przetasowuje karty i rozpoczyna nowe rozdanie."</string>
+<string name="manual_ui_text_part_8">"Ponownie rozdaj karty: restartuje nową grę z tym samym układem kart."</string>
+<string name="manual_ui_text_part_9">"Powrót do menu głównego: zapisuje stan obecnej gry i wyświetla menu wybory gry."</string>
 <string name="manual_ui_text_part_10">"Przycisk „cofnij” cofa ostatni ruch, ale to będzie kosztowało 25 punktów. Można cofnąć maksymalnie 20 ostatnich ruchów. (można zwiększyć ten parametr w ustawieniach specjalistycznych)
 
 Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="manual_statistics_part_1">"Dla każdej gry są zbierane statystyki. Możesz się do nich dostać z belki głównej w każdej grze. Zbierane informacje to:"</string>
-<string name="manual_statistics_part_2">"liczba rozegranych i wygranych gier
-"</string>
-<string name="manual_statistics_part_3">"całkowita liczba zebranych punktów
-"</string>
-<string name="manual_statistics_part_4">"całkowita liczba użytych funkcji pomocy
-"</string>
-<string name="manual_statistics_part_5">"10 najlepszych wyników, tylko wyniki dodatnie są zapisywane
-"</string>
+<string name="manual_statistics_part_2">"liczba rozegranych i wygranych gier"</string>
+<string name="manual_statistics_part_3">"całkowita liczba zebranych punktów"</string>
+<string name="manual_statistics_part_4">"całkowita liczba użytych funkcji pomocy"</string>
+<string name="manual_statistics_part_5">"10 najlepszych wyników, tylko wyniki dodatnie są zapisywane"</string>
 <string name="manual_statistics_part_6">"wyniki 10 ostatnich gier"</string>
 <string name="manual_statistics_part_7">"Jest także możliwe wyczyszczenie wszystkich statystyk dla danej gry, ale ta operacja jest nieodwracalna!"</string>
 <string name="about_material_icons_2_usage">"Ikona wsparcia została opublikowana na &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt; jako „lightbulb-on”."</string>
@@ -643,4 +624,85 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 <string name="settings_game_layout_margins_small">"Wąskie"</string>
 <string name="settings_game_layout_margins_medium">"Średnie"</string>
 <string name="settings_game_layout_margins_large">"Szerokie"</string>
+<string name="settings_hide_menu_button">"Ukryj przycisk menu"</string>
+<string name="settings_immersive_mode_title">"Włącz tryb pełnoekranowy"</string>
+<string name="settings_immersive_mode_text">"Ukryj paski statusu i nawigacji podczas gry (tylko na Androidzie 4.4 lub nowszym)"</string>
+<string name="settings_language_norwegian">"Norweski (Bokmål)"</string>
+<string name="about_paris_themes_usage">"Użyto w stylu kart Paris - dostępne na &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Grób Napoleona"</string>
+<string name="manual_NapoleonsTomb_structure">"1 talia po 52 karty.
+
+4 stosy gry, 5 stosów bazowych, 1 główny i 1 stos odrzutów.
+
+4 narożne stosy z “7” i jeden środkowy są stosami bazowymi. Stosy pomiędzy nimi są stosami gry."</string>
+<string name="manual_NapoleonsTomb_objective">"Przenieś wszystkie karty na stosy bazowe, kolory kart nie mają znaczenia."</string>
+<string name="manual_NapoleonsTomb_rules">"Na 4 narożnych stosach znajdują się 7-ki i układamy na nich kary w kolejności rosnącej do króli. Centralny stos bazowy zawiera początkowo 6-kę i układany na nim karty w kolejności malejącej do asa czterokrotnie. Ostatecznie na tym stosie karty przyjmują następujący porządek:
+
+6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A - 6, 5, 4, 3, 2, A
+
+Następna karta do położenia wyświetli się nad stosem.
+
+Stuknięcie w stos główny odkryje jedną kartę i przeniesie do stosu odrzutów. Do ustawienia w opcjach gry: Jeżeli zabraknie kart, stuknij ponownie, aby przenieść z powrotem wszystkie karty ze stosy odrzutów na stos główny.
+
+Każdą kartę można przenieść na pusty stos gry, ale każdy stos może zawierać tylko po jednej karcie."</string>
+<string name="manual_NapoleonsTomb_scoring">"Przeniesienie karty na stos bazowy: +50
+
+Przeniesienie wszystkich kart ze stosu odrzutów z powrotem na stos główny: -200"</string>
+<string name="settings_language_spanish_argentina">"Hiszpański (Argentyna)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Zostosuj zmiany tylko dla %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Ukryj przycisk „automatyczne ruchy”"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Wszelkie zmiany wprowadzone tutaj zostaną zastosowane tylko dla obecnej gry. Jeżeli chcesz skonfigurować pozostałe gry, masz następujące możliwości:"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Powróć do menu głównego i otworzyć stamtąd opcje"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Wyłącz tę opcję"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Otwórz ustawienia z gry, która nie ma tej opcji włączonej"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Wyłączenie tej opcji przywróci poprzednie wspólne ustawienia."</string>
+<string name="settings_dialog_only_for_this_game_disable">"Indywidualne ustawienia dla tej gry zostaną skasowane i zostaną zastosowane wspólne ustawienia."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"Zmiany nie zostaną zastosowane dla wszystkich ger. Stuknij, aby dowiedzieć się więcej"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Następujące gry mają ustawienia indywidualne:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Dla tych gier nie zostaną zastosowane zmiany wprowadzone tutaj.
+
+Czy chcesz skasować ustawienia indywidualne dla następujących gier?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Usuń wszystkie ustawienia indywidualne"</string>
+<string name="settings_ensure_movability_title">"Gwarantowane ruchy"</string>
+<string name="settings_ensure_movability_searching_games">"Wyszukiwanie grywalnej gry…"</string>
+<string name="settings_ensure_movability_text">"Zapewnia, że określona liczba ruchów w grze jest możliwa przed jej rozpoczęciem"</string>
+<string name="settings_ensure_movability_min_moves_title">"Gwarantowane ruchy: liczba ruchów"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Ostrzeżenie: zwiększenie tej wartości spowoduje wydłużenie czasu ładowania przed rozpoczęciem gry! Zmiana zasad gry wpłynie również na czas oczekiwania!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Ustaw minimalną liczbę możliwych gwarantowanych ruchów gry przed jej rozpoczęciem."</string>
+<string name="settings_number_input_error">"Nie można zapisać liczby!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Ulepszone automatyczne ruchy"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Opcja automatyczne ruchy spróbuje wygrać grę używając głównego stosu"</string>
+<string name="black">"Czarny"</string>
+<string name="white">"Biały"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Gwarantuj wygrywalność części gier"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Można ustalić pewną liczbę gier, aby były możliwe do wygrania, bez znacznego zwiększenia czasu oczekiwania."</string>
+<string name="settings_ensure_movability_winnable">"Wygrywalne"</string>
+<string name="settings_reset_to_defaults">"Przywróć wartości domyślne"</string>
+<string name="settings_text_color">"Kolor tekstu i stosów"</string>
+<string name="settings_language_chinese_simplified">"Chiński (uproszczony)"</string>
+<string name="settings_ensure_movability_cancle_search">"Anuluj i natychmiast rozpocznij"</string>
+<string name="games_Maze">"Labirynt"</string>
+<string name="games_Spiderette">"Pajączek"</string>
+<string name="manual_Spiderette_structure">"1 talia po 52 karty.
+
+7 stosów gry i 4 stosy bazowe.
+
+1 główny stos, rozdawany w 4 rzutach.
+
+Zależnie od ustawień: 1, 2 lub 4 różne kolory kart."</string>
+<string name="manual_Spiderette_objective">"Uszereguj wszystkie karty w rodziny tego samego koloru malejąco gdziekolwiek na polu gry. Kompletne rodziny kart zostaną automatycznie przeniesione do stosów bazowych."</string>
+<string name="manual_Spiderette_rules">"Karty można kłaść na dowolną kartę w kolejności malejącej. Ale tylko poprawne sekwencje tego samego koloru kart można razem przenosić.
+
+Na pustych polach gry można umieścić dowolną kartę.
+
+Stuknij w stos główny, aby rozdać po jednej karcie na każdy stos gry."</string>
+<string name="manual_Spiderette_scoring">"Przeniesienie rodziny kart na stos bazowy: +200
+
+Odsłonięcie karty: +25"</string>
+<string name="settings_language_portuguese">"Portugalski"</string>
+<string name="settings_restart_game">"Aby zastosować zmiany, rozpocznij nową grę %1$s"</string>
 </resources>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="app_version">"Versio"</string>
 <string name="settings">"Asetukset"</string>
 <string name="game_manual">"Ohje"</string>
@@ -31,16 +29,16 @@
 <string name="games_Freecell">"FreeCell"</string>
 <string name="games_Yukon">"Yukon"</string>
 <string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"SimpleSimon"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
 <string name="games_Golf">"Golf"</string>
 <string name="games_Pyramid">"Pyramid"</string>
 <string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty&amp;Eight"</string>
-<string name="games_AcesUp">"AcesUp"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
+<string name="games_AcesUp">"Aces Up"</string>
 <string name="games_Gypsy">"Gypsy"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"GrandfathersClock"</string>
+<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
 <string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
@@ -60,14 +58,25 @@
 <string name="dialog_win_score">"Tulos: %1$d"</string>
 <string name="dialog_win_bonus">"Bonus: %1$d"</string>
 <string name="dialog_win_total">"Yhteensä: %1$d"</string>
-<string name="dialog_start_new_game_title">Aloita uusi peli</string>
-<string name="dialog_redeal_title">Jaa kortit uudelleen</string>
 
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Sekoita kortit"</string>
+<string name="dialog_mix_cards_text">"Tämä sekoittaa kaikki kortit paitsi oikeassa järjestyksessä ja peruspinoissa olevat kortit."</string>
+<string name="dialog_mix_cards_not_available">"Vielä on mahdollisia siirtoja! (Käytä vihje-toimintoa nähdäksesi ne)"</string>
+
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Aloita uusi peli"</string>
+<string name="dialog_start_new_game_text">"Nykyinen tilanne menetetään ja uusi satunnainen peli jaetaan."</string>
+
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Jaa kortit uudelleen"</string>
+<string name="dialog_redeal_text">"Nykyinen tilanne menetetään, mutta kortit jaetaan kuten nykyisessä pelissä."</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
 <string name="title_activity_manual">"Ohje"</string>
 <string name="title_activity_settings">"Asetukset"</string>
 <string name="title_activity_about">"Tietoa pelistä"</string>
 <string name="title_activity_statistics">"Tilasto"</string>
-<string name="statistics_high_scores">"Ennätykset"</string>
 
 <!-- About activity -->
 <string name="about_tab_1">"Tietoa"</string>
@@ -119,6 +128,10 @@
  Uudelleen käynnistäessä sovellus automaattisesti lataa edellisen pelatun pelin jos se on keskeytynyt. Tämän toiminnon voi ottaa pois käytöstä asetusten \"Yleistä\" valikosta.
 
  Asetuksista löytyy myös \"Päävalikko\" osio, mistä voi piilottaa pelit valikosta ja muuttaa sarakkeiden määrää, jotta pelit mahtuisivat paremmin näytölle."</string>
+
+<!-- In english it says: 'The "Menu" button shows three different actions:'
+
+Isn't there five actions nowadays? -->
 <string name="manual_ui_text">"Peli näyttää aina pienen valikon näytön alaosassa (pystynäkymä) tai oikealla puollella (vaakanäkymä). Se näyttää myös sen hetkiset pisteet ja käytetyn ajan. Mikäli mahdollista, nämä kaksi arvoa talletetaan ennätyksiin. Valikko pitää sisällään viisi kohtaa joilla on seuraavat toiminnot (painikkeet vasemmalta oikealle):
 
  \"Tulokset\" painike näyttää uudessa ikkunassa kyseisen pelin ennätykset ja voitettujen pelien lukumäärän.
@@ -417,12 +430,6 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_show_main_menu_description">"Älä siirry käynnistyessä edelliseen pelattuun peliin"</string>
 <string name="settings_golf_easy">"Kierteiset siirrot (Helpompi)"</string>
 <string name="settings_golf_easy_description">"Salli ässien asettaminen kuninkaiden päälle ja päinvastoin"</string>
-<string name="settings_restart_klondike">"Aloita uusi Klondike peli jotta muutokset tulevat voimaan"</string>
-<string name="settings_restart_canfield">"Aloita uusi Canfield peli jotta muutokset tulevat voimaan"</string>
-<string name="settings_restart_spider">"Aloita uusi Spider peli jotta muutokset tulevat voimaan"</string>
-<string name="settings_restart_vegas">"Aloita uusi Vegas peli jotta muutokset tulevat voimaan"</string>
-<string name="settings_restart_fortyeight">"Aloita uusi Forty&amp;Eight peli jotta muutokset tulevat voimaan"</string>
-<string name="settings_restart_yukon">"Aloita uusi Yukon peli jotta muutokset tulevat voimaan"</string>
 <string name="settings_menu">"Päävalikko"</string>
 <string name="settings_menu_description">"Muuta sarakkeiden määrää, tuo esiin ja piilota pelejä"</string>
 <string name="settings_pyramid_difficulty">"Vaikeustaso"</string>
@@ -474,7 +481,6 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_customization_description">"Muuta kortteja, taustaa ja käyttöliittymää"</string>
 <string name="settings_force_tablet_layout_title">"Pakota pöydän ulkoasu"</string>
 <string name="settings_force_tablet_layout_text">"Näytä sovellus samalla tavalla kuin isolla näytöllä (≥7\")"</string>
-<string name="settings_restart_calculation">"Aloita uusi Calculation peli ottaaksesi muutokset käyttöön"</string>
 <string name="settings_calculation_alternative_title">"Pidä kortit"</string>
 <string name="settings_calculation_alternative_text">"Painaminen käsipakasta: Sen sijaan, että kortti siirrettäisiin kääntöpakasta pöytäpinoon, pidä se kääntöpakassa."</string>
 <string name="settings_vegas_money_enabled">"Pidä nykyinen saldo"</string>
@@ -494,6 +500,25 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_vegas_bet_amount_text_1">"Alkujako maksaa:"</string>
 <string name="settings_vegas_bet_amount_text_2">"Jokainen peruspinoon siirretty kortti tuottaa:"</string>
 <string name="settings_vegas_bet_amount_summary">"Alkujako: -%1$d$, kortti peruspinoon: +%2$d$"</string>
+<string name="settings_single_tap_all_games_text">"Paina korttia kerran siirtääksesi se seuraavaan mahdolliseen pinoon. Tämä noudattaa samaa asetusta kuin Kaksoisnapautus siirrot. Asetus poistaa Valitse napauttamalla siirrot käytöstä."</string>
+<string name="settings_canfield_size_of_reserve_title">"Muuta varapakan kokoa (helpompi)"</string>
+<string name="settings_use_true_randomisation_title">"Käytä todellista sattumanvaraisuutta"</string>
+<string name="settings_use_true_randomisation_text">"Sattumanvaraisuuden oletusarvo välttelee samanlaisia kortteja vierekkäin. Valitse tämä jotta täydellinen sattumanvaraisuus otetaan käyttöön."</string>
+<string name="settings_developer_options">"Kehittäjän asetukset"</string>
+<string name="settings_developer_options_description">"Kokeile hulluja asetuksia!"</string>
+<string name="settings_developer_options_move_card_everwhere_title">"Siirrä kortit joka paikkaan"</string>
+<string name="settings_developer_options_move_card_everwhere_text">"Voit siirtää kortit mihin tahansa pinoon."</string>
+<string name="settings_developer_options_lock_text">"Nämä asetukset on tarkoitettu vain testaus käyttöön. Näiden käyttäminen voi johtaa outoon käyttäytymiseen ja sovelluksen kaatumiseen!"</string>
+<string name="settings_developer_options_play_every_card_title">"Siirrä jokaista korttia"</string>
+<string name="settings_developer_options_play_every_card_text">"Voit siirtää jokaista esillä olevaa korttia"</string>
+<string name="settings_developer_options_instant_win_title">"Välitön voitto"</string>
+<string name="settings_developer_options_instant_win_text">"Voita jokainen peli kortin siirron jälkeen"</string>
+<string name="settings_developer_options_no_saving_title">"Poista pelin tilan talletus käytöstä"</string>
+<string name="settings_developer_options_no_saving_text">"Pelin aikaiset siirrot eivät talletu"</string>
+<string name="settings_developer_options_deal_correct_sequences_title">"Jaa oikeat sarjat"</string>
+<string name="settings_max_number_undos">"Kumoa siirtojen enimmäismäärä"</string>
+<string name="settings_expert_settings">"Asiantuntijan asetukset"</string>
+<string name="settings_expert_settings_text">"Saattavat olla hyödyllisiä joillekkin"</string>
 <string name="settings_follow_system_settings">"Seuraa järjestelmän asetuksia"</string>
 <string name="settings_portrait">"Pystysuunta"</string>
 <string name="settings_landscape">"Vaakataso"</string>
@@ -551,4 +576,7 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="statistics_button_deleted_all_entries">"Kaikki tulokset poistettu"</string>
 <string name="statistics_time_of_day">"Kellonaika"</string>
 <string name="statistics_date">"Päiväys"</string>
+<string name="statistics_high_scores">"Ennätykset"</string>
+<string name="settings_number_input_error">"Kyseisiä numeroita ei voida tallettaa!"</string>
+<string name="settings_restart_game">"Aloita uusi %1$s peli jotta muutokset tulevat voimaan"</string>
 </resources>

@@ -21,6 +21,9 @@ package de.tobiasbielefeld.solitaire;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.BulletSpan;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -28,19 +31,18 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-import de.tobiasbielefeld.solitaire.handler.HandlerDealCards;
-import de.tobiasbielefeld.solitaire.handler.HandlerRecordListUndo;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.helper.AutoMove;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.games.Game;
-import de.tobiasbielefeld.solitaire.handler.HandlerTestAfterMove;
-import de.tobiasbielefeld.solitaire.handler.HandlerTestIfWon;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
+import de.tobiasbielefeld.solitaire.helper.DealCards;
+import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
@@ -63,6 +65,9 @@ public class SharedData {
     public static String RESTART_DIALOG = "dialogRestart";
     public static String WON_DIALOG = "dialogWon";
 
+
+    public static Game currentGame;
+
     public static Card[] cards;
     public static Stack[] stacks;
 
@@ -78,20 +83,21 @@ public class SharedData {
     public static RecordList recordList;
     public static AutoMove autoMove;
     public static Hint hint;
+    public static DealCards dealCards;
+
+    public static WaitForAnimationHandler handlerTestIfWon;
+    public static WaitForAnimationHandler handlerTestAfterMove;
+
     public static MovingCards movingCards = new MovingCards();
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
     public static CardHighlight cardHighlight = new CardHighlight();
-
-
-    public static Game currentGame;
-
-    public static HandlerTestAfterMove handlerTestAfterMove = new HandlerTestAfterMove();
-    public static HandlerTestIfWon handlerTestIfWon = new HandlerTestIfWon();
-    public static HandlerRecordListUndo handlerRecordListUndo = new HandlerRecordListUndo();
-    public static HandlerDealCards handlerDealCards = new HandlerDealCards();
     public static BackgroundMusic backgroundSound = new BackgroundMusic();
+    public static EnsureMovability ensureMovability;
+
     public static int activityCounter = 0;
+    public static boolean stopUiUpdates = false;
+    public static boolean isDialogVisible = false;
 
     private static Toast toast;
 
@@ -191,27 +197,30 @@ public class SharedData {
      */
     public static void moveToStack(ArrayList<Card> cards, ArrayList<Stack> destinations, int option) {
 
-        if (option == OPTION_UNDO) {
-            scores.undo(cards, destinations);
-        } else if (option == 0) {
-            scores.move(cards, destinations);
-            recordList.add(cards);
-        } else if (option == OPTION_REVERSED_RECORD) {
-            //reverse the cards and add the reversed list to the record
-            ArrayList<Card> cardsReversed = new ArrayList<>();
+        if (!stopUiUpdates) {
+            if (option == OPTION_UNDO) {
+                scores.undo(cards, destinations);
+            } else if (option == 0) {
+                scores.move(cards, destinations);
+                recordList.add(cards);
+            } else if (option == OPTION_REVERSED_RECORD) {
+                //reverse the cards and add the reversed list to the record
+                ArrayList<Card> cardsReversed = new ArrayList<>();
 
-            for (int i = 0; i < cards.size(); i++) {
-                cardsReversed.add(cards.get(cards.size() - 1 - i));
+                for (int i = 0; i < cards.size(); i++) {
+                    cardsReversed.add(cards.get(cards.size() - 1 - i));
+                }
+
+                recordList.add(cardsReversed);
+                scores.move(cards, destinations);
             }
-
-            recordList.add(cardsReversed);
-            scores.move(cards, destinations);
+            //else if (option == OPTION_NO_RECORD), do nothing
         }
-        //else if (option == OPTION_NO_RECORD), do nothing
 
 
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).getStack() == destinations.get(i)) {                                     //this means to flip a card
+            //this means to flip a card
+            if (cards.get(i).getStack() == destinations.get(i)) {
                 cards.get(i).flip();
             }
         }
@@ -219,7 +228,7 @@ public class SharedData {
         for (int i = 0; i < cards.size(); i++) {
             if (cards.get(i).getStack() != destinations.get(i)) {
                 cards.get(i).removeFromCurrentStack();
-                destinations.get(i).addCard(cards.get(i),false);
+                destinations.get(i).addCard(cards.get(i));
             }
         }
 
@@ -228,13 +237,12 @@ public class SharedData {
         }
 
         for (Card card : cards) {
-            card.view.bringToFront();
+            card.bringToFront();
         }
 
         //following stuff in handlers, because they should wait until possible card movements are over.
-        if (option == 0) {
-            handlerTestAfterMove.sendEmptyMessageDelayed(0, 100);
-            handlerTestIfWon.sendEmptyMessageDelayed(0, 200);
+        if (option == 0 && !stopUiUpdates) {
+            handlerTestAfterMove.sendDelayed();
         }
     }
 
@@ -334,5 +342,26 @@ public class SharedData {
             toast.setText(text);
 
         toast.show();
+    }
+
+    /**
+     * Uses the given string array to create a text paragraph. The strings are separated by bullet
+     * characters.
+     *
+     * @param strings The string array to use for the text paragraph
+     * @return a charSequence, which can directly be applied to a textView
+     */
+    static public CharSequence createBulletParagraph(CharSequence[] strings){
+
+        SpannableString spanns[] = new SpannableString[strings.length];
+
+        //apply the bullet characters
+        for (int i=0;i<strings.length;i++){
+            spanns[i] = new SpannableString(strings[i] + (i<strings.length-1 ? "\n" : ""));
+            spanns[i].setSpan(new BulletSpan(15), 0, strings[i].length(), 0);
+        }
+
+        //set up the textView
+        return TextUtils.concat(spanns);
     }
 }
