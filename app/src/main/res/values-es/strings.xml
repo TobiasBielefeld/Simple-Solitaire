@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+<string name="app_version">"Versión de la aplicación"</string>
+<string name="settings">"Ajustes"</string>
+<string name="game_manual">"Manual del juego"</string>
+<string name="game_score">"Puntuación de la partida"</string>
+<string name="game_time">"Tiempo de la partida"</string>
+<string name="game_cancel">"Cancelar juego"</string>
+<string name="game_confirm">"Dale caña"</string>
+</resources>
