@@ -52,10 +52,9 @@ public class HandlerTimer extends Handler {
 
         if (prefs.getSavedHideTime()) {
             gm.mainTextViewTime.setText("");
-        }
-        else {
+        } else {
 
-            if (stopUiUpdates){
+            if (stopUiUpdates) {
                 return;
             }
 
@@ -63,7 +62,7 @@ public class HandlerTimer extends Handler {
 
             gm.mainTextViewTime.setText(String.format(Locale.getDefault(),
                     "%s: %02d:%02d:%02d", gm.getString(R.string.game_time),
-                    time / 3600, (time % 3600) / 60, (time % 60)));                                     //in hours:minutes:seconds format
+                    time / 3600, (time % 3600) / 60, (time % 60)));  //in hours:minutes:seconds format
         }
     }
 }

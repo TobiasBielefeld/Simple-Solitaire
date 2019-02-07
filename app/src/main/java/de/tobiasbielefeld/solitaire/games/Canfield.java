@@ -24,7 +24,6 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -49,9 +48,9 @@ public class Canfield extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(13);
 
-        setTableauStackIDs(0,1,2,3,4);
-        setFoundationStackIDs(5,6,7,8);
-        setDiscardStackIDs(9,10,11);
+        setTableauStackIDs(0, 1, 2, 3, 4);
+        setFoundationStackIDs(5, 6, 7, 8);
+        setDiscardStackIDs(9, 10, 11);
         setMainStackIDs(12);
 
         setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
@@ -183,8 +182,8 @@ public class Canfield extends Game {
         //deal cards to trash according to the draw option
         if (prefs.getSavedCanfieldDrawModeOld().equals("3")) {
             for (int i = 0; i < 3; i++) {
-                    moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
-                    stacks[9 + i].getCard(0).flipUp();
+                moveToStack(getMainStack().getTopCard(), stacks[9 + i], OPTION_NO_RECORD);
+                stacks[9 + i].getCard(0).flipUp();
             }
         } else {
             if (!getMainStack().isEmpty()) {
@@ -195,14 +194,14 @@ public class Canfield extends Game {
 
         //and move cards to the tableau
         for (int i = 0; i < 4; i++) {
-                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getCard(0).flipUp();
+            moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+            stacks[i].getCard(0).flipUp();
 
         }
 
         //cards to reserve
         for (int i = 0; i < prefs.getSavedCanfieldSizeOfReserve(); i++) {
-                moveToStack(getMainStack().getTopCard(), stacks[4], OPTION_NO_RECORD);
+            moveToStack(getMainStack().getTopCard(), stacks[4], OPTION_NO_RECORD);
         }
 
         stacks[4].flipTopCardUp();
@@ -290,7 +289,8 @@ public class Canfield extends Game {
                 //finally add the record
                 recordList.add(cardsReversed, originReversed);
             } else {
-                //no deal3 option, just deal one card without that fucking huge amount of calculation for the recordLit
+                //no deal3 option, just deal one card without that fucking
+                // huge amount of calculation for the recordLit
                 moveToStack(getMainStack().getTopCard(), stacks[11]);
                 stacks[11].getTopCard().flipUp();
             }
@@ -502,28 +502,34 @@ public class Canfield extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs,
+                                boolean isUndoMovement) {
         int originID = originIDs[0];
         int destinationID = destinationIDs[0];
 
         //relevant for deal3 options, because cards on the waste move first and checking only
         // the first id wouldn't be enough
-        for (int i=0;i<originIDs.length;i++){
-            if (originIDs[i] >=9 && originIDs[i]<=11 && destinationIDs[i] <=8){                     //stock to tableau/foundation
+        for (int i = 0; i < originIDs.length; i++) {
+            if (originIDs[i] >= 9 && originIDs[i] <= 11 && destinationIDs[i] <= 8) {
+                //stock to tableau/foundation
                 return 45;
             }
         }
 
-        if ((originID < 5 || originID == 12) && destinationID >= 5 && destinationID <= 8) {         //transfer from tableau to foundations
+        if ((originID < 5 || originID == 12) && destinationID >= 5 && destinationID <= 8) {
+            //transfer from tableau to foundations
             return 60;
         }
-        if (destinationID < 5 && originID >= 5 && originID <= 8) {                                  //foundation to tableau
+        if (destinationID < 5 && originID >= 5 && originID <= 8) {
+            //foundation to tableau
             return -75;
         }
-        if (originID == destinationID) {                                                            //turn a card over
+        if (originID == destinationID) {
+            //turn a card over
             return 25;
         }
-        if (originID >= 9 && originID < 12 && destinationID == 12) {                                //returning cards to stock
+        if (originID >= 9 && originID < 12 && destinationID == 12) {
+            //returning cards to stock
             return -200;
         }
 
@@ -556,6 +562,6 @@ public class Canfield extends Game {
 
         boolean deal1 = prefs.getSavedCanfieldDrawModeOld().equals("1");
 
-        Klondike.checkEmptyDiscardStack(getMainStack(),stacks[9], stacks[10], stacks[11], deal1);
+        Klondike.checkEmptyDiscardStack(getMainStack(), stacks[9], stacks[10], stacks[11], deal1);
     }
 }

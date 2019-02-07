@@ -30,25 +30,22 @@ import android.widget.TextView;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.helper.Scores;
 
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Shows the high scores of the current game
  */
 
-public class StatisticsFragment extends Fragment{
+public class StatisticsFragment extends Fragment {
 
-    private TextView textWonGames, textWinPercentage, textAdditionalStatisticsTitle, textAdditionalStatisticsValue,
-            textTotalTimePlayed, textTotalPointsEarned, textTotalHintsShown, textTotalNumberUndos;
+    private TextView textWonGames, textWinPercentage, textAdditionalStatisticsTitle,
+            textAdditionalStatisticsValue, textTotalTimePlayed, textTotalPointsEarned,
+            textTotalHintsShown, textTotalNumberUndos;
 
     private CardView winPercentageCardView;
 
     private TableRow tableRowAdditionalText;
-
 
 
     /**
@@ -58,17 +55,17 @@ public class StatisticsFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_statistics_tab1, container, false);
 
-        winPercentageCardView = (CardView) view.findViewById(R.id.statisticsCardViewWinPercentage);
+        winPercentageCardView = view.findViewById(R.id.statisticsCardViewWinPercentage);
 
-        textWonGames = (TextView) view.findViewById(R.id.statisticsTextViewGamesWon);
-        textWinPercentage = (TextView) view.findViewById(R.id.statisticsTextViewWinPercentage);
-        textAdditionalStatisticsTitle = (TextView) view.findViewById(R.id.statisticsAdditionalText);
-        textAdditionalStatisticsValue = (TextView) view.findViewById(R.id.statisticsAdditionalTextValue);
-        textTotalTimePlayed = (TextView) view.findViewById(R.id.statisticsTotalTimePlayed);
-        textTotalPointsEarned = (TextView) view.findViewById(R.id.statisticsTotalPointsEarned);
-        textTotalHintsShown = (TextView) view.findViewById(R.id.statisticsTotalHintsShown);
-        textTotalNumberUndos = (TextView) view.findViewById(R.id.statisticsTotalUndoMovements);
-        tableRowAdditionalText = (TableRow) view.findViewById(R.id.statisticsAdditionalRow);
+        textWonGames = view.findViewById(R.id.statisticsTextViewGamesWon);
+        textWinPercentage = view.findViewById(R.id.statisticsTextViewWinPercentage);
+        textAdditionalStatisticsTitle = view.findViewById(R.id.statisticsAdditionalText);
+        textAdditionalStatisticsValue = view.findViewById(R.id.statisticsAdditionalTextValue);
+        textTotalTimePlayed = view.findViewById(R.id.statisticsTotalTimePlayed);
+        textTotalPointsEarned = view.findViewById(R.id.statisticsTotalPointsEarned);
+        textTotalHintsShown = view.findViewById(R.id.statisticsTotalHintsShown);
+        textTotalNumberUndos = view.findViewById(R.id.statisticsTotalUndoMovements);
+        tableRowAdditionalText = view.findViewById(R.id.statisticsAdditionalRow);
 
         //if the app got killed while the statistics are open and then the user restarts the app,
         //my helper classes aren't initialized so they can't be used. In this case, simply
@@ -80,14 +77,10 @@ public class StatisticsFragment extends Fragment{
             return view;
         }
 
-        ((StatisticsActivity)getActivity()).setCallback(new StatisticsActivity.HideWinPercentage() {
-            @Override
-            public void sendNewState(boolean state) {
-                updateWinPercentageView(state);
-            }
-        });
+        ((StatisticsActivity) getActivity()).setCallback(this::updateWinPercentageView);
 
-        winPercentageCardView.setVisibility(prefs.getSavedStatisticsHideWinPercentage() ? View.GONE : View.VISIBLE);
+        winPercentageCardView.setVisibility(prefs.getSavedStatisticsHideWinPercentage()
+                ? View.GONE : View.VISIBLE);
 
         return view;
     }
@@ -104,23 +97,27 @@ public class StatisticsFragment extends Fragment{
         long totalTime = prefs.getSavedTotalTimePlayed();
         long totalPoints = prefs.getSavedTotalPointsEarned();
 
-
-        textWonGames.setText(String.format(Locale.getDefault(), getString(R.string.statistics_text_won_games), wonGames, totalGames));
-        textWinPercentage.setText(String.format(Locale.getDefault(), getString(R.string.statistics_win_percentage), totalGames > 0 ? ((float) wonGames * 100 / totalGames) : 0.0));
-        textTotalTimePlayed.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d", totalTime / 3600, (totalTime % 3600) / 60, totalTime % 60));
+        textWonGames.setText(String.format(Locale.getDefault(),
+                getString(R.string.statistics_text_won_games), wonGames, totalGames));
+        textWinPercentage.setText(String.format(Locale.getDefault(),
+                getString(R.string.statistics_win_percentage),
+                totalGames > 0 ? ((float) wonGames * 100 / totalGames) : 0.0));
+        textTotalTimePlayed.setText(String.format(Locale.getDefault(),
+                "%02d:%02d:%02d", totalTime / 3600, (totalTime % 3600) / 60, totalTime % 60));
         textTotalHintsShown.setText(String.format(Locale.getDefault(), "%d", totalHintsShown));
         textTotalNumberUndos.setText(String.format(Locale.getDefault(), "%d", totalNumberUndos));
         textTotalPointsEarned.setText(String.format(Locale.getDefault(), currentGame.isPointsInDollar() ? "%d $" : "%d", totalPoints));
 
-        boolean added = currentGame.setAdditionalStatisticsData(getResources(), textAdditionalStatisticsTitle, textAdditionalStatisticsValue);
+        boolean added = currentGame.setAdditionalStatisticsData(
+                getResources(), textAdditionalStatisticsTitle, textAdditionalStatisticsValue);
 
         if (added) {
             tableRowAdditionalText.setVisibility(View.VISIBLE);
         }
     }
 
-    private void updateWinPercentageView(boolean hide){
-        if (winPercentageCardView != null){
+    private void updateWinPercentageView(boolean hide) {
+        if (winPercentageCardView != null) {
             winPercentageCardView.setVisibility(hide ? View.GONE : View.VISIBLE);
         }
     }

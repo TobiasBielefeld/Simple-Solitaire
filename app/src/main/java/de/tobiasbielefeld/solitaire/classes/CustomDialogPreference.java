@@ -3,7 +3,6 @@ package de.tobiasbielefeld.solitaire.classes;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.preference.CheckBoxPreference;
 import android.preference.DialogPreference;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
@@ -40,7 +39,7 @@ public class CustomDialogPreference extends DialogPreference {
         View view = super.onCreateView(parent);
 
         //get rid of the stupid single line restriction for the title
-        TextView textView = (TextView) view.findViewById(android.R.id.title);
+        TextView textView = view.findViewById(android.R.id.title);
         if (textView != null) {
             textView.setSingleLine(false);
         }

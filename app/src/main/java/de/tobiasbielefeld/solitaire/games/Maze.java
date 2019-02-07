@@ -15,7 +15,9 @@ public class Maze extends Game {
     private static final int ROWS = 6;
     private static final int COLS = 9;
 
-    /** How many points to grant for each pair of cards in order. */
+    /**
+     * How many points to grant for each pair of cards in order.
+     */
     private static final int POINTS_PER_ORDERED_PAIR = 25;
 
     private int undoCount = 0;
@@ -33,8 +35,8 @@ public class Maze extends Game {
         setUpCardDimensions(layoutGame, COLS + 1, ROWS + 1);
 
         int spacing = min(
-            setUpHorizontalSpacing(layoutGame, COLS, COLS + 1),
-            setUpVerticalSpacing(layoutGame, ROWS, ROWS + 1));
+                setUpHorizontalSpacing(layoutGame, COLS, COLS + 1),
+                setUpVerticalSpacing(layoutGame, ROWS, ROWS + 1));
 
         int startX = (layoutGame.getWidth() - COLS * Card.width - (COLS + 1) * spacing) / 2;
         int startY = (layoutGame.getHeight() - ROWS * Card.height - (ROWS + 1) * spacing) / 2;
@@ -102,13 +104,9 @@ public class Maze extends Game {
             // Allow appending to a sequence, or starting a new sequence after
             // a Queen.
             return true;
-        } else if (!nextStack.isEmpty() && nextStack.getTopCard().getValue() != 1 && areCardsInOrder(card, nextStack.getTopCard())) {
-            // Allow prepending to a sequence.
-            return true;
-        } else {
-            // Everything else is disallowed.
-            return false;
-        }
+        } else // Allow prepending to a sequence.
+// Everything else is disallowed.
+            return !nextStack.isEmpty() && nextStack.getTopCard().getValue() != 1 && areCardsInOrder(card, nextStack.getTopCard());
     }
 
     @Override
@@ -203,7 +201,7 @@ public class Maze extends Game {
      * Count how many pairs of cards are in order.
      */
     private int countCardsInOrder() {
-        ArrayList<Card> orderedCards = new ArrayList<Card>();
+        ArrayList<Card> orderedCards = new ArrayList<>();
         for (int i = 0; i <= getLastTableauId(); ++i) {
             if (!stacks[i].isEmpty()) {
                 orderedCards.add(stacks[i].getTopCard());
@@ -232,7 +230,7 @@ public class Maze extends Game {
     /**
      * Make list of potential destination stacks.
      */
-    private  ArrayList<Stack> getGaps(){
+    private ArrayList<Stack> getGaps() {
         ArrayList<Stack> gaps = new ArrayList<>();
         for (int i = 0; i <= getLastTableauId(); ++i) {
             if (stacks[i].isEmpty()) {

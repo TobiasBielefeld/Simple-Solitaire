@@ -19,30 +19,11 @@
 package de.tobiasbielefeld.solitaire.helper;
 
 import android.os.Bundle;
-import android.view.View;
 
-import java.util.ArrayList;
-
-import de.tobiasbielefeld.solitaire.classes.Card;
-import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
-import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
-import static de.tobiasbielefeld.solitaire.SharedData.max;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.sounds;
-
-/*
- *
- */
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class DealCards extends HelperCardMovement {
 
@@ -69,14 +50,15 @@ public class DealCards extends HelperCardMovement {
 
     @Override
     protected void moveCard() {
-        switch (phase){
+        switch (phase) {
             case 1:
                 currentGame.dealNewGame();
                 sounds.playSound(Sounds.names.DEAL_CARDS);
                 phase = 2;
                 nextIteration();
                 break;
-            case 2: default:
+            case 2:
+            default:
                 handlerTestAfterMove.sendNow();
                 stop();
                 break;

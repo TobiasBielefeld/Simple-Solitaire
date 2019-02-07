@@ -15,10 +15,10 @@
             android:gravity="center_horizontal"
             android:paddingTop="5dp">
 
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -67,6 +67,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -119,8 +120,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp"
             android:paddingTop="10dp"
+            android:paddingRight="15dp"
             android:text="@string/settings_game_layout_margins_text" />
 
     </LinearLayout>

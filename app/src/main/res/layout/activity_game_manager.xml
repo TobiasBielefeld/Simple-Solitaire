@@ -32,8 +32,8 @@
             android:id="@+id/textViewRecycles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/circle"
             android:paddingLeft="4dp"
@@ -52,8 +52,8 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="#000000" />
 
@@ -61,9 +61,9 @@
             android:id="@+id/mainTextViewTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:layout_margin="5dp"
             android:maxLines="1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -81,10 +81,10 @@
             android:id="@+id/mainTextViewScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
 
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
             android:layout_margin="5dp"
             android:maxLines="1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -104,8 +104,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/shadow_top_to_bottom" />
 
@@ -113,17 +113,17 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:background="@drawable/shadow_bottom_to_top" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:background="#000000" />
 
     </RelativeLayout>
@@ -147,10 +147,10 @@
             android:background="?attr/selectableItemBackground"
             android:onClick="menuClick"
             android:orientation="vertical"
-            android:paddingBottom="5dp"
             android:paddingLeft="2dp"
+            android:paddingTop="5dp"
             android:paddingRight="2dp"
-            android:paddingTop="5dp">
+            android:paddingBottom="5dp">
 
             <ImageView
                 android:id="@+id/button_scores"
@@ -178,10 +178,10 @@
             android:background="?attr/selectableItemBackground"
             android:onClick="menuClick"
             android:orientation="vertical"
-            android:paddingBottom="5dp"
             android:paddingLeft="2dp"
+            android:paddingTop="5dp"
             android:paddingRight="2dp"
-            android:paddingTop="5dp">
+            android:paddingBottom="5dp">
 
             <ImageView
                 android:id="@+id/button_hint"
@@ -209,10 +209,10 @@
             android:background="?attr/selectableItemBackground"
             android:onClick="menuClick"
             android:orientation="vertical"
-            android:paddingBottom="5dp"
             android:paddingLeft="2dp"
+            android:paddingTop="5dp"
             android:paddingRight="2dp"
-            android:paddingTop="5dp">
+            android:paddingBottom="5dp">
 
             <ImageView
                 android:id="@+id/button_restart"
@@ -240,10 +240,10 @@
             android:background="?attr/selectableItemBackground"
             android:onClick="menuClick"
             android:orientation="vertical"
-            android:paddingBottom="5dp"
             android:paddingLeft="2dp"
+            android:paddingTop="5dp"
             android:paddingRight="2dp"
-            android:paddingTop="5dp">
+            android:paddingBottom="5dp">
 
             <ImageView
                 android:id="@+id/button_undo"
@@ -272,10 +272,10 @@
             android:background="?attr/selectableItemBackground"
             android:onClick="menuClick"
             android:orientation="vertical"
-            android:paddingBottom="5dp"
             android:paddingLeft="2dp"
+            android:paddingTop="5dp"
             android:paddingRight="2dp"
-            android:paddingTop="5dp">
+            android:paddingBottom="5dp">
 
             <ImageView
                 android:id="@+id/button_settings"

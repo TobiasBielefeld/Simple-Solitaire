@@ -48,8 +48,8 @@ public class GrandfathersClock extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(21);
 
-        setTableauStackIDs(0,1,2,3,4,5,7);
-        setFoundationStackIDs(8,9,10,11,12,13,14,15,16,17,18,19);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 7);
+        setFoundationStackIDs(8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
         setDealFromID(20);
         setMixingCardsTestMode(testMode.DOESNT_MATTER);
     }
@@ -288,8 +288,8 @@ public class GrandfathersClock extends Game {
 
                 if (cardToMove.isTopCard()) {
                     for (int k = 0; k < 12; k++) {
-                        if (cardToMove.test(stacks[8+k])) {
-                            return new CardAndStack(cardToMove, stacks[8+k]);
+                        if (cardToMove.test(stacks[8 + k])) {
+                            return new CardAndStack(cardToMove, stacks[8 + k]);
                         }
                     }
                 }
@@ -395,7 +395,7 @@ public class GrandfathersClock extends Game {
 
     }
 
-    private int getPowerMoveCount(boolean movingToEmptyStack){
-        return getPowerMoveCount(new int[]{}, new int[]{0,1,2,3,4,5,6,7}, movingToEmptyStack);
+    private int getPowerMoveCount(boolean movingToEmptyStack) {
+        return getPowerMoveCount(new int[]{}, new int[]{0, 1, 2, 3, 4, 5, 6, 7}, movingToEmptyStack);
     }
 }

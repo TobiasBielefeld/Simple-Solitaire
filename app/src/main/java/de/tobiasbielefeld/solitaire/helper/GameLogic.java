@@ -18,12 +18,9 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Random;
 
-import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -36,8 +33,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class GameLogic {
 
-    public Card[] randomCards;                                                                      //array to shuffle the cards
-    private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
+    public Card[] randomCards;           //array to shuffle the cards
+    private boolean won, wonAndReloaded; //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
 
@@ -78,8 +75,8 @@ public class GameLogic {
         }
     }
 
-    public void setWonAndReloaded(){
-        if (won){
+    public void setWonAndReloaded() {
+        if (won) {
             wonAndReloaded = true;
         }
     }
@@ -112,33 +109,33 @@ public class GameLogic {
         }
 
 //        try {
-            if (firstRun) {
-                newGame();
-                prefs.saveFirstRun(false);
-            }  else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()){
-                //in case the game was selected from the main menu and it was already won, start a new game
-                newGame();
-            } else {
-                scores.load();
-                recordList.load();
-                timer.setCurrentTime(prefs.getSavedEndTime());
+        if (firstRun) {
+            newGame();
+            prefs.saveFirstRun(false);
+        } else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()) {
+            //in case the game was selected from the main menu and it was already won, start a new game
+            newGame();
+        } else {
+            scores.load();
+            recordList.load();
+            timer.setCurrentTime(prefs.getSavedEndTime());
 
-                //timer will be loaded in onResume() of the game manager
+            //timer will be loaded in onResume() of the game manager
 
 
-                for (Stack stack : stacks) {
-                    stack.load(withoutMovement);
-                }
-
-                Card.load();
-                loadRandomCards();
-
-                checkForAutoCompleteButton(withoutMovement);
-
-                //load game dependent data
-                currentGame.load();
-                currentGame.loadRecycleCount();
+            for (Stack stack : stacks) {
+                stack.load(withoutMovement);
             }
+
+            Card.load();
+            loadRandomCards();
+
+            checkForAutoCompleteButton(withoutMovement);
+
+            //load game dependent data
+            currentGame.load();
+            currentGame.loadRecycleCount();
+        }
 //        } catch (Exception e) {
 //            Log.e(gm.getString(R.string.loading_data_failed), e.toString());
 //            showToast(gm.getString(R.string.game_load_error),gm);
@@ -148,13 +145,13 @@ public class GameLogic {
         gm.hasLoaded = true;
     }
 
-    public void checkForAutoCompleteButton(boolean withoutMovement){
+    public void checkForAutoCompleteButton(boolean withoutMovement) {
         if (!prefs.getHideAutoCompleteButton() && !autoComplete.buttonIsShown() && currentGame.autoCompleteStartTest() && !hasWon()) {
             autoComplete.showButton(withoutMovement);
         }
     }
 
-    public void newGameForEnsureMovability(){
+    public void newGameForEnsureMovability() {
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
         redealForEnsureMovability();
@@ -178,7 +175,7 @@ public class GameLogic {
         }
     }
 
-    public void setWon(boolean value){
+    public void setWon(boolean value) {
         won = value;
     }
 
@@ -282,13 +279,13 @@ public class GameLogic {
 
         //swap first card outside the loop
         index = random.nextInt(array.length);
-        dummy = array[array.length-1];
-        array[array.length-1] = array[index];
+        dummy = array[array.length - 1];
+        array[array.length - 1] = array[index];
         array[index] = dummy;
 
         for (int i = array.length - 2; i > 0; i--) {
-            if (prefs.getSavedUseTrueRandomisation()){
-                index = random.nextInt(i+1);
+            if (prefs.getSavedUseTrueRandomisation()) {
+                index = random.nextInt(i + 1);
             } else {
                 //choose a new card as long the chosen card is too similar to the previous card in the array
                 //(same value or color) also limit the loop to max 10 iterations to avoid infinite loops
@@ -345,7 +342,7 @@ public class GameLogic {
         gm.updateLimitedRecyclesCounter();
     }
 
-    public void setNumberOfRecycles(String key, String defaultValue){
+    public void setNumberOfRecycles(String key, String defaultValue) {
         if (currentGame.hasLimitedRecycles()) {
             currentGame.setNumberOfRecycles(key, defaultValue);
 
@@ -386,8 +383,8 @@ public class GameLogic {
         }
     }
 
-    public void incrementNumberWonGames(){
-        prefs.saveNumberOfWonGames(prefs.getSavedNumberOfWonGames()+1);
+    public void incrementNumberWonGames() {
+        prefs.saveNumberOfWonGames(prefs.getSavedNumberOfWonGames() + 1);
     }
 
     /**

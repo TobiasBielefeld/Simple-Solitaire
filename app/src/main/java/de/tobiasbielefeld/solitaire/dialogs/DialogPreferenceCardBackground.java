@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -33,7 +32,8 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * dialog for picking the card background drawable. It uses a custom layout, so I can dynamically update
@@ -70,21 +70,21 @@ public class DialogPreferenceCardBackground extends CustomDialogPreference imple
     @Override
     protected void onBindDialogView(View view) {
 
-        linearLayoutsBackgrounds[0] = (LinearLayout) view.findViewById(R.id.settingsCardBackground0);
-        linearLayoutsBackgrounds[1] = (LinearLayout) view.findViewById(R.id.settingsCardBackground1);
-        linearLayoutsBackgrounds[2] = (LinearLayout) view.findViewById(R.id.settingsCardBackground2);
-        linearLayoutsBackgrounds[3] = (LinearLayout) view.findViewById(R.id.settingsCardBackground3);
-        linearLayoutsBackgrounds[4] = (LinearLayout) view.findViewById(R.id.settingsCardBackground4);
-        linearLayoutsBackgrounds[5] = (LinearLayout) view.findViewById(R.id.settingsCardBackground5);
-        linearLayoutsBackgrounds[6] = (LinearLayout) view.findViewById(R.id.settingsCardBackground6);
-        linearLayoutsBackgrounds[7] = (LinearLayout) view.findViewById(R.id.settingsCardBackground7);
-        linearLayoutsBackgrounds[8] = (LinearLayout) view.findViewById(R.id.settingsCardBackground8);
-        linearLayoutsBackgrounds[9] = (LinearLayout) view.findViewById(R.id.settingsCardBackground9);
+        linearLayoutsBackgrounds[0] = view.findViewById(R.id.settingsCardBackground0);
+        linearLayoutsBackgrounds[1] = view.findViewById(R.id.settingsCardBackground1);
+        linearLayoutsBackgrounds[2] = view.findViewById(R.id.settingsCardBackground2);
+        linearLayoutsBackgrounds[3] = view.findViewById(R.id.settingsCardBackground3);
+        linearLayoutsBackgrounds[4] = view.findViewById(R.id.settingsCardBackground4);
+        linearLayoutsBackgrounds[5] = view.findViewById(R.id.settingsCardBackground5);
+        linearLayoutsBackgrounds[6] = view.findViewById(R.id.settingsCardBackground6);
+        linearLayoutsBackgrounds[7] = view.findViewById(R.id.settingsCardBackground7);
+        linearLayoutsBackgrounds[8] = view.findViewById(R.id.settingsCardBackground8);
+        linearLayoutsBackgrounds[9] = view.findViewById(R.id.settingsCardBackground9);
 
-        linearLayoutsColors[0] = (LinearLayout) view.findViewById(R.id.dialogBackgroundsCardsBlue);
-        linearLayoutsColors[1] = (LinearLayout) view.findViewById(R.id.dialogBackgroundsCardsRed);
-        linearLayoutsColors[2] = (LinearLayout) view.findViewById(R.id.dialogBackgroundsCardsGreen);
-        linearLayoutsColors[3] = (LinearLayout) view.findViewById(R.id.dialogBackgroundsCardsYellow);
+        linearLayoutsColors[0] = view.findViewById(R.id.dialogBackgroundsCardsBlue);
+        linearLayoutsColors[1] = view.findViewById(R.id.dialogBackgroundsCardsRed);
+        linearLayoutsColors[2] = view.findViewById(R.id.dialogBackgroundsCardsGreen);
+        linearLayoutsColors[3] = view.findViewById(R.id.dialogBackgroundsCardsYellow);
 
         for (int i = 0; i < NUMBER_OF_CARD_BACKGROUNDS; i++) {
             linearLayoutsBackgrounds[i].setOnClickListener(this);
@@ -159,7 +159,7 @@ public class DialogPreferenceCardBackground extends CustomDialogPreference imple
     protected View onCreateView(ViewGroup parent) {
         View view = super.onCreateView(parent);
 
-        image = (ImageView) view.findViewById(R.id.preference_cards_background_imageView);
+        image = view.findViewById(R.id.preference_cards_background_imageView);
         updateSummary();
 
         return view;
@@ -204,7 +204,7 @@ public class DialogPreferenceCardBackground extends CustomDialogPreference imple
         int selectedBackground = prefs.getSavedCardBackground();
         int selectedBackgroundColor = prefs.getSavedCardBackgroundColor();
 
-        if (image!=null) {
+        if (image != null) {
             cardBack = bitmaps.getCardBack(selectedBackground, selectedBackgroundColor);
             image.setImageBitmap(cardBack);
         }

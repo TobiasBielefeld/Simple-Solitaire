@@ -33,7 +33,7 @@ import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
  * The About activity contains 3 tabs. The content of the tabs is in the fragments
  */
 
-public class AboutActivity extends CustomAppCompatActivity{
+public class AboutActivity extends CustomAppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,12 +42,12 @@ public class AboutActivity extends CustomAppCompatActivity{
 
         ActionBar actionBar = getSupportActionBar();
 
-        if (actionBar!=null) {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        PagerSlidingTabStrip tabs = findViewById(R.id.tabs);
+        ViewPager pager = findViewById(R.id.pager);
         TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager(), this);
 
         pager.setAdapter(adapter);

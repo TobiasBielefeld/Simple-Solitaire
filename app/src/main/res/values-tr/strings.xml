@@ -1,124 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_version">"Versiyon"</string>
-<string name="settings">"Ayarlar"</string>
-<string name="game_manual">"Kılavuz"</string>
-<string name="game_score">"Puan"</string>
-<string name="game_time">"Zaman"</string>
-<string name="game_cancel">"İptal"</string>
-<string name="game_confirm">"Onay"</string>
-<string name="game_auto_complete_text">"Otomatik Bitir"</string>
-<string name="game_press_again">"Çıkmak için tekrar basın"</string>
-<string name="game_load_error">"Veri yüklenemedi, yeni oyun başlatılıyor…"</string>
-<string name="game_close">"Oyunu kapat"</string>
-<string name="game_main_menu">"Ana menü"</string>
-<string name="item_game_rules">"Oyun kuralları"</string>
-<string name="item_return_to_main_menu">"Anasayfaya geri dön"</string>
+    <string name="app_version">"Versiyon"</string>
+    <string name="settings">"Ayarlar"</string>
+    <string name="game_manual">"Kılavuz"</string>
+    <string name="game_score">"Puan"</string>
+    <string name="game_time">"Zaman"</string>
+    <string name="game_cancel">"İptal"</string>
+    <string name="game_confirm">"Onay"</string>
+    <string name="game_auto_complete_text">"Otomatik Bitir"</string>
+    <string name="game_press_again">"Çıkmak için tekrar basın"</string>
+    <string name="game_load_error">"Veri yüklenemedi, yeni oyun başlatılıyor…"</string>
+    <string name="game_close">"Oyunu kapat"</string>
+    <string name="game_main_menu">"Ana menü"</string>
+    <string name="item_game_rules">"Oyun kuralları"</string>
+    <string name="item_return_to_main_menu">"Anasayfaya geri dön"</string>
 
-<!-- Menu -->
-<string name="menu_undo">"Geri Al"</string>
-<string name="menu_main_menu">"Menü"</string>
-<string name="menu_settings">"Ayarlar"</string>
+    <!-- Menu -->
+    <string name="menu_undo">"Geri Al"</string>
+    <string name="menu_main_menu">"Menü"</string>
+    <string name="menu_settings">"Ayarlar"</string>
 
-<!-- game names 
+    <!-- game names
 
-     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
-     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
-     - a single line -->
-<string name="games_Klondike">"Klondike"</string>
-<string name="games_Freecell">"FreeCell"</string>
-<string name="games_Yukon">"Yukon"</string>
-<string name="games_Spider">"Spider"</string>
-<string name="games_SimpleSimon">"Simple Simon"</string>
-<string name="games_Golf">"Golf"</string>
-<string name="games_Pyramid">"Pyramid"</string>
-<string name="games_TriPeaks">"TriPeaks"</string>
-<string name="games_FortyEight">"Forty &amp; Eight"</string>
-<string name="games_AcesUp">"Aces Up"</string>
-<string name="games_Gypsy">"Gypsy"</string>
-<string name="games_mod3">"Mod3"</string>
-<string name="games_Canfield">"Canfield"</string>
-<string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
-<string name="games_Vegas">"Vegas"</string>
-<string name="games_Calculation">"Calculation"</string>
+         - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+         - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+         - a single line -->
+    <string name="games_Klondike">"Klondike"</string>
+    <string name="games_Freecell">"FreeCell"</string>
+    <string name="games_Yukon">"Yukon"</string>
+    <string name="games_Spider">"Spider"</string>
+    <string name="games_SimpleSimon">"Simple Simon"</string>
+    <string name="games_Golf">"Golf"</string>
+    <string name="games_Pyramid">"Pyramid"</string>
+    <string name="games_TriPeaks">"TriPeaks"</string>
+    <string name="games_FortyEight">"Forty &amp; Eight"</string>
+    <string name="games_AcesUp">"Aces Up"</string>
+    <string name="games_Gypsy">"Gypsy"</string>
+    <string name="games_mod3">"Mod3"</string>
+    <string name="games_Canfield">"Canfield"</string>
+    <string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
+    <string name="games_Vegas">"Vegas"</string>
+    <string name="games_Calculation">"Calculation"</string>
 
-<!-- colors -->
-<string name="blue">"Mavi"</string>
-<string name="green">"Yeşil"</string>
-<string name="red">"Kırmızı"</string>
-<string name="yellow">"Sarı"</string>
-<string name="orange">"Turuncu"</string>
-<string name="purple">"Mor"</string>
+    <!-- colors -->
+    <string name="blue">"Mavi"</string>
+    <string name="green">"Yeşil"</string>
+    <string name="red">"Kırmızı"</string>
+    <string name="yellow">"Sarı"</string>
+    <string name="orange">"Turuncu"</string>
+    <string name="purple">"Mor"</string>
 
-<!-- game stuff -->
-<string name="game_longest_run">"En uzun dizi:"</string>
+    <!-- game stuff -->
+    <string name="game_longest_run">"En uzun dizi:"</string>
 
-<!-- dialog won -->
-<string name="dialog_win_titel">"Tebrikler!"</string>
-<string name="dialog_win_score">"Puan: %1$d"</string>
-<string name="dialog_win_bonus">"Bonus: %1$d"</string>
-<string name="dialog_win_total">"Toplam: %1$d"</string>
+    <!-- dialog won -->
+    <string name="dialog_win_titel">"Tebrikler!"</string>
+    <string name="dialog_win_score">"Puan: %1$d"</string>
+    <string name="dialog_win_bonus">"Bonus: %1$d"</string>
+    <string name="dialog_win_total">"Toplam: %1$d"</string>
 
-<!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Karıştırma kartları"</string>
-<string name="dialog_mix_cards_text">"Bu, tüm kartları karıştırır, temel üzerinde doğru diziler ve kartlar bekler."</string>
-<string name="dialog_mix_cards_not_available">"Hareketsiz hamleler var!"</string>
+    <!-- dialog mix cards -->
+    <string name="dialog_mix_cards_title">"Karıştırma kartları"</string>
+    <string name="dialog_mix_cards_text">"Bu, tüm kartları karıştırır, temel üzerinde doğru diziler ve kartlar bekler."</string>
+    <string name="dialog_mix_cards_not_available">"Hareketsiz hamleler var!"</string>
 
-<!-- dialog start new game -->
-<string name="dialog_start_new_game_title">"Yeni oyun"</string>
-<string name="dialog_start_new_game_text">"Mevcut ilerlemeniz kaybolacak ve yeni bir rastgele oyun ele alınacaktır."</string>
+    <!-- dialog start new game -->
+    <string name="dialog_start_new_game_title">"Yeni oyun"</string>
+    <string name="dialog_start_new_game_text">"Mevcut ilerlemeniz kaybolacak ve yeni bir rastgele oyun ele alınacaktır."</string>
 
-<!-- dialog redeal -->
-<string name="dialog_redeal_title">"Tekrar kart ver"</string>
-<string name="dialog_redeal_text">"Mevcut ilerlemeniz kaybolacak, ancak kartlar mevcut oyunda beğeni kazanıyor."</string>
+    <!-- dialog redeal -->
+    <string name="dialog_redeal_title">"Tekrar kart ver"</string>
+    <string name="dialog_redeal_text">"Mevcut ilerlemeniz kaybolacak, ancak kartlar mevcut oyunda beğeni kazanıyor."</string>
 
-<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
-<string name="title_activity_manual">"Kılavuz"</string>
-<string name="title_activity_settings">"Ayarlar"</string>
-<string name="title_activity_about">"Hakkında"</string>
-<string name="title_activity_statistics">"Istatistik"</string>
+    <!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+    <string name="title_activity_manual">"Kılavuz"</string>
+    <string name="title_activity_settings">"Ayarlar"</string>
+    <string name="title_activity_about">"Hakkında"</string>
+    <string name="title_activity_statistics">"Istatistik"</string>
 
-<!-- About activity -->
-<string name="about_tab_1">"Bilgi"</string>
-<string name="about_tab_2">"lisansları"</string>
-<string name="about_tab_3">"Değişiklikler"</string>
-<string name="about_loading">"Yükleniyor…"</string>
-<string name="about_developer_name">"Tobias Bielefeld"</string>
-<string name="about_compiled">"Build date"</string>
-<string name="about_source_code">"Kaynak kodu"</string>
-<string name="about_license">"Lisans"</string>
-<string name="about_translations">"Çeviriler"</string>
-<string name="about_material_icons_title">"Material tasarım simgeleri"</string>
-<string name="about_card_themes_title">"Kart temaları "</string>
-<string name="about_poker_themes_usage">"Olarak kullanıldı Poker teması - Üzerinde mevcut &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
-<string name="about_sounds_title">"Sesler"</string>
+    <!-- About activity -->
+    <string name="about_tab_1">"Bilgi"</string>
+    <string name="about_tab_2">"lisansları"</string>
+    <string name="about_tab_3">"Değişiklikler"</string>
+    <string name="about_loading">"Yükleniyor…"</string>
+    <string name="about_developer_name">"Tobias Bielefeld"</string>
+    <string name="about_compiled">"Build date"</string>
+    <string name="about_source_code">"Kaynak kodu"</string>
+    <string name="about_license">"Lisans"</string>
+    <string name="about_translations">"Çeviriler"</string>
+    <string name="about_material_icons_title">"Material tasarım simgeleri"</string>
+    <string name="about_card_themes_title">"Kart temaları "</string>
+    <string name="about_poker_themes_usage">"Olarak kullanıldı Poker teması - Üzerinde mevcut &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+    <string name="about_sounds_title">"Sesler"</string>
 
-<!-- Manual -->
-<string name="manual_games">"Oyun"</string>
-<string name="manual_feedback">"Geri Bildirim"</string>
-<string name="manual_startpage">"Başlangıç Sayfası"</string>
-<string name="manual_back_to_game">"Oyuna geri dön"</string>
-<string name="manual_structure">"Yapı"</string>
-<string name="manual_objective">"Amaç"</string>
-<string name="manual_rules">"Kurallar"</string>
-<string name="manual_scoring">"Puanlama"</string>
-<string name="manual_main_menu">"Ana menü"</string>
-<string name="manual_ui">"Kullanıcı arayüzü"</string>
-<string name="page_load_error">"Bu oyun için yardım sayfası yok…"</string>
-<string name="manual_bonus">"Bir oyunu kazandıktan sonra, bir bonus kazanırsınız: Kazanmanız ne kadar hızlı olursa, bonus o kadar yüksek olur."</string>
-<string name="manual_open_google_play">"Google Playi aç"</string>
-<string name="manual_open_github">"GitHub Repoyu aç"</string>
-<string name="manual_games_text1">"Oynanışını, amacını, kurallarını ve puanlamasını göstermek için bir oyun seçin."</string>
-<string name="manual_startpage_text">"Bu oyun kılavuz el kitabına hoş geldiniz! Umarım her şeyi açıklar.
+    <!-- Manual -->
+    <string name="manual_games">"Oyun"</string>
+    <string name="manual_feedback">"Geri Bildirim"</string>
+    <string name="manual_startpage">"Başlangıç Sayfası"</string>
+    <string name="manual_back_to_game">"Oyuna geri dön"</string>
+    <string name="manual_structure">"Yapı"</string>
+    <string name="manual_objective">"Amaç"</string>
+    <string name="manual_rules">"Kurallar"</string>
+    <string name="manual_scoring">"Puanlama"</string>
+    <string name="manual_main_menu">"Ana menü"</string>
+    <string name="manual_ui">"Kullanıcı arayüzü"</string>
+    <string name="page_load_error">"Bu oyun için yardım sayfası yok…"</string>
+    <string name="manual_bonus">"Bir oyunu kazandıktan sonra, bir bonus kazanırsınız: Kazanmanız ne kadar hızlı olursa, bonus o kadar yüksek olur."</string>
+    <string name="manual_open_google_play">"Google Playi aç"</string>
+    <string name="manual_open_github">"GitHub Repoyu aç"</string>
+    <string name="manual_games_text1">"Oynanışını, amacını, kurallarını ve puanlamasını göstermek için bir oyun seçin."</string>
+    <string name="manual_startpage_text">"Bu oyun kılavuz el kitabına hoş geldiniz! Umarım her şeyi açıklar.
 
 
 Diğer sayfalara erişmek için sol taraftaki menüyü kullanın."</string>
-<string name="manual_general_main_menu">"Ana menünün kullanımı nispeten basittir. Başlamak için bir oyuna dokunmanız yeterlidir.        
+    <string name="manual_general_main_menu">"Ana menünün kullanımı nispeten basittir. Başlamak için bir oyuna dokunmanız yeterlidir.
 
 Uygulama, içinde duraklatılmışsa, uygulama son oynatılan oyunu otomatik olarak bir yeniden başlatmada yükleyecektir. Bu davranış \"Genel\" altındaki ayarlarda devre dışı bırakılabilir.
 
 Orada \"Ana menü\" bölümünü de bulabilirsiniz; burada menüden oyunları gizlemek ve sütun sayısını değiştirmek mümkündür, böylece bir anda aynı anda daha fazla oyun sığacak oyunlar olur."</string>
-<string name="manual_ui_text">"Bir oyun daima ekranın alt kısmında (Dikey mod) veya sağ tarafta (Yatay mod) küçük bir menü gösterecektir. Oyunun geçerli puanı ve oynatılan zamanı da gösterecektir. Mümkünse, bu iki değer yüksek puanlı listeye kaydedilecektir. Menü, aşağıdaki efektleri içeren 5 maddeden oluşur (soldan sağa düğmeler): 
+    <string name="manual_ui_text">"Bir oyun daima ekranın alt kısmında (Dikey mod) veya sağ tarafta (Yatay mod) küçük bir menü gösterecektir. Oyunun geçerli puanı ve oynatılan zamanı da gösterecektir. Mümkünse, bu iki değer yüksek puanlı listeye kaydedilecektir. Menü, aşağıdaki efektleri içeren 5 maddeden oluşur (soldan sağa düğmeler):
 
 \"Skorlar\" düğmesi, yüksek puanlara ve mevcut oyunun kazanılan sayı sayısına sahip yeni bir pencere gösterecektir. 
 
@@ -131,7 +131,7 @@ Herhangi bir ipucu gösterilmediyse, skor düşmeyecektir.
 
 \"Ayarlar\" düğmesi, yalnızca ayarlar menüsünü açar.
 "</string>
-<string name="manual_feedback_text">"Bir hata mı buldunuz? Geliştirmem gereken bir şey var mı? 
+    <string name="manual_feedback_text">"Bir hata mı buldunuz? Geliştirmem gereken bir şey var mı?
 Koleksiyona başka bir oyun eklemem gerekir mi? 
 Belki bazı çevirilerle yardım etmek istersiniz? 
 Ya da başka bir fikrin mi var?
@@ -148,128 +148,128 @@ Bu uygulamadan sayfaya bir puan bırakın ve istediğiniz herhangi bir şey yaz�
 Google Play Store'u açmak için sağ taraftaki düğmeyi tıklayın (yüklü ise). 
 
 Geribildiriminiz için şimdiden teşekkür ederiz :)"</string>
-<string name="manual_Klondike_structure">"52 kartlık bir deste. 
+    <string name="manual_Klondike_structure">"52 kartlık bir deste.
 
 7 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri."</string>
-<string name="manual_Klondike_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
-<string name="manual_Klondike_scoring">"Sütunlardan temel yığına kart taşı: +60 
+    <string name="manual_Klondike_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
+    <string name="manual_Klondike_scoring">"Sütunlardan temel yığına kart taşı: +60
 
 Atılan kartı temel yığına taşı: +45 
 
 Temel yığından sütunlara taşı: -75 
 
 Tüm atılan kartları ana yığına taşı: -200"</string>
-<string name="manual_Freecell_structure">"52 kartlık bir deste 
+    <string name="manual_Freecell_structure">"52 kartlık bir deste
 
 8 sütun, 4 temel yığın ve 4 boş sütun"</string>
-<string name="manual_Freecell_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
-<string name="manual_Freecell_scoring">"Kartı temel yığına taşı: +60 
+    <string name="manual_Freecell_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
+    <string name="manual_Freecell_scoring">"Kartı temel yığına taşı: +60
 
 Temel yığından kartı al: -75 
 
 Papazı boş sütuna taşı: +20"</string>
-<string name="manual_Yukon_structure">"52 kartlık bir deste. 
+    <string name="manual_Yukon_structure">"52 kartlık bir deste.
 
 7 sütun ve 4 temel yığın yeri."</string>
-<string name="manual_Yukon_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
-<string name="manual_Yukon_scoring">"Sütunlardan temel yığına taşı: +60 
+    <string name="manual_Yukon_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
+    <string name="manual_Yukon_scoring">"Sütunlardan temel yığına taşı: +60
 
 Temel yığından sütunlara geri taşı: -75 
 
 Papazı boş bir sutüne taşı: +20 
 
 Bir kartı ters çevir: +25"</string>
-<string name="manual_Spider_structure">"52 kartlık 2 deste. 
+    <string name="manual_Spider_structure">"52 kartlık 2 deste.
 
 10 sütun ve 8 temel yığın yeri. 
 
 1 ana yığın ve 5 farklı yığın. 
 
 Ayarlara göre 1, 2 ve ya 4 farklı kart şekli."</string>
-<string name="manual_Spider_objective">"Sütunlara her şekli azalan sırada yerleştir. Sıralanan kartlar otomatik olarak temel yığına taşınır."</string>
-<string name="manual_Spider_scoring">"Bir şeklin tüm kartlarını temel yığına taşı: +200 
+    <string name="manual_Spider_objective">"Sütunlara her şekli azalan sırada yerleştir. Sıralanan kartlar otomatik olarak temel yığına taşınır."</string>
+    <string name="manual_Spider_scoring">"Bir şeklin tüm kartlarını temel yığına taşı: +200
 
 Bir kartı döndür: +25"</string>
-<string name="manual_SimpleSimon_structure">"52 kartlık bir deste. 
+    <string name="manual_SimpleSimon_structure">"52 kartlık bir deste.
 
 10 sütun ve 4 temel yığın yeri."</string>
-<string name="manual_SimpleSimon_objective">"Sütunlara her şekli azalan sırada yerleştir. Sıralanan kartlar otomatik olarak temel yığına taşınır."</string>
-<string name="manual_SimpleSimon_scoring">"Bir şeklin tüm kartlarını temel yığına taşı: +200"</string>
-<string name="manual_Golf_structure">"52 kartlık bir deste 
+    <string name="manual_SimpleSimon_objective">"Sütunlara her şekli azalan sırada yerleştir. Sıralanan kartlar otomatik olarak temel yığına taşınır."</string>
+    <string name="manual_SimpleSimon_scoring">"Bir şeklin tüm kartlarını temel yığına taşı: +200"</string>
+    <string name="manual_Golf_structure">"52 kartlık bir deste
 
 7 sütun, 1 ana ve 1 atılmış yer. 
 
 Atılmış kartları ana yığına geri döndürmek mümkün değildir. (Geri tuşu hariç)"</string>
-<string name="manual_Golf_objective">"Tüm kartları atılmış yığına at."</string>
-<string name="manual_Golf_scoring">"Kartı atılan yığına taşı: +50"</string>
-<string name="manual_Pyramid_structure">"52 kartlık bir deste. 
+    <string name="manual_Golf_objective">"Tüm kartları atılmış yığına at."</string>
+    <string name="manual_Golf_scoring">"Kartı atılan yığına taşı: +50"</string>
+    <string name="manual_Pyramid_structure">"52 kartlık bir deste.
 
 28 sütun, 1 ana, 1 atılmış ve 1 çöp yeri. 
 
 Atılmış kartlar bir oyunda sadece iki defa ana yığına geri konulabilir."</string>
-<string name="manual_Pyramid_objective">"Sütunlardaki tüm kartları çöpe gönder. Ayarlara göre ana ve atılmış kartları da göndermeniz gerekebilir."</string>
-<string name="manual_Pyramid_scoring">"Kartı geri döndür: +50 
+    <string name="manual_Pyramid_objective">"Sütunlardaki tüm kartları çöpe gönder. Ayarlara göre ana ve atılmış kartları da göndermeniz gerekebilir."</string>
+    <string name="manual_Pyramid_scoring">"Kartı geri döndür: +50
 
 Atılan kartı ana yığına koy: -200"</string>
-<string name="manual_TriPeaks_structure">"52 kartlık bir deste. 
+    <string name="manual_TriPeaks_structure">"52 kartlık bir deste.
 
 28 sütun, 1 ana ve 1 atılmış yer. 
 
 Atılmış kartlar tekrar ana yığına alınamaz. (Geri tuşu hariç)"</string>
-<string name="manual_TriPeaks_objective">"Sütunlardaki kartları atılmış yere taşı."</string>
-<string name="manual_TriPeaks_scoring">"Bir kartı geriye döndür: +50"</string>
-<string name="manual_FortyEight_structure">"52 kartlık 2 deste. 
+    <string name="manual_TriPeaks_objective">"Sütunlardaki kartları atılmış yere taşı."</string>
+    <string name="manual_TriPeaks_scoring">"Bir kartı geriye döndür: +50"</string>
+    <string name="manual_FortyEight_structure">"52 kartlık 2 deste.
 
 8 sütun, 8 temel yığın, 1 ana ve 1 atılmış yer. 
 
 Her oyunda sedece bir atılmış kart ana yığına geri konabilir."</string>
-<string name="manual_FortyEight_scoring">"Kartı temel yığına taşı: +45
+    <string name="manual_FortyEight_scoring">"Kartı temel yığına taşı: +45
 
 Kartı sütunlara geri taşı: -60 
 
 Atılan kartı sütuna geri koy: +60 
 
 Atılan kartı desteye geri koy: -200"</string>
-<string name="manual_mod3_structure">"52 kartlık 2 deste. 
+    <string name="manual_mod3_structure">"52 kartlık 2 deste.
 
 32 sütun, 1 ana ve 1 as yeri."</string>
-<string name="manual_mod3_objective">"Her sütundaki ilk 3 kartı aynı renk olacak şekilde aşağıdaki sıralamaya göre diz: 
+    <string name="manual_mod3_objective">"Her sütundaki ilk 3 kartı aynı renk olacak şekilde aşağıdaki sıralamaya göre diz:
 
 İlk sıra: 2–5–8–J
 İkinci Sıra: 3–6–9–Q
 Üçüncü Sıra: 4–7–10–K 
 
 Aslar atılacak."</string>
-<string name="manual_mod3_scoring">"Kartı sütunlarda doğru yere yerleştir: +50 
+    <string name="manual_mod3_scoring">"Kartı sütunlarda doğru yere yerleştir: +50
 
 Bir kartı sütunun dördüncü satırına taşı: -75"</string>
-<string name="manual_Gypsy_structure">"52 kartlık 2 deste. 
+    <string name="manual_Gypsy_structure">"52 kartlık 2 deste.
 
 8 sütun, 8 temel yığın karesi ve 1 ana yığın."</string>
-<string name="manual_Gypsy_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
-<string name="manual_Gypsy_scoring">"Temel yığına kart taşı: +75 
+    <string name="manual_Gypsy_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir."</string>
+    <string name="manual_Gypsy_scoring">"Temel yığına kart taşı: +75
 
 Temel yığından sütunlara kart taşı: -100 
 
 Kartı ters çevir: +50"</string>
-<string name="manual_AcesUp_structure">"1 deste 52 kartan oluşur.
+    <string name="manual_AcesUp_structure">"1 deste 52 kartan oluşur.
 
 4 masa yığın, 1 ana ve 1 temel yığın. 
 
 Asların değeri 14'tür, bu nedenle papazlardan daha yüksek bir değere sahiptirler."</string>
-<string name="manual_AcesUp_objective">"Aslar hariç tüm kartları temel yığınının üzerine koy, 
+    <string name="manual_AcesUp_objective">"Aslar hariç tüm kartları temel yığınının üzerine koy,
 böylece her yığında sadece bir as kalsın."</string>
-<string name="manual_AcesUp_rules">"Yalnızca destenin en üstündeki kartı taşıyabilirsiniz. Aynı ailenin başka bir üst kartından daha düşük bir değere sahip olan kartları temel yığına taşıyın. Mesela: İki tablo yığınının üzerinde bir Kupa 5 ve bir Kupa 10 var.. Bu durumda Kupa 5i temel yığına taşıyabilirsiniz. Asların değeri tüm diğer kartlardan fazladır. 
+    <string name="manual_AcesUp_rules">"Yalnızca destenin en üstündeki kartı taşıyabilirsiniz. Aynı ailenin başka bir üst kartından daha düşük bir değere sahip olan kartları temel yığına taşıyın. Mesela: İki tablo yığınının üzerinde bir Kupa 5 ve bir Kupa 10 var.. Bu durumda Kupa 5i temel yığına taşıyabilirsiniz. Asların değeri tüm diğer kartlardan fazladır.
 
 Her taşınabilir kart boş kart sütununa taşınabilir. 
 
 Ana kart yığınına tıklayarak her kart sütununa birer kart dağıtabilirsiniz."</string>
-<string name="manual_AcesUp_scoring">"Kartı temel yığınına taşıyın: +50"</string>
-<string name="manual_Canfield_structure">"1 deste 52 kartan oluşur.
+    <string name="manual_AcesUp_scoring">"Kartı temel yığınına taşıyın: +50"</string>
+    <string name="manual_Canfield_structure">"1 deste 52 kartan oluşur.
 
 4 masa yığın, 4 temel yığın, 1 ana ve 1 ayrılmış ve rezerv yığın"</string>
-<string name="manual_Canfield_objective">"Her destedeki kartları artan sıralamada temel yığına yerleştirin."</string>
-<string name="manual_Canfield_rules">"Kartlar masaüstüne azalan ve renkleri dönüşümlü olarak yerleştirilebilir. Birden fazla kart dizisini aynı anda taşıyabilirsiniz. Vakfın üzerinde, kartlar ilgili aileye artan düzende yerleştirilebilir. 
+    <string name="manual_Canfield_objective">"Her destedeki kartları artan sıralamada temel yığına yerleştirin."</string>
+    <string name="manual_Canfield_rules">"Kartlar masaüstüne azalan ve renkleri dönüşümlü olarak yerleştirilebilir. Birden fazla kart dizisini aynı anda taşıyabilirsiniz. Vakfın üzerinde, kartlar ilgili aileye artan düzende yerleştirilebilir.
 
 Boş masa alanı, rezervin kartıyla doldurulur. Rezerv boşsa, ana istasyondaki bir kart kullanılacaktır. 
 
@@ -278,7 +278,7 @@ Boş masa alanı, rezervin kartıyla doldurulur. Rezerv boşsa, ana istasyondaki
 Ana istife bastığınızda, kartlar kullanabileceğiniz yerden atılan desteye taşınacaktır. Kartların miktarı seçilen ayarlara bağlıdır. \"Bir çizin\" seçildiyse, yalnızca bir kart taşınacaktır. \"Draw 3\" etkinleştirilmişken, aynı anda 3 kart taşınacaktır. 
 
 Ana istif boşsa, her kartı atık yığından ana yığına taşımak ve üzerine tekrar basmak için üzerine basabilirsiniz."</string>
-<string name="manual_Canfield_scoring">"Temel yığına taşıma: +60 
+    <string name="manual_Canfield_scoring">"Temel yığına taşıma: +60
 
 Ayrılmış kartı temel yığına taşı: +45 
 
@@ -287,169 +287,169 @@ Temel yığından sütunlara taşı: -75
 Kartı ters çevir: +25 
 
 Ayrılmış kartları sütunlara geri gönder: -200"</string>
-<string name="manual_GrandfathersClock_structure">"1 deck of 52 cards.
+    <string name="manual_GrandfathersClock_structure">"1 deck of 52 cards.
 
 8 tableau stacks, 12 foundation stacks in the form of a clock. Each foundation stack already contains one card"</string>
-<string name="manual_GrandfathersClock_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir. En sonda yığındaki kart değerleri saatteki değerle aynı olmalı."</string>
-<string name="manual_GrandfathersClock_scoring">"Sütunlardan temel yığına: +50"</string>
-<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-<string name="manual_Vegas_objective">"Daha fazla para kazanmak için temel yığına daha fazla kart gönder."</string>
-<string name="manual_Vegas_scoring">"Kazanılan para miktarı, ayarlarda ayarladığınız bahise bağlıdır. Örneğin ödeme yaparsın. Oyunun başında 50 $, oyuna giren her kartla birlikte bahsin 1 / 10'unu kazanırsınız. 
+    <string name="manual_GrandfathersClock_objective">"Her şeklin tüm kartlarını artan sırada temel yığına yerleştir. En sonda yığındaki kart değerleri saatteki değerle aynı olmalı."</string>
+    <string name="manual_GrandfathersClock_scoring">"Sütunlardan temel yığına: +50"</string>
+    <string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+    <string name="manual_Vegas_objective">"Daha fazla para kazanmak için temel yığına daha fazla kart gönder."</string>
+    <string name="manual_Vegas_scoring">"Kazanılan para miktarı, ayarlarda ayarladığınız bahise bağlıdır. Örneğin ödeme yaparsın. Oyunun başında 50 $, oyuna giren her kartla birlikte bahsin 1 / 10'unu kazanırsınız.
 
 Skor 0'dan büyük olduğunda bir oyun kazanılan olarak kaydedilecektir. Kuruluştan kartlarıgeri oynatmak bahsin 2 / 10'u pahalıdır. 
 
 İpucu veya geri alma işlevlerini kullanmak, bahsin 1 / 10'una mal olur. 
 
 YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
-<string name="manual_Calculation_structure">"52 kartlık bir deste. 
+    <string name="manual_Calculation_structure">"52 kartlık bir deste.
 
 4 sütun, 4 temel yığın, 1 ana ve 1 atılmış kart yeri."</string>
 
-<!-- Settings -->
-<string name="settings_background_color">"Arkaplan Rengi"</string>
-<string name="settings_hide_status_bar">"Durum çubuğunu gizle"</string>
-<string name="settings_left_handed_mode">"Solak modu"</string>
-<string name="settings_left_handed_mode_description">"Kartı ve yığın konumlarını sol tarafa yerleştir"</string>
-<string name="settings_back_press">"Oyunu kapatmayı onayla"</string>
-<string name="settings_back_press_description">"Oyunu kapatmak için iki defa geri tuşuna bas"</string>
-<string name="settings_orientation">"Ekran yönü"</string>
-<string name="settings_cards">"Kartlar"</string>
-<string name="settings_classic">"Klasik"</string>
-<string name="settings_simple">"Temel"</string>
-<string name="settings_cards_back">"Kart Arkaplanları"</string>
-<string name="settings_modern">"Modern"</string>
-<string name="settings_abstract">"Soyut"</string>
-<string name="settings_basic">"Temel"</string>
-<string name="settings_oxygen_dark">"Koyu oksijen"</string>
-<string name="settings_oxygen_light">"Açık oksijen"</string>
-<string name="settings_poker">"Poker"</string>
-<string name="settings_background">"Arkaplan Sayısı"</string>
-<string name="settings_customization">"Görünüm"</string>
-<string name="settings_other">"Genel"</string>
-<string name="settings_other_description">"Diğer tüm ayarları kaydet"</string>
-<string name="settings_games">"Oyunlar"</string>
-<string name="settings_games_description">"Oyun çeşitleri için tercihleri ayarlama"</string>
-<string name="settings_spider_difficulty">"Farklı kart çeşitlerinin sayısı"</string>
-<string name="settings_klondike_draw">"Çekilecek kart sayısı"</string>
-<string name="settings_canfield_draw">"Çekilecek kart sayısı"</string>
-<string name="settings_show_main_menu">"Ana menüde başla"</string>
-<string name="settings_show_main_menu_description">"Başlangıçta son oynanan oyuna dönme"</string>
-<string name="settings_golf_easy">"Döngüsel hareketler (Daha Kolay)"</string>
-<string name="settings_golf_easy_description">"Asları papazların üzerine ve papazları asların üzerine yerleştirmeye izin ver"</string>
-<string name="settings_menu">"Ana menü"</string>
-<string name="settings_menu_description">"Sütun sayısını değiştirme, oyunları gösterme ve gizleme"</string>
-<string name="settings_pyramid_difficulty">"Zorluk"</string>
-<string name="settings_menu_columns">"Sütun sayısı"</string>
-<string name="settings_menu_games">"Oyunları göster ve gizle"</string>
-<string name="settings_menu_games_description">"Menüde hangi oyunların gösterileceğini seçin"</string>
-<string name="settings_about_description">"Lisanslar ve değişiklikler gibi oyun hakkında bilgi göster"</string>
-<string name="settings_change_language">"Şu anki dil"</string>
-<string name="settings_yukon_rules">"Karları şuraya yerleştir…"</string>
-<string name="settings_icon_theme">"Simge Teması"</string>
-<string name="settings_menu_bar_position">"Menü çubuğu yeri"</string>
-<string name="settings_menu_bar_position_top">"Üst"</string>
-<string name="settings_menu_bar_position_bottom">"Alt"</string>
-<string name="settings_menu_bar_position_left">"Sol"</string>
-<string name="settings_menu_bar_position_right">"Sağ"</string>
-<string name="settings_4_color_mode_title">"4 renkli kart yığnı"</string>
-<string name="settings_4_color_mode_text">"Sinekleri yeşil, karoları mavi renk yap"</string>
-<string name="settings_additional_movements">"Ek oyun hareketleri"</string>
-<string name="settings_additional_movements_description">"Çfit tıklama ve diğer hareket yöntemlerini aktif veya pasif yap"</string>
-<string name="settings_double_tap">"Çift tıklama"</string>
-<string name="settings_double_tap_enable">"Çift tıklama hareketlerini etkinleştir"</string>
-<string name="settings_double_tap_enable_text">"Bir kartı olası başka bir yığına taşımak için çift tıkla"</string>
-<string name="settings_double_tap_all_cards">"Tüm olası kartları taşıyın"</string>
-<string name="settings_double_tap_all_cards_text">"Yığından yalnızca dokunulan kartı değil taşınabilen tüm kartları taşı"</string>
-<string name="settings_tap_to_select">"Seçmek için dokun"</string>
-<string name="settings_tap_to_select_enable">"Seçmek için dokun hareketlerini etkinleştir"</string>
-<string name="settings_tap_to_select_enable_text">"Dokunarak bir kartı seçi sonra hedaf yığına dokunarak kartı oraya kareket ettir"</string>
-<string name="settings_single_tap">"Tek dokunuş"</string>
-<string name="settings_single_tap_enable_text">"Sadece Golf ve TriPeaks için: Bir karta bir defa dokunarak onu atık yığınına taşıyın"</string>
-<string name="settings_double_tap_foundation_first">"İlk önce temel yığını taşı"</string>
-<string name="settings_double_tap_foundation_first_text">"Diğer kartları seçili yığından hedefe taşımadan önce en üstteki kartı taşımayı dene"</string>
-<string name="settings_movement_speed">"Kart hareket hızı"</string>
-<string name="Settings_sound">"Oyundan sesi etkinleştir"</string>
-<string name="Settings_sounds_title">"Sesler"</string>
-<string name="Settings_sounds_text">"Sesleri etkinleştirin, farklı ses efektleri ayarlayın"</string>
-<string name="Settings_win_sound_title">"Kazanma ses efekti"</string>
-<string name="Settings_background_music">"Arkaplan müziği"</string>
-<string name="settings_background_color_custom">"Kişisel"</string>
-<string name="Settings_background_volume">"Arkaplan müzik seviyesi"</string>
-<string name="settings_limit_number_of_recycles">"Geri gönderme sayısını sınırla"</string>
-<string name="settings_limit_number_of_recycles_text">"Atık kartları ana yığına geri gönderme sınırlandırıldı"</string>
-<string name="settings_number_of_recycles">"Geri gönderme miktarı"</string>
-<string name="settings_vegas_bet_amount">"Bahis Miktarı"</string>
-<string name="settings_menu_order_title">"Menü sırası"</string>
-<string name="settings_menu_order_summary">"Bir linke uzun süre tıklayın, ardından menü girişlerini yeniden sıralamak için sürükleyip bırakın"</string>
-<string name="settings_menu_order_set_default">"Sıfırlama sırası"</string>
-<string name="settings_auto_start_new_game_title">"Kazandığında yeni oyun başlat"</string>
-<string name="settings_auto_start_new_game_text">"Kazanılan bir oyuna geri dönülürse, otomatik olarak yeni bir oyun başlat"</string>
-<string name="settings_customization_description">"Kartları, arkaplanı ve kullanıcı arayüzüözelleştir"</string>
-<string name="settings_support">"Destek"</string>
-<string name="settings_single_tap_enable">"Tek dokunuş hareketlerini etkinleştir"</string>
-<string name="settings_vegas_bet_amount_text_1">"İlk sağıtım masrafı:"</string>
-<string name="settings_vegas_bet_amount_text_2">"Toplanan her kartın kazandırdığı:"</string>
-<string name="settings_vegas_bet_amount_summary">"İlk sağıtım: -%1$d$, Toplanan kart: +%2$d$"</string>
-<string name="settings_max_number_undos">"Maximum amount of undo movements"</string>
-<string name="settings_expert_settings">"Expert settings"</string>
-<string name="settings_expert_settings_text">"May be useful for some people"</string>
-<string name="settings_follow_system_settings">"Sistem ayarlarını uygula"</string>
-<string name="settings_portrait">"Dikey"</string>
-<string name="settings_landscape">"Yatay"</string>
-<string name="settings_landscape_upside_down">"Ters Yatay"</string>
-<string name="settings_spider_difficultiy_1">"1 (Kolay)"</string>
-<string name="settings_spider_difficultiy_2">"2 (Normal)"</string>
-<string name="settings_spider_difficultiy_3">"4 (Zor)"</string>
-<string name="settings_draw_1">"1 Kart"</string>
-<string name="settings_draw_3">"3 Kart"</string>
-<string name="settings_pyramid_difficulty_1">"Kolay: Tablo boşaldığında oyun kazanılır"</string>
-<string name="settings_pyramid_difficulty_2">"Hard: Tablo ve stok boşaldığında oyun kazanılır"</string>
-<string name="settings_language_default">"Varsayılan Dil"</string>
-<string name="settings_language_english">"English"</string>
-<string name="settings_language_esperanto">"Esperanto"</string>
-<string name="settings_language_finnish">"Finnish"</string>
-<string name="settings_language_french">"French"</string>
-<string name="settings_language_german">"German"</string>
-<string name="settings_language_japanese">"Japanese"</string>
-<string name="settings_language_polish">"Polish"</string>
-<string name="settings_language_turkish">"Türkçe"</string>
-<string name="settings_yukon_rules_1">"farklı renkler (Varsayılan)"</string>
-<string name="settings_yukon_rules_2">"aynı takım (Rus)"</string>
-<string name="settings_movement_speed_1">"Very slow"</string>
-<string name="settings_movement_speed_2">"Slow"</string>
-<string name="settings_movement_speed_3">"Normal"</string>
-<string name="settings_movement_speed_4">"Fast"</string>
-<string name="settings_win_sounds_1">"Varsayılan"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="settings_win_sounds_3">"8-Bit ses \"You win\""</string>
-<string name="settings_win_sounds_4">"Kalabalığın Tezahüratı"</string>
-<string name="settings_background_music_1">"Kapalı"</string>
-<string name="settings_background_music_2">"Tema 1"</string>
-<string name="settings_background_music_3">"Tema 2"</string>
-<string name="settings_background_music_4">"Tema 3"</string>
-<string name="settings_background_music_5">"Müzik Kutusu"</string>
-<string name="settings_canfield_size_of_reserve_1">"13 Kartlar (varsayılan)"</string>
-<string name="settings_canfield_size_of_reserve_2">"10 Kartlar"</string>
-<string name="settings_canfield_size_of_reserve_3">"7 Kartlar"</string>
-<string name="settings_canfield_size_of_reserve_4">"4 Kartlar"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Devre dışı"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Değişken renk"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Same family"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Aynı aile"</string>
-<string name="settings_developer_option_deal_correct_sequences_5">"Ters aynı aile"</string>
+    <!-- Settings -->
+    <string name="settings_background_color">"Arkaplan Rengi"</string>
+    <string name="settings_hide_status_bar">"Durum çubuğunu gizle"</string>
+    <string name="settings_left_handed_mode">"Solak modu"</string>
+    <string name="settings_left_handed_mode_description">"Kartı ve yığın konumlarını sol tarafa yerleştir"</string>
+    <string name="settings_back_press">"Oyunu kapatmayı onayla"</string>
+    <string name="settings_back_press_description">"Oyunu kapatmak için iki defa geri tuşuna bas"</string>
+    <string name="settings_orientation">"Ekran yönü"</string>
+    <string name="settings_cards">"Kartlar"</string>
+    <string name="settings_classic">"Klasik"</string>
+    <string name="settings_simple">"Temel"</string>
+    <string name="settings_cards_back">"Kart Arkaplanları"</string>
+    <string name="settings_modern">"Modern"</string>
+    <string name="settings_abstract">"Soyut"</string>
+    <string name="settings_basic">"Temel"</string>
+    <string name="settings_oxygen_dark">"Koyu oksijen"</string>
+    <string name="settings_oxygen_light">"Açık oksijen"</string>
+    <string name="settings_poker">"Poker"</string>
+    <string name="settings_background">"Arkaplan Sayısı"</string>
+    <string name="settings_customization">"Görünüm"</string>
+    <string name="settings_other">"Genel"</string>
+    <string name="settings_other_description">"Diğer tüm ayarları kaydet"</string>
+    <string name="settings_games">"Oyunlar"</string>
+    <string name="settings_games_description">"Oyun çeşitleri için tercihleri ayarlama"</string>
+    <string name="settings_spider_difficulty">"Farklı kart çeşitlerinin sayısı"</string>
+    <string name="settings_klondike_draw">"Çekilecek kart sayısı"</string>
+    <string name="settings_canfield_draw">"Çekilecek kart sayısı"</string>
+    <string name="settings_show_main_menu">"Ana menüde başla"</string>
+    <string name="settings_show_main_menu_description">"Başlangıçta son oynanan oyuna dönme"</string>
+    <string name="settings_golf_easy">"Döngüsel hareketler (Daha Kolay)"</string>
+    <string name="settings_golf_easy_description">"Asları papazların üzerine ve papazları asların üzerine yerleştirmeye izin ver"</string>
+    <string name="settings_menu">"Ana menü"</string>
+    <string name="settings_menu_description">"Sütun sayısını değiştirme, oyunları gösterme ve gizleme"</string>
+    <string name="settings_pyramid_difficulty">"Zorluk"</string>
+    <string name="settings_menu_columns">"Sütun sayısı"</string>
+    <string name="settings_menu_games">"Oyunları göster ve gizle"</string>
+    <string name="settings_menu_games_description">"Menüde hangi oyunların gösterileceğini seçin"</string>
+    <string name="settings_about_description">"Lisanslar ve değişiklikler gibi oyun hakkında bilgi göster"</string>
+    <string name="settings_change_language">"Şu anki dil"</string>
+    <string name="settings_yukon_rules">"Karları şuraya yerleştir…"</string>
+    <string name="settings_icon_theme">"Simge Teması"</string>
+    <string name="settings_menu_bar_position">"Menü çubuğu yeri"</string>
+    <string name="settings_menu_bar_position_top">"Üst"</string>
+    <string name="settings_menu_bar_position_bottom">"Alt"</string>
+    <string name="settings_menu_bar_position_left">"Sol"</string>
+    <string name="settings_menu_bar_position_right">"Sağ"</string>
+    <string name="settings_4_color_mode_title">"4 renkli kart yığnı"</string>
+    <string name="settings_4_color_mode_text">"Sinekleri yeşil, karoları mavi renk yap"</string>
+    <string name="settings_additional_movements">"Ek oyun hareketleri"</string>
+    <string name="settings_additional_movements_description">"Çfit tıklama ve diğer hareket yöntemlerini aktif veya pasif yap"</string>
+    <string name="settings_double_tap">"Çift tıklama"</string>
+    <string name="settings_double_tap_enable">"Çift tıklama hareketlerini etkinleştir"</string>
+    <string name="settings_double_tap_enable_text">"Bir kartı olası başka bir yığına taşımak için çift tıkla"</string>
+    <string name="settings_double_tap_all_cards">"Tüm olası kartları taşıyın"</string>
+    <string name="settings_double_tap_all_cards_text">"Yığından yalnızca dokunulan kartı değil taşınabilen tüm kartları taşı"</string>
+    <string name="settings_tap_to_select">"Seçmek için dokun"</string>
+    <string name="settings_tap_to_select_enable">"Seçmek için dokun hareketlerini etkinleştir"</string>
+    <string name="settings_tap_to_select_enable_text">"Dokunarak bir kartı seçi sonra hedaf yığına dokunarak kartı oraya kareket ettir"</string>
+    <string name="settings_single_tap">"Tek dokunuş"</string>
+    <string name="settings_single_tap_enable_text">"Sadece Golf ve TriPeaks için: Bir karta bir defa dokunarak onu atık yığınına taşıyın"</string>
+    <string name="settings_double_tap_foundation_first">"İlk önce temel yığını taşı"</string>
+    <string name="settings_double_tap_foundation_first_text">"Diğer kartları seçili yığından hedefe taşımadan önce en üstteki kartı taşımayı dene"</string>
+    <string name="settings_movement_speed">"Kart hareket hızı"</string>
+    <string name="Settings_sound">"Oyundan sesi etkinleştir"</string>
+    <string name="Settings_sounds_title">"Sesler"</string>
+    <string name="Settings_sounds_text">"Sesleri etkinleştirin, farklı ses efektleri ayarlayın"</string>
+    <string name="Settings_win_sound_title">"Kazanma ses efekti"</string>
+    <string name="Settings_background_music">"Arkaplan müziği"</string>
+    <string name="settings_background_color_custom">"Kişisel"</string>
+    <string name="Settings_background_volume">"Arkaplan müzik seviyesi"</string>
+    <string name="settings_limit_number_of_recycles">"Geri gönderme sayısını sınırla"</string>
+    <string name="settings_limit_number_of_recycles_text">"Atık kartları ana yığına geri gönderme sınırlandırıldı"</string>
+    <string name="settings_number_of_recycles">"Geri gönderme miktarı"</string>
+    <string name="settings_vegas_bet_amount">"Bahis Miktarı"</string>
+    <string name="settings_menu_order_title">"Menü sırası"</string>
+    <string name="settings_menu_order_summary">"Bir linke uzun süre tıklayın, ardından menü girişlerini yeniden sıralamak için sürükleyip bırakın"</string>
+    <string name="settings_menu_order_set_default">"Sıfırlama sırası"</string>
+    <string name="settings_auto_start_new_game_title">"Kazandığında yeni oyun başlat"</string>
+    <string name="settings_auto_start_new_game_text">"Kazanılan bir oyuna geri dönülürse, otomatik olarak yeni bir oyun başlat"</string>
+    <string name="settings_customization_description">"Kartları, arkaplanı ve kullanıcı arayüzüözelleştir"</string>
+    <string name="settings_support">"Destek"</string>
+    <string name="settings_single_tap_enable">"Tek dokunuş hareketlerini etkinleştir"</string>
+    <string name="settings_vegas_bet_amount_text_1">"İlk sağıtım masrafı:"</string>
+    <string name="settings_vegas_bet_amount_text_2">"Toplanan her kartın kazandırdığı:"</string>
+    <string name="settings_vegas_bet_amount_summary">"İlk sağıtım: -%1$d$, Toplanan kart: +%2$d$"</string>
+    <string name="settings_max_number_undos">"Maximum amount of undo movements"</string>
+    <string name="settings_expert_settings">"Expert settings"</string>
+    <string name="settings_expert_settings_text">"May be useful for some people"</string>
+    <string name="settings_follow_system_settings">"Sistem ayarlarını uygula"</string>
+    <string name="settings_portrait">"Dikey"</string>
+    <string name="settings_landscape">"Yatay"</string>
+    <string name="settings_landscape_upside_down">"Ters Yatay"</string>
+    <string name="settings_spider_difficultiy_1">"1 (Kolay)"</string>
+    <string name="settings_spider_difficultiy_2">"2 (Normal)"</string>
+    <string name="settings_spider_difficultiy_3">"4 (Zor)"</string>
+    <string name="settings_draw_1">"1 Kart"</string>
+    <string name="settings_draw_3">"3 Kart"</string>
+    <string name="settings_pyramid_difficulty_1">"Kolay: Tablo boşaldığında oyun kazanılır"</string>
+    <string name="settings_pyramid_difficulty_2">"Hard: Tablo ve stok boşaldığında oyun kazanılır"</string>
+    <string name="settings_language_default">"Varsayılan Dil"</string>
+    <string name="settings_language_english">"English"</string>
+    <string name="settings_language_esperanto">"Esperanto"</string>
+    <string name="settings_language_finnish">"Finnish"</string>
+    <string name="settings_language_french">"French"</string>
+    <string name="settings_language_german">"German"</string>
+    <string name="settings_language_japanese">"Japanese"</string>
+    <string name="settings_language_polish">"Polish"</string>
+    <string name="settings_language_turkish">"Türkçe"</string>
+    <string name="settings_yukon_rules_1">"farklı renkler (Varsayılan)"</string>
+    <string name="settings_yukon_rules_2">"aynı takım (Rus)"</string>
+    <string name="settings_movement_speed_1">"Very slow"</string>
+    <string name="settings_movement_speed_2">"Slow"</string>
+    <string name="settings_movement_speed_3">"Normal"</string>
+    <string name="settings_movement_speed_4">"Fast"</string>
+    <string name="settings_win_sounds_1">"Varsayılan"</string>
+    <string name="settings_win_sounds_2">"Piano"</string>
+    <string name="settings_win_sounds_3">"8-Bit ses \"You win\""</string>
+    <string name="settings_win_sounds_4">"Kalabalığın Tezahüratı"</string>
+    <string name="settings_background_music_1">"Kapalı"</string>
+    <string name="settings_background_music_2">"Tema 1"</string>
+    <string name="settings_background_music_3">"Tema 2"</string>
+    <string name="settings_background_music_4">"Tema 3"</string>
+    <string name="settings_background_music_5">"Müzik Kutusu"</string>
+    <string name="settings_canfield_size_of_reserve_1">"13 Kartlar (varsayılan)"</string>
+    <string name="settings_canfield_size_of_reserve_2">"10 Kartlar"</string>
+    <string name="settings_canfield_size_of_reserve_3">"7 Kartlar"</string>
+    <string name="settings_canfield_size_of_reserve_4">"4 Kartlar"</string>
+    <string name="settings_developer_option_deal_correct_sequences_1">"Devre dışı"</string>
+    <string name="settings_developer_option_deal_correct_sequences_2">"Değişken renk"</string>
+    <string name="settings_developer_option_deal_correct_sequences_3">"Same family"</string>
+    <string name="settings_developer_option_deal_correct_sequences_4">"Aynı aile"</string>
+    <string name="settings_developer_option_deal_correct_sequences_5">"Ters aynı aile"</string>
 
-<!-- Statistics -->
-<string name="statistics_text_won_games">"%2$d oyun oynadın, %1$d oyun kazandın"</string>
+    <!-- Statistics -->
+    <string name="statistics_text_won_games">"%2$d oyun oynadın, %1$d oyun kazandın"</string>
 
-<!-- %1$d and %2$d are placeholders for the values -->
-<string name="statistics_win_percentage">"Kazanma oranın: %1$.0f%%"</string>
+    <!-- %1$d and %2$d are placeholders for the values -->
+    <string name="statistics_win_percentage">"Kazanma oranın: %1$.0f%%"</string>
 
-<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
-<string name="statistics_button_delete">"Tüm girişleri sil!"</string>
-<string name="statistics_button_delete_text">"Bu oyun için tüm girişleri siler! Emin misin?"</string>
-<string name="statistics_button_deleted_all_entries">"Tüm girişler silindi"</string>
-<string name="statistics_time_of_day">"Saat"</string>
-<string name="statistics_date">"Tarih"</string>
-<string name="statistics_high_scores">"En Yüksek Puanlar"</string>
-<string name="settings_restart_game">"Değişikliği uygulamak için yeni bir %1$s oyununa başlayın"</string>
+    <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+    <string name="statistics_button_delete">"Tüm girişleri sil!"</string>
+    <string name="statistics_button_delete_text">"Bu oyun için tüm girişleri siler! Emin misin?"</string>
+    <string name="statistics_button_deleted_all_entries">"Tüm girişler silindi"</string>
+    <string name="statistics_time_of_day">"Saat"</string>
+    <string name="statistics_date">"Tarih"</string>
+    <string name="statistics_high_scores">"En Yüksek Puanlar"</string>
+    <string name="settings_restart_game">"Değişikliği uygulamak için yeni bir %1$s oyununa başlayın"</string>
 </resources>

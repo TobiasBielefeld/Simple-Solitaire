@@ -11,7 +11,7 @@
 
     <header
         android:summary="@string/settings_games_description"
-        android:title="@string/settings_games" >
+        android:title="@string/settings_games">
 
         <intent
             android:targetClass="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames"

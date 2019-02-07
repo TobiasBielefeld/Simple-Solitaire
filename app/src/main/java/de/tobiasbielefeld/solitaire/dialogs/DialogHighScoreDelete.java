@@ -18,12 +18,11 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.statistics.StatisticsActivity;
@@ -38,16 +37,12 @@ public class DialogHighScoreDelete extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(R.string.statistics_button_delete_text)
-                .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        StatisticsActivity statistics = (StatisticsActivity) getActivity();
-                        statistics.deleteHighScores();
-                    }
+                .setPositiveButton(R.string.game_confirm, (dialog, id) -> {
+                    StatisticsActivity statistics = (StatisticsActivity) getActivity();
+                    statistics.deleteHighScores();
                 })
-                .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
-                    }
+                .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
+                    // User cancelled the dialog
                 });
 
         return builder.create();

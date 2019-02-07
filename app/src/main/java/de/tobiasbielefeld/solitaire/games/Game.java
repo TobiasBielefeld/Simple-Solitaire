@@ -32,15 +32,12 @@ import java.util.Random;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
-import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_COLOR;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_FAMILY;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 
 /**
  * Abstract class for all the games. See the DUMMY GAME for detailed explanation of everything!
@@ -89,48 +86,48 @@ public abstract class Game {
      * exchanging them with other cards. The games can exclude cards to mix, like all cards on the
      * foundation, or complete sequences.
      */
-    public void mixCards(){
+    public void mixCards() {
         Random random = getPrng();
         ArrayList<Card> cardsToMix = new ArrayList<>();
         int counter;
         Card cardToChange;
 
         //getHighScore the cards to mix
-        for (Card card : cards){
-            if (!excludeCardFromMixing(card)){
+        for (Card card : cards) {
+            if (!excludeCardFromMixing(card)) {
                 cardsToMix.add(card);
             }
         }
 
         //exchange cards. A bit like Fisher-Yate Shuffle, but the iterating array doesn't change.
-        for (int i = cardsToMix.size() -1 ; i>=0;i--){
+        for (int i = cardsToMix.size() - 1; i >= 0; i--) {
 
-            if (prefs.getSavedUseTrueRandomisation()){
-                cardToChange = cardsToMix.get(random.nextInt(i+1));
+            if (prefs.getSavedUseTrueRandomisation()) {
+                cardToChange = cardsToMix.get(random.nextInt(i + 1));
             } else {
                 //choose a new card as long the chosen card is too similar to the previous and following card in the array
                 //(same value or color) also limit the loop to max 10 iterations to avoid infinite loops
                 counter = 0;
 
                 do {
-                    cardToChange = cardsToMix.get(random.nextInt(i+1));
+                    cardToChange = cardsToMix.get(random.nextInt(i + 1));
                     counter++;
                 }
                 while ( //the card below cardToChange shouldn't be too similar (but only if there is a card below)
                         (!cardToChange.isFirstCard() && (cardToChange.getCardBelow().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardBelow().getColor() == cardsToMix.get(i).getColor())
-                        //the card on top cardToChange shouldn't be too similar (but only if there is a card on top)
-                        || !cardToChange.isTopCard() &&      (cardToChange.getCardOnTop().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardOnTop().getColor() == cardsToMix.get(i).getColor()))
-                        //and the loop shouldn't take too long
-                        && counter < 10);
+                                //the card on top cardToChange shouldn't be too similar (but only if there is a card on top)
+                                || !cardToChange.isTopCard() && (cardToChange.getCardOnTop().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardOnTop().getColor() == cardsToMix.get(i).getColor()))
+                                //and the loop shouldn't take too long
+                                && counter < 10);
             }
 
-            cardToChange.getStack().exchangeCard(cardToChange,cardsToMix.get(i));
+            cardToChange.getStack().exchangeCard(cardToChange, cardsToMix.get(i));
         }
 
         sounds.playSound(Sounds.names.DEAL_CARDS);
 
         //After every card got a new place, update the card image views
-        for (Stack stack : stacks){
+        for (Stack stack : stacks) {
             stack.updateSpacing();
         }
 
@@ -139,17 +136,17 @@ public abstract class Game {
         handlerTestAfterMove.sendDelayed();
     }
 
-    public void dealNewGame(){
+    public void dealNewGame() {
         dealCards();
         load();
 
-        switch (prefs.getDeveloperOptionDealCorrectSequences()){
+        switch (prefs.getDeveloperOptionDealCorrectSequences()) {
             case 1: //alternating color
                 flipAllCardsUp();
 
-                for (int i = 0; i < (cards.length/13); i++) {
+                for (int i = 0; i < (cards.length / 13); i++) {
                     for (int j = 0; j < 13; j++) {
-                        int color = (j % 2 == 0) ? i : (i==0) ? (cards.length/13) -1 : i-1;
+                        int color = (j % 2 == 0) ? i : (i == 0) ? (cards.length / 13) - 1 : i - 1;
                         int cardIndex = (13 * (color + 1)) - j - 1;
                         cards[cardIndex].removeFromCurrentStack();
                         moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
@@ -160,7 +157,7 @@ public abstract class Game {
             case 2: //same family
                 flipAllCardsUp();
 
-                for (int i = 0; i < (cards.length/13); i++) {
+                for (int i = 0; i < (cards.length / 13); i++) {
                     for (int j = 0; j < 13; j++) {
                         int cardIndex = (13 * (i + 1)) - j - 1;
                         cards[cardIndex].removeFromCurrentStack();
@@ -172,9 +169,9 @@ public abstract class Game {
             case 3: //reversed alternating color
                 flipAllCardsUp();
 
-                for (int i = 0; i < (cards.length/13); i++) {
+                for (int i = 0; i < (cards.length / 13); i++) {
                     for (int j = 0; j < 13; j++) {
-                        int color = (j % 2 == 0) ? i : (i==0) ? (cards.length/13) -1 : i-1;
+                        int color = (j % 2 == 0) ? i : (i == 0) ? (cards.length / 13) - 1 : i - 1;
                         int cardIndex = 13 * color + j;
                         cards[cardIndex].removeFromCurrentStack();
                         moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
@@ -185,7 +182,7 @@ public abstract class Game {
             case 4: //reversed same family
                 flipAllCardsUp();
 
-                for (int i = 0; i < (cards.length/13); i++) {
+                for (int i = 0; i < (cards.length / 13); i++) {
                     for (int j = 0; j < 13; j++) {
                         int cardIndex = 13 * i + j;
                         cards[cardIndex].removeFromCurrentStack();
@@ -321,7 +318,7 @@ public abstract class Game {
      */
     abstract public int onMainStackTouch();
 
-    public int mainStackTouch(){
+    public int mainStackTouch() {
         if (hasLimitedRecycles() && getDealStack().isEmpty() && discardStacksContainCards()) {
             if (getRemainingNumberOfRecycles() == 0) {
                 return 0;
@@ -332,7 +329,7 @@ public abstract class Game {
 
         int sound = onMainStackTouch();
 
-        switch (sound){
+        switch (sound) {
             case 1:     //single card moved
                 sounds.playSound(Sounds.names.CARD_SET);
                 break;
@@ -346,9 +343,9 @@ public abstract class Game {
         return sound;
     }
 
-    private boolean discardStacksContainCards(){
+    private boolean discardStacksContainCards() {
 
-        for (Stack stack : currentGame.getDiscardStacks()){
+        for (Stack stack : currentGame.getDiscardStacks()) {
             if (!stack.isEmpty()) {
                 return true;
             }
@@ -395,7 +392,7 @@ public abstract class Game {
         return null;
     }
 
-    public boolean saveRecentScore(){
+    public boolean saveRecentScore() {
         return false;
     }
 
@@ -417,8 +414,7 @@ public abstract class Game {
      * Gets executed after a undo movement. I use it in Calculation-Game to update the text views
      * from the foundation stacks
      */
-    public void afterUndo(){
-
+    public void afterUndo() {
     }
 
     /**
@@ -442,8 +438,8 @@ public abstract class Game {
      * @return True if the main stack got touched, false otherwise
      */
     public boolean testIfMainStackTouched(float X, float Y) {
-        for (int id : mainStackIDs){
-            if (stacks[id].isOnLocation(X,Y)) {
+        for (int id : mainStackIDs) {
+            if (stacks[id].isOnLocation(X, Y)) {
                 return true;
             }
         }
@@ -461,12 +457,12 @@ public abstract class Game {
      * use this method to do something with the score, when the game is won or canceled (new game started)
      * So you can do other stuff for the high score list. For example, a game in Vegas is already won, when
      * the player makes profit, not only when all cards could be played on the foundation
-     *
+     * <p>
      * Return false, if you want the  addNewScore() method to break, so possible high scores won't
      * be saved. (eg in Vegas, if the player keeps the current balance, only save high score when
      * the balance is resetting). Return false other wise (default)
      */
-    public boolean processScore(long currentScore){
+    public boolean processScore(long currentScore) {
         return true;
     }
 
@@ -476,7 +472,8 @@ public abstract class Game {
      * "your win rate" text
      * IMPORTANT: Also implement deleteAdditionalStatisticsData() for reseting the data!
      * <p>
-     * @param res   The ressources to get the string id's
+     *
+     * @param res   The resources to get the string id's
      * @param title the view for the title of your data, eg "Longest run"
      * @param value the view for the value of the data
      * @return True, if you actually set something, false to ignore this method
@@ -489,14 +486,12 @@ public abstract class Game {
      * Reset the additional statistics data, if there are any
      */
     public void deleteAdditionalStatisticsData() {
-
     }
 
     /*
      * gets called when starting a new game, or when a game is won
      */
-    public void onGameEnd(){
-
+    public void onGameEnd() {
     }
 
     /*
@@ -504,23 +499,23 @@ public abstract class Game {
      * You can override it to customise the behavior. Eg this method in the game Golf is empty, because no
      * cards should be excluded there
      */
-    protected boolean excludeCardFromMixing(Card card){
+    protected boolean excludeCardFromMixing(Card card) {
         Stack stack = card.getStack();
 
         if (!card.isUp()) {
             return false;
         }
 
-        if (foundationStacksContain(stack.getId())){
+        if (foundationStacksContain(stack.getId())) {
             return true;
         }
 
         //do not exclude anything, if the testMode is null
-        if (mixCardsTestMode == null){
+        if (mixCardsTestMode == null) {
             return false;
         }
 
-        if (card.getIndexOnStack() == 0 && stack.getSize()==1){
+        if (card.getIndexOnStack() == 0 && stack.getSize() == 1) {
             return false;
         }
 
@@ -534,13 +529,13 @@ public abstract class Game {
      * to a game. This also sets the text apperance to AppCompat and the gravity to center.
      * The width and height is also measured, so you can use it directly.
      *
-     * @param width The width to apply to the
-     * @param layout he textView will be added to this layout
+     * @param width   The width to apply to the
+     * @param layout  he textView will be added to this layout
      * @param context Context to create view
      */
-    protected void addTextViews(int count, int width, RelativeLayout layout, Context context){
+    protected void addTextViews(int count, int width, RelativeLayout layout, Context context) {
 
-        for (int i=0;i<count;i++) {
+        for (int i = 0; i < count; i++) {
             TextView textView = new TextView(context);
             textView.setWidth(width);
             TextViewCompat.setTextAppearance(textView, R.style.TextAppearance_AppCompat);
@@ -555,8 +550,8 @@ public abstract class Game {
     /**
      * mirrors the textViews, if there are any. Used for left handed mode
      */
-    public void mirrorTextViews(RelativeLayout layoutGame){
-        for (TextView textView : textViews){
+    public void mirrorTextViews(RelativeLayout layoutGame) {
+        for (TextView textView : textViews) {
             textView.setX(layoutGame.getWidth() - textView.getX() - Card.width);
         }
     }
@@ -619,7 +614,7 @@ public abstract class Game {
         if (number >= 0) {
             hasLimitedRecycles = true;
             totalRecycles = number;
-            hideRecycleCounter = number==0;
+            hideRecycleCounter = number == 0;
         } else {
             hasLimitedRecycles = false;
         }
@@ -747,7 +742,7 @@ public abstract class Game {
      */
     protected void setFoundationStackIDs(int... IDs) {
         hasFoundationStacks = true;
-        lastFoundationID = IDs[IDs.length-1];
+        lastFoundationID = IDs[IDs.length - 1];
     }
 
     /**
@@ -756,7 +751,7 @@ public abstract class Game {
      * @param IDs The stack ids to apply.
      */
     protected void setTableauStackIDs(int... IDs) {
-        lastTableauID = IDs[IDs.length-1];
+        lastTableauID = IDs[IDs.length - 1];
     }
 
     /**
@@ -764,7 +759,7 @@ public abstract class Game {
      *
      * @param IDs The stack ids to apply.
      */
-    protected void setDiscardStackIDs(int... IDs){
+    protected void setDiscardStackIDs(int... IDs) {
         discardStackIDs = IDs;
         firstDiscardStackID = IDs[0];
         hasDiscardStacks = true;
@@ -779,7 +774,7 @@ public abstract class Game {
         dealFromID = id;
     }
 
-    protected void disableMainStack(){
+    protected void disableMainStack() {
         mainStackIDs = new int[]{-1};
         hasMainStacks = false;
     }
@@ -822,12 +817,11 @@ public abstract class Game {
     /**
      * Sets the background of a stack to an arrow (left handed mode will reverse the direction)
      *
-     * @param stack     The stack to apply
-     * @param direction The default direction of the arrow LEFT or RIGHT
+     * @param stack The stack to apply
      */
-    protected void setArrow(Stack stack, Stack.ArrowDirection direction) {
+    protected void setArrow(Stack stack) {
         hasArrow = true;
-        stack.setArrow(direction);
+        stack.setArrow(Stack.ArrowDirection.LEFT);
     }
 
     /**
@@ -863,32 +857,26 @@ public abstract class Game {
             Card cardBelow = origin.getCard(card.getIndexOnStack() - 1);
 
             if (mode == SAME_VALUE_AND_COLOR) {
-                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() % 2 == otherStack.getTopCard().getColor() % 2) {
-                    return true;
-                }
+                return cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() % 2 == otherStack.getTopCard().getColor() % 2;
             } else if (mode == SAME_VALUE_AND_FAMILY) {
-                if (cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() == otherStack.getTopCard().getColor()) {
-                    return true;
-                }
+                return cardBelow.getValue() == otherStack.getTopCard().getValue() && cardBelow.getColor() == otherStack.getTopCard().getColor();
             } else if (mode == SAME_VALUE) {
-                if (cardBelow.getValue() == otherStack.getTopCard().getValue()) {
-                    return true;
-                }
+                return cardBelow.getValue() == otherStack.getTopCard().getValue();
             }
         }
 
         return false;
     }
 
-    public boolean movementDoneRecently(Card card, Stack destination){
-        for (int i=recordList.entries.size() -1; i >= recordList.entries.size() - 5 && i>0; i--){
+    public boolean movementDoneRecently(Card card, Stack destination) {
+        for (int i = recordList.entries.size() - 1; i >= recordList.entries.size() - 5 && i > 0; i--) {
             RecordList.Entry entry = recordList.entries.get(i);
 
-            for (int j=0;j<entry.getCurrentCards().size();j++){
+            for (int j = 0; j < entry.getCurrentCards().size(); j++) {
                 Card cardInList = entry.getCurrentCards().get(j);
                 Stack originInList = entry.getCurrentOrigins().get(j);
 
-                if (card == cardInList && destination == originInList){
+                if (card == cardInList && destination == originInList) {
                     return true;
                 }
             }
@@ -921,7 +909,7 @@ public abstract class Game {
      * If no card could be found, try to move the longest correct sequence from the stacks to
      * an empty one.
      */
-    protected CardAndStack findBestSequenceToMoveToEmptyStack(testMode mode){
+    protected CardAndStack findBestSequenceToMoveToEmptyStack(testMode mode) {
 
         Card cardToMove = null;
         int sequenceLength = 0;
@@ -930,26 +918,26 @@ public abstract class Game {
         //find an empty stack to move to.
         for (int i = 0; i < 10; i++) {
             if (stacks[i].isEmpty()) {
-               emptyStack = stacks[i];
+                emptyStack = stacks[i];
             }
         }
 
-        if (emptyStack == null){
+        if (emptyStack == null) {
             return null;
         }
 
         for (int i = 0; i < 10; i++) {
             Stack sourceStack = stacks[i];
 
-            if (sourceStack.isEmpty() || foundationStacksContain(i)){
+            if (sourceStack.isEmpty() || foundationStacksContain(i)) {
                 continue;
             }
 
             for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
-                if (testCardsUpToTop(sourceStack, j, mode)){
+                if (testCardsUpToTop(sourceStack, j, mode)) {
                     Card card = sourceStack.getCard(j);
 
-                    if (j!=0 && cardTest(emptyStack, card)){
+                    if (j != 0 && cardTest(emptyStack, card)) {
                         int length = sourceStack.getSize() - j;
 
                         if (length > sequenceLength) {
@@ -971,28 +959,28 @@ public abstract class Game {
         return null;
     }
 
-    protected int getPowerMoveCount(int[] cellIDs, int[] stackIDs, boolean movingToEmptyStack){
+    protected int getPowerMoveCount(int[] cellIDs, int[] stackIDs, boolean movingToEmptyStack) {
         //thanks to matejx for providing this formula
         int numberOfFreeCells = 0;
         int numberOfFreeTableauStacks = 0;
 
-        for (int id : cellIDs){
-            if (stacks[id].isEmpty()){
+        for (int id : cellIDs) {
+            if (stacks[id].isEmpty()) {
                 numberOfFreeCells++;
             }
         }
 
-        for (int id : stackIDs){
-            if (stacks[id].isEmpty()){
+        for (int id : stackIDs) {
+            if (stacks[id].isEmpty()) {
                 numberOfFreeTableauStacks++;
             }
         }
 
-        if (movingToEmptyStack && numberOfFreeTableauStacks>0){
-            numberOfFreeTableauStacks --;
+        if (movingToEmptyStack && numberOfFreeTableauStacks > 0) {
+            numberOfFreeTableauStacks--;
         }
 
-        return (numberOfFreeCells+1)*(1<<numberOfFreeTableauStacks);
+        return (numberOfFreeCells + 1) * (1 << numberOfFreeTableauStacks);
     }
 
     /**
@@ -1078,7 +1066,7 @@ public abstract class Game {
         return stacks[lastTableauID];
     }
 
-    public void setNumberOfRecycles(String key, String defaultValue){
+    public void setNumberOfRecycles(String key, String defaultValue) {
         int recycles = prefs.getSavedNumberOfRecycles(key, defaultValue);
         setLimitedRecycles(recycles);
 
@@ -1087,19 +1075,19 @@ public abstract class Game {
         }
     }
 
-    protected void disableBonus(){
+    protected void disableBonus() {
         bonusEnabled = false;
     }
 
-    protected void setPointsInDollar(){
+    protected void setPointsInDollar() {
         pointsInDollar = true;
     }
 
-    protected void setUndoCosts(int costs){
+    protected void setUndoCosts(int costs) {
         undoCosts = costs;
     }
 
-    protected void setHintCosts(int costs){
+    protected void setHintCosts(int costs) {
         hintCosts = costs;
     }
 
@@ -1116,8 +1104,8 @@ public abstract class Game {
     public ArrayList<Stack> getDiscardStacks() throws ArrayIndexOutOfBoundsException {
         ArrayList<Stack> discardStacks = new ArrayList<>();
 
-        for (int id : discardStackIDs){
-            if (id == -1){
+        for (int id : discardStackIDs) {
+            if (id == -1) {
                 throw new ArrayIndexOutOfBoundsException("No discard stack specified");
             }
 
@@ -1154,7 +1142,7 @@ public abstract class Game {
     public int getRemainingNumberOfRecycles() {
         int remaining = totalRecycles - recycleCounter;
 
-        return remaining>0 ? remaining : 0;
+        return remaining > 0 ? remaining : 0;
     }
 
     public void incrementRecycleCounter() {
@@ -1197,19 +1185,19 @@ public abstract class Game {
             card.flipUp();
     }
 
-    public boolean isBonusEnabled(){
+    public boolean isBonusEnabled() {
         return bonusEnabled;
     }
 
-    public boolean isPointsInDollar(){
+    public boolean isPointsInDollar() {
         return pointsInDollar;
     }
 
-    public int getUndoCosts(){
+    public int getUndoCosts() {
         return undoCosts;
     }
 
-    public int getHintCosts(){
+    public int getHintCosts() {
         return hintCosts;
     }
 
@@ -1225,39 +1213,39 @@ public abstract class Game {
         ASCENDING, DESCENDING
     }
 
-    public boolean mainStacksContain(int id){
+    public boolean mainStacksContain(int id) {
         return hasMainStack() && id >= firstMainStackID;
     }
 
-    public boolean discardStacksContain(int id){
+    public boolean discardStacksContain(int id) {
         return hasDiscardStack() && id >= firstDiscardStackID && id < firstMainStackID;
     }
 
-    public boolean hidesRecycleCounter(){
+    public boolean hidesRecycleCounter() {
         return hideRecycleCounter;
     }
 
-    public boolean tableauStacksContain(int ID){
+    public boolean tableauStacksContain(int ID) {
         return ID <= getLastTableauId();
     }
 
-    public boolean foundationStacksContain(int ID){
+    public boolean foundationStacksContain(int ID) {
         return hasFoundationStacks && ID > getLastTableauId() && ID <= getLastFoundationID();
     }
 
-    public int getLastFoundationID(){
+    public int getLastFoundationID() {
         return lastFoundationID;
     }
 
-    public boolean addCardToMovementTest(Card card){
+    public boolean addCardToMovementTest(Card card) {
         return prefs.isDeveloperOptionPlayEveryCardEnabled() || addCardToMovementGameTest(card);
     }
 
-    protected void setMixingCardsTestMode(testMode mode){
+    protected void setMixingCardsTestMode(testMode mode) {
         mixCardsTestMode = mode;
     }
 
-    public int getMainStackId(){
+    public int getMainStackId() {
         return mainStackIDs[0];
     }
 
@@ -1265,21 +1253,21 @@ public abstract class Game {
         recycleCounterCallback = callback;
     }
 
-    protected void textViewSetText(int index, String text){
-        if (!stopUiUpdates){
+    protected void textViewSetText(int index, String text) {
+        if (!stopUiUpdates) {
             textViews.get(index).setText(text);
         }
     }
 
-    protected void textViewPutAboveStack(int index, Stack stack){
+    protected void textViewPutAboveStack(int index, Stack stack) {
         textViews.get(index).setX(stack.getX());
         textViews.get(index).setY(stack.getY() - textViews.get(index).getMeasuredHeight());
     }
 
-    public void textViewSetColor(int color){
+    public void textViewSetColor(int color) {
         textViewColor = color;
 
-        for (TextView view : textViews){
+        for (TextView view : textViews) {
             view.setTextColor(color);
         }
     }
@@ -1289,7 +1277,7 @@ public abstract class Game {
 
     }
 
-    public CardAndStack hintTest(){
+    public CardAndStack hintTest() {
         ArrayList<Card> emptyList = new ArrayList<>(3);
 
         return hintTest(emptyList);

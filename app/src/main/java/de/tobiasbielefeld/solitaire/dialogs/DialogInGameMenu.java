@@ -18,11 +18,10 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
@@ -43,48 +42,42 @@ public class DialogInGameMenu extends CustomDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle(lg.getGameName())
-                .setItems(R.array.restart_menu, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // "which" argument contains index of selected item
-                        switch (which) {
-                            case 0:
-                                if (prefs.getShowDialogNewGame()) {
-                                    prefs.putShowDialogNewGame(false);
-                                    DialogStartNewGame dialogStartNewGame = new DialogStartNewGame();
-                                    dialogStartNewGame.show(getFragmentManager(), "START_NEW_GAME_DIALOG");
-                                } else {
-                                    gameLogic.newGame();
-                                }
-                                break;
-                            case 1:
-                                if (prefs.getShowDialogRedeal()) {
-                                    prefs.putShowDialogRedeal(false);
-                                    DialogRedeal dialogRedeal = new DialogRedeal();
-                                    dialogRedeal.show(getFragmentManager(), "REDEAL_DIALOG");
-                                } else {
-                                    gameLogic.redeal();
-                                }
-                                break;
-                            case 2:
-                                if (gameManager.hasLoaded) {
-                                    timer.save();
-                                    gameLogic.setWonAndReloaded();
-                                    gameLogic.save();
-                                }
+                .setItems(R.array.restart_menu, (dialog, which) -> {
+                    // "which" argument contains index of selected item
+                    switch (which) {
+                        case 0:
+                            if (prefs.getShowDialogNewGame()) {
+                                prefs.putShowDialogNewGame(false);
+                                DialogStartNewGame dialogStartNewGame = new DialogStartNewGame();
+                                dialogStartNewGame.show(getFragmentManager(), "START_NEW_GAME_DIALOG");
+                            } else {
+                                gameLogic.newGame();
+                            }
+                            break;
+                        case 1:
+                            if (prefs.getShowDialogRedeal()) {
+                                prefs.putShowDialogRedeal(false);
+                                DialogRedeal dialogRedeal = new DialogRedeal();
+                                dialogRedeal.show(getFragmentManager(), "REDEAL_DIALOG");
+                            } else {
+                                gameLogic.redeal();
+                            }
+                            break;
+                        case 2:
+                            if (gameManager.hasLoaded) {
+                                timer.save();
+                                gameLogic.setWonAndReloaded();
+                                gameLogic.save();
+                            }
 
-                                gameManager.finish();
-                                break;
-                        }
+                            gameManager.finish();
+                            break;
                     }
                 })
-                .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //just cancel
-                    }
+                .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
+                    //just cancel
                 });
 
         return applyFlags(builder.create());
     }
-
-
 }

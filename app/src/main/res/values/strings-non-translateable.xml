@@ -5,7 +5,6 @@
     <string name="app_name" translatable="false">Simple Solitaire Collection</string>
 
 
-
     <!-- Preference Keys -->
     <string name="pref_key_total_time_played" translatable="false">pref_key_total_time_played</string>
     <string name="pref_key_total_points_earned" translatable="false">pref_key_total_points_earned</string>

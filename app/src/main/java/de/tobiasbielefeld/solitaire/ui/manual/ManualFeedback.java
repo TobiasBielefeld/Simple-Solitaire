@@ -41,8 +41,8 @@ public class ManualFeedback extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_manual_feedback, container, false);
 
-        buttonGoogle = (Button) view.findViewById(R.id.manual_feedback_button_google_play);
-        buttonGitHub = (Button) view.findViewById(R.id.manual_feedback_button_github);
+        buttonGoogle = view.findViewById(R.id.manual_feedback_button_google_play);
+        buttonGitHub = view.findViewById(R.id.manual_feedback_button_github);
 
         buttonGoogle.setOnClickListener(this);
         buttonGitHub.setOnClickListener(this);

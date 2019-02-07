@@ -22,7 +22,7 @@ import de.tobiasbielefeld.solitaire.handler.HandlerTimer;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_WINNING_TIME;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Handles the timer, updates, saves and load the current time of playing.
@@ -32,11 +32,11 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_WINNING_TI
 
 public class Timer {
 
-    public HandlerTimer handlerTimer;                                                               //handler to show the current time
+    public HandlerTimer handlerTimer; //handler to show the current time
 
-    private long currentTime;                                                                       //current system time, will be "frozen" if a game has been won
-    private long startTime;                                                                         //time where the game was started
-    private boolean running;                                                                        //indicates if the timer currently runs
+    private long currentTime;         //current system time, will be "frozen" if a game has been won
+    private long startTime;           //time where the game was started
+    private boolean running;          //indicates if the timer currently runs
     private long winningTime;
 
     public Timer(GameManager gm) {
@@ -45,7 +45,7 @@ public class Timer {
 
     /**
      * Returns the current playing time. If a winning time was saved, show this instead.
-     *
+     * <p>
      * The time is in seconds!! not milliseconds!
      *
      * @return The time to show on the screen
@@ -60,10 +60,10 @@ public class Timer {
     }
 
     /**
-     * Save all necessary data to retreive the played time on the next load.
+     * Save all necessary data to retrieve the played time on the next load.
      */
     public void save() {
-        if (stopUiUpdates){
+        if (stopUiUpdates) {
             return;
         }
 
@@ -118,7 +118,7 @@ public class Timer {
         winningTime = currentTime;
     }
 
-    public void setStartTime(long time){
+    public void setStartTime(long time) {
         startTime = time;
     }
 }

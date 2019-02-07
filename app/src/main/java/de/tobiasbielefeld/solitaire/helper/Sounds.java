@@ -7,14 +7,14 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 
-/**
- * Created by tobias on 25.07.17.
- */
-
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.SharedData;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
+
+/**
+ * Created by tobias on 25.07.17.
+ */
 
 public class Sounds {
 
@@ -23,7 +23,7 @@ public class Sounds {
     private SoundPool sp;// = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
     private int[] soundList = new int[9];
 
-    public Sounds(Context context){
+    public Sounds(Context context) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             createNewSoundPool();
@@ -37,7 +37,7 @@ public class Sounds {
     public void playSound(names name) {
 
         if (prefs.getSavedSoundEnabled() && !SharedData.stopUiUpdates) {
-            switch (name){
+            switch (name) {
                 case CARD_RETURN:
                     sp.play(soundList[0], 1, 1, 0, 0, 1);
                     break;
@@ -76,7 +76,7 @@ public class Sounds {
         }
     }
 
-    private void loadSounds(Context context){
+    private void loadSounds(Context context) {
         soundList[0] = sp.load(context, R.raw.card_return, 1);
         soundList[1] = sp.load(context, R.raw.card_set, 1);
         soundList[2] = sp.load(context, R.raw.hint, 1);

@@ -35,8 +35,7 @@ import android.widget.ListView;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
-import static de.tobiasbielefeld.solitaire.SharedData.GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.isLargeTablet;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Manual Activity: Uses some fragments to show the manual pages.
@@ -50,7 +49,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.isLargeTablet;
  */
 
 public class Manual extends CustomAppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener, ManualGames.GamePageShown{
+        implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener, ManualGames.GamePageShown {
 
     DrawerLayout drawer;
     ListView listView;
@@ -66,10 +65,10 @@ public class Manual extends CustomAppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(isLargeTablet(getApplicationContext()) ? R.layout.activity_manual_xlarge : R.layout.activity_manual);
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        listView = (ListView) findViewById(R.id.manual_listView);
+        drawer = findViewById(R.id.drawer_layout);
+        listView = findViewById(R.id.manual_listView);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         fragmentLoaded = false;
 
@@ -79,7 +78,7 @@ public class Manual extends CustomAppCompatActivity
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
             drawer.setDrawerListener(toggle);
             toggle.syncState();
-            navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView = findViewById(R.id.nav_view);
             navigationView.setNavigationItemSelectedListener(this);
             navigationView.setCheckedItem(R.id.nav_startpage);
         } else if (listView != null) {
@@ -89,16 +88,11 @@ public class Manual extends CustomAppCompatActivity
 
             listView.setOnItemClickListener(this);
 
-            listView.post(new Runnable() {
-                @Override
-                public void run() {
-                    checkMenuItem(0);
-                }
-            });
+            listView.post(() -> checkMenuItem(0));
         }
 
         //if the manual is called from the in game menu, show the corresponding game rule page
-        if (getIntent()!=null && getIntent().hasExtra(GAME)){
+        if (getIntent() != null && getIntent().hasExtra(GAME)) {
             try {
                 Fragment fragment = ManualGames.class.newInstance();
 
@@ -123,7 +117,7 @@ public class Manual extends CustomAppCompatActivity
     public void onBackPressed() {
         //phones
         if (drawer != null) {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
             if (drawer.isDrawerOpen(GravityCompat.START)) {
                 drawer.closeDrawer(GravityCompat.START);
                 return;
@@ -219,7 +213,7 @@ public class Manual extends CustomAppCompatActivity
 
         fragmentLoaded = id != R.id.nav_startpage;
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -282,7 +276,7 @@ public class Manual extends CustomAppCompatActivity
     }
 
     @Override
-    public void setGamePageShown(boolean value){
+    public void setGamePageShown(boolean value) {
         gamePageShown = value;
     }
 }

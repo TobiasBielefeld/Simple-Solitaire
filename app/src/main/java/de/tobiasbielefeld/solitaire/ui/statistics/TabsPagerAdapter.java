@@ -35,7 +35,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     TabsPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         TITLES = new String[]{context.getString(R.string.settings_other),
-                context.getString(R.string.statistics_high_scores) , context.getString(R.string.statistics_recent_scores)};
+                context.getString(R.string.statistics_high_scores), context.getString(R.string.statistics_recent_scores)};
     }
 
     @Override

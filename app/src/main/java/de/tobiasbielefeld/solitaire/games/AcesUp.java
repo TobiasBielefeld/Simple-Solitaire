@@ -39,7 +39,7 @@ public class AcesUp extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(6);
 
-        setTableauStackIDs(0,1,2,3);
+        setTableauStackIDs(0, 1, 2, 3);
         setFoundationStackIDs(4);
         setMainStackIDs(5);
 
@@ -85,8 +85,8 @@ public class AcesUp extends Game {
     public void dealCards() {
 
         for (int i = 0; i < 4; i++) {
-                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
-                stacks[i].getCard(0).flipUp();
+            moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+            stacks[i].getCard(0).flipUp();
         }
     }
 
@@ -122,7 +122,9 @@ public class AcesUp extends Game {
 
                 Card cardOnStack = stacks[i].getTopCard();
 
-                if (cardOnStack.getColor() == card.getColor() && (cardOnStack.getValue() > card.getValue() || cardOnStack.getValue() == 1)) {
+                if (cardOnStack.getColor() == card.getColor()
+                        && (cardOnStack.getValue() > card.getValue()
+                        || cardOnStack.getValue() == 1)) {
                     return true;
                 }
             }
@@ -163,7 +165,8 @@ public class AcesUp extends Game {
                     Card cardOnStack = stacks[i].getTopCard();
 
                     if (cardOnStack.getColor() == cardToTest.getColor()
-                            && (cardOnStack.getValue() > cardToTest.getValue() || cardOnStack.getValue() == 1)) {
+                            && (cardOnStack.getValue() > cardToTest.getValue()
+                            || cardOnStack.getValue() == 1)) {
                         success = true;
                     }
                 }
@@ -182,7 +185,7 @@ public class AcesUp extends Game {
 
         boolean success = false;
 
-        if (card.getValue() != 1) {                                                                   //do not move aces to discard stack
+        if (card.getValue() != 1) {              //do not move aces to discard stack
             for (int i = 0; i < 4; i++) {
                 if (stacks[i].isEmpty() || i == card.getStack().getId()) {
                     continue;
@@ -214,7 +217,8 @@ public class AcesUp extends Game {
         return null;
     }
 
-    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
+    public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs,
+                                boolean isUndoMovement) {
         if (destinationIDs[0] == 4) {
             return 50;
         }

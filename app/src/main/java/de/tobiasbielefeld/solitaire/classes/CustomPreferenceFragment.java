@@ -21,8 +21,8 @@ public class CustomPreferenceFragment extends PreferenceFragment {
     }
 
     @Override
-    public void onAttach(Activity activity){
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+    public void onAttach(Activity activity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             reinitializeData(activity);
         }
         super.onAttach(activity);

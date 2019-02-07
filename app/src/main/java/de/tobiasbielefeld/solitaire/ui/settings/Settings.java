@@ -134,7 +134,7 @@ public class Settings extends AppCompatPreferenceActivity {
      * I would need to write the strings manually in the cases.
      */
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME)){
+        if (key.equals(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME)) {
 
             if (preferenceFourColorMode != null) {
                 preferenceFourColorMode.update();
@@ -178,7 +178,7 @@ public class Settings extends AppCompatPreferenceActivity {
             updatePreferenceGameLayoutMarginsSummary();
             updatePreferenceMenuBarPositionSummary();
 
-            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout), true);
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
             returnIntent.putExtra(getString(R.string.intent_text_color), true);
@@ -187,108 +187,83 @@ public class Settings extends AppCompatPreferenceActivity {
         }
         if (key.equals(PREF_KEY_CARD_DRAWABLES)) {
             Card.updateCardDrawableChoice();
-        }
-        else if (key.equals(PREF_KEY_CARD_BACKGROUND) || key.equals(PREF_KEY_CARD_BACKGROUND_COLOR)) {
+        } else if (key.equals(PREF_KEY_CARD_BACKGROUND) || key.equals(PREF_KEY_CARD_BACKGROUND_COLOR)) {
             Card.updateCardBackgroundChoice();
-        }
-        else if (key.equals(PREF_KEY_HIDE_STATUS_BAR)) {
+        } else if (key.equals(PREF_KEY_HIDE_STATUS_BAR)) {
             showOrHideStatusBar();
-        }
-        else if (key.equals(PREF_KEY_ORIENTATION)) {
+        } else if (key.equals(PREF_KEY_ORIENTATION)) {
             setOrientation();
-        }
-        else if (key.equals(PREF_KEY_LEFT_HANDED_MODE)) {
+        } else if (key.equals(PREF_KEY_LEFT_HANDED_MODE)) {
             if (gameLogic != null) {
                 gameLogic.mirrorStacks();
             }
-        }
-        else if (key.equals(PREF_KEY_MENU_COLUMNS_PORTRAIT) || key.equals(PREF_KEY_MENU_COLUMNS_LANDSCAPE)) {
+        } else if (key.equals(PREF_KEY_MENU_COLUMNS_PORTRAIT) || key.equals(PREF_KEY_MENU_COLUMNS_LANDSCAPE)) {
             updatePreferenceMenuColumnsSummary();
-        }
-        else if (key.equals(PREF_KEY_LANGUAGE)) {
+        } else if (key.equals(PREF_KEY_LANGUAGE)) {
             bitmaps.resetMenuPreviews();
             restartApplication();
-        }
-        else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
+        } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
-        }
-        else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
+        } else if (key.equals(PREF_KEY_4_COLOR_MODE)) {
             Card.updateCardDrawableChoice();
 
-            if (preferenceCards!=null) {
+            if (preferenceCards != null) {
                 preferenceCards.updateSummary();
             }
-        }
-        else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
+        } else if (key.equals(PREF_KEY_MOVEMENT_SPEED)) {
             if (animate != null) {
                 animate.updateMovementSpeed();
             }
-        }
-        else if (key.equals(PREF_KEY_WIN_SOUND)) {
+        } else if (key.equals(PREF_KEY_WIN_SOUND)) {
             settingsSounds.playWinSound();
-        }
-        else if (key.equals(PREF_KEY_BACKGROUND_MUSIC) || key.equals(PREF_KEY_SOUND_ENABLED)) {
+        } else if (key.equals(PREF_KEY_BACKGROUND_MUSIC) || key.equals(PREF_KEY_SOUND_ENABLED)) {
             backgroundSound.doInBackground(this);
-        }
-        else if (key.equals(PREF_KEY_BACKGROUND_VOLUME)){
+        } else if (key.equals(PREF_KEY_BACKGROUND_VOLUME)) {
             updatePreferenceBackgroundVolumeSummary();
             backgroundSound.doInBackground(this);
-        }
-        else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)){
+        } else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)) {
             restartApplication();
-        }
-        else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)){
-            if (sharedPreferences.getBoolean(key,false) && preferenceTapToSelect!=null) {
+        } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)) {
+            if (sharedPreferences.getBoolean(key, false) && preferenceTapToSelect != null) {
                 preferenceTapToSelect.setChecked(false);
             }
-        }
-        else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)){
-            if (sharedPreferences.getBoolean(key,false) && preferenceSingleTapAllGames!=null) {
+        } else if (key.equals(PREF_KEY_TAP_TO_SELECT_ENABLED)) {
+            if (sharedPreferences.getBoolean(key, false) && preferenceSingleTapAllGames != null) {
                 preferenceSingleTapAllGames.setChecked(false);
             }
-        }
-        else if (key.equals(PREF_KEY_MAX_NUMBER_UNDOS)) {
-            if (recordList !=null){
+        } else if (key.equals(PREF_KEY_MAX_NUMBER_UNDOS)) {
+            if (recordList != null) {
                 recordList.setMaxRecords();
             }
 
             updatePreferenceMaxNumberUndos();
-        }
-        else if (key.equals(PREF_KEY_SHOW_ADVANCED_SETTINGS)) {
+        } else if (key.equals(PREF_KEY_SHOW_ADVANCED_SETTINGS)) {
             final Intent intent = new Intent(getApplicationContext(), Settings.class);
 
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             finish();
             startActivity(intent);
-        }
-        else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)){
+        } else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)) {
             updatePreferenceGameLayoutMarginsSummary();
-            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
-        }
-        else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)){
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout), true);
+        } else if (key.equals(PREF_KEY_HIDE_MENU_BUTTON)) {
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
-        }
-        else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
-            returnIntent.putExtra(getString(R.string.intent_update_game_layout),true);
-        }
-        else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM) || key.equals(PREF_KEY_BACKGROUND_COLOR_TYPE)){
+        } else if (key.equals(PREF_KEY_IMMERSIVE_MODE)) {
+            returnIntent.putExtra(getString(R.string.intent_update_game_layout), true);
+        } else if (key.equals(PREF_KEY_BACKGROUND_COLOR) || key.equals(PREF_KEY_BACKGROUND_COLOR_CUSTOM) || key.equals(PREF_KEY_BACKGROUND_COLOR_TYPE)) {
             returnIntent.putExtra(getString(R.string.intent_background_color), true);
-        }
-        else if (key.equals(PREF_KEY_TEXT_COLOR)){
+        } else if (key.equals(PREF_KEY_TEXT_COLOR)) {
             returnIntent.putExtra(getString(R.string.intent_text_color), true);
-        }
-        else if (key.equals(PREF_KEY_HIDE_SCORE)){
+        } else if (key.equals(PREF_KEY_HIDE_SCORE)) {
             returnIntent.putExtra(getString(R.string.intent_update_score_visibility), true);
-        }
-        else if (key.equals(PREF_KEY_HIDE_TIME)){
+        } else if (key.equals(PREF_KEY_HIDE_TIME)) {
             returnIntent.putExtra(getString(R.string.intent_update_time_visibility), true);
-        }
-        else if (key.equals(PREF_KEY_ENSURE_MOVABILITY)) {
+        } else if (key.equals(PREF_KEY_ENSURE_MOVABILITY)) {
             ArrayList<LoadGame.AllGameInformation> gameInfoList = lg.getOrderedGameInfoList();
 
-            for (int i=0;i<lg.getGameCount();i++){
+            for (int i = 0; i < lg.getGameCount(); i++) {
                 SharedPreferences sharedPref = getSharedPreferences(gameInfoList.get(i).getSharedPrefName(), MODE_PRIVATE);
                 sharedPref.edit().putInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, sharedPref.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, gameInfoList.get(i).getEnsureMovabilityMoves())).apply();
             }
@@ -297,7 +272,7 @@ public class Settings extends AppCompatPreferenceActivity {
 
     @Override
     public void finish() {
-        setResult(Activity.RESULT_OK,returnIntent);
+        setResult(Activity.RESULT_OK, returnIntent);
         super.finish();
     }
 
@@ -329,7 +304,7 @@ public class Settings extends AppCompatPreferenceActivity {
         preferenceMenuColumns.setSummary(text);
     }
 
-    private void updatePreferenceGameLayoutMarginsSummary(){
+    private void updatePreferenceGameLayoutMarginsSummary() {
         String textPortrait = "", textLandscape = "";
 
         switch (prefs.getSavedGameLayoutMarginsPortrait()) {
@@ -394,10 +369,10 @@ public class Settings extends AppCompatPreferenceActivity {
         preferenceMenuBarPosition.setSummary(text);
     }
 
-    private void updatePreferenceBackgroundVolumeSummary(){
+    private void updatePreferenceBackgroundVolumeSummary() {
         int volume = prefs.getSavedBackgroundVolume();
 
-        preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(),"%s %%",volume));
+        preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(), "%s %%", volume));
     }
 
     public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
@@ -429,7 +404,7 @@ public class Settings extends AppCompatPreferenceActivity {
             //the preferenceCategory for the dialogPreferenceOnlyForThisGame is only used to make
             //the widget update on Android 8+ devices (otherwise it wouldn't due to a bug)
             //So remove the title with an empty layout of the category to make it (nearly) disappear
-            settings.categoryOnlyForThisGame = (PreferenceCategory)findPreference(getString(R.string.pref_cat_key_only_for_this_game));
+            settings.categoryOnlyForThisGame = (PreferenceCategory) findPreference(getString(R.string.pref_cat_key_only_for_this_game));
             settings.categoryOnlyForThisGame.setLayoutResource(R.layout.empty);
 
             settings.preferenceFourColorMode.update();
@@ -444,7 +419,7 @@ public class Settings extends AppCompatPreferenceActivity {
         }
     }
 
-    public void hidePreferenceOnlyForThisGame(){
+    public void hidePreferenceOnlyForThisGame() {
         if (dialogPreferenceOnlyForThisGame.canBeHidden()) {
             customizationPreferenceFragment.getPreferenceScreen().removePreference(categoryOnlyForThisGame);
         }

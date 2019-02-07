@@ -32,9 +32,9 @@ import static de.tobiasbielefeld.solitaire.helper.BackgroundMusic.status.*;
  * Manages the background music. Will be played in the whole application.
  */
 
-public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
+public class BackgroundMusic extends AsyncTask<Context, Void, Void> {
 
-    public enum status {stopped,paused,playing}
+    public enum status {stopped, paused, playing}
 
     private MediaPlayer player;
     private String currentlyPlaying = "";
@@ -44,7 +44,7 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
     @Override
     public Void doInBackground(Context... params) {
 
-        if (!prefs.getSavedSoundEnabled()){
+        if (!prefs.getSavedSoundEnabled()) {
             stopPlaying();
             return null;
         }
@@ -52,16 +52,16 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
         String soundToPlay = prefs.getSavedBackgroundMusic();
         int volumeToApply = prefs.getSavedBackgroundVolume();
 
-        if (volumeToApply!=currentVolume){
+        if (volumeToApply != currentVolume) {
             changeVolume();
             currentVolume = volumeToApply;
         }
 
         if (currentStatus == stopped) {
-            start(params[0],soundToPlay);
-        } else if (!soundToPlay.equals(currentlyPlaying)){
+            start(params[0], soundToPlay);
+        } else if (!soundToPlay.equals(currentlyPlaying)) {
             stopPlaying();
-            start(params[0],soundToPlay);
+            start(params[0], soundToPlay);
         } else if (currentStatus == paused) {
             continuePlaying();
         }
@@ -69,19 +69,19 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
         return null;
     }
 
-    public void changeVolume(){
-        if (player!=null){
+    public void changeVolume() {
+        if (player != null) {
             int currentVolume = prefs.getSavedBackgroundVolume();
-            float log1 = currentVolume == 100 ? 0 : (float)(Math.log(100-currentVolume)/Math.log(100));
-            float volume = 1f-log1;
+            float log1 = currentVolume == 100 ? 0 : (float) (Math.log(100 - currentVolume) / Math.log(100));
+            float volume = 1f - log1;
 
-            player.setVolume(volume,volume);
+            player.setVolume(volume, volume);
         }
     }
 
-    public void start(Context context, String soundToPlay){
+    public void start(Context context, String soundToPlay) {
 
-        if (soundToPlay.equals("0")){
+        if (soundToPlay.equals("0")) {
             stopPlaying();
             return;
         }
@@ -89,7 +89,7 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
         int soundID = 0;
         currentlyPlaying = soundToPlay;
 
-        switch (soundToPlay){
+        switch (soundToPlay) {
             case "1":
                 soundID = R.raw.background_music_1;
                 break;
@@ -104,7 +104,7 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
                 break;
         }
 
-        if (player!=null){
+        if (player != null) {
             player.release();
             player = null;
         }
@@ -116,24 +116,24 @@ public class BackgroundMusic extends AsyncTask<Context,Void,Void> {
 
     }
 
-    public void pausePlaying(){
-        if (player!=null && player.isPlaying()) {
+    public void pausePlaying() {
+        if (player != null && player.isPlaying()) {
             player.pause();
         }
 
         currentStatus = paused;
     }
 
-    private void stopPlaying(){
-        if (player!=null && player.isPlaying()) {
+    private void stopPlaying() {
+        if (player != null && player.isPlaying()) {
             player.stop();
         }
 
         currentStatus = stopped;
     }
 
-    private void continuePlaying(){
-        if (player!=null) {
+    private void continuePlaying() {
+        if (player != null) {
             player.start();
         }
 

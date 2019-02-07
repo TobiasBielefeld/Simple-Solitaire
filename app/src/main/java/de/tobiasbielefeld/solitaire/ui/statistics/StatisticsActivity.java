@@ -44,14 +44,14 @@ public class StatisticsActivity extends CustomAppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
 
-        if (actionBar!=null) {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        PagerSlidingTabStrip tabs = findViewById(R.id.tabs);
         tabs.setAllCaps(false);
 
-        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        ViewPager pager = findViewById(R.id.pager);
         TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager(), this);
 
         pager.setAdapter(adapter);
@@ -89,11 +89,11 @@ public class StatisticsActivity extends CustomAppCompatActivity {
         return true;
     }
 
-    public void setCallback(HideWinPercentage callback){
+    public void setCallback(HideWinPercentage callback) {
         this.callback = callback;
     }
 
-    public interface HideWinPercentage{
+    public interface HideWinPercentage {
         void sendNewState(boolean state);
     }
 
@@ -104,7 +104,7 @@ public class StatisticsActivity extends CustomAppCompatActivity {
         scores.deleteScores();
         gameLogic.deleteStatistics();
         currentGame.deleteAdditionalStatisticsData();
-        showToast(getString(R.string.statistics_button_deleted_all_entries),this);
+        showToast(getString(R.string.statistics_button_deleted_all_entries), this);
 
         finish();
         startActivity(getIntent());

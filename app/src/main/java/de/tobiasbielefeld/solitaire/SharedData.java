@@ -31,14 +31,14 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
-import de.tobiasbielefeld.solitaire.helper.AutoMove;
-import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
+import de.tobiasbielefeld.solitaire.helper.AutoMove;
+import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
 import de.tobiasbielefeld.solitaire.helper.DealCards;
@@ -114,12 +114,12 @@ public class SharedData {
             bitmaps.setResources(context.getResources());
         }
 
-        if (lg.getGameCount()==0){
+        if (lg.getGameCount() == 0) {
             lg.loadAllGames();
         }
 
         //SharedPrefs
-        if (prefs == null){
+        if (prefs == null) {
             prefs = new Preferences(context);
         }
     }
@@ -232,7 +232,7 @@ public class SharedData {
             }
         }
 
-        for (Stack stack : destinations){
+        for (Stack stack : destinations) {
             stack.updateSpacing();
         }
 
@@ -277,18 +277,18 @@ public class SharedData {
 
     public static boolean isLargeTablet(Context context) {
         return prefs.getSavedForcedTabletLayout() || ((context.getResources().getConfiguration().screenLayout
-                        & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE);
+                & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE);
     }
 
-    public static String stringFormat(String text){
-        return String.format(Locale.getDefault(),"%s", text);
+    public static String stringFormat(String text) {
+        return String.format(Locale.getDefault(), "%s", text);
     }
 
-    public static int max(ArrayList<Integer> list ){
+    public static int max(ArrayList<Integer> list) {
         int max = 0;
 
-        for (int value : list){
-            if (value > max){
+        for (int value : list) {
+            if (value > max) {
                 max = value;
             }
         }
@@ -296,11 +296,11 @@ public class SharedData {
         return max;
     }
 
-    public static int min(ArrayList<Integer> list ){
+    public static int min(ArrayList<Integer> list) {
         int min = list.get(0);
 
-        for (int value : list){
-            if (value < min){
+        for (int value : list) {
+            if (value < min) {
                 min = value;
             }
         }
@@ -308,7 +308,7 @@ public class SharedData {
         return min;
     }
 
-    public static Random getPrng(){
+    public static Random getPrng() {
         return new Random();
 
 
@@ -323,7 +323,6 @@ public class SharedData {
         }
 
         return random;*/
-
 
 
         //return new SecureRandom();        //or maybe use this
@@ -351,13 +350,13 @@ public class SharedData {
      * @param strings The string array to use for the text paragraph
      * @return a charSequence, which can directly be applied to a textView
      */
-    static public CharSequence createBulletParagraph(CharSequence[] strings){
+    static public CharSequence createBulletParagraph(CharSequence[] strings) {
 
         SpannableString spanns[] = new SpannableString[strings.length];
 
         //apply the bullet characters
-        for (int i=0;i<strings.length;i++){
-            spanns[i] = new SpannableString(strings[i] + (i<strings.length-1 ? "\n" : ""));
+        for (int i = 0; i < strings.length; i++) {
+            spanns[i] = new SpannableString(strings[i] + (i < strings.length - 1 ? "\n" : ""));
             spanns[i].setSpan(new BulletSpan(15), 0, strings[i].length(), 0);
         }
 

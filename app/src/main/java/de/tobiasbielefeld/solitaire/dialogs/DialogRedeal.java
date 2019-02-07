@@ -18,15 +18,15 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
+
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Little confirmation dialog for redealing the current game
@@ -39,15 +39,9 @@ public class DialogRedeal extends CustomDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.dialog_redeal_title)
                 .setMessage(R.string.dialog_redeal_text)
-                .setPositiveButton(R.string.game_confirm, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        gameLogic.redeal();
-                    }
-                })
-                .setNegativeButton(R.string.game_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
-                    }
+                .setPositiveButton(R.string.game_confirm, (dialog, id) -> gameLogic.redeal())
+                .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
+                    // User cancelled the dialog
                 });
 
         return applyFlags(builder.create());

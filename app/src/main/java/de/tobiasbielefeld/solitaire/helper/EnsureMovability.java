@@ -12,24 +12,17 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-
-import static de.tobiasbielefeld.solitaire.SharedData.ensureMovability;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Ensures that at least MIN_POSSIBLE_MOVEMENTS amount of movements are possible at the start of a game.
  * It uses the Game.hintTest() method to find possible movements. If not enough movements are found
  * or the timer runs out, a new game will be dealt and the test restarts.
- *
+ * <p>
  * Everything happens inside the async task, the user only sees a spinning wait wheel. While the tests
  * run, the stopUiUpdates variable in SharedData is set to true, so cards won't move visibly, but
  * in the background they are assigned to other stacks and so on.
- *
+ * <p>
  * IMPORTANT: The Game.hintTest() does NOT return every possible movement! For example in SimpleSimon:
  * If a Hearts 9 lies on a Clubs 10 and could be moved to a Diamonds 10, it won't be shown. If it
  * could be moved to a Hearts 10, this would be shown. This decision was made to not show redundant
@@ -38,18 +31,18 @@ import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
 
 public class EnsureMovability {
 
-    FindMoves findMoves ;
+    FindMoves findMoves;
     DialogEnsureMovability dialog;
 
     private boolean paused = false;
 
     private ShowDialog showDialog;
 
-    public void setShowDialog(ShowDialog callback){
+    public void setShowDialog(ShowDialog callback) {
         showDialog = callback;
     }
 
-    public void start(){
+    public void start() {
         dialog = new DialogEnsureMovability();
         showDialog.show(dialog);
 
@@ -57,16 +50,16 @@ public class EnsureMovability {
         findMoves.execute();
     }
 
-    public void stop(){
+    public void stop() {
         dialog.dismiss();
         findMoves.cancel(true);
     }
 
-    public boolean isRunning(){
+    public boolean isRunning() {
         return SharedData.stopUiUpdates;
     }
 
-    public void pause(){
+    public void pause() {
         if (isRunning()) {
             paused = true;
             dialog.dismiss();
@@ -74,19 +67,19 @@ public class EnsureMovability {
         }
     }
 
-    public void saveInstanceState(Bundle bundle){
-        if (isRunning() || paused){
+    public void saveInstanceState(Bundle bundle) {
+        if (isRunning() || paused) {
             bundle.putBoolean("BUNDLE_ENSURE_MOVABILITY", true);
         }
     }
 
-    public void loadInstanceState(Bundle bundle){
-        if (bundle.containsKey("BUNDLE_ENSURE_MOVABILITY")){
+    public void loadInstanceState(Bundle bundle) {
+        if (bundle.containsKey("BUNDLE_ENSURE_MOVABILITY")) {
             gameLogic.newGame();
         }
     }
 
-    public void resume(){
+    public void resume() {
         if (paused) {
             paused = false;
             gameLogic.load(true);
@@ -94,7 +87,7 @@ public class EnsureMovability {
         }
     }
 
-    private void dismissDialog(){
+    private void dismissDialog() {
         dialog.dismiss();
     }
 
@@ -210,10 +203,9 @@ public class EnsureMovability {
             isInterrupted = true;
             cancel(true);
         }
-
     }
 
-    public interface ShowDialog{
+    public interface ShowDialog {
         void show(DialogEnsureMovability dialog);
     }
 }

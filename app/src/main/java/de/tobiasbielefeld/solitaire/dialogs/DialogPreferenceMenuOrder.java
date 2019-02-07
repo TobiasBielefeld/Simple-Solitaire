@@ -19,7 +19,6 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
@@ -56,7 +55,7 @@ public class DialogPreferenceMenuOrder extends CustomDialogPreference {
         gameList.addAll(sortedGameList);
 
         adapter = new StableArrayAdapter(getContext(), R.layout.text_view, gameList);
-        DynamicListView listView = (DynamicListView) view.findViewById(R.id.listview);
+        DynamicListView listView = view.findViewById(R.id.listview);
 
         listView.setList(gameList);
         listView.setAdapter(adapter);
@@ -73,7 +72,7 @@ public class DialogPreferenceMenuOrder extends CustomDialogPreference {
             ArrayList<Integer> list = new ArrayList<>();
             String[] defaultList = lg.getDefaultGameNameList(getContext().getResources());
 
-            for (String game: defaultList) {
+            for (String game : defaultList) {
                 list.add(gameList.indexOf(game));
             }
 

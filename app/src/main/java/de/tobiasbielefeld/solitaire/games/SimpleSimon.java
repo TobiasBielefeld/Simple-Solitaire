@@ -41,8 +41,8 @@ public class SimpleSimon extends Spider {
         setNumberOfDecks(1);
         setNumberOfStacks(14);
 
-        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9);
-        setFoundationStackIDs(10,11,12,13);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        setFoundationStackIDs(10, 11, 12, 13);
         setDealFromID(0);
 
         //because this game inherits from Spider, I have to disable the main stack from it
