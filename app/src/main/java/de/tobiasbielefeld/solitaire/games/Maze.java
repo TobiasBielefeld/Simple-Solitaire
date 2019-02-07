@@ -65,20 +65,19 @@ public class Maze extends Game {
         int nextRow = 0;
         int nextCol = 1;
         while (stacks[0].getSize() > 1) {
-            moveToStack(stacks[0].getTopCard(), stacks[nextRow * COLS + nextCol], OPTION_NO_RECORD);
+            Card cardToMove = stacks[0].getTopCard();
+
+            if (cardToMove.getValue() == 13) {
+                cardToMove.removeFromGame();
+            } else {
+                moveToStack(cardToMove, stacks[nextRow * COLS + nextCol], OPTION_NO_RECORD);
+            }
 
             int colsInRow = nextRow < 2 ? COLS - 1 : COLS;
             ++nextCol;
             if (nextCol >= colsInRow) {
                 ++nextRow;
                 nextCol = 0;
-            }
-        }
-
-        // Remove the kings.
-        for (Card card : cards) {
-            if (card.getValue() == 13) {
-                card.removeFromGame();
             }
         }
 

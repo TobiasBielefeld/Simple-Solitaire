@@ -403,7 +403,7 @@ public class Card {
     public void removeFromGame() {
         view.setVisibility(View.GONE);
         isInvisible = true;
-        moveToStack(this, currentGame.offScreenStack);
+        moveToStack(this, currentGame.offScreenStack, OPTION_NO_RECORD);
     }
 
     public void addBackToGame(Stack moveTo) {
