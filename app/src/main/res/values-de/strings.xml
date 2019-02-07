@@ -391,7 +391,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <!-- Settings -->
 <string name="settings_background_color">"Hintergrundfarbe"</string>
 <string name="settings_hide_status_bar">"Statusleiste verbergen"</string>
-<string name="settings_left_handed_mode">"Linkshändler Modus"</string>
+<string name="settings_left_handed_mode">"Linkshänder Modus"</string>
 <string name="settings_left_handed_mode_description">"Spiegelt die Karten und Stapel Positionen zur linken Seite"</string>
 <string name="settings_back_press">"Beenden des Spiels bestätigen"</string>
 <string name="settings_back_press_description">"Zum Beenden Zurück Taste zwei mal drücken"</string>
