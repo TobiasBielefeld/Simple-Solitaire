@@ -537,6 +537,8 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="settings_language_finnish">"Finnish"</string>
 <string name="settings_language_french">"French"</string>
 <string name="settings_language_german">"German"</string>
+<string name="settings_language_hungarian">"Hungarian"</string>
+<string name="settings_language_spanish">"Spanish"</string>
 <string name="settings_language_japanese">"Japanese"</string>
 <string name="settings_language_polish">"Polish"</string>
 <string name="settings_language_turkish">"Turkish"</string>
