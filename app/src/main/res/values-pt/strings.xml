@@ -1,302 +1,325 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_version">"Versão"</string>
-    <string name="settings">"Configurações"</string>
-    <string name="game_manual">"Manual"</string>
-    <string name="game_score">"Pontuação"</string>
-    <string name="game_time">"Tempo"</string>
-    <string name="game_cancel">"Cancelar"</string>
-    <string name="game_confirm">"Confirmar"</string>
-    <string name="game_auto_complete_text">"Completar automaticamente"</string>
-    <string name="game_press_again">"Premir novamente para sair"</string>
-    <string name="game_load_error">"O carregamento dos dados falhou, a iniciar um novo jogo…"</string>
-    <string name="game_close">"Fechar Jogo"</string>
-    <string name="game_main_menu">"Menu principal"</string>
-    <string name="item_game_rules">"Regras do jogo"</string>
-    <string name="item_return_to_main_menu">"Voltar ao menu principal"</string>
+<string name="app_version">"Versão"</string>
+<string name="settings">"Configurações"</string>
+<string name="game_manual">"Manual"</string>
+<string name="game_score">"Pontuação"</string>
+<string name="game_time">"Tempo"</string>
+<string name="game_cancel">"Cancelar"</string>
+<string name="game_confirm">"Confirmar"</string>
+<string name="game_auto_complete_text">"Completar automaticamente"</string>
+<string name="game_press_again">"Premir novamente para sair"</string>
+<string name="game_load_error">"O carregamento dos dados falhou, a iniciar um novo jogo..."</string>
+<string name="game_close">"Fechar Jogo"</string>
+<string name="game_main_menu">"Menu principal"</string>
+<string name="item_game_rules">"Regras do jogo"</string>
+<string name="item_return_to_main_menu">"Voltar ao menu principal"</string>
 
-    <!-- Menu -->
-    <string name="menu_undo">"Desfazer"</string>
-    <string name="menu_main_menu">"Menu"</string>
-    <string name="menu_settings">"Configurações"</string>
-    <string name="games_Spider">"Aranha"</string>
-    <string name="games_Golf">"Golfe"</string>
-    <string name="games_Pyramid">"Pirâmide"</string>
-    <string name="games_Vegas">"Vegas"</string>
+<!-- Menu -->
+<string name="menu_undo">"Desfazer"</string>
+<string name="menu_main_menu">"Menu"</string>
+<string name="menu_settings">"Configurações"</string>
 
-    <!-- colors -->
-    <string name="blue">"Azul"</string>
-    <string name="green">"Verde"</string>
-    <string name="red">"Vermelho"</string>
-    <string name="yellow">"Amarelo"</string>
-    <string name="orange">"Laranja"</string>
-    <string name="purple">"Púrpura"</string>
+<!-- game names 
 
-    <!-- game stuff -->
-    <string name="game_longest_run">"Sequência mais longa:"</string>
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Klondike"</string>
+<string name="games_Freecell">"Célula Livre"</string>
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Aranha"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
+<string name="games_Golf">"Golfe"</string>
+<string name="games_Pyramid">"Pirâmide"</string>
+<string name="games_TriPeaks">"
+TriPeaks
+"</string>
+<string name="games_FortyEight">"Quarenta e Oito"</string>
+<string name="games_AcesUp">"4 Ases"</string>
+<string name="games_Gypsy">"Cigano"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_GrandfathersClock">"Relógio do Avô"</string>
+<string name="games_Vegas">"Vegas"</string>
+<string name="games_Calculation">"Cálculo"</string>
 
-    <!-- dialog won -->
-    <string name="dialog_win_titel">"Parabéns!"</string>
-    <string name="dialog_win_score">"Pontuação: %1$d"</string>
-    <string name="dialog_win_bonus">"Bónus: %1$d"</string>
-    <string name="dialog_win_total">"Total: %1$d"</string>
+<!-- colors -->
+<string name="blue">"Azul"</string>
+<string name="green">"Verde"</string>
+<string name="red">"Vermelho"</string>
+<string name="yellow">"Amarelo"</string>
+<string name="orange">"Laranja"</string>
+<string name="purple">"Púrpura"</string>
 
-    <!-- dialog mix cards -->
-    <string name="dialog_mix_cards_title">"Baralhar"</string>
-    <string name="dialog_mix_cards_text">"Isto irá baralhar todas as cartas, exceto sequências corretas e cartas na fundação."</string>
-    <string name="dialog_mix_cards_not_available">"Ainda existem movimentos possíveis!"</string>
+<!-- game stuff -->
+<string name="game_longest_run">"Sequência mais longa:"</string>
 
-    <!-- dialog start new game -->
-    <string name="dialog_start_new_game_title">"Iniciar novo jogo"</string>
-    <string name="dialog_start_new_game_text">"O seu progresso atual será descartado e será servido um novo jogo aleatório."</string>
+<!-- dialog won -->
+<string name="dialog_win_titel">"Parabéns!"</string>
+<string name="dialog_win_score">"Pontuação: %1$d"</string>
+<string name="dialog_win_bonus">"Bónus: %1$d"</string>
+<string name="dialog_win_total">"Total: %1$d"</string>
 
-    <!-- dialog redeal -->
-    <string name="dialog_redeal_title">"Voltar a dar as cartas"</string>
-    <string name="dialog_redeal_text">"O seu progresso atual será descartado mas as cartas serão servidas como o jogo atual."</string>
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Baralhar"</string>
+<string name="dialog_mix_cards_text">"Isto irá baralhar todas as cartas, exceto sequências corretas e cartas na fundação."</string>
+<string name="dialog_mix_cards_not_available">"Ainda existem movimentos possíveis!"</string>
 
-    <!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
-    <string name="title_activity_manual">"Manual"</string>
-    <string name="title_activity_settings">"Configurações"</string>
-    <string name="title_activity_about">"Sobre o Jogo"</string>
-    <string name="title_activity_statistics">"Estatísticas"</string>
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Iniciar novo jogo"</string>
+<string name="dialog_start_new_game_text">"O seu progresso atual será descartado e será servido um novo jogo aleatório."</string>
 
-    <!-- About activity -->
-    <string name="about_tab_1">"Informação"</string>
-    <string name="about_tab_2">"Licenças"</string>
-    <string name="about_tab_3">"Relatório de alterações"</string>
-    <string name="about_loading">"A carregar…"</string>
-    <string name="about_developer">"Programador"</string>
-    <string name="about_developer_name">"Tobias Bielefeld"</string>
-    <string name="about_compiled">"Compilado em"</string>
-    <string name="about_source_code">"Código-fonte"</string>
-    <string name="about_license">"Licença"</string>
-    <string name="about_translations">"Traduções"</string>
-    <string name="about_further_contributors">"Contribuidores posteriores"</string>
-    <string name="about_android_support_libraries_title">"Biblioteca de suporte Android"</string>
-    <string name="about_android_support_libraries_usage">"Utilizado para um design melhorado e programação mais fácil"</string>
-    <string name="about_material_icons_usage">"Utilizado em todos os ícones neste programa"</string>
-    <string name="about_card_themes_title">"Temas das cartas"</string>
-    <string name="about_card_themes_usage">"Os temas das cartas foram retirados de &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, para mais informações clique &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;aqui&lt;/a&gt;"</string>
-    <string name="about_poker_themes_usage">"Utilizado como tema Póquer - Disponível em &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Direitos de Autor 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
-    <string name="about_custom_color_picker_title">"Biblioteca AmbilWarna"</string>
-    <string name="about_custom_color_picker_usage">"Utilizado para o coletor de cor personalizado"</string>
-    <string name="about_sounds_title">"Sons"</string>
-    <string name="about_sounds_usage">"Todos os sons foram publicados originalmente em &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, para mais informações clique &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;aqui&lt;/a&gt;"</string>
-    <string name="about_sliding_tabs_title">"Biblioteca PagerSlidingTabStrip"</string>
-    <string name="about_sliding_tabs_usage">"Utilizado nas abas no ecrã \"Sobre o Jogo\""</string>
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Voltar a dar as cartas"</string>
+<string name="dialog_redeal_text">"O seu progresso atual será descartado mas as cartas serão servidas como o jogo atual."</string>
 
-    <!-- Manual -->
-    <string name="manual_games">"Jogos"</string>
-    <string name="manual_feedback">"Opinião"</string>
-    <string name="manual_startpage">"Página inicial"</string>
-    <string name="manual_back_to_game">"Voltar ao jogo"</string>
-    <string name="manual_structure">"Estrutura"</string>
-    <string name="manual_objective">"Objetivo"</string>
-    <string name="manual_rules">"Regras"</string>
-    <string name="manual_scoring">"Pontuação"</string>
-    <string name="manual_main_menu">"Menu principal"</string>
-    <string name="manual_ui">"Interface de utilizador"</string>
-    <string name="page_load_error">"Não existe a página disponível para este jogo…"</string>
-    <string name="manual_bonus">"Após ganhar um jogo, obtém um bónus: quanto mais depressa ganha, maior será o bónus."</string>
-    <string name="manual_open_google_play">"Abrir o Google Play"</string>
-    <string name="manual_open_github">"Abrir o Repositório GitHub"</string>
-    <string name="manual_games_text1">"Escolha um jogo para mostrar a sua estrutura, objetivo, regras e pontuação."</string>
-    <string name="manual_Golf_scoring">"Mover uma carta para o monte de descartadas: +50"</string>
-    <string name="manual_Pyramid_scoring">"Mover uma carta para o lixo: +50
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Manual"</string>
+<string name="title_activity_settings">"Configurações"</string>
+<string name="title_activity_about">"Sobre o Jogo"</string>
+<string name="title_activity_statistics">"Estatísticas"</string>
+
+<!-- About activity -->
+<string name="about_tab_1">"Informação"</string>
+<string name="about_tab_2">"Licenças"</string>
+<string name="about_tab_3">"Relatório de alterações"</string>
+<string name="about_loading">"A carregar..."</string>
+<string name="about_developer">"Programador"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Compilado em"</string>
+<string name="about_source_code">"Código-fonte"</string>
+<string name="about_license">"Licença"</string>
+<string name="about_translations">"Traduções"</string>
+<string name="about_further_contributors">"Contribuidores posteriores"</string>
+<string name="about_android_support_libraries_title">"Biblioteca de suporte Android"</string>
+<string name="about_android_support_libraries_usage">"Utilizado para um design melhorado e programação mais fácil"</string>
+<string name="about_material_icons_title">"Ícones material design"</string>
+<string name="about_material_icons_usage">"Utilizado em todos os ícones neste programa"</string>
+<string name="about_card_themes_title">"Temas das cartas"</string>
+<string name="about_card_themes_usage">"Os temas das cartas foram retirados de &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, para mais informações clique &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;aqui&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"Utilizado como tema Póquer - Disponível em &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Direitos de Autor 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"Biblioteca AmbilWarna"</string>
+<string name="about_custom_color_picker_usage">"Utilizado para o coletor de cor personalizado"</string>
+<string name="about_sounds_title">"Sons"</string>
+<string name="about_sounds_usage">"Todos os sons foram publicados originalmente em &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, para mais informações clique &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;aqui&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"Biblioteca PagerSlidingTabStrip"</string>
+<string name="about_sliding_tabs_usage">"Utilizado nas abas no ecrã \"Sobre o Jogo\""</string>
+
+<!-- Manual -->
+<string name="manual_games">"Jogos"</string>
+<string name="manual_feedback">"Opinião"</string>
+<string name="manual_startpage">"Página inicial"</string>
+<string name="manual_back_to_game">"Voltar ao jogo"</string>
+<string name="manual_structure">"Estrutura"</string>
+<string name="manual_objective">"Objetivo"</string>
+<string name="manual_rules">"Regras"</string>
+<string name="manual_scoring">"Pontuação"</string>
+<string name="manual_main_menu">"Menu principal"</string>
+<string name="manual_ui">"Interface de utilizador"</string>
+<string name="page_load_error">"Não existe a página disponível para este jogo..."</string>
+<string name="manual_bonus">"Após ganhar um jogo, obtém um bónus: quanto mais depressa ganha, maior será o bónus."</string>
+<string name="manual_open_google_play">"Abrir o Google Play"</string>
+<string name="manual_open_github">"Abrir o Repositório GitHub"</string>
+<string name="manual_games_text1">"Escolha um jogo para mostrar a sua estrutura, objetivo, regras e pontuação."</string>
+<string name="manual_startpage_text">"Bem-vindo(a) ao manual desta coleção de jogos! Espero explicar tudo.
+
+Use o menu do lado esquerdo para aceder a outras páginas do manual."</string>
+<string name="manual_Golf_scoring">"Mover uma carta para o monte de descartadas: +50"</string>
+<string name="manual_Pyramid_scoring">"Mover uma carta para o lixo: +50
 
 Devolver todas as cartas do monte de descartadas para o monte principal: -200"</string>
-    <string name="manual_Calculation_scoring">"Mover uma carta para a fundação: +50"</string>
+<string name="manual_Calculation_scoring">"Mover uma carta para a fundação: +50"</string>
 
-    <!-- Settings -->
-    <string name="settings_background_color">"Cor do fundo"</string>
-    <string name="settings_hide_status_bar">"Ocultar barra de estado"</string>
-    <string name="settings_left_handed_mode">"Modo mão esquerda"</string>
-    <string name="settings_left_handed_mode_description">"Espelha a carta e posiciona os montes do lado esquerdo"</string>
-    <string name="settings_back_press">"Confirmar fecho do jogo"</string>
-    <string name="settings_back_press_description">"Pressione 2 vezes o botão de voltar para fechar jogo"</string>
-    <string name="settings_orientation">"Orientação do ecrã"</string>
-    <string name="settings_cards">"Cartas"</string>
-    <string name="settings_classic">"Clássico"</string>
-    <string name="settings_simple">"Simples"</string>
-    <string name="settings_cards_back">"Fundos das cartas"</string>
-    <string name="settings_modern">"Moderno"</string>
-    <string name="settings_abstract">"Abstrato"</string>
-    <string name="settings_basic">"Básico"</string>
-    <string name="settings_oxygen_dark">"Oxigénio Escuro"</string>
-    <string name="settings_oxygen_light">"Oxigénio Claro"</string>
-    <string name="settings_poker">"Póquer"</string>
-    <string name="settings_background">"Número do fundo"</string>
-    <string name="settings_customization">"Aparência"</string>
-    <string name="settings_other">"Geral"</string>
-    <string name="settings_other_description">"Definir todas as outras configurações"</string>
-    <string name="settings_games">"Jogos"</string>
-    <string name="settings_games_description">"Definir as preferências das variantes dos jogos"</string>
-    <string name="settings_spider_difficulty">"Número de famílias diferentes de cartas"</string>
-    <string name="settings_klondike_draw">"Número de cartas a servir"</string>
-    <string name="settings_canfield_draw">"Número de cartas a servir"</string>
-    <string name="settings_show_main_menu">"Iniciar no menu principal"</string>
-    <string name="settings_menu">"Menu principal"</string>
-    <string name="settings_menu_description">"Alterar número de colunas, mostrar e ocultar jogos"</string>
-    <string name="settings_pyramid_difficulty">"Dificuldade"</string>
-    <string name="settings_menu_columns">"Número de colunas"</string>
-    <string name="settings_menu_games">"Mostrar e ocultar jogos"</string>
-    <string name="settings_menu_games_description">"Selecione os jogos que são mostrados no menu"</string>
-    <string name="settings_about_description">"Mostrar informação sobre o jogo como as licenças e o relatório de alterações"</string>
-    <string name="settings_change_language">"Alterar idioma"</string>
-    <string name="settings_yukon_rules">"Colocar cartas em…"</string>
-    <string name="settings_icon_theme">"Tema de ícones"</string>
-    <string name="settings_menu_bar_position">"Posição da barra de menu"</string>
-    <string name="settings_menu_bar_position_top">"Cima"</string>
-    <string name="settings_menu_bar_position_bottom">"Baixo"</string>
-    <string name="settings_menu_bar_position_left">"Esquerda"</string>
-    <string name="settings_menu_bar_position_right">"Direita"</string>
-    <string name="settings_additional_movements">"Movimentos adicionais de cartas"</string>
-    <string name="settings_double_tap">"Toque duplo"</string>
-    <string name="settings_double_tap_enable">"Ativar movimentos de toque duplo"</string>
-    <string name="settings_double_tap_enable_text">"Toque numa carta 2 vezes para movê-la para o próximo monte possível"</string>
-    <string name="settings_double_tap_all_cards">"Mover todas as cartas possíveis"</string>
-    <string name="settings_double_tap_all_cards_text">"Mover o máximo de cartas possível do monte e não apenas a primeira carta"</string>
-    <string name="settings_tap_to_select">"Tocar para Selecionar"</string>
-    <string name="settings_tap_to_select_enable">"Ativar movimentos Tocar para Selecionar"</string>
-    <string name="settings_tap_to_select_enable_text">"Toque numa carta para a selecionar e depois toque no monte de destino para movê-la para este"</string>
-    <string name="settings_single_tap">"Toque Único"</string>
-    <string name="settings_double_tap_foundation_first">"Mover primeiro para o monte de fundação"</string>
-    <string name="settings_movement_speed">"Velocidade do movimento das cartas"</string>
-    <string name="Settings_sound">"Ativar sons no jogo"</string>
-    <string name="Settings_sounds_title">"Sons"</string>
-    <string name="Settings_sounds_text">"Ativar sons, configurar vários efeitos de sons"</string>
-    <string name="Settings_win_sound_title">"Efeito de som ao vencer"</string>
-    <string name="Settings_background_music">"Música de fundo"</string>
-    <string name="settings_background_color_custom">"Personalizado"</string>
-    <string name="Settings_background_volume">"Volume da música de fundo"</string>
-    <string name="settings_menu_order_title">"Ordem do menu"</string>
-    <string name="settings_menu_order_set_default">"Repor ordem"</string>
-    <string name="settings_auto_start_new_game_title">"Iniciar um novo jogo ao ganhar"</string>
-    <string name="settings_calculation_alternative_title">"Manter cartas"</string>
-    <string name="settings_auto_move_title">"Movimento automático"</string>
-    <string name="settings_rules">"Regras"</string>
-    <string name="settings_money">"Dinheiro"</string>
-    <string name="settings_support">"Ajuda"</string>
-    <string name="settings_hide_time">"Ocultar tempo"</string>
-    <string name="settings_hide_score">"Ocultar pontuação"</string>
-    <string name="settings_single_tap_enable">"Ativar movimentos de Toque Único"</string>
-    <string name="settings_developer_options">"Opções de programador"</string>
-    <string name="settings_developer_options_description">"Brincar com configurações malucas!"</string>
-    <string name="settings_developer_options_move_card_everwhere_title">"Mover cartas para todo o lado"</string>
-    <string name="settings_developer_options_move_card_everwhere_text">"Pode posicionar cartas em qualquer monte"</string>
-    <string name="settings_developer_options_play_every_card_title">"Jogar qualquer carta"</string>
-    <string name="settings_developer_options_instant_win_title">"Vitória instantânea"</string>
-    <string name="settings_developer_options_instant_win_text">"Ganhe todos os jogos após mover 1 carta"</string>
-    <string name="settings_developer_options_no_saving_title">"Desativar gravação do estado do jogo"</string>
-    <string name="settings_developer_options_no_saving_text">"Os movimentos num jogo não serão guardados"</string>
-    <string name="settings_developer_options_deal_correct_sequences_title">"Servir sequências corretas"</string>
-    <string name="settings_max_number_undos">"Número máximo de desfazer movimentos"</string>
-    <string name="settings_expert_settings">"Configurações avançadas"</string>
-    <string name="settings_expert_settings_text">"Pode ser útil para algumas pessoas"</string>
-    <string name="settings_follow_system_settings">"Seguir as configurações do jogo"</string>
-    <string name="settings_portrait">"Ao alto"</string>
-    <string name="settings_landscape">"Ao baixo"</string>
-    <string name="settings_landscape_upside_down">"Ao baixo virado ao contrário"</string>
-    <string name="settings_spider_difficultiy_1">"1 (fácil)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (médio)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (difícil)"</string>
-    <string name="settings_language_default">"Idioma padrão"</string>
-    <string name="settings_language_english">"Inglês"</string>
-    <string name="settings_language_esperanto">"Esperanto"</string>
-    <string name="settings_language_french">"Francês"</string>
-    <string name="settings_language_german">"Alemão"</string>
-    <string name="settings_language_japanese">"Japonês"</string>
-    <string name="settings_language_polish">"Polaco"</string>
-    <string name="settings_language_turkish">"Turco"</string>
-    <string name="settings_yukon_rules_1">"cores diferentes (padrão)"</string>
-    <string name="settings_movement_speed_1">"Muito lento"</string>
-    <string name="settings_movement_speed_2">"Lento"</string>
-    <string name="settings_movement_speed_3">"Normal"</string>
-    <string name="settings_movement_speed_4">"Rápido"</string>
-    <string name="settings_win_sounds_1">"Padrão"</string>
-    <string name="settings_win_sounds_2">"Piano"</string>
-    <string name="settings_win_sounds_4">"Multidão a festejar"</string>
-    <string name="settings_background_music_1">"Desativado"</string>
-    <string name="settings_background_music_2">"Tema 1"</string>
-    <string name="settings_background_music_3">"Tema 2"</string>
-    <string name="settings_background_music_4">"Tema 3"</string>
-    <string name="settings_canfield_size_of_reserve_1">"13 Cartas (padrão)"</string>
-    <string name="settings_canfield_size_of_reserve_2">"10 Cartas"</string>
-    <string name="settings_canfield_size_of_reserve_3">"7 Cartas"</string>
-    <string name="settings_canfield_size_of_reserve_4">"4 Cartas"</string>
-    <string name="settings_developer_option_deal_correct_sequences_1">"Desativado"</string>
-    <string name="settings_developer_option_deal_correct_sequences_2">"Cor alternada"</string>
-    <string name="settings_developer_option_deal_correct_sequences_3">"Mesma família"</string>
-    <string name="settings_developer_option_deal_correct_sequences_4">"Cor alternada invertida"</string>
-    <string name="settings_developer_option_deal_correct_sequences_5">"Mesma família invertida"</string>
+<!-- Settings -->
+<string name="settings_background_color">"Cor do fundo"</string>
+<string name="settings_hide_status_bar">"Ocultar barra de estado"</string>
+<string name="settings_left_handed_mode">"Modo mão esquerda"</string>
+<string name="settings_left_handed_mode_description">"Espelha a carta e posiciona os montes do lado esquerdo"</string>
+<string name="settings_back_press">"Confirmar fecho do jogo"</string>
+<string name="settings_back_press_description">"Pressione 2 vezes o botão de voltar para fechar jogo"</string>
+<string name="settings_orientation">"Orientação do ecrã"</string>
+<string name="settings_cards">"Cartas"</string>
+<string name="settings_classic">"Clássico"</string>
+<string name="settings_simple">"Simples"</string>
+<string name="settings_cards_back">"Fundos das cartas"</string>
+<string name="settings_modern">"Moderno"</string>
+<string name="settings_abstract">"Abstrato"</string>
+<string name="settings_basic">"Básico"</string>
+<string name="settings_oxygen_dark">"Oxigénio Escuro"</string>
+<string name="settings_oxygen_light">"Oxigénio Claro"</string>
+<string name="settings_poker">"Póquer"</string>
+<string name="settings_background">"Número do fundo"</string>
+<string name="settings_customization">"Aparência"</string>
+<string name="settings_other">"Geral"</string>
+<string name="settings_other_description">"Definir todas as outras configurações"</string>
+<string name="settings_games">"Jogos"</string>
+<string name="settings_games_description">"Definir as preferências das variantes dos jogos"</string>
+<string name="settings_spider_difficulty">"Número de famílias diferentes de cartas"</string>
+<string name="settings_klondike_draw">"Número de cartas a servir"</string>
+<string name="settings_canfield_draw">"Número de cartas a servir"</string>
+<string name="settings_show_main_menu">"Iniciar no menu principal"</string>
+<string name="settings_menu">"Menu principal"</string>
+<string name="settings_menu_description">"Alterar número de colunas, mostrar e ocultar jogos"</string>
+<string name="settings_pyramid_difficulty">"Dificuldade"</string>
+<string name="settings_menu_columns">"Número de colunas"</string>
+<string name="settings_menu_games">"Mostrar e ocultar jogos"</string>
+<string name="settings_menu_games_description">"Selecione os jogos que são mostrados no menu"</string>
+<string name="settings_about_description">"Mostrar informação sobre o jogo como as licenças e o relatório de alterações"</string>
+<string name="settings_change_language">"Alterar idioma"</string>
+<string name="settings_yukon_rules">"Colocar cartas em..."</string>
+<string name="settings_icon_theme">"Tema de ícones"</string>
+<string name="settings_menu_bar_position">"Posição da barra de menu"</string>
+<string name="settings_menu_bar_position_top">"Cima"</string>
+<string name="settings_menu_bar_position_bottom">"Baixo"</string>
+<string name="settings_menu_bar_position_left">"Esquerda"</string>
+<string name="settings_menu_bar_position_right">"Direita"</string>
+<string name="settings_additional_movements">"Movimentos adicionais de cartas"</string>
+<string name="settings_double_tap">"Toque duplo"</string>
+<string name="settings_double_tap_enable">"Ativar movimentos de toque duplo"</string>
+<string name="settings_double_tap_enable_text">"Toque numa carta 2 vezes para movê-la para o próximo monte possível"</string>
+<string name="settings_double_tap_all_cards">"Mover todas as cartas possíveis"</string>
+<string name="settings_double_tap_all_cards_text">"Mover o máximo de cartas possível do monte e não apenas a primeira carta"</string>
+<string name="settings_tap_to_select">"Tocar para Selecionar"</string>
+<string name="settings_tap_to_select_enable">"Ativar movimentos Tocar para Selecionar"</string>
+<string name="settings_tap_to_select_enable_text">"Toque numa carta para a selecionar e depois toque no monte de destino para movê-la para este"</string>
+<string name="settings_single_tap">"Toque Único"</string>
+<string name="settings_double_tap_foundation_first">"Mover primeiro para o monte de fundação"</string>
+<string name="settings_movement_speed">"Velocidade do movimento das cartas"</string>
+<string name="Settings_sound">"Ativar sons no jogo"</string>
+<string name="Settings_sounds_title">"Sons"</string>
+<string name="Settings_sounds_text">"Ativar sons, configurar vários efeitos de sons"</string>
+<string name="Settings_win_sound_title">"Efeito de som ao vencer"</string>
+<string name="Settings_background_music">"Música de fundo"</string>
+<string name="settings_background_color_custom">"Personalizado"</string>
+<string name="Settings_background_volume">"Volume da música de fundo"</string>
+<string name="settings_menu_order_title">"Ordem do menu"</string>
+<string name="settings_menu_order_set_default">"Repor ordem"</string>
+<string name="settings_auto_start_new_game_title">"Iniciar um novo jogo ao ganhar"</string>
+<string name="settings_calculation_alternative_title">"Manter cartas"</string>
+<string name="settings_auto_move_title">"Movimento automático"</string>
+<string name="settings_rules">"Regras"</string>
+<string name="settings_money">"Dinheiro"</string>
+<string name="settings_support">"Ajuda"</string>
+<string name="settings_hide_time">"Ocultar tempo"</string>
+<string name="settings_hide_score">"Ocultar pontuação"</string>
+<string name="settings_single_tap_enable">"Ativar movimentos de Toque Único"</string>
+<string name="settings_developer_options">"Opções de programador"</string>
+<string name="settings_developer_options_description">"Brincar com configurações malucas!"</string>
+<string name="settings_developer_options_move_card_everwhere_title">"Mover cartas para todo o lado"</string>
+<string name="settings_developer_options_move_card_everwhere_text">"Pode posicionar cartas em qualquer monte"</string>
+<string name="settings_developer_options_play_every_card_title">"Jogar qualquer carta"</string>
+<string name="settings_developer_options_instant_win_title">"Vitória instantânea"</string>
+<string name="settings_developer_options_instant_win_text">"Ganhe todos os jogos após mover 1 carta"</string>
+<string name="settings_developer_options_no_saving_title">"Desativar gravação do estado do jogo"</string>
+<string name="settings_developer_options_no_saving_text">"Os movimentos num jogo não serão guardados"</string>
+<string name="settings_developer_options_deal_correct_sequences_title">"Servir sequências corretas"</string>
+<string name="settings_max_number_undos">"Número máximo de desfazer movimentos"</string>
+<string name="settings_expert_settings">"Configurações avançadas"</string>
+<string name="settings_expert_settings_text">"Pode ser útil para algumas pessoas"</string>
+<string name="settings_follow_system_settings">"Seguir as configurações do jogo"</string>
+<string name="settings_portrait">"Ao alto"</string>
+<string name="settings_landscape">"Ao baixo"</string>
+<string name="settings_landscape_upside_down">"Ao baixo virado ao contrário"</string>
+<string name="settings_spider_difficultiy_1">"1 (fácil)"</string>
+<string name="settings_spider_difficultiy_2">"2 (médio)"</string>
+<string name="settings_spider_difficultiy_3">"4 (difícil)"</string>
+<string name="settings_language_default">"Idioma padrão"</string>
+<string name="settings_language_english">"Inglês"</string>
+<string name="settings_language_esperanto">"Esperanto"</string>
+<string name="settings_language_french">"Francês"</string>
+<string name="settings_language_german">"Alemão"</string>
+<string name="settings_language_japanese">"Japonês"</string>
+<string name="settings_language_polish">"Polaco"</string>
+<string name="settings_language_turkish">"Turco"</string>
+<string name="settings_yukon_rules_1">"cores diferentes (padrão)"</string>
+<string name="settings_movement_speed_1">"Muito lento"</string>
+<string name="settings_movement_speed_2">"Lento"</string>
+<string name="settings_movement_speed_3">"Normal"</string>
+<string name="settings_movement_speed_4">"Rápido"</string>
+<string name="settings_win_sounds_1">"Padrão"</string>
+<string name="settings_win_sounds_2">"Piano"</string>
+<string name="settings_win_sounds_4">"Multidão a festejar"</string>
+<string name="settings_background_music_1">"Desativado"</string>
+<string name="settings_background_music_2">"Tema 1"</string>
+<string name="settings_background_music_3">"Tema 2"</string>
+<string name="settings_background_music_4">"Tema 3"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 Cartas (padrão)"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 Cartas"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 Cartas"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 Cartas"</string>
+<string name="settings_developer_option_deal_correct_sequences_1">"Desativado"</string>
+<string name="settings_developer_option_deal_correct_sequences_2">"Cor alternada"</string>
+<string name="settings_developer_option_deal_correct_sequences_3">"Mesma família"</string>
+<string name="settings_developer_option_deal_correct_sequences_4">"Cor alternada invertida"</string>
+<string name="settings_developer_option_deal_correct_sequences_5">"Mesma família invertida"</string>
 
-    <!-- Statistics -->
-    <string name="statistics_text_won_games">"Ganhou %1$d em %2$d jogos"</string>
+<!-- Statistics -->
+<string name="statistics_text_won_games">"Ganhou %1$d em %2$d jogos"</string>
 
-    <!-- %1$d and %2$d are placeholders for the values -->
-    <string name="statistics_win_percentage">"A sua percentagem de vitórias: %1$.0f%%"</string>
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"A sua percentagem de vitórias: %1$.0f%%"</string>
 
-    <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
-    <string name="statistics_button_delete">"Eliminar todas as entradas!"</string>
-    <string name="statistics_button_delete_text">"Eliminar todas as entradas para este jogo! Tem a certeza?"</string>
-    <string name="statistics_button_deleted_all_entries">"Eliminar todas as entradas"</string>
-    <string name="statistics_date">"Data"</string>
-    <string name="settings_diable_undo_costs">"Desativar penalidade na pontuação ao desfazer"</string>
-    <string name="settings_diable_hint_costs">"Desativar penalidade na pontuação nas dicas"</string>
-    <string name="statistics_high_scores">"Pontuações Mais Altas"</string>
-    <string name="statistics_recent_scores">"Pontuações Recentes"</string>
-    <string name="statistics_total_time">"Tempo total de jogo"</string>
-    <string name="statistics_total_hints_shown">"Total de dicas mostradas"</string>
-    <string name="statistics_total_number_undos">"Total de movimentos de desfazer"</string>
-    <string name="statistics_total_points_earned">"Total de pontos ganhos"</string>
-    <string name="statistics_no_entries">"Sem entradas, jogue alguns jogos!"</string>
-    <string name="dialog_auto_move">"Mover automaticamente"</string>
-    <string name="dialog_show_hints">"Mostrar dicas"</string>
-    <string name="manual_ui_text_part_1">"Num jogo aparece sempre um menu da parte inferior do ecrã (modo ao alto) ou do lado direito (modo ao baixo). Mostra também a pontuação e o tempo decorrido do jogo. O menu contém 5 itens, que têm os seguintes efeitos (botões da esquerda para a direita)
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"Eliminar todas as entradas!"</string>
+<string name="statistics_button_delete_text">"Eliminar todas as entradas para este jogo! Tem a certeza?"</string>
+<string name="statistics_button_deleted_all_entries">"Eliminar todas as entradas"</string>
+<string name="statistics_date">"Data"</string>
+<string name="settings_diable_undo_costs">"Desativar penalidade na pontuação ao desfazer"</string>
+<string name="settings_diable_hint_costs">"Desativar penalidade na pontuação nas dicas"</string>
+<string name="statistics_high_scores">"Pontuações Mais Altas"</string>
+<string name="statistics_recent_scores">"Pontuações Recentes"</string>
+<string name="statistics_total_time">"Tempo total de jogo"</string>
+<string name="statistics_total_hints_shown">"Total de dicas mostradas"</string>
+<string name="statistics_total_number_undos">"Total de movimentos de desfazer"</string>
+<string name="statistics_total_points_earned">"Total de pontos ganhos"</string>
+<string name="statistics_no_entries">"Sem entradas, jogue alguns jogos!"</string>
+<string name="dialog_auto_move">"Mover automaticamente"</string>
+<string name="dialog_show_hints">"Mostrar dicas"</string>
+<string name="manual_ui_text_part_1">"Num jogo aparece sempre um menu da parte inferior do ecrã (modo ao alto) ou do lado direito (modo ao baixo). Mostra também a pontuação e o tempo decorrido do jogo. O menu contém 5 itens, que têm os seguintes efeitos (botões da esquerda para a direita)
 
 O botão das \"Estatísticas\" mostra uma nova janela com várias estatísticas do jogo atual, como as pontuações máximas.
 
 O botão \"Ajuda\" mostrar um pequeno menu onde pode selecionar:"</string>
-    <string name="manual_ui_text_part_5">"Regras do jogo: abre a página do manual do jogo atual."</string>
-    <string name="manual_ui_text_part_6">"O botão do \"Menu\" mostra 3 ações diferentes:"</string>
-    <string name="about_material_icons_2_usage">"O ícone de ajuda \"lâmpada ligada\" é publicado em &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt;."</string>
+<string name="manual_ui_text_part_5">"Regras do jogo: abre a página do manual do jogo atual."</string>
+<string name="manual_ui_text_part_6">"O botão do \"Menu\" mostra 3 ações diferentes:"</string>
+<string name="about_material_icons_2_usage">"O ícone de ajuda \"lâmpada ligada\" é publicado em &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com&lt;/a&gt;."</string>
 
-    <!-- dialogs -->
-    <string name="dialog_no_hint_available">"Sem dica disponível!"</string>
-    <string name="dialog_no_movement_possible">"Nenhum movimento a mostrar!"</string>
-    <string name="settings_show_advanced_settings_title">"Desbloquear as categorias de programador"</string>
-    <string name="settings_language_italian">"Italiano"</string>
-    <string name="settings_language_portuguese_brazil">"Português (Brasil)"</string>
-    <string name="settings_language_ukrainian">"Ucraniano"</string>
-    <string name="settings_game_layout_margins_title">"Margens do jogo"</string>
-    <string name="settings_game_layout_margins_text">"Adicione margens à esquerda e direta do jogo. As cartas serão mais pequenas, mas a sobreposição será menor."</string>
-    <string name="settings_game_layout_margins_none">"Nenhuma"</string>
-    <string name="settings_game_layout_margins_small">"Pequena"</string>
-    <string name="settings_game_layout_margins_medium">"Média"</string>
-    <string name="settings_game_layout_margins_large">"Grande"</string>
-    <string name="settings_hide_menu_button">"Ocultar botão do menu"</string>
-    <string name="settings_immersive_mode_title">"Ativar ecrã total"</string>
-    <string name="settings_immersive_mode_text">"Ocultar as Barras de Estado e Navegação durante o jogo (apenas em Android 4.4 ou superior)"</string>
-    <string name="settings_cards_paris">"Paris"</string>
-    <string name="settings_language_spanish_argentina">"Espanhol (Argentina)"</string>
+<!-- dialogs -->
+<string name="dialog_no_hint_available">"Sem dica disponível!"</string>
+<string name="dialog_no_movement_possible">"Nenhum movimento a mostrar!"</string>
+<string name="settings_show_advanced_settings_title">"Desbloquear as categorias de programador"</string>
+<string name="settings_language_italian">"Italiano"</string>
+<string name="settings_language_portuguese_brazil">"Português (Brasil)"</string>
+<string name="settings_language_ukrainian">"Ucraniano"</string>
+<string name="settings_game_layout_margins_title">"Margens do jogo"</string>
+<string name="settings_game_layout_margins_text">"Adicione margens à esquerda e direta do jogo. As cartas serão mais pequenas, mas a sobreposição será menor."</string>
+<string name="settings_game_layout_margins_none">"Nenhuma"</string>
+<string name="settings_game_layout_margins_small">"Pequena"</string>
+<string name="settings_game_layout_margins_medium">"Média"</string>
+<string name="settings_game_layout_margins_large">"Grande"</string>
+<string name="settings_hide_menu_button">"Ocultar botão do menu"</string>
+<string name="settings_immersive_mode_title">"Ativar ecrã total"</string>
+<string name="settings_immersive_mode_text">"Ocultar as Barras de Estado e Navegação durante o jogo (apenas em Android 4.4 ou superior)"</string>
+<string name="settings_cards_paris">"Paris"</string>
+<string name="settings_language_spanish_argentina">"Espanhol (Argentina)"</string>
 
-    <!-- Settings -->
-    <string name="settings_apply_only_for_this_game">"Aplicar alterações apenas em %1$s"</string>
-    <string name="settings_hide_auto_complete_button">"Desativar botão de auto-completar"</string>
-    <string name="settings_dialog_only_for_this_game_enable_2">"Desativar esta opção"</string>
-    <string name="settings_dialog_only_for_this_game_removed_all">"Configurações individuais removidas"</string>
-    <string name="settings_ensure_movability_title">"Garantir número de movimentos"</string>
-    <string name="settings_ensure_movability_searching_games">"A procurar um jogo adequado…"</string>
-    <string name="settings_ensure_movability_min_moves_title">"Alterar quantidade de movimentos"</string>
-    <string name="settings_number_input_error">"Não é possível gravar esses números"</string>
-    <string name="settings_developer_option_improve_auto_move_text">"Auto Mover irá tentar ganhar o jogo utilizando também o monte principal"</string>
-    <string name="black">"Preto"</string>
-    <string name="white">"Branco"</string>
-    <string name="settings_ensure_movability_make_game_winnable_button_title">"Tornar possível ganhar certos jogos"</string>
-    <string name="settings_ensure_movability_winnable">"Ganhável"</string>
-    <string name="settings_reset_to_defaults">"Repor valores originais"</string>
-    <string name="settings_text_color">"Cor do texto e montes"</string>
-    <string name="settings_language_chinese_simplified">"Chinês (simplificado)"</string>
-    <string name="settings_ensure_movability_cancle_search">"Cancelar e iniciar imediatamente"</string>
-    <string name="games_Maze">"Labirinto"</string>
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"Aplicar alterações apenas em %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Desativar botão de auto-completar"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Desativar esta opção"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Configurações individuais removidas"</string>
+<string name="settings_ensure_movability_title">"Garantir número de movimentos"</string>
+<string name="settings_ensure_movability_searching_games">"A procurar um jogo adequado..."</string>
+<string name="settings_ensure_movability_min_moves_title">"Alterar quantidade de movimentos"</string>
+<string name="settings_number_input_error">"Não é possível gravar esses números"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Auto Mover irá tentar ganhar o jogo utilizando também o monte principal"</string>
+<string name="black">"Preto"</string>
+<string name="white">"Branco"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Tornar possível ganhar certos jogos"</string>
+<string name="settings_ensure_movability_winnable">"Ganhável"</string>
+<string name="settings_reset_to_defaults">"Repor valores originais"</string>
+<string name="settings_text_color">"Cor do texto e montes"</string>
+<string name="settings_language_chinese_simplified">"Chinês (simplificado)"</string>
+<string name="settings_ensure_movability_cancle_search">"Cancelar e iniciar imediatamente"</string>
+<string name="games_Maze">"Labirinto"</string>
 </resources>
