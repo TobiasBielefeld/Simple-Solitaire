@@ -122,12 +122,13 @@ public class GameLogic {
 
             //timer will be loaded in onResume() of the game manager
 
+            //load cards first, so their direction (up/down) is known for correct spacing calculation
+            Card.load();
 
             for (Stack stack : stacks) {
                 stack.load(withoutMovement);
             }
 
-            Card.load();
             loadRandomCards();
 
             checkForAutoCompleteButton(withoutMovement);
