@@ -651,7 +651,7 @@ Każdą kartę można przenieść na pusty stos gry, ale każdy stos może zawie
 
 Przeniesienie wszystkich kart ze stosu odrzutów z powrotem na stos główny: -200"</string>
 <string name="settings_language_spanish_argentina">"Hiszpański (Argentyna)"</string>
-
+<string name="settings_language_spanish">"Hiszpański"</string>
 <!-- Settings -->
 <string name="settings_apply_only_for_this_game">"Zostosuj zmiany tylko dla %1$s"</string>
 <string name="settings_hide_auto_complete_button">"Ukryj przycisk „automatyczne ruchy”"</string>

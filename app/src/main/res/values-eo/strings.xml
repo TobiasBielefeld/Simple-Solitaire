@@ -649,6 +649,7 @@ Frapetu la ĉefan stakon por malkovri kaj movi unu karton al la forĵeta stako. 
 
 Transmeti ĉiujn kartojn de forĵeta stako al ĉefa stako: -200"</string>
 <string name="settings_language_spanish_argentina">"Hispana (Argentina)"</string>
+<string name="settings_language_spanish">"Hispana"</string>
 
 <!-- Settings -->
 <string name="settings_apply_only_for_this_game">"Apliki ŝanĝojn nur por %1$s"</string>

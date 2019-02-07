@@ -296,7 +296,7 @@
 <string name="settings_cards_paris">"巴黎"</string>
 <string name="games_NapoleonsTomb">"拿破仑之墓"</string>
 <string name="settings_language_spanish_argentina">"西班牙语 （阿根廷）"</string>
-
+<string name="settings_language_spanish">"西班牙语"</string>
 <!-- Settings -->
 <string name="settings_apply_only_for_this_game">"只为 %1$s 保存更改"</string>
 <string name="settings_hide_auto_complete_button">"禁用自动完成按钮"</string>

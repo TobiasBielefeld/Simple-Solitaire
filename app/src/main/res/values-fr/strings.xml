@@ -647,7 +647,7 @@ N'importe quelle carte peut être placée sur chaque pile de tableaux, mais chaq
 
 Déplacer les cartes de la défausse à la pioche : -200"</string>
 <string name="settings_language_spanish_argentina">"Espagnol (Argentine)"</string>
-
+<string name="settings_language_spanish">"Espagnol"</string>
 <!-- Settings -->
 <string name="settings_apply_only_for_this_game">"Appliquer les changements uniquement pour %1$s"</string>
 <string name="settings_hide_auto_complete_button">"Désactiver le bouton Autocomplete"</string>

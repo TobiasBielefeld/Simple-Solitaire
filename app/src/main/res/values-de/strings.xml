@@ -643,6 +643,8 @@ Jede Karte darf auf jeden Tableau-Stapel gespielt werden, aber die Stapel dürfe
 
 Bewege alle Karten vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
 <string name="settings_language_spanish_argentina">"Spanisch (Argentinien)"</string>
+<string name="settings_language_spanish">"Spanisch"</string>
+<string name="settings_language_hungarian">"Ungarisch"</string>
 
 <!-- Settings -->
 <string name="settings_apply_only_for_this_game">"Wende Änderungen nur für %1$s an"</string>

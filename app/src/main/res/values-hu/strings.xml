@@ -39,9 +39,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
 <string name="games_GrandfathersClock">"Grandfather's Clock"</string>
-<string name="games_Vegas">"
-Vegas
-"</string>
+<string name="games_Vegas">"Vegas"</string>
 <string name="games_Calculation">"Calculation"</string>
 
 <!-- colors -->
@@ -650,6 +648,7 @@ Bármelyik kártya elhelyezhető az asztalivermekben, de a vermek egyszerre csak
 
 Mozgassa vissza a kártyákat a dobásveremből: -200"</string>
 <string name="settings_language_spanish_argentina">"Spanyol (Argentina)"</string>
+<string name="settings_language_spanish">"Spanyol"</string>
 
 <!-- Settings -->
 <string name="settings_apply_only_for_this_game">"A módosítások alkalmazása csak a(z) %1$s"</string>

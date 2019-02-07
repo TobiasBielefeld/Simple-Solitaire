@@ -302,7 +302,7 @@ O botão \"Ajuda\" mostrar um pequeno menu onde pode selecionar:"</string>
 <string name="settings_immersive_mode_text">"Ocultar as Barras de Estado e Navegação durante o jogo (apenas em Android 4.4 ou superior)"</string>
 <string name="settings_cards_paris">"Paris"</string>
 <string name="settings_language_spanish_argentina">"Espanhol (Argentina)"</string>
-
+<string name="settings_language_spanish">"Espanhol"</string>
 <!-- Settings -->
 <string name="settings_apply_only_for_this_game">"Aplicar alterações apenas em %1$s"</string>
 <string name="settings_hide_auto_complete_button">"Desativar botão de auto-completar"</string>

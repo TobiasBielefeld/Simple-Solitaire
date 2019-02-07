@@ -313,6 +313,7 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="settings_cards_paris">"Paris"</string>
 <string name="games_NapoleonsTomb">"Tumba de Napoleón"</string>
 <string name="settings_language_spanish_argentina">"Español (Argentina)"</string>
+<string name="settings_language_spanish">"Español"</string>
 
 <!-- Settings -->
 <string name="settings_apply_only_for_this_game">"Aplicar cambios sólo para %1$s"</string>
