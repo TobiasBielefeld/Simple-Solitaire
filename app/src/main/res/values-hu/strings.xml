@@ -1,2 +1,708 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+<string name="app_version">"Változat"</string>
+<string name="settings">"Beállítások"</string>
+<string name="game_manual">"Kézikönyv"</string>
+<string name="game_score">"Pontszám"</string>
+<string name="game_time">"Idő"</string>
+<string name="game_cancel">"Mégsem"</string>
+<string name="game_confirm">"Megerősit"</string>
+<string name="game_auto_complete_text">"AUTOMATIKUSAN KIRAK"</string>
+<string name="game_press_again">"Nyomja meg újra a kilépéshez."</string>
+<string name="game_load_error">"Adat betöltési hiba, új játék indítása."</string>
+<string name="game_close">"Kilépés"</string>
+<string name="game_main_menu">"Főmenü"</string>
+<string name="item_game_rules">"Játékszabályok"</string>
+<string name="item_return_to_main_menu">"Vissza a főmenühöz"</string>
+
+<!-- Menu -->
+<string name="menu_undo">"Visszavonás"</string>
+<string name="menu_main_menu">"Menü"</string>
+<string name="menu_settings">"Beállítások"</string>
+
+<!-- game names 
+
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"Klondike"</string>
+<string name="games_Freecell">"Freecell"</string>
+<string name="games_Yukon">"Yukon"</string>
+<string name="games_Spider">"Spider"</string>
+<string name="games_SimpleSimon">"Simple Simon"</string>
+<string name="games_Golf">"Golf"</string>
+<string name="games_Pyramid">"Pyramid"</string>
+<string name="games_TriPeaks">"TriPeaks"</string>
+<string name="games_FortyEight">"Forty &amp; Eight"</string>
+<string name="games_AcesUp">"Aces Up"</string>
+<string name="games_Gypsy">"Gypsy"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"Canfield"</string>
+<string name="games_GrandfathersClock">"Grandfather's Clock"</string>
+<string name="games_Vegas">"
+Vegas
+"</string>
+<string name="games_Calculation">"Calculation"</string>
+
+<!-- colors -->
+<string name="blue">"Kék"</string>
+<string name="green">"Zöld"</string>
+<string name="red">"Vörös"</string>
+<string name="yellow">"Sárga"</string>
+<string name="orange">"Narancs"</string>
+<string name="purple">"Lila"</string>
+
+<!-- game stuff -->
+<string name="game_longest_run">"Leghosszabb sorozat:"</string>
+
+<!-- dialog won -->
+<string name="dialog_win_titel">"Gratulálok!"</string>
+<string name="dialog_win_score">"Pontszám: %1$d"</string>
+<string name="dialog_win_bonus">"Bónusz: %1$d"</string>
+<string name="dialog_win_total">"Összesen: %1$d"</string>
+
+<!-- dialog mix cards -->
+<string name="dialog_mix_cards_title">"Kártyák keverése"</string>
+<string name="dialog_mix_cards_text">"Ez megkeveri az összes kártyát, kivéve a helyes sorrendű sorozatokat és az alapvermekben találhatókat."</string>
+<string name="dialog_mix_cards_not_available">"Tud kártyát mozgatni!"</string>
+
+<!-- dialog start new game -->
+<string name="dialog_start_new_game_title">"Új játék indítása"</string>
+<string name="dialog_start_new_game_text">"Elvesztettként könyveli el a játékot és új játékot tölt be, megkevert kártyákkal."</string>
+
+<!-- dialog redeal -->
+<string name="dialog_redeal_title">"Adja újra a kártyákat"</string>
+<string name="dialog_redeal_text">"Elvesztettként könyveli el a játékot és újra betölti az eredeti kártyákkal."</string>
+
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"Kézikönyv"</string>
+<string name="title_activity_settings">"Beállítások"</string>
+<string name="title_activity_about">"A játékról"</string>
+<string name="title_activity_statistics">"Statisztikák"</string>
+
+<!-- About activity -->
+<string name="about_tab_1">"Információ"</string>
+<string name="about_tab_2">"Licenszek"</string>
+<string name="about_tab_3">"Változáslista"</string>
+<string name="about_loading">"Betöltés..."</string>
+<string name="about_developer">"Fejlesztő"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"Összeállítva"</string>
+<string name="about_source_code">"Forráskód"</string>
+<string name="about_license">"Licensz"</string>
+<string name="about_translations">"Fordítók"</string>
+<string name="about_further_contributors">"További közreműködők"</string>
+<string name="about_android_support_libraries_title">"Android support library"</string>
+<string name="about_android_support_libraries_usage">"A jobb tervezéshez és a könnyebb fejlesztéshez lett használva."</string>
+<string name="about_material_icons_title">"Material design icons"</string>
+<string name="about_material_icons_usage">"Az alkalmazás összes ikonjához lett használva."</string>
+<string name="about_card_themes_title">"Kártya témák"</string>
+<string name="about_card_themes_usage">"A kártya témák a &lt;a href=https://pixabay.com/&gt;pixabay.com-ról vannak&lt;/a&gt;, részletes információért kattintson &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;ide.&lt;/a&gt;"</string>
+<string name="about_poker_themes_usage">"A póker téma használja - Megtalálható a &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net -en.&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
+<string name="about_custom_color_picker_title">"AmbilWarna library"</string>
+<string name="about_custom_color_picker_usage">"Az egyéni színkiválasztóhoz lett használva."</string>
+<string name="about_sounds_title">"Hangok"</string>
+<string name="about_sounds_usage">"Minden hangot eredetileg a &lt;a href=https://freesound.org&gt;freesound.org-on&lt;/a&gt; tettek közzé, részletes információért kattintson &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;ide.&lt;/a&gt;"</string>
+<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
+<string name="about_sliding_tabs_usage">"\"A játékról\" képernyőn lévő fülekhez lett használva."</string>
+
+<!-- Manual -->
+<string name="manual_games">"Játékok"</string>
+<string name="manual_feedback">"Visszajelzés"</string>
+<string name="manual_startpage">"Kezdőlap"</string>
+<string name="manual_back_to_game">"Vissza a játékhoz"</string>
+<string name="manual_structure">"Felépítés"</string>
+<string name="manual_objective">"Célkitűzés"</string>
+<string name="manual_rules">"Szabályok"</string>
+<string name="manual_scoring">"Pontozás"</string>
+<string name="manual_main_menu">"Főmenü"</string>
+<string name="manual_ui">"Felhasználói felület"</string>
+<string name="page_load_error">"Ehez a játékhoz nincs leírás..."</string>
+<string name="manual_bonus">"Miután megnyert egy játékot bónuszt kap. Minél gyorsabban nyer annál nagyobb lesz a bónusz."</string>
+<string name="manual_open_google_play">"Open Google Play"</string>
+<string name="manual_open_github">"Open GitHub Repo"</string>
+<string name="manual_games_text1">"Válasszon egy játékot hogy lássa a felépítését, a célkitűzést, a szabályokat és a pontozást."</string>
+<string name="manual_startpage_text">"Üdvözlöm a játék kollekció kézikönyvében! Remélem hogy mindent elmagyaráz.
+
+Használja a baloldali menüt a kézikönyv oldalak eléréséhez."</string>
+<string name="manual_general_main_menu">"A főmenü használata viszonylag egyszerű. Csak érintse meg a játékot az elindításához.
+
+Az alkalmazás automatikusan betölti az utolsó játszott játékot újraindítás esetén, ha a játék megszakadt. Ezt a viselkedést le lehet tiltani a beállítások \"Főmenü\" részében.
+
+A beállítások \"Főmenü\" részében lehetőség van a játékok elrejtésére és rendezésére, megváltoztatható az oszlopok száma, így több játék jelenthet meg a képernyőn egyszerre."</string>
+<string name="manual_ui_text">"A játék mindig egy kis menüt jelenít meg a képernyő alsó részén (álló módban) vagy a jobb oldalon (fekvő módban). Az aktuális pontszámot és a játékidőt is mutatja. A menü 5 elemet tartalmaz, melyek a következők (gombok balról jobbra):
+
+A \"Pontszám\" gomb új ablakot jelenít meg az aktuális játék legmagasabb pontszámaival és a megnyert játékok számával.
+
+A \"Tipp\" gomb segíthet a legfeljebb 3 lehetséges kártyamozgás egyszerre történő megjelenítésével. De ez 25 ponttal csökkenti az aktuális pontszámot. Megjegyzés: a triviális mozgások mint a kártyák üres mezőre mozgatása, vagy a fő verem megnyomása, nem jelenik meg mint tipp. Ha nincs mutatható tipp, a pontszám nem csökken.
+
+A \"Menü\" gomb három különböző műveletet mutat: Új játék indítása, megkeveri a kártyákat és leosztja az új játékot. Adja újra a kártyákat, újra indítja az aktuális játékot ugyanazokkal a lapokkal. Az utolsó opció befejezi az aktuális játékot, és visszalépteti az alkalmazást a főmenübe.
+
+A \"Visszavonás\" gombbal az utolsó mozgatást vonhatja vissza, de ez 25 ponttal csökkenti a pontszámot. Az utolsó 20 mozgatás vonható vissza.
+
+A \"Beállítások\" gomb egyszerűen megnyitja a beállításokat."</string>
+<string name="manual_feedback_text">"Talált egy hibát?  Valamit javítanom kell?  Adjak hozzá egy másik játékot a gyűjteményhez? Talán segíteni szeretne egy fordításnál? Vagy van egy ötlete?
+
+Örülök ha bármilyen visszajelzést kapok. Ha úgy érzi, hogy kapcsolatba szeretne lépni velem, akkor a következő két lehetőség közül választhat:
+
+Használja a hibajelentés követőt a Githubon: A program projektnek a Githubon van hibajelentés követője. Csak kattintson a képernyő bal oldalán lévő gombra a hibajelentő internet böngészőben történő megnyitásához.
+
+Használja a minősítést a Google Playen: Nyissa meg az oldalt az alkalmazásból és írja le a véleményét. Kattintson a jobb oldali gombra a Google Play Áruház megnyitásához (ha telepítve van).
+
+Előre is köszönöm a visszajelzést.  :)"</string>
+<string name="manual_Klondike_structure">"1 db 52 lapos kártyacsomag.
+
+7 asztaliverem, 4 alapverem, 1 fő és 1 dobásverem."</string>
+<string name="manual_Klondike_objective">"Rakjon minden kártyát a saját kártyacsaládjában növekvő sorrendben az alapvermekre."</string>
+<string name="manual_Klondike_rules">"A kártyákat a táblavermeken csökkenő sorrendben és váltakozó színekben lehet elhelyezni. Egyszerre mozgathatja a kártyák egész sorát. Az alap vermeken a kártyák csak a növekvő sorrendben helyezhetők el a saját kártyacsaládjukban.
+
+Csak királyok helyezhetők el üres asztalivermekre és csak ászok helyezhetők el az üres alapvermeken.
+
+A főverem megnyomásával a kártyák a dobásverembe kerülnek, ahonnan felhasználhatók. A kártyák mennyisége a beállítástól függ. Ha az 1 lapdobást választotta, csak egy kártya lesz áthelyezve (ez az alapértelmezett beállítás a könnyebb játékhoz). A 3 lapdobás  beállításával engedélyezve van 3 kártya egyszerre történő dobása.
+
+Ha a főverem üres akkor újra megnyomhatja azt, hogy minden kártyát a dobásveremből a főveremre visszamozgasson és újra felhasználja őket."</string>
+<string name="manual_Klondike_scoring">"A táblaveremből az alapveremre: +60
+
+A dobásveremből az alapveremre: +45
+
+Az alapveremből a táblaveremre: -75
+
+Fordítson meg egy kártyát: +25
+
+A kártyák visszamozgatása a dobásveremből a főveremre: -200"</string>
+<string name="manual_Freecell_structure">"1 db 52 lapos kártyacsomag.
+
+8 táblaverem, 4 alapverem és 4 szabad tároló hely."</string>
+<string name="manual_Freecell_objective">"Rakjon minden kártyát a saját kártyacsaládjában növekvő sorrendben az alapvermekre."</string>
+<string name="manual_Freecell_rules">"A kártyákat a táblavermeken csökkenő sorrendben és váltakozó színekben lehet elhelyezni. Az alapvermeken a kártyák csak növekvő sorrendben helyezhetők el a saját kártyacsaládjukban. A felül található 4 szabad tároló helyekre egyszerre csak egy-egy kártyát tehet.
+
+Egyszerre több kártyát is mozgathat amelyek helyes sorrendben vannak, ha vannak szabad helyek (táblaverem és szabad tároló). Ez megfelel annak a szabálynak hogy egyszerre csak egy kártyát lehet áthelyezni, de ha szabad helyek vannak akkor a kártyák ezeken keresztül egyszerre mozgathatók.
+
+Bármelyik kártyát elhelyezheti az üres táblavermeken és szabad tárolókon. Az üres alapvermekre csak ászokat helyezhet."</string>
+<string name="manual_Freecell_scoring">"Helyezzen egy kártyát az alapveremre: +60
+
+Vissza vesz egy kártyát az alapveremről: -75
+
+Mozgassa a királyt egy üres mezőre: +20"</string>
+<string name="manual_Yukon_structure">"1 db 52 lapos kártyacsomag.
+
+7 táblaverem és 4 alapverem."</string>
+<string name="manual_Yukon_objective">"Rakjon minden kártyát a saját kártyacsaládjában növekvő sorrendben az alapvermekre."</string>
+<string name="manual_Yukon_rules">"A kártyákat a táblavermeken csökkenő sorrendben és váltakozó színekben lehet elhelyezni, ez az alapértelmezett, ami megváltoztatható a beállításokban. Az alapvermeken a kártyák csak növekvő sorrendben helyezhetők el a saját kártyacsaládjukban.
+
+Minden felfordított kártyát mozgathat, függetlenül attól hogy hány kártya és milyen sorrendben van a kártyán.
+
+Csak királyok helyezhetők az üres táblavermekre és csak ászok helyezhetők el az üres alapvermekre."</string>
+<string name="manual_Yukon_scoring">"A táblavermekből az alapvermekre: +60
+
+Az alapvermekből a táblavermekre: -75
+
+Mozgassa a királyt egy üres táblaveremre: +20
+
+Egy lefordított kártya felfordítása: +25"</string>
+<string name="manual_Spider_structure">"2 db 52 lapos kártyacsomag.
+
+10 táblaverem és 8 alapverem.
+
+1 főverem 5 kupacban.
+
+A beállításoktól függően 1, 2 vagy 4 különböző kártyacsalád."</string>
+<string name="manual_Spider_objective">"Rakjon minden kártyát a saját kártyacsaládjában csökkenő sorozatokban a táblavermekre. A teljes kártyacsaládok automatikusan átkerülnek az alapvermekre."</string>
+<string name="manual_Spider_rules">"A kártyákat bármelyik kártyára csökkenő sorrendben lehet elhelyezni. De csak az ugyanabba a kártyacsaládba tartozó sorozatokat lehet egyszerre mozgatni.
+
+Minden kártya elhelyezhető az üres asztalivermeken.
+
+Ha a táblavermeken található kártyák nem mozgathatók nyomja meg a fővermet, hogy egy-egy kártyát dobjon minden táblaveremre."</string>
+<string name="manual_Spider_scoring">"Egy kártyacsalád áthelyezése az alapveremre: +200
+
+Egy kártya felfordítása: +25"</string>
+<string name="manual_SimpleSimon_structure">"1 db 52 lapos kártyacsomag.
+
+10 asztaliverem és 4 alapverem."</string>
+<string name="manual_SimpleSimon_objective">"Helyezzen minden kártyát a saját kártyacsaládjában csökkenő sorozatokban a táblavermekre. A teljes kártyacsaládok automatikusan átkerülnek az alapvermekre."</string>
+<string name="manual_SimpleSimon_rules">"A kártyákat bármelyik kártyára a csökkenő sorrendben lehet elhelyezni. De csak a saját kártyacsaládjába tartozó kártya sorozatot lehet egyszerre mozgatni.
+
+Minden kártya elhelyezhető az üres asztalivermeken."</string>
+<string name="manual_SimpleSimon_scoring">"Egy kártyacsalád mozgatása az alapveremre: +200"</string>
+<string name="manual_Golf_structure">"1 db 52 lapos kártyacsomag.
+
+7 táblaverem, 1 fő és 1 dobásverem.
+
+A dobásveremből a kártyák visszahelyezése a főverembe nem lehetséges.(Kivéve a Visszavonás gomb használatával.)"</string>
+<string name="manual_Golf_objective">"Rakja az összes kártyát a táblavermekből a dobásveremre."</string>
+<string name="manual_Golf_rules">"A táblavermek minden felső lapját játszhatjuk. A kártyák csak a dobásveremre helyezhetők el növekvő és csökkenő sorrendben, a színtől függetlenül.
+
+A beállítástól függően királyt is helyezhet ászra és fordítva. (Könnyebb játék)
+
+Ha egy kártyát sem lehet áthelyezni, akkor nyomja meg a fővermet, hogy egy új kártyát dobjon a dobásveremre."</string>
+<string name="manual_Golf_scoring">"Helyezzen egy kártyát a dobásveremre: +50"</string>
+<string name="manual_Pyramid_structure">"1 db 52 lapos kártyacsomag.
+
+28 táblaverem, 1 fő, 1 dobás és 1 hulladékverem.
+
+A dobásverem kártyáit  az alapbeállítás szerint kétszer lehet visszahelyezni a főverembe."</string>
+<string name="manual_Pyramid_objective">"Helyezze át az összes kártyát a táblavermekből a hulladékverembe. A beállítástól függően a fő és a dobásvermek minden kártyáját is át kell helyezni a hulladékverembe."</string>
+<string name="manual_Pyramid_rules">"Ennek a játéknak kissé eltérőek a szabályai a többi Solitaire játéktól. Minden kártya, amelyet más kártya nem takar, játszható. Két kártya, amelyek értéke 13, áthelyezhető a hulladékverembe. Ehhez mozgassa az egyik kártyát a másik kártyára. Ha az értékük 13 automatikusan átkerülnek a hulladékverembe.  A királyok értéke 13, így automatikusan átkerülnek a hulladékverembe.
+
+A fő és a dobásverem kártyáit is felhasználhatja. Ha nem lehet a kártyákat mozgatni, nyomja meg a nyilat a két verem között, hogy egy kártyát a főveremből a dobásverembe helyezzen. Ha a főverem üres nyomja meg ismét, hogy visszahelyezze a kártyákat a dobásveremből a főverembe. Ez a visszamozgatás korlátozott a játékban. A lehetőségek száma a nyíl fölötti kis számként jelenik meg."</string>
+<string name="manual_Pyramid_scoring">"Helyezze át a kártyákat a hulladékverembe: +50
+
+Mozgassa vissza a kártyákat a dobásveremből a főverembe: -200"</string>
+<string name="manual_TriPeaks_structure">"1 db 52 lapos kártyacsomag.
+
+28 táblaverem, 1 fő és 1 dobásverem.
+
+A dobásveremből a kártyák visszahelyezése a főverembe nem lehetséges. (Kivéve a visszavonás gomb használatával.)"</string>
+<string name="manual_TriPeaks_objective">"Mozgassa az összes kártyát a táblavermekből a dobásverembe."</string>
+<string name="manual_TriPeaks_rules">"A játék szabályai hasonlóak a \"Golf\" -hoz. Minden olyan kártya, amelyet más kártya nem takar megjátszható. Kártyák csak a dobásverembe helyezhetők el növekvő és csökkenő sorrendben a színtől függetlenül.
+
+Lehetőség van királyokat ászokra rakni és fordítva.
+
+Ha nem lehet kártyát áthelyezni, akkor nyomja meg a fővermet, hogy egy kártyát dobjon a dobásveremre."</string>
+<string name="manual_TriPeaks_scoring">"Helyezzen át egy kártyát a dobásverembe: +50"</string>
+<string name="manual_FortyEight_structure">"2 db 52 lapos kártyacsomag.
+
+8 tábla, 8 alap, 1 fő és 1 dobásverem."</string>
+<string name="manual_FortyEight_objective">"Rakjon minden kártyát  az alapvermekre növekvő sorrendben a saját kártya családjában."</string>
+<string name="manual_FortyEight_rules">"A 8 alapveremre a kártyák csak növekvő sorrendben helyezhetők el a saját családjukban. A 8 táblavermen ugyanazon a családban lefelé csökkenő sorrendben lehet elhelyezni a kártyákat.
+
+Egyszerre csak egy kártya mozgatható, de ha szabad helyek vannak a táblavermeken, a szabad helyek számával növelhető ez a szám. Ilyenkor a többlet a szabad helyeken áthaladva mozog.
+
+Bármelyik kártya elhelyezhető az üres táblavermeken, az üres alapvermekre azonban csak ászok kerülhetnek.
+
+A főverem megnyomásával egy kártya átkerül a dobásverembe, innen mozgatható az alapvermekre vagy a táblavermekre.
+
+Ha a főverem kiürül és a felette levő kis szám nagyobb nullánál a főverem újbóli megnyomásával a dobásverem kártyái visszakerülnek a főverembe, alapbeállítás szerint egyszer egy játékban. Ez a szám növelhető a beállításokban. A főverem feletti kis szám jelzi a lehetőségek számát."</string>
+<string name="manual_FortyEight_scoring">"Egy kártya mozgatása az alapvermekre: +45
+
+Egy kártya mozgatása a táblavermekre: +60
+
+Mozgatás visszavonása: -60
+
+Visszatérő kártyák a dobásveremből a főverembe: -200"</string>
+<string name="manual_mod3_structure">"2 db 52 lapos kártyacsomag.
+
+32 asztaliverem 4 sorban, 1 fő és 1 ászverem"</string>
+<string name="manual_mod3_objective">"Rakjon minden kártyát azonos színű sorozatonként a felső 3 sorban található vermekre az alábbi módon:
+
+Első sor: 2-5-8-J sorozatok.
+Második sor: 3-6-9-Q sorozatok.
+Harmadik sor: 4-7-10-K sorozatok.
+
+Az ászokat el tudja távolítani. (A játék alapbeállítása hogy az ászok automatikusan az ászveremre mozognak.)"</string>
+<string name="manual_mod3_rules">"Egyszerre csak egy és csak felül található kártyát mozgathat. A kártyákat csak a \"Célkitűzés\" alatt megadott sorrendben lehet elhelyezni. Így elhelyezhet például egy Szív 5-t egy Szív 2-n, de csak akkor, ha a Szív 2 az  első sorban van. Csak a saját kártyacsaládjára helyezés engedélyezett.
+
+Szabad helyeket nyer azáltal hogy az ászokat az ászveremre (a fő verem felett) rakja.
+
+A negyedik sor a főverem kártyáinak eldobási sora is. Bármelyik kártya a negyedik sor szabad helyére rakható.
+
+Ha nincs mozgatható kártya, nyomja meg a fővermet hogy egy-egy kártyát dobjon a negyedik sor minden egyes vermére."</string>
+<string name="manual_mod3_scoring">"Rakjon egy kártyát az 1-3 sorok helyes mezőibe: +50
+
+Egy kártyát vissza a negyedik sorba: - 75"</string>
+<string name="manual_Gypsy_structure">"2 db 52 lapos kártyacsomag.
+
+8 táblaverem, 8 alapverem és 1 főverem."</string>
+<string name="manual_Gypsy_objective">"Rakjon minden kártyát a saját kártyacsaládjában növekvő sorrendben az alapvermekre."</string>
+<string name="manual_Gypsy_rules">"A kártyákat a táblavermeken lehet elhelyezni csökkenő sorrendben és váltakozó színekben. A helyes sorrendű sorozatokat egyszerre tudja mozgatni. Az alapvermeken a kártyák csak a növekvő sorrendben helyezhetők el a saját kártyacsaládjukban.
+
+Bármelyik kártya elhelyezhető az üres táblavermeken, az üres alapvermekre azonban csak ászok helyezhetők el kezdőlapnak.
+
+A főverem megnyomásával egy-egy kártya kerül minden táblaveremre."</string>
+<string name="manual_Gypsy_scoring">"Rakjon egy kártyát az alapveremre: +75
+
+Egy kártya vissza az alapveremből a táblaveremre: -100
+
+Fordítson meg egy kártyát: +50"</string>
+<string name="manual_AcesUp_structure">"1 db 52 lapos kártyacsomag.
+
+4 táblaverem, 1 fő és 1 alapverem.
+
+Az ászoknak 14 az értéke, így magasabb értékűek mint a királyok."</string>
+<string name="manual_AcesUp_objective">"Mozgasson minden kártyát az ászok kivételével az alapverembe, így minden táblavermen egy ász marad."</string>
+<string name="manual_AcesUp_rules">"Csak a táblavermek felső kártyái mozgathatók. Mozgassa azokat a kártyákat az alapverembe amelyek alacsonyabb értékűek mint az ugyanazon kártyacsalád kártyái. Például: A Szívek 5 és a Szívek 10 két asztaliverem tetején található. A Szívek 5-öt az alapveremre mozgathatja. Az ászok magasabb értékűek minden kártyánál.
+
+Minden mozgatható kártya elhelyezhető az üres táblavermekre.
+
+Nyomja meg a fővermet, hogy egy-egy kártyát dobjon minden egyes asztaliveremre."</string>
+<string name="manual_AcesUp_scoring">"Helyezzen egy kártyát az alapverembe: +50"</string>
+<string name="manual_Canfield_structure">"1 kártyacsomag 52 kártyával.
+
+4 táblaverem, 4 alapverem, 1 fő, 1 dobásverem és egy verem a tartalék kártyákkal."</string>
+<string name="manual_Canfield_objective">"Rakjon minden kártyát a saját kártyacsaládjában növekvő sorrendben az alapvermekre."</string>
+<string name="manual_Canfield_rules">"A kártyákat a táblavermeken lehet elhelyezni csökkenő sorrendben és váltakozó színekben. Mozgathat egy teljes kártya sorozatot is egyszerre. Az alapvermeken a kártyák csak növekvő sorrendben helyezhetők el a saját kártyacsaládjukban.
+
+Az üres táblavermekre a tartalék kártyákból automatikusan átmozog egy-egy kártya. Ha a tartalékverem üres, akkor a főverem kártyája kerül felhasználásra.
+
+A játék indításakor a baloldali alapveremre automatikusan rakott első kártya határozza meg, hogy melyik kártyákat lehet elsőnek az üres alapvermekre helyezni. Ez játékonként változik.
+
+Például: Ha a Szív 10 az első alapvermen van, csak a 10 -esek helyezhetők el az üres alapvermekre. Az alapvermekre rakott kártyák ciklikusan helyezhetők el, ász kerül a királyra.
+
+A főverem megnyomásával a kártyák a dobásverembe kerülnek, ahonnan felhasználhatók. A kártyák mennyisége a beállításokban kiválasztott értéktől függ. Ha az 1 lapdobást választotta, csak egy kártya kerül át. Ha a 3 lapdobást engedélyezte, 3 kártya kerül egyszerre át.
+
+Ha a főverem üres, akkor az újra megnyomásával visszahelyezi a kártyákat a dobásveremből a főverembe, és ismét használhatja őket."</string>
+<string name="manual_Canfield_scoring">"A táblavermekből az alapvermekre: +60
+
+A dobásveremből az alapvermekre: +45
+
+Az alapvermekből a táblavermekre: -75
+
+Fordítson fel egy kártyát: +25
+
+Helyezze vissza a kártyákat a dobásveremből a főverembe: -200"</string>
+<string name="manual_GrandfathersClock_structure">"1 db 52 lapos kártyacsomag.
+
+8 táblaverem, 12 alapverem óra formájában. Minden alapvermen már van egy kártya."</string>
+<string name="manual_GrandfathersClock_objective">"Rakjon minden kártyát a saját kártyacsaládjában növekvő sorrendben az alapvermekre. Végül az alapvermeken lévő kártya értékek megegyeznek az óra értékeivel."</string>
+<string name="manual_GrandfathersClock_rules">"A táblavermeken a kártyák csökkenő sorrendben helyezhetők el, a szín nem számít. Az alapvermeken a kártyák csak növekvő sorrendben helyezhetők el a saját kártyacsaládjukban. Az ászok a királyokra helyezhetők.
+
+Egyszerre több kártyát is mozgathat amelyek helyes sorrendben vannak, ha vannak üres táblavermek. Ez megfelel annak a szabálynak hogy egyszerre csak egy kártyát lehet áthelyezni, de ha üres táblavermek vannak akkor a kártyák ezeken keresztül egyszerre mozgathatók."</string>
+<string name="manual_GrandfathersClock_scoring">"A táblavermekből az alapvermekre: +50"</string>
+<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+<string name="manual_Vegas_objective">"Rakja a kártyákat az alapvermekbe, hogy pénzt nyerjen."</string>
+<string name="manual_Vegas_rules">"A szabályok megegyeznek a \"Klondike\" szabályaival.
+
+A kártyákat a táblavermeken lehet elhelyezni csökkenő sorrendben és váltakozó színekben. Egyszerre mozgathatja a kártyák egész sorát. Az alapvermeken a kártyák csak a növekvő sorrendben helyezhetők el a saját kártyacsaládjukban.
+
+Csak királyok helyezhetők el üres asztalivermekre és csak ászok helyezhetők el az üres alapvermeken.
+
+A főverem megnyomásával a kártyák a dobásverembe kerülnek, ahonnan felhasználhatók. A kártyák mennyisége a beállítástól függ. Ha az 1 lapdobást választotta, csak egy kártya lesz áthelyezve. A 3 lapdobás  beállításával engedélyezve van 3 kártya egyszerre történő dobása.
+
+Ha a főverem üres akkor újra megnyomhatja azt, hogy minden kártyát a dobásveremből a főveremre visszamozgasson és újra felhasználja őket."</string>
+<string name="manual_Vegas_scoring">"A megnyert pénz mennyisége a beállított tét függvénye.  Pl. a tét 52$ a játék elején és minden alapveremre helyezett kártyával 5$-t nyer.
+
+A játék megnyertként kerül mentésére (\"Statisztika\"), ha a \"Pontszám\"($) több mint 0.  Egy kártya visszahúzása az alapvermekből -2 * 5$.
+
+A tippek megjelenítése és a visszavonás funkció használatának költsége 5$.
+
+Van lehetőség arra, hogy több játékon keresztül megtartsa a már elért pontszámokat ($). (A játék beállításaiban tudja engedélyezni ezt a lehetőséget). Ebben az esetben a pontszám az egyenleg lenullázása (Reset) és \"Új játék indítása\" után lesz mentve.
+
+JOGI NYILATKOZAT: Nem valódi pénzzel játszik ebben a játékban.  :)"</string>
+<string name="manual_Calculation_structure">"1 db 52 lapos kártyacsomag.
+
+4 táblaverem, 4 alapverem, 1 fő és 1 dobásverem."</string>
+<string name="manual_Calculation_objective">"Helyezzen minden kártyát az alapvermekre, szinektől függetlenül, amíg mindegyik alapveremre király kerül. A kötegeket a következő sorrendben kell felépíteni:
+
+1. köteg az 1.v-ben: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+2. köteg  a  2.v-ben: 2, 4, 6, 8, 10, Q, A, 3, 5, 7, 9, J, K
+3. köteg  a  3.v-ben: 3, 6, 9, Q, 2, 5, 8, J, A, 4, 7, 10, K
+4. köteg  a  4.v-ben: 4, 8, Q, 3, 7, J, 2, 6, 10, A, 5, 9, K
+
+A következő játszható kártyák megjelennek az alapvermek felett."</string>
+<string name="manual_Calculation_rules">"Kezdéskor a 4 alapvermen a véletlenszerűen kiválasztott kezdő kártyák már ott vannak. Az alapverem kártyáinak a megadott sorrendet kell követniük.
+
+A dobásverem kártyái áthelyezhetők bármely táblaverembe, de az alap vermekbe csak akkor ha teljesítik a megfelelő sorrendet.
+
+Ha megnyomja a fő vermet, a dobásvermen lévő kártya átkerül a táblavermek közül abba amelyikben a legkevesebb lap van és egy új kártya kerül a dobásveremre.  Választható szabály: Engedélyezhető a játékbeállításokban hogy a dobásvermen lévő kártyák a helyükön maradjanak amikor megnyomják a fővermet.
+
+A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe helyezhetők át."</string>
+<string name="manual_Calculation_scoring">"Helyezzen egy kártyát az alapverembe: +50"</string>
+
+<!-- Settings -->
+<string name="settings_background_color">"Háttér színe"</string>
+<string name="settings_hide_status_bar">"Elrejti a státusz sávot"</string>
+<string name="settings_left_handed_mode">"Balkezes mód"</string>
+<string name="settings_left_handed_mode_description">"Baloldalra tükrözi a kártyákat és a vermeket."</string>
+<string name="settings_back_press">"Erősítse meg a játék bezárását"</string>
+<string name="settings_back_press_description">"A játék bezárásához nyomja meg kétszer a vissza gombot."</string>
+<string name="settings_orientation">"Képernyő tájolás"</string>
+<string name="settings_cards">"Kártyák"</string>
+<string name="settings_classic">"Klasszikus"</string>
+<string name="settings_simple">"Egyszerű"</string>
+<string name="settings_cards_back">"Kártya hátlap"</string>
+<string name="settings_modern">"Modern"</string>
+<string name="settings_abstract">"Absztrakt"</string>
+<string name="settings_basic">"Alap"</string>
+<string name="settings_oxygen_dark">"Oxigén sötét"</string>
+<string name="settings_oxygen_light">"Oxigén világos"</string>
+<string name="settings_poker">"Póker"</string>
+<string name="settings_background">"Hátlap száma"</string>
+<string name="settings_customization">"Kinézet"</string>
+<string name="settings_other">"Általános"</string>
+<string name="settings_other_description">"Minden más beállítás."</string>
+<string name="settings_games">"Játékok"</string>
+<string name="settings_games_description">"A játékváltozatok beállításainak megadása."</string>
+<string name="settings_spider_difficulty">"Különböző kártyacsaládok száma"</string>
+<string name="settings_klondike_draw">"A dobott kártyák száma"</string>
+<string name="settings_canfield_draw">"A dobott kártyák száma"</string>
+<string name="settings_show_main_menu">"Kezdjen a főmenüben"</string>
+<string name="settings_show_main_menu_description">"Ne az utoljára játszott játékkal induljon."</string>
+<string name="settings_golf_easy">"Ciklikus mozgatás (Könnyítés)"</string>
+<string name="settings_golf_easy_description">"Engedi az ászokat a királyokra helyezni és fordítva."</string>
+<string name="settings_menu">"Főmenü"</string>
+<string name="settings_menu_description">"Az oszlopok számának módosítása, a játékok megjelenítése és elrejtése."</string>
+<string name="settings_pyramid_difficulty">"Nehézség"</string>
+<string name="settings_menu_columns">"Oszlopok száma"</string>
+<string name="settings_menu_games">"Játékok elrejtése, mutatása."</string>
+<string name="settings_menu_games_description">"Kiválaszthatja a főmenüben megjelenő játékokat."</string>
+<string name="settings_about_description">"Információkat jelenít meg a játékról, mint a licenszek és a változáslista."</string>
+<string name="settings_change_language">"Nyelv választás"</string>
+<string name="settings_yukon_rules">"Kártyák elhelyezése..."</string>
+<string name="settings_icon_theme">"Ikon téma"</string>
+<string name="settings_menu_bar_position">"Menüsáv pozíciója"</string>
+<string name="settings_menu_bar_position_top">"Fent"</string>
+<string name="settings_menu_bar_position_bottom">"Lent"</string>
+<string name="settings_menu_bar_position_left">"Balra"</string>
+<string name="settings_menu_bar_position_right">"Jobbra"</string>
+<string name="settings_4_color_mode_title">"4 színű kártyacsomagok"</string>
+<string name="settings_4_color_mode_text">"Változtassa meg a színeket, a treffet zöldre és a kárót kékre."</string>
+<string name="settings_additional_movements">"További kártya mozgatások"</string>
+<string name="settings_additional_movements_description">"Kettős érintési mód és egyéb mozgatási módok engedélyezése és letiltása."</string>
+<string name="settings_double_tap">"Kettős érintés"</string>
+<string name="settings_double_tap_enable">"Engedélyezi a kettős érintést."</string>
+<string name="settings_double_tap_enable_text">"Nyomjon meg kétszer egy kártyát a lehetséges veremre való áthelyezéshez."</string>
+<string name="settings_double_tap_all_cards">"Mozgassa az összes lehetséges kártyát"</string>
+<string name="settings_double_tap_all_cards_text">"Mozgassa a lehető legtöbb kártyát a veremből, ne csak a megérintett kártyát."</string>
+<string name="settings_tap_to_select">"Kiválasztás érintéssel"</string>
+<string name="settings_tap_to_select_enable">"A kiválasztás érintéssel engedélyezése"</string>
+<string name="settings_tap_to_select_enable_text">"Érintse meg a kártyát a kiválasztáshoz, majd érintse meg a cél vermet, hogy oda mozgassa."</string>
+<string name="settings_single_tap">"Egyérintés"</string>
+<string name="settings_single_tap_enable_text">"Csak a Golf és a TriPeaks esetében: Nyomjon meg egyszer egy kártyát, hogy áthelyezze a dobásveremre."</string>
+<string name="settings_double_tap_foundation_first">"Először az alapveremre mozgass"</string>
+<string name="settings_double_tap_foundation_first_text">"Próbálja meg áthelyezni a megérintett verem felső kártyáját az alapveremre, mielőtt a többi kártyát áthelyezi."</string>
+<string name="settings_movement_speed">"Kártya mozgás sebessége"</string>
+<string name="Settings_sound">"Engedélyezi a hangokat"</string>
+<string name="Settings_sounds_title">"Hangok"</string>
+<string name="Settings_sounds_text">"Engedélyezi a hangokat, különböző hanghatásokat állíthat be."</string>
+<string name="Settings_win_sound_title">"Győzelmi hang effekt"</string>
+<string name="Settings_background_music">"Háttérzene"</string>
+<string name="settings_background_color_custom">"Saját"</string>
+<string name="Settings_background_volume">"Háttérzene hangerő"</string>
+<string name="settings_limit_number_of_recycles">"Korlátozza az újra felhasználást"</string>
+<string name="settings_limit_number_of_recycles_text">"A dobásverem kártyáinak visszamozgatása a főverembe korlátozott"</string>
+<string name="settings_number_of_recycles">"Újra felhasználás száma"</string>
+<string name="settings_vegas_bet_amount">"Tét összege"</string>
+<string name="settings_menu_order_title">"Főmenü rendezése"</string>
+<string name="settings_menu_order_summary">"Nyomva tartva, húzással új helyre mozgathatja a bejegyzéseket."</string>
+<string name="settings_menu_order_set_default">"A menürend visszaállítása"</string>
+<string name="settings_auto_start_new_game_title">"Elindít egy új játékot amikor nyert"</string>
+<string name="settings_auto_start_new_game_text">"Ha visszatér egy már megnyert játékhoz automatikusan elindít egy új játékot."</string>
+<string name="settings_customization_description">"Testreszabhatja a kártyákat, háttereket és a felhasználói felületet."</string>
+<string name="settings_force_tablet_layout_title">"Tablett elrendezés"</string>
+<string name="settings_force_tablet_layout_text">"Nagy képernyőhöz igazítja az alkalmazás megjelenítését. (≥7\")"</string>
+<string name="settings_calculation_alternative_title">"Tartsa a kártyákat"</string>
+<string name="settings_calculation_alternative_text">"A főverem megnyomásánál: Ahelyett, hogy a dobásveremről a kártyát a táblavermekre helyezné, tartsa a dobásvermen."</string>
+<string name="settings_vegas_money_enabled">"Megtartja az egyenleget"</string>
+<string name="settings_vegas_money_enabled_text">"Az egyenleg átkerül a következő Vegas játékba, a pontszám($) csak az egyenleg nullázása és \"Új játék indítása\" után kerül mentésre az eredmények közé."</string>
+<string name="settings_vegas_money_reset">"Egyenleg nullázása"</string>
+<string name="settings_vegas_money_reset_text">"A következő Vegas játék induló egyenlege 0$"</string>
+<string name="settings_vegas_money_reset_confirm">"Biztos hogy nullázza az egyenlegét? Ezt nem lehet visszavonni."</string>
+<string name="settings_auto_move_title">"Automatikus mozgatás"</string>
+<string name="settings_mod3_auto_move_text">"Automatikusan az ászveremre mozgatja az ászokat, ha lehetséges."</string>
+<string name="settings_pyramid_auto_move_text">"Automatikusan a hulladékveremre mozgatja a királyokat, ha lehetséges."</string>
+<string name="settings_rules">"Szabályok"</string>
+<string name="settings_money">"Pénz"</string>
+<string name="settings_support">"Támogatás"</string>
+<string name="settings_hide_time">"Elrejti az időt"</string>
+<string name="settings_hide_score">"Elrejti a pontszámot"</string>
+<string name="settings_single_tap_enable">"Engedélyezi az egyérintéses mozgásokat"</string>
+<string name="settings_vegas_bet_amount_text_1">"Kezdőtét összege:"</string>
+<string name="settings_vegas_bet_amount_text_2">"Minden alapveremre mozgatott kártya után kap:"</string>
+<string name="settings_vegas_bet_amount_summary">"Kezdőtét: -%1$d$, kártya az alapveremre: +%2$d$"</string>
+<string name="settings_single_tap_all_games_text">"Nyomja meg egyszer a kártyát, hogy áthelyezze a lehetséges veremre. Ugyanaz mint a kettős érintési módú mozgatások. Ez kikapcsolja a kiválasztás érintéssel mozgatásokat."</string>
+<string name="settings_canfield_size_of_reserve_title">"A tartalékverem mérete (könnyítés)"</string>
+<string name="settings_use_true_randomisation_title">"Használjon valódi véletlenszerűséget"</string>
+<string name="settings_use_true_randomisation_text">"Az alapértelmezett véletlenszerűség kerüli az egymás melletti hasonló kártyákat. Próbálja ki ezt, engedélyezze a valódi, egységes véletlenszerűséget."</string>
+<string name="settings_developer_options">"Fejlesztői lehetőségek"</string>
+<string name="settings_developer_options_description">"Játsszon őrült beállításokkal!"</string>
+<string name="settings_developer_options_move_card_everwhere_title">"Bárhova mozgathatja a kártyákat"</string>
+<string name="settings_developer_options_move_card_everwhere_text">"A kártyákat bármelyik veremre elhelyezheti."</string>
+<string name="settings_developer_options_lock_text">"Ezek a beállítások csak tesztelési célokra szolgálnak, a használatuk furcsa viselkedést és összeomlást eredményezhet!"</string>
+<string name="settings_developer_options_play_every_card_title">"Játék minden kártyával"</string>
+<string name="settings_developer_options_play_every_card_text">"Minden felfedett kártyával tud játszani."</string>
+<string name="settings_developer_options_instant_win_title">"Azonnal nyer"</string>
+<string name="settings_developer_options_instant_win_text">"Megnyer minden játékot egy kártya áthelyezése után."</string>
+<string name="settings_developer_options_no_saving_title">"Letiltja a játék állapotának mentését"</string>
+<string name="settings_developer_options_no_saving_text">"A játékban történt mozgatásokat többé nem menti el."</string>
+<string name="settings_developer_options_deal_correct_sequences_title">"Korrekt sorozatokat oszt"</string>
+<string name="settings_max_number_undos">"A mozgatás visszavonás maximális száma"</string>
+<string name="settings_expert_settings">"Szakértői beállítások"</string>
+<string name="settings_expert_settings_text">"Hasznos lehet néhány ember számára."</string>
+<string name="settings_follow_system_settings">"A rendszer szerint"</string>
+<string name="settings_portrait">"Álló"</string>
+<string name="settings_landscape">"Fekvő"</string>
+<string name="settings_landscape_upside_down">"Fekvő fejjel lefelé"</string>
+<string name="settings_spider_difficultiy_1">"1 (Könnyű)"</string>
+<string name="settings_spider_difficultiy_2">"2 (Középszintű)"</string>
+<string name="settings_spider_difficultiy_3">"4 (Nehéz)"</string>
+<string name="settings_draw_1">"1 lapot dob"</string>
+<string name="settings_draw_3">"3 lapot dob"</string>
+<string name="settings_pyramid_difficulty_1">"Könnyű: A játék megnyert ha a táblavermek üresek"</string>
+<string name="settings_pyramid_difficulty_2">"Nehéz: A játék megnyert ha a táblavermek, a fő és a dobásverem is üresek"</string>
+<string name="settings_language_default">"Alapértelmezett nyelv"</string>
+<string name="settings_language_english">"Angol"</string>
+<string name="settings_language_esperanto">"Eszperantó"</string>
+<string name="settings_language_finnish">"Finn"</string>
+<string name="settings_language_french">"Francia"</string>
+<string name="settings_language_german">"Német"</string>
+<string name="settings_language_japanese">"Japán"</string>
+<string name="settings_language_polish">"Lengyel"</string>
+<string name="settings_language_turkish">"Török"</string>
+<string name="settings_yukon_rules_1">"váltakozó színekben (Alapértelmezett)"</string>
+<string name="settings_yukon_rules_2">"saját kártyacsaládjukban (Russian Solitaire)"</string>
+<string name="settings_movement_speed_1">"Nagyon lassú"</string>
+<string name="settings_movement_speed_2">"Lassú"</string>
+<string name="settings_movement_speed_3">"Normál"</string>
+<string name="settings_movement_speed_4">"Gyors"</string>
+<string name="settings_win_sounds_1">"Alapértelmezett"</string>
+<string name="settings_win_sounds_2">"Pianó"</string>
+<string name="settings_win_sounds_3">"8-bites hang \"You win\""</string>
+<string name="settings_win_sounds_4">"Éljenző tömeg"</string>
+<string name="settings_background_music_1">"Letiltva"</string>
+<string name="settings_background_music_2">"1. téma"</string>
+<string name="settings_background_music_3">"2. téma"</string>
+<string name="settings_background_music_4">"3. téma"</string>
+<string name="settings_background_music_5">"Zenedoboz"</string>
+<string name="settings_canfield_size_of_reserve_1">"13 Kártya (alap)"</string>
+<string name="settings_canfield_size_of_reserve_2">"10 Kártya"</string>
+<string name="settings_canfield_size_of_reserve_3">"7 Kártya"</string>
+<string name="settings_canfield_size_of_reserve_4">"4 Kártya"</string>
+<string name="settings_developer_option_deal_correct_sequences_1">"Deaktivált"</string>
+<string name="settings_developer_option_deal_correct_sequences_2">"Váltakozó színű"</string>
+<string name="settings_developer_option_deal_correct_sequences_3">"Saját kártyacsaládú"</string>
+<string name="settings_developer_option_deal_correct_sequences_4">"Fordított váltakozó színű"</string>
+<string name="settings_developer_option_deal_correct_sequences_5">"Fordított saját kártyacsaládú"</string>
+
+<!-- Statistics -->
+<string name="statistics_text_won_games">"%1$d játékot nyert, %2$d játékból"</string>
+
+<!-- %1$d and %2$d are placeholders for the values -->
+<string name="statistics_win_percentage">"Az ön eredmény aránya:"</string>
+
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"Minden bejegyzést töröl!"</string>
+<string name="statistics_button_delete_text">"A játék bejegyzései törölve lesznek! Biztosan akarja?"</string>
+<string name="statistics_button_deleted_all_entries">"Minden bejegyzés törölve lett."</string>
+<string name="statistics_time_of_day">"Időpont"</string>
+<string name="statistics_date">"Dátum"</string>
+<string name="settings_diable_undo_costs">"Tiltja a visszavonás pontszám büntetését"</string>
+<string name="settings_diable_hint_costs">"Tiltja a tippek pontszám büntetését"</string>
+<string name="statistics_high_scores">"Legjobb pontszámok"</string>
+<string name="statistics_recent_scores">"Utoljára kapott pontszámok"</string>
+<string name="statistics_total_time">"Összesített játékidő"</string>
+<string name="statistics_total_hints_shown">"Tippek összes száma"</string>
+<string name="statistics_total_number_undos">"Visszavonások száma"</string>
+<string name="statistics_total_points_earned">"Összesen nyert pontok"</string>
+<string name="statistics_no_entries">"Nincs bejegyzés, játszon néhány játékot!"</string>
+<string name="dialog_auto_move">"Automatikus mozgatás"</string>
+<string name="dialog_show_hints">"Tippek mutatása"</string>
+<string name="manual_ui_text_part_1">"A játék mindig egy kis menüt jelenít meg a képernyő alsó részén (álló módban) vagy a jobb oldalon (fekvő módban). Az aktuális pontszámot és a játékidőt is mutatja. A menü 5 elemet tartalmaz, melyek a következők (gombok balról jobbra).
+
+A \"Statisztika\" gomb amit megnyomva egy új ablak jelenik meg amely különböző statisztikákat tartalmaz az aktuális játékról, például a legmagasabb pontszámokat.
+
+A \"Támogatás\" gomb, amit megnyomva megjelenik egy menü. Itt választható:"</string>
+<string name="manual_ui_text_part_2">"Tippek megjelenitése: Ez 3 lehetséges kártya mozgást mutat egyszerre és 25 ponttal csökkenti az aktuális pontszámot. Megjegyzés: a triviális mozgások mint a kártyák üres mezőre mozgatása, vagy a fő verem megnyomása, nem jelenik meg mint tipp. Ha nincs mutatható tipp, a pontszám nem csökken."</string>
+<string name="manual_ui_text_part_3">"Automatikus mozgatás: automatikusan mozgatja a lehető legtöbb kártyát. Ezt a lehetőséget például az alábbi helyzetekben érdemes használni, ha egy kártya még mindig arccal lefelé van és sok kártyát kell mozgatnia egy adott kötegbe, hogy elérje. Tehát ez a lehetőség egy kicsit felgyorsíthatja a játékot."</string>
+<string name="manual_ui_text_part_4">"Kártyák keverése: Ha olyan helyzetben van, hogy nem lehetséges a mozgatás, akkor ezt az opciót az aktuális kártyák keveréséhez használhatja. Megjegyzés: a már helyes sorrendbe rakott kártyák és az alapvermekre rakott kártyák kimaradnak a keverésből."</string>
+<string name="manual_ui_text_part_5">"Játékszabályok: Közvetlenül megnyitja az aktuális játék leírását."</string>
+<string name="manual_ui_text_part_6">"A \"Menü\" gombbal három különböző műveletethez juthat el:"</string>
+<string name="manual_ui_text_part_7">"Új játék indítása: Megkeveri a kártyákat és leosztja az új játékot."</string>
+<string name="manual_ui_text_part_8">"Adja újra a kártyákat: Újra indítja az aktuális játékot ugyanazokkal a lapokkal."</string>
+<string name="manual_ui_text_part_9">"Vissza a főmenühöz: Elmenti az aktuális játék állapotát és a főmenübe lép."</string>
+<string name="manual_ui_text_part_10">"A \"Visszavonás\" gombbal az utolsó mozgatást vonhatja vissza, de ez 25 ponttal csökkenti a pontszámot. Az utolsó 20 mozgatás vonható vissza. (Ez a szám növelhető a szakértői beállításokban.)
+A \"Beállítások\" gombbal közvetlenül megnyithatja a beállítások menüt."</string>
+<string name="manual_statistics_part_1">"Minden játékról statisztikai adatok gyűlnek. Ezekhez a menüsáv \"Statisztika\" feliratára koppintva férhet hozzá. Az összegyűjtött információk a következők:"</string>
+<string name="manual_statistics_part_2">"A játszott és megnyert játékok száma."</string>
+<string name="manual_statistics_part_3">"A kapott pontok teljes összege."</string>
+<string name="manual_statistics_part_4">"A súgó funkció használata."</string>
+<string name="manual_statistics_part_5">"A legmagasabb pontszámok listája, Iegfeljebb 10 bejegyzés amelyek nullánál nagyobb pontszámot kaptak."</string>
+<string name="manual_statistics_part_6">"Az utolsó 10 játék pontszámai."</string>
+<string name="manual_statistics_part_7">"Az aktuális játék összes statisztikai adata törölhető. A törlést nem lehet visszavonni !"</string>
+<string name="about_material_icons_2_usage">"Az ikon támogatás mint \"lightbulb-on\" van publikálva a &lt;a href=https://materialdesignicons.com/icon/lightbulb-on&gt;materialdesignicons.com-on.&lt;/a&gt;"</string>
+
+<!-- dialogs -->
+<string name="dialog_no_hint_available">"Nincs mutatható tipp!"</string>
+<string name="dialog_no_movement_possible">"Nem lehet mozgatni!"</string>
+<string name="settings_show_advanced_settings_title">"A fejlesztői kategóriák feloldása"</string>
+<string name="settings_language_italian">"Olasz"</string>
+<string name="settings_language_portuguese_brazil">"Portugál (Brazil)"</string>
+<string name="settings_language_ukrainian">"Ukrán"</string>
+<string name="settings_game_layout_margins_title">"Játékelrendezési margók"</string>
+<string name="settings_game_layout_margins_text">"Adjon margókat a bal és jobb oldalon a játék elrendezéséhez. A kártyák kissebbek lesznek, de az átfedések csökkennek!"</string>
+<string name="settings_game_layout_margins_none">"Nincs"</string>
+<string name="settings_game_layout_margins_small">"Vékony"</string>
+<string name="settings_game_layout_margins_medium">"Közepes"</string>
+<string name="settings_game_layout_margins_large">"Széles"</string>
+<string name="settings_hide_menu_button">"Elrejti a menügombot"</string>
+<string name="settings_immersive_mode_title">"Engedélyezi a teljes képernyős módot"</string>
+<string name="settings_immersive_mode_text">"Elrejti a státusz és a navigációs sávot játék közben. (Csak Android 4.4 verzión és felette.)"</string>
+<string name="settings_language_norwegian">"Norvég (Bokmål)"</string>
+<string name="about_paris_themes_usage">"A Párizs téma használja - Megtalálható itt, &lt;a href=https://sourceforge.net/projects/svg-cards/&gt;sourceforge.net.&lt;/a&gt; - Copyright 2005 - David Bellot - david.bellot@free.fr"</string>
+<string name="settings_cards_paris">"Párizs"</string>
+<string name="settings_cards_dondorf">"Dondorf"</string>
+<string name="games_NapoleonsTomb">"Napoleon's Tomb"</string>
+<string name="manual_NapoleonsTomb_structure">"1 db 52 lapos kártyacsomag.
+
+4 táblaverem, 5 alapverem, 1 fő és 1 dobásverem.
+
+A  négy sarokban lévő verem a hetesekkel és a középső verem az alapvermek. A köztük lévő vermek a táblavermek."</string>
+<string name="manual_NapoleonsTomb_objective">"Rakjon minden kártyát az alapvermekre, a kártyacsaládjuktól függetlenül."</string>
+<string name="manual_NapoleonsTomb_rules">"A 4 sarokban lévő alapverem hetesekkel kezd és növekvő sorrendben kell felrakni amíg király lesz. A középső alapverem egy hatossal kezd és négyszer kell csökkenő sorrendben kirakni, amíg mind a négyszer Ász  lesz. Ez a következő sorrendet eredményezi:
+
+6,5,4,3,2,A - 6,5,4,3,2,A - 6,5,4,3,2,A - 6,5,4,3,2,A
+
+A soron következő kártya száma a verem felett is megjelenik.
+
+Nyomja meg a fővermet hogy egy kártyát felfelé fordítva a dobásveremre dobjon. Engedélyezhető a játék beállításában: Ha a főverem üres, akkor az ismételt megnyomásával visszamozgatja a kártyákat a dobásveremből a főveremre.
+
+Bármelyik kártya elhelyezhető az asztalivermekben, de a vermek egyszerre csak egy kártyát tartalmazhatnak."</string>
+<string name="manual_NapoleonsTomb_scoring">"Helyezzen egy kártyát az alapvermekre: +60
+
+Mozgassa vissza a kártyákat a dobásveremből: -200"</string>
+<string name="settings_language_spanish_argentina">"Spanyol (Argentina)"</string>
+
+<!-- Settings -->
+<string name="settings_apply_only_for_this_game">"A módosítások alkalmazása csak a(z) %1$s"</string>
+<string name="settings_hide_auto_complete_button">"Letiltja az automatikus kirakás gombot"</string>
+<string name="settings_dialog_only_for_this_game_enable_1">"Az itt elvégzett további változtatások csak az aktuális játékra vonatkoznak. Ha ezután más játékok beállításait kívánja módosítani, akkor az alábbi lehetőségek állnak rendelkezésre:"</string>
+<string name="settings_dialog_only_for_this_game_enable_3">"Térjen vissza a főmenübe és nyissa meg a beállításokat"</string>
+<string name="settings_dialog_only_for_this_game_enable_2">"Az opció tiltása"</string>
+<string name="settings_dialog_only_for_this_game_enable_4">"Nyissa meg a beállításokat egy olyan játékon belül, amely nem engedélyezi ezt a lehetőséget"</string>
+<string name="settings_dialog_only_for_this_game_enable_5">"Ennek az opciónak a letiltása visszaállítja az előző, megosztott beállításokat."</string>
+<string name="settings_dialog_only_for_this_game_disable">"A játék egyedi beállításai eltávolításra kerülnek és a megosztott beállítások lesznek alkalmazva."</string>
+<string name="settings_dialog_only_for_this_game_information_1">"A módosítások nem érintik az összes játékot. Kattintson ide a további információért"</string>
+<string name="settings_dialog_only_for_this_game_information_2">"Az alábbi játékok engedélyezték az egyedi beállításokat:"</string>
+<string name="settings_dialog_only_for_this_game_information_3">"Ezekre a játékokra nem lesznek hatással az itt végrehajtott módosítások.
+
+Szeretné eltávolítani az egyedi beállításokat a felsorolt ​​játékokból?"</string>
+<string name="settings_dialog_only_for_this_game_removed_all">"Egyedi beállítások eltávolítva"</string>
+<string name="settings_ensure_movability_title">"Biztosítja a mozgathatóságot"</string>
+<string name="settings_ensure_movability_searching_games">"Megfelelő játék keresése ..."</string>
+<string name="settings_ensure_movability_text">"Mielőtt elindítaná, ellenőrzi, hogy a megadott számú mozgatások lehetségesek a játékban."</string>
+<string name="settings_ensure_movability_min_moves_title">"Mozgatások számának változtatása"</string>
+<string name="settings_ensure_movability_min_moves_warning">"Figyelem: Az összeg növelése hosszabb várakozási időt eredményez a játék indítása előtt! A játékszabályok megváltoztatása is befolyásolja a várakozási időt!"</string>
+<string name="settings_ensure_movability_min_moves_text">"Módosítsa a mozgatások összegét, amelyeknek a megadott játékban legalább lehetségesnek kell lennie."</string>
+<string name="settings_number_input_error">"Nem lehet menteni ezt a számot!"</string>
+<string name="settings_developer_option_improve_auto_move_title">"Javítja az Automatikus mozgatás"</string>
+<string name="settings_developer_option_improve_auto_move_text">"Az \"Automatikus mozgatás\" megpróbálja megnyerni a játékot a főverem használatával is."</string>
+<string name="black">"Fekete"</string>
+<string name="white">"Fehér"</string>
+<string name="settings_ensure_movability_make_game_winnable_button_title">"Tegye a játékokat nyerhetővé"</string>
+<string name="settings_ensure_movability_make_game_winnable_text">"Néhány játéknál az összeg elég magasra állítható, hogy azok mindig nyerhetővé váljanak anélkül, hogy jelentősen növelnék a várakozási időt."</string>
+<string name="settings_ensure_movability_winnable">"Nyerhető"</string>
+<string name="settings_reset_to_defaults">"Alapértékek visszaállítása"</string>
+<string name="settings_text_color">"Szöveg és verem színe"</string>
+<string name="settings_language_chinese_simplified">"Kinai (Egyszerűsített)"</string>
+<string name="settings_ensure_movability_cancle_search">"Törölje és azonnal indítsa el"</string>
+<string name="games_Maze">"Maze"</string>
+<string name="games_Spiderette">"Spiderette"</string>
+<string name="manual_Spiderette_structure">"1 db 52 lapos kártyacsomag.
+
+7 táblaverem és 4 alapverem.
+
+1 főverem 4 kupacban.
+
+A beállításoktól függően 1, 2 vagy 4 különböző kártyacsalád."</string>
+<string name="manual_Spiderette_objective">"Rakjon minden kártyát a saját kártyacsaládjában csökkenő sorozatokban a táblavermekre. A teljes kártyacsaládok automatikusan átkerülnek az alapvermekre."</string>
+<string name="manual_Spiderette_rules">"A kártyákat bármelyik kártyára csökkenő sorrendben lehet elhelyezni. De csak az ugyanabba a kártyacsaládba tartozó sorozatokat lehet egyszerre mozgatni.
+
+Minden kártya elhelyezhető az üres asztalivermeken.
+
+Ha a táblavermeken található kártyák nem mozgathatók nyomja meg a fővermet, hogy egy-egy kártyát dobjon minden táblaveremre."</string>
+<string name="manual_Spiderette_scoring">"Egy kártyacsalád áthelyezése az alapveremre: +200
+
+Egy kártya felfordítása: +25"</string>
+<string name="settings_language_portuguese">"Portugál"</string>
+<string name="statistics_hide_win_percentage">"Elrejti az eredmények százalékos arányát"</string>
+<string name="settings_restart_game">"Indítson el egy új %1$s játékot a változás alkalmazásához"</string>
+</resources>
