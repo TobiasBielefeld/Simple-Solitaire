@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_version">"バージョン"</string>
-    <string name="settings">"設定"</string>
-    <string name="game_manual">"マニュアル"</string>
-    <string name="game_score">"スコア"</string>
-    <string name="game_time">"時間"</string>
-    <string name="game_cancel">"キャンセル"</string>
-    <string name="game_confirm">"確認"</string>
-    <string name="game_auto_complete_text">"オートコンプリート"</string>
-    <string name="game_press_again">"もう一度押すと終了します"</string>
-    <string name="game_load_error">"データの読み込みに失敗しました。新しいゲームを開始しています…"</string>
-    <string name="item_game_rules">"ゲームのルール"</string>
-    <string name="item_return_to_main_menu">"メインメニューに戻る"</string>
+<string name="app_version">"バージョン"</string>
+<string name="settings">"設定"</string>
+<string name="game_manual">"マニュアル"</string>
+<string name="game_score">"スコア"</string>
+<string name="game_time">"時間"</string>
+<string name="game_cancel">"キャンセル"</string>
+<string name="game_confirm">"確認"</string>
+<string name="game_auto_complete_text">"オートコンプリート"</string>
+<string name="game_press_again">"もう一度押すと終了します"</string>
+<string name="game_load_error">"データの読み込みに失敗しました。新しいゲームを開始しています…"</string>
+<string name="item_game_rules">"ゲームのルール"</string>
+<string name="item_return_to_main_menu">"メインメニューに戻る"</string>
 
-    <!-- Menu -->
-    <string name="menu_undo">"元に戻す"</string>
-    <string name="menu_main_menu">"メニュー"</string>
-    <string name="menu_settings">"設定"</string>
+<!-- Menu -->
+<string name="menu_undo">"元に戻す"</string>
+<string name="menu_main_menu">"メニュー"</string>
+<string name="menu_settings">"設定"</string>
 
-    <!-- game names
+<!-- game names 
 
-         - if you want to translate names and a name gets very long, use spaces, so they can be displayed
-         - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
-         - a single line -->
-    <string name="games_Klondike">"クロンダイク"</string>
-    <string name="games_Freecell">"フリーセル"</string>
-    <string name="games_Yukon">"ユーコン"</string>
-    <string name="games_Spider">"スパイダー"</string>
-    <string name="games_SimpleSimon">"シンプルシモン"</string>
-    <string name="games_Golf">"ゴルフ"</string>
-    <string name="games_Pyramid">"ピラミッド"</string>
-    <string name="games_TriPeaks">"トリピーク"</string>
-    <string name="games_FortyEight">"フォーティ&amp;エイト"</string>
-    <string name="games_AcesUp">"エースアップ"</string>
-    <string name="games_Gypsy">"ジプシー"</string>
-    <string name="games_mod3">"Mod3"</string>
-    <string name="games_Canfield">"カンフィールド"</string>
-    <string name="games_GrandfathersClock">"祖父の時計"</string>
-    <string name="games_Vegas">"ベガス"</string>
-    <string name="games_Calculation">"計算"</string>
+     - if you want to translate names and a name gets very long, use spaces, so they can be displayed
+     - in two rows in the main menu. But eg. GrandfathersClock is still short enough to display it in
+     - a single line -->
+<string name="games_Klondike">"クロンダイク"</string>
+<string name="games_Freecell">"フリーセル"</string>
+<string name="games_Yukon">"ユーコン"</string>
+<string name="games_Spider">"スパイダー"</string>
+<string name="games_SimpleSimon">"シンプルシモン"</string>
+<string name="games_Golf">"ゴルフ"</string>
+<string name="games_Pyramid">"ピラミッド"</string>
+<string name="games_TriPeaks">"トリピーク"</string>
+<string name="games_FortyEight">"フォーティ&amp;エイト"</string>
+<string name="games_AcesUp">"エースアップ"</string>
+<string name="games_Gypsy">"ジプシー"</string>
+<string name="games_mod3">"Mod3"</string>
+<string name="games_Canfield">"カンフィールド"</string>
+<string name="games_GrandfathersClock">"祖父の時計"</string>
+<string name="games_Vegas">"ベガス"</string>
+<string name="games_Calculation">"計算"</string>
 
-    <!-- colors -->
-    <string name="blue">"青"</string>
-    <string name="green">"緑"</string>
-    <string name="red">"赤"</string>
-    <string name="yellow">"黄"</string>
-    <string name="orange">"オレンジ"</string>
-    <string name="purple">"紫"</string>
+<!-- colors -->
+<string name="blue">"青"</string>
+<string name="green">"緑"</string>
+<string name="red">"赤"</string>
+<string name="yellow">"黄"</string>
+<string name="orange">"オレンジ"</string>
+<string name="purple">"紫"</string>
 
-    <!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
-    <string name="title_activity_manual">"マニュアル"</string>
-    <string name="title_activity_settings">"設定"</string>
-    <string name="title_activity_about">"ゲームについて"</string>
-    <string name="title_activity_statistics">"統計"</string>
+<!-- If you want to help with translations, please use this site: https://poeditor.com/join/project/PYX4vcwTjA -->
+<string name="title_activity_manual">"マニュアル"</string>
+<string name="title_activity_settings">"設定"</string>
+<string name="title_activity_about">"ゲームについて"</string>
+<string name="title_activity_statistics">"統計"</string>
 
-    <!-- About activity -->
-    <string name="about_tab_1">"情報"</string>
-    <string name="about_tab_2">"ライセンス"</string>
-    <string name="about_tab_3">"変更履歴"</string>
-    <string name="about_loading">"読み込み中…"</string>
-    <string name="about_developer_name">"Tobias Bielefeld"</string>
-    <string name="about_compiled">"ビルド日"</string>
-    <string name="about_source_code">"ソースコード"</string>
-    <string name="about_license">"ライセンス"</string>
-    <string name="about_translations">"翻訳"</string>
+<!-- About activity -->
+<string name="about_tab_1">"情報"</string>
+<string name="about_tab_2">"ライセンス"</string>
+<string name="about_tab_3">"変更履歴"</string>
+<string name="about_loading">"読み込み中…"</string>
+<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_compiled">"ビルド日"</string>
+<string name="about_source_code">"ソースコード"</string>
+<string name="about_license">"ライセンス"</string>
+<string name="about_translations">"翻訳"</string>
 
-    <!-- Manual -->
-    <string name="manual_games">"ゲーム"</string>
-    <string name="manual_feedback">"フィードバック"</string>
-    <string name="manual_startpage">"開始ページ"</string>
-    <string name="manual_back_to_game">"ゲームに戻る"</string>
-    <string name="manual_structure">"仕組み"</string>
-    <string name="manual_objective">"目的"</string>
-    <string name="manual_rules">"ルール"</string>
-    <string name="manual_scoring">"スコアの数え方"</string>
-    <string name="manual_main_menu">"メインメニュー"</string>
-    <string name="manual_ui">"ユーザーインターフェース"</string>
-    <string name="page_load_error">"このゲームのページはありません…"</string>
-    <string name="manual_bonus">"ゲームに勝った後、あなたはボーナスを得る：速く勝つほど、ボーナスは高くなる。"</string>
-    <string name="manual_open_google_play">"Google Playを開く"</string>
-    <string name="manual_open_github">"GitHubリポジトリを開く"</string>
-    <string name="manual_games_text1">"仕組み、目的、ルール、スコアの数え方を表示するゲームを選択してください。"</string>
-    <string name="manual_startpage_text">"
+<!-- Manual -->
+<string name="manual_games">"ゲーム"</string>
+<string name="manual_feedback">"フィードバック"</string>
+<string name="manual_startpage">"開始ページ"</string>
+<string name="manual_back_to_game">"ゲームに戻る"</string>
+<string name="manual_structure">"仕組み"</string>
+<string name="manual_objective">"目的"</string>
+<string name="manual_rules">"ルール"</string>
+<string name="manual_scoring">"スコアの数え方"</string>
+<string name="manual_main_menu">"メインメニュー"</string>
+<string name="manual_ui">"ユーザーインターフェース"</string>
+<string name="page_load_error">"このゲームのページはありません…"</string>
+<string name="manual_bonus">"ゲームに勝った後、あなたはボーナスを得る：速く勝つほど、ボーナスは高くなる。"</string>
+<string name="manual_open_google_play">"Google Playを開く"</string>
+<string name="manual_open_github">"GitHubリポジトリを開く"</string>
+<string name="manual_games_text1">"仕組み、目的、ルール、スコアの数え方を表示するゲームを選択してください。"</string>
+<string name="manual_startpage_text">"
 
 このゲームコレクションのマニュアルへようこそ! すべて説明されていることを願っています。 
 
 他のマニュアルページにアクセスするには、左側のメニューを使用します。"</string>
-    <string name="manual_general_main_menu">"メインメニューの使用は比較的簡単です。 ゲームをタップして起動するだけです。
+<string name="manual_general_main_menu">"メインメニューの使用は比較的簡単です。 ゲームをタップして起動するだけです。
 
 アプリを一時停止した場合、再起動時に最後にプレイしたゲームが自動的に読み込まれます。 この動作は、\"全般\" 設定で無効にすることができます。
 
 また、\"メインメニュー\" セクションもあり、 メニューからゲームを非表示にしたり、より多くのゲームが一つの画面に収まるように列の数を変更することができます。"</string>
-    <string name="manual_ui_text">"ゲームは常に、画面の下部（縦向きモード）または右側（横向きモード）に小さなメニューを表示します。 また、ゲームの現在のスコアと現在のプレイ時間も表示されます。 可能であれば、これら2つの値がハイスコアリストに保存されます。 メニューには5つのアイテムがあり、以下のような効果があります（左から右のボタン）:
+<string name="manual_ui_text">"ゲームは常に、画面の下部（縦向きモード）または右側（横向きモード）に小さなメニューを表示します。 また、ゲームの現在のスコアと現在のプレイ時間も表示されます。 可能であれば、これら2つの値がハイスコアリストに保存されます。 メニューには5つのアイテムがあり、以下のような効果があります（左から右のボタン）:
 
 \"スコア\" ボタンは、 現在のゲームのハイスコアと勝ち数を表示する新しいウィンドウを表示します。 
 
@@ -102,7 +102,7 @@
 \"元に戻す\" ボタンは最後の動きを元に戻しますが、これには25ポイント必要です。 これは最大20回まで最後の動きに使用できます。 
 
 \"設定\" ボタンは設定メニューを開きます。"</string>
-    <string name="manual_feedback_text">"バグやエラーを見つけましたか? 何か改善すべきことがありますか? コレクションに別のゲームを追加する必要がありますか? 翻訳の手伝いをしたいですか? それとも別のアイデアがありますか?
+<string name="manual_feedback_text">"バグやエラーを見つけましたか? 何か改善すべきことがありますか? コレクションに別のゲームを追加する必要がありますか? 翻訳の手伝いをしたいですか? それとも別のアイデアがありますか?
 
 何かフィードバックをいただけると有難いです。 私に連絡する必要がある場合は、次の2つのオプションを考慮してください: 
 
@@ -111,18 +111,18 @@ GitHub上のイシュートラッカーを使用する: GitHub上のこのアプ
 Google Playで評価を使用する: このアプリのページで評価を残して、何か書き込んでください。 右側にあるボタンをクリックして Google Playストアを開きます（インストールされている場合）。
 
 ご意見をお寄せいただきありがとうございます :)"</string>
-    <string name="manual_Klondike_structure">"52枚のカードを1組。
+<string name="manual_Klondike_structure">"52枚のカードを1組。
 
 7列の場札、4列の組札、 1列の山札と1列の捨て札。"</string>
-    <string name="manual_Klondike_objective">"組札に、同じマークのカードをそれぞれ昇順に並べます。"</string>
-    <string name="manual_Klondike_rules">"カードは降順に、交互に色を場札に置くことができます。 一連のカード全体を一度に移動できます。 組札は、同じマークのカードを昇順にしか置くことができません。
+<string name="manual_Klondike_objective">"組札に、同じマークのカードをそれぞれ昇順に並べます。"</string>
+<string name="manual_Klondike_rules">"カードは降順に、交互に色を場札に置くことができます。 一連のカード全体を一度に移動できます。 組札は、同じマークのカードを昇順にしか置くことができません。
 
 キングは空の場札にのみ置くことができ、エースは空の組札にのみ置くことができます。 
 
 山札を押すことで、カードは使用できる場所から捨て札に移動します。 カードの数は、選んだ設定によって異なります。 \"ドロー 1\" が選択されている場合、 1枚のカードだけが移動されます（これはゲームを簡単にプレイするためのデフォルト設定です）。 \"ドロー 3\" を有効にすると、一度に3枚のカードが移動されます。
 
 山札が空の場合、それを押して、 捨て札からすべてのカードを山札に移動して、もう一度使用できます。"</string>
-    <string name="manual_Klondike_scoring">"場札から組札へ: +60
+<string name="manual_Klondike_scoring">"場札から組札へ: +60
 
 捨て札から組札へ: +45 
 
@@ -131,103 +131,103 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 カードをめくる: +25 
 
 捨て札からすべてのカードを山札に戻す: -200"</string>
-    <string name="manual_Freecell_structure">"52枚のカードを1組。
+<string name="manual_Freecell_structure">"52枚のカードを1組。
 
 8列の場札、4列の組札、 4列の空きマス。"</string>
-    <string name="manual_Freecell_objective">"組札に、同じマークのカードをそれぞれ昇順に並べます。"</string>
-    <string name="manual_Freecell_rules">"カードは降順に、交互に色を場札に置くことができます。 組札は、同じマークのカードを昇順にしか置くことができません。 上の4つのマスには、一度に1枚のカードしか入れることができません。
+<string name="manual_Freecell_objective">"組札に、同じマークのカードをそれぞれ昇順に並べます。"</string>
+<string name="manual_Freecell_rules">"カードは降順に、交互に色を場札に置くことができます。 組札は、同じマークのカードを昇順にしか置くことができません。 上の4つのマスには、一度に1枚のカードしか入れることができません。
 
 利用可能な空きの山（組札とマス）に、一度に多くのカードを（正しい順序で）移動できます。 これは、一度に1枚のカードしか移動できないというルールに対応していますが、 空きの山がある場合は、最初に空きの山に移動してから目的の山に移動できます。 
 
 それぞれのカードは 空きの場札とマスに置くことができます。 エースは空きの組札に置くことができます。"</string>
-    <string name="manual_Freecell_scoring">"カードを組札に移動: +60
+<string name="manual_Freecell_scoring">"カードを組札に移動: +60
 
 カードを組札から移動: -75
 
 キングを空きフィールドに移動: +20"</string>
-    <string name="manual_Yukon_structure">"52枚のカードを1組。
+<string name="manual_Yukon_structure">"52枚のカードを1組。
 
 7列の場札、4列の組札。"</string>
-    <string name="manual_Yukon_objective">"組札に、同じマークのカードをそれぞれ昇順に並べます。"</string>
-    <string name="manual_Yukon_rules">"カードは降順に、交互に色を場札に置くことができます。 組札は、同じマークのカードを昇順にしか置くことができません。
+<string name="manual_Yukon_objective">"組札に、同じマークのカードをそれぞれ昇順に並べます。"</string>
+<string name="manual_Yukon_rules">"カードは降順に、交互に色を場札に置くことができます。 組札は、同じマークのカードを昇順にしか置くことができません。
 
 何枚のカードでも、カード上の順序に、上向きのカードを移動することができます。 
 
 キングは空の場札にのみ置くことができ、エースは空の組札にのみ置くことができます。"</string>
-    <string name="manual_Yukon_scoring">"場札から組札に: +60
+<string name="manual_Yukon_scoring">"場札から組札に: +60
 
 組札から場札に: -75
 
 キングを空のフィールドに移動: +20
 
 カードをめくる: +25"</string>
-    <string name="manual_Spider_structure">"52枚のカードを2組。
+<string name="manual_Spider_structure">"52枚のカードを2組。
 
 10列の場札と8列の組札。 
 
 1列の山札を、5組に分ける。
 
 設定に応じて: 1、2または4つの異なるカードのマーク。"</string>
-    <string name="manual_Spider_objective">"場札の任意の場所に、すべて降順に同じマークのカードを置きます。 完成した一連のカードは自動的に組札に移されます。"</string>
-    <string name="manual_Spider_rules">"カードは、任意のカードの上に降順に置くことができます。 しかし、本当に同じマークのカードの並びだけを一度に移動することができます。
+<string name="manual_Spider_objective">"場札の任意の場所に、すべて降順に同じマークのカードを置きます。 完成した一連のカードは自動的に組札に移されます。"</string>
+<string name="manual_Spider_rules">"カードは、任意のカードの上に降順に置くことができます。 しかし、本当に同じマークのカードの並びだけを一度に移動することができます。
 
 それぞれのカードは、空の場札に置くことができます。 
 
 山札を押すと、一度に1枚のカードをそれぞれの場札に配ります。"</string>
-    <string name="manual_Spider_scoring">"同じマークのカードを組札に移動: +200 カードをめくる: +25"</string>
-    <string name="manual_SimpleSimon_structure">"52枚のカードを1組。
+<string name="manual_Spider_scoring">"同じマークのカードを組札に移動: +200 カードをめくる: +25"</string>
+<string name="manual_SimpleSimon_structure">"52枚のカードを1組。
 
 10列の場札と8列の組札。"</string>
-    <string name="manual_SimpleSimon_objective">"場札の任意の場所に、すべて降順に同じマークのカードを置きます。 完成した一連のカードは自動的に組札に移されます。"</string>
-    <string name="manual_SimpleSimon_rules">"カードは、任意のカードの上に降順に置くことができます。 しかし、本当に同じマークのカードの並びだけを一度に移動することができます。
+<string name="manual_SimpleSimon_objective">"場札の任意の場所に、すべて降順に同じマークのカードを置きます。 完成した一連のカードは自動的に組札に移されます。"</string>
+<string name="manual_SimpleSimon_rules">"カードは、任意のカードの上に降順に置くことができます。 しかし、本当に同じマークのカードの並びだけを一度に移動することができます。
 
 それぞれのカードは、空の場札に置くことができます。"</string>
-    <string name="manual_SimpleSimon_scoring">"同じマークのカードを組札に移動: +200"</string>
-    <string name="manual_Golf_structure">"52枚のカードを1組。
+<string name="manual_SimpleSimon_scoring">"同じマークのカードを組札に移動: +200"</string>
+<string name="manual_Golf_structure">"52枚のカードを1組。
 
 7列の場札、1列の山札、1列の捨て札。 
 
 捨て札からカードを山札に戻すことはできません (元に戻すボタンを使用する場合を除き)。"</string>
-    <string name="manual_Golf_objective">"すべてのカードを場札から捨て札に移動します。"</string>
-    <string name="manual_Golf_rules">"札のすべての一番上のカードを使用してプレイすることができます。 カードは、色に関係なく、捨て札にのみ昇順または降順に置くことができます。
+<string name="manual_Golf_objective">"すべてのカードを場札から捨て札に移動します。"</string>
+<string name="manual_Golf_rules">"札のすべての一番上のカードを使用してプレイすることができます。 カードは、色に関係なく、捨て札にのみ昇順または降順に置くことができます。
 
 設定に応じて、エースの上にキングを置くことも、その逆も可能です (より簡単なゲームプレイ)。 
 
 カードを移動できない場合は、山札を押して、1枚のカードを捨て札に配ります。"</string>
-    <string name="manual_Golf_scoring">"カードを捨て札に移動: +50"</string>
-    <string name="manual_Pyramid_structure">"52枚のカードを1組。
+<string name="manual_Golf_scoring">"カードを捨て札に移動: +50"</string>
+<string name="manual_Pyramid_structure">"52枚のカードを1組。
 
 28列の場札、1列の山札、1列の捨て札、1 列のゴミ山。
 
 ゲームの中で2回だけ捨て札からのカードを、山札に戻すことができます。"</string>
-    <string name="manual_Pyramid_objective">"すべてのカードを場札からゴミに移動します。 設定に応じて、山札と捨て札のカードもすべてゴミに移動する必要があります。"</string>
-    <string name="manual_Pyramid_rules">"このゲームには若干異なるルールがあります。 別のカードがかぶさっていないすべてのカードをプレイできます。 足すと数が13になる2枚のカードをゴミに移動することができます。 そうするには、別の空きカードの上にカードを移動します。 両方の数が正しい場合、自動的にゴミに移動されます。
+<string name="manual_Pyramid_objective">"すべてのカードを場札からゴミに移動します。 設定に応じて、山札と捨て札のカードもすべてゴミに移動する必要があります。"</string>
+<string name="manual_Pyramid_rules">"このゲームには若干異なるルールがあります。 別のカードがかぶさっていないすべてのカードをプレイできます。 足すと数が13になる2枚のカードをゴミに移動することができます。 そうするには、別の空きカードの上にカードを移動します。 両方の数が正しい場合、自動的にゴミに移動されます。
 
 山札と捨て札のカードを使用することもできます。 カードの移動が不可能な場合は、これらの山の間の矢印を押して、山札から捨て札にカードを1枚移動します。 山札が空の場合は、それまたは矢印をもう一度押して、カードを捨て札から山札に戻します。 この動きはゲームで2回しか使用できません。 残りの量は、矢印の上に小さな数字で表示されます。"</string>
-    <string name="manual_Pyramid_scoring">"カードをゴミに移動: +50
+<string name="manual_Pyramid_scoring">"カードをゴミに移動: +50
 
 すべてのカードを捨て札から山札に戻す: -200"</string>
-    <string name="manual_TriPeaks_structure">"52枚のカードを1組。
+<string name="manual_TriPeaks_structure">"52枚のカードを1組。
 
 28列の場札、1列の山札、1列の捨て札。 
 
 捨て札からカードを山札に戻すことはできません (元に戻すボタンを使用する場合を除き)。"</string>
-    <string name="manual_TriPeaks_objective">"すべてのカードを場札から捨て札に移動します。"</string>
-    <string name="manual_TriPeaks_rules">"このゲームのルールは \"ゴルフ\" に似ています。 別のカードが上がかぶさっていないすべてのカードをプレイに使用することができます。 カードは、色に関係なく、捨て札にのみ昇順または降順に置くことができます。
+<string name="manual_TriPeaks_objective">"すべてのカードを場札から捨て札に移動します。"</string>
+<string name="manual_TriPeaks_rules">"このゲームのルールは \"ゴルフ\" に似ています。 別のカードが上がかぶさっていないすべてのカードをプレイに使用することができます。 カードは、色に関係なく、捨て札にのみ昇順または降順に置くことができます。
 
 また、エースの上にキングをプレイすることも、その逆も可能です。 
 
 カードを移動できない場合は、山札を押して、1枚のカードを捨て札に配ります。"</string>
-    <string name="manual_TriPeaks_scoring">"カードを捨て札に移動: +50"</string>
-    <string name="manual_FortyEight_structure">"52枚のカードを2組。
+<string name="manual_TriPeaks_scoring">"カードを捨て札に移動: +50"</string>
+<string name="manual_FortyEight_structure">"52枚のカードを2組。
 
 8列の場札、8列の組札、 1列の山札、1列の捨て札。
 
 ゲーム内で一度だけ、捨て札からのカードを山札に戻することができます。
 
 "</string>
-    <string name="manual_FortyEight_objective">"同じマークのすべてのカードを組札に昇順で並べる。"</string>
-    <string name="manual_FortyEight_rules">"カードは同じマークの降順で場札に置くことができます。 組札に、対応するマークの昇順にしかカードを置くことができません。
+<string name="manual_FortyEight_objective">"同じマークのすべてのカードを組札に昇順で並べる。"</string>
+<string name="manual_FortyEight_rules">"カードは同じマークの降順で場札に置くことができます。 組札に、対応するマークの昇順にしかカードを置くことができません。
 
 利用可能な空きの山（組札とマス）に、一度に多くのカードを（正しい順序で）移動できます。 これは、一度に1枚のカードしか移動できないというルールに対応していますが、 空きの山がある場合は、最初に空きの山に移動してから目的の山に移動できます。 
 
@@ -236,26 +236,26 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 山札を押すと、1枚のカードが捨て札に移動し、そこからカードをプレイすることができます。 
 
 山札が空の場合、それを押して、捨て札からすべてのカードを山札に戻して再び使用することができます。 しかし、これはゲームで一度だけ可能です。 残りの量は山札の上に小さい数字で表示されます。"</string>
-    <string name="manual_FortyEight_scoring">"カードを組札に移動: +45
+<string name="manual_FortyEight_scoring">"カードを組札に移動: +45
 
 カードを場札に戻す: -60 
 
 カードを捨て札から場札に移動: +60
 
 カードを捨て札から山札に戻す: -200"</string>
-    <string name="manual_mod3_structure">"52枚のカードを2組。
+<string name="manual_mod3_structure">"52枚のカードを2組。
 
 32列の場札、1列の山札、1列のエースの山。
 
 "</string>
-    <string name="manual_mod3_objective">"場札の上3行にあるすべてのカードを、次の方法で同じ色で順に並べる:
+<string name="manual_mod3_objective">"場札の上3行にあるすべてのカードを、次の方法で同じ色で順に並べる:
 
 最初の行: 2–5–8–J の順
 次の行: 3–6–9–Q の順
 三番目の行: 4–7–10–K の順
 
 エースは離します。"</string>
-    <string name="manual_mod3_rules">"山の一番上から一度に1枚のカードしか移動できません。 カードは、\"目的\" の下に表示されている順序が正しい場合にのみ置くことができます。 たとえば、ハートの5をハートの2の上に置ことができますが、ハートの2が場札の最初の行にある場合に限ります。 異なるマークも置くことはできません。
+<string name="manual_mod3_rules">"山の一番上から一度に1枚のカードしか移動できません。 カードは、\"目的\" の下に表示されている順序が正しい場合にのみ置くことができます。 たとえば、ハートの5をハートの2の上に置ことができますが、ハートの2が場札の最初の行にある場合に限ります。 異なるマークも置くことはできません。
 
 エースを山札の上にあるエース山に移動することで、カードを置くための山を空けることができます。 
 
@@ -264,98 +264,98 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 山札を押すと、4行目のそれぞれのスタックに1枚のカードを配ります。
 
 "</string>
-    <string name="manual_mod3_scoring">"場札の正しいフィールドにカードを移動: +50
+<string name="manual_mod3_scoring">"場札の正しいフィールドにカードを移動: +50
 
 場札の4行目にカードを戻す: -75"</string>
-    <string name="manual_Gypsy_structure">"52枚のカードを2組。
+<string name="manual_Gypsy_structure">"52枚のカードを2組。
 
 8列の場札、8列の組札、1列の山札。"</string>
-    <string name="manual_Gypsy_objective">"同じマークのすべてのカードを組札に昇順で並べる。"</string>
-    <string name="manual_Gypsy_rules">"カードは降順に、交互に色を場札に置くことができます。 正しい順序のカード全体を一度に移動することができます。 組札は、同じマークのカードを昇順にしか置くことができません。
+<string name="manual_Gypsy_objective">"同じマークのすべてのカードを組札に昇順で並べる。"</string>
+<string name="manual_Gypsy_rules">"カードは降順に、交互に色を場札に置くことができます。 正しい順序のカード全体を一度に移動することができます。 組札は、同じマークのカードを昇順にしか置くことができません。
 
 すべてのカードは空の場札に置くことができ、エースだけは空の組札に置くことができます。 
 
 山札を押すと、1枚のカードがそれぞれの場札に移動します。"</string>
-    <string name="manual_Gypsy_scoring">"カードを組札に移動: +75
+<string name="manual_Gypsy_scoring">"カードを組札に移動: +75
 
 カードを組札から場札に移動: -100
 
  カードをめくる: +50"</string>
-    <string name="manual_AcesUp_structure">"52枚のカードを1組。
+<string name="manual_AcesUp_structure">"52枚のカードを1組。
 
 4列の場札、1列の山札、1列の組札。 
 
 エースは14の数になるので、キングより大きい数になります。"</string>
-    <string name="manual_AcesUp_objective">"エース以外のすべてのカードを組札に置き、 残りのエースがそれぞれ場札に1枚あります。"</string>
-    <string name="manual_AcesUp_rules">"山の一番上のカードだけを移動できます。 同じマークで他の一番上のカードよりも小さい数のカードを組札に移動します。 例えば: 2つの場札にハートの5とハートの10があります。 その場合ハートの5を組札に移動できます。エースは他のすべてのカードよりも大きい数になります。
+<string name="manual_AcesUp_objective">"エース以外のすべてのカードを組札に置き、 残りのエースがそれぞれ場札に1枚あります。"</string>
+<string name="manual_AcesUp_rules">"山の一番上のカードだけを移動できます。 同じマークで他の一番上のカードよりも小さい数のカードを組札に移動します。 例えば: 2つの場札にハートの5とハートの10があります。 その場合ハートの5を組札に移動できます。エースは他のすべてのカードよりも大きい数になります。
 
 移動できるカードはすべて、空の場札に置くことができます。 
 
 山札を押して、1つのカードをそれぞれの場札に配ります。"</string>
-    <string name="manual_AcesUp_scoring">"カードを組札に移動: +50"</string>
+<string name="manual_AcesUp_scoring">"カードを組札に移動: +50"</string>
 
-    <!-- Settings -->
-    <string name="settings_background_color">"背景の色"</string>
-    <string name="settings_hide_status_bar">"ステータスバーを隠す"</string>
-    <string name="settings_left_handed_mode">"左ききモード"</string>
-    <string name="settings_left_handed_mode_description">"カードと置き場の位置を左側に反転します"</string>
-    <string name="settings_back_press">"ゲームの終了を確認"</string>
-    <string name="settings_back_press_description">"戻るボタンを２回押すとゲームを終了します"</string>
-    <string name="settings_orientation">"画面の向き"</string>
-    <string name="settings_cards">"カード"</string>
-    <string name="settings_classic">"クラシック"</string>
-    <string name="settings_simple">"シンプル"</string>
-    <string name="settings_cards_back">"カードの背景"</string>
-    <string name="settings_modern">"モダン"</string>
-    <string name="settings_abstract">"無地"</string>
-    <string name="settings_basic">"基本"</string>
-    <string name="settings_background">"背景の番号"</string>
-    <string name="settings_customization">"外観"</string>
-    <string name="settings_other">"全般"</string>
-    <string name="settings_other_description">"他のすべての設定を設定します"</string>
-    <string name="settings_games">"ゲーム"</string>
-    <string name="settings_games_description">"ゲームのバリアントを設定します"</string>
-    <string name="settings_spider_difficulty">"異なるカードファミリーの数"</string>
-    <string name="settings_klondike_draw">"描画するカードの数"</string>
-    <string name="settings_canfield_draw">"描画するカードの数"</string>
-    <string name="settings_show_main_menu">"メインメニューで開始"</string>
-    <string name="settings_show_main_menu_description">"開始時に、最後にプレイしたゲームに入りません"</string>
-    <string name="settings_golf_easy">"循環的な移動 （より簡単に）"</string>
-    <string name="settings_golf_easy_description">"エースをキングに置くことを許可する、またはその逆"</string>
-    <string name="settings_menu">"メインメニュー"</string>
-    <string name="settings_menu_description">"列数の変更、ゲームの表示と非表示"</string>
-    <string name="settings_pyramid_difficulty">"難易度"</string>
-    <string name="settings_menu_columns">"列の数"</string>
-    <string name="settings_menu_games">"ゲームの表示と非表示"</string>
-    <string name="settings_menu_games_description">"メニューに表示されるゲームを選択します"</string>
-    <string name="settings_about_description">"ライセンスや変更履歴など、ゲームに関する情報を表示します"</string>
-    <string name="settings_change_language">"言語の変更"</string>
-    <string name="settings_support">"サポート"</string>
-    <string name="settings_follow_system_settings">"システム設定に従う"</string>
-    <string name="settings_portrait">"縦向き"</string>
-    <string name="settings_landscape">"横向き"</string>
-    <string name="settings_landscape_upside_down">"横向き上下反転"</string>
-    <string name="settings_spider_difficultiy_1">"1 (簡単)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (中)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (難しい)"</string>
-    <string name="settings_draw_1">"ドロー 1"</string>
-    <string name="settings_draw_3">"ドロー 3"</string>
-    <string name="settings_pyramid_difficulty_1">"簡単: 場札が空のときにゲームに勝ち"</string>
-    <string name="settings_pyramid_difficulty_2">"難しい: 場札と山札が空のときに勝ち"</string>
-    <string name="settings_language_default">"デフォルト言語"</string>
-    <string name="settings_language_english">"英語"</string>
-    <string name="settings_language_esperanto">"エスペラント"</string>
-    <string name="settings_language_finnish">"フィンランド語"</string>
-    <string name="settings_language_french">"フランス語"</string>
-    <string name="settings_language_german">"ドイツ語"</string>
-    <string name="settings_language_japanese">"日本語"</string>
-    <string name="settings_language_polish">"ポーランド語"</string>
-    <string name="settings_language_turkish">"トルコ語"</string>
+<!-- Settings -->
+<string name="settings_background_color">"背景の色"</string>
+<string name="settings_hide_status_bar">"ステータスバーを隠す"</string>
+<string name="settings_left_handed_mode">"左ききモード"</string>
+<string name="settings_left_handed_mode_description">"カードと置き場の位置を左側に反転します"</string>
+<string name="settings_back_press">"ゲームの終了を確認"</string>
+<string name="settings_back_press_description">"戻るボタンを２回押すとゲームを終了します"</string>
+<string name="settings_orientation">"画面の向き"</string>
+<string name="settings_cards">"カード"</string>
+<string name="settings_classic">"クラシック"</string>
+<string name="settings_simple">"シンプル"</string>
+<string name="settings_cards_back">"カードの背景"</string>
+<string name="settings_modern">"モダン"</string>
+<string name="settings_abstract">"無地"</string>
+<string name="settings_basic">"基本"</string>
+<string name="settings_background">"背景の番号"</string>
+<string name="settings_customization">"外観"</string>
+<string name="settings_other">"全般"</string>
+<string name="settings_other_description">"他のすべての設定を設定します"</string>
+<string name="settings_games">"ゲーム"</string>
+<string name="settings_games_description">"ゲームのバリアントを設定します"</string>
+<string name="settings_spider_difficulty">"異なるカードファミリーの数"</string>
+<string name="settings_klondike_draw">"描画するカードの数"</string>
+<string name="settings_canfield_draw">"描画するカードの数"</string>
+<string name="settings_show_main_menu">"メインメニューで開始"</string>
+<string name="settings_show_main_menu_description">"開始時に、最後にプレイしたゲームに入りません"</string>
+<string name="settings_golf_easy">"循環的な移動 （より簡単に）"</string>
+<string name="settings_golf_easy_description">"エースをキングに置くことを許可する、またはその逆"</string>
+<string name="settings_menu">"メインメニュー"</string>
+<string name="settings_menu_description">"列数の変更、ゲームの表示と非表示"</string>
+<string name="settings_pyramid_difficulty">"難易度"</string>
+<string name="settings_menu_columns">"列の数"</string>
+<string name="settings_menu_games">"ゲームの表示と非表示"</string>
+<string name="settings_menu_games_description">"メニューに表示されるゲームを選択します"</string>
+<string name="settings_about_description">"ライセンスや変更履歴など、ゲームに関する情報を表示します"</string>
+<string name="settings_change_language">"言語の変更"</string>
+<string name="settings_support">"サポート"</string>
+<string name="settings_follow_system_settings">"システム設定に従う"</string>
+<string name="settings_portrait">"縦向き"</string>
+<string name="settings_landscape">"横向き"</string>
+<string name="settings_landscape_upside_down">"横向き上下反転"</string>
+<string name="settings_spider_difficultiy_1">"1 (簡単)"</string>
+<string name="settings_spider_difficultiy_2">"2 (中)"</string>
+<string name="settings_spider_difficultiy_3">"4 (難しい)"</string>
+<string name="settings_draw_1">"ドロー 1"</string>
+<string name="settings_draw_3">"ドロー 3"</string>
+<string name="settings_pyramid_difficulty_1">"簡単: 場札が空のときにゲームに勝ち"</string>
+<string name="settings_pyramid_difficulty_2">"難しい: 場札と山札が空のときに勝ち"</string>
+<string name="settings_language_default">"デフォルト言語"</string>
+<string name="settings_language_english">"英語"</string>
+<string name="settings_language_esperanto">"エスペラント"</string>
+<string name="settings_language_finnish">"フィンランド語"</string>
+<string name="settings_language_french">"フランス語"</string>
+<string name="settings_language_german">"ドイツ語"</string>
+<string name="settings_language_japanese">"日本語"</string>
+<string name="settings_language_polish">"ポーランド語"</string>
+<string name="settings_language_turkish">"トルコ語"</string>
 
-    <!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
-    <string name="statistics_button_delete">"すべてのエントリーを削除!"</string>
-    <string name="statistics_button_delete_text">"このゲームのすべてのエントリーを削除します! よろしいですか?"</string>
-    <string name="statistics_button_deleted_all_entries">"すべてのエントリーを削除しました"</string>
-    <string name="statistics_high_scores">"高得点"</string>
-    <string name="settings_restart_game">"変更を適用するための新しい%1$sゲームを開始します"</string>
+<!-- %1$.0f is a placeholder and the following two "%%" symbols will be printed as a single "%" -->
+<string name="statistics_button_delete">"すべてのエントリーを削除!"</string>
+<string name="statistics_button_delete_text">"このゲームのすべてのエントリーを削除します! よろしいですか?"</string>
+<string name="statistics_button_deleted_all_entries">"すべてのエントリーを削除しました"</string>
+<string name="statistics_high_scores">"高得点"</string>
+<string name="settings_restart_game">"変更を適用するための新しい%1$sゲームを開始します"</string>
 </resources>
