@@ -158,19 +158,23 @@
     <string name="game_moved_first_card" translatable="false">GameMovedFirstCard</string>
 
     <!-- contributors -->
-    <string name="contributors_japanese" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
-    <string name="contributors_chinese_simplified" translatable="false">Tragic Life, LaiJM</string>
+    <string name="contributors_chinese_simplified" translatable="false">Tragic Life, LaiJM, heng, Hero, kithc</string>
+    <string name="contributors_english" translatable="false">N9of</string>
     <string name="contributors_esperanto" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
-    <string name="contributors_polish" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
-    <string name="contributors_french" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
     <string name="contributors_finnish" translatable="false"><a href="https://github.com/winjar">winjar</a></string>
-    <string name="contributors_turkish" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
+    <string name="contributors_french" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>
+    <string name="contributors_german" translatable="false">don.conga</string>
+    <string name="contributors_hungarian" translatable="false">Erős Pista</string>
     <string name="contributors_italian" translatable="false">imko92, <a href="https://github.com/dankan1890">dankan1890</a></string>
-    <string name="contributors_portuguese_brazil" translatable="false">Alexandre Parente</string>
-    <string name="contributors_portuguese" translatable="false">Rui</string>
-    <string name="contributors_ukranian" translatable="false">olexn</string>
+    <string name="contributors_japanese" translatable="false"><a href="https://github.com/naofum">naofum</a></string>
     <string name="contributors_norwegian_bokmal" translatable="false">Imre Kristoffer Eilertsen</string>
-    <string name="contributors_spanish_argentina" translatable="false"><a href="https://github.com/4fff618">4fff618</a></string>
+    <string name="contributors_polish" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
+    <string name="contributors_portuguese" translatable="false">Rui</string>
+    <string name="contributors_portuguese_brazil" translatable="false">Alexandre Parente, Rodrigo Lopes, Rui</string>
+    <string name="contributors_spanish" translatable="false">Pablo</string>
+    <string name="contributors_spanish_argentina" translatable="false"><a href="https://github.com/4fff618">4fff618</a>, Stefan Elbl</string>
+    <string name="contributors_turkish" translatable="false"><a href="https://github.com/sekmenhuseyin">sekmenhuseyin</a></string>
+    <string name="contributors_ukranian" translatable="false">olexn, greg fowler, life8650498</string>
 
     <string name="further_contributors_tryton_vanmeer" translatable="false"><a href="https://github.com/tryton-vanmeer">tryton-vanmeer</a></string>
     <string name="further_contributors_todor_balabanov" translatable="false"><a href="https://github.com/TodorBalabanov">TodorBalabanov</a></string>
@@ -179,6 +183,8 @@
     <string name="further_contributors_dankan1890" translatable="false"><a href="https://github.com/dankan1890">dankan1890</a></string>
     <string name="further_contributors_anok" translatable="false"><a href="https://github.com/anok">anok</a></string>
     <string name="further_contributors_dseomn" translatable="false"><a href="https://github.com/dseomn">dseomn</a></string>
+    <string name="further_contributors_ManolisPapadimitriou" translatable="false"><a href="https://github.com/ManolisPapadimitriou">ManolisPapadimitriou</a></string>
+    <string name="further_contributors_TacoTheDank" translatable="false"><a href="https://github.com/TacoTheDank">TacoTheDank</a></string>
 
     <!-- urls in about screen -->
     <string name="about_material_icons_license" translatable="false"><a href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache 2.0</a></string>

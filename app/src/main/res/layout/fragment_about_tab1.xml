@@ -461,6 +461,69 @@
 
                     </TableRow>
 
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="7dp"
+                            android:text="@string/settings_language_german"
+                            android:textColor="?android:attr/textColorPrimary" />
+
+                        <TextView
+                            android:id="@+id/about_german_contributers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/contributors_german" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="7dp"
+                            android:text="@string/settings_language_spanish"
+                            android:textColor="?android:attr/textColorPrimary" />
+
+                        <TextView
+                            android:id="@+id/about_spanish_contributers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/contributors_spanish" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="7dp"
+                            android:text="@string/settings_language_hungarian"
+                            android:textColor="?android:attr/textColorPrimary" />
+
+                        <TextView
+                            android:id="@+id/about_hungarian_contributers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/contributors_hungarian" />
+
+                    </TableRow>
+
                 </TableLayout>
 
             </LinearLayout>
@@ -577,6 +640,28 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/further_contributors_dseomn" />
+
+                        <TextView
+                            android:id="@+id/about_further_contributors_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/further_contributors_ManolisPapadimitriou" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/about_further_contributors_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/further_contributors_TacoTheDank" />
 
                         <TextView
                             android:id="@+id/about_further_contributors_4"

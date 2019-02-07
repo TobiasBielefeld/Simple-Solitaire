@@ -531,6 +531,7 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_language_finnish">"Finnois"</string>
 <string name="settings_language_french">"Français"</string>
 <string name="settings_language_german">"Allemand"</string>
+<string name="settings_language_hungarian">"Hongrois"</string>
 <string name="settings_language_japanese">"Japonais"</string>
 <string name="settings_language_polish">"Polonais"</string>
 <string name="settings_language_turkish">"Turc"</string>
