@@ -18,16 +18,14 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.preference.DialogPreference;
+import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 
 import java.util.ArrayList;
 
@@ -71,12 +69,12 @@ public class DialogPreferenceBackgroundColor extends CustomDialogPreference impl
         savedCustomColor = prefs.getSavedBackgroundCustomColor();
 
         linearLayouts = new ArrayList<>();
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorBlue));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorGreen));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorRed));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorYellow));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorOrange));
-        linearLayouts.add((LinearLayout) view.findViewById(R.id.dialogBackgroundColorPurple));
+        linearLayouts.add(view.findViewById(R.id.dialogBackgroundColorBlue));
+        linearLayouts.add(view.findViewById(R.id.dialogBackgroundColorGreen));
+        linearLayouts.add(view.findViewById(R.id.dialogBackgroundColorRed));
+        linearLayouts.add(view.findViewById(R.id.dialogBackgroundColorYellow));
+        linearLayouts.add(view.findViewById(R.id.dialogBackgroundColorOrange));
+        linearLayouts.add(view.findViewById(R.id.dialogBackgroundColorPurple));
 
         for (LinearLayout linearLayout : linearLayouts) {
             linearLayout.setOnClickListener(this);
@@ -136,7 +134,7 @@ public class DialogPreferenceBackgroundColor extends CustomDialogPreference impl
     protected View onCreateView(ViewGroup parent) {
         View view = super.onCreateView(parent);
 
-        image = (ImageView) view.findViewById(R.id.widget_layout_color_imageView);
+        image = view.findViewById(R.id.widget_layout_color_imageView);
         updateSummary();
 
         return view;

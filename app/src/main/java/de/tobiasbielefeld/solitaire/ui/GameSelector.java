@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.view.MotionEvent;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -28,9 +28,10 @@ import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_CURRENT_GAME;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
-public class GameSelector extends CustomAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener {
+public class GameSelector extends CustomAppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener {
 
     private TableLayout tableLayout;
     private int menuColumns;
@@ -40,21 +41,21 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_selector);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        tableLayout = (TableLayout) findViewById(R.id.tableLayoutGameChooser);
+        tableLayout = findViewById(R.id.tableLayoutGameChooser);
 
         if (!prefs.getSavedStartWithMenu()) {
             int savedGame = prefs.getSavedCurrentGame();
@@ -71,8 +72,8 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer!=null && drawer.isDrawerOpen(GravityCompat.START)) {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer != null && drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -97,7 +98,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
                 break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -137,7 +138,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
                 imageView.setLayoutParams(params);
                 imageView.setAdjustViewBounds(true);
                 imageView.setLongClickable(true);
-                imageView.setPadding(padding,padding,padding,padding);
+                imageView.setPadding(padding, padding, padding, padding);
 
                 if (counter % menuColumns == 0) {
                     row = new TableRow(this);
@@ -232,7 +233,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         TableRow row = (TableRow) view.getParent();
         TableLayout table = (TableLayout) row.getParent();
         ArrayList<Integer> orderedList = lg.getOrderedGameList();
-        int index = indexes.get(table.indexOfChild(row)*menuColumns + row.indexOfChild(view));
+        int index = indexes.get(table.indexOfChild(row) * menuColumns + row.indexOfChild(view));
         index = orderedList.indexOf(index);
 
         //avoid loading two games at once when pressing two buttons at once

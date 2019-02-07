@@ -31,8 +31,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
@@ -48,9 +47,9 @@ public class Klondike extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(15);
 
-        setTableauStackIDs(0,1,2,3,4,5,6);
-        setFoundationStackIDs(7,8,9,10);
-        setDiscardStackIDs(11,12,13);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6);
+        setFoundationStackIDs(7, 8, 9, 10);
+        setDiscardStackIDs(11, 12, 13);
         setMainStackIDs(14);
 
         //1 stands for Klondike, 2 for Vegas
@@ -96,12 +95,11 @@ public class Klondike extends Game {
 
         //also set backgrounds of the stacks
         for (Stack stack : stacks) {
-            if (stack.getId() > 6 && stack.getId() <= 10)  {
+            if (stack.getId() > 6 && stack.getId() <= 10) {
                 stack.setImageBitmap(Stack.background1);
             } else if (stack.getId() > 10 && stack.getId() <= 13) {
                 stack.setImageBitmap(Stack.backgroundTransparent);
-            }
-            else if (stack.getId() == 14) {
+            } else if (stack.getId() == 14) {
                 stack.setImageBitmap(Stack.backgroundTalon);
             }
         }
@@ -120,7 +118,7 @@ public class Klondike extends Game {
 
     public void dealCards() {
         //dealWinnableGame();
-      
+
         //save the new settings, so it only takes effect on new deals
         prefs.saveKlondikeVegasDrawModeOld(whichGame);
 
@@ -130,15 +128,15 @@ public class Klondike extends Game {
             stacks[13].getCard(0).flipUp();
         } else {
             for (int i = 0; i < 3; i++) {
-                    moveToStack(getMainStack().getTopCard(), stacks[11 + i], OPTION_NO_RECORD);
-                    stacks[11 + i].getCard(0).flipUp();
+                moveToStack(getMainStack().getTopCard(), stacks[11 + i], OPTION_NO_RECORD);
+                stacks[11 + i].getCard(0).flipUp();
             }
         }
 
         //and move cards to the tableau
         for (int i = 0; i <= 6; i++) {
             for (int j = 0; j < i + 1; j++) {
-                    moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
+                moveToStack(getMainStack().getTopCard(), stacks[i], OPTION_NO_RECORD);
             }
             stacks[i].getCard(i).flipUp();
         }//*/
@@ -271,10 +269,8 @@ public class Klondike extends Game {
         }
 
         //for deal3 mode, discard and main stack have to be empty too
-        if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("3")|| hasLimitedRecycles()) {
-            if (getMainStack().getSize()>0 || stacks[11].getSize()>0 || stacks[12].getSize()>0 || stacks[13].getSize()>1){
-                return false;
-            }
+        if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("3") || hasLimitedRecycles()) {
+            return getMainStack().getSize() <= 0 && stacks[11].getSize() <= 0 && stacks[12].getSize() <= 0 && stacks[13].getSize() <= 1;
         }
 
         return true;
@@ -433,8 +429,8 @@ public class Klondike extends Game {
 
         //relevant for deal3 options, because cards on the waste move first and checking only
         // the first id wouldn't be enough
-        for (int i=0;i<originIDs.length;i++){
-            if (originIDs[i] >=11 && originIDs[i]<=13 && destinationIDs[i] <=10){                   //stock to tableau/foundation
+        for (int i = 0; i < originIDs.length; i++) {
+            if (originIDs[i] >= 11 && originIDs[i] <= 13 && destinationIDs[i] <= 10) {                   //stock to tableau/foundation
                 return 45;
             }
         }
@@ -463,20 +459,20 @@ public class Klondike extends Game {
          *  the card will be moved back to the discard stacks
          */
 
-        if (gameLogic.hasWon()){
+        if (gameLogic.hasWon()) {
             return;
         }
 
         boolean deal1 = prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1");
-        checkEmptyDiscardStack(getMainStack(),stacks[11], stacks[12], stacks[13], deal1);
+        checkEmptyDiscardStack(getMainStack(), stacks[11], stacks[12], stacks[13], deal1);
     }
 
-    public static void checkEmptyDiscardStack(Stack mainStack, Stack discard1, Stack discard2, Stack discard3,  boolean deal1){
+    public static void checkEmptyDiscardStack(Stack mainStack, Stack discard1, Stack discard2, Stack discard3, boolean deal1) {
 
-        if (deal1 && discard3.isEmpty() && !mainStack.isEmpty()){
+        if (deal1 && discard3.isEmpty() && !mainStack.isEmpty()) {
             recordList.addToLastEntry(mainStack.getTopCard(), mainStack);
-            moveToStack(mainStack.getTopCard(),discard3, OPTION_NO_RECORD);
-        } else if (!deal1 && discard1.isEmpty() && discard2.isEmpty() && discard3.isEmpty() && !mainStack.isEmpty()){
+            moveToStack(mainStack.getTopCard(), discard3, OPTION_NO_RECORD);
+        } else if (!deal1 && discard1.isEmpty() && discard2.isEmpty() && discard3.isEmpty() && !mainStack.isEmpty()) {
 
             int size = min(3, mainStack.getSize());
 

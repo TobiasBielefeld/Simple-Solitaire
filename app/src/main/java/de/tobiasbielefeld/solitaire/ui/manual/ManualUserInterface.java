@@ -20,9 +20,6 @@ package de.tobiasbielefeld.solitaire.ui.manual;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.BulletSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +27,7 @@ import android.widget.TextView;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.createBulletParagraph;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Just show a textView for the user interface page
@@ -42,8 +39,8 @@ public class ManualUserInterface extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_manual_user_interface, container, false);
 
-        TextView textView1 = (TextView) view.findViewById(R.id.text_view_manual_ui_1);
-        TextView textView2 = (TextView) view.findViewById(R.id.text_view_manual_ui_2);
+        TextView textView1 = view.findViewById(R.id.text_view_manual_ui_1);
+        TextView textView2 = view.findViewById(R.id.text_view_manual_ui_2);
 
         //get the strings for the enumerated text part (with bullet characters)
         CharSequence strings1[] = new CharSequence[]{

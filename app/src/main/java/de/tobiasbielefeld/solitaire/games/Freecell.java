@@ -42,8 +42,8 @@ public class Freecell extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(16);  //one extra stack only for dealing cards
 
-        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11);
-        setFoundationStackIDs(12,13,14,15);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+        setFoundationStackIDs(12, 13, 14, 15);
         setDealFromID(0);
 
         setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
@@ -275,14 +275,14 @@ public class Freecell extends Game {
             return -75;
         }
         //king to a empty field
-        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && cards.get(0).getIndexOnStack()!=0) {
+        if (cards.get(0).getValue() == 13 && destinationIDs[0] < 12 && cards.get(0).getIndexOnStack() != 0) {
             return 20;
         }
 
         return 0;
     }
 
-    private int getPowerMoveCount(boolean movingToEmptyStack){
-        return getPowerMoveCount(new int[]{8,9,10,11}, new int[]{0,1,2,3,4,5,6,7}, movingToEmptyStack);
+    private int getPowerMoveCount(boolean movingToEmptyStack) {
+        return getPowerMoveCount(new int[]{8, 9, 10, 11}, new int[]{0, 1, 2, 3, 4, 5, 6, 7}, movingToEmptyStack);
     }
 }

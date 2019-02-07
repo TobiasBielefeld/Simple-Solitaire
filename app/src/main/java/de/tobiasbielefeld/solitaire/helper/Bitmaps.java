@@ -70,9 +70,9 @@ public class Bitmaps {
     public Bitmap getMenu(int index) {
         Bitmap bitmap;
 
-        if (menuBitMaps == null){
+        if (menuBitMaps == null) {
             menuBitMaps = new Bitmap[lg.getGameCount()];
-        } else if (menuBitMaps[index]!=null){
+        } else if (menuBitMaps[index] != null) {
             return menuBitMaps[index];
         }
 
@@ -82,27 +82,27 @@ public class Bitmaps {
             menuHeight = menu.getHeight() / 4;
         }
 
-        if (menuText == null){
+        if (menuText == null) {
             menuText = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu_text);
         }
 
-        int posX = index%6;
-        int posY = index/6;
+        int posX = index % 6;
+        int posY = index / 6;
 
         Bitmap gamePicture;
 
         //get the preview of the game itself
         try {
             gamePicture = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
-        } catch (Exception e){
-            Log.e("Bitmap.getMenu()","No picture for current game available\n" + e.toString());
+        } catch (Exception e) {
+            Log.e("Bitmap.getMenu()", "No picture for current game available\n" + e.toString());
             gamePicture = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
         }
 
         //get the game name picture
-        Bitmap gameText = drawTextToBitmap(lg.getGameName(res,index));
+        Bitmap gameText = drawTextToBitmap(lg.getGameName(res, index));
         //append both parts
-        bitmap = putTogether(gamePicture,gameText);
+        bitmap = putTogether(gamePicture, gameText);
 
         menuBitMaps[index] = bitmap;
 
@@ -123,17 +123,17 @@ public class Bitmaps {
 
         android.graphics.Bitmap.Config bitmapConfig = bitmap.getConfig();
 
-        if(bitmapConfig == null) {                                                                  //set default bitmap config if none
+        if (bitmapConfig == null) {                                                                  //set default bitmap config if none
             bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
         }
 
         bitmap = bitmap.copy(bitmapConfig, true);                                                   //make bitmap mutable
         Canvas canvas = new Canvas(bitmap);
 
-        TextPaint paint=new TextPaint(Paint.ANTI_ALIAS_FLAG);                                       //new antialiased Paint
+        TextPaint paint = new TextPaint(Paint.ANTI_ALIAS_FLAG);                                       //new antialiased Paint
         paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);                                              //text shadow
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));                        //set bold
-        paint.setColor(Color.rgb(0,0,0));                                                           //set black color
+        paint.setColor(Color.rgb(0, 0, 0));                                                           //set black color
 
         int textWidth = canvas.getWidth() - (int) (5 * scale);                                      //set text width to canvas width minus 5dp padding
         int textHeight;
@@ -151,11 +151,11 @@ public class Bitmaps {
             textHeight = textLayout.getHeight();                                                    //get height of multiline text
 
             textScale--;                                                                            //reduce text size for possible next iteration
-        } while(textHeight >= bitmap.getHeight() && textScale >10);
+        } while (textHeight >= bitmap.getHeight() && textScale > 10);
 
         // get position of text's top left corner
-        float x = (bitmap.getWidth() - textWidth)/2;
-        float y = (bitmap.getHeight() - textHeight)/2;
+        float x = (bitmap.getWidth() - textWidth) / 2;
+        float y = (bitmap.getHeight() - textHeight) / 2;
 
         // draw text to the Canvas center
         canvas.save();
@@ -172,7 +172,7 @@ public class Bitmaps {
     private static Bitmap putTogether(Bitmap bmp1, Bitmap bmp2) {
         Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight() + bmp2.getHeight(), bmp1.getConfig());
         Canvas canvas = new Canvas(bmOverlay);
-        canvas.drawBitmap(bmp1, 0,0, null);
+        canvas.drawBitmap(bmp1, 0, 0, null);
         canvas.drawBitmap(bmp2, 0, bmp1.getHeight(), null);
         return bmOverlay;
     }

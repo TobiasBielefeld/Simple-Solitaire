@@ -19,7 +19,6 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RadioButton;
@@ -39,7 +38,6 @@ public class DialogPreferenceGameLayoutMargins extends CustomDialogPreference {
     RadioButton[] landscape = new RadioButton[4];
 
 
-
     public DialogPreferenceGameLayoutMargins(Context context, AttributeSet attrs) {
         super(context, attrs);
         setDialogLayoutResource(R.layout.dialog_settings_game_layout_margins);
@@ -49,15 +47,15 @@ public class DialogPreferenceGameLayoutMargins extends CustomDialogPreference {
     @Override
     protected void onBindDialogView(View view) {
 
-        portrait[0] = (RadioButton) view.findViewById(R.id.dialog_button_portrait_none);
-        portrait[1] = (RadioButton) view.findViewById(R.id.dialog_button_portrait_small);
-        portrait[2] = (RadioButton) view.findViewById(R.id.dialog_button_portrait_medium);
-        portrait[3] = (RadioButton) view.findViewById(R.id.dialog_button_portrait_large);
+        portrait[0] = view.findViewById(R.id.dialog_button_portrait_none);
+        portrait[1] = view.findViewById(R.id.dialog_button_portrait_small);
+        portrait[2] = view.findViewById(R.id.dialog_button_portrait_medium);
+        portrait[3] = view.findViewById(R.id.dialog_button_portrait_large);
 
-        landscape[0] = (RadioButton) view.findViewById(R.id.dialog_button_landscape_none);
-        landscape[1] = (RadioButton) view.findViewById(R.id.dialog_button_landscape_small);
-        landscape[2] = (RadioButton) view.findViewById(R.id.dialog_button_landscape_medium);
-        landscape[3] = (RadioButton) view.findViewById(R.id.dialog_button_landscape_large);
+        landscape[0] = view.findViewById(R.id.dialog_button_landscape_none);
+        landscape[1] = view.findViewById(R.id.dialog_button_landscape_small);
+        landscape[2] = view.findViewById(R.id.dialog_button_landscape_medium);
+        landscape[3] = view.findViewById(R.id.dialog_button_landscape_large);
 
         portrait[prefs.getSavedGameLayoutMarginsPortrait()].setChecked(true);
         landscape[prefs.getSavedGameLayoutMarginsLandscape()].setChecked(true);
@@ -73,12 +71,12 @@ public class DialogPreferenceGameLayoutMargins extends CustomDialogPreference {
         if (positiveResult) {
             int portraitValue = 0, landscapeValue = 0;
 
-            for (int i=0;i<4;i++){
+            for (int i = 0; i < 4; i++) {
                 if (portrait[i].isChecked()) {
                     portraitValue = i;
                 }
 
-                if (landscape[i].isChecked()){
+                if (landscape[i].isChecked()) {
                     landscapeValue = i;
                 }
             }

@@ -33,7 +33,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.animate;
  * and auto move should stop when the activity gets paused and then restart when it's resumed.
  * Also screen orientation changes have to be handled by saving to bundles if the functions were
  * running and then reading the bundles after the recreation.
- *
+ * <p>
  * This is completely handled by this super class, so overriding classes don't have to worry
  * about that. (But they still need to  be added to the onPause(), onResume(), onSaveInstanceState()
  * and onCreate() methods of GameManager.java)
@@ -68,22 +68,22 @@ public abstract class HelperCardMovement {
         running = false;
     }
 
-    public void pause(){
+    public void pause() {
         if (isRunning()) {
             paused = true;
             running = false;
         }
     }
 
-    public void saveInstanceState(Bundle bundle){
-        if (running || paused){
+    public void saveInstanceState(Bundle bundle) {
+        if (running || paused) {
             bundle.putBoolean("BUNDLE_" + bundleName, true);
             saveState(bundle);
         }
     }
 
-    public void loadInstanceState(Bundle bundle){
-        if (bundle.containsKey("BUNDLE_" + bundleName)){
+    public void loadInstanceState(Bundle bundle) {
+        if (bundle.containsKey("BUNDLE_" + bundleName)) {
             loadState(bundle);
 
             running = true;
@@ -95,7 +95,7 @@ public abstract class HelperCardMovement {
      * Is nearly the same as start(), but it does not reinitialize data! (if setup up in the
      * overriding class) So child classes SHOULD NOT override this one!
      */
-    public void resume(){
+    public void resume() {
         if (paused) {
             paused = false;
             running = true;
@@ -147,7 +147,7 @@ public abstract class HelperCardMovement {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            if (base.stopCondition()){
+            if (base.stopCondition()) {
                 base.running = false;
                 return;
             }
@@ -157,18 +157,17 @@ public abstract class HelperCardMovement {
                     sendMessage(base.timeDelta);
                 } else {
                     base.moveCard();
-
-    //            if (isRunning()) {
-    //                sendEmptyMessageDelayed(0, timeDelta);
-    //            }
+/*
+                    if (isRunning()) {
+                        sendEmptyMessageDelayed(0, timeDelta);
+                    }
+*/
                 }
             }
         }
 
-        protected void sendMessage(int timeDelta){
+        protected void sendMessage(int timeDelta) {
             sendEmptyMessageDelayed(0, timeDelta);
         }
-
-
     }
 }

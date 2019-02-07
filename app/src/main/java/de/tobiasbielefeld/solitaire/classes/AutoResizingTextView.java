@@ -31,7 +31,7 @@ import android.widget.TextView;
  *
  * @author Chase Colburn
  * @since Apr 4, 2011
- *
+ * <p>
  * https://stackoverflow.com/a/5535672/7016229
  */
 public class AutoResizingTextView extends android.support.v7.widget.AppCompatTextView {
@@ -109,6 +109,7 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     /**
      * Register listener to receive resize notifications
+     *
      * @param listener
      */
     public void setOnResizeListener(OnTextResizeListener listener) {
@@ -145,6 +146,7 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     /**
      * Set the upper text size limit and invalidate the view
+     *
      * @param maxTextSize
      */
     public void setMaxTextSize(float maxTextSize) {
@@ -155,6 +157,7 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     /**
      * Return upper text size limit
+     *
      * @return
      */
     public float getMaxTextSize() {
@@ -163,6 +166,7 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     /**
      * Set the lower text size limit and invalidate the view
+     *
      * @param minTextSize
      */
     public void setMinTextSize(float minTextSize) {
@@ -173,6 +177,7 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     /**
      * Return lower text size limit
+     *
      * @return
      */
     public float getMinTextSize() {
@@ -181,6 +186,7 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     /**
      * Set flag to add ellipsis to text that overflows at the smallest text size
+     *
      * @param addEllipsis
      */
     public void setAddEllipsis(boolean addEllipsis) {
@@ -189,6 +195,7 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     /**
      * Return flag to add ellipsis to text that overflows at the smallest text size
+     *
      * @return
      */
     public boolean getAddEllipsis() {
@@ -230,6 +237,7 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     /**
      * Resize the text size with specified width and height
+     *
      * @param width
      * @param height
      */

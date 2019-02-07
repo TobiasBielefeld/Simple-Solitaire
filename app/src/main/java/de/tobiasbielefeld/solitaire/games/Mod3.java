@@ -39,7 +39,7 @@ public class Mod3 extends Game {
         setNumberOfDecks(2);
         setNumberOfStacks(34);
 
-        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31);
         setDiscardStackIDs(32);
         setMainStackIDs(33);
 
@@ -157,7 +157,17 @@ public class Mod3 extends Game {
                     if (i >= 24 && j >= 24 && i < 32 && j < 32)
                         continue;
 
-                    if (stacks[j].getSize() == 0 && stacks[i].getSize() == 1 && ((j >= 24) || (i < 8 && j < 8) || (i >= 8 && j >= 8 && i < 16 && j < 16) || (i >= 16 && j >= 16 && i < 24 && j < 24)))
+                    if (stacks[j].getSize() == 0 && stacks[i].getSize() == 1 && (
+                            j >= 24
+                                    || i < 8
+                                    && j < 8
+                                    || i >= 8
+                                    & j >= 8
+                                    && i < 16
+                                    && j < 16
+                                    || i >= 16
+                                    && j >= 16
+                                    && i < 24))
                         continue;
 
                     return new CardAndStack(cardToTest, stacks[j]);
@@ -182,7 +192,14 @@ public class Mod3 extends Game {
                 if (stackID >= 24 && j >= 24 && stackID < 32 && j < 32)
                     continue;
 
-                if (stacks[j].getSize() == 0 && stacks[stackID].getSize() == 1 && ((j >= 24) || (stackID < 8 && j < 8) || (stackID >= 8 && j >= 8 && stackID < 16 && j < 16) || (stackID >= 16 && j >= 16 && stackID < 24 && j < 24)))
+                if (stacks[j].getSize() == 0 && stacks[stackID].getSize()
+                        == 1 && (
+                        j >= 24
+                                || stackID < 8 && j < 8
+                                || stackID >= 8 && j >= 8
+                                && stackID < 16 && j < 16
+                                || stackID >= 16 && j >= 16
+                                && stackID < 24))
                     continue;
 
                 return stacks[j];
@@ -205,8 +222,8 @@ public class Mod3 extends Game {
             ArrayList<Card> cardsToMove = new ArrayList<>();
             ArrayList<Stack> origins = new ArrayList<>();
 
-            for (int i=0;i<32;i++){
-                if (!stacks[i].isEmpty() && stacks[i].getTopCard().getValue()==1){
+            for (int i = 0; i < 32; i++) {
+                if (!stacks[i].isEmpty() && stacks[i].getTopCard().getValue() == 1) {
                     cardsToMove.add(stacks[i].getTopCard());
                     origins.add(stacks[i]);
                 }
@@ -229,7 +246,7 @@ public class Mod3 extends Game {
         if (destinationIDs[0] < 24)
             return 50;
 
-        if (originIDs[0] < 24 && destinationIDs[0] >= 24 && destinationIDs[0] < 32)
+        if (originIDs[0] < 24 && destinationIDs[0] < 32)
             return -75;
 
         return 0;
@@ -238,17 +255,17 @@ public class Mod3 extends Game {
     /*
      * override this in your games to customize behavior
      */
-    protected boolean excludeCardFromMixing(Card card){
+    protected boolean excludeCardFromMixing(Card card) {
         Stack stack = card.getStack();
 
         if (!card.isUp()) {
             return false;
         }
 
-        if (foundationStacksContain(stack.getId()) || stack == getDiscardStack()){
+        if (foundationStacksContain(stack.getId()) || stack == getDiscardStack()) {
             return true;
         }
 
-        return stack.getId()<24 && !stack.isEmpty() && validOrder(stack);
+        return stack.getId() < 24 && !stack.isEmpty() && validOrder(stack);
     }
 }

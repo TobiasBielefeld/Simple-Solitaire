@@ -30,10 +30,10 @@
 
         <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceVegasBetAmount
             android:key="@string/pref_key_vegas_bet_amount"
-            android:title="@string/settings_vegas_bet_amount"
             android:negativeButtonText="@string/game_cancel"
             android:positiveButtonText="@string/game_confirm"
-            android:summary=""/>
+            android:summary=""
+            android:title="@string/settings_vegas_bet_amount" />
 
         <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
             android:defaultValue="@bool/default_vegas_money_enabled"
@@ -50,7 +50,6 @@
             android:title="@string/settings_vegas_money_reset" />
 
     </PreferenceCategory>
-
 
 
 </PreferenceScreen>

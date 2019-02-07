@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/changelog_container"
@@ -10,10 +9,10 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/card_view_padding_vertical"
         android:paddingLeft="@dimen/card_view_padding_horizontal"
+        android:paddingTop="@dimen/card_view_padding_vertical"
         android:paddingRight="@dimen/card_view_padding_horizontal"
-        android:paddingTop="@dimen/card_view_padding_vertical">
+        android:paddingBottom="@dimen/card_view_padding_vertical">
 
     </LinearLayout>
 

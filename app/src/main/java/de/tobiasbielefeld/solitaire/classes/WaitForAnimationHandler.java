@@ -5,8 +5,7 @@ import android.os.Message;
 
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.animate;
-import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * This handler just waits until all card animations are over, then executes a method.
@@ -20,7 +19,7 @@ public class WaitForAnimationHandler {
 
     private CustomHandler handler;
 
-    public WaitForAnimationHandler(GameManager gm, MessageCallBack callback){
+    public WaitForAnimationHandler(GameManager gm, MessageCallBack callback) {
         this.gm = gm;
         handler = new CustomHandler(this);
         messageCallBack = callback;
@@ -32,20 +31,20 @@ public class WaitForAnimationHandler {
         }
     }
 
-    public void sendNow(){
+    public void sendNow() {
         if (!stopUiUpdates) {
             handler.sendEmptyMessage(0);
         }
     }
 
-    public void forceSendNow(){
+    public void forceSendNow() {
         handler.sendEmptyMessage(0);
     }
 
     private static class CustomHandler extends Handler {
         WaitForAnimationHandler base;
 
-        CustomHandler(WaitForAnimationHandler base){
+        CustomHandler(WaitForAnimationHandler base) {
             this.base = base;
         }
 
@@ -53,8 +52,10 @@ public class WaitForAnimationHandler {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            if (animate.cardIsAnimating() || base.gm.isActivityPaused() || base.messageCallBack.additionalHaltCondition()){
-                sendEmptyMessageDelayed(0,TIME_DELTA);
+            if (animate.cardIsAnimating()
+                    || base.gm.isActivityPaused()
+                    || base.messageCallBack.additionalHaltCondition()) {
+                sendEmptyMessageDelayed(0, TIME_DELTA);
             } else {
                 base.messageCallBack.doAfterAnimation();
             }

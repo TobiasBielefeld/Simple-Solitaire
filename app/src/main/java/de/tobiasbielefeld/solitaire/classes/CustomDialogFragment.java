@@ -1,16 +1,15 @@
 package de.tobiasbielefeld.solitaire.classes;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.view.Window;
 import android.view.WindowManager;
 
 import de.tobiasbielefeld.solitaire.SharedData;
 
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Little custom dialog fragment for the in game dialogs. I added a fullscreen mode, but the dialogs
@@ -37,7 +36,7 @@ public class CustomDialogFragment extends DialogFragment {
         }
     }
 
-    protected AlertDialog applyFlags(AlertDialog dialog){
+    protected AlertDialog applyFlags(AlertDialog dialog) {
         if (prefs.getSavedImmersiveMode()) {
             Window window = dialog.getWindow();
 

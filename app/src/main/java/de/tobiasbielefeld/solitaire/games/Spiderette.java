@@ -27,20 +27,10 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.cards;
-import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
-import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.SharedData.recordList;
-import static de.tobiasbielefeld.solitaire.SharedData.scores;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.DOESNT_MATTER;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_FAMILY;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
 
 /**
  * Spider Solitaire! A bit special game, because it has 2 card decks, the card families depend
@@ -53,9 +43,9 @@ public class Spiderette extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(15);
 
-        setTableauStackIDs(0,1,2,3,4,5,6);
-        setFoundationStackIDs(7,8,9,10);
-        setMainStackIDs(11,12,13,14);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6);
+        setFoundationStackIDs(7, 8, 9, 10);
+        setMainStackIDs(11, 12, 13, 14);
 
         setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
@@ -96,7 +86,7 @@ public class Spiderette extends Game {
                             continue;
                         }
 
-                        if (j == 0 && destStack.getTopCard().getValue() == cardToMove.getValue() + 1 &&  destStack.getTopCard().getColor() != cardToMove.getColor()){
+                        if (j == 0 && destStack.getTopCard().getValue() == cardToMove.getValue() + 1 && destStack.getTopCard().getColor() != cardToMove.getColor()) {
                             continue;
                         }
 
@@ -222,16 +212,16 @@ public class Spiderette extends Game {
         //initialize the dimensions
         setUpCardWidth(layoutGame, isLandscape, 8, 10);
         int spacing = setUpHorizontalSpacing(layoutGame, 7, 8);
-        int startPos = layoutGame.getWidth()  - 3 * Card.width;
+        int startPos = layoutGame.getWidth() - 3 * Card.width;
         //main stacks
         for (int i = 0; i < 4; i++) {
-            stacks[11 + i].setX(startPos + 3*(Card.width / 4) + i * Card.width / 3);
+            stacks[11 + i].setX(startPos + 3 * (Card.width / 4) + i * Card.width / 3);
             stacks[11 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 2);
             stacks[11 + i].setImageBitmap(Stack.backgroundTransparent);
         }
         //foundation stacks
         for (int i = 0; i < 4; i++) {
-            stacks[7 + i].setX(spacing + (i * (Card.width + spacing) ));
+            stacks[7 + i].setX(spacing + (i * (Card.width + spacing)));
             stacks[7 + i].view.setY((isLandscape ? Card.width / 4 : Card.width / 2) + 2);
             stacks[7 + i].setImageBitmap(Stack.background1);
         }
@@ -274,8 +264,8 @@ public class Spiderette extends Game {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 7; j++) {
-                if (stacks[11+i].getSize()>j) {
-                    stacks[11+i].getCard(j).bringToFront();
+                if (stacks[11 + i].getSize() > j) {
+                    stacks[11 + i].getCard(j).bringToFront();
                 }
             }
         }
@@ -296,7 +286,7 @@ public class Spiderette extends Game {
 
             ArrayList<Card> cards = new ArrayList<>();
             ArrayList<Stack> destinations = new ArrayList<>();
-            if(currentMainStackID == 11) {
+            if (currentMainStackID == 11) {
                 for (int i = 0; i < 3; i++) {
                     cards.add(stacks[currentMainStackID].getCardFromTop(i));
                     stacks[currentMainStackID].getCardFromTop(i).flipUp();

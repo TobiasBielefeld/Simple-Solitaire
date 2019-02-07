@@ -23,7 +23,6 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -44,9 +43,9 @@ public class Spider extends Game {
         setNumberOfDecks(2);
         setNumberOfStacks(23);
 
-        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9);
-        setFoundationStackIDs(10,11,12,13,14,15,16,17);
-        setMainStackIDs(18,19,20,21,22);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        setFoundationStackIDs(10, 11, 12, 13, 14, 15, 16, 17);
+        setMainStackIDs(18, 19, 20, 21, 22);
 
         setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
@@ -87,7 +86,7 @@ public class Spider extends Game {
                             continue;
                         }
 
-                        if (j == 0 && destStack.getTopCard().getValue() == cardToMove.getValue() + 1 &&  destStack.getTopCard().getColor() != cardToMove.getColor()){
+                        if (j == 0 && destStack.getTopCard().getValue() == cardToMove.getValue() + 1 && destStack.getTopCard().getColor() != cardToMove.getColor()) {
                             continue;
                         }
 
@@ -270,7 +269,7 @@ public class Spider extends Game {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
-                if (stacks[18+i].getSize()>j) {
+                if (stacks[18 + i].getSize() > j) {
                     stacks[18 + i].getCard(j).bringToFront();
                 }
             }

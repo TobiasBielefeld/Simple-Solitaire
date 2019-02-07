@@ -27,19 +27,10 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
-import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
-import static de.tobiasbielefeld.solitaire.SharedData.hint;
-import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.SharedData.recordList;
-import static de.tobiasbielefeld.solitaire.SharedData.stacks;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.DOESNT_MATTER;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.ASCENDING;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Napoleon's tomb game! Follows the rules from here: http://www.pahnation.com/how-to-play-napoleons-tomb/
@@ -52,12 +43,12 @@ public class NapoleonsTomb extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(11);
 
-        setTableauStackIDs(0,1,2,3);
-        setFoundationStackIDs(4,5,6,7,8);
+        setTableauStackIDs(0, 1, 2, 3);
+        setFoundationStackIDs(4, 5, 6, 7, 8);
         setDiscardStackIDs(9);
         setMainStackIDs(10);
 
-        setDirections(0,0,0,0);
+        setDirections(0, 0, 0, 0);
 
         setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
 
@@ -71,20 +62,20 @@ public class NapoleonsTomb extends Game {
 
         //calculate spacing and start position of cards
         int spacing = setUpHorizontalSpacing(layoutGame, 4, 4);
-        int spacingVertical = setUpVerticalSpacing(layoutGame,3,2);
+        int spacingVertical = setUpVerticalSpacing(layoutGame, 3, 2);
 
-        int startPosX = (int)((layoutGame.getWidth() - Card.width*5 - spacing*3) / 2.0);
-        int startPosY =  (int)((layoutGame.getHeight() - Card.height*4 - spacing*2) / 2.0);
+        int startPosX = (int) ((layoutGame.getWidth() - Card.width * 5 - spacing * 3) / 2.0);
+        int startPosY = (int) ((layoutGame.getHeight() - Card.height * 4 - spacing * 2) / 2.0);
 
         //first row
-        stacks[4].setX(startPosX + Card.width/2);
-        stacks[4].view.setY(startPosY + Card.height/2);
+        stacks[4].setX(startPosX + Card.width / 2);
+        stacks[4].view.setY(startPosY + Card.height / 2);
 
         stacks[0].setX(stacks[4].getX() + spacing + Card.width);
         stacks[0].view.setY(startPosY);
 
         stacks[5].setX(stacks[0].getX() + spacing + Card.width);
-        stacks[5].view.setY(startPosY + Card.height/2);
+        stacks[5].view.setY(startPosY + Card.height / 2);
 
         //second row
         stacks[1].setX(startPosX);
@@ -93,7 +84,7 @@ public class NapoleonsTomb extends Game {
         stacks[8].setX(stacks[0].getX());
         stacks[8].setY(stacks[1].getY());
 
-        stacks[2].setX(stacks[5].getX() + Card.width/2);
+        stacks[2].setX(stacks[5].getX() + Card.width / 2);
         stacks[2].setY(stacks[1].getY());
 
         //third row
@@ -101,26 +92,25 @@ public class NapoleonsTomb extends Game {
         stacks[6].setY(stacks[1].getY() + Card.height + spacingVertical);
 
         stacks[3].setX(stacks[0].getX());
-        stacks[3].setY(stacks[6].getY() + Card.height/2);
+        stacks[3].setY(stacks[6].getY() + Card.height / 2);
 
         stacks[7].setX(stacks[5].getX());
         stacks[7].setY(stacks[6].getY());
 
         //main + discard stack
-        stacks[10].setX(stacks[5].getX() + spacing*2 + Card.width);
-        stacks[10].setY(stacks[5].getY() + Card.height/2 + spacingVertical/2);
+        stacks[10].setX(stacks[5].getX() + spacing * 2 + Card.width);
+        stacks[10].setY(stacks[5].getY() + Card.height / 2 + spacingVertical / 2);
 
         stacks[9].setX(stacks[10].getX());
         stacks[9].setY(stacks[10].getY() + Card.height + spacingVertical);
 
         //also set backgrounds of the stacks
         for (Stack stack : stacks) {
-            if (stack.getId() > 3 && stack.getId() <= 7)  {
+            if (stack.getId() > 3 && stack.getId() <= 7) {
                 stack.setImageBitmap(Stack.background7);
             } else if (stack.getId() == 8) {
                 stack.setImageBitmap(Stack.background6);
-            }
-            else if (stack.getId() == 10) {
+            } else if (stack.getId() == 10) {
                 stack.setImageBitmap(Stack.backgroundTalon);
             }
         }
@@ -236,7 +226,7 @@ public class NapoleonsTomb extends Game {
 
         //discard stack to all other stacks
         if (stacks[9].getSize() > 0 && !visited.contains(stacks[9].getTopCard())) {
-            for (int j = 4; j<=8; j++) {
+            for (int j = 4; j <= 8; j++) {
                 if (stacks[9].getTopCard().test(stacks[j])) {
                     return new CardAndStack(stacks[9].getTopCard(), stacks[j]);
                 }
@@ -269,17 +259,17 @@ public class NapoleonsTomb extends Game {
         int destinationID = destinationIDs[0];
 
         //tableau or discard stack to foundation
-        if ((originID <=3 || originID == 9) && destinationID >= 4 && destinationID <= 8) {
+        if ((originID <= 3 || originID == 9) && destinationID >= 4 && destinationID <= 8) {
             return 60;
         }
 
         //tableau or discard stack to foundation
-        if ((destinationID <=3 || destinationID == 9) && originID >= 4 && originID <= 8) {
+        if ((destinationID <= 3 || destinationID == 9) && originID >= 4 && originID <= 8) {
             return -75;
         }
 
         //returning cards to stock
-        if (originID == 9 &&  destinationID == 10) {
+        if (originID == 9 && destinationID == 10) {
             return -200;
         }
 
@@ -287,7 +277,7 @@ public class NapoleonsTomb extends Game {
     }
 
     public void testAfterMove() {
-        if (gameLogic.hasWon()){
+        if (gameLogic.hasWon()) {
             return;
         }
 
@@ -305,14 +295,14 @@ public class NapoleonsTomb extends Game {
         setText();
     }
 
-    private void setText(){
+    private void setText() {
 
         int value;
         String text;
 
-        if (stacks[8].isEmpty() || stacks[8].getSize() == 24){
+        if (stacks[8].isEmpty() || stacks[8].getSize() == 24) {
             value = -1;
-        } else if (stacks[8].getTopCard().getValue() == 1){
+        } else if (stacks[8].getTopCard().getValue() == 1) {
             value = 6;
         } else {
             value = stacks[8].getTopCard().getValue() - 1;

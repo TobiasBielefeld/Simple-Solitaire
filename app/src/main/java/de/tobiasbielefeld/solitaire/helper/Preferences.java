@@ -10,12 +10,10 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.classes.Card;
 
-import static android.content.Context.MODE_PRIVATE;
-import static de.tobiasbielefeld.solitaire.SharedData.lg;
-import static de.tobiasbielefeld.solitaire.SharedData.prefs;
-import static de.tobiasbielefeld.solitaire.helper.Scores.MAX_SAVED_SCORES;
+import static android.content.Context.*;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.helper.Scores.*;
 
 /**
  * Handles all the preference stuff
@@ -155,7 +153,7 @@ public class Preferences {
     public static String PREF_KEY_SHOW_DIALOG_REDEAL;
     public static String PREF_KEY_SHOW_DIALOG_MIX_CARDS;
     public static String PREF_KEY_HIDE_MENU_BAR;
-    public static String PREF_KEY_IMRPOVE_AUTO_MOVE;
+    public static String PREF_KEY_IMPROVE_AUTO_MOVE;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
     public static String DEFAULT_VEGAS_DRAW;
@@ -241,30 +239,30 @@ public class Preferences {
     public static boolean DEFAULT_DEVELOPER_OPTION_NO_SAVING;
     public static boolean DEFAULT_USE_TRUE_RANDOMISATION;
 
-    public Preferences(Context context){
+    public Preferences(Context context) {
         loadStrings(context.getResources());
 
         savedSharedData = PreferenceManager.getDefaultSharedPreferences(context);
         setGamePreferences(context);
     }
 
-    public void setGamePreferences(Context context){
+    public void setGamePreferences(Context context) {
         savedGameData = context.getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
 
     }
 
-    public void registerListener(SharedPreferences.OnSharedPreferenceChangeListener listener){
+    public void registerListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
         savedSharedData.registerOnSharedPreferenceChangeListener(listener);
 
-        if (savedGameData !=null){
+        if (savedGameData != null) {
             savedGameData.registerOnSharedPreferenceChangeListener(listener);
         }
     }
 
-    public void unregisterListener(SharedPreferences.OnSharedPreferenceChangeListener listener){
+    public void unregisterListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
         savedSharedData.unregisterOnSharedPreferenceChangeListener(listener);
 
-        if (savedGameData !=null){
+        if (savedGameData != null) {
             savedGameData.unregisterOnSharedPreferenceChangeListener(listener);
         }
     }
@@ -312,7 +310,7 @@ public class Preferences {
         PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
         PREF_KEY_HIDE_MENU_BUTTON = res.getString(R.string.pref_key_hide_menu_button);
         PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
-        PREF_KEY_IMRPOVE_AUTO_MOVE = res.getString(R.string.pref_key_improve_auto_move);
+        PREF_KEY_IMPROVE_AUTO_MOVE = res.getString(R.string.pref_key_improve_auto_move);
         PREF_KEY_4_COLOR_MODE = res.getString(R.string.pref_key_4_color_mode);
         PREF_KEY_LEFT_HANDED_MODE = res.getString(R.string.pref_key_left_handed_mode);
         PREF_KEY_MENU_BAR_POS_PORTRAIT = res.getString(R.string.pref_key_menu_bar_position_portrait);
@@ -605,7 +603,7 @@ public class Preferences {
      * by the settings headers and the settings activity would do stuff, because it thinks the user changed
      * the values
      */
-    public void setCriticalSettings(){
+    public void setCriticalSettings() {
         saveLocale(getSavedLocale());
         saveForcedTabletLayout(getSavedForcedTabletLayout());
         saveShowExpertSettings(getShowAdvancedSettings());
@@ -619,7 +617,7 @@ public class Preferences {
      * the activity would show toasts to start a new game. (Because the preferences getHighScore created and trigger
      * the toast notification)
      */
-    public void setCriticalGameSettings(){
+    public void setCriticalGameSettings() {
         saveCanfieldDrawMode(getSavedCanfieldDrawMode());
         saveKlondikeDrawMode(getSavedKlondikeDrawMode());
         saveVegasDrawMode(getSavedVegasDrawMode());
@@ -630,43 +628,43 @@ public class Preferences {
 
     /* getters for individual game data */
 
-    public long getSavedTotalTimePlayed(){
-        return savedGameData.getLong(PREF_KEY_TOTAL_TIME_PLAYED,0);
+    public long getSavedTotalTimePlayed() {
+        return savedGameData.getLong(PREF_KEY_TOTAL_TIME_PLAYED, 0);
     }
 
-    public long getSavedTotalPointsEarned(){
-        return savedGameData.getLong(PREF_KEY_TOTAL_POINTS_EARNED,0);
+    public long getSavedTotalPointsEarned() {
+        return savedGameData.getLong(PREF_KEY_TOTAL_POINTS_EARNED, 0);
     }
 
-    public long getSavedEndTime(){
-        return savedGameData.getLong(PREF_KEY_TIMER_END_TIME,System.currentTimeMillis());
+    public long getSavedEndTime() {
+        return savedGameData.getLong(PREF_KEY_TIMER_END_TIME, System.currentTimeMillis());
     }
 
-    public long getSavedScore(){
-        return savedGameData.getLong(PREF_KEY_SCORE,0);
+    public long getSavedScore() {
+        return savedGameData.getLong(PREF_KEY_SCORE, 0);
     }
 
-    public long getSavedStartTime(){
+    public long getSavedStartTime() {
         return savedGameData.getLong(PREF_KEY_TIMER_START_TIME, System.currentTimeMillis());
     }
 
-    public long getSavedWinningTime(){
-        return savedGameData.getLong(PREF_KEY_TIMER_WINNING_TIME,DEFAULT_WINNING_TIME);
+    public long getSavedWinningTime() {
+        return savedGameData.getLong(PREF_KEY_TIMER_WINNING_TIME, DEFAULT_WINNING_TIME);
     }
 
-    public long getSavedVegasMoney(){
-        return savedGameData.getLong(PREF_KEY_VEGAS_MONEY,DEFAULT_VEGAS_MONEY);
+    public long getSavedVegasMoney() {
+        return savedGameData.getLong(PREF_KEY_VEGAS_MONEY, DEFAULT_VEGAS_MONEY);
     }
 
-    public long getSavedVegasOldScore(){
-        return savedGameData.getLong(PREF_KEY_VEGAS_OLD_SCORE,0);
+    public long getSavedVegasOldScore() {
+        return savedGameData.getLong(PREF_KEY_VEGAS_OLD_SCORE, 0);
     }
 
-    public long getSavedVegasTime(){
-        return savedGameData.getLong(PREF_KEY_VEGAS_TIME,0);
+    public long getSavedVegasTime() {
+        return savedGameData.getLong(PREF_KEY_VEGAS_TIME, 0);
     }
 
-    public long[][] getSavedHighScores(){
+    public long[][] getSavedHighScores() {
         long savedScores[][] = new long[MAX_SAVED_SCORES][3];
 
         ArrayList<Long> listScores = getLongList(PREF_KEY_SAVED_SCORES + 0);
@@ -683,7 +681,7 @@ public class Preferences {
         return savedScores;
     }
 
-    public long[][] getSavedRecentScores(){
+    public long[][] getSavedRecentScores() {
         long savedScores[][] = new long[MAX_SAVED_SCORES][3];
 
         ArrayList<Long> listScores = getLongList(PREF_KEY_SAVED_RECENT_SCORES + 0);
@@ -700,159 +698,159 @@ public class Preferences {
         return savedScores;
     }
 
-    public int getSavedTotalNumberUndos(){
-        return savedGameData.getInt(PREF_KEY_TOTAL_NUMBER_UNDOS,0);
+    public int getSavedTotalNumberUndos() {
+        return savedGameData.getInt(PREF_KEY_TOTAL_NUMBER_UNDOS, 0);
     }
 
-    public int getSavedTotalHintsShown(){
-        return savedGameData.getInt(PREF_KEY_TOTAL_HINTS_SHOWN,0);
+    public int getSavedTotalHintsShown() {
+        return savedGameData.getInt(PREF_KEY_TOTAL_HINTS_SHOWN, 0);
     }
 
-    public int getSavedRecycleCounter(int total){
-        return savedGameData.getInt(PREF_KEY_GAME_REDEAL_COUNT,total);
+    public int getSavedRecycleCounter(int total) {
+        return savedGameData.getInt(PREF_KEY_GAME_REDEAL_COUNT, total);
     }
 
-    public int getSavedLongestRun(){
-        return savedGameData.getInt(PREF_KEY_LONGEST_RUN,0);
+    public int getSavedLongestRun() {
+        return savedGameData.getInt(PREF_KEY_LONGEST_RUN, 0);
     }
 
-    public int getSavedRunCounter(){
-        return savedGameData.getInt(PREF_KEY_RUN_COUNTER,0);
+    public int getSavedRunCounter() {
+        return savedGameData.getInt(PREF_KEY_RUN_COUNTER, 0);
     }
 
-    public int getSavedNumberOfPlayedGames(){
-        return savedGameData.getInt(PREF_KEY_GAME_NUMBER_OF_PLAYED_GAMES,getSavedNumberOfWonGames());
+    public int getSavedNumberOfPlayedGames() {
+        return savedGameData.getInt(PREF_KEY_GAME_NUMBER_OF_PLAYED_GAMES, getSavedNumberOfWonGames());
     }
 
-    public int getSavedNumberOfWonGames(){
-        return savedGameData.getInt(PREF_KEY_GAME_NUMBER_OF_WON_GAMES,0);
+    public int getSavedNumberOfWonGames() {
+        return savedGameData.getInt(PREF_KEY_GAME_NUMBER_OF_WON_GAMES, 0);
     }
 
-    public int getSavedEnsureMovabilityMinMoves(){
-        return savedGameData.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES,DEFAULT_ENSURE_MOVABILITY_MIN_MOVES);
+    public int getSavedEnsureMovabilityMinMoves() {
+        return savedGameData.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, DEFAULT_ENSURE_MOVABILITY_MIN_MOVES);
     }
 
-    public int getSavedRecordListEntriesSize(){
+    public int getSavedRecordListEntriesSize() {
         return savedGameData.getInt(PREF_KEY_RECORD_LIST_ENTRIES_SIZE, -1);
     }
 
-    public int getSavedFlipCardId(String pos){
+    public int getSavedFlipCardId(String pos) {
         return savedGameData.getInt(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_FLIP_CARD, -1);
     }
 
-    public boolean isFirstRun(){
-        return savedGameData.getBoolean(PREF_KEY_GAME_FIRST_RUN,DEFAULT_FIRST_RUN);
+    public boolean isFirstRun() {
+        return savedGameData.getBoolean(PREF_KEY_GAME_FIRST_RUN, DEFAULT_FIRST_RUN);
     }
 
-    public boolean hasSettingsOnlyForThisGame(){
+    public boolean hasSettingsOnlyForThisGame() {
         return (prefs.getSavedCurrentGame() != DEFAULT_CURRENT_GAME)
-                && savedGameData.getBoolean(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME,DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME);
+                && savedGameData.getBoolean(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME, DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME);
     }
 
-    public boolean isDealingCards(){
-        return savedGameData.getBoolean(PREF_KEY_DEALING_CARDS,false);
+    public boolean isDealingCards() {
+        return savedGameData.getBoolean(PREF_KEY_DEALING_CARDS, false);
     }
 
-    public boolean isWon(){
-        return savedGameData.getBoolean(PREF_KEY_GAME_WON,DEFAULT_WON);
+    public boolean isWon() {
+        return savedGameData.getBoolean(PREF_KEY_GAME_WON, DEFAULT_WON);
     }
 
-    public boolean isWonAndReloaded(){
-        return savedGameData.getBoolean(PREF_KEY_GAME_WON_AND_RELOADED,DEFAULT_WON_AND_RELOADED);
+    public boolean isWonAndReloaded() {
+        return savedGameData.getBoolean(PREF_KEY_GAME_WON_AND_RELOADED, DEFAULT_WON_AND_RELOADED);
     }
 
-    public boolean hasMovedFirstCard(){
+    public boolean hasMovedFirstCard() {
         return savedGameData.getBoolean(PREF_KEY_GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
     }
 
-    public boolean isDeveloperOptionMoveCardsEverywhereEnabled(){
+    public boolean isDeveloperOptionMoveCardsEverywhereEnabled() {
         return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE, DEFAULT_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE);
     }
 
-    public boolean isDeveloperOptionPlayEveryCardEnabled(){
+    public boolean isDeveloperOptionPlayEveryCardEnabled() {
         return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_PLAY_EVERY_CARD, DEFAULT_DEVELOPER_OPTION_PLAY_EVERY_CARD);
     }
 
-    public boolean isDeveloperOptionInstantWinEnabled(){
+    public boolean isDeveloperOptionInstantWinEnabled() {
         return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_INSTANT_WIN, DEFAULT_DEVELOPER_OPTION_INSTANT_WIN);
     }
 
-    public boolean isDeveloperOptionSavingDisabled(){
+    public boolean isDeveloperOptionSavingDisabled() {
         return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_NO_SAVING, DEFAULT_DEVELOPER_OPTION_NO_SAVING);
     }
 
-    public int getDeveloperOptionDealCorrectSequences(){
+    public int getDeveloperOptionDealCorrectSequences() {
         String value = savedSharedData.getString(PREF_KEY_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES, DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES);
         return Integer.parseInt(value);
     }
 
-    public ArrayList<Integer> getSavedCards(){
+    public ArrayList<Integer> getSavedCards() {
         return getIntList(PREF_KEY_CARDS);
     }
 
-    public ArrayList<Integer> getSavedStacks(int id){
+    public ArrayList<Integer> getSavedStacks(int id) {
         return getIntList(PREF_KEY_STACK + id);
     }
 
-    public ArrayList<Integer> getSavedRandomCards(){
+    public ArrayList<Integer> getSavedRandomCards() {
         return getIntList(PREF_KEY_GAME_RANDOM_CARDS);
     }
 
-    public ArrayList<Integer> getSavedRecordListCards(String pos){
+    public ArrayList<Integer> getSavedRecordListCards(String pos) {
         return getIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_CARD);
     }
 
-    public ArrayList<Integer> getSavedRecordListOrigins(String pos){
+    public ArrayList<Integer> getSavedRecordListOrigins(String pos) {
         return getIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_ORIGIN);
     }
 
-    public ArrayList<Integer> getSavedRecordListOrders(String pos){
+    public ArrayList<Integer> getSavedRecordListOrders(String pos) {
         return getIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_ORDER);
     }
 
-    public ArrayList<Integer> getSavedRecordListFlipCards(String pos){
+    public ArrayList<Integer> getSavedRecordListFlipCards(String pos) {
         return getIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_FLIP_CARD);
     }
 
     /* setters for individual game data */
 
-    public void saveTotalPointsEarned(long value){
-        savedGameData.edit().putLong(PREF_KEY_TOTAL_POINTS_EARNED,value).apply();
+    public void saveTotalPointsEarned(long value) {
+        savedGameData.edit().putLong(PREF_KEY_TOTAL_POINTS_EARNED, value).apply();
     }
 
-    public void saveTotalTimePlayed(long value){
-        savedGameData.edit().putLong(PREF_KEY_TOTAL_TIME_PLAYED,value).apply();
+    public void saveTotalTimePlayed(long value) {
+        savedGameData.edit().putLong(PREF_KEY_TOTAL_TIME_PLAYED, value).apply();
     }
 
-    public void saveScore(long value){
-        savedGameData.edit().putLong(PREF_KEY_SCORE,value).apply();
+    public void saveScore(long value) {
+        savedGameData.edit().putLong(PREF_KEY_SCORE, value).apply();
     }
 
-    public void saveStartTime(long value){
-        savedGameData.edit().putLong(PREF_KEY_TIMER_START_TIME,value).apply();
+    public void saveStartTime(long value) {
+        savedGameData.edit().putLong(PREF_KEY_TIMER_START_TIME, value).apply();
     }
 
-    public void saveEndTime(long value){
-        savedGameData.edit().putLong(PREF_KEY_TIMER_END_TIME,value).apply();
+    public void saveEndTime(long value) {
+        savedGameData.edit().putLong(PREF_KEY_TIMER_END_TIME, value).apply();
     }
 
-    public void saveWinningTime(long value){
-        savedGameData.edit().putLong(PREF_KEY_TIMER_WINNING_TIME,value).apply();
+    public void saveWinningTime(long value) {
+        savedGameData.edit().putLong(PREF_KEY_TIMER_WINNING_TIME, value).apply();
     }
 
-    public void saveVegasMoney(long value){
-        savedGameData.edit().putLong(PREF_KEY_VEGAS_MONEY,value).apply();
+    public void saveVegasMoney(long value) {
+        savedGameData.edit().putLong(PREF_KEY_VEGAS_MONEY, value).apply();
     }
 
-    public void saveVegasOldScore(long value){
-        savedGameData.edit().putLong(PREF_KEY_VEGAS_OLD_SCORE,value).apply();
+    public void saveVegasOldScore(long value) {
+        savedGameData.edit().putLong(PREF_KEY_VEGAS_OLD_SCORE, value).apply();
     }
 
-    public void saveVegasTime(long value){
-        savedGameData.edit().putLong(PREF_KEY_VEGAS_TIME,value).apply();
+    public void saveVegasTime(long value) {
+        savedGameData.edit().putLong(PREF_KEY_VEGAS_TIME, value).apply();
     }
 
-    public void saveHighScores(long savedScores[][]){
+    public void saveHighScores(long savedScores[][]) {
         ArrayList<Long> listScores = new ArrayList<>();
         ArrayList<Long> listTimes = new ArrayList<>();
         ArrayList<Long> listDates = new ArrayList<>();
@@ -868,7 +866,7 @@ public class Preferences {
         putLongList(PREF_KEY_SAVED_SCORES + 2, listDates);
     }
 
-    public void saveRecentScores(long savedScores[][]){
+    public void saveRecentScores(long savedScores[][]) {
         ArrayList<Long> listScores = new ArrayList<>();
         ArrayList<Long> listTimes = new ArrayList<>();
         ArrayList<Long> listDates = new ArrayList<>();
@@ -884,652 +882,652 @@ public class Preferences {
         putLongList(PREF_KEY_SAVED_RECENT_SCORES + 2, listDates);
     }
 
-    public void saveTotalNumberUndos(int value){
-        savedGameData.edit().putInt(PREF_KEY_TOTAL_NUMBER_UNDOS,value).apply();
+    public void saveTotalNumberUndos(int value) {
+        savedGameData.edit().putInt(PREF_KEY_TOTAL_NUMBER_UNDOS, value).apply();
     }
 
-    public void saveTotalHintsShown(int value){
-        savedGameData.edit().putInt(PREF_KEY_TOTAL_HINTS_SHOWN,value).apply();
+    public void saveTotalHintsShown(int value) {
+        savedGameData.edit().putInt(PREF_KEY_TOTAL_HINTS_SHOWN, value).apply();
     }
 
-    public void saveRedealCount(int value){
-        savedGameData.edit().putInt(PREF_KEY_GAME_REDEAL_COUNT,value).apply();
+    public void saveRedealCount(int value) {
+        savedGameData.edit().putInt(PREF_KEY_GAME_REDEAL_COUNT, value).apply();
     }
 
-    public void saveEnsureMovabilityMinMoves(int value){
+    public void saveEnsureMovabilityMinMoves(int value) {
         savedGameData.edit().putInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, value).apply();
     }
 
-    public void saveLongestRun(int value){
-        savedGameData.edit().putInt(PREF_KEY_LONGEST_RUN,value).apply();
+    public void saveLongestRun(int value) {
+        savedGameData.edit().putInt(PREF_KEY_LONGEST_RUN, value).apply();
     }
 
-    public void saveRunCounter(int value){
-        savedGameData.edit().putInt(PREF_KEY_RUN_COUNTER,value).apply();
+    public void saveRunCounter(int value) {
+        savedGameData.edit().putInt(PREF_KEY_RUN_COUNTER, value).apply();
     }
 
-    public void saveNumberOfWonGames(int value){
-        savedGameData.edit().putInt(PREF_KEY_GAME_NUMBER_OF_WON_GAMES,value).apply();
+    public void saveNumberOfWonGames(int value) {
+        savedGameData.edit().putInt(PREF_KEY_GAME_NUMBER_OF_WON_GAMES, value).apply();
     }
 
-    public void saveNumberOfPlayedGames(int value){
-        savedGameData.edit().putInt(PREF_KEY_GAME_NUMBER_OF_PLAYED_GAMES,value).apply();
+    public void saveNumberOfPlayedGames(int value) {
+        savedGameData.edit().putInt(PREF_KEY_GAME_NUMBER_OF_PLAYED_GAMES, value).apply();
     }
 
-    public void saveRecordListEntriesSize(int value){
-        savedGameData.edit().putInt(PREF_KEY_RECORD_LIST_ENTRIES_SIZE,value).apply();
+    public void saveRecordListEntriesSize(int value) {
+        savedGameData.edit().putInt(PREF_KEY_RECORD_LIST_ENTRIES_SIZE, value).apply();
     }
 
-    public void setSettingsOnlyForThisGame(boolean value){
-        savedGameData.edit().putBoolean(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME,value).apply();
+    public void setSettingsOnlyForThisGame(boolean value) {
+        savedGameData.edit().putBoolean(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME, value).apply();
     }
 
-    public void saveFirstRun(boolean value){
-        savedGameData.edit().putBoolean(PREF_KEY_GAME_FIRST_RUN,value).apply();
+    public void saveFirstRun(boolean value) {
+        savedGameData.edit().putBoolean(PREF_KEY_GAME_FIRST_RUN, value).apply();
     }
 
-    public void setDealingCards(boolean value){
-        savedGameData.edit().putBoolean(PREF_KEY_DEALING_CARDS,value).apply();
+    public void setDealingCards(boolean value) {
+        savedGameData.edit().putBoolean(PREF_KEY_DEALING_CARDS, value).apply();
     }
 
-    public void saveWon(boolean value){
-        savedGameData.edit().putBoolean(PREF_KEY_GAME_WON,value).apply();
+    public void saveWon(boolean value) {
+        savedGameData.edit().putBoolean(PREF_KEY_GAME_WON, value).apply();
     }
 
-    public void saveWonAndReloaded(boolean value){
-        savedGameData.edit().putBoolean(PREF_KEY_GAME_WON_AND_RELOADED,value).apply();
+    public void saveWonAndReloaded(boolean value) {
+        savedGameData.edit().putBoolean(PREF_KEY_GAME_WON_AND_RELOADED, value).apply();
     }
 
-    public void saveMovedFirstCard(boolean value){
-        savedGameData.edit().putBoolean(PREF_KEY_GAME_MOVED_FIRST_CARD,value).apply();
+    public void saveMovedFirstCard(boolean value) {
+        savedGameData.edit().putBoolean(PREF_KEY_GAME_MOVED_FIRST_CARD, value).apply();
     }
 
-    public void saveCards(List<Integer> list){
-        putIntList(PREF_KEY_CARDS,list);
+    public void saveCards(List<Integer> list) {
+        putIntList(PREF_KEY_CARDS, list);
     }
 
-    public void saveStacks(ArrayList<Integer> list, int id){
-        putIntList(PREF_KEY_STACK + id,list);
+    public void saveStacks(ArrayList<Integer> list, int id) {
+        putIntList(PREF_KEY_STACK + id, list);
     }
 
-    public void saveRandomCards(ArrayList<Integer> list){
-        putIntList(PREF_KEY_GAME_RANDOM_CARDS,list);
+    public void saveRandomCards(ArrayList<Integer> list) {
+        putIntList(PREF_KEY_GAME_RANDOM_CARDS, list);
     }
 
-    public void saveRecordListCards(ArrayList<Integer> list, String pos){
-        putIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_CARD,list);
+    public void saveRecordListCards(ArrayList<Integer> list, String pos) {
+        putIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_CARD, list);
     }
 
-    public void saveRecordListOrigins(ArrayList<Integer> list, String pos){
-        putIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_ORIGIN,list);
+    public void saveRecordListOrigins(ArrayList<Integer> list, String pos) {
+        putIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_ORIGIN, list);
     }
 
-    public void saveRecordListOrders(ArrayList<Integer> list, String pos){
-        putIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_ORDER,list);
+    public void saveRecordListOrders(ArrayList<Integer> list, String pos) {
+        putIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_ORDER, list);
     }
 
-    public void saveRecordListFlipCards(ArrayList<Integer> list, String pos){
-        putIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_FLIP_CARD,list);
+    public void saveRecordListFlipCards(ArrayList<Integer> list, String pos) {
+        putIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_FLIP_CARD, list);
     }
 
     /* getters for shared data */
 
-    public int getSavedGameLayoutMarginsPortrait(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT,DEFAULT_GAME_LAYOUT_MARGINS_PORTRAIT);
+    public int getSavedGameLayoutMarginsPortrait() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT, DEFAULT_GAME_LAYOUT_MARGINS_PORTRAIT);
         } else {
-            return savedSharedData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT,DEFAULT_GAME_LAYOUT_MARGINS_PORTRAIT);
+            return savedSharedData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT, DEFAULT_GAME_LAYOUT_MARGINS_PORTRAIT);
         }
     }
 
-    public int getSavedGameLayoutMarginsLandscape(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE,DEFAULT_GAME_LAYOUT_MARGINS_LANDSCAPE);
+    public int getSavedGameLayoutMarginsLandscape() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE, DEFAULT_GAME_LAYOUT_MARGINS_LANDSCAPE);
         } else {
-            return savedSharedData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE,DEFAULT_GAME_LAYOUT_MARGINS_LANDSCAPE);
+            return savedSharedData.getInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE, DEFAULT_GAME_LAYOUT_MARGINS_LANDSCAPE);
         }
     }
 
-    public int getSavedCardBackground(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getInt(PREF_KEY_CARD_BACKGROUND,DEFAULT_CARD_BACKGROUND);
+    public int getSavedCardBackground() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getInt(PREF_KEY_CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
         } else {
-            return savedSharedData.getInt(PREF_KEY_CARD_BACKGROUND,DEFAULT_CARD_BACKGROUND);
+            return savedSharedData.getInt(PREF_KEY_CARD_BACKGROUND, DEFAULT_CARD_BACKGROUND);
         }
     }
 
-    public int getSavedCardBackgroundColor(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getInt(PREF_KEY_CARD_BACKGROUND_COLOR,DEFAULT_CARD_BACKGROUND_COLOR);
+    public int getSavedCardBackgroundColor() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getInt(PREF_KEY_CARD_BACKGROUND_COLOR, DEFAULT_CARD_BACKGROUND_COLOR);
         } else {
-            return savedSharedData.getInt(PREF_KEY_CARD_BACKGROUND_COLOR,DEFAULT_CARD_BACKGROUND_COLOR);
+            return savedSharedData.getInt(PREF_KEY_CARD_BACKGROUND_COLOR, DEFAULT_CARD_BACKGROUND_COLOR);
         }
     }
 
-    public int getSavedBackgroundColorType(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getInt(PREF_KEY_BACKGROUND_COLOR_TYPE,DEFAULT_BACKGROUND_COLOR_TYPE);
+    public int getSavedBackgroundColorType() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getInt(PREF_KEY_BACKGROUND_COLOR_TYPE, DEFAULT_BACKGROUND_COLOR_TYPE);
         } else {
-            return savedSharedData.getInt(PREF_KEY_BACKGROUND_COLOR_TYPE,DEFAULT_BACKGROUND_COLOR_TYPE);
+            return savedSharedData.getInt(PREF_KEY_BACKGROUND_COLOR_TYPE, DEFAULT_BACKGROUND_COLOR_TYPE);
         }
     }
 
-    public int getSavedBackgroundCustomColor(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM,DEFAULT_BACKGROUND_COLOR_CUSTOM);
+    public int getSavedBackgroundCustomColor() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM);
         } else {
-            return savedSharedData.getInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM,DEFAULT_BACKGROUND_COLOR_CUSTOM);
+            return savedSharedData.getInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, DEFAULT_BACKGROUND_COLOR_CUSTOM);
         }
     }
 
-    public int getSavedCardTheme(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getInt(PREF_KEY_CARD_DRAWABLES,1);
+    public int getSavedCardTheme() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getInt(PREF_KEY_CARD_DRAWABLES, 1);
         } else {
-            return savedSharedData.getInt(PREF_KEY_CARD_DRAWABLES,1);
+            return savedSharedData.getInt(PREF_KEY_CARD_DRAWABLES, 1);
         }
     }
 
-    public int getSavedBackgroundVolume(){
-        return savedSharedData.getInt(PREF_KEY_BACKGROUND_VOLUME,DEFAULT_BACKGROUND_VOLUME);
+    public int getSavedBackgroundVolume() {
+        return savedSharedData.getInt(PREF_KEY_BACKGROUND_VOLUME, DEFAULT_BACKGROUND_VOLUME);
     }
 
-    public int getSavedVegasBetAmount(){
-        return savedSharedData.getInt(PREF_KEY_VEGAS_BET_AMOUNT,DEFAULT_VEGAS_BET_AMOUNT);
+    public int getSavedVegasBetAmount() {
+        return savedSharedData.getInt(PREF_KEY_VEGAS_BET_AMOUNT, DEFAULT_VEGAS_BET_AMOUNT);
     }
 
-    public int getSavedVegasWinAmount(){
-        return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT,DEFAULT_VEGAS_WIN_AMOUNT);
+    public int getSavedVegasWinAmount() {
+        return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT, DEFAULT_VEGAS_WIN_AMOUNT);
     }
 
-    public int getSavedVegasBetAmountOld(){
-        return savedSharedData.getInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD,DEFAULT_VEGAS_BET_AMOUNT);
+    public int getSavedVegasBetAmountOld() {
+        return savedSharedData.getInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT);
     }
 
-    public int getSavedVegasWinAmountOld(){
-        return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD,DEFAULT_VEGAS_WIN_AMOUNT);
+    public int getSavedVegasWinAmountOld() {
+        return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD, DEFAULT_VEGAS_WIN_AMOUNT);
     }
 
-    public int getSavedCurrentGame(){
-        return savedSharedData.getInt(PREF_KEY_CURRENT_GAME,DEFAULT_CURRENT_GAME);
+    public int getSavedCurrentGame() {
+        return savedSharedData.getInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
     }
 
-    public int getSavedOrientation(){
-        return Integer.parseInt(savedSharedData.getString(PREF_KEY_ORIENTATION,DEFAULT_ORIENTATION));
+    public int getSavedOrientation() {
+        return Integer.parseInt(savedSharedData.getString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION));
     }
 
-    public int getSavedBackgroundColor(){
-        if (hasSettingsOnlyForThisGame()){
-            return Integer.parseInt(savedGameData.getString(PREF_KEY_BACKGROUND_COLOR,DEFAULT_BACKGROUND_COLOR));
+    public int getSavedBackgroundColor() {
+        if (hasSettingsOnlyForThisGame()) {
+            return Integer.parseInt(savedGameData.getString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR));
         } else {
-            return Integer.parseInt(savedSharedData.getString(PREF_KEY_BACKGROUND_COLOR,DEFAULT_BACKGROUND_COLOR));
+            return Integer.parseInt(savedSharedData.getString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR));
         }
     }
 
-    public int getSavedTextColor(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getInt(PREF_KEY_TEXT_COLOR,DEFAULT_TEXT_COLOR);
+    public int getSavedTextColor() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getInt(PREF_KEY_TEXT_COLOR, DEFAULT_TEXT_COLOR);
         } else {
-            return savedSharedData.getInt(PREF_KEY_TEXT_COLOR,DEFAULT_TEXT_COLOR);
+            return savedSharedData.getInt(PREF_KEY_TEXT_COLOR, DEFAULT_TEXT_COLOR);
         }
     }
 
-    public int getSavedMenuColumnsPortrait(){
-        return Integer.parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_PORTRAIT,DEFAULT_MENU_COLUMNS_PORTRAIT));
+    public int getSavedMenuColumnsPortrait() {
+        return Integer.parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT));
     }
 
-    public int getSavedMenuColumnsLandscape(){
-        return Integer.parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_LANDSCAPE,DEFAULT_MENU_COLUMNS_LANDSCAPE));
+    public int getSavedMenuColumnsLandscape() {
+        return Integer.parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE));
     }
 
-    public int getSavedNumberOfRecycles(String Key, String defaulValue){
-        return Integer.parseInt(savedSharedData.getString(Key,defaulValue));
+    public int getSavedNumberOfRecycles(String Key, String defaulValue) {
+        return Integer.parseInt(savedSharedData.getString(Key, defaulValue));
     }
 
-    public int getSavedCanfieldSizeOfReserve(){
+    public int getSavedCanfieldSizeOfReserve() {
         return Integer.parseInt(savedSharedData.getString(PREF_KEY_CANFIELD_SIZE_OF_RESERVE, DEFAULT_CANFIELD_SIZE_OF_RESERVE));
     }
 
-    public float getSavedMovementSpeed(){
-        return Float.parseFloat(savedSharedData.getString(PREF_KEY_MOVEMENT_SPEED,DEFAULT_MOVEMENT_SPEED));
+    public float getSavedMovementSpeed() {
+        return Float.parseFloat(savedSharedData.getString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED));
     }
 
-    public int getSavedMaxNumberUndos(){
-        return savedSharedData.getInt(PREF_KEY_MAX_NUMBER_UNDOS,DEFAULT_MAX_NUMBER_UNDOS);
+    public int getSavedMaxNumberUndos() {
+        return savedSharedData.getInt(PREF_KEY_MAX_NUMBER_UNDOS, DEFAULT_MAX_NUMBER_UNDOS);
     }
 
-    public String getSavedBackgroundMusic(){
-        return savedSharedData.getString(PREF_KEY_BACKGROUND_MUSIC,DEFAULT_BACKGROUND_MUSIC);
+    public String getSavedBackgroundMusic() {
+        return savedSharedData.getString(PREF_KEY_BACKGROUND_MUSIC, DEFAULT_BACKGROUND_MUSIC);
     }
 
-    public String getSavedLocale(){
-        return savedSharedData.getString(PREF_KEY_LANGUAGE,DEFAULT_LANGUAGE);
+    public String getSavedLocale() {
+        return savedSharedData.getString(PREF_KEY_LANGUAGE, DEFAULT_LANGUAGE);
     }
 
-    public String getSavedCanfieldDrawMode(){
-        return savedSharedData.getString(PREF_KEY_CANFIELD_DRAW,DEFAULT_CANFIELD_DRAW);
+    public String getSavedCanfieldDrawMode() {
+        return savedSharedData.getString(PREF_KEY_CANFIELD_DRAW, DEFAULT_CANFIELD_DRAW);
     }
 
-    public String getSavedCanfieldDrawModeOld(){
-        return savedSharedData.getString(PREF_KEY_CANFIELD_DRAW_OLD,DEFAULT_CANFIELD_DRAW);
+    public String getSavedCanfieldDrawModeOld() {
+        return savedSharedData.getString(PREF_KEY_CANFIELD_DRAW_OLD, DEFAULT_CANFIELD_DRAW);
     }
 
-    public String getSavedKlondikeDrawMode(){
-        return savedSharedData.getString(PREF_KEY_KLONDIKE_DRAW,DEFAULT_KLONDIKE_DRAW);
+    public String getSavedKlondikeDrawMode() {
+        return savedSharedData.getString(PREF_KEY_KLONDIKE_DRAW, DEFAULT_KLONDIKE_DRAW);
     }
 
-    public String getSavedVegasDrawMode(){
-        return savedSharedData.getString(PREF_KEY_VEGAS_DRAW,DEFAULT_VEGAS_DRAW);
+    public String getSavedVegasDrawMode() {
+        return savedSharedData.getString(PREF_KEY_VEGAS_DRAW, DEFAULT_VEGAS_DRAW);
     }
 
-    public String getSavedKlondikeVegasDrawModeOld(int which){
-        if (which==1) {
+    public String getSavedKlondikeVegasDrawModeOld(int which) {
+        if (which == 1) {
             return savedSharedData.getString(PREF_KEY_KLONDIKE_DRAW_OLD, DEFAULT_KLONDIKE_DRAW);
         } else {
             return savedSharedData.getString(PREF_KEY_VEGAS_DRAW_OLD, DEFAULT_VEGAS_DRAW);
         }
     }
 
-    public String getSavedSpiderDifficulty(){
-        return savedSharedData.getString(PREF_KEY_SPIDER_DIFFICULTY,DEFAULT_SPIDER_DIFFICULTY);
+    public String getSavedSpiderDifficulty() {
+        return savedSharedData.getString(PREF_KEY_SPIDER_DIFFICULTY, DEFAULT_SPIDER_DIFFICULTY);
     }
 
-    public String getSavedSpiderDifficultyOld(){
-        return savedSharedData.getString(PREF_KEY_SPIDER_DIFFICULTY_OLD,DEFAULT_SPIDER_DIFFICULTY);
+    public String getSavedSpiderDifficultyOld() {
+        return savedSharedData.getString(PREF_KEY_SPIDER_DIFFICULTY_OLD, DEFAULT_SPIDER_DIFFICULTY);
     }
 
-    public String getSavedSpideretteDifficulty(){
-        return savedSharedData.getString(PREF_KEY_SPIDERETTE_DIFFICULTY,DEFAULT_SPIDERETTE_DIFFICULTY);
+    public String getSavedSpideretteDifficulty() {
+        return savedSharedData.getString(PREF_KEY_SPIDERETTE_DIFFICULTY, DEFAULT_SPIDERETTE_DIFFICULTY);
     }
 
-    public String getSavedSpideretteDifficultyOld(){
-        return savedSharedData.getString(PREF_KEY_SPIDERETTE_DIFFICULTY_OLD,DEFAULT_SPIDERETTE_DIFFICULTY);
+    public String getSavedSpideretteDifficultyOld() {
+        return savedSharedData.getString(PREF_KEY_SPIDERETTE_DIFFICULTY_OLD, DEFAULT_SPIDERETTE_DIFFICULTY);
     }
 
-    public String getSavedYukonRules(){
-        return savedSharedData.getString(PREF_KEY_YUKON_RULES,DEFAULT_YUKON_RULES);
+    public String getSavedYukonRules() {
+        return savedSharedData.getString(PREF_KEY_YUKON_RULES, DEFAULT_YUKON_RULES);
     }
 
-    public String getSavedYukonRulesOld(){
-        return savedSharedData.getString(PREF_KEY_YUKON_RULES_OLD,DEFAULT_YUKON_RULES);
+    public String getSavedYukonRulesOld() {
+        return savedSharedData.getString(PREF_KEY_YUKON_RULES_OLD, DEFAULT_YUKON_RULES);
     }
 
-    public String getSavedMenuBarPosPortrait(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getString(PREF_KEY_MENU_BAR_POS_PORTRAIT,DEFAULT_MENU_BAR_POSITION_PORTRAIT);
+    public String getSavedMenuBarPosPortrait() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getString(PREF_KEY_MENU_BAR_POS_PORTRAIT, DEFAULT_MENU_BAR_POSITION_PORTRAIT);
         } else {
-            return savedSharedData.getString(PREF_KEY_MENU_BAR_POS_PORTRAIT,DEFAULT_MENU_BAR_POSITION_PORTRAIT);
+            return savedSharedData.getString(PREF_KEY_MENU_BAR_POS_PORTRAIT, DEFAULT_MENU_BAR_POSITION_PORTRAIT);
         }
     }
 
-    public String getSavedMenuBarPosLandscape(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getString(PREF_KEY_MENU_BAR_POS_LANDSCAPE,DEFAULT_MENU_BAR_POSITION_LANDSCAPE);
+    public String getSavedMenuBarPosLandscape() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getString(PREF_KEY_MENU_BAR_POS_LANDSCAPE, DEFAULT_MENU_BAR_POSITION_LANDSCAPE);
         } else {
-            return savedSharedData.getString(PREF_KEY_MENU_BAR_POS_LANDSCAPE,DEFAULT_MENU_BAR_POSITION_LANDSCAPE);
+            return savedSharedData.getString(PREF_KEY_MENU_BAR_POS_LANDSCAPE, DEFAULT_MENU_BAR_POSITION_LANDSCAPE);
         }
 
     }
 
-    public String getSavedPyramidDifficulty(){
-        return savedSharedData.getString(PREF_KEY_PYRAMID_DIFFICULTY,DEFAULT_PYRAMID_DIFFICULTY);
+    public String getSavedPyramidDifficulty() {
+        return savedSharedData.getString(PREF_KEY_PYRAMID_DIFFICULTY, DEFAULT_PYRAMID_DIFFICULTY);
     }
 
-    public String getSavedWinSound(){
+    public String getSavedWinSound() {
         return savedSharedData.getString(PREF_KEY_WIN_SOUND, DEFAULT_WIN_SOUND);
     }
 
-    public boolean getSavedForcedTabletLayout(){
-        return savedSharedData.getBoolean(PREF_KEY_FORCE_TABLET_LAYOUT,DEFAULT_FORCE_TABLET_LAYOUT);
+    public boolean getSavedForcedTabletLayout() {
+        return savedSharedData.getBoolean(PREF_KEY_FORCE_TABLET_LAYOUT, DEFAULT_FORCE_TABLET_LAYOUT);
     }
 
-    public boolean getSavedLeftHandedMode(){
-        return savedSharedData.getBoolean(PREF_KEY_LEFT_HANDED_MODE,DEFAULT_LEFT_HANDED_MODE);
+    public boolean getSavedLeftHandedMode() {
+        return savedSharedData.getBoolean(PREF_KEY_LEFT_HANDED_MODE, DEFAULT_LEFT_HANDED_MODE);
     }
 
-    public boolean getSavedFourColorMode(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE);
+    public boolean getSavedFourColorMode() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE);
         } else {
-            return savedSharedData.getBoolean(PREF_KEY_4_COLOR_MODE,DEFAULT_4_COLOR_MODE);
+            return savedSharedData.getBoolean(PREF_KEY_4_COLOR_MODE, DEFAULT_4_COLOR_MODE);
         }
     }
 
-    public boolean getSavedHideStatusBar(){
-        return savedSharedData.getBoolean(PREF_KEY_HIDE_STATUS_BAR,false);
+    public boolean getSavedHideStatusBar() {
+        return savedSharedData.getBoolean(PREF_KEY_HIDE_STATUS_BAR, false);
     }
 
-    public boolean getSavedStatisticsHideWinPercentage(){
-        return savedSharedData.getBoolean(PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE,DEFAULT_STATISTICS_HIDE_WIN_PERCENTAGE);
+    public boolean getSavedStatisticsHideWinPercentage() {
+        return savedSharedData.getBoolean(PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE, DEFAULT_STATISTICS_HIDE_WIN_PERCENTAGE);
     }
 
-    public boolean getHideMenuButton(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getBoolean(PREF_KEY_HIDE_MENU_BUTTON,DEFAULT_HIDE_MENU_BUTTON);
+    public boolean getHideMenuButton() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getBoolean(PREF_KEY_HIDE_MENU_BUTTON, DEFAULT_HIDE_MENU_BUTTON);
         } else {
-            return savedSharedData.getBoolean(PREF_KEY_HIDE_MENU_BUTTON,DEFAULT_HIDE_MENU_BUTTON);
+            return savedSharedData.getBoolean(PREF_KEY_HIDE_MENU_BUTTON, DEFAULT_HIDE_MENU_BUTTON);
         }
     }
 
-    public boolean getHideAutoCompleteButton(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON,DEFAULT_HIDE_AUTOCOMPLETE_BUTTON);
+    public boolean getHideAutoCompleteButton() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON, DEFAULT_HIDE_AUTOCOMPLETE_BUTTON);
         } else {
-            return savedSharedData.getBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON,DEFAULT_HIDE_AUTOCOMPLETE_BUTTON);
+            return savedSharedData.getBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON, DEFAULT_HIDE_AUTOCOMPLETE_BUTTON);
         }
     }
 
-    public boolean getSavedCalculationAlternativeMode(){
-        return savedSharedData.getBoolean(PREF_KEY_CALCULATION_ALTERNATIVE,DEFAULT_CALCULATION_ALTERNATIVE);
+    public boolean getSavedCalculationAlternativeMode() {
+        return savedSharedData.getBoolean(PREF_KEY_CALCULATION_ALTERNATIVE, DEFAULT_CALCULATION_ALTERNATIVE);
     }
 
-    public boolean getSavedCalculationAlternativeModeOld(){
-        return savedSharedData.getBoolean(PREF_KEY_CALCULATION_ALTERNATIVE_OLD,DEFAULT_CALCULATION_ALTERNATIVE);
+    public boolean getSavedCalculationAlternativeModeOld() {
+        return savedSharedData.getBoolean(PREF_KEY_CALCULATION_ALTERNATIVE_OLD, DEFAULT_CALCULATION_ALTERNATIVE);
     }
 
-    public boolean getSavedFortyEightLimitedRecycles(){
+    public boolean getSavedFortyEightLimitedRecycles() {
         return savedSharedData.getBoolean(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES, DEFAULT_FORTYEIGHT_LIMITED_RECYCLES);
     }
 
-    public boolean getSavedGoldCyclic(){
-        return savedSharedData.getBoolean(PREF_KEY_GOLF_CYCLIC,DEFAULT_GOLF_CYCLIC);
+    public boolean getSavedGoldCyclic() {
+        return savedSharedData.getBoolean(PREF_KEY_GOLF_CYCLIC, DEFAULT_GOLF_CYCLIC);
     }
 
-    public boolean getSavedImmersiveMode(){
-        return savedSharedData.getBoolean(PREF_KEY_IMMERSIVE_MODE,DEFAULT_IMMERSIVE_MODE);
+    public boolean getSavedImmersiveMode() {
+        return savedSharedData.getBoolean(PREF_KEY_IMMERSIVE_MODE, DEFAULT_IMMERSIVE_MODE);
     }
 
-    public boolean getSavedKlondikeLimitedRecycles(){
+    public boolean getSavedKlondikeLimitedRecycles() {
         return savedSharedData.getBoolean(PREF_KEY_KLONDIKE_LIMITED_RECYCLES, DEFAULT_KLONDIKE_LIMITED_RECYCLES);
     }
 
-    public boolean getSavedMod3AutoMove(){
-        return savedSharedData.getBoolean(PREF_KEY_MOD3_AUTO_MOVE,DEFAULT_MOD3_AUTO_MOVE);
+    public boolean getSavedMod3AutoMove() {
+        return savedSharedData.getBoolean(PREF_KEY_MOD3_AUTO_MOVE, DEFAULT_MOD3_AUTO_MOVE);
     }
 
-    public boolean getSavedPyramidLimitedRecycles(){
+    public boolean getSavedPyramidLimitedRecycles() {
         return savedSharedData.getBoolean(PREF_KEY_PYRAMID_LIMITED_RECYCLES, DEFAULT_PYRAMID_LIMITED_RECYCLES);
     }
 
-    public boolean getSavedPyramidAutoMove(){
-        return savedSharedData.getBoolean(PREF_KEY_PYRAMID_AUTO_MOVE,DEFAULT_PYRAMID_AUTO_MOVE);
+    public boolean getSavedPyramidAutoMove() {
+        return savedSharedData.getBoolean(PREF_KEY_PYRAMID_AUTO_MOVE, DEFAULT_PYRAMID_AUTO_MOVE);
     }
 
-    public boolean getSavedVegasSaveMoneyEnabled(){
-        return savedSharedData.getBoolean(PREF_KEY_VEGAS_MONEY_ENABLED,DEFAULT_VEGAS_MONEY_ENABLED);
+    public boolean getSavedVegasSaveMoneyEnabled() {
+        return savedSharedData.getBoolean(PREF_KEY_VEGAS_MONEY_ENABLED, DEFAULT_VEGAS_MONEY_ENABLED);
     }
 
-    public boolean getSavedVegasResetMoney(){
-        return savedSharedData.getBoolean(PREF_KEY_VEGAS_RESET_MONEY,DEFAULT_VEGAS_RESET_MONEY);
+    public boolean getSavedVegasResetMoney() {
+        return savedSharedData.getBoolean(PREF_KEY_VEGAS_RESET_MONEY, DEFAULT_VEGAS_RESET_MONEY);
     }
 
-    public boolean getSavedHideTime(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getBoolean(PREF_KEY_HIDE_TIME,DEFAULT_HIDE_TIME);
+    public boolean getSavedHideTime() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getBoolean(PREF_KEY_HIDE_TIME, DEFAULT_HIDE_TIME);
         } else {
-            return savedSharedData.getBoolean(PREF_KEY_HIDE_TIME,DEFAULT_HIDE_TIME);
+            return savedSharedData.getBoolean(PREF_KEY_HIDE_TIME, DEFAULT_HIDE_TIME);
         }
     }
 
-    public boolean getSavedHideScore(){
-        if (hasSettingsOnlyForThisGame()){
-            return savedGameData.getBoolean(PREF_KEY_HIDE_SCORE,DEFAULT_HIDE_SCORE);
+    public boolean getSavedHideScore() {
+        if (hasSettingsOnlyForThisGame()) {
+            return savedGameData.getBoolean(PREF_KEY_HIDE_SCORE, DEFAULT_HIDE_SCORE);
         } else {
-            return savedSharedData.getBoolean(PREF_KEY_HIDE_SCORE,DEFAULT_HIDE_SCORE);
+            return savedSharedData.getBoolean(PREF_KEY_HIDE_SCORE, DEFAULT_HIDE_SCORE);
         }
     }
 
-    public boolean getSavedAutoStartNewGame(){
-        return savedSharedData.getBoolean(PREF_KEY_AUTO_START_NEW_GAME,DEFAULT_AUTO_START_NEW_GAME);
+    public boolean getSavedAutoStartNewGame() {
+        return savedSharedData.getBoolean(PREF_KEY_AUTO_START_NEW_GAME, DEFAULT_AUTO_START_NEW_GAME);
     }
 
-    public boolean getSavedTapToSelectEnabled(){
-        return savedSharedData.getBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED,DEFAULT_TAP_TO_SELECT_ENABLED);
+    public boolean getSavedTapToSelectEnabled() {
+        return savedSharedData.getBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, DEFAULT_TAP_TO_SELECT_ENABLED);
     }
 
-    public boolean getSavedDoubleTapEnabled(){
-        return savedSharedData.getBoolean(PREF_KEY_DOUBLE_TAP_ENABLED,DEFAULT_DOUBLE_TAP_ENABLE);
+    public boolean getSavedDoubleTapEnabled() {
+        return savedSharedData.getBoolean(PREF_KEY_DOUBLE_TAP_ENABLED, DEFAULT_DOUBLE_TAP_ENABLE);
     }
 
-    public boolean getSavedDoubleTapAllCards(){
-        return savedSharedData.getBoolean(PREF_KEY_DOUBLE_TAP_ALL_CARDS,DEFAULT_DOUBLE_TAP_ALL_CARDS);
+    public boolean getSavedDoubleTapAllCards() {
+        return savedSharedData.getBoolean(PREF_KEY_DOUBLE_TAP_ALL_CARDS, DEFAULT_DOUBLE_TAP_ALL_CARDS);
     }
 
-    public boolean getShowAdvancedSettings(){
-        return savedSharedData.getBoolean(PREF_KEY_SHOW_ADVANCED_SETTINGS,DEFAULT_SHOW_ADVANCED_SETTINGS);
+    public boolean getShowAdvancedSettings() {
+        return savedSharedData.getBoolean(PREF_KEY_SHOW_ADVANCED_SETTINGS, DEFAULT_SHOW_ADVANCED_SETTINGS);
     }
 
-    public boolean getSavedDoubleTapFoundationFirst(){
-        return savedSharedData.getBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST,DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST);
+    public boolean getSavedDoubleTapFoundationFirst() {
+        return savedSharedData.getBoolean(PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST, DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST);
     }
 
-    public boolean getSavedEnsureMovability(){
-        return savedSharedData.getBoolean(PREF_KEY_ENSURE_MOVABILITY,DEFAULT_ENSURE_MOVABILITY);
+    public boolean getSavedEnsureMovability() {
+        return savedSharedData.getBoolean(PREF_KEY_ENSURE_MOVABILITY, DEFAULT_ENSURE_MOVABILITY);
     }
 
-    public boolean getSavedSingleTapSpecialGames(){
+    public boolean getSavedSingleTapSpecialGames() {
         return savedSharedData.getBoolean(PREF_KEY_SINGLE_TAP_SPECIAL_GAMES, DEFAULT_SINGLE_TAP_SPECIAL_GAMES_ENABLED);
     }
 
-    public boolean getSavedStartWithMenu(){
-        return savedSharedData.getBoolean(PREF_KEY_START_WITH_MENU,false);
+    public boolean getSavedStartWithMenu() {
+        return savedSharedData.getBoolean(PREF_KEY_START_WITH_MENU, false);
     }
 
-    public boolean getSavedSoundEnabled(){
+    public boolean getSavedSoundEnabled() {
         return savedSharedData.getBoolean(PREF_KEY_SOUND_ENABLED, DEFAULT_SOUND_ENABLED);
     }
 
-    public boolean getSingleTapAllGames(){
+    public boolean getSingleTapAllGames() {
         return savedSharedData.getBoolean(PREF_KEY_SINGLE_TAP_ALL_GAMES, DEFAULT_SINGLE_TAP_ALL_GAMES);
     }
 
-    public boolean getSavedUseTrueRandomisation(){
+    public boolean getSavedUseTrueRandomisation() {
         return savedSharedData.getBoolean(PREF_KEY_USE_TRUE_RANDOMISATION, DEFAULT_USE_TRUE_RANDOMISATION);
     }
 
-    public boolean getShowDialogNewGame(){
+    public boolean getShowDialogNewGame() {
         return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_NEW_GAME, DEFAULT_SHOW_DIALOG_NEW_GAME);
     }
 
-    public boolean getShowDialogRedeal(){
+    public boolean getShowDialogRedeal() {
         return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_REDEAL, DEFAULT_SHOW_DIALOG_REDEAL);
     }
 
-    public boolean getShowDialogMixCards(){
+    public boolean getShowDialogMixCards() {
         return savedSharedData.getBoolean(PREF_KEY_SHOW_DIALOG_MIX_CARDS, DEFAULT_SHOW_DIALOG_MIX_CARDS);
     }
 
-    public boolean getDisableUndoCosts(){
+    public boolean getDisableUndoCosts() {
         return savedSharedData.getBoolean(PREF_KEY_DISABLE_UNDO_COSTS, DEFAULT_DISABLE_UNDO_COSTS);
     }
 
-    public boolean getDisableHintCosts(){
+    public boolean getDisableHintCosts() {
         return savedSharedData.getBoolean(PREF_KEY_DISABLE_HINT_COSTS, DEFAULT_DISABLE_HINT_COSTS);
     }
 
-    public boolean getHideMenuBar(){
+    public boolean getHideMenuBar() {
         return savedSharedData.getBoolean(PREF_KEY_HIDE_MENU_BAR, DEFAULT_HIDE_MENU_BAR);
     }
 
-    public boolean getImproveAutoMove(){
-        return savedSharedData.getBoolean(PREF_KEY_IMRPOVE_AUTO_MOVE, DEFAULT_IMPROVE_AUTO_MOVE);
+    public boolean getImproveAutoMove() {
+        return savedSharedData.getBoolean(PREF_KEY_IMPROVE_AUTO_MOVE, DEFAULT_IMPROVE_AUTO_MOVE);
     }
 
-    public ArrayList<Integer> getSavedMenuGamesList(){
+    public ArrayList<Integer> getSavedMenuGamesList() {
         return getSharedIntList(PREF_KEY_MENU_GAMES);
     }
 
-    public ArrayList<Integer> getSavedMenuOrderList(){
+    public ArrayList<Integer> getSavedMenuOrderList() {
         return getSharedIntList(PREF_KEY_MENU_ORDER);
     }
 
     /* setters for shared data */
 
-    public void saveYukonRulesOld(){
+    public void saveYukonRulesOld() {
         savedSharedData.edit().putString(PREF_KEY_YUKON_RULES_OLD, getSavedYukonRules()).apply();
     }
 
-    public void saveBackgroundColorType(int value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_TYPE,value).apply();
+    public void saveBackgroundColorType(int value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_TYPE, value).apply();
         } else {
-            savedSharedData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_TYPE,value).apply();
+            savedSharedData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_TYPE, value).apply();
         }
     }
 
-    public void saveBackgroundCustomColor(int value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM,value).apply();
+    public void saveBackgroundCustomColor(int value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, value).apply();
         } else {
-            savedSharedData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM,value).apply();
+            savedSharedData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, value).apply();
         }
     }
 
-    public void saveCardBackground(int value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putInt(PREF_KEY_CARD_BACKGROUND,value).apply();
+    public void saveCardBackground(int value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putInt(PREF_KEY_CARD_BACKGROUND, value).apply();
         } else {
-            savedSharedData.edit().putInt(PREF_KEY_CARD_BACKGROUND,value).apply();
+            savedSharedData.edit().putInt(PREF_KEY_CARD_BACKGROUND, value).apply();
         }
     }
 
-    public void saveCardBackgroundColor(int value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putInt(PREF_KEY_CARD_BACKGROUND_COLOR,value).apply();
+    public void saveCardBackgroundColor(int value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putInt(PREF_KEY_CARD_BACKGROUND_COLOR, value).apply();
         } else {
-            savedSharedData.edit().putInt(PREF_KEY_CARD_BACKGROUND_COLOR,value).apply();
+            savedSharedData.edit().putInt(PREF_KEY_CARD_BACKGROUND_COLOR, value).apply();
         }
     }
 
-    public void saveCardTheme(int value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putInt(PREF_KEY_CARD_DRAWABLES,value).apply();
+    public void saveCardTheme(int value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putInt(PREF_KEY_CARD_DRAWABLES, value).apply();
         } else {
             savedSharedData.edit().putInt(PREF_KEY_CARD_DRAWABLES, value).apply();
         }
     }
 
-    public void saveBackgroundVolume(int value){
-        savedSharedData.edit().putInt(PREF_KEY_BACKGROUND_VOLUME,value).apply();
+    public void saveBackgroundVolume(int value) {
+        savedSharedData.edit().putInt(PREF_KEY_BACKGROUND_VOLUME, value).apply();
     }
 
-    public void saveVegasBetAmount(int value){
-        savedSharedData.edit().putInt(PREF_KEY_VEGAS_BET_AMOUNT,value).apply();
+    public void saveVegasBetAmount(int value) {
+        savedSharedData.edit().putInt(PREF_KEY_VEGAS_BET_AMOUNT, value).apply();
     }
 
-    public void saveVegasWinAmount(int value){
-        savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT,value).apply();
+    public void saveVegasWinAmount(int value) {
+        savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT, value).apply();
     }
 
-    public void saveGameLayoutMarginsPortrait(int value){
-        if (hasSettingsOnlyForThisGame()){
+    public void saveGameLayoutMarginsPortrait(int value) {
+        if (hasSettingsOnlyForThisGame()) {
             savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT, value).apply();
         } else {
             savedSharedData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT, value).apply();
         }
     }
 
-    public void saveGameLayoutMarginsLandscape(int value){
-        if (hasSettingsOnlyForThisGame()){
+    public void saveGameLayoutMarginsLandscape(int value) {
+        if (hasSettingsOnlyForThisGame()) {
             savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE, value).apply();
         } else {
             savedSharedData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE, value).apply();
         }
     }
 
-    public void saveVegasBetAmountOld(){
-        savedSharedData.edit().putInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD,getSavedVegasBetAmount()).apply();
+    public void saveVegasBetAmountOld() {
+        savedSharedData.edit().putInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, getSavedVegasBetAmount()).apply();
     }
 
-    public void saveVegasWinAmountOld(){
-        savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD,getSavedVegasWinAmount()).apply();
+    public void saveVegasWinAmountOld() {
+        savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD, getSavedVegasWinAmount()).apply();
     }
 
-    public void saveCurrentGame(int value){
-        savedSharedData.edit().putInt(PREF_KEY_CURRENT_GAME,value).apply();
+    public void saveCurrentGame(int value) {
+        savedSharedData.edit().putInt(PREF_KEY_CURRENT_GAME, value).apply();
     }
 
-    public void saveLocale(String locale){
-        savedSharedData.edit().putString(PREF_KEY_LANGUAGE,locale).apply();
+    public void saveLocale(String locale) {
+        savedSharedData.edit().putString(PREF_KEY_LANGUAGE, locale).apply();
     }
 
-    public void saveCanfieldDrawMode(String value){
-        savedSharedData.edit().putString(PREF_KEY_CANFIELD_DRAW,value).apply();
+    public void saveCanfieldDrawMode(String value) {
+        savedSharedData.edit().putString(PREF_KEY_CANFIELD_DRAW, value).apply();
     }
 
-    public void saveCanfieldDrawModeOld(){
-        savedSharedData.edit().putString(PREF_KEY_CANFIELD_DRAW_OLD,getSavedCanfieldDrawMode()).apply();
+    public void saveCanfieldDrawModeOld() {
+        savedSharedData.edit().putString(PREF_KEY_CANFIELD_DRAW_OLD, getSavedCanfieldDrawMode()).apply();
     }
 
-    public void saveKlondikeDrawMode(String value){
-        savedSharedData.edit().putString(PREF_KEY_KLONDIKE_DRAW,value).apply();
+    public void saveKlondikeDrawMode(String value) {
+        savedSharedData.edit().putString(PREF_KEY_KLONDIKE_DRAW, value).apply();
     }
 
-    public void saveKlondikeVegasDrawModeOld(int which){
-        if (which==1) {
+    public void saveKlondikeVegasDrawModeOld(int which) {
+        if (which == 1) {
             savedSharedData.edit().putString(PREF_KEY_KLONDIKE_DRAW_OLD, getSavedKlondikeDrawMode()).apply();
-        } else{
-            savedSharedData.edit().putString(PREF_KEY_VEGAS_DRAW_OLD,getSavedVegasDrawMode()).apply();
-        }
-    }
-
-    public void saveVegasDrawMode(String value){
-        savedSharedData.edit().putString(PREF_KEY_VEGAS_DRAW,value).apply();
-    }
-
-    public void saveSpiderDifficulty(String value){
-        savedSharedData.edit().putString(PREF_KEY_SPIDER_DIFFICULTY,value).apply();
-    }
-
-    public void saveSpiderDifficultyOld(){
-        savedSharedData.edit().putString(PREF_KEY_SPIDER_DIFFICULTY_OLD,getSavedSpiderDifficulty()).apply();
-    }
-
-    public void saveSpideretteDifficulty(String value){
-        savedSharedData.edit().putString(PREF_KEY_SPIDERETTE_DIFFICULTY,value).apply();
-    }
-
-    public void saveSpideretteDifficultyOld(){
-        savedSharedData.edit().putString(PREF_KEY_SPIDERETTE_DIFFICULTY_OLD,getSavedSpideretteDifficulty()).apply();
-    }
-
-    public void saveYukonRules(String value){
-        savedSharedData.edit().putString(PREF_KEY_YUKON_RULES,value).apply();
-    }
-
-    public void saveCalculationAlternativeModeOld(){
-        savedSharedData.edit().putBoolean(PREF_KEY_CALCULATION_ALTERNATIVE_OLD,getSavedCalculationAlternativeMode()).apply();
-    }
-
-    public void saveForcedTabletLayout(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_FORCE_TABLET_LAYOUT,value).apply();
-    }
-
-    public void saveShowExpertSettings(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_ADVANCED_SETTINGS,value).apply();
-    }
-
-    public void saveHideMenuBar(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_HIDE_MENU_BAR,value).apply();
-    }
-
-    public void saveStatisticsHideWinPercentage(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE,value).apply();
-    }
-
-    public void saveBackgroundColor(int value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putString(PREF_KEY_BACKGROUND_COLOR,Integer.toString(value)).apply();
         } else {
-            savedSharedData.edit().putString(PREF_KEY_BACKGROUND_COLOR,Integer.toString(value)).apply();
+            savedSharedData.edit().putString(PREF_KEY_VEGAS_DRAW_OLD, getSavedVegasDrawMode()).apply();
         }
     }
 
-    public void saveMaxNumberUndos(int value){
-        savedSharedData.edit().putInt(PREF_KEY_MAX_NUMBER_UNDOS,value).apply();
+    public void saveVegasDrawMode(String value) {
+        savedSharedData.edit().putString(PREF_KEY_VEGAS_DRAW, value).apply();
     }
 
-    public void saveTextColor(int value){
+    public void saveSpiderDifficulty(String value) {
+        savedSharedData.edit().putString(PREF_KEY_SPIDER_DIFFICULTY, value).apply();
+    }
+
+    public void saveSpiderDifficultyOld() {
+        savedSharedData.edit().putString(PREF_KEY_SPIDER_DIFFICULTY_OLD, getSavedSpiderDifficulty()).apply();
+    }
+
+    public void saveSpideretteDifficulty(String value) {
+        savedSharedData.edit().putString(PREF_KEY_SPIDERETTE_DIFFICULTY, value).apply();
+    }
+
+    public void saveSpideretteDifficultyOld() {
+        savedSharedData.edit().putString(PREF_KEY_SPIDERETTE_DIFFICULTY_OLD, getSavedSpideretteDifficulty()).apply();
+    }
+
+    public void saveYukonRules(String value) {
+        savedSharedData.edit().putString(PREF_KEY_YUKON_RULES, value).apply();
+    }
+
+    public void saveCalculationAlternativeModeOld() {
+        savedSharedData.edit().putBoolean(PREF_KEY_CALCULATION_ALTERNATIVE_OLD, getSavedCalculationAlternativeMode()).apply();
+    }
+
+    public void saveForcedTabletLayout(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_FORCE_TABLET_LAYOUT, value).apply();
+    }
+
+    public void saveShowExpertSettings(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_ADVANCED_SETTINGS, value).apply();
+    }
+
+    public void saveHideMenuBar(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_HIDE_MENU_BAR, value).apply();
+    }
+
+    public void saveStatisticsHideWinPercentage(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE, value).apply();
+    }
+
+    public void saveBackgroundColor(int value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putString(PREF_KEY_BACKGROUND_COLOR, Integer.toString(value)).apply();
+        } else {
+            savedSharedData.edit().putString(PREF_KEY_BACKGROUND_COLOR, Integer.toString(value)).apply();
+        }
+    }
+
+    public void saveMaxNumberUndos(int value) {
+        savedSharedData.edit().putInt(PREF_KEY_MAX_NUMBER_UNDOS, value).apply();
+    }
+
+    public void saveTextColor(int value) {
         if (hasSettingsOnlyForThisGame()) {
             savedGameData.edit().putInt(PREF_KEY_TEXT_COLOR, value).apply();
         } else {
@@ -1537,124 +1535,124 @@ public class Preferences {
         }
     }
 
-    public void saveMenuBarPosPortrait(String value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_PORTRAIT,value).apply();
+    public void saveMenuBarPosPortrait(String value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_PORTRAIT, value).apply();
         } else {
-            savedSharedData.edit().putString(PREF_KEY_MENU_BAR_POS_PORTRAIT,value).apply();
+            savedSharedData.edit().putString(PREF_KEY_MENU_BAR_POS_PORTRAIT, value).apply();
         }
     }
 
-    public void saveMenuBarPosLandscape(String value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_LANDSCAPE,value).apply();
+    public void saveMenuBarPosLandscape(String value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_LANDSCAPE, value).apply();
         } else {
-            savedSharedData.edit().putString(PREF_KEY_MENU_BAR_POS_LANDSCAPE,value).apply();
+            savedSharedData.edit().putString(PREF_KEY_MENU_BAR_POS_LANDSCAPE, value).apply();
         }
     }
 
-    public void saveMenuColumnsPortrait(String value){
-        savedSharedData.edit().putString(PREF_KEY_MENU_COLUMNS_PORTRAIT,value).apply();
+    public void saveMenuColumnsPortrait(String value) {
+        savedSharedData.edit().putString(PREF_KEY_MENU_COLUMNS_PORTRAIT, value).apply();
     }
 
-    public void saveMenuColumnsLandscape(String value){
-        savedSharedData.edit().putString(PREF_KEY_MENU_COLUMNS_LANDSCAPE,value).apply();
+    public void saveMenuColumnsLandscape(String value) {
+        savedSharedData.edit().putString(PREF_KEY_MENU_COLUMNS_LANDSCAPE, value).apply();
     }
 
-    public void saveVegasResetMoney(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_VEGAS_RESET_MONEY,value).apply();
+    public void saveVegasResetMoney(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_VEGAS_RESET_MONEY, value).apply();
     }
 
-    public void saveSingleTapAllGames(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_SINGLE_TAP_ALL_GAMES,value).apply();
+    public void saveSingleTapAllGames(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_SINGLE_TAP_ALL_GAMES, value).apply();
     }
 
-    public void saveTapToSelectEnabled(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED,value).apply();
+    public void saveTapToSelectEnabled(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, value).apply();
     }
 
-    public void saveLeftHandedMode(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_LEFT_HANDED_MODE,value).apply();
+    public void saveLeftHandedMode(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_LEFT_HANDED_MODE, value).apply();
     }
 
-    public void putShowDialogNewGame(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_NEW_GAME,value).apply();
+    public void putShowDialogNewGame(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_NEW_GAME, value).apply();
     }
 
-    public void putShowDialogRedeal(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_REDEAL,value).apply();
+    public void putShowDialogRedeal(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_REDEAL, value).apply();
     }
 
-    public void putShowDialogMixCards(boolean value){
-        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_MIX_CARDS,value).apply();
+    public void putShowDialogMixCards(boolean value) {
+        savedSharedData.edit().putBoolean(PREF_KEY_SHOW_DIALOG_MIX_CARDS, value).apply();
     }
 
-    public void putFourColorMode(boolean value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putBoolean(PREF_KEY_4_COLOR_MODE,value).apply();
+    public void putFourColorMode(boolean value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putBoolean(PREF_KEY_4_COLOR_MODE, value).apply();
         } else {
-            savedSharedData.edit().putBoolean(PREF_KEY_4_COLOR_MODE,value).apply();
+            savedSharedData.edit().putBoolean(PREF_KEY_4_COLOR_MODE, value).apply();
         }
     }
 
-    public void putHideTime(boolean value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putBoolean(PREF_KEY_HIDE_TIME,value).apply();
+    public void putHideTime(boolean value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putBoolean(PREF_KEY_HIDE_TIME, value).apply();
         } else {
-            savedSharedData.edit().putBoolean(PREF_KEY_HIDE_TIME,value).apply();
+            savedSharedData.edit().putBoolean(PREF_KEY_HIDE_TIME, value).apply();
         }
     }
 
-    public void putHideScore(boolean value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putBoolean(PREF_KEY_HIDE_SCORE,value).apply();
+    public void putHideScore(boolean value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putBoolean(PREF_KEY_HIDE_SCORE, value).apply();
         } else {
-            savedSharedData.edit().putBoolean(PREF_KEY_HIDE_SCORE,value).apply();
+            savedSharedData.edit().putBoolean(PREF_KEY_HIDE_SCORE, value).apply();
         }
     }
 
-    public void putHideMenuButton(boolean value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putBoolean(PREF_KEY_HIDE_MENU_BUTTON,value).apply();
+    public void putHideMenuButton(boolean value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putBoolean(PREF_KEY_HIDE_MENU_BUTTON, value).apply();
         } else {
-            savedSharedData.edit().putBoolean(PREF_KEY_HIDE_MENU_BUTTON,value).apply();
+            savedSharedData.edit().putBoolean(PREF_KEY_HIDE_MENU_BUTTON, value).apply();
         }
     }
 
-    public void putHideAutoCompleteButton(boolean value){
-        if (hasSettingsOnlyForThisGame()){
-            savedGameData.edit().putBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON,value).apply();
+    public void putHideAutoCompleteButton(boolean value) {
+        if (hasSettingsOnlyForThisGame()) {
+            savedGameData.edit().putBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON, value).apply();
         } else {
-            savedSharedData.edit().putBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON,value).apply();
+            savedSharedData.edit().putBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON, value).apply();
         }
     }
 
-    public void saveMenuGamesList(ArrayList<Integer> list){
-        putSharedIntList(PREF_KEY_MENU_GAMES,list);
+    public void saveMenuGamesList(ArrayList<Integer> list) {
+        putSharedIntList(PREF_KEY_MENU_GAMES, list);
     }
 
-    public void saveMenuOrderList(ArrayList<Integer> list){
-        putSharedIntList(PREF_KEY_MENU_ORDER,list);
+    public void saveMenuOrderList(ArrayList<Integer> list) {
+        putSharedIntList(PREF_KEY_MENU_ORDER, list);
     }
 
-    public void copyToGameIndividualSettings(){
-        savedGameData.edit().putBoolean(PREF_KEY_HIDE_MENU_BUTTON,getHideMenuButton()).apply();
-        savedGameData.edit().putBoolean(PREF_KEY_HIDE_TIME,getSavedHideTime()).apply();
-        savedGameData.edit().putBoolean(PREF_KEY_HIDE_SCORE,getSavedHideScore()).apply();
-        savedGameData.edit().putBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON,getHideAutoCompleteButton()).apply();
-        savedGameData.edit().putBoolean(PREF_KEY_4_COLOR_MODE,getSavedFourColorMode()).apply();
+    public void copyToGameIndividualSettings() {
+        savedGameData.edit().putBoolean(PREF_KEY_HIDE_MENU_BUTTON, getHideMenuButton()).apply();
+        savedGameData.edit().putBoolean(PREF_KEY_HIDE_TIME, getSavedHideTime()).apply();
+        savedGameData.edit().putBoolean(PREF_KEY_HIDE_SCORE, getSavedHideScore()).apply();
+        savedGameData.edit().putBoolean(PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON, getHideAutoCompleteButton()).apply();
+        savedGameData.edit().putBoolean(PREF_KEY_4_COLOR_MODE, getSavedFourColorMode()).apply();
 
-        savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_PORTRAIT,getSavedMenuBarPosPortrait()).apply();
-        savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_LANDSCAPE,getSavedMenuBarPosLandscape()).apply();
+        savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_PORTRAIT, getSavedMenuBarPosPortrait()).apply();
+        savedGameData.edit().putString(PREF_KEY_MENU_BAR_POS_LANDSCAPE, getSavedMenuBarPosLandscape()).apply();
 
-        savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT,getSavedGameLayoutMarginsPortrait()).apply();
-        savedGameData.edit().putInt(PREF_KEY_TEXT_COLOR,getSavedTextColor()).apply();
-        savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE,getSavedGameLayoutMarginsLandscape()).apply();
-        savedGameData.edit().putString(PREF_KEY_BACKGROUND_COLOR,Integer.toString(getSavedBackgroundColor())).apply();
-        savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_TYPE,getSavedBackgroundColorType()).apply();
-        savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM,getSavedBackgroundCustomColor()).apply();
-        savedGameData.edit().putInt(PREF_KEY_CARD_DRAWABLES,getSavedCardTheme()).apply();
-        savedGameData.edit().putInt(PREF_KEY_CARD_BACKGROUND,getSavedCardBackground()).apply();
-        savedGameData.edit().putInt(PREF_KEY_CARD_BACKGROUND_COLOR,getSavedCardBackgroundColor()).apply();
+        savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT, getSavedGameLayoutMarginsPortrait()).apply();
+        savedGameData.edit().putInt(PREF_KEY_TEXT_COLOR, getSavedTextColor()).apply();
+        savedGameData.edit().putInt(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE, getSavedGameLayoutMarginsLandscape()).apply();
+        savedGameData.edit().putString(PREF_KEY_BACKGROUND_COLOR, Integer.toString(getSavedBackgroundColor())).apply();
+        savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_TYPE, getSavedBackgroundColorType()).apply();
+        savedGameData.edit().putInt(PREF_KEY_BACKGROUND_COLOR_CUSTOM, getSavedBackgroundCustomColor()).apply();
+        savedGameData.edit().putInt(PREF_KEY_CARD_DRAWABLES, getSavedCardTheme()).apply();
+        savedGameData.edit().putInt(PREF_KEY_CARD_BACKGROUND, getSavedCardBackground()).apply();
+        savedGameData.edit().putInt(PREF_KEY_CARD_BACKGROUND_COLOR, getSavedCardBackgroundColor()).apply();
     }
 }

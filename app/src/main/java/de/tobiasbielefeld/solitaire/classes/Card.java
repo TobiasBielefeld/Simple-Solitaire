@@ -35,17 +35,18 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Card {
 
     public enum movements {INSTANT, NONE, DEFAULT}
-    public static int width, height;                                                                //width and height calculated in relation of the screen dimensions in Main activity
+
+    public static int width, height;                      //width and height calculated in relation of the screen dimensions in Main activity
     public static Bitmap background;
     private static Bitmap[] drawables = new Bitmap[52];
-    public CustomImageView view;                                                                    //the image view of the card, for easier code not private
-    private int color;                                                                              //1=clubs 2=hearts 3=Spades 4=diamonds
-    private int value;                                                                              //1=ace 2,3,4,5,6,7,8,9,10, 11=joker 12=queen 13=king
-    private Stack stack;                                                                            //saves the stack where the card is placed
-    private int id;                                                                                 //internal id
-    private boolean isUp;                                                                           //indicates if the card is placed upwards or backwards
+    public CustomImageView view;                          //the image view of the card, for easier code not private
+    private int color;                                    //1=clubs 2=hearts 3=Spades 4=diamonds
+    private int value;                                    //1=ace 2,3,4,5,6,7,8,9,10, 11=joker 12=queen 13=king
+    private Stack stack;                                  //saves the stack where the card is placed
+    private int id;                                       //internal id
+    private boolean isUp;                                 //indicates if the card is placed upwards or backwards
     private boolean isInvisible;
-    private PointF oldLocation = new PointF();                                                      //old location so cards can be moved back if they can't placed on a new stack
+    private PointF oldLocation = new PointF();            //old location so cards can be moved back if they can't placed on a new stack
 
     public static int ACE = 1;
     public static int JOKER = 11;
@@ -55,7 +56,7 @@ public class Card {
     //no enum, I want to explicitly set the values, because they are saved in the sharedPref and
     private static final int STATE_FACED_DOWN = 0;
     public static final int STATE_FACED_UP = 1;
-    public static final int STATE_INVISBLE = 2;
+    public static final int STATE_INVISIBLE = 2;
 
     /**
      * Sets id, color and value. The cards are initialized at game start with a for loop.
@@ -72,8 +73,8 @@ public class Card {
         value = (id % 13) + 1;
     }
 
-    public void setImageBitmap(Bitmap bitmap){
-        if (!stopUiUpdates){
+    public void setImageBitmap(Bitmap bitmap) {
+        if (!stopUiUpdates) {
             view.setImageBitmap(bitmap);
         }
     }
@@ -133,8 +134,8 @@ public class Card {
         for (Card card : cards) {
             int state = card.isUp ? STATE_FACED_UP : STATE_FACED_DOWN;
 
-            if (card.isInvisible){
-                state = STATE_INVISBLE;
+            if (card.isInvisible) {
+                state = STATE_INVISIBLE;
             }
 
             list.add(state);
@@ -150,14 +151,14 @@ public class Card {
         List<Integer> list = prefs.getSavedCards();
 
         for (int i = 0; i < cards.length; i++) {
-            switch (list.get(i)){
+            switch (list.get(i)) {
                 case STATE_FACED_UP:
                     cards[i].flipUp();
                     break;
                 case STATE_FACED_DOWN:
                     cards[i].flipDown();
                     break;
-                case STATE_INVISBLE:
+                case STATE_INVISIBLE:
                     cards[i].view.setVisibility(View.GONE);
                     cards[i].isInvisible = true;
                     //cards[i].removeFromGame();
@@ -198,7 +199,7 @@ public class Card {
      */
     public void setLocation(float pX, float pY) {
 
-        if (isInvisible){
+        if (isInvisible) {
             setLocationWithoutMovement(pX, pY);
         }
 
@@ -307,7 +308,7 @@ public class Card {
      * @return True if movement is possible, false otherwise
      */
     public boolean test(Stack destination) {
-        if (prefs.isDeveloperOptionMoveCardsEverywhereEnabled()){
+        if (prefs.isDeveloperOptionMoveCardsEverywhereEnabled()) {
             return true;
         }
 
@@ -370,42 +371,42 @@ public class Card {
         return stack.getId();
     }
 
-    public boolean isInvisible(){
+    public boolean isInvisible() {
         return isInvisible;
     }
 
-    public void removeFromCurrentStack(){
-        if (stack!=null) {
+    public void removeFromCurrentStack() {
+        if (stack != null) {
             stack.removeCard(this);
             stack = null;
         }
     }
 
-    public Card getCardOnTop(){
-        if (getIndexOnStack() < stack.getSize() -1){
-            return stack.getCard(getIndexOnStack()+1);
+    public Card getCardOnTop() {
+        if (getIndexOnStack() < stack.getSize() - 1) {
+            return stack.getCard(getIndexOnStack() + 1);
         } else {
             return this;
         }
     }
 
-    public Card getCardBelow(){
-        return getIndexOnStack() == 0 ? this : stack.getCard(getIndexOnStack()-1);
+    public Card getCardBelow() {
+        return getIndexOnStack() == 0 ? this : stack.getCard(getIndexOnStack() - 1);
     }
 
-    public void bringToFront(){
-        if (!stopUiUpdates){
+    public void bringToFront() {
+        if (!stopUiUpdates) {
             view.bringToFront();
         }
     }
 
-    public void removeFromGame(){
+    public void removeFromGame() {
         view.setVisibility(View.GONE);
         isInvisible = true;
         moveToStack(this, currentGame.offScreenStack);
     }
 
-    public void addBackToGame(Stack moveTo){
+    public void addBackToGame(Stack moveTo) {
         isInvisible = false;
         flipUp();
         view.setVisibility(View.VISIBLE);

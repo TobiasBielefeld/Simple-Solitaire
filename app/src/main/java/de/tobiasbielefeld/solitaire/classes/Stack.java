@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
-/*
+/**
  *  Contains everything around the cards. The current cards on it and the list of bitmaps for the
  *  backgrounds.
  */
@@ -38,7 +38,7 @@ public class Stack {
     public static Bitmap backgroundDefault, backgroundTalon, background1, background2, background3, //bitmaps for the stack background images
             background4, background5, background6, background7, background8, background9, background10,
             background11, background12, background13, arrowLeft, arrowRight, backgroundTransparent;
-    public CustomImageView view;                                                                          //Background of the stack
+    public CustomImageView view;                                                                    //Background of the stack
     public ArrayList<Card> currentCards = new ArrayList<>();                                        //the array of cards on the stack
     private int id;                                                                                 //id: 0 to 6 tableau. 7 to 10 foundations. 11 and 12 discard and Main stack
     private float spacing;                                                                          //direction in which the cards on the stacks are ordered (top, down, left, right)
@@ -71,13 +71,13 @@ public class Stack {
         backgroundTransparent = bitmaps.getStackBackground(8, 1);
     }
 
-    public void setImageBitmap(Bitmap bitmap){
+    public void setImageBitmap(Bitmap bitmap) {
         if (!stopUiUpdates) {
             view.setImageBitmap(bitmap);
         }
     }
 
-    public void forceSetImageBitmap(Bitmap bitmap){
+    public void forceSetImageBitmap(Bitmap bitmap) {
         view.setImageBitmap(bitmap);
     }
 
@@ -91,7 +91,7 @@ public class Stack {
     /**
      * Adds a card to this stack. This will update the spacings and flips the card if the stack
      * is a main- or discard stack.
-     *
+     * <p>
      * IMPORTANT: Do not forget calling updateSpacing() after assigning all cards to this stack
      *
      * @param card The card to add.
@@ -102,7 +102,7 @@ public class Stack {
 
         if (currentGame.mainStacksContain(getId())) {
             card.flipDown();
-        } else if (currentGame.discardStacksContain(getId())){
+        } else if (currentGame.discardStacksContain(getId())) {
             card.flipUp();
         }
     }
@@ -113,7 +113,7 @@ public class Stack {
      * @param card The card to remove
      */
     public void removeCard(Card card) {
-        currentCards.remove(currentCards.indexOf(card));
+        currentCards.remove(card);
         updateSpacing();
 
     }
@@ -204,14 +204,14 @@ public class Stack {
             default:
                 return new PointF(view.getX(), view.getY());
             case DOWN:
-                return new PointF(view.getX(), isEmpty() ? view.getY() + (offset-1) * spacing : getTopCard().getY() + offset * spacing);
+                return new PointF(view.getX(), isEmpty() ? view.getY() + (offset - 1) * spacing : getTopCard().getY() + offset * spacing);
             case UP:
-                return new PointF(view.getX(), isEmpty() ? view.getY() - (offset-1) * spacing : getTopCard().getY() - offset * spacing);
+                return new PointF(view.getX(), isEmpty() ? view.getY() - (offset - 1) * spacing : getTopCard().getY() - offset * spacing);
             case LEFT:
-                return new PointF(isEmpty() ? view.getX() + (leftHandedModeEnabled() ? (offset-1) * spacing : -(offset-1) * spacing)
+                return new PointF(isEmpty() ? view.getX() + (leftHandedModeEnabled() ? (offset - 1) * spacing : -(offset - 1) * spacing)
                         : (getTopCard().getX() + (leftHandedModeEnabled() ? offset * spacing : -offset * spacing)), view.getY());
             case RIGHT:
-                return new PointF(isEmpty() ? view.getX() + (leftHandedModeEnabled() ? -(offset-1) * spacing : (offset-1) * spacing)
+                return new PointF(isEmpty() ? view.getX() + (leftHandedModeEnabled() ? -(offset - 1) * spacing : (offset - 1) * spacing)
                         : (getTopCard().getX() + (leftHandedModeEnabled() ? -offset * spacing : offset * spacing)), view.getY());
         }
     }
@@ -225,15 +225,16 @@ public class Stack {
         for (Card card : currentCards)
             list.add(card.getId());
 
-        prefs.saveStacks(list,id);
+        prefs.saveStacks(list, id);
     }
 
-    public void load(){
+    public void load() {
         load(false);
     }
 
     /**
      * Loads the cards which are on this stack from a string list and move the cards to this stack.
+     *
      * @param withoutMovement tells if the cards should be instantaneously at their place or not
      */
     public void load(boolean withoutMovement) {
@@ -246,7 +247,7 @@ public class Stack {
         }
 
         if (!gameLogic.hasWon()) {
-            if (withoutMovement){
+            if (withoutMovement) {
                 updateSpacingWithoutMovement();
             } else {
                 updateSpacing();
@@ -347,7 +348,7 @@ public class Stack {
                 break;
         }
 
-        for (Card card : currentCards){
+        for (Card card : currentCards) {
             card.bringToFront();
         }
     }
@@ -483,13 +484,13 @@ public class Stack {
 
         final boolean leftHandedMode = prefs.getSavedLeftHandedMode();
 
-        if(arrowDirection == ArrowDirection.LEFT && leftHandedMode) {
+        if (arrowDirection == ArrowDirection.LEFT && leftHandedMode) {
             setImageBitmap(Stack.arrowRight);
-        } else if(arrowDirection == ArrowDirection.LEFT && !leftHandedMode) {
+        } else if (arrowDirection == ArrowDirection.LEFT && !leftHandedMode) {
             setImageBitmap(Stack.arrowLeft);
-        } else if(arrowDirection == ArrowDirection.RIGHT && leftHandedMode) {
+        } else if (arrowDirection == ArrowDirection.RIGHT && leftHandedMode) {
             setImageBitmap(Stack.arrowLeft);
-        } else if(arrowDirection == ArrowDirection.RIGHT && !leftHandedMode) {
+        } else if (arrowDirection == ArrowDirection.RIGHT && !leftHandedMode) {
             setImageBitmap(Stack.arrowRight);
         }
     }
@@ -535,11 +536,11 @@ public class Stack {
      * @param layoutGame The layout, where the cards are located in
      */
     public void setSpacingMax(RelativeLayout layoutGame) {
-
-        //RelativeLayout container = (RelativeLayout) layoutGame.getParent();
-        //RelativeLayout overlay = (RelativeLayout) container.findViewById(R.id.mainRelativeLayoutGameOverlay);
-        //ImageView menuResize = (ImageView) overlay.findViewById(R.id.mainImageViewResize);
-
+/*
+        RelativeLayout container = (RelativeLayout) layoutGame.getParent();
+        RelativeLayout overlay = container.findViewById(R.id.mainRelativeLayoutGameOverlay);
+        ImageView menuResize = overlay.findViewById(R.id.mainImageViewResize);
+*/
         switch (spacingDirection) {
             case NONE:
             default:
@@ -585,7 +586,8 @@ public class Stack {
         }
 
         if (spacingDirection == SpacingDirection.LEFT || spacingDirection == SpacingDirection.RIGHT) {
-            if (currentGame.directionBorders != null && currentGame.directionBorders[getId()] != -1)    //-1 means no border
+            if (currentGame.directionBorders != null && currentGame.directionBorders[getId()] != -1)
+                //-1 means no border
                 setSpacingMax(currentGame.directionBorders[getId()]);
             else
                 setSpacingMax(layoutGame);
@@ -601,21 +603,33 @@ public class Stack {
     public RectF getRect() {
 
         if (isEmpty()) {
-            return new RectF(view.getX(), view.getY(), view.getX() + view.getWidth(), view.getY() + view.getHeight());
+            return new RectF(view.getX(), view.getY(),
+                    view.getX() + view.getWidth(),
+                    view.getY() + view.getHeight());
         }
 
         switch (spacingDirection) {
             case NONE:
             default:
-                return new RectF(view.getX(), view.getY(), view.getX() + view.getWidth(), view.getY() + view.getHeight());
+                return new RectF(view.getX(), view.getY(),
+                        view.getX() + view.getWidth(),
+                        view.getY() + view.getHeight());
             case DOWN:
-                return new RectF(view.getX(), view.getY(), view.getX() + view.getWidth(), getTopCard().getY() + view.getHeight());
+                return new RectF(view.getX(), view.getY(),
+                        view.getX() + view.getWidth(),
+                        getTopCard().getY() + view.getHeight());
             case UP:
-                return new RectF(view.getX(), getTopCard().getY(), view.getX() + view.getWidth(), view.getY() + view.getHeight());
+                return new RectF(view.getX(), getTopCard().getY(),
+                        view.getX() + view.getWidth(),
+                        view.getY() + view.getHeight());
             case LEFT:
-                return new RectF(getTopCard().getX(), view.getY(), view.getX() + view.getWidth(), view.getY() + view.getHeight());
+                return new RectF(getTopCard().getX(), view.getY(),
+                        view.getX() + view.getWidth(),
+                        view.getY() + view.getHeight());
             case RIGHT:
-                return new RectF(view.getX(), view.getY(), getTopCard().getX() + view.getWidth(), view.getY() + view.getHeight());
+                return new RectF(view.getX(), view.getY(),
+                        getTopCard().getX() + view.getWidth(),
+                        view.getY() + view.getHeight());
         }
     }
 
@@ -676,12 +690,12 @@ public class Stack {
         LEFT, RIGHT
     }
 
-    public void applyDefaultSpacing(){
+    public void applyDefaultSpacing() {
         spacing = defaultSpacing;
     }
 
-    public void flipTopCardUp(){
-        if (getSize() > 0){
+    public void flipTopCardUp() {
+        if (getSize() > 0) {
             getTopCard().flipUp();
         }
     }
@@ -691,7 +705,7 @@ public class Stack {
      * newCard takes the position and direction of oldCard, and vise versa.
      * Card images views aren't updated here, because they get updated after all the calculation.
      */
-    public void exchangeCard(Card oldCard, Card newCard){
+    public void exchangeCard(Card oldCard, Card newCard) {
         int oldCardPreviousIndexOnStack = oldCard.getIndexOnStack();
         int newCardPreviousIndexOnStack = newCard.getIndexOnStack();
 
@@ -701,7 +715,7 @@ public class Stack {
         boolean oldCardPreviousDirection = oldCard.isUp();
 
 
-        if (oldCardPreviousDirection){
+        if (oldCardPreviousDirection) {
             newCard.flipUp();
         } else {
             newCard.flipDown();
@@ -709,12 +723,12 @@ public class Stack {
 
         newCard.setStack(this);
 
-        currentCards.set(oldCardPreviousIndexOnStack,newCard);
+        currentCards.set(oldCardPreviousIndexOnStack, newCard);
 
-        newCardPreviousStack.currentCards.set(newCardPreviousIndexOnStack,oldCard);
+        newCardPreviousStack.currentCards.set(newCardPreviousIndexOnStack, oldCard);
         oldCard.setStack(newCardPreviousStack);
 
-        if (newCardPreviousDirection){
+        if (newCardPreviousDirection) {
             oldCard.flipUp();
         } else {
             oldCard.flipDown();

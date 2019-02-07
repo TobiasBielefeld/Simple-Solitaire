@@ -19,7 +19,6 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RadioButton;
@@ -27,7 +26,7 @@ import android.widget.RadioButton;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
@@ -38,8 +37,6 @@ public class DialogPreferenceMenuBarPosition extends CustomDialogPreference {
     RadioButton top, bottom, left, right;
 
     private static String BOTTOM = "bottom";
-    private static String TOP = "top";
-    private static String LEFT = "left";
     private static String RIGHT = "right";
 
     public DialogPreferenceMenuBarPosition(Context context, AttributeSet attrs) {
@@ -50,10 +47,10 @@ public class DialogPreferenceMenuBarPosition extends CustomDialogPreference {
 
     @Override
     protected void onBindDialogView(View view) {
-        top = (RadioButton) view.findViewById(R.id.dialog_button_portrait_top);
-        bottom = (RadioButton) view.findViewById(R.id.dialog_button_portrait_bottom);
-        left = (RadioButton) view.findViewById(R.id.dialog_button_landscape_left);
-        right = (RadioButton) view.findViewById(R.id.dialog_button_landscape_right);
+        top = view.findViewById(R.id.dialog_button_portrait_top);
+        bottom = view.findViewById(R.id.dialog_button_portrait_bottom);
+        left = view.findViewById(R.id.dialog_button_landscape_left);
+        right = view.findViewById(R.id.dialog_button_landscape_right);
 
         if (prefs.getSavedMenuBarPosPortrait().equals(BOTTOM)) {
             bottom.setChecked(true);
@@ -76,7 +73,9 @@ public class DialogPreferenceMenuBarPosition extends CustomDialogPreference {
         super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
+            String TOP = "top";
             prefs.saveMenuBarPosPortrait(bottom.isChecked() ? BOTTOM : TOP);
+            String LEFT = "left";
             prefs.saveMenuBarPosLandscape(right.isChecked() ? RIGHT : LEFT);
         }
     }

@@ -20,7 +20,6 @@ package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -55,7 +54,7 @@ public class DialogPreferenceMenuHideGames extends CustomDialogPreference implem
 
     @Override
     protected void onBindDialogView(View view) {
-        LinearLayout container = (LinearLayout) view.findViewById(R.id.layoutContainer);
+        LinearLayout container = view.findViewById(R.id.layoutContainer);
 
         linearLayouts.clear();
         checkBoxes.clear();
@@ -72,10 +71,10 @@ public class DialogPreferenceMenuHideGames extends CustomDialogPreference implem
 
         ArrayList<String> sortedGameList = lg.getOrderedGameNameList(getContext().getResources());
 
-        for (int i=0;i<lg.getGameCount();i++){
+        for (int i = 0; i < lg.getGameCount(); i++) {
             LinearLayout entry = new LinearLayout(getContext());
             entry.setBackgroundResource(typedValue.resourceId);
-            entry.setPadding(padding,padding,padding,padding);
+            entry.setPadding(padding, padding, padding, padding);
             entry.setOnClickListener(this);
 
             CheckBox checkBox = new CheckBox(getContext());
@@ -114,7 +113,7 @@ public class DialogPreferenceMenuHideGames extends CustomDialogPreference implem
         if (positiveResult) {
             ArrayList<Integer> list = new ArrayList<>();
 
-            for (int i=0;i<lg.getGameCount();i++){
+            for (int i = 0; i < lg.getGameCount(); i++) {
                 int index = gameOrder.get(i);
                 list.add(checkBoxes.get(index).isChecked() ? 1 : 0);
             }

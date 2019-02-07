@@ -21,8 +21,8 @@ package de.tobiasbielefeld.solitaire.helper;
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
-import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -45,7 +45,7 @@ public class RecordList {
     }
 
 
-    public RecordList(GameManager gm){
+    public RecordList(GameManager gm) {
         setMaxRecords();
 
         handler = new WaitForAnimationHandler(gm, new WaitForAnimationHandler.MessageCallBack() {
@@ -136,7 +136,7 @@ public class RecordList {
         cards.add(card);
         origins.add(origin);
 
-        addToLastEntry(cards,origins);
+        addToLastEntry(cards, origins);
     }
 
     /**
@@ -206,12 +206,12 @@ public class RecordList {
         }
     }
 
-    public boolean hasMoreToUndo(){
-        if (entries.isEmpty()){
+    public boolean hasMoreToUndo() {
+        if (entries.isEmpty()) {
             return false;
         }
 
-        if (entries.get(entries.size()-1).hasMoreToDo()){
+        if (entries.get(entries.size() - 1).hasMoreToDo()) {
             return true;
         } else {
             entries.remove(entries.size() - 1);
@@ -227,7 +227,7 @@ public class RecordList {
         }
     }
 
-    public boolean isWorking(){
+    public boolean isWorking() {
         return isWorking;
     }
 
@@ -239,11 +239,11 @@ public class RecordList {
 
         private boolean alreadyDecremented = false;
 
-        public ArrayList<Card> getCurrentCards(){
+        public ArrayList<Card> getCurrentCards() {
             return currentCards;
         }
 
-        public ArrayList<Stack> getCurrentOrigins(){
+        public ArrayList<Stack> getCurrentOrigins() {
             return currentOrigins;
         }
 
@@ -261,7 +261,7 @@ public class RecordList {
                 currentCards.add(cards[cardList.get(i)]);
                 currentOrigins.add(stacks[originList.get(i)]);
 
-                if (orderList.size()>i){
+                if (orderList.size() > i) {
                     moveOrder.add(orderList.get(i));
                 } else {
                     moveOrder.add(0);
@@ -343,15 +343,15 @@ public class RecordList {
                 listOrigins.add(currentOrigins.get(i).getId());
             }
 
-            prefs.saveRecordListCards(listCards,pos);
-            prefs.saveRecordListOrigins(listOrigins,pos);
-            prefs.saveRecordListOrders(moveOrder,pos);
+            prefs.saveRecordListCards(listCards, pos);
+            prefs.saveRecordListOrigins(listOrigins, pos);
+            prefs.saveRecordListOrders(moveOrder, pos);
 
             for (Card card : flipCards) {
                 listFlipCards.add(card.getId());
             }
 
-            prefs.saveRecordListFlipCards(listFlipCards,pos);
+            prefs.saveRecordListFlipCards(listFlipCards, pos);
         }
 
 
@@ -371,18 +371,19 @@ public class RecordList {
         /**
          * This contains the actual card movements. It will undo the movements of the cards
          * with the lowest move order and remove them from the list.
-         *
+         * <p>
          * This method is called from a handler. With each call, the lowest order will be used, until
          * all cards are away. So the movements are tiered.
          */
         void undoMore() {
             //Check if the movement resulted in a increment of the redeal counter, if so, revert it
-            if (currentGame.hasLimitedRecycles() && !alreadyDecremented)  {
+            if (currentGame.hasLimitedRecycles() && !alreadyDecremented) {
                 ArrayList<Stack> discardStacks = currentGame.getDiscardStacks();
 
-                for (int i=0;i<currentCards.size();i++){
+                for (int i = 0; i < currentCards.size(); i++) {
 
-                    if (currentCards.get(i).getStack() == currentGame.getDealStack() && discardStacks.contains(currentOrigins.get(i))) {
+                    if (currentCards.get(i).getStack() == currentGame.getDealStack()
+                            && discardStacks.contains(currentOrigins.get(i))) {
                         currentGame.decrementRecycleCounter();
                         alreadyDecremented = true;
                         break;
@@ -396,7 +397,7 @@ public class RecordList {
 
             int minMoveOrder = min(moveOrder);
 
-            for (int i =0;i<currentCards.size();i++){
+            for (int i = 0; i < currentCards.size(); i++) {
                 if (moveOrder.get(i) == minMoveOrder) {
                     cardsWorkCopy.add(currentCards.get(i));
                     originsWorkCopy.add(currentOrigins.get(i));
@@ -404,9 +405,9 @@ public class RecordList {
                 }
             }
 
-            moveToStack(cardsWorkCopy,originsWorkCopy, OPTION_UNDO);
+            moveToStack(cardsWorkCopy, originsWorkCopy, OPTION_UNDO);
 
-            for (int i=0;i<cardsWorkCopy.size();i++){
+            for (int i = 0; i < cardsWorkCopy.size(); i++) {
                 currentCards.remove(cardsWorkCopy.get(i));
                 currentOrigins.remove(originsWorkCopy.get(i));
                 moveOrder.remove(moveOrderWorkCopy.get(i));
@@ -429,7 +430,7 @@ public class RecordList {
             currentOrigins = new ArrayList<>(stacks);
             moveOrder = new ArrayList<>();
 
-            for (int i=0;i<currentCards.size();i++){
+            for (int i = 0; i < currentCards.size(); i++) {
                 moveOrder.add(0);
             }
 
@@ -437,7 +438,7 @@ public class RecordList {
             for (int i = 0; i < tempCards.size(); i++) {
                 currentCards.add(tempCards.get(i));
                 currentOrigins.add(tempOrigins.get(i));
-                moveOrder.add(tempMoveOrders.get(i)+1);                                             //increment the orders by one
+                moveOrder.add(tempMoveOrders.get(i) + 1); //increment the orders by one
             }
         }
 
@@ -446,12 +447,12 @@ public class RecordList {
             flipCards.add(card);
         }
 
-        boolean hasMoreToDo(){
-            return currentCards.size()!=0;
+        boolean hasMoreToDo() {
+            return currentCards.size() != 0;
         }
     }
 
-    public void setMaxRecords(){
+    public void setMaxRecords() {
         maxRecords = prefs.getSavedMaxNumberUndos();
 
         while (entries.size() > maxRecords) {
@@ -459,8 +460,8 @@ public class RecordList {
         }
     }
 
-    private void handleMessage(){
-        if (recordList.hasMoreToUndo()){
+    private void handleMessage() {
+        if (recordList.hasMoreToUndo()) {
             recordList.undoMore();
             handler.sendDelayed();
         }

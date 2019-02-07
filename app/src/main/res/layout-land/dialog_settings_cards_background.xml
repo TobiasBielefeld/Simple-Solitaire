@@ -14,14 +14,15 @@
         android:measureWithLargestChild="false"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/layout_padding"
-        android:paddingLeft="15dp"
-        android:paddingTop="@dimen/layout_padding"
-        android:text="@string/settings_cards_back"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="@dimen/layout_padding"
+            android:paddingBottom="@dimen/layout_padding"
+            android:text="@string/settings_cards_back"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
         <TableLayout
             android:id="@+id/tableLayout1"
@@ -47,17 +48,17 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
                         android:gravity="center"
                         android:text="1"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -75,19 +76,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="2"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="2"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -103,19 +104,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="3"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -131,19 +132,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="4"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="4"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </LinearLayout>
@@ -160,19 +161,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="5"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="5"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </LinearLayout>
@@ -189,19 +190,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="6"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="6"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -217,19 +218,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="7"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="7"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -245,19 +246,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="8"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="8"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -273,19 +274,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="9"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="9"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -301,19 +302,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
-                        android:layout_margin="5dp"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="10"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="10"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -321,105 +322,107 @@
 
         </TableLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/layout_paddingLandscape"
-            android:paddingLeft="15dp"
-            android:paddingTop="@dimen/layout_paddingLandscape"
-            android:text="@string/settings_background_color"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/layout_padding"
-            android:paddingRight="@dimen/layout_padding">
+            android:orientation="vertical">
 
-            <TableRow
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="@dimen/layout_paddingLandscape"
+                android:paddingBottom="@dimen/layout_paddingLandscape"
+                android:text="@string/settings_background_color"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
+                android:paddingLeft="@dimen/layout_padding"
+                android:paddingRight="@dimen/layout_padding">
 
-                <LinearLayout
-                    android:id="@+id/dialogBackgroundsCardsBlue"
-                    android:layout_width="wrap_content"
+                <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:gravity="center_horizontal">
 
-                    <ImageView
-                        android:layout_margin="5dp"
-                        android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
-                        android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
-                        android:background="@drawable/image_border"
-                        app:srcCompat="@drawable/background_color_blue" />
+                    <LinearLayout
+                        android:id="@+id/dialogBackgroundsCardsBlue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
+                            android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/image_border"
+                            app:srcCompat="@drawable/background_color_blue" />
 
-                <LinearLayout
-                    android:id="@+id/dialogBackgroundsCardsRed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    </LinearLayout>
 
-                    <ImageView
-                        android:layout_margin="5dp"
-                        android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
-                        android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
-                        android:background="@drawable/image_border"
-                        app:srcCompat="@drawable/background_color_red" />
+                    <LinearLayout
+                        android:id="@+id/dialogBackgroundsCardsRed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
+                            android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/image_border"
+                            app:srcCompat="@drawable/background_color_red" />
 
-                <LinearLayout
-                    android:id="@+id/dialogBackgroundsCardsGreen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    </LinearLayout>
 
-                    <ImageView
-                        android:layout_margin="5dp"
-                        android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
-                        android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
-                        android:background="@drawable/image_border"
-                        app:srcCompat="@drawable/background_color_green" />
+                    <LinearLayout
+                        android:id="@+id/dialogBackgroundsCardsGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
+                            android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/image_border"
+                            app:srcCompat="@drawable/background_color_green" />
 
-                <LinearLayout
-                    android:id="@+id/dialogBackgroundsCardsYellow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    </LinearLayout>
 
-                    <ImageView
-                        android:layout_margin="5dp"
-                        android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
-                        android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
-                        android:background="@drawable/image_border"
-                        app:srcCompat="@drawable/background_color_yellow" />
+                    <LinearLayout
+                        android:id="@+id/dialogBackgroundsCardsYellow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="@dimen/dialogBackgroundColorBoxWidthLandscape"
+                            android:layout_height="@dimen/dialogBackgroundColorBoxWidthLandscape"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/image_border"
+                            app:srcCompat="@drawable/background_color_yellow" />
 
-            </TableRow>
+                    </LinearLayout>
 
-        </TableLayout>
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
-
-</LinearLayout>
 
 </ScrollView>

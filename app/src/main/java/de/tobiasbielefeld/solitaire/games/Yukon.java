@@ -42,8 +42,8 @@ public class Yukon extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(11);
 
-        setTableauStackIDs(0,1,2,3,4,5,6);
-        setFoundationStackIDs(7,8,9,10);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6);
+        setFoundationStackIDs(7, 8, 9, 10);
         setDealFromID(0);
     }
 
@@ -113,7 +113,7 @@ public class Yukon extends Game {
             } else {
                 return checkRules(stack, card) && (stack.getTopCard().getValue() == card.getValue() + 1);
             }
-        } else if (movingCards.hasSingleCard()) {                                                     //foundation
+        } else if (movingCards.hasSingleCard()) {                                                   //foundation
             if (stack.isEmpty()) {
                 return card.getValue() == 1;
             } else {

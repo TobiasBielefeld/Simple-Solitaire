@@ -31,7 +31,6 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -53,7 +52,7 @@ public class TriPeaks extends Game {
         setNumberOfDecks(1);
         setNumberOfStacks(30);
 
-        setTableauStackIDs(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27);
         setDiscardStackIDs(28);
         setMainStackIDs(29);
 
@@ -208,7 +207,7 @@ public class TriPeaks extends Game {
 
                 savedRunRecords.add(runCounter * 50);
                 points += runCounter * 50;
-            } else if (savedRunRecords.size()>0) {
+            } else if (savedRunRecords.size() > 0) {
                 points += savedRunRecords.get(savedRunRecords.size() - 1);                            //getHighScore last entry
                 savedRunRecords.remove(savedRunRecords.size() - 1);                                   //and remove it
 
@@ -259,7 +258,7 @@ public class TriPeaks extends Game {
     }
 
     @Override
-    protected boolean excludeCardFromMixing(Card card){
+    protected boolean excludeCardFromMixing(Card card) {
         return false;
     }
 }

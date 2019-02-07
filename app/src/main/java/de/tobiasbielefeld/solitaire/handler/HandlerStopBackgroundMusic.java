@@ -21,9 +21,7 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
-
-import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
-import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
+import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
  * Check here if the application is closed. If the activityCounter reaches zero, no activity
@@ -37,7 +35,7 @@ public class HandlerStopBackgroundMusic extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
 
-        if (activityCounter==0){
+        if (activityCounter == 0) {
             backgroundSound.pausePlaying();
         }
     }

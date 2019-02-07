@@ -17,9 +17,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/layout_padding"
+            android:paddingStart="25dp"
             android:paddingLeft="25dp"
             android:paddingTop="@dimen/layout_padding"
+            android:paddingBottom="@dimen/layout_padding"
             android:text="@string/settings_cards_back"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
@@ -55,9 +56,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
                         android:gravity="center"
                         android:text="1"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -75,19 +76,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="2"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="2"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -103,19 +104,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="3"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -131,19 +132,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="4"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="4"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </LinearLayout>
@@ -160,19 +161,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="5"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="5"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </LinearLayout>
@@ -196,19 +197,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="6"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="6"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -224,19 +225,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="7"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="7"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -252,19 +253,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="8"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="8"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -280,19 +281,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="9"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="9"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -308,19 +309,19 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
                         android:layout_margin="5dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/settings_cards_back" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="10"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="10"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
 
@@ -337,9 +338,10 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/layout_padding"
+                android:paddingStart="25dp"
                 android:paddingLeft="25dp"
                 android:paddingTop="@dimen/layout_padding"
+                android:paddingBottom="@dimen/layout_padding"
                 android:text="@string/settings_background_color"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
@@ -425,8 +427,8 @@
                 </TableRow>
 
             </TableLayout>
-        </LinearLayout>
 
+        </LinearLayout>
 
     </LinearLayout>
 

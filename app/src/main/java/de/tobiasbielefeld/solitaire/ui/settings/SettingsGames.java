@@ -19,13 +19,11 @@
 package de.tobiasbielefeld.solitaire.ui.settings;
 
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import java.util.List;
 import java.util.Locale;
@@ -37,7 +35,6 @@ import de.tobiasbielefeld.solitaire.games.Klondike;
 import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.Vegas;
-import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
@@ -46,7 +43,7 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
  * Settings activity created with the "Create settings activity" tool from Android Studio.
  */
 
-public class SettingsGames extends AppCompatPreferenceActivity  {
+public class SettingsGames extends AppCompatPreferenceActivity {
 
     private Preference preferenceVegasBetAmount;
 
@@ -112,7 +109,7 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
         } else if (key.equals(PREF_KEY_SPIDERETTE_DIFFICULTY)) {
             showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Spiderette)), this);
 
-        }else if (key.equals(PREF_KEY_YUKON_RULES)) {
+        } else if (key.equals(PREF_KEY_YUKON_RULES)) {
             showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Yukon)), this);
 
         } else if (key.equals(PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES)) {
@@ -125,19 +122,19 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
                 gameLogic.toggleRecycles(prefs.getSavedPyramidLimitedRecycles());
             }
 
-        } else if (key.equals(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES)){
+        } else if (key.equals(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES)) {
             if (currentGame instanceof Pyramid) {
-                gameLogic.setNumberOfRecycles(key,DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
+                gameLogic.setNumberOfRecycles(key, DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
             }
 
-        } else if (key.equals(PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES)){
+        } else if (key.equals(PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES)) {
             if (currentGame instanceof NapoleonsTomb) {
-                gameLogic.setNumberOfRecycles(key,DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES);
+                gameLogic.setNumberOfRecycles(key, DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES);
             }
 
-        } else if (key.equals(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES)){
+        } else if (key.equals(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES)) {
             if (currentGame instanceof FortyEight) {
-                gameLogic.setNumberOfRecycles(key,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
+                gameLogic.setNumberOfRecycles(key, DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
             }
 
         } else if (key.equals(PREF_KEY_VEGAS_NUMBER_OF_RECYCLES)) {
@@ -145,7 +142,7 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
                 gameLogic.setNumberOfRecycles(key, DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
             }
 
-        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT) || key.equals(PREF_KEY_VEGAS_WIN_AMOUNT)){
+        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT) || key.equals(PREF_KEY_VEGAS_WIN_AMOUNT)) {
             updatePreferenceVegasBetAmountSummary();
             showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Vegas)), this);
 
@@ -159,12 +156,12 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
                 gameLogic.toggleRecycles(prefs.getSavedKlondikeLimitedRecycles());
             }
 
-        } else if (key.equals(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES)){
+        } else if (key.equals(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES)) {
             if (currentGame instanceof Klondike) {
-                gameLogic.setNumberOfRecycles(key,DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
+                gameLogic.setNumberOfRecycles(key, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
             }
 
-        } else if (key.equals(PREF_KEY_CALCULATION_ALTERNATIVE)){
+        } else if (key.equals(PREF_KEY_CALCULATION_ALTERNATIVE)) {
             //showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Calculation)), this);
         }
     }
@@ -191,11 +188,11 @@ public class SettingsGames extends AppCompatPreferenceActivity  {
                 || NapoleonsTombPreferenceFragment.class.getName().equals(fragmentName);
     }
 
-    private void updatePreferenceVegasBetAmountSummary(){
+    private void updatePreferenceVegasBetAmountSummary() {
         int betAmount = prefs.getSavedVegasBetAmount();
         int winAmount = prefs.getSavedVegasWinAmount();
 
-        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),getString(R.string.settings_vegas_bet_amount_summary),betAmount,winAmount));
+        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(), getString(R.string.settings_vegas_bet_amount_summary), betAmount, winAmount));
     }
 
     public static class CalculationPreferenceFragment extends CustomPreferenceFragment {

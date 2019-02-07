@@ -28,10 +28,10 @@ import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 /**
  * Forty&Eight game! it's pretty hard to win
@@ -43,13 +43,13 @@ public class FortyEight extends Game {
         setNumberOfDecks(2);
         setNumberOfStacks(18);
 
-        setTableauStackIDs(0,1,2,3,4,5,6,7);
-        setFoundationStackIDs(8,9,10,11,12,13,14,15);
+        setTableauStackIDs(0, 1, 2, 3, 4, 5, 6, 7);
+        setFoundationStackIDs(8, 9, 10, 11, 12, 13, 14, 15);
         setDiscardStackIDs(16);
         setMainStackIDs(17);
 
         setMixingCardsTestMode(testMode.SAME_FAMILY);
-        setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES,DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
+        setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES, DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
 
         toggleRecycles(prefs.getSavedFortyEightLimitedRecycles());
 
@@ -207,7 +207,7 @@ public class FortyEight extends Game {
                     return new CardAndStack(cardToTest, stacks[j]);
                 }
 
-                if (stacks[j].isEmpty() && cardToTest.getValue() == 13){
+                if (stacks[j].isEmpty() && cardToTest.getValue() == 13) {
                     return new CardAndStack(cardToTest, stacks[j]);
                 }
             }
@@ -296,7 +296,7 @@ public class FortyEight extends Game {
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         //anywhere to foundation
-        if (destinationIDs[0] >= 8 && destinationIDs[0] < 16 && (originIDs[0] < 8 || originIDs[0] >=16)) {
+        if (destinationIDs[0] >= 8 && destinationIDs[0] < 16 && (originIDs[0] < 8 || originIDs[0] >= 16)) {
             return 45;
         }
         //foundation to tableau
@@ -308,7 +308,7 @@ public class FortyEight extends Game {
             return 60;
         }
         //redeal cards from discard to main stack
-        if (originIDs[0] == getDiscardStack().getId() && destinationIDs[0] == getMainStack().getId() && originIDs.length > 0) {
+        if (originIDs[0] == getDiscardStack().getId() && destinationIDs[0] == getMainStack().getId()) {
             return -200;
         }
 
@@ -318,13 +318,13 @@ public class FortyEight extends Game {
     @Override
     public void testAfterMove() {
         //automatically move a card from main stack to discard stack, if discard stack is empty
-        if (getDiscardStack().isEmpty() && !getMainStack().isEmpty()){
+        if (getDiscardStack().isEmpty() && !getMainStack().isEmpty()) {
             recordList.addToLastEntry(getMainStack().getTopCard(), getMainStack());
-            moveToStack(getMainStack().getTopCard(),getDiscardStack(), OPTION_NO_RECORD);
+            moveToStack(getMainStack().getTopCard(), getDiscardStack(), OPTION_NO_RECORD);
         }
     }
 
-    private int getPowerMoveCount(boolean movingToEmptyStack){
-        return getPowerMoveCount(new int[]{}, new int[]{0,1,2,3,4,5,6,7}, movingToEmptyStack);
+    private int getPowerMoveCount(boolean movingToEmptyStack) {
+        return getPowerMoveCount(new int[]{}, new int[]{0, 1, 2, 3, 4, 5, 6, 7}, movingToEmptyStack);
     }
 }

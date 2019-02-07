@@ -21,9 +21,7 @@ package de.tobiasbielefeld.solitaire.ui.about;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.BulletSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,15 +40,13 @@ import static de.tobiasbielefeld.solitaire.SharedData.createBulletParagraph;
  * uses the version name to generate each entry
  */
 
-public class ChangeLogFragment extends Fragment{
-
-    private static int MAX_LINES_PER_VERSION = 10;
+public class ChangeLogFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about_tab3, container, false);
 
-        LinearLayout layoutContainer = (LinearLayout) view.findViewById(R.id.changelog_container);
+        LinearLayout layoutContainer = view.findViewById(R.id.changelog_container);
 
         String[] titles = new String[]{"3.13", "3.12.1", "3.12", "3.11.3", "3.11.2", "3.11.1", "3.11", "3.10.2", "3.10.1", "3.10", "3.9.2", "3.9.1", "3.9",
                 "3.8.6", "3.8.5", "3.8.4", "3.8.3", "3.8.2", "3.8.1", "3.8", "3.7.2", "3.7.1", "3.7",
@@ -58,13 +54,13 @@ public class ChangeLogFragment extends Fragment{
                 "3.3", "3.2", "3.1.5", "3.1.4", "3.1.3", "3.1.2", "3.1.1", "3.1", "3.0.1", "3.0",
                 "2.0.2", "2.0.1", "2.0", "1.4", "1.3", "1.2", "1.1", "1.0"};
 
-        for (int i=0;i<titles.length;i++) {
+        for (int i = 0; i < titles.length; i++) {
             CardView card = (CardView) LayoutInflater.from(getContext()).inflate(R.layout.changelog_card_view, null);
-            TextView title = (TextView) card.findViewById(R.id.changelog_card_view_title);
-            TextView description = (TextView) card.findViewById(R.id.changelog_card_view_text);
+            TextView title = card.findViewById(R.id.changelog_card_view_title);
+            TextView description = card.findViewById(R.id.changelog_card_view_text);
 
             title.setText(titles[i]);
-            description.setText(createText(titles.length -i));
+            description.setText(createText(titles.length - i));
 
             layoutContainer.addView(card);
         }
@@ -73,18 +69,19 @@ public class ChangeLogFragment extends Fragment{
     }
 
 
-    private CharSequence createText(int pos){
+    private CharSequence createText(int pos) {
 
+        int MAX_LINES_PER_VERSION = 10;
         List<CharSequence> stringList = new ArrayList<>(MAX_LINES_PER_VERSION);
 
         //load the lines from the changelog separately
-        for (int i=1;i<=MAX_LINES_PER_VERSION;i++){
+        for (int i = 1; i <= MAX_LINES_PER_VERSION; i++) {
 
             int ID = getResources().getIdentifier(
                     "changelog_" + Integer.toString(pos) + "_" + Integer.toString(i),
                     "string", getActivity().getPackageName());
 
-            if (ID!=0){
+            if (ID != 0) {
                 stringList.add(getString(ID));
             } else {
                 break;
@@ -94,10 +91,10 @@ public class ChangeLogFragment extends Fragment{
         //convert to array
         CharSequence[] strings = new CharSequence[stringList.size()];
 
-        for (int i=0; i<strings.length; i++){
+        for (int i = 0; i < strings.length; i++) {
             strings[i] = stringList.get(i);
         }
 
-        return TextUtils.concat(createBulletParagraph(stringList.toArray(new CharSequence[stringList.size()])));
+        return TextUtils.concat(createBulletParagraph(stringList.toArray(new CharSequence[0])));
     }
 }
