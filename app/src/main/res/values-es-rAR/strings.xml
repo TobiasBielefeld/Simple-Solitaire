@@ -134,7 +134,7 @@ Usa el menú de la izquierda para acceder a otra páginas del manual"</string>
 
 La aplicación cargará automáticamente el último juego jugado en un reinicio, si la aplicación se pausó en él. Este comportamiento se puede deshabilitar en la configuración, en \"General\".
 
-Allí también puede encontrar la sección \"Menú principal\", donde es posible ocultar y reordenar los juegos en el menú y cambiar el número de columnas, para que más juegos quepan en la pantalla a la vez."</string>
+En la configuración también puede encontrar la sección \"Menú principal\", donde es posible ocultar y reordenar los juegos en el menú y cambiar el número de columnas, para que más juegos quepan en la pantalla a la vez."</string>
 <string name="manual_ui_text">"Un juego siempre mostrará un pequeño menú en la parte inferior de la pantalla (modo Retrato) o en el lado derecho (modo Paisaje). También mostrará el puntaje actual y el tiempo actual del juego. Si es posible, estos dos valores se guardarán en la lista de puntajes. El menú contiene 5 elementos, que tienen los siguientes efectos (botones de izquierda a derecha):
 
 El botón \"Puntuaciones\" mostrará una nueva ventana con los puntajes más altos y el recuento de los juegos ganados del juego actual.

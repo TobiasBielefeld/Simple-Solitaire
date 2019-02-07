@@ -129,9 +129,6 @@
 
  Asetuksista löytyy myös \"Päävalikko\" osio, mistä voi piilottaa pelit valikosta ja muuttaa sarakkeiden määrää, jotta pelit mahtuisivat paremmin näytölle."</string>
 
-<!-- In english it says: 'The "Menu" button shows three different actions:'
-
-Isn't there five actions nowadays? -->
 <string name="manual_ui_text">"Peli näyttää aina pienen valikon näytön alaosassa (pystynäkymä) tai oikealla puollella (vaakanäkymä). Se näyttää myös sen hetkiset pisteet ja käytetyn ajan. Mikäli mahdollista, nämä kaksi arvoa talletetaan ennätyksiin. Valikko pitää sisällään viisi kohtaa joilla on seuraavat toiminnot (painikkeet vasemmalta oikealle):
 
  \"Tulokset\" painike näyttää uudessa ikkunassa kyseisen pelin ennätykset ja voitettujen pelien lukumäärän.

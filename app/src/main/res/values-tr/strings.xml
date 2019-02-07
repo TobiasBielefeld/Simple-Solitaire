@@ -117,7 +117,7 @@ Diğer sayfalara erişmek için sol taraftaki menüyü kullanın."</string>
 
 Uygulama, içinde duraklatılmışsa, uygulama son oynatılan oyunu otomatik olarak bir yeniden başlatmada yükleyecektir. Bu davranış \"Genel\" altındaki ayarlarda devre dışı bırakılabilir.
 
-Orada \"Ana menü\" bölümünü de bulabilirsiniz; burada menüden oyunları gizlemek ve sütun sayısını değiştirmek mümkündür, böylece bir anda aynı anda daha fazla oyun sığacak oyunlar olur."</string>
+Ayarlarda \"Ana menü\" bölümünü de bulabilirsiniz; burada menüden oyunları gizlemek ve sütun sayısını değiştirmek mümkündür, böylece bir anda aynı anda daha fazla oyun sığacak oyunlar olur."</string>
 <string name="manual_ui_text">"Bir oyun daima ekranın alt kısmında (Dikey mod) veya sağ tarafta (Yatay mod) küçük bir menü gösterecektir. Oyunun geçerli puanı ve oynatılan zamanı da gösterecektir. Mümkünse, bu iki değer yüksek puanlı listeye kaydedilecektir. Menü, aşağıdaki efektleri içeren 5 maddeden oluşur (soldan sağa düğmeler):
 
 \"Skorlar\" düğmesi, yüksek puanlara ve mevcut oyunun kazanılan sayı sayısına sahip yeni bir pencere gösterecektir. 

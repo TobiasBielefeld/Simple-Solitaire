@@ -127,7 +127,7 @@ Użyj menu po lewej stronie, aby dostać się do innych stron podręcznika."</st
 
 Program automatycznie wznowi ostatnio otwartą grę podczas startu, jeżeli program został na niej zatrzymany. To zachowanie można zmienić w opcjach w sekcji „Ogólne”. 
 
-Znajdziesz tam też sekcję „Menu główne”, gdzie możesz ukryć gry z menu, wybrać liczbę kolumn, tak aby więcej gier zmieściło się na ekranie jednocześnie."</string>
+W ustawieniach tam też sekcję „Menu główne”, gdzie możesz ukryć gry z menu, wybrać liczbę kolumn, tak aby więcej gier zmieściło się na ekranie jednocześnie."</string>
 <string name="manual_ui_text">"Gra zawsze będzie pokazywała niewielkie menu na dole ekranu (orientacja pionowa) lub po prawej stronie (orientacja pozioma). Będzie także widoczna obecna punktacja i czas gry. Jeżeli to możliwe, te wartości zostaną wpisane na listę wyników. Menu zawiera 5 elementów, które wywołują następujące akcje (przyciski od lewej do prawej):
 
 Przycisk „Punktacja” wywoła nowe okno z listą najlepszych wyników i liczbą rozegranych gier obecnej gry. 

@@ -127,7 +127,7 @@ Usa il menu sulla sinistra per accedere alle altre pagine del manuale."</string>
 
 Se rifatta partire, l'applicazione caricherà automaticamente l'ultima partita giocata, se la partita è stata messa in pausa. Questo comportamento può essere disabilitato nelle impostazioni sotto \"Generali\".
 
-Lì si può trovare la sezione \"Menu principale\", dove è possibile nascondere i giochi dal menu e cambiare il numero di colonne, cosicché più giochi stiano sulllo schermo."</string>
+Nelle impostazioni si può trovare la sezione \"Menu principale\", dove è possibile nascondere i giochi dal menu e cambiare il numero di colonne, cosicché più giochi stiano sulllo schermo."</string>
 <string name="manual_ui_text">"In una partita verrà sempre visualizzato un menu nella parte bassa dello schermo (Modalità verticale) o nella parte destra (Modalità orizzontale). Sarà inoltre visualizzato il punteggio corrente e il tempo trascorso in partita. Se possibile, questi due valori saranno salvati nella lista dei punteggi più alti. Il menu contiene 5 elementi, che hanno i seguenti effetti (bottoni da sinistra a destra):
 
 Il bottone \"Punteggi\" mostrerà una nuova finestra con i punteggi più alti e il numeri delle partite vinte del gioco corrente.

@@ -127,7 +127,7 @@ Uzu menuon ĉe maldekstre por atingi aliajn paĝojn de manlibro."</string>
 
 La aplikaĵo aŭtomate ŝargos laste luditan ludon post restarto, se la aplikaĵo estis paŭzigita kun ĝi. Tiu ĉi agmaniero povas esti malaktivigita per agordoj en \"Ĝeneralaj\". 
 
-Tie vi ankaŭ trovos elekton “Ĉefmenuo”, kiam vi povas kaŝi ludojn el menuo kaj ŝanĝi nombron da kolumnoj, do pli multe da ludoj montriĝos sur ekrano samtempe."</string>
+En la agordoj vi ankaŭ trovos elekton “Ĉefmenuo”, kiam vi povas kaŝi ludojn el menuo kaj ŝanĝi nombron da kolumnoj, do pli multe da ludoj montriĝos sur ekrano samtempe."</string>
 <string name="manual_ui_text">"La ludo ĉiam montros etan menuon sube la ekrano (vertikala reĝimo) aŭ dekstre la ekrano (horizontala reĝimo). Ĝi ankaŭ montros aktualan poentaron kaj aktuale luditan tempon. Estas eble, ke tiuj valoroj estos konservitaj en liston de la plej bonaj rezultoj. La menuo enhavas 5 elementojn, kiuj havas jenajn efikojn (butonoj de maldekstre al dekstre):
 
 Butono “Poentaro” malfermos novan fenestron kun la plej bonaj rezultoj kaj nombro da venkitaj ludoj de aktuala lud-speco. 
