@@ -525,7 +525,7 @@ public class Klondike extends Game {
         }
 
 
-        if (!deal1 && (discard2.getSize() == 0 || discard3.getSize() == 0)) {
+        if (!deal1 && (discard2.isEmpty() || discard3.isEmpty()) && discard1.getSize() > 1) {
             ArrayList<Card> cards = new ArrayList<>();
             ArrayList<Stack> origin = new ArrayList<>();
 
