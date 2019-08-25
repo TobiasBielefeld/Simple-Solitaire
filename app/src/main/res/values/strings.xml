@@ -226,7 +226,7 @@ Every card can be placed on empty tableau stacks."</string>
 
 7 tableau stacks, 1 main and 1 discard stack.
 
-Moving cards from the discard stack back to the main stack is not possible (Except from using the Undo button)."</string>
+Moving cards from the discard stack back to the main stack is not possible (Other than using the Undo button)."</string>
 <string name="manual_Golf_objective">"Move every card from the tableau to the discard stack."</string>
 <string name="manual_Golf_rules">"Every top card of a stack can be used to play. Cards can only be placed on the discard stack in ascending and descending order regardless of color.
 
@@ -250,7 +250,7 @@ Return all cards from discard stack to main stack: -200"</string>
 
 28 tableau stacks, 1 main and 1 discard stack.
 
-Moving cards from the discard stack back to the main stack is not possible (Except from using the Undo button)."</string>
+Moving cards from the discard stack back to the main stack is not possible (Other than using the Undo button)."</string>
 <string name="manual_TriPeaks_objective">"Move every card from the tableau to the discard stack."</string>
 <string name="manual_TriPeaks_rules">"The rules of this game are similar to \"Golf\". Every card which isn't covered by another card can be used to play. Cards can only be placed on the discard stack in ascending and descending order regardless of color.
 
