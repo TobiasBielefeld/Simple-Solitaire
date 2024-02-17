@@ -2,13 +2,14 @@
 ![license](http://img.shields.io/badge/license-GPLv3+-brightgreen.svg)
 ![platform](http://img.shields.io/badge/platform-Android-blue.svg)
 
-Contact address: tobias.bielefeld [at] gmail.com
+I am archiving this version of the app, since I already stopped working on it long time ago.
+There are way too many clones of this game on the google play store making money with my work with ads and this made me lose the desire to work on it completely.
+I am planning to update the game to put it on the google playstore again, but not as opensource anymore.
+I am sorry for that change, but I have no other way to keep me interested in working at this app.
 
 [<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire) 
 
-
-## Help translating here: [<img src="https://poeditor.com/public/images/logo_small.png" alt="Help translating this project" height="30">](https://poeditor.com/join/project/PYX4vcwTjA)
-
+Contact address: tobias.bielefeld [at] gmail.com
 
 #### Now contains 17 different Solitaire games!
 AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, Grandfather's Clock, Gypsy, Klondike, Mod3, Napoleon's Tomb, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
